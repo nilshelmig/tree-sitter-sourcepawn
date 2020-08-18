@@ -1,0 +1,11 @@
+==================
+include local lib
+==================
+
+#include "constants.inc"
+
+---
+
+(translation_unit
+  (preproc_include
+    (string_literal)))

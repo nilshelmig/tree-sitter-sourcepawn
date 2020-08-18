@@ -1,0 +1,11 @@
+==================
+include system lib
+==================
+
+#include <sourcemod>
+
+---
+
+(translation_unit
+  (preproc_include
+    (system_lib_string)))

@@ -1,0 +1,19 @@
+{
+  "name": "tree-sitter-sourcepawn",
+  "version": "0.1.0",
+  "description": "SourcePawn grammar for node-tree-sitter",
+  "main": "index.js",
+  "scripts": {
+    "generate": "tree-sitter generate",
+    "build": "tree-sitter build-wasm",
+    "test": "tree-sitter test"
+  },
+  "author": "Nils Helmig",
+  "license": "MIT",
+  "devDependencies": {
+    "tree-sitter-cli": "^0.16.9"
+  },
+  "dependencies": {
+    "nan": "^2.14.1"
+  }
+}
