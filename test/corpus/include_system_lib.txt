@@ -6,6 +6,6 @@ include system lib
 
 ---
 
-(translation_unit
+(source_file
   (preproc_include
     (system_lib_string)))

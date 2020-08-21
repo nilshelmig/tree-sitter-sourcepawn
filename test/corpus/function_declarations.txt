@@ -1,0 +1,375 @@
+==================
+local function with no arguments, no return inline block
+==================
+
+void MyFunc() {}
+
+---
+
+(source_file
+  (function_declaration
+    (builtin_type)
+    (symbol)
+    (argument_declarations)
+    (block)))
+
+
+==================
+local function with no arguments, no return newline block
+==================
+
+void MyFunc()
+{
+
+}
+
+---
+
+(source_file
+  (function_declaration
+    (builtin_type)
+    (symbol)
+    (argument_declarations)
+    (block)))
+
+
+==================
+stock function
+==================
+
+stock void MyFunc() {}
+
+---
+
+(source_file
+  (function_declaration
+    (function_storage_class)
+    (builtin_type)
+    (symbol)
+    (argument_declarations)
+    (block)))
+
+
+==================
+static function
+==================
+
+static void MyFunc() {}
+
+---
+
+(source_file
+  (function_declaration
+    (function_storage_class)
+    (builtin_type)
+    (symbol)
+    (argument_declarations)
+    (block)))
+
+
+==================
+static stock function
+==================
+
+static stock void MyFunc() {}
+
+---
+
+(source_file
+  (function_declaration
+    (function_storage_class)
+    (builtin_type)
+    (symbol)
+    (argument_declarations)
+    (block)))
+
+
+==================
+stock static function
+==================
+
+stock static void MyFunc() {}
+
+---
+
+(source_file
+  (function_declaration
+    (function_storage_class)
+    (builtin_type)
+    (symbol)
+    (argument_declarations)
+    (block)))
+
+
+====================
+builtin return types
+====================
+
+void MyFunc() { return; }
+int MyFunc1() { return 0; }
+float MyFunc2() { return 0.0; }
+char MyFunc3() { return 'a'; }
+bool MyFunc4() { return true; }
+
+---
+
+(source_file
+  (function_declaration
+    (builtin_type)
+    (symbol)
+    (argument_declarations)
+    (block (return_statement (semicolon))))
+  (function_declaration
+    (builtin_type)
+    (symbol)
+    (argument_declarations)
+    (block (return_statement (int_literal) (semicolon))))
+  (function_declaration
+    (builtin_type)
+    (symbol)
+    (argument_declarations)
+    (block (return_statement (float_literal) (semicolon))))
+  (function_declaration
+    (builtin_type)
+    (symbol)
+    (argument_declarations)
+    (block (return_statement (char_literal) (semicolon))))
+  (function_declaration
+    (builtin_type)
+    (symbol)
+    (argument_declarations)
+    (block (return_statement (bool_literal) (semicolon)))))
+
+
+==============================
+old style builtin return types
+==============================
+
+MyFunc0() { return 0; }
+_:MyFunc1() { return 0; }
+Float:MyFunc2() { return 0.0; }
+String:MyFunc3() { return 'a'; }
+bool:MyFunc4() { return true; }
+
+---
+
+(source_file
+  (function_declaration
+    (symbol)
+    (argument_declarations)
+    (block (return_statement (int_literal) (semicolon))))
+  (function_declaration
+    (old_builtin_type)
+    (symbol)
+    (argument_declarations)
+    (block (return_statement (int_literal) (semicolon))))
+  (function_declaration
+    (old_builtin_type)
+    (symbol)
+    (argument_declarations)
+    (block (return_statement (float_literal) (semicolon))))
+  (function_declaration
+    (old_builtin_type)
+    (symbol)
+    (argument_declarations)
+    (block (return_statement (char_literal) (semicolon))))
+  (function_declaration
+    (old_builtin_type)
+    (symbol)
+    (argument_declarations)
+    (block (return_statement (bool_literal) (semicolon)))))
+
+
+==================
+symbol return type
+==================
+
+Handle MyFunc() { return INVALID_HANDLE; }
+
+---
+
+(source_file
+  (function_declaration
+    (symbol)
+    (symbol)
+    (argument_declarations)
+    (block (return_statement (symbol) (semicolon)))))
+
+
+==========================
+function with one argument
+==========================
+
+void MyFunc1(int args) {}
+void MyFunc2(float args) {}
+void MyFunc3(char args) {}
+void MyFunc4(bool args) {}
+
+---
+
+(source_file
+  (function_declaration
+    (builtin_type)
+    (symbol)
+    (argument_declarations (argument_declaration (builtin_type) (symbol)))
+    (block))
+  (function_declaration
+    (builtin_type)
+    (symbol)
+    (argument_declarations (argument_declaration (builtin_type) (symbol)))
+    (block))
+  (function_declaration
+    (builtin_type)
+    (symbol)
+    (argument_declarations (argument_declaration (builtin_type) (symbol)))
+    (block))
+  (function_declaration
+    (builtin_type)
+    (symbol)
+    (argument_declarations (argument_declaration (builtin_type) (symbol)))
+    (block)))
+
+
+============================================
+function with one argument and default value
+============================================
+
+void MyFunc1(int args = 4) {}
+void MyFunc2(float args = 0.0) {}
+void MyFunc3(char args = 'a') {}
+void MyFunc4(bool args = false) {}
+
+---
+
+(source_file
+  (function_declaration
+    (builtin_type)
+    (symbol)
+    (argument_declarations (argument_declaration (builtin_type) (symbol) (int_literal)))
+    (block))
+  (function_declaration
+    (builtin_type)
+    (symbol)
+    (argument_declarations (argument_declaration (builtin_type) (symbol) (float_literal)))
+    (block))
+  (function_declaration
+    (builtin_type)
+    (symbol)
+    (argument_declarations (argument_declaration (builtin_type) (symbol) (char_literal)))
+    (block))
+  (function_declaration
+    (builtin_type)
+    (symbol)
+    (argument_declarations (argument_declaration (builtin_type) (symbol) (bool_literal)))
+    (block)))
+
+
+===================================
+function with one oldstyle argument
+===================================
+
+MyFunc0(args) {}
+MyFunc1(_:args) {}
+MyFunc2(Float:val) {}
+MyFunc3(String:char) {}
+MyFunc4(bool:condition) {}
+
+---
+
+(source_file
+  (function_declaration
+    (symbol)
+    (argument_declarations (argument_declaration (symbol)))
+    (block))
+  (function_declaration
+    (symbol)
+    (argument_declarations (argument_declaration (old_builtin_type) (symbol)))
+    (block))
+  (function_declaration
+    (symbol)
+    (argument_declarations (argument_declaration (old_builtin_type) (symbol)))
+    (block))
+  (function_declaration
+    (symbol)
+    (argument_declarations (argument_declaration (old_builtin_type) (symbol)))
+    (block))
+  (function_declaration
+    (symbol)
+    (argument_declarations (argument_declaration (old_builtin_type) (symbol)))
+    (block)))
+
+
+============================================
+function with one argument and default value
+============================================
+
+MyFunc0(args = 4) {}
+MyFunc1(_:args = 4) {}
+MyFunc2(Float:args = 0.0) {}
+MyFunc3(String:args = ',') {}
+MyFunc4(bool:args = true) {}
+
+---
+
+(source_file
+  (function_declaration
+    (symbol)
+    (argument_declarations (argument_declaration (symbol) (int_literal)))
+    (block))
+  (function_declaration
+    (symbol)
+    (argument_declarations (argument_declaration (old_builtin_type) (symbol) (int_literal)))
+    (block))
+  (function_declaration
+    (symbol)
+    (argument_declarations (argument_declaration (old_builtin_type) (symbol) (float_literal)))
+    (block))
+  (function_declaration
+    (symbol)
+    (argument_declarations (argument_declaration (old_builtin_type) (symbol) (char_literal)))
+    (block))
+  (function_declaration
+    (symbol)
+    (argument_declarations (argument_declaration (old_builtin_type) (symbol) (bool_literal)))
+    (block)))
+
+
+================================
+function with multiple arguments
+================================
+
+void MyFunc(int a, float b, char c, bool d) {}
+
+---
+
+(source_file
+  (function_declaration
+    (builtin_type)
+    (symbol)
+    (argument_declarations
+      (argument_declaration (builtin_type) (symbol))
+      (argument_declaration (builtin_type) (symbol))
+      (argument_declaration (builtin_type) (symbol))
+      (argument_declaration (builtin_type) (symbol)))
+    (block)))
+
+
+=========================================
+function with multiple oldstyle arguments
+=========================================
+
+void MyFunc(a, _:b, Float:c, String:d, bool:e) {}
+
+---
+
+(source_file
+  (function_declaration
+    (builtin_type)
+    (symbol)
+    (argument_declarations
+      (argument_declaration (symbol))
+      (argument_declaration (old_builtin_type) (symbol))
+      (argument_declaration (old_builtin_type) (symbol))
+      (argument_declaration (old_builtin_type) (symbol))
+      (argument_declaration (old_builtin_type) (symbol)))
+    (block)))

@@ -6,6 +6,6 @@ include local lib
 
 ---
 
-(translation_unit
+(source_file
   (preproc_include
     (string_literal)))
