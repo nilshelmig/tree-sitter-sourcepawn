@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "generate": "tree-sitter generate",
-    "build": "tree-sitter build-wasm",
     "test": "tree-sitter test"
   },
   "author": "Nils Helmig",
