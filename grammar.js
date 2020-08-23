@@ -44,6 +44,7 @@ module.exports = grammar({
     _top_level_item: ($) =>
       choice(
         $.function_declaration,
+        $.function_definition,
         $._statement,
         $.preproc_include,
         $.preproc_def,
@@ -92,20 +93,46 @@ module.exports = grammar({
     function_storage_class: ($) =>
       choice("stock", "static", "stock static", "static stock"),
 
+    function_definition: ($) =>
+      seq(
+        $.function_definition_type,
+        optional($._type),
+        $.symbol,
+        $.argument_declarations,
+        optional($.semicolon)
+      ),
+
+    function_definition_type: ($) => choice("forward", "native"),
+
     argument_declarations: ($) =>
-      seq("(", repeat(seq($.argument_declaration, optional(","))), ")"),
+      seq(
+        "(",
+        optional(
+          seq($.argument_declaration, repeat(seq(",", $.argument_declaration)))
+        ),
+        ")"
+      ),
     argument_declaration: ($) =>
       prec(
-        PREC.UNARY,
+        PREC.PAREN_DECLARATOR,
         seq(
           optional("const"),
-          optional($._type),
+          optional("&"),
+          optional($.type_expression),
+          optional("&"),
           $.symbol,
+          repeat(choice($.dimension, $.fixed_dimension)),
           optional(seq("=", $._literal))
         )
       ),
 
-    _type: ($) => choice($.builtin_type, $.old_builtin_type, $.symbol),
+    type_expression: ($) => seq($._type, repeat($.dimension)),
+
+    dimension: ($) => token(seq("[", "]")),
+    fixed_dimension: ($) => seq("[", choice($.int_literal, $.symbol), "]"),
+
+    _type: ($) =>
+      choice($.builtin_type, $.old_builtin_type, seq($.symbol, optional(":"))),
     builtin_type: ($) => choice("void", "bool", "int", "float", "char"),
     old_builtin_type: ($) => seq(choice("_", "Float", "bool", "String"), ":"),
 

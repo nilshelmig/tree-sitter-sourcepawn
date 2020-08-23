@@ -1,0 +1,239 @@
+=================
+forward functions
+=================
+
+forward void MyFunc1();
+forward int MyFunc2();
+forward float MyFunc3();
+forward char MyFunc4();
+forward bool MyFunc5();
+forward Action MyFunc6();
+
+---
+
+(source_file
+    (function_definition
+        (function_definition_type)
+        (builtin_type)
+        (symbol)
+        (argument_declarations)
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (builtin_type)
+        (symbol)
+        (argument_declarations)
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (builtin_type)
+        (symbol)
+        (argument_declarations)
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (builtin_type)
+        (symbol)
+        (argument_declarations)
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (builtin_type)
+        (symbol)
+        (argument_declarations)
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (symbol)
+        (symbol)
+        (argument_declarations)
+        (semicolon)))
+
+
+================================
+forward functions with arguments
+================================
+
+forward void MyFunc1(int a);
+forward void MyFunc2(int a, float b, char c, bool d);
+forward void MyFunc3(Handle a);
+forward void MyFunc4(const char[] a);
+forward void MyFunc5(int &a);
+forward void MyFunc6(int a = 0);
+forward void MyFunc7(float a[3]);
+forward void MyFunc8(char a[MAX_PATH]);
+
+---
+
+(source_file
+    (function_definition
+        (function_definition_type)
+        (builtin_type)
+        (symbol)
+        (argument_declarations (argument_declaration (type_expression (builtin_type)) (symbol)))
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (builtin_type)
+        (symbol)
+        (argument_declarations
+            (argument_declaration (type_expression (builtin_type)) (symbol))
+            (argument_declaration (type_expression (builtin_type)) (symbol))
+            (argument_declaration (type_expression (builtin_type)) (symbol))
+            (argument_declaration (type_expression (builtin_type)) (symbol)))
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (builtin_type)
+        (symbol)
+        (argument_declarations (argument_declaration (type_expression (symbol)) (symbol)))
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (builtin_type)
+        (symbol)
+        (argument_declarations (argument_declaration (type_expression (builtin_type) (dimension)) (symbol)))
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (builtin_type)
+        (symbol)
+        (argument_declarations (argument_declaration (type_expression (builtin_type)) (symbol)))
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (builtin_type)
+        (symbol)
+        (argument_declarations (argument_declaration (type_expression (builtin_type)) (symbol) (int_literal)))
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (builtin_type)
+        (symbol)
+        (argument_declarations (argument_declaration (type_expression (builtin_type)) (symbol) (fixed_dimension (int_literal))))
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (builtin_type)
+        (symbol)
+        (argument_declarations (argument_declaration (type_expression (builtin_type)) (symbol) (fixed_dimension (symbol))))
+        (semicolon)))
+
+
+============================
+forward functions - oldstyle
+============================
+
+forward MyFunc1();
+forward _:MyFunc2();
+forward Float:MyFunc3();
+forward String:MyFunc4();
+forward bool:MyFunc5();
+forward Action:MyFunc6();
+
+---
+
+(source_file
+    (function_definition
+        (function_definition_type)
+        (symbol)
+        (argument_declarations)
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (old_builtin_type)
+        (symbol)
+        (argument_declarations)
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (old_builtin_type)
+        (symbol)
+        (argument_declarations)
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (old_builtin_type)
+        (symbol)
+        (argument_declarations)
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (old_builtin_type)
+        (symbol)
+        (argument_declarations)
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (symbol)
+        (symbol)
+        (argument_declarations)
+        (semicolon)))
+
+
+============================================
+forward functions with arguments - old style
+============================================
+
+forward MyFunc1(a);
+forward MyFunc2(_:a, Float:b, String:c, bool:d);
+forward MyFunc3(Handle:a);
+forward MyFunc4(const String:a[]);
+forward MyFunc5(&a);
+forward MyFunc6(&Float:a);
+forward MyFunc7(a = 0);
+forward MyFunc8(Float:a[3]);
+forward MyFunc9(String:a[MAX_PATH]);
+
+---
+
+(source_file
+    (function_definition
+        (function_definition_type)
+        (symbol)
+        (argument_declarations (argument_declaration (symbol)))
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (symbol)
+        (argument_declarations
+            (argument_declaration (type_expression (old_builtin_type)) (symbol))
+            (argument_declaration (type_expression (old_builtin_type)) (symbol))
+            (argument_declaration (type_expression (old_builtin_type)) (symbol))
+            (argument_declaration (type_expression (old_builtin_type)) (symbol)))
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (symbol)
+        (argument_declarations (argument_declaration (type_expression (symbol)) (symbol)))
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (symbol)
+        (argument_declarations (argument_declaration (type_expression (old_builtin_type)) (symbol) (dimension)))
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (symbol)
+        (argument_declarations (argument_declaration (symbol)))
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (symbol)
+        (argument_declarations (argument_declaration (type_expression (old_builtin_type)) (symbol)))
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (symbol)
+        (argument_declarations (argument_declaration (symbol) (int_literal)))
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (symbol)
+        (argument_declarations (argument_declaration (type_expression (old_builtin_type)) (symbol) (fixed_dimension (int_literal))))
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (symbol)
+        (argument_declarations (argument_declaration (type_expression (old_builtin_type)) (symbol) (fixed_dimension (symbol))))
+        (semicolon)))
