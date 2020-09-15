@@ -84,8 +84,8 @@ module.exports = grammar({
         PREC.UNARY,
         seq(
           optional($.function_storage_class),
-          optional($._type),
-          $.symbol,
+          field("returnType", optional($._type)),
+          field("name", $.symbol),
           $.argument_declarations,
           $.block
         )
@@ -96,8 +96,8 @@ module.exports = grammar({
     function_definition: ($) =>
       seq(
         $.function_definition_type,
-        optional($._type),
-        $.symbol,
+        field("returnType", optional($._type)),
+        field("name", $.symbol),
         $.argument_declarations,
         optional($.semicolon)
       ),
@@ -118,11 +118,11 @@ module.exports = grammar({
         seq(
           optional("const"),
           optional("&"),
-          optional($.type_expression),
+          field("argumentType", optional($.type_expression)),
           optional("&"),
-          $.symbol,
+          field("name", $.symbol),
           repeat(choice($.dimension, $.fixed_dimension)),
-          optional(seq("=", $._literal))
+          field("defaultValue", optional(seq("=", $._literal)))
         )
       ),
 
