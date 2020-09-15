@@ -122,7 +122,10 @@ module.exports = grammar({
           optional("&"),
           field("name", $.symbol),
           repeat(choice($.dimension, $.fixed_dimension)),
-          field("defaultValue", optional(seq("=", $._literal)))
+          field(
+            "defaultValue",
+            optional(seq("=", choice($._literal, $.symbol)))
+          )
         )
       ),
 

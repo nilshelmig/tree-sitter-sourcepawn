@@ -244,6 +244,7 @@ void MyFunc1(int args = 4) {}
 void MyFunc2(float args = 0.0) {}
 void MyFunc3(char args = 'a') {}
 void MyFunc4(bool args = false) {}
+void MyFunc5(Action args = Plugin_Handled) {}
 
 ---
 
@@ -267,6 +268,11 @@ void MyFunc4(bool args = false) {}
     (builtin_type)
     (symbol)
     (argument_declarations (argument_declaration (type_expression (builtin_type)) (symbol) (bool_literal)))
+    (block))
+  (function_declaration
+    (builtin_type)
+    (symbol)
+    (argument_declarations (argument_declaration (type_expression (symbol)) (symbol) (symbol)))
     (block)))
 
 
@@ -279,6 +285,7 @@ MyFunc1(_:args = 4) {}
 MyFunc2(Float:args = 0.0) {}
 MyFunc3(String:args = 'a') {}
 MyFunc4(bool:args = false) {}
+MyFunc5(Action:args = Plugin_Handled) {}
 
 ---
 
@@ -302,6 +309,10 @@ MyFunc4(bool:args = false) {}
   (function_declaration
     (symbol)
     (argument_declarations (argument_declaration (type_expression (old_builtin_type)) (symbol) (bool_literal)))
+    (block))
+  (function_declaration
+    (symbol)
+    (argument_declarations (argument_declaration (type_expression (symbol)) (symbol) (symbol)))
     (block)))
 
 

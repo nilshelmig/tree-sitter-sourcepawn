@@ -485,8 +485,17 @@
                       "value": "="
                     },
                     {
-                      "type": "SYMBOL",
-                      "name": "_literal"
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "_literal"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "symbol"
+                        }
+                      ]
                     }
                   ]
                 },
