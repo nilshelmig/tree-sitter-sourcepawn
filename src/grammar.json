@@ -22,6 +22,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "callback_implementation"
+        },
+        {
+          "type": "SYMBOL",
           "name": "_statement"
         },
         {
@@ -343,6 +347,51 @@
         }
       ]
     },
+    "callback_implementation": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "public"
+        },
+        {
+          "type": "FIELD",
+          "name": "returnType",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_type"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "symbol"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "arguments",
+          "content": {
+            "type": "SYMBOL",
+            "name": "argument_declarations"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block"
+        }
+      ]
+    },
     "argument_declarations": {
       "type": "SEQ",
       "members": [
@@ -421,7 +470,7 @@
           },
           {
             "type": "FIELD",
-            "name": "argumentType",
+            "name": "type",
             "content": {
               "type": "CHOICE",
               "members": [

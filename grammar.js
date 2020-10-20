@@ -45,6 +45,7 @@ module.exports = grammar({
       choice(
         $.function_declaration,
         $.function_definition,
+        $.callback_implementation,
         $._statement,
         $.preproc_include,
         $.preproc_def,
@@ -104,6 +105,15 @@ module.exports = grammar({
 
     function_definition_type: ($) => choice("forward", "native"),
 
+    callback_implementation: ($) =>
+        seq(
+          "public",
+          field("returnType", optional($._type)),
+          field("name", $.symbol),
+          field("arguments", $.argument_declarations),
+          $.block
+        ),
+
     argument_declarations: ($) =>
       seq(
         "(",
@@ -118,7 +128,7 @@ module.exports = grammar({
         seq(
           optional("const"),
           optional("&"),
-          field("argumentType", optional($.type_expression)),
+          field("type", optional($.type_expression)),
           optional("&"),
           field("name", $.symbol),
           repeat(choice($.dimension, $.fixed_dimension)),

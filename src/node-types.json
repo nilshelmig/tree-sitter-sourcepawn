@@ -87,16 +87,6 @@
     "type": "argument_declaration",
     "named": true,
     "fields": {
-      "argumentType": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "type_expression",
-            "named": true
-          }
-        ]
-      },
       "defaultValue": {
         "multiple": true,
         "required": false,
@@ -145,6 +135,16 @@
         "types": [
           {
             "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "type_expression",
             "named": true
           }
         ]
@@ -329,6 +329,64 @@
     "type": "builtin_type",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "callback_implementation",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "argument_declarations",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "returnType": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "builtin_type",
+            "named": true
+          },
+          {
+            "type": "old_builtin_type",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "char_literal",
@@ -749,6 +807,10 @@
           "named": true
         },
         {
+          "type": "callback_implementation",
+          "named": true
+        },
+        {
           "type": "function_declaration",
           "named": true
         },
@@ -1132,6 +1194,10 @@
   {
     "type": "preproc_arg",
     "named": true
+  },
+  {
+    "type": "public",
+    "named": false
   },
   {
     "type": "return",

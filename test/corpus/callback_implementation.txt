@@ -1,0 +1,237 @@
+==================
+implement callback
+==================
+
+public void OnPluginStart() {
+
+}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block)))
+
+
+=================================
+implement callback - one argument
+=================================
+
+public void OnClientDisconnected(int client) {
+
+}
+
+public void OnSoundPlayed(char[] sound) {
+
+}
+
+public void OnPluginStart(bool lazystart) {
+
+}
+
+public void OnThingHappen(float value) {
+
+}
+
+public void OnRebuildAdminCache(AdminCachePart part) {
+
+}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations (argument_declaration type: (type_expression (builtin_type)) name: (symbol)))
+        (block))
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations (argument_declaration type: (type_expression (builtin_type) (dimension)) name: (symbol)))
+        (block))
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations (argument_declaration type: (type_expression (builtin_type)) name: (symbol)))
+        (block))
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations (argument_declaration type: (type_expression (builtin_type)) name: (symbol)))
+        (block))
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations (argument_declaration type: (type_expression (symbol)) name: (symbol)))
+        (block)))
+
+
+=======================================
+implement callback - multiple arguments
+=======================================
+
+public void OnClientSayCommand_Post(int client, const char[] command, char[] sArgs, float time, bool teamchat, float vec[3]) {
+
+}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations
+            (argument_declaration type: (type_expression (builtin_type)) name: (symbol))
+            (argument_declaration type: (type_expression (builtin_type) (dimension)) name: (symbol))
+            (argument_declaration type: (type_expression (builtin_type) (dimension)) name: (symbol))
+            (argument_declaration type: (type_expression (builtin_type)) name: (symbol))
+            (argument_declaration type: (type_expression (builtin_type)) name: (symbol))
+            (argument_declaration type: (type_expression (builtin_type)) name: (symbol) (fixed_dimension (int_literal))))
+        (block)))
+
+
+===========================================
+implement callback - different return types
+===========================================
+
+public int Callback1() {}
+public float Callback2() {}
+public char Callback3() {}
+public bool Callback4() {}
+public Action Callback5() {}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+    (block))
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+    (block))
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+    (block))
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+    (block))
+    (callback_implementation
+        returnType: (symbol)
+        name: (symbol)
+        arguments: (argument_declarations)
+    (block)))
+
+
+==============================
+implement callback - old style
+==============================
+
+public OnPluginStart() {
+
+}
+
+---
+
+(source_file
+    (callback_implementation
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block)))
+
+
+=============================================
+implement callback - old style with arguments
+=============================================
+
+public Callback1(client) {}
+public Callback2(_:client) {}
+public Callback3(Float:value) {}
+public Callback4(String:type) {}
+public Callback5(const String:name[]) {}
+public Callback6(Handle:handle) {}
+
+---
+
+(source_file
+    (callback_implementation
+        name: (symbol)
+        arguments: (argument_declarations (argument_declaration name: (symbol)))
+        (block))
+    (callback_implementation
+        name: (symbol)
+        arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol)))
+        (block))
+    (callback_implementation
+        name: (symbol)
+        arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol)))
+        (block))
+    (callback_implementation
+        name: (symbol)
+        arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol)))
+        (block))
+    (callback_implementation
+        name: (symbol)
+        arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol) (dimension)))
+        (block))
+    (callback_implementation
+        name: (symbol)
+        arguments: (argument_declarations (argument_declaration type: (type_expression (symbol)) name: (symbol)))
+        (block))
+    )
+
+
+==========================================================
+implement callback - old style with different return types
+==========================================================
+
+public Callback1() {}
+public _:Callback1() {}
+public Float:Callback2() {}
+public String:Callback3() {}
+public bool:Callback4() {}
+public Action:Callback5() {}
+
+---
+
+(source_file
+    (callback_implementation
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block))
+    (callback_implementation
+        returnType: (old_builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block))
+    (callback_implementation
+        returnType: (old_builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block))
+    (callback_implementation
+        returnType: (old_builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block))
+    (callback_implementation
+        returnType: (old_builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block))
+    (callback_implementation
+        returnType: (symbol)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block)))
