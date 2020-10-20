@@ -99,7 +99,7 @@ module.exports = grammar({
         $.function_definition_type,
         field("returnType", optional($._type)),
         field("name", $.symbol),
-        $.argument_declarations,
+        field("arguments", $.argument_declarations),
         optional($.semicolon)
       ),
 
