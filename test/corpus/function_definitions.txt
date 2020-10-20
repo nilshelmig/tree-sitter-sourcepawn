@@ -237,3 +237,106 @@ forward MyFunc9(String:a[MAX_PATH]);
         (symbol)
         (argument_declarations (argument_declaration (type_expression (old_builtin_type)) (symbol) (fixed_dimension (symbol))))
         (semicolon)))
+
+
+================
+native functions
+================
+
+native void MyFunc1();
+native int MyFunc2();
+native float MyFunc3();
+native char MyFunc4();
+native bool MyFunc5();
+native Action MyFunc6();
+
+---
+
+(source_file
+    (function_definition
+        (function_definition_type)
+        (builtin_type)
+        (symbol)
+        (argument_declarations)
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (builtin_type)
+        (symbol)
+        (argument_declarations)
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (builtin_type)
+        (symbol)
+        (argument_declarations)
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (builtin_type)
+        (symbol)
+        (argument_declarations)
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (builtin_type)
+        (symbol)
+        (argument_declarations)
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (symbol)
+        (symbol)
+        (argument_declarations)
+        (semicolon)))
+
+
+===========================
+native functions - oldstyle
+===========================
+
+native MyFunc1();
+native _:MyFunc2();
+native Float:MyFunc3();
+native String:MyFunc4();
+native bool:MyFunc5();
+native Action:MyFunc6();
+
+---
+
+(source_file
+    (function_definition
+        (function_definition_type)
+        (symbol)
+        (argument_declarations)
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (old_builtin_type)
+        (symbol)
+        (argument_declarations)
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (old_builtin_type)
+        (symbol)
+        (argument_declarations)
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (old_builtin_type)
+        (symbol)
+        (argument_declarations)
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (old_builtin_type)
+        (symbol)
+        (argument_declarations)
+        (semicolon))
+    (function_definition
+        (function_definition_type)
+        (symbol)
+        (symbol)
+        (argument_declarations)
+        (semicolon)))
