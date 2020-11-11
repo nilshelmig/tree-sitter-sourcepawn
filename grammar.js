@@ -87,7 +87,7 @@ module.exports = grammar({
           optional($.function_storage_class),
           field("returnType", optional($._type)),
           field("name", $.symbol),
-          $.argument_declarations,
+          field("arguments", $.argument_declarations),
           $.block
         )
       ),

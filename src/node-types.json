@@ -530,6 +530,16 @@
     "type": "function_declaration",
     "named": true,
     "fields": {
+      "arguments": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "argument_declarations",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": false,
         "required": true,
@@ -567,10 +577,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "argument_declarations",
-          "named": true
-        },
         {
           "type": "block",
           "named": true

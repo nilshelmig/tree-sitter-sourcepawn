@@ -254,8 +254,12 @@
             }
           },
           {
-            "type": "SYMBOL",
-            "name": "argument_declarations"
+            "type": "FIELD",
+            "name": "arguments",
+            "content": {
+              "type": "SYMBOL",
+              "name": "argument_declarations"
+            }
           },
           {
             "type": "SYMBOL",

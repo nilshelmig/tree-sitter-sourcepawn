@@ -8,9 +8,9 @@ void MyFunc() {}
 
 (source_file
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations)
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations)
     (block)))
 
 
@@ -27,9 +27,9 @@ void MyFunc()
 
 (source_file
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations)
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations)
     (block)))
 
 
@@ -44,9 +44,9 @@ stock void MyFunc() {}
 (source_file
   (function_declaration
     (function_storage_class)
-    (builtin_type)
-    (symbol)
-    (argument_declarations)
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations)
     (block)))
 
 
@@ -61,9 +61,9 @@ static void MyFunc() {}
 (source_file
   (function_declaration
     (function_storage_class)
-    (builtin_type)
-    (symbol)
-    (argument_declarations)
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations)
     (block)))
 
 
@@ -78,9 +78,9 @@ static stock void MyFunc() {}
 (source_file
   (function_declaration
     (function_storage_class)
-    (builtin_type)
-    (symbol)
-    (argument_declarations)
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations)
     (block)))
 
 
@@ -95,9 +95,9 @@ stock static void MyFunc() {}
 (source_file
   (function_declaration
     (function_storage_class)
-    (builtin_type)
-    (symbol)
-    (argument_declarations)
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations)
     (block)))
 
 
@@ -115,29 +115,29 @@ bool MyFunc4() { return true; }
 
 (source_file
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations)
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations)
     (block (return_statement (semicolon))))
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations)
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations)
     (block (return_statement (int_literal) (semicolon))))
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations)
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations)
     (block (return_statement (float_literal) (semicolon))))
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations)
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations)
     (block (return_statement (char_literal) (semicolon))))
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations)
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations)
     (block (return_statement (bool_literal) (semicolon)))))
 
 
@@ -155,28 +155,28 @@ bool:MyFunc4() { return true; }
 
 (source_file
   (function_declaration
-    (symbol)
-    (argument_declarations)
+    name: (symbol)
+    arguments: (argument_declarations)
     (block (return_statement (int_literal) (semicolon))))
   (function_declaration
-    (old_builtin_type)
-    (symbol)
-    (argument_declarations)
+    returnType: (old_builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations)
     (block (return_statement (int_literal) (semicolon))))
   (function_declaration
-    (old_builtin_type)
-    (symbol)
-    (argument_declarations)
+    returnType: (old_builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations)
     (block (return_statement (float_literal) (semicolon))))
   (function_declaration
-    (old_builtin_type)
-    (symbol)
-    (argument_declarations)
+    returnType: (old_builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations)
     (block (return_statement (char_literal) (semicolon))))
   (function_declaration
-    (old_builtin_type)
-    (symbol)
-    (argument_declarations)
+    returnType: (old_builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations)
     (block (return_statement (bool_literal) (semicolon)))))
 
 
@@ -190,9 +190,9 @@ Handle MyFunc() { return INVALID_HANDLE; }
 
 (source_file
   (function_declaration
-    (symbol)
-    (symbol)
-    (argument_declarations)
+    returnType: (symbol)
+    name: (symbol)
+    arguments: (argument_declarations)
     (block (return_statement (symbol) (semicolon)))))
 
 
@@ -210,29 +210,29 @@ void MyFunc4(Handle args) {}
 
 (source_file
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (builtin_type)) (symbol)))
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (builtin_type)) name: (symbol)))
     (block))
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (builtin_type)) (symbol)))
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (builtin_type)) name: (symbol)))
     (block))
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (builtin_type)) (symbol)))
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (builtin_type)) name: (symbol)))
     (block))
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (builtin_type)) (symbol)))
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (builtin_type)) name: (symbol)))
     (block))
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (symbol)) (symbol)))
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (symbol)) name: (symbol)))
     (block)))
 
 
@@ -250,29 +250,29 @@ void MyFunc5(Action args = Plugin_Handled) {}
 
 (source_file
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (builtin_type)) (symbol) (int_literal)))
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (builtin_type)) name: (symbol) defaultValue: (int_literal)))
     (block))
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (builtin_type)) (symbol) (float_literal)))
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (builtin_type)) name: (symbol) defaultValue: (float_literal)))
     (block))
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (builtin_type)) (symbol) (char_literal)))
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (builtin_type)) name: (symbol) defaultValue: (char_literal)))
     (block))
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (builtin_type)) (symbol) (bool_literal)))
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (builtin_type)) name: (symbol) defaultValue: (bool_literal)))
     (block))
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (symbol)) (symbol) (symbol)))
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (symbol)) name: (symbol) defaultValue: (symbol)))
     (block)))
 
 
@@ -291,28 +291,28 @@ MyFunc5(Action:args = Plugin_Handled) {}
 
 (source_file
   (function_declaration
-    (symbol)
-    (argument_declarations (argument_declaration (symbol) (int_literal)))
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration name: (symbol) defaultValue: (int_literal)))
     (block))
   (function_declaration
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (old_builtin_type)) (symbol) (int_literal)))
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol) defaultValue: (int_literal)))
     (block))
   (function_declaration
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (old_builtin_type)) (symbol) (float_literal)))
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol) defaultValue: (float_literal)))
     (block))
   (function_declaration
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (old_builtin_type)) (symbol) (char_literal)))
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol) defaultValue: (char_literal)))
     (block))
   (function_declaration
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (old_builtin_type)) (symbol) (bool_literal)))
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol) defaultValue: (bool_literal)))
     (block))
   (function_declaration
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (symbol)) (symbol) (symbol)))
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (symbol)) name: (symbol) defaultValue: (symbol)))
     (block)))
 
 
@@ -331,34 +331,34 @@ void MyFunc6(const Handle[][] a) {}
 
 (source_file
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (builtin_type) (dimension)) (symbol)))
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (builtin_type) (dimension)) name: (symbol)))
     (block))
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (builtin_type) (dimension)) (symbol)))
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (builtin_type) (dimension)) name: (symbol)))
     (block))
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (symbol) (dimension)) (symbol)))
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (symbol) (dimension)) name: (symbol)))
     (block))
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (symbol) (dimension)) (symbol)))
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (symbol) (dimension)) name: (symbol)))
     (block))
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (builtin_type) (dimension) (dimension)) (symbol)))
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (builtin_type) (dimension) (dimension)) name: (symbol)))
     (block))
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (symbol) (dimension) (dimension)) (symbol)))
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (symbol) (dimension) (dimension)) name: (symbol)))
     (block)))
 
 
@@ -372,9 +372,9 @@ void MyFunc(int &a) {}
 
 (source_file
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (builtin_type)) (symbol)))
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (builtin_type)) name: (symbol)))
     (block)))
 
 
@@ -389,12 +389,12 @@ MyFunc(&Float:a) {}
 
 (source_file
   (function_declaration
-    (symbol)
-    (argument_declarations (argument_declaration (symbol)))
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration name: (symbol)))
     (block))
   (function_declaration
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (old_builtin_type)) (symbol)))
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol)))
     (block)))
 
 
@@ -411,24 +411,24 @@ void MyFunc(char vec[MAX_PATH][3]) {}
 
 (source_file
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (builtin_type)) (symbol) (fixed_dimension (int_literal))))
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (builtin_type)) name: (symbol) (fixed_dimension (int_literal))))
     (block))
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (builtin_type)) (symbol) (fixed_dimension (int_literal)) (fixed_dimension (int_literal))))
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (builtin_type)) name: (symbol) (fixed_dimension (int_literal)) (fixed_dimension (int_literal))))
     (block))
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (builtin_type)) (symbol) (fixed_dimension (symbol))))
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (builtin_type)) name: (symbol) (fixed_dimension (symbol))))
     (block))
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (builtin_type)) (symbol) (fixed_dimension (symbol)) (fixed_dimension (int_literal))))
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (builtin_type)) name: (symbol) (fixed_dimension (symbol)) (fixed_dimension (int_literal))))
     (block)))
 
 
@@ -446,24 +446,24 @@ MyFunc4(bool:condition) {}
 
 (source_file
   (function_declaration
-    (symbol)
-    (argument_declarations (argument_declaration (symbol)))
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration name: (symbol)))
     (block))
   (function_declaration
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (old_builtin_type)) (symbol)))
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol)))
     (block))
   (function_declaration
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (old_builtin_type)) (symbol)))
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol)))
     (block))
   (function_declaration
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (old_builtin_type)) (symbol)))
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol)))
     (block))
   (function_declaration
-    (symbol)
-    (argument_declarations (argument_declaration (type_expression (old_builtin_type)) (symbol)))
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol)))
     (block)))
 
 
@@ -477,13 +477,13 @@ void MyFunc(int a, float b, char c, bool d) {}
 
 (source_file
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations
-      (argument_declaration (type_expression (builtin_type)) (symbol))
-      (argument_declaration (type_expression (builtin_type)) (symbol))
-      (argument_declaration (type_expression (builtin_type)) (symbol))
-      (argument_declaration (type_expression (builtin_type)) (symbol)))
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations
+      (argument_declaration type: (type_expression (builtin_type)) name: (symbol))
+      (argument_declaration type: (type_expression (builtin_type)) name: (symbol))
+      (argument_declaration type: (type_expression (builtin_type)) name: (symbol))
+      (argument_declaration type: (type_expression (builtin_type)) name: (symbol)))
     (block)))
 
 
@@ -497,12 +497,12 @@ void MyFunc(a, _:b, Float:c, String:d, bool:e) {}
 
 (source_file
   (function_declaration
-    (builtin_type)
-    (symbol)
-    (argument_declarations
-      (argument_declaration (symbol))
-      (argument_declaration (type_expression (old_builtin_type)) (symbol))
-      (argument_declaration (type_expression (old_builtin_type)) (symbol))
-      (argument_declaration (type_expression (old_builtin_type)) (symbol))
-      (argument_declaration (type_expression (old_builtin_type)) (symbol)))
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations
+      (argument_declaration name: (symbol))
+      (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol))
+      (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol))
+      (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol))
+      (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol)))
     (block)))
