@@ -10,9 +10,9 @@
   "author": "Nils Helmig",
   "license": "MIT",
   "devDependencies": {
-    "tree-sitter-cli": "^0.16.9"
+    "tree-sitter-cli": "^0.17.3"
   },
   "dependencies": {
-    "nan": "^2.14.1"
+    "nan": "^2.14.2"
   }
 }
