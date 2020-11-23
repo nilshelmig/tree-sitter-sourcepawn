@@ -197,11 +197,11 @@ implement callback - old style with different return types
 ==========================================================
 
 public Callback1() {}
-public _:Callback1() {}
-public Float:Callback2() {}
-public String:Callback3() {}
-public bool:Callback4() {}
-public Action:Callback5() {}
+public _:Callback2() {}
+public Float:Callback3() {}
+public String:Callback4() {}
+public bool:Callback5() {}
+public Action:Callback6() {}
 
 ---
 
