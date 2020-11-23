@@ -31,10 +31,14 @@ module.exports = grammar({
     $._type_identifier,
     $._field_identifier,
     $._statement_identifier,
-    $._assignment_left_expression,
   ],
 
-  conflicts: ($) => [[$._type, $._expression]],
+  conflicts: ($) => [
+    [$._type, $._expression],
+    [$.function_declaration, $._expression],
+    [$.function_declaration, $.type_expression],
+    [$.function_storage_class, $.variable_storage_class],
+  ],
 
   word: ($) => $.symbol,
 
@@ -81,15 +85,12 @@ module.exports = grammar({
     // Main Grammar
 
     function_declaration: ($) =>
-      prec(
-        PREC.UNARY,
-        seq(
-          optional($.function_storage_class),
-          field("returnType", optional($._type)),
-          field("name", $.symbol),
-          field("arguments", $.argument_declarations),
-          $.block
-        )
+      seq(
+        optional($.function_storage_class),
+        field("returnType", optional($._type)),
+        field("name", $.symbol),
+        field("arguments", $.argument_declarations),
+        $.block
       ),
     function_storage_class: ($) =>
       choice("stock", "static", "stock static", "static stock"),
@@ -106,13 +107,13 @@ module.exports = grammar({
     function_definition_type: ($) => choice("forward", "native"),
 
     callback_implementation: ($) =>
-        seq(
-          "public",
-          field("returnType", optional($._type)),
-          field("name", $.symbol),
-          field("arguments", $.argument_declarations),
-          $.block
-        ),
+      seq(
+        "public",
+        field("returnType", optional($._type)),
+        field("name", $.symbol),
+        field("arguments", $.argument_declarations),
+        $.block
+      ),
 
     argument_declarations: ($) =>
       seq(
@@ -139,6 +140,18 @@ module.exports = grammar({
         )
       ),
 
+    variable_declaration: ($) =>
+      seq(
+        optional($.variable_storage_class),
+        field("type", $.type_expression),
+        field("name", $.symbol),
+        repeat(choice($.dimension, $.fixed_dimension)),
+        field("initalValue", optional(seq("=", $._expression))),
+        optional($.semicolon)
+      ),
+
+    variable_storage_class: ($) => choice("const", "static"),
+
     type_expression: ($) => seq($._type, repeat($.dimension)),
 
     dimension: ($) => token(seq("[", "]")),
@@ -154,7 +167,12 @@ module.exports = grammar({
     // Statements
 
     _statement: ($) =>
-      choice($.block, $.return_statement, $.expression_statement),
+      choice(
+        $.block,
+        $.variable_declaration,
+        $.return_statement,
+        $.expression_statement
+      ),
 
     expression_statement: ($) =>
       seq(choice($._expression, $.comma_expression), optional($.semicolon)),
@@ -175,7 +193,6 @@ module.exports = grammar({
     _expression: ($) =>
       choice(
         $.conditional_expression,
-        $.assignment_expression,
         $.binary_expression,
         $.unary_expression,
         $.update_expression,
@@ -184,7 +201,8 @@ module.exports = grammar({
         $._literal,
         $.concatenated_string,
         $.char_literal,
-        $.parenthesized_expression
+        $.parenthesized_expression,
+        $.vector
       ),
 
     parenthesized_expression: ($) =>
@@ -206,30 +224,6 @@ module.exports = grammar({
           field("consequence", $._expression),
           ":",
           field("alternative", $._expression)
-        )
-      ),
-
-    _assignment_left_expression: ($) => choice($.symbol, $._expression),
-
-    assignment_expression: ($) =>
-      prec.right(
-        PREC.ASSIGNMENT,
-        seq(
-          field("left", $._assignment_left_expression),
-          choice(
-            "=",
-            "*=",
-            "/=",
-            "%=",
-            "+=",
-            "-=",
-            "<<=",
-            ">>=",
-            "&=",
-            "^=",
-            "|="
-          ),
-          field("right", $._expression)
         )
       ),
 
@@ -289,6 +283,17 @@ module.exports = grammar({
 
     sizeof_expression: ($) =>
       prec(PREC.SIZEOF, seq("sizeof", seq("(", field("type", $.symbol), ")"))),
+
+    vector: ($) =>
+      prec(
+        10,
+        seq(
+          "{",
+          commaSep1(choice($.vector, $._literal)),
+          optional(seq(",", $.rest_operator)),
+          "}"
+        )
+      ),
 
     _literal: ($) =>
       prec(
@@ -374,6 +379,7 @@ module.exports = grammar({
 
     bool_literal: ($) => token(choice("true", "false")),
     null: ($) => "null",
+    rest_operator: ($) => "...",
 
     system_lib_string: ($) =>
       token(seq("<", repeat(choice(/[^>\n]/, "\\>")), ">")),

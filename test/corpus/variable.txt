@@ -1,0 +1,204 @@
+===========
+declaration
+===========
+
+int number;
+float pointnumber;
+char character;
+bool boolean;
+char[] text;
+float vec[3];
+Action action;
+
+---
+
+(source_file
+    (variable_declaration
+        type: (type_expression (builtin_type))
+        name: (symbol)
+        (semicolon))
+    (variable_declaration
+        type: (type_expression (builtin_type))
+        name: (symbol)
+        (semicolon))
+    (variable_declaration
+        type: (type_expression (builtin_type))
+        name: (symbol)
+        (semicolon))
+    (variable_declaration
+        type: (type_expression (builtin_type))
+        name: (symbol)
+        (semicolon))
+    (variable_declaration
+        type: (type_expression (builtin_type) (dimension))
+        name: (symbol)
+        (semicolon))
+    (variable_declaration
+        type: (type_expression (builtin_type))
+        name: (symbol)
+        (fixed_dimension (int_literal))
+        (semicolon))
+    (variable_declaration
+        type: (type_expression (symbol))
+        name: (symbol)
+        (semicolon)))
+
+
+==============
+initialization
+==============
+
+int money = 5400;
+float percent = 67.3;
+char key = 'A';
+bool enabled = false;
+Handle handle = null;
+
+---
+
+(source_file
+    (variable_declaration
+        type: (type_expression (builtin_type))
+        name: (symbol)
+        initalValue: (int_literal)
+        (semicolon))
+    (variable_declaration
+        type: (type_expression (builtin_type))
+        name: (symbol)
+        initalValue: (float_literal)
+        (semicolon))
+    (variable_declaration
+        type: (type_expression (builtin_type))
+        name: (symbol)
+        initalValue: (char_literal)
+        (semicolon))
+    (variable_declaration
+        type: (type_expression (builtin_type))
+        name: (symbol)
+        initalValue: (bool_literal)
+        (semicolon))
+    (variable_declaration
+        type: (type_expression (symbol))
+        name: (symbol)
+        initalValue: (null)
+        (semicolon)))
+
+
+====================
+array initialization
+====================
+
+char[] text = "Hello world";
+int numbers[] = { 1, 2, 3 };
+float vec[3] = { 0.0, 14.2, 13.22 };
+bool client_has_stuff[MAXPLAYERS] = { true, ... };
+
+---
+
+(source_file
+    (variable_declaration
+        type: (type_expression (builtin_type) (dimension))
+        name: (symbol)
+        initalValue: (string_literal)
+        (semicolon))
+    (variable_declaration
+        type: (type_expression (builtin_type))
+        name: (symbol)
+        (dimension)
+        initalValue: (vector (int_literal) (int_literal) (int_literal))
+        (semicolon))
+    (variable_declaration
+        type: (type_expression (builtin_type))
+        name: (symbol)
+        (fixed_dimension (int_literal))
+        initalValue: (vector (float_literal) (float_literal) (float_literal))
+        (semicolon))
+    (variable_declaration
+        type: (type_expression (builtin_type))
+        name: (symbol)
+        (fixed_dimension (symbol))
+        initalValue: (vector (bool_literal) (rest_operator))
+        (semicolon)))
+
+
+=============
+storage class
+=============
+
+const int a = 1;
+static float b;
+static bool c = false;
+
+---
+
+(source_file
+    (variable_declaration
+        (variable_storage_class)
+        type: (type_expression (builtin_type))
+        name: (symbol)
+        initalValue: (int_literal)
+        (semicolon))
+    (variable_declaration
+        (variable_storage_class)
+        type: (type_expression (builtin_type))
+        name: (symbol)
+        (semicolon))
+    (variable_declaration
+        (variable_storage_class)
+        type: (type_expression (builtin_type))
+        name: (symbol)
+        initalValue: (bool_literal)
+        (semicolon)))
+
+
+=======================
+multidimensional arrays
+=======================
+
+Action[][] a;
+float vec[MAXPLAYERS][10];
+int bla[][] = { {1,2,3}, {4,5,6}, {7,8,9} };
+
+---
+
+(source_file
+    (variable_declaration
+        type: (type_expression (symbol) (dimension) (dimension))
+        name: (symbol)
+        (semicolon))
+    (variable_declaration
+        type: (type_expression (builtin_type))
+        name: (symbol)
+        (fixed_dimension (symbol))
+        (fixed_dimension (int_literal))
+        (semicolon))
+    (variable_declaration
+        type: (type_expression (builtin_type))
+        name: (symbol)
+        (dimension)
+        (dimension)
+        initalValue: (vector (vector (int_literal) (int_literal) (int_literal)) (vector (int_literal) (int_literal) (int_literal)) (vector (int_literal) (int_literal) (int_literal)))
+        (semicolon)))
+
+
+==================
+optional semicolon
+==================
+
+int i
+bool b
+float f = 2.3
+
+---
+
+(source_file
+    (variable_declaration
+        type: (type_expression (builtin_type))
+        name: (symbol))
+    (variable_declaration
+        type: (type_expression (builtin_type))
+        name: (symbol))
+    (variable_declaration
+        type: (type_expression (builtin_type))
+        name: (symbol)
+        initalValue: (float_literal)))
