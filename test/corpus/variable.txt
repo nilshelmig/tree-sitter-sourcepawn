@@ -13,34 +13,35 @@ Action action;
 ---
 
 (source_file
-    (variable_declaration
+    (variable_declaration_statement
         type: (type_expression (builtin_type))
-        name: (symbol)
+        (variable_declaration name: (symbol))
         (semicolon))
-    (variable_declaration
+    (variable_declaration_statement
         type: (type_expression (builtin_type))
-        name: (symbol)
+        (variable_declaration name: (symbol))
         (semicolon))
-    (variable_declaration
+    (variable_declaration_statement
         type: (type_expression (builtin_type))
-        name: (symbol)
+        (variable_declaration name: (symbol))
         (semicolon))
-    (variable_declaration
+    (variable_declaration_statement
         type: (type_expression (builtin_type))
-        name: (symbol)
+        (variable_declaration name: (symbol))
         (semicolon))
-    (variable_declaration
+    (variable_declaration_statement
         type: (type_expression (builtin_type) (dimension))
-        name: (symbol)
+        (variable_declaration name: (symbol))
         (semicolon))
-    (variable_declaration
+    (variable_declaration_statement
         type: (type_expression (builtin_type))
-        name: (symbol)
-        (fixed_dimension (int_literal))
+        (variable_declaration
+            name: (symbol)
+            (fixed_dimension (int_literal)))
         (semicolon))
-    (variable_declaration
+    (variable_declaration_statement
         type: (type_expression (symbol))
-        name: (symbol)
+        (variable_declaration name: (symbol))
         (semicolon)))
 
 
@@ -57,30 +58,35 @@ Handle handle = null;
 ---
 
 (source_file
-    (variable_declaration
+    (variable_declaration_statement
         type: (type_expression (builtin_type))
-        name: (symbol)
-        initalValue: (int_literal)
+        (variable_declaration
+            name: (symbol)
+            initalValue: (int_literal))
         (semicolon))
-    (variable_declaration
+    (variable_declaration_statement
         type: (type_expression (builtin_type))
-        name: (symbol)
-        initalValue: (float_literal)
+        (variable_declaration
+            name: (symbol)
+            initalValue: (float_literal))
         (semicolon))
-    (variable_declaration
+    (variable_declaration_statement
         type: (type_expression (builtin_type))
-        name: (symbol)
-        initalValue: (char_literal)
+        (variable_declaration
+            name: (symbol)
+            initalValue: (char_literal))
         (semicolon))
-    (variable_declaration
+    (variable_declaration_statement
         type: (type_expression (builtin_type))
-        name: (symbol)
-        initalValue: (bool_literal)
+        (variable_declaration
+            name: (symbol)
+            initalValue: (bool_literal))
         (semicolon))
-    (variable_declaration
+    (variable_declaration_statement
         type: (type_expression (symbol))
-        name: (symbol)
-        initalValue: (null)
+        (variable_declaration
+            name: (symbol)
+            initalValue: (null))
         (semicolon)))
 
 
@@ -96,28 +102,32 @@ bool client_has_stuff[MAXPLAYERS] = { true, ... };
 ---
 
 (source_file
-    (variable_declaration
+    (variable_declaration_statement
         type: (type_expression (builtin_type) (dimension))
-        name: (symbol)
-        initalValue: (string_literal)
+        (variable_declaration
+            name: (symbol)
+            initalValue: (string_literal))
         (semicolon))
-    (variable_declaration
+    (variable_declaration_statement
         type: (type_expression (builtin_type))
-        name: (symbol)
-        (dimension)
-        initalValue: (vector (int_literal) (int_literal) (int_literal))
+        (variable_declaration
+            name: (symbol)
+            (dimension)
+            initalValue: (vector (int_literal) (int_literal) (int_literal)))
         (semicolon))
-    (variable_declaration
+    (variable_declaration_statement
         type: (type_expression (builtin_type))
-        name: (symbol)
-        (fixed_dimension (int_literal))
-        initalValue: (vector (float_literal) (float_literal) (float_literal))
+        (variable_declaration
+            name: (symbol)
+            (fixed_dimension (int_literal))
+            initalValue: (vector (float_literal) (float_literal) (float_literal)))
         (semicolon))
-    (variable_declaration
+    (variable_declaration_statement
         type: (type_expression (builtin_type))
-        name: (symbol)
-        (fixed_dimension (symbol))
-        initalValue: (vector (bool_literal) (rest_operator))
+        (variable_declaration
+            name: (symbol)
+            (fixed_dimension (symbol))
+            initalValue: (vector (bool_literal) (rest_operator)))
         (semicolon)))
 
 
@@ -132,22 +142,24 @@ static bool c = false;
 ---
 
 (source_file
-    (variable_declaration
+    (variable_declaration_statement
         (variable_storage_class)
         type: (type_expression (builtin_type))
-        name: (symbol)
-        initalValue: (int_literal)
+        (variable_declaration
+            name: (symbol)
+            initalValue: (int_literal))
         (semicolon))
-    (variable_declaration
+    (variable_declaration_statement
         (variable_storage_class)
         type: (type_expression (builtin_type))
-        name: (symbol)
+        (variable_declaration name: (symbol))
         (semicolon))
-    (variable_declaration
+    (variable_declaration_statement
         (variable_storage_class)
         type: (type_expression (builtin_type))
-        name: (symbol)
-        initalValue: (bool_literal)
+        (variable_declaration
+            name: (symbol)
+            initalValue: (bool_literal))
         (semicolon)))
 
 
@@ -162,22 +174,24 @@ int bla[][] = { {1,2,3}, {4,5,6}, {7,8,9} };
 ---
 
 (source_file
-    (variable_declaration
+    (variable_declaration_statement
         type: (type_expression (symbol) (dimension) (dimension))
-        name: (symbol)
+        (variable_declaration name: (symbol))
         (semicolon))
-    (variable_declaration
+    (variable_declaration_statement
         type: (type_expression (builtin_type))
-        name: (symbol)
-        (fixed_dimension (symbol))
-        (fixed_dimension (int_literal))
+        (variable_declaration
+            name: (symbol)
+            (fixed_dimension (symbol))
+            (fixed_dimension (int_literal)))
         (semicolon))
-    (variable_declaration
+    (variable_declaration_statement
         type: (type_expression (builtin_type))
-        name: (symbol)
-        (dimension)
-        (dimension)
-        initalValue: (vector (vector (int_literal) (int_literal) (int_literal)) (vector (int_literal) (int_literal) (int_literal)) (vector (int_literal) (int_literal) (int_literal)))
+        (variable_declaration
+            name: (symbol)
+            (dimension)
+            (dimension)
+            initalValue: (vector (vector (int_literal) (int_literal) (int_literal)) (vector (int_literal) (int_literal) (int_literal)) (vector (int_literal) (int_literal) (int_literal))))
         (semicolon)))
 
 
@@ -192,13 +206,70 @@ float f = 2.3
 ---
 
 (source_file
-    (variable_declaration
+    (variable_declaration_statement
         type: (type_expression (builtin_type))
-        name: (symbol))
-    (variable_declaration
+        (variable_declaration name: (symbol)))
+    (variable_declaration_statement
         type: (type_expression (builtin_type))
-        name: (symbol))
-    (variable_declaration
+        (variable_declaration name: (symbol)))
+    (variable_declaration_statement
         type: (type_expression (builtin_type))
-        name: (symbol)
-        initalValue: (float_literal)))
+        (variable_declaration
+            name: (symbol)
+            initalValue: (float_literal))))
+
+
+===============================
+multiple variables of same type
+===============================
+
+int a, b;
+bool c, d = true;
+float e = 12.92, f = 1.2, g = 82.00;
+char h = 'c', i;
+char j[10] = "whatever!", k[256];
+
+---
+
+(source_file
+    (variable_declaration_statement
+        type: (type_expression (builtin_type))
+        (variable_declaration name: (symbol))
+        (variable_declaration name: (symbol))
+        (semicolon))
+    (variable_declaration_statement
+        type: (type_expression (builtin_type))
+        (variable_declaration name: (symbol))
+        (variable_declaration
+            name: (symbol)
+            initalValue: (bool_literal))
+        (semicolon))
+    (variable_declaration_statement
+        type: (type_expression (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            initalValue: (float_literal))
+        (variable_declaration
+            name: (symbol)
+            initalValue: (float_literal))
+        (variable_declaration
+            name: (symbol)
+            initalValue: (float_literal))
+        (semicolon))
+    (variable_declaration_statement
+        type: (type_expression (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            initalValue: (char_literal))
+        (variable_declaration name: (symbol))
+        (semicolon))
+    (variable_declaration_statement
+        type: (type_expression (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            (fixed_dimension (int_literal))
+            initalValue: (string_literal))
+        (variable_declaration
+            name: (symbol)
+            (fixed_dimension (int_literal)))
+        (semicolon)))

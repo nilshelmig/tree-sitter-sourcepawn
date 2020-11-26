@@ -140,17 +140,21 @@ module.exports = grammar({
         )
       ),
 
-    variable_declaration: ($) =>
+    variable_declaration_statement: ($) =>
       seq(
         optional($.variable_storage_class),
         field("type", $.type_expression),
-        field("name", $.symbol),
-        repeat(choice($.dimension, $.fixed_dimension)),
-        field("initalValue", optional(seq("=", $._expression))),
+        commaSep1($.variable_declaration),
         optional($.semicolon)
       ),
 
     variable_storage_class: ($) => choice("const", "static"),
+    variable_declaration: ($) =>
+      seq(
+        field("name", $.symbol),
+        repeat(choice($.dimension, $.fixed_dimension)),
+        field("initalValue", optional(seq("=", $._expression)))
+      ),
 
     type_expression: ($) => seq($._type, repeat($.dimension)),
 
@@ -169,7 +173,7 @@ module.exports = grammar({
     _statement: ($) =>
       choice(
         $.block,
-        $.variable_declaration,
+        $.variable_declaration_statement,
         $.return_statement,
         $.expression_statement
       ),
