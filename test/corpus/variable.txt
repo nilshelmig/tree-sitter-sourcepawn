@@ -62,31 +62,31 @@ Handle handle = null;
         type: (type_expression (builtin_type))
         (variable_declaration
             name: (symbol)
-            initalValue: (int_literal))
+            initialValue: (int_literal))
         (semicolon))
     (variable_declaration_statement
         type: (type_expression (builtin_type))
         (variable_declaration
             name: (symbol)
-            initalValue: (float_literal))
+            initialValue: (float_literal))
         (semicolon))
     (variable_declaration_statement
         type: (type_expression (builtin_type))
         (variable_declaration
             name: (symbol)
-            initalValue: (char_literal))
+            initialValue: (char_literal))
         (semicolon))
     (variable_declaration_statement
         type: (type_expression (builtin_type))
         (variable_declaration
             name: (symbol)
-            initalValue: (bool_literal))
+            initialValue: (bool_literal))
         (semicolon))
     (variable_declaration_statement
         type: (type_expression (symbol))
         (variable_declaration
             name: (symbol)
-            initalValue: (null))
+            initialValue: (null))
         (semicolon)))
 
 
@@ -106,28 +106,28 @@ bool client_has_stuff[MAXPLAYERS] = { true, ... };
         type: (type_expression (builtin_type) (dimension))
         (variable_declaration
             name: (symbol)
-            initalValue: (string_literal))
+            initialValue: (string_literal))
         (semicolon))
     (variable_declaration_statement
         type: (type_expression (builtin_type))
         (variable_declaration
             name: (symbol)
             (dimension)
-            initalValue: (vector (int_literal) (int_literal) (int_literal)))
+            initialValue: (vector (int_literal) (int_literal) (int_literal)))
         (semicolon))
     (variable_declaration_statement
         type: (type_expression (builtin_type))
         (variable_declaration
             name: (symbol)
             (fixed_dimension (int_literal))
-            initalValue: (vector (float_literal) (float_literal) (float_literal)))
+            initialValue: (vector (float_literal) (float_literal) (float_literal)))
         (semicolon))
     (variable_declaration_statement
         type: (type_expression (builtin_type))
         (variable_declaration
             name: (symbol)
             (fixed_dimension (symbol))
-            initalValue: (vector (bool_literal) (rest_operator)))
+            initialValue: (vector (bool_literal) (rest_operator)))
         (semicolon)))
 
 
@@ -147,7 +147,7 @@ static bool c = false;
         type: (type_expression (builtin_type))
         (variable_declaration
             name: (symbol)
-            initalValue: (int_literal))
+            initialValue: (int_literal))
         (semicolon))
     (variable_declaration_statement
         (variable_storage_class)
@@ -159,7 +159,7 @@ static bool c = false;
         type: (type_expression (builtin_type))
         (variable_declaration
             name: (symbol)
-            initalValue: (bool_literal))
+            initialValue: (bool_literal))
         (semicolon)))
 
 
@@ -191,7 +191,7 @@ int bla[][] = { {1,2,3}, {4,5,6}, {7,8,9} };
             name: (symbol)
             (dimension)
             (dimension)
-            initalValue: (vector (vector (int_literal) (int_literal) (int_literal)) (vector (int_literal) (int_literal) (int_literal)) (vector (int_literal) (int_literal) (int_literal))))
+            initialValue: (vector (vector (int_literal) (int_literal) (int_literal)) (vector (int_literal) (int_literal) (int_literal)) (vector (int_literal) (int_literal) (int_literal))))
         (semicolon)))
 
 
@@ -216,7 +216,7 @@ float f = 2.3
         type: (type_expression (builtin_type))
         (variable_declaration
             name: (symbol)
-            initalValue: (float_literal))))
+            initialValue: (float_literal))))
 
 
 ===============================
@@ -242,25 +242,25 @@ char j[10] = "whatever!", k[256];
         (variable_declaration name: (symbol))
         (variable_declaration
             name: (symbol)
-            initalValue: (bool_literal))
+            initialValue: (bool_literal))
         (semicolon))
     (variable_declaration_statement
         type: (type_expression (builtin_type))
         (variable_declaration
             name: (symbol)
-            initalValue: (float_literal))
+            initialValue: (float_literal))
         (variable_declaration
             name: (symbol)
-            initalValue: (float_literal))
+            initialValue: (float_literal))
         (variable_declaration
             name: (symbol)
-            initalValue: (float_literal))
+            initialValue: (float_literal))
         (semicolon))
     (variable_declaration_statement
         type: (type_expression (builtin_type))
         (variable_declaration
             name: (symbol)
-            initalValue: (char_literal))
+            initialValue: (char_literal))
         (variable_declaration name: (symbol))
         (semicolon))
     (variable_declaration_statement
@@ -268,7 +268,7 @@ char j[10] = "whatever!", k[256];
         (variable_declaration
             name: (symbol)
             (fixed_dimension (int_literal))
-            initalValue: (string_literal))
+            initialValue: (string_literal))
         (variable_declaration
             name: (symbol)
             (fixed_dimension (int_literal)))

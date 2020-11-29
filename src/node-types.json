@@ -945,7 +945,7 @@
     "type": "variable_declaration",
     "named": true,
     "fields": {
-      "initalValue": {
+      "initialValue": {
         "multiple": true,
         "required": false,
         "types": [

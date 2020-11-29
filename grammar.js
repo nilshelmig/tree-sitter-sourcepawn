@@ -153,7 +153,7 @@ module.exports = grammar({
       seq(
         field("name", $.symbol),
         repeat(choice($.dimension, $.fixed_dimension)),
-        field("initalValue", optional(seq("=", $._expression)))
+        field("initialValue", optional(seq("=", $._expression)))
       ),
 
     type_expression: ($) => seq($._type, repeat($.dimension)),

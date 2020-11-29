@@ -665,7 +665,7 @@
         },
         {
           "type": "FIELD",
-          "name": "initalValue",
+          "name": "initialValue",
           "content": {
             "type": "CHOICE",
             "members": [

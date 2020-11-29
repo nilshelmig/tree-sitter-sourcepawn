@@ -874,7 +874,7 @@ enum {
   field_condition = 4,
   field_consequence = 5,
   field_defaultValue = 6,
-  field_initalValue = 7,
+  field_initialValue = 7,
   field_left = 8,
   field_name = 9,
   field_operator = 10,
@@ -893,7 +893,7 @@ static const char *ts_field_names[] = {
   [field_condition] = "condition",
   [field_consequence] = "consequence",
   [field_defaultValue] = "defaultValue",
-  [field_initalValue] = "initalValue",
+  [field_initialValue] = "initialValue",
   [field_left] = "left",
   [field_name] = "name",
   [field_operator] = "operator",
@@ -999,8 +999,8 @@ static const TSFieldMapEntry ts_field_map_entries[] = {
     {field_name, 2},
     {field_returnType, 1},
   [27] =
-    {field_initalValue, 1},
-    {field_initalValue, 2},
+    {field_initialValue, 1},
+    {field_initialValue, 2},
     {field_name, 0},
   [30] =
     {field_arguments, 2},
@@ -1019,8 +1019,8 @@ static const TSFieldMapEntry ts_field_map_entries[] = {
     {field_name, 2},
     {field_type, 0},
   [41] =
-    {field_initalValue, 2},
-    {field_initalValue, 3},
+    {field_initialValue, 2},
+    {field_initialValue, 3},
     {field_name, 0},
   [44] =
     {field_alternative, 4},
