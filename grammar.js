@@ -52,6 +52,7 @@ module.exports = grammar({
         $.callback_implementation,
         $._statement,
         $.preproc_include,
+        $.preproc_tryinclude,
         $.preproc_def,
         $.preproc_if,
         $.preproc_endif,
@@ -63,6 +64,13 @@ module.exports = grammar({
     preproc_include: ($) =>
       seq(
         preprocessor("include"),
+        field("path", choice($.string_literal, $.system_lib_string)),
+        "\n"
+      ),
+
+    preproc_tryinclude: ($) =>
+      seq(
+        preprocessor("tryinclude"),
         field("path", choice($.string_literal, $.system_lib_string)),
         "\n"
       ),

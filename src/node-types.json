@@ -730,6 +730,26 @@
     }
   },
   {
+    "type": "preproc_tryinclude",
+    "named": true,
+    "fields": {
+      "path": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "system_lib_string",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "preproc_undef",
     "named": true,
     "fields": {
@@ -822,6 +842,10 @@
         },
         {
           "type": "preproc_include",
+          "named": true
+        },
+        {
+          "type": "preproc_tryinclude",
           "named": true
         },
         {
@@ -1101,6 +1125,10 @@
   },
   {
     "type": "#include",
+    "named": false
+  },
+  {
+    "type": "#tryinclude",
     "named": false
   },
   {

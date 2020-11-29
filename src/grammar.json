@@ -34,6 +34,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "preproc_tryinclude"
+        },
+        {
+          "type": "SYMBOL",
           "name": "preproc_def"
         },
         {
@@ -61,6 +65,41 @@
           },
           "named": false,
           "value": "#include"
+        },
+        {
+          "type": "FIELD",
+          "name": "path",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "string_literal"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "system_lib_string"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
+    },
+    "preproc_tryinclude": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "#[ \t]*tryinclude"
+          },
+          "named": false,
+          "value": "#tryinclude"
         },
         {
           "type": "FIELD",

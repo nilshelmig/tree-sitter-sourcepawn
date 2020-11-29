@@ -1,0 +1,47 @@
+==================
+include system lib
+==================
+
+#include <sourcemod>
+
+---
+
+(source_file (preproc_include (system_lib_string)))
+
+
+=====================
+tryinclude system lib
+=====================
+
+#tryinclude <sourcemod>
+#tryinclude <tf2>
+
+---
+
+(source_file
+  (preproc_tryinclude (system_lib_string))
+  (preproc_tryinclude (system_lib_string)))
+
+==================
+include local lib
+==================
+
+#include "constants.inc"
+
+---
+
+(source_file (preproc_include (string_literal)))
+
+
+====================
+tryinclude local lib
+====================
+
+#tryinclude "constants"
+#tryinclude "../math.inc"
+
+---
+
+(source_file
+  (preproc_tryinclude (string_literal))
+  (preproc_tryinclude (string_literal)))
