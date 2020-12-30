@@ -1,0 +1,107 @@
+===========
+simple enum
+===========
+
+enum NumberType
+{
+    NumberType_Int8,
+    NumberType_Int16,
+    NumberType_Int32
+}
+
+---
+
+(source_file
+    (enum
+        name: (symbol)
+        (enum_entries
+            (enum_entry name: (symbol))
+            (enum_entry name: (symbol))
+            (enum_entry name: (symbol)))))
+
+
+=====================
+enum with start value
+=====================
+
+enum NumberType
+{
+    NumberType_Int8 = 1,
+    NumberType_Int16,
+    NumberType_Int32
+}
+
+---
+
+(source_file
+    (enum
+        name: (symbol)
+        (enum_entries
+            (enum_entry name: (symbol) value: (int_literal))
+            (enum_entry name: (symbol))
+            (enum_entry name: (symbol)))))
+
+
+=========================
+enum with explicit values
+=========================
+
+enum NumberType
+{
+    NumberType_Int8 = 8,
+    NumberType_Int16 = 16,
+    NumberType_Int32 = 32
+}
+
+---
+
+(source_file
+    (enum
+        name: (symbol)
+        (enum_entries
+            (enum_entry name: (symbol) value: (int_literal))
+            (enum_entry name: (symbol) value: (int_literal))
+            (enum_entry name: (symbol) value: (int_literal)))))
+
+
+==============
+anonymous enum
+==============
+
+enum
+{
+    Int8,
+    Int16,
+    Int32
+}
+
+---
+
+(source_file
+    (enum
+        (enum_entries
+            (enum_entry name: (symbol))
+            (enum_entry name: (symbol))
+            (enum_entry name: (symbol)))))
+
+
+=========================
+enum with trailing commas
+=========================
+
+enum NumberType
+{
+    NumberType_Int8,
+    NumberType_Int16,
+    NumberType_Int32,
+}
+
+---
+
+(source_file
+    (enum
+        name: (symbol)
+        (enum_entries
+            (enum_entry name: (symbol))
+            (enum_entry name: (symbol))
+            (enum_entry name: (symbol)))))

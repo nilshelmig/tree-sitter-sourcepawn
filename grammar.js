@@ -60,6 +60,7 @@ module.exports = grammar({
         $.function_declaration,
         $.function_definition,
         $.callback_implementation,
+        $.enum,
         $._statement,
         $.preproc_include,
         $.preproc_tryinclude,
@@ -190,6 +191,14 @@ module.exports = grammar({
         field("name", $.symbol),
         repeat(choice($.dimension, $.fixed_dimension)),
         field("initialValue", optional(seq("=", $._expression)))
+      ),
+
+    enum: ($) => seq("enum", field("name", optional($.symbol)), $.enum_entries),
+    enum_entries: ($) => seq("{", commaSep1($.enum_entry), optional(","), "}"),
+    enum_entry: ($) =>
+      seq(
+        field("name", $.symbol),
+        field("value", optional(seq("=", $.int_literal)))
       ),
 
     type_expression: ($) =>
