@@ -24,6 +24,10 @@
         "named": true
       },
       {
+        "type": "field_access_expression",
+        "named": true
+      },
+      {
         "type": "float_literal",
         "named": true
       },
@@ -49,6 +53,10 @@
       },
       {
         "type": "symbol",
+        "named": true
+      },
+      {
+        "type": "this",
         "named": true
       },
       {
@@ -542,6 +550,124 @@
     }
   },
   {
+    "type": "enum_struct",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "enum_struct_field",
+          "named": true
+        },
+        {
+          "type": "enum_struct_method",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "enum_struct_field",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "builtin_type",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "fixed_dimension",
+          "named": true
+        },
+        {
+          "type": "semicolon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "enum_struct_method",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "returnType": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "builtin_type",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "argument_declarations",
+          "named": true
+        },
+        {
+          "type": "block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "expression_statement",
     "named": true,
     "fields": {},
@@ -562,6 +688,36 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "field_access_expression",
+    "named": true,
+    "fields": {
+      "member": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "object": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          },
+          {
+            "type": "this",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -1017,6 +1173,10 @@
           "named": true
         },
         {
+          "type": "enum_struct",
+          "named": true
+        },
+        {
           "type": "function_declaration",
           "named": true
         },
@@ -1376,6 +1536,10 @@
     "named": false
   },
   {
+    "type": ".",
+    "named": false
+  },
+  {
     "type": "/",
     "named": false
   },
@@ -1552,11 +1716,19 @@
     "named": false
   },
   {
+    "type": "struct",
+    "named": false
+  },
+  {
     "type": "symbol",
     "named": true
   },
   {
     "type": "system_lib_string",
+    "named": true
+  },
+  {
+    "type": "this",
     "named": true
   },
   {

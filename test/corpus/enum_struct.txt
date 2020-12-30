@@ -1,0 +1,143 @@
+===========
+enum struct
+===========
+
+enum struct MyStruct
+{
+    int a;
+    float b;
+    char c;
+    bool d;
+    char e[64];
+    Action action;
+}
+
+---
+
+(source_file
+    (enum_struct
+        name: (symbol)
+        (enum_struct_field
+            type: (builtin_type)
+            name: (symbol)
+            (semicolon))
+        (enum_struct_field
+            type: (builtin_type)
+            name: (symbol)
+            (semicolon))
+        (enum_struct_field
+            type: (builtin_type)
+            name: (symbol)
+            (semicolon))
+        (enum_struct_field
+            type: (builtin_type)
+            name: (symbol)
+            (semicolon))
+        (enum_struct_field
+            type: (builtin_type)
+            name: (symbol)
+            (fixed_dimension (int_literal))
+            (semicolon))
+        (enum_struct_field
+            type: (symbol)
+            name: (symbol)
+            (semicolon))))
+
+
+====================
+enum struct - method
+====================
+
+enum struct Rectangle
+{
+    int width;
+    int height;
+
+    int Area() {
+        return this.width * this.height;
+    }
+}
+
+---
+
+(source_file
+    (enum_struct
+        name: (symbol)
+        (enum_struct_field
+            type: (builtin_type)
+            name: (symbol)
+            (semicolon))
+        (enum_struct_field
+            type: (builtin_type)
+            name: (symbol)
+            (semicolon))
+
+        (enum_struct_method
+            returnType: (builtin_type)
+            name: (symbol)
+            (argument_declarations)
+            (block
+                (return_statement
+                    (binary_expression
+                        left: (field_access_expression
+                            object: (this)
+                            member: (symbol))
+                        right: (field_access_expression
+                            object: (this)
+                            member: (symbol)))
+                    (semicolon))))))
+
+
+====================================
+enum struct - method with parameters
+====================================
+
+enum struct Rectangle
+{
+    int width;
+    int height;
+
+    bool CoversArea(const Rectangle r) {
+        return r.width <= this.width && r.height <= this.height;
+    }
+}
+
+---
+
+(source_file
+    (enum_struct
+        name: (symbol)
+        (enum_struct_field
+            type: (builtin_type)
+            name: (symbol)
+            (semicolon))
+        (enum_struct_field
+            type: (builtin_type)
+            name: (symbol)
+            (semicolon))
+
+        (enum_struct_method
+            returnType: (builtin_type)
+            name: (symbol)
+            (argument_declarations
+                (argument_declaration
+                    type: (type_expression (symbol))
+                    name: (symbol)))
+            (block
+                (return_statement
+                    (binary_expression
+                        left: (binary_expression
+                            left: (field_access_expression
+                                object: (symbol)
+                                member: (symbol))
+                            right: (field_access_expression
+                                object: (this)
+                                member: (symbol)))
+                        right: (binary_expression
+                            left: (field_access_expression
+                                object: (symbol)
+                                member: (symbol))
+                            right: (field_access_expression
+                                object: (this)
+                                member: (symbol))))
+                    (semicolon))))))

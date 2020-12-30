@@ -26,12 +26,7 @@ module.exports = grammar({
 
   extras: ($) => [/\s|\\\r?\n/, $.comment],
 
-  inline: ($) => [
-    $._statement,
-    $._type_identifier,
-    $._field_identifier,
-    $._statement_identifier,
-  ],
+  inline: ($) => [$._statement],
 
   conflicts: ($) => [
     [$._type, $.type_expression],
@@ -61,6 +56,7 @@ module.exports = grammar({
         $.function_definition,
         $.callback_implementation,
         $.enum,
+        $.enum_struct,
         $._statement,
         $.preproc_include,
         $.preproc_tryinclude,
@@ -201,6 +197,32 @@ module.exports = grammar({
         field("value", optional(seq("=", $.int_literal)))
       ),
 
+    enum_struct: ($) =>
+      seq(
+        "enum",
+        "struct",
+        field("name", $.symbol),
+        "{",
+        repeat1(choice($.enum_struct_field, $.enum_struct_method)),
+        "}"
+      ),
+
+    enum_struct_field: ($) =>
+      seq(
+        field("type", choice($.builtin_type, $.symbol)),
+        field("name", $.symbol),
+        optional($.fixed_dimension),
+        $.semicolon
+      ),
+
+    enum_struct_method: ($) =>
+      seq(
+        field("returnType", choice($.builtin_type, $.symbol)),
+        field("name", $.symbol),
+        $.argument_declarations,
+        $.block
+      ),
+
     type_expression: ($) =>
       seq(choice($.builtin_type, $.symbol), repeat($.dimension)),
     old_type_expression: ($) =>
@@ -246,6 +268,7 @@ module.exports = grammar({
     _expression: ($) =>
       choice(
         $.conditional_expression,
+        $.field_access_expression,
         $.binary_expression,
         $.unary_expression,
         $.update_expression,
@@ -255,7 +278,8 @@ module.exports = grammar({
         $.concatenated_string,
         $.char_literal,
         $.parenthesized_expression,
-        $.vector
+        $.vector,
+        $.this
       ),
 
     parenthesized_expression: ($) =>
@@ -277,6 +301,16 @@ module.exports = grammar({
           field("consequence", $._expression),
           ":",
           field("alternative", $._expression)
+        )
+      ),
+
+    field_access_expression: ($) =>
+      prec.right(
+        PREC.FIELD,
+        seq(
+          field("object", choice($.symbol, $.this)),
+          ".",
+          field("member", $.symbol)
         )
       ),
 
@@ -432,6 +466,7 @@ module.exports = grammar({
 
     bool_literal: ($) => token(choice("true", "false")),
     null: ($) => "null",
+    this: ($) => "this",
     rest_operator: ($) => "...",
 
     system_lib_string: ($) =>
