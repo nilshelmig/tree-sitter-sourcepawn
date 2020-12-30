@@ -34,10 +34,20 @@ module.exports = grammar({
   ],
 
   conflicts: ($) => [
-    [$._type, $._expression],
+    [$._type, $.type_expression],
+    [$.type_expression, $._type, $._expression],
+    [$.type_expression, $._expression],
     [$.function_declaration, $._expression],
     [$.function_declaration, $.type_expression],
     [$.function_storage_class, $.variable_storage_class],
+    [$.variable_storage_class, $.old_variable_storage_class],
+    [$.function_storage_class, $.old_variable_storage_class],
+    [
+      $.function_storage_class,
+      $.variable_storage_class,
+      $.old_variable_storage_class,
+    ],
+    [$.argument_declaration, $.type_expression],
   ],
 
   word: ($) => $.symbol,
@@ -137,7 +147,10 @@ module.exports = grammar({
         seq(
           optional("const"),
           optional("&"),
-          field("type", optional($.type_expression)),
+          field(
+            "type",
+            optional(choice($.type_expression, $.old_type_expression))
+          ),
           optional("&"),
           field("name", $.symbol),
           repeat(choice($.dimension, $.fixed_dimension)),
@@ -164,7 +177,25 @@ module.exports = grammar({
         field("initialValue", optional(seq("=", $._expression)))
       ),
 
-    type_expression: ($) => seq($._type, repeat($.dimension)),
+    old_variable_declaration_statement: ($) =>
+      seq(
+        $.old_variable_storage_class,
+        commaSep1($.old_variable_declaration),
+        optional($.semicolon)
+      ),
+    old_variable_storage_class: ($) => choice("new", "decl", "const", "static"),
+    old_variable_declaration: ($) =>
+      seq(
+        field("type", optional(choice($.old_builtin_type, seq($.symbol, ":")))),
+        field("name", $.symbol),
+        repeat(choice($.dimension, $.fixed_dimension)),
+        field("initialValue", optional(seq("=", $._expression)))
+      ),
+
+    type_expression: ($) =>
+      seq(choice($.builtin_type, $.symbol), repeat($.dimension)),
+    old_type_expression: ($) =>
+      seq(choice($.old_builtin_type, seq($.symbol, ":")), repeat($.dimension)),
 
     dimension: ($) => token(seq("[", "]")),
     fixed_dimension: ($) => seq("[", choice($.int_literal, $.symbol), "]"),
@@ -182,6 +213,7 @@ module.exports = grammar({
       choice(
         $.block,
         $.variable_declaration_statement,
+        $.old_variable_declaration_statement,
         $.return_statement,
         $.expression_statement
       ),

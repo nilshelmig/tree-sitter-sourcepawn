@@ -78,6 +78,10 @@
         "named": true
       },
       {
+        "type": "old_variable_declaration_statement",
+        "named": true
+      },
+      {
         "type": "return_statement",
         "named": true
       },
@@ -147,6 +151,10 @@
         "multiple": false,
         "required": false,
         "types": [
+          {
+            "type": "old_type_expression",
+            "named": true
+          },
           {
             "type": "type_expression",
             "named": true
@@ -644,6 +652,119 @@
     "fields": {}
   },
   {
+    "type": "old_type_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "dimension",
+          "named": true
+        },
+        {
+          "type": "old_builtin_type",
+          "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "old_variable_declaration",
+    "named": true,
+    "fields": {
+      "initialValue": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "=",
+            "named": false
+          },
+          {
+            "type": "_expression",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "old_builtin_type",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "dimension",
+          "named": true
+        },
+        {
+          "type": "fixed_dimension",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "old_variable_declaration_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "old_variable_declaration",
+          "named": true
+        },
+        {
+          "type": "old_variable_storage_class",
+          "named": true
+        },
+        {
+          "type": "semicolon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "old_variable_storage_class",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "parenthesized_expression",
     "named": true,
     "fields": {},
@@ -884,10 +1005,6 @@
         },
         {
           "type": "dimension",
-          "named": true
-        },
-        {
-          "type": "old_builtin_type",
           "named": true
         },
         {
@@ -1272,6 +1389,10 @@
     "named": false
   },
   {
+    "type": "decl",
+    "named": false
+  },
+  {
     "type": "dimension",
     "named": true
   },
@@ -1301,6 +1422,10 @@
   },
   {
     "type": "native",
+    "named": false
+  },
+  {
+    "type": "new",
     "named": false
   },
   {

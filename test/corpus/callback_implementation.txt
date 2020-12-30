@@ -171,23 +171,23 @@ public Callback6(Handle:handle) {}
         (block))
     (callback_implementation
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol)))
+        arguments: (argument_declarations (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol)))
         (block))
     (callback_implementation
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol)))
+        arguments: (argument_declarations (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol)))
         (block))
     (callback_implementation
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol)))
+        arguments: (argument_declarations (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol)))
         (block))
     (callback_implementation
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol) (dimension)))
+        arguments: (argument_declarations (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol) (dimension)))
         (block))
     (callback_implementation
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (type_expression (symbol)) name: (symbol)))
+        arguments: (argument_declarations (argument_declaration type: (old_type_expression (symbol)) name: (symbol)))
         (block))
     )
 

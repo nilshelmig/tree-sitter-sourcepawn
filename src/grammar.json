@@ -518,8 +518,17 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "SYMBOL",
-                  "name": "type_expression"
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "type_expression"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "old_type_expression"
+                    }
+                  ]
                 },
                 {
                   "type": "BLANK"
@@ -729,12 +738,210 @@
         }
       ]
     },
-    "type_expression": {
+    "old_variable_declaration_statement": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_type"
+          "name": "old_variable_storage_class"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "old_variable_declaration"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "old_variable_declaration"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "semicolon"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "old_variable_storage_class": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "new"
+        },
+        {
+          "type": "STRING",
+          "value": "decl"
+        },
+        {
+          "type": "STRING",
+          "value": "const"
+        },
+        {
+          "type": "STRING",
+          "value": "static"
+        }
+      ]
+    },
+    "old_variable_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "type",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "old_builtin_type"
+                  },
+                  {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "symbol"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": ":"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "symbol"
+          }
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "dimension"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "fixed_dimension"
+              }
+            ]
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "initialValue",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "="
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_expression"
+                  }
+                ]
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "type_expression": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "builtin_type"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "symbol"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "dimension"
+          }
+        }
+      ]
+    },
+    "old_type_expression": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "old_builtin_type"
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "symbol"
+                },
+                {
+                  "type": "STRING",
+                  "value": ":"
+                }
+              ]
+            }
+          ]
         },
         {
           "type": "REPEAT",
@@ -906,6 +1113,10 @@
         {
           "type": "SYMBOL",
           "name": "variable_declaration_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "old_variable_declaration_statement"
         },
         {
           "type": "SYMBOL",
@@ -2613,6 +2824,15 @@
   "conflicts": [
     [
       "_type",
+      "type_expression"
+    ],
+    [
+      "type_expression",
+      "_type",
+      "_expression"
+    ],
+    [
+      "type_expression",
       "_expression"
     ],
     [
@@ -2626,6 +2846,23 @@
     [
       "function_storage_class",
       "variable_storage_class"
+    ],
+    [
+      "variable_storage_class",
+      "old_variable_storage_class"
+    ],
+    [
+      "function_storage_class",
+      "old_variable_storage_class"
+    ],
+    [
+      "function_storage_class",
+      "variable_storage_class",
+      "old_variable_storage_class"
+    ],
+    [
+      "argument_declaration",
+      "type_expression"
     ]
   ],
   "externals": [],

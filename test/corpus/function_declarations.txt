@@ -296,23 +296,23 @@ MyFunc5(Action:args = Plugin_Handled) {}
     (block))
   (function_declaration
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol) defaultValue: (int_literal)))
+    arguments: (argument_declarations (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol) defaultValue: (int_literal)))
     (block))
   (function_declaration
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol) defaultValue: (float_literal)))
+    arguments: (argument_declarations (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol) defaultValue: (float_literal)))
     (block))
   (function_declaration
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol) defaultValue: (char_literal)))
+    arguments: (argument_declarations (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol) defaultValue: (char_literal)))
     (block))
   (function_declaration
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol) defaultValue: (bool_literal)))
+    arguments: (argument_declarations (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol) defaultValue: (bool_literal)))
     (block))
   (function_declaration
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type_expression (symbol)) name: (symbol) defaultValue: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (old_type_expression (symbol)) name: (symbol) defaultValue: (symbol)))
     (block)))
 
 
@@ -394,7 +394,7 @@ MyFunc(&Float:a) {}
     (block))
   (function_declaration
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol)))
     (block)))
 
 
@@ -451,19 +451,19 @@ MyFunc4(bool:condition) {}
     (block))
   (function_declaration
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol)))
     (block))
   (function_declaration
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol)))
     (block))
   (function_declaration
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol)))
     (block))
   (function_declaration
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol)))
     (block)))
 
 
@@ -501,8 +501,8 @@ void MyFunc(a, _:b, Float:c, String:d, bool:e) {}
     name: (symbol)
     arguments: (argument_declarations
       (argument_declaration name: (symbol))
-      (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol))
-      (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol))
-      (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol))
-      (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol)))
+      (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol))
+      (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol))
+      (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol))
+      (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol)))
     (block)))

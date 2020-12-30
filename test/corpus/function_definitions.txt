@@ -197,20 +197,20 @@ forward MyFunc9(String:a[MAX_PATH]);
         (function_definition_type)
         name: (symbol)
         arguments: (argument_declarations
-            (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol))
-            (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol))
-            (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol))
-            (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol)))
+            (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol))
+            (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol))
+            (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol))
+            (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol)))
         (semicolon))
     (function_definition
         (function_definition_type)
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (type_expression (symbol)) name: (symbol)))
+        arguments: (argument_declarations (argument_declaration type: (old_type_expression (symbol)) name: (symbol)))
         (semicolon))
     (function_definition
         (function_definition_type)
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol) (dimension)))
+        arguments: (argument_declarations (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol) (dimension)))
         (semicolon))
     (function_definition
         (function_definition_type)
@@ -220,7 +220,7 @@ forward MyFunc9(String:a[MAX_PATH]);
     (function_definition
         (function_definition_type)
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol)))
+        arguments: (argument_declarations (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol)))
         (semicolon))
     (function_definition
         (function_definition_type)
@@ -230,12 +230,12 @@ forward MyFunc9(String:a[MAX_PATH]);
     (function_definition
         (function_definition_type)
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol) (fixed_dimension (int_literal))))
+        arguments: (argument_declarations (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol) (fixed_dimension (int_literal))))
         (semicolon))
     (function_definition
         (function_definition_type)
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (type_expression (old_builtin_type)) name: (symbol) (fixed_dimension (symbol))))
+        arguments: (argument_declarations (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol) (fixed_dimension (symbol))))
         (semicolon)))
 
 
