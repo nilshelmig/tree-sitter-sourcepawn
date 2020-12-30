@@ -1207,6 +1207,14 @@
         {
           "type": "preproc_undef",
           "named": true
+        },
+        {
+          "type": "typedef",
+          "named": true
+        },
+        {
+          "type": "typeset",
+          "named": true
         }
       ]
     }
@@ -1244,6 +1252,151 @@
         },
         {
           "type": "symbol",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "typedef",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "semicolon",
+          "named": true
+        },
+        {
+          "type": "typedef_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "typedef_arg",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "any_type",
+            "named": true
+          },
+          {
+            "type": "type_expression",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "fixed_dimension",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "typedef_args",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "typedef_arg",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "typedef_expression",
+    "named": true,
+    "fields": {
+      "returnType": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "builtin_type",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "typedef_args",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "typeset",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "semicolon",
+          "named": true
+        },
+        {
+          "type": "typedef_expression",
           "named": true
         }
       ]
@@ -1608,6 +1761,10 @@
     "named": false
   },
   {
+    "type": "any_type",
+    "named": true
+  },
+  {
     "type": "bool",
     "named": false
   },
@@ -1653,6 +1810,10 @@
   },
   {
     "type": "forward",
+    "named": false
+  },
+  {
+    "type": "function",
     "named": false
   },
   {
@@ -1730,6 +1891,14 @@
   {
     "type": "this",
     "named": true
+  },
+  {
+    "type": "typedef",
+    "named": false
+  },
+  {
+    "type": "typeset",
+    "named": false
   },
   {
     "type": "void",

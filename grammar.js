@@ -57,6 +57,8 @@ module.exports = grammar({
         $.callback_implementation,
         $.enum,
         $.enum_struct,
+        $.typedef,
+        $.typeset,
         $._statement,
         $.preproc_include,
         $.preproc_tryinclude,
@@ -206,7 +208,6 @@ module.exports = grammar({
         repeat1(choice($.enum_struct_field, $.enum_struct_method)),
         "}"
       ),
-
     enum_struct_field: ($) =>
       seq(
         field("type", choice($.builtin_type, $.symbol)),
@@ -214,13 +215,45 @@ module.exports = grammar({
         optional($.fixed_dimension),
         $.semicolon
       ),
-
     enum_struct_method: ($) =>
       seq(
         field("returnType", choice($.builtin_type, $.symbol)),
         field("name", $.symbol),
         $.argument_declarations,
         $.block
+      ),
+
+    typedef: ($) =>
+      seq(
+        "typedef",
+        field("name", $.symbol),
+        "=",
+        $.typedef_expression,
+        optional($.semicolon)
+      ),
+    typeset: ($) =>
+      seq(
+        "typeset",
+        field("name", $.symbol),
+        "{",
+        repeat1(seq($.typedef_expression, optional($.semicolon))),
+        "}",
+        optional($.semicolon)
+      ),
+    typedef_expression: ($) =>
+      seq(
+        "function",
+        field("returnType", choice($.builtin_type, $.symbol)),
+        $.typedef_args
+      ),
+    typedef_args: ($) => seq("(", commaSep($.typedef_arg), ")"),
+    typedef_arg: ($) =>
+      seq(
+        optional("const"),
+        field("type", choice($.type_expression, $.any_type)),
+        optional("&"),
+        field("name", $.symbol),
+        optional($.fixed_dimension)
       ),
 
     type_expression: ($) =>
@@ -235,6 +268,7 @@ module.exports = grammar({
       choice($.builtin_type, $.old_builtin_type, seq($.symbol, optional(":"))),
     builtin_type: ($) => choice("void", "bool", "int", "float", "char"),
     old_builtin_type: ($) => seq(choice("_", "Float", "bool", "String"), ":"),
+    any_type: ($) => "any",
 
     block: ($) => seq("{", repeat($._statement), "}"),
 

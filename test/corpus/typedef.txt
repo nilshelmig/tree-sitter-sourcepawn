@@ -1,0 +1,135 @@
+=======
+typedef
+=======
+
+typedef SrvCmd = function Action (int args)
+
+---
+
+(source_file
+    (typedef
+        name: (symbol)
+        (typedef_expression
+            returnType: (symbol)
+            (typedef_args
+                (typedef_arg
+                    type: (type_expression (builtin_type))
+                    name: (symbol))))))
+
+
+===============================
+typedef with multiple arguments
+===============================
+
+typedef CustomHandler =
+    function void (
+        Handle handle,
+        int &flag, 
+        int client,
+        const char[] name,
+        float health,
+        bool visible,
+        float position[3],
+        any data);
+
+---
+
+(source_file
+    (typedef
+        name: (symbol)
+        (typedef_expression
+            returnType: (builtin_type)
+            (typedef_args
+                (typedef_arg
+                    type: (type_expression (symbol))
+                    name: (symbol))
+                (typedef_arg
+                    type: (type_expression (builtin_type))
+                    name: (symbol))
+                (typedef_arg
+                    type: (type_expression (builtin_type))
+                    name: (symbol))
+                (typedef_arg
+                    type: (type_expression (builtin_type) (dimension))
+                    name: (symbol))
+                (typedef_arg
+                    type: (type_expression (builtin_type))
+                    name: (symbol))
+                (typedef_arg
+                    type: (type_expression (builtin_type))
+                    name: (symbol))
+                (typedef_arg
+                    type: (type_expression (builtin_type))
+                    name: (symbol)
+                    (fixed_dimension (int_literal)))
+                (typedef_arg
+                    type: (any_type)
+                    name: (symbol))))
+        (semicolon)))
+
+
+=======
+typeset
+=======
+
+typeset Timer {
+    function Action (Handle timer, Handle hndl);
+    function Action (Handle timer);
+}
+
+---
+
+(source_file
+    (typeset
+        name: (symbol)
+        (typedef_expression
+            returnType: (symbol)
+            (typedef_args
+                (typedef_arg
+                    type: (type_expression (symbol))
+                    name: (symbol))
+                (typedef_arg
+                    type: (type_expression (symbol))
+                    name: (symbol))))
+        (semicolon)
+        (typedef_expression
+            returnType: (symbol)
+            (typedef_args
+                (typedef_arg
+                    type: (type_expression (symbol))
+                    name: (symbol))))
+        (semicolon)))
+
+
+=============================
+typeset with ending semicolon
+=============================
+
+typeset Timer {
+    function Action (Handle timer, Handle hndl);
+    function Action (Handle timer);
+};
+
+---
+
+(source_file
+    (typeset
+        name: (symbol)
+        (typedef_expression
+            returnType: (symbol)
+            (typedef_args
+                (typedef_arg
+                    type: (type_expression (symbol))
+                    name: (symbol))
+                (typedef_arg
+                    type: (type_expression (symbol))
+                    name: (symbol))))
+        (semicolon)
+        (typedef_expression
+            returnType: (symbol)
+            (typedef_args
+                (typedef_arg
+                    type: (type_expression (symbol))
+                    name: (symbol))))
+        (semicolon)
+        (semicolon)))
