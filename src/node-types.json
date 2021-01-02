@@ -874,9 +874,462 @@
     "fields": {}
   },
   {
-    "type": "old_builtin_type",
+    "type": "methodmap",
     "named": true,
-    "fields": {}
+    "fields": {
+      "inherits": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "methodmap_alias",
+          "named": true
+        },
+        {
+          "type": "methodmap_method",
+          "named": true
+        },
+        {
+          "type": "methodmap_method_constructor",
+          "named": true
+        },
+        {
+          "type": "methodmap_method_destructor",
+          "named": true
+        },
+        {
+          "type": "methodmap_native",
+          "named": true
+        },
+        {
+          "type": "methodmap_native_constructor",
+          "named": true
+        },
+        {
+          "type": "methodmap_native_destructor",
+          "named": true
+        },
+        {
+          "type": "methodmap_property",
+          "named": true
+        },
+        {
+          "type": "semicolon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "methodmap_alias",
+    "named": true,
+    "fields": {
+      "function": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "semicolon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "methodmap_method",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "returnType": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "builtin_type",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "argument_declarations",
+          "named": true
+        },
+        {
+          "type": "block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "methodmap_method_constructor",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "argument_declarations",
+          "named": true
+        },
+        {
+          "type": "block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "methodmap_method_destructor",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "methodmap_native",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "returnType": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "builtin_type",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "argument_declarations",
+          "named": true
+        },
+        {
+          "type": "semicolon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "methodmap_native_constructor",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "argument_declarations",
+          "named": true
+        },
+        {
+          "type": "semicolon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "methodmap_native_destructor",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "semicolon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "methodmap_property",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "builtin_type",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "methodmap_property_alias",
+          "named": true
+        },
+        {
+          "type": "methodmap_property_method",
+          "named": true
+        },
+        {
+          "type": "methodmap_property_native",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "methodmap_property_alias",
+    "named": true,
+    "fields": {
+      "function": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "methodmap_property_getter",
+          "named": true
+        },
+        {
+          "type": "semicolon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "methodmap_property_method",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "methodmap_property_getter",
+          "named": true
+        },
+        {
+          "type": "methodmap_property_setter",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "methodmap_property_native",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "methodmap_property_getter",
+          "named": true
+        },
+        {
+          "type": "methodmap_property_setter",
+          "named": true
+        },
+        {
+          "type": "semicolon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "methodmap_property_setter",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "builtin_type",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    }
   },
   {
     "type": "old_type_expression",
@@ -1182,6 +1635,10 @@
         },
         {
           "type": "function_definition",
+          "named": true
+        },
+        {
+          "type": "methodmap",
           "named": true
         },
         {
@@ -1737,14 +2194,6 @@
     "named": false
   },
   {
-    "type": "Float",
-    "named": false
-  },
-  {
-    "type": "String",
-    "named": false
-  },
-  {
     "type": "[",
     "named": false
   },
@@ -1754,10 +2203,6 @@
   },
   {
     "type": "^",
-    "named": false
-  },
-  {
-    "type": "_",
     "named": false
   },
   {
@@ -1825,6 +2270,14 @@
     "named": true
   },
   {
+    "type": "methodmap",
+    "named": false
+  },
+  {
+    "type": "methodmap_property_getter",
+    "named": true
+  },
+  {
     "type": "native",
     "named": false
   },
@@ -1837,8 +2290,16 @@
     "named": true
   },
   {
+    "type": "old_builtin_type",
+    "named": true
+  },
+  {
     "type": "preproc_arg",
     "named": true
+  },
+  {
+    "type": "property",
+    "named": false
   },
   {
     "type": "public",
@@ -1855,6 +2316,10 @@
   {
     "type": "semicolon",
     "named": true
+  },
+  {
+    "type": "set",
+    "named": false
   },
   {
     "type": "sizeof",

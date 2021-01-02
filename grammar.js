@@ -26,7 +26,7 @@ module.exports = grammar({
 
   extras: ($) => [/\s|\\\r?\n/, $.comment],
 
-  inline: ($) => [$._statement],
+  inline: ($) => [$._statement, $.methodmap_visibility],
 
   conflicts: ($) => [
     [$._type, $.type_expression],
@@ -59,6 +59,7 @@ module.exports = grammar({
         $.enum_struct,
         $.typedef,
         $.typeset,
+        $.methodmap,
         $._statement,
         $.preproc_include,
         $.preproc_tryinclude,
@@ -256,6 +257,137 @@ module.exports = grammar({
         optional($.fixed_dimension)
       ),
 
+    methodmap: ($) =>
+      seq(
+        "methodmap",
+        field("name", $.symbol),
+        optional(seq("<", field("inherits", $.symbol))),
+        "{",
+        repeat(
+          choice(
+            $.methodmap_alias,
+            $.methodmap_native,
+            $.methodmap_native_constructor,
+            $.methodmap_native_destructor,
+            $.methodmap_method,
+            $.methodmap_method_constructor,
+            $.methodmap_method_destructor,
+            $.methodmap_property
+          )
+        ),
+        "}",
+        optional($.semicolon)
+      ),
+    methodmap_alias: ($) =>
+      seq(
+        $.methodmap_visibility,
+        optional("~"),
+        field("name", $.symbol),
+        "(",
+        ")",
+        "=",
+        field("function", $.symbol),
+        $.semicolon
+      ),
+    methodmap_native: ($) =>
+      seq(
+        $.methodmap_visibility,
+        "native",
+        field("returnType", choice($.builtin_type, $.symbol)),
+        field("name", $.symbol),
+        $.argument_declarations,
+        $.semicolon
+      ),
+    methodmap_native_constructor: ($) =>
+      seq(
+        $.methodmap_visibility,
+        "native",
+        field("name", $.symbol),
+        $.argument_declarations,
+        $.semicolon
+      ),
+    methodmap_native_destructor: ($) =>
+      seq(
+        $.methodmap_visibility,
+        "native",
+        "~",
+        field("name", $.symbol),
+        "(",
+        ")",
+        $.semicolon
+      ),
+    methodmap_method: ($) =>
+      seq(
+        $.methodmap_visibility,
+        optional("static"),
+        field("returnType", choice($.builtin_type, $.symbol)),
+        field("name", $.symbol),
+        $.argument_declarations,
+        $.block
+      ),
+    methodmap_method_constructor: ($) =>
+      seq(
+        $.methodmap_visibility,
+        field("name", $.symbol),
+        $.argument_declarations,
+        $.block
+      ),
+    methodmap_method_destructor: ($) =>
+      seq(
+        $.methodmap_visibility,
+        "~",
+        field("name", $.symbol),
+        "(",
+        ")",
+        $.block
+      ),
+    methodmap_property: ($) =>
+      seq(
+        "property",
+        field("type", choice($.builtin_type, $.symbol)),
+        field("name", $.symbol),
+        "{",
+        repeat1(
+          choice(
+            $.methodmap_property_alias,
+            $.methodmap_property_native,
+            $.methodmap_property_method
+          )
+        ),
+        "}"
+      ),
+    methodmap_property_alias: ($) =>
+      seq(
+        $.methodmap_visibility,
+        $.methodmap_property_getter,
+        "=",
+        field("function", $.symbol),
+        $.semicolon
+      ),
+    methodmap_property_native: ($) =>
+      seq(
+        $.methodmap_visibility,
+        "native",
+        choice($.methodmap_property_getter, $.methodmap_property_setter),
+        $.semicolon
+      ),
+    methodmap_property_method: ($) =>
+      seq(
+        $.methodmap_visibility,
+        choice($.methodmap_property_getter, $.methodmap_property_setter),
+        $.block
+      ),
+    methodmap_property_getter: ($) => token(seq("get", "(", ")")),
+    methodmap_property_setter: ($) =>
+      seq(
+        "set",
+        "(",
+        field("type", choice($.builtin_type, $.symbol)),
+        field("name", $.symbol),
+        ")"
+      ),
+    methodmap_visibility: ($) => "public",
+
     type_expression: ($) =>
       seq(choice($.builtin_type, $.symbol), repeat($.dimension)),
     old_type_expression: ($) =>
@@ -267,7 +399,8 @@ module.exports = grammar({
     _type: ($) =>
       choice($.builtin_type, $.old_builtin_type, seq($.symbol, optional(":"))),
     builtin_type: ($) => choice("void", "bool", "int", "float", "char"),
-    old_builtin_type: ($) => seq(choice("_", "Float", "bool", "String"), ":"),
+    old_builtin_type: ($) =>
+      token(seq(choice("_", "Float", "bool", "String"), ":")),
     any_type: ($) => "any",
 
     block: ($) => seq("{", repeat($._statement), "}"),

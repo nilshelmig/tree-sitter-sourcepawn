@@ -1,0 +1,326 @@
+==========================
+methodmap with inheritance
+==========================
+
+methodmap AdtArray < Handle {}
+
+---
+
+(source_file
+    (methodmap
+        name: (symbol)
+        inherits: (symbol)))
+
+
+===========================
+methodmap with method alias
+===========================
+
+methodmap Handle {
+    public Clone() = CloneHandle;
+    public Close() = CloseHandle;
+}
+
+---
+
+(source_file
+    (methodmap
+        name: (symbol)
+        (methodmap_alias
+            name: (symbol)
+            function: (symbol)
+            (semicolon))
+        (methodmap_alias
+            name: (symbol)
+            function: (symbol)
+            (semicolon))))
+
+
+============================
+methodmap with native method
+============================
+
+methodmap AdminId {
+    public native void GetUsername(char[] name, int maxlength);
+    public native bool GetPassword(char[] buffer="", int maxlength=0);
+}
+
+---
+
+(source_file
+    (methodmap
+        name: (symbol)
+        (methodmap_native
+            returnType: (builtin_type)
+            name: (symbol)
+            (argument_declarations
+                (argument_declaration
+                    type: (type_expression (builtin_type) (dimension))
+                    name: (symbol))
+                (argument_declaration
+                    type: (type_expression (builtin_type))
+                    name: (symbol)))
+            (semicolon))
+        (methodmap_native
+            returnType: (builtin_type)
+            name: (symbol)
+            (argument_declarations
+                (argument_declaration
+                    type: (type_expression (builtin_type) (dimension))
+                    name: (symbol)
+                    defaultValue: (string_literal))
+                (argument_declaration
+                    type: (type_expression (builtin_type))
+                    name: (symbol)
+                    defaultValue: (int_literal)))
+            (semicolon))))
+
+
+=======================================
+methodmap with native con-/destructor method
+=======================================
+
+methodmap AdminId {
+    public native AdminId(int id);
+    public native ~AdminId();
+}
+
+---
+
+(source_file
+    (methodmap
+        name: (symbol)
+        (methodmap_native_constructor
+            name: (symbol)
+            (argument_declarations
+                (argument_declaration
+                    type: (type_expression (builtin_type))
+                    name: (symbol)))
+            (semicolon))
+        (methodmap_native_destructor
+            name: (symbol)
+            (semicolon))))
+
+
+============================
+methodmap with inline method
+============================
+
+methodmap PerkContainerIter {
+    public bool DisplayVoteToAll(int time, int flags=0) {
+        return false;
+    }
+}
+
+---
+
+(source_file
+    (methodmap
+        name: (symbol)
+        (methodmap_method
+            returnType: (builtin_type)
+            name: (symbol)
+            (argument_declarations
+                (argument_declaration
+                    type: (type_expression (builtin_type))
+                    name: (symbol))
+                (argument_declaration
+                    type: (type_expression (builtin_type))
+                    name: (symbol)
+                    defaultValue: (int_literal)))
+            (block (return_statement (bool_literal) (semicolon))))))
+
+
+============================================
+methodmap with inline con-/destructor method
+============================================
+
+methodmap AdminId {
+    public AdminId(int id) {
+        return id;
+    }
+    public ~AdminId() {
+    }
+}
+
+---
+
+(source_file
+    (methodmap
+        name: (symbol)
+        (methodmap_method_constructor
+            name: (symbol)
+            (argument_declarations
+                (argument_declaration
+                    type: (type_expression (builtin_type))
+                    name: (symbol)))
+            (block (return_statement (symbol) (semicolon))))
+        (methodmap_method_destructor
+            name: (symbol)
+            (block))))
+
+
+===================================
+methodmap with static inline method
+===================================
+
+methodmap PerkContainerIter {
+    public static bool DisplayVoteToAll(int time, int flags=0) {
+        return false;
+    }
+}
+
+---
+
+(source_file
+    (methodmap
+        name: (symbol)
+        (methodmap_method
+            returnType: (builtin_type)
+            name: (symbol)
+            (argument_declarations
+                (argument_declaration
+                    type: (type_expression (builtin_type))
+                    name: (symbol))
+                (argument_declaration
+                    type: (type_expression (builtin_type))
+                    name: (symbol)
+                    defaultValue: (int_literal)))
+            (block (return_statement (bool_literal) (semicolon))))))
+
+
+===================================
+methodmap with inline method - this
+===================================
+
+methodmap MyValue {
+    public int JustTheValue() {
+        return this;
+    }
+}
+
+---
+
+(source_file
+    (methodmap
+        name: (symbol)
+        (methodmap_method
+            returnType: (builtin_type)
+            name: (symbol)
+            (argument_declarations)
+            (block (return_statement (this) (semicolon))))))
+
+
+===============================
+methodmap with property - alias
+===============================
+
+methodmap AdtArray {
+    property int Size {
+        public get() = GetArraySize;
+    }
+}
+
+---
+
+(source_file
+    (methodmap
+        name: (symbol)
+        (methodmap_property
+            type: (builtin_type)
+            name: (symbol)
+            (methodmap_property_alias
+                (methodmap_property_getter)
+                function: (symbol)
+                (semicolon)))))
+
+
+================================
+methodmap with property - native
+================================
+
+methodmap Player {
+    property int Health {
+        public native get();
+        public native set(int health);
+    }
+}
+
+---
+
+(source_file
+    (methodmap
+        name: (symbol)
+        (methodmap_property
+            type: (builtin_type)
+            name: (symbol)
+            (methodmap_property_native
+                (methodmap_property_getter)
+                (semicolon))
+            (methodmap_property_native
+                (methodmap_property_setter
+                    type: (builtin_type)
+                    name: (symbol))
+                (semicolon)))))
+
+
+=======================================
+methodmap with property - inline method
+=======================================
+
+methodmap Player {
+    property bool Good {
+        public get() {
+            return true;
+        }
+        public set(bool bVal) {
+            return;
+        }
+    }
+}
+
+---
+
+(source_file
+    (methodmap
+        name: (symbol)
+        (methodmap_property
+            type: (builtin_type)
+            name: (symbol)
+            (methodmap_property_method
+                (methodmap_property_getter)
+                (block
+                    (return_statement
+                        (bool_literal)
+                        (semicolon))))
+            (methodmap_property_method
+                (methodmap_property_setter
+                    type: (builtin_type)
+                    name: (symbol))
+                (block
+                    (return_statement (semicolon)))))))
+
+
+==============================
+methodmap - optional semicolon
+==============================
+
+methodmap Handle {
+    public Clone() = CloneHandle;
+    public Close() = CloseHandle;
+};
+
+---
+
+(source_file
+    (methodmap
+        name: (symbol)
+        (methodmap_alias
+            name: (symbol)
+            function: (symbol)
+            (semicolon))
+        (methodmap_alias
+            name: (symbol)
+            function: (symbol)
+            (semicolon))
+        (semicolon)))
