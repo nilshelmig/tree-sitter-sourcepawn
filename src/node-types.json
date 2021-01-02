@@ -32,6 +32,10 @@
         "named": true
       },
       {
+        "type": "function_call",
+        "named": true
+      },
+      {
         "type": "int_literal",
         "named": true
       },
@@ -773,6 +777,47 @@
         },
         {
           "type": "symbol",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function_call",
+    "named": true,
+    "fields": {
+      "function": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "function_call_arguments",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function_call_arguments",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "_expression",
           "named": true
         }
       ]
@@ -1658,10 +1703,6 @@
       "required": false,
       "types": [
         {
-          "type": "_statement",
-          "named": true
-        },
-        {
           "type": "callback_implementation",
           "named": true
         },
@@ -1683,6 +1724,10 @@
         },
         {
           "type": "methodmap",
+          "named": true
+        },
+        {
+          "type": "old_variable_declaration_statement",
           "named": true
         },
         {
@@ -1715,6 +1760,10 @@
         },
         {
           "type": "typeset",
+          "named": true
+        },
+        {
+          "type": "variable_declaration_statement",
           "named": true
         }
       ]

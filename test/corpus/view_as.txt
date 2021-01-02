@@ -2,84 +2,78 @@
 view as
 =======
 
-view_as<bool>(1);
-view_as < Action > ( 1 );
-view_as<bool>(Plugin_Handled);
-
----
-
-(source_file
-    (expression_statement
-        (view_as
-            type: (builtin_type)
-            value: (int_literal))
-        (semicolon))
-    (expression_statement
-        (view_as
-            type: (symbol)
-            value: (int_literal))
-        (semicolon))
-    (expression_statement
-        (view_as
-            type: (builtin_type)
-            value: (symbol))
-        (semicolon)))
-
-
-============================
-view as - complex expression
-============================
-
-view_as<bool>(2 < 5 && 10 > 8);
-
----
-
-(source_file
-    (expression_statement
-        (view_as
-            type: (builtin_type)
-            value: (binary_expression
-                left: (binary_expression
-                    left: (int_literal)
-                    right: (int_literal))
-                right: (binary_expression
-                    left: (int_literal)
-                    right: (int_literal))))
-        (semicolon)))
-
-
-=====================
-view as in code block
-=====================
-
-{
+void Test() {
+    view_as<bool>(1);
+    view_as < Action > ( 1 );
     view_as<bool>(Plugin_Handled);
 }
 
 ---
 
 (source_file
-    (block
-        (expression_statement
-            (view_as
+    (function_declaration
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (expression_statement
+                (view_as
+                    type: (builtin_type)
+                    value: (int_literal))
+                (semicolon))
+            (expression_statement
+                (view_as
+                    type: (symbol)
+                    value: (int_literal))
+                (semicolon))
+            (expression_statement
+                (view_as
+                    type: (builtin_type)
+                    value: (symbol))
+                (semicolon)))))
+
+
+============================
+view as - complex expression
+============================
+
+int test = view_as<int>(2 < 5 && 10 > 8);
+
+---
+
+(source_file
+    (variable_declaration_statement
+        type: (type_expression (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (view_as
                 type: (builtin_type)
-                value: (symbol))
-            (semicolon))))
+                value: (binary_expression
+                    left: (binary_expression
+                        left: (int_literal)
+                        right: (int_literal))
+                    right: (binary_expression
+                        left: (int_literal)
+                        right: (int_literal)))))
+        (semicolon)))
 
 
 ======================
 view as inside view as
 ======================
 
-view_as<bool>(view_as<int>(Plugin_Handled));
+bool test = view_as<bool>(view_as<int>(Plugin_Handled));
 
 ---
 
 (source_file
-    (expression_statement
-        (view_as
-            type: (builtin_type)
-            value: (view_as
+    (variable_declaration_statement
+        type: (type_expression (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (view_as
                 type: (builtin_type)
-                value: (symbol)))
+                value: (view_as
+                    type: (builtin_type)
+                    value: (symbol))))
         (semicolon)))

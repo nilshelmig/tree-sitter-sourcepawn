@@ -26,7 +26,11 @@ module.exports = grammar({
 
   extras: ($) => [/\s|\\\r?\n/, $.comment],
 
-  inline: ($) => [$._statement, $.methodmap_visibility],
+  inline: ($) => [
+    $._statement,
+    $._top_level_statements,
+    $.methodmap_visibility,
+  ],
 
   conflicts: ($) => [
     [$._type, $.type_expression],
@@ -43,6 +47,7 @@ module.exports = grammar({
       $.old_variable_storage_class,
     ],
     [$.argument_declaration, $.type_expression],
+    [$.argument_declarations, $.function_call_arguments],
   ],
 
   word: ($) => $.symbol,
@@ -59,7 +64,7 @@ module.exports = grammar({
           $.typedef,
           $.typeset,
           $.methodmap,
-          $._statement,
+          $._top_level_statements,
           $.preproc_include,
           $.preproc_tryinclude,
           $.preproc_def,
@@ -406,15 +411,19 @@ module.exports = grammar({
     block: ($) => seq("{", repeat($._statement), "}"),
 
     // Statements
-
     _statement: ($) =>
       choice(
         $.block,
-        $.variable_declaration_statement,
-        $.old_variable_declaration_statement,
+        $._top_level_statements,
         $.return_statement,
         $.delete_statement,
         $.expression_statement
+      ),
+
+    _top_level_statements: ($) =>
+      choice(
+        $.variable_declaration_statement,
+        $.old_variable_declaration_statement
       ),
 
     expression_statement: ($) =>
@@ -438,6 +447,7 @@ module.exports = grammar({
 
     _expression: ($) =>
       choice(
+        $.function_call,
         $.conditional_expression,
         $.field_access_expression,
         $.binary_expression,
@@ -452,6 +462,17 @@ module.exports = grammar({
         $.parenthesized_expression,
         $.vector,
         $.this
+      ),
+
+    function_call: ($) =>
+      prec.left(
+        PREC.CALL,
+        seq(field("function", $.symbol), $.function_call_arguments)
+      ),
+    function_call_arguments: ($) =>
+      prec.left(
+        -11,
+        seq("(", commaSep(choice(seq("&", $.symbol), $._expression)), ")")
       ),
 
     parenthesized_expression: ($) =>

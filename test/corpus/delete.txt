@@ -2,28 +2,18 @@
 delete
 ======
 
-delete myhandle;
-
----
-
-(source_file
-    (delete_statement
-        free: (symbol)
-        (semicolon)))
-
-
-========================
-delete inside code block
-========================
-
-{
+void SaveClose(Handle myhandle) {
     delete myhandle;
 }
 
 ---
 
 (source_file
+  (function_declaration
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (symbol)) name: (symbol)))
     (block
         (delete_statement
             free: (symbol)
-            (semicolon))))
+            (semicolon)))))

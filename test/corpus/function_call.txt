@@ -1,0 +1,124 @@
+=============
+function call
+=============
+
+void Test() {
+    MyFunc();
+}
+
+---
+
+(source_file
+  (function_declaration
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations)
+    (block
+        (expression_statement
+            (function_call
+                function: (symbol)
+                (function_call_arguments))
+            (semicolon)))))
+
+
+============================
+function call with arguments
+============================
+
+void Test() {
+    MyFunc1("test");
+    MyFunc2("test", 2, &ref, myVar);
+}
+
+---
+
+(source_file
+  (function_declaration
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations)
+    (block
+        (expression_statement
+            (function_call
+                function: (symbol)
+                (function_call_arguments (string_literal)))
+            (semicolon))
+        (expression_statement
+            (function_call
+                function: (symbol)
+                (function_call_arguments
+                    (string_literal)
+                    (int_literal)
+                    (symbol)
+                    (symbol)))
+            (semicolon)))))
+
+
+===========================
+function call as expression
+===========================
+
+bool Test() {
+    return 10 > CurrentCount();
+}
+
+---
+
+(source_file
+    (function_declaration
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (return_statement
+                (binary_expression
+                    left: (int_literal)
+                    right: (function_call
+                        function: (symbol)
+                        (function_call_arguments)))
+                (semicolon)))))
+
+
+=======================================
+function call as function call argument
+=======================================
+
+void Test() {
+    IncreaseCounter(CurrentCount());
+}
+
+---
+
+(source_file
+    (function_declaration
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (expression_statement
+                (function_call
+                    function: (symbol)
+                    (function_call_arguments
+                        (function_call
+                            function: (symbol)
+                            (function_call_arguments))))
+                (semicolon)))))
+
+
+==============================
+function call as initial value
+==============================
+
+int count = CurrentCount();
+
+---
+
+(source_file
+    (variable_declaration_statement
+        type: (type_expression (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (function_call
+                function: (symbol)
+                (function_call_arguments)))
+        (semicolon)))
