@@ -111,7 +111,7 @@ module.exports = grammar({
         $.block
       ),
     function_storage_class: ($) =>
-      choice("stock", "static", "stock static", "static stock"),
+      choice("stock", "static", seq("stock", "static"), seq("static", "stock")),
 
     function_definition: ($) =>
       seq(
@@ -377,7 +377,7 @@ module.exports = grammar({
         choice($.methodmap_property_getter, $.methodmap_property_setter),
         $.block
       ),
-    methodmap_property_getter: ($) => token(seq("get", "(", ")")),
+    methodmap_property_getter: ($) => seq("get", "(", ")"),
     methodmap_property_setter: ($) =>
       seq(
         "set",
@@ -393,7 +393,7 @@ module.exports = grammar({
     old_type_expression: ($) =>
       seq(choice($.old_builtin_type, seq($.symbol, ":")), repeat($.dimension)),
 
-    dimension: ($) => token(seq("[", "]")),
+    dimension: ($) => seq("[", "]"),
     fixed_dimension: ($) => seq("[", choice($.int_literal, $.symbol), "]"),
 
     _type: ($) =>

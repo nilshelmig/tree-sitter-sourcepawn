@@ -335,12 +335,30 @@
           "value": "static"
         },
         {
-          "type": "STRING",
-          "value": "stock static"
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "stock"
+            },
+            {
+              "type": "STRING",
+              "value": "static"
+            }
+          ]
         },
         {
-          "type": "STRING",
-          "value": "static stock"
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "static"
+            },
+            {
+              "type": "STRING",
+              "value": "stock"
+            }
+          ]
         }
       ]
     },
@@ -1926,24 +1944,21 @@
       ]
     },
     "methodmap_property_getter": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "get"
-          },
-          {
-            "type": "STRING",
-            "value": "("
-          },
-          {
-            "type": "STRING",
-            "value": ")"
-          }
-        ]
-      }
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "get"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
     },
     "methodmap_property_setter": {
       "type": "SEQ",
@@ -2051,20 +2066,17 @@
       ]
     },
     "dimension": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "["
-          },
-          {
-            "type": "STRING",
-            "value": "]"
-          }
-        ]
-      }
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        }
+      ]
     },
     "fixed_dimension": {
       "type": "SEQ",

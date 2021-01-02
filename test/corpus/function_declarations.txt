@@ -71,11 +71,18 @@ static void MyFunc() {}
 static stock function
 =====================
 
-static stock void MyFunc() {}
+static stock void MyFunc1() {}
+static      stock void MyFunc2() {}
 
 ---
 
 (source_file
+  (function_declaration
+    (function_storage_class)
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations)
+    (block))
   (function_declaration
     (function_storage_class)
     returnType: (builtin_type)
@@ -88,11 +95,18 @@ static stock void MyFunc() {}
 stock static function
 =====================
 
-stock static void MyFunc() {}
+stock static void MyFunc1() {}
+stock     static void MyFunc2() {}
 
 ---
 
 (source_file
+  (function_declaration
+    (function_storage_class)
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations)
+    (block))
   (function_declaration
     (function_storage_class)
     returnType: (builtin_type)

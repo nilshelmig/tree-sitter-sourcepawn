@@ -479,6 +479,11 @@
     }
   },
   {
+    "type": "dimension",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "enum",
     "named": true,
     "fields": {
@@ -1254,6 +1259,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "methodmap_property_getter",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "methodmap_property_method",
@@ -2234,10 +2244,6 @@
     "named": false
   },
   {
-    "type": "dimension",
-    "named": true
-  },
-  {
     "type": "enum",
     "named": false
   },
@@ -2262,6 +2268,10 @@
     "named": false
   },
   {
+    "type": "get",
+    "named": false
+  },
+  {
     "type": "int",
     "named": false
   },
@@ -2272,10 +2282,6 @@
   {
     "type": "methodmap",
     "named": false
-  },
-  {
-    "type": "methodmap_property_getter",
-    "named": true
   },
   {
     "type": "native",
@@ -2330,15 +2336,7 @@
     "named": false
   },
   {
-    "type": "static stock",
-    "named": false
-  },
-  {
     "type": "stock",
-    "named": false
-  },
-  {
-    "type": "stock static",
     "named": false
   },
   {
