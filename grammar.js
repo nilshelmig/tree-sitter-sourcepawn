@@ -413,6 +413,7 @@ module.exports = grammar({
         $.variable_declaration_statement,
         $.old_variable_declaration_statement,
         $.return_statement,
+        $.delete_statement,
         $.expression_statement
       ),
 
@@ -427,6 +428,9 @@ module.exports = grammar({
           optional($.semicolon)
         )
       ),
+
+    delete_statement: ($) =>
+      prec.right(seq("delete", field("free", $.symbol), optional($.semicolon))),
 
     semicolon: ($) => ";",
 

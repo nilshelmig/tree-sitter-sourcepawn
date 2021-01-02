@@ -86,6 +86,10 @@
         "named": true
       },
       {
+        "type": "delete_statement",
+        "named": true
+      },
+      {
         "type": "expression_statement",
         "named": true
       },
@@ -480,6 +484,32 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "delete_statement",
+    "named": true,
+    "fields": {
+      "free": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "semicolon",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -2275,6 +2305,10 @@
   },
   {
     "type": "decl",
+    "named": false
+  },
+  {
+    "type": "delete",
     "named": false
   },
   {

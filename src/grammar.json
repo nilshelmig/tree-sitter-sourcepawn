@@ -2237,6 +2237,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "delete_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "expression_statement"
         }
       ]
@@ -2301,6 +2305,39 @@
                 "type": "BLANK"
               }
             ]
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "semicolon"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "delete_statement": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "delete"
+          },
+          {
+            "type": "FIELD",
+            "name": "free",
+            "content": {
+              "type": "SYMBOL",
+              "name": "symbol"
+            }
           },
           {
             "type": "CHOICE",

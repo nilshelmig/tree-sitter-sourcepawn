@@ -1,0 +1,29 @@
+======
+delete
+======
+
+delete myhandle;
+
+---
+
+(source_file
+    (delete_statement
+        free: (symbol)
+        (semicolon)))
+
+
+========================
+delete inside code block
+========================
+
+{
+    delete myhandle;
+}
+
+---
+
+(source_file
+    (block
+        (delete_statement
+            free: (symbol)
+            (semicolon))))
