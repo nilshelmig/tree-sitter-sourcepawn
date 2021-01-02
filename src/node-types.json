@@ -70,6 +70,10 @@
       {
         "type": "vector",
         "named": true
+      },
+      {
+        "type": "view_as",
+        "named": true
       }
     ]
   },
@@ -2068,6 +2072,36 @@
     }
   },
   {
+    "type": "view_as",
+    "named": true,
+    "fields": {
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "builtin_type",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "_expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "\n",
     "named": false
   },
@@ -2361,6 +2395,10 @@
   },
   {
     "type": "typeset",
+    "named": false
+  },
+  {
+    "type": "view_as",
     "named": false
   },
   {

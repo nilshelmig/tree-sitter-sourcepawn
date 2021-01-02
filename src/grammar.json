@@ -5,74 +5,70 @@
     "source_file": {
       "type": "REPEAT",
       "content": {
-        "type": "SYMBOL",
-        "name": "_top_level_item"
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "function_declaration"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "function_definition"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "callback_implementation"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "enum"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "enum_struct"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "typedef"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "typeset"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "methodmap"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_statement"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "preproc_include"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "preproc_tryinclude"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "preproc_def"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "preproc_if"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "preproc_endif"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "preproc_undef"
+          }
+        ]
       }
-    },
-    "_top_level_item": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "function_declaration"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "function_definition"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "callback_implementation"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "enum"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "enum_struct"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "typedef"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "typeset"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "methodmap"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_statement"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "preproc_include"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "preproc_tryinclude"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "preproc_def"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "preproc_if"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "preproc_endif"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "preproc_undef"
-        }
-      ]
     },
     "preproc_include": {
       "type": "SEQ",
@@ -2354,6 +2350,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "view_as"
+        },
+        {
+          "type": "SYMBOL",
           "name": "symbol"
         },
         {
@@ -3261,6 +3261,60 @@
                 "value": ")"
               }
             ]
+          }
+        ]
+      }
+    },
+    "view_as": {
+      "type": "PREC_LEFT",
+      "value": 12,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "view_as"
+          },
+          {
+            "type": "STRING",
+            "value": "<"
+          },
+          {
+            "type": "FIELD",
+            "name": "type",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "builtin_type"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "symbol"
+                }
+              ]
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ">"
+          },
+          {
+            "type": "STRING",
+            "value": "("
+          },
+          {
+            "type": "FIELD",
+            "name": "value",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expression"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ")"
           }
         ]
       }

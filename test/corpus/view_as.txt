@@ -1,0 +1,85 @@
+=======
+view as
+=======
+
+view_as<bool>(1);
+view_as < Action > ( 1 );
+view_as<bool>(Plugin_Handled);
+
+---
+
+(source_file
+    (expression_statement
+        (view_as
+            type: (builtin_type)
+            value: (int_literal))
+        (semicolon))
+    (expression_statement
+        (view_as
+            type: (symbol)
+            value: (int_literal))
+        (semicolon))
+    (expression_statement
+        (view_as
+            type: (builtin_type)
+            value: (symbol))
+        (semicolon)))
+
+
+============================
+view as - complex expression
+============================
+
+view_as<bool>(2 < 5 && 10 > 8);
+
+---
+
+(source_file
+    (expression_statement
+        (view_as
+            type: (builtin_type)
+            value: (binary_expression
+                left: (binary_expression
+                    left: (int_literal)
+                    right: (int_literal))
+                right: (binary_expression
+                    left: (int_literal)
+                    right: (int_literal))))
+        (semicolon)))
+
+
+=====================
+view as in code block
+=====================
+
+{
+    view_as<bool>(Plugin_Handled);
+}
+
+---
+
+(source_file
+    (block
+        (expression_statement
+            (view_as
+                type: (builtin_type)
+                value: (symbol))
+            (semicolon))))
+
+
+======================
+view as inside view as
+======================
+
+view_as<bool>(view_as<int>(Plugin_Handled));
+
+---
+
+(source_file
+    (expression_statement
+        (view_as
+            type: (builtin_type)
+            value: (view_as
+                type: (builtin_type)
+                value: (symbol)))
+        (semicolon)))

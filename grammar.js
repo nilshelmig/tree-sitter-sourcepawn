@@ -48,25 +48,25 @@ module.exports = grammar({
   word: ($) => $.symbol,
 
   rules: {
-    source_file: ($) => repeat($._top_level_item),
-
-    _top_level_item: ($) =>
-      choice(
-        $.function_declaration,
-        $.function_definition,
-        $.callback_implementation,
-        $.enum,
-        $.enum_struct,
-        $.typedef,
-        $.typeset,
-        $.methodmap,
-        $._statement,
-        $.preproc_include,
-        $.preproc_tryinclude,
-        $.preproc_def,
-        $.preproc_if,
-        $.preproc_endif,
-        $.preproc_undef
+    source_file: ($) =>
+      repeat(
+        choice(
+          $.function_declaration,
+          $.function_definition,
+          $.callback_implementation,
+          $.enum,
+          $.enum_struct,
+          $.typedef,
+          $.typeset,
+          $.methodmap,
+          $._statement,
+          $.preproc_include,
+          $.preproc_tryinclude,
+          $.preproc_def,
+          $.preproc_if,
+          $.preproc_endif,
+          $.preproc_undef
+        )
       ),
 
     // Preprocesser
@@ -440,6 +440,7 @@ module.exports = grammar({
         $.unary_expression,
         $.update_expression,
         $.sizeof_expression,
+        $.view_as,
         $.symbol,
         $._literal,
         $.concatenated_string,
@@ -537,6 +538,20 @@ module.exports = grammar({
 
     sizeof_expression: ($) =>
       prec(PREC.SIZEOF, seq("sizeof", seq("(", field("type", $.symbol), ")"))),
+
+    view_as: ($) =>
+      prec.left(
+        PREC.CAST,
+        seq(
+          "view_as",
+          "<",
+          field("type", choice($.builtin_type, $.symbol)),
+          ">",
+          "(",
+          field("value", $._expression),
+          ")"
+        )
+      ),
 
     vector: ($) =>
       prec(
