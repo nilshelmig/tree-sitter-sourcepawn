@@ -18,7 +18,7 @@ const PREC = {
   UNARY: 13,
   CALL: 14,
   FIELD: 15,
-  SUBSCRIPT: 16,
+  ARRAY_MEMBER: 16,
 };
 
 module.exports = grammar({
@@ -454,6 +454,7 @@ module.exports = grammar({
     _expression: ($) =>
       choice(
         $.function_call,
+        $.array_indexed_access,
         $.conditional_expression,
         $.field_access_expression,
         $.binary_expression,
@@ -479,6 +480,12 @@ module.exports = grammar({
       prec.left(
         -11,
         seq("(", commaSep(choice(seq("&", $.symbol), $._expression)), ")")
+      ),
+
+    array_indexed_access: ($) =>
+      prec(
+        PREC.ARRAY_MEMBER,
+        seq(field("array", $.symbol), "[", field("index", $._expression), "]")
       ),
 
     parenthesized_expression: ($) =>

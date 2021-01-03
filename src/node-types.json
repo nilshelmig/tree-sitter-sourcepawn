@@ -4,6 +4,10 @@
     "named": true,
     "subtypes": [
       {
+        "type": "array_indexed_access",
+        "named": true
+      },
+      {
         "type": "binary_expression",
         "named": true
       },
@@ -210,6 +214,32 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "array_indexed_access",
+    "named": true,
+    "fields": {
+      "array": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "index": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "_expression",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {

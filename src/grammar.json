@@ -2422,6 +2422,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "array_indexed_access"
+        },
+        {
+          "type": "SYMBOL",
           "name": "conditional_expression"
         },
         {
@@ -2581,6 +2585,39 @@
           {
             "type": "STRING",
             "value": ")"
+          }
+        ]
+      }
+    },
+    "array_indexed_access": {
+      "type": "PREC",
+      "value": 16,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "array",
+            "content": {
+              "type": "SYMBOL",
+              "name": "symbol"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "["
+          },
+          {
+            "type": "FIELD",
+            "name": "index",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expression"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "]"
           }
         ]
       }
@@ -4323,7 +4360,7 @@
     "UNARY": 13,
     "CALL": 14,
     "FIELD": 15,
-    "SUBSCRIPT": 16
+    "ARRAY_MEMBER": 16
   }
 }
 
