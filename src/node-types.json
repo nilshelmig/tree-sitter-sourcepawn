@@ -1579,6 +1579,22 @@
     }
   },
   {
+    "type": "preproc_defined_condition",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "preproc_endif",
     "named": true,
     "fields": {}
@@ -1591,6 +1607,10 @@
         "multiple": false,
         "required": true,
         "types": [
+          {
+            "type": "preproc_defined_condition",
+            "named": true
+          },
           {
             "type": "symbol",
             "named": true

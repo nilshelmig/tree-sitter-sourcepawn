@@ -102,7 +102,13 @@ module.exports = grammar({
       seq(preprocessor("undef"), field("name", $.symbol), "\n"),
 
     preproc_if: ($) =>
-      seq(preprocessor("if"), field("condition", $.symbol), "\n"),
+      seq(
+        preprocessor("if"),
+        field("condition", choice($.symbol, $.preproc_defined_condition)),
+        "\n"
+      ),
+    preproc_defined_condition: ($) =>
+      seq(token(seq(optional("!"), "defined")), field("name", $.symbol)),
     preproc_endif: ($) => seq(preprocessor("endif"), "\n"),
 
     // Main Grammar

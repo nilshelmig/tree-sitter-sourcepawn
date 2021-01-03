@@ -1,0 +1,46 @@
+======================
+preprocessor condition
+======================
+
+#if TEST
+
+---
+
+(source_file (preproc_if condition: (symbol)))
+
+
+=========================================
+preprocessor condition - defined constant
+=========================================
+
+#if defined TEST
+
+---
+
+(source_file
+    (preproc_if
+        condition: (preproc_defined_condition name: (symbol))))
+
+
+=============================================
+preprocessor condition - not defined constant
+=============================================
+
+#if !defined TEST
+
+---
+
+(source_file
+    (preproc_if
+        condition: (preproc_defined_condition name: (symbol))))
+
+
+=====
+endif
+=====
+
+#endif
+
+---
+
+(source_file (preproc_endif))
