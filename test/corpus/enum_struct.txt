@@ -79,12 +79,12 @@ enum struct Rectangle
             (block
                 (return_statement
                     (binary_expression
-                        left: (field_access_expression
-                            object: (this)
-                            member: (symbol))
-                        right: (field_access_expression
-                            object: (this)
-                            member: (symbol)))
+                        left: (field_access
+                            target: (this)
+                            field: (symbol))
+                        right: (field_access
+                            target: (this)
+                            field: (symbol)))
                     (semicolon))))))
 
 
@@ -127,17 +127,17 @@ enum struct Rectangle
                 (return_statement
                     (binary_expression
                         left: (binary_expression
-                            left: (field_access_expression
-                                object: (symbol)
-                                member: (symbol))
-                            right: (field_access_expression
-                                object: (this)
-                                member: (symbol)))
+                            left: (field_access
+                                target: (symbol)
+                                field: (symbol))
+                            right: (field_access
+                                target: (this)
+                                field: (symbol)))
                         right: (binary_expression
-                            left: (field_access_expression
-                                object: (symbol)
-                                member: (symbol))
-                            right: (field_access_expression
-                                object: (this)
-                                member: (symbol))))
+                            left: (field_access
+                                target: (symbol)
+                                field: (symbol))
+                            right: (field_access
+                                target: (this)
+                                field: (symbol))))
                     (semicolon))))))

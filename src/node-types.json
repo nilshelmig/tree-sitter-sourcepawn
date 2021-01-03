@@ -28,7 +28,7 @@
         "named": true
       },
       {
-        "type": "field_access_expression",
+        "type": "field_access",
         "named": true
       },
       {
@@ -764,10 +764,10 @@
     }
   },
   {
-    "type": "field_access_expression",
+    "type": "field_access",
     "named": true,
     "fields": {
-      "member": {
+      "field": {
         "multiple": false,
         "required": true,
         "types": [
@@ -777,16 +777,12 @@
           }
         ]
       },
-      "object": {
+      "target": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "symbol",
-            "named": true
-          },
-          {
-            "type": "this",
+            "type": "_expression",
             "named": true
           }
         ]

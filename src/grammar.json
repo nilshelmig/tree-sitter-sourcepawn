@@ -2430,7 +2430,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "field_access_expression"
+          "name": "field_access"
         },
         {
           "type": "SYMBOL",
@@ -2723,7 +2723,7 @@
         ]
       }
     },
-    "field_access_expression": {
+    "field_access": {
       "type": "PREC_RIGHT",
       "value": 15,
       "content": {
@@ -2731,19 +2731,10 @@
         "members": [
           {
             "type": "FIELD",
-            "name": "object",
+            "name": "target",
             "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "symbol"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "this"
-                }
-              ]
+              "type": "SYMBOL",
+              "name": "_expression"
             }
           },
           {
@@ -2752,7 +2743,7 @@
           },
           {
             "type": "FIELD",
-            "name": "member",
+            "name": "field",
             "content": {
               "type": "SYMBOL",
               "name": "symbol"

@@ -456,7 +456,7 @@ module.exports = grammar({
         $.function_call,
         $.array_indexed_access,
         $.conditional_expression,
-        $.field_access_expression,
+        $.field_access,
         $.binary_expression,
         $.unary_expression,
         $.update_expression,
@@ -510,14 +510,10 @@ module.exports = grammar({
         )
       ),
 
-    field_access_expression: ($) =>
+    field_access: ($) =>
       prec.right(
         PREC.FIELD,
-        seq(
-          field("object", choice($.symbol, $.this)),
-          ".",
-          field("member", $.symbol)
-        )
+        seq(field("target", $._expression), ".", field("field", $.symbol))
       ),
 
     unary_expression: ($) =>
