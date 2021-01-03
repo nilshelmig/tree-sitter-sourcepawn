@@ -63,7 +63,7 @@ typedef CustomHandler =
                     name: (symbol)
                     (fixed_dimension (int_literal)))
                 (typedef_arg
-                    type: (any_type)
+                    type: (type_expression (any_type))
                     name: (symbol))))
         (semicolon)))
 

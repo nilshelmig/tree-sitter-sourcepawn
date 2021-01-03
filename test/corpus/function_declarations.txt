@@ -520,3 +520,29 @@ void MyFunc(a, _:b, Float:c, String:d, bool:e) {}
       (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol))
       (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol)))
     (block)))
+
+
+===========================
+function with rest argument
+===========================
+
+void MyFunc1(any ...) {}
+void MyFunc2(const char[] format, any ...) {}
+
+---
+
+(source_file
+  (function_declaration
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations (rest_argument type: (type_expression (any_type))))
+    (block))
+  (function_declaration
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations
+      (argument_declaration
+        type: (type_expression (builtin_type) (dimension))
+        name: (symbol))
+      (rest_argument type: (type_expression (any_type))))
+    (block)))

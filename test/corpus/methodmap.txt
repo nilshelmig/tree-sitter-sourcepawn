@@ -43,6 +43,7 @@ methodmap with native method
 methodmap AdminId {
     public native void GetUsername(char[] name, int maxlength);
     public native bool GetPassword(char[] buffer="", int maxlength=0);
+    public native bool Format(const char[] format, any ...);
 }
 
 ---
@@ -73,6 +74,15 @@ methodmap AdminId {
                     type: (type_expression (builtin_type))
                     name: (symbol)
                     defaultValue: (int_literal)))
+            (semicolon))
+        (methodmap_native
+            returnType: (builtin_type)
+            name: (symbol)
+            (argument_declarations
+                (argument_declaration
+                    type: (type_expression (builtin_type) (dimension))
+                    name: (symbol))
+                (rest_argument type: (type_expression (any_type))))
             (semicolon))))
 
 
@@ -110,6 +120,9 @@ methodmap PerkContainerIter {
     public bool DisplayVoteToAll(int time, int flags=0) {
         return false;
     }
+
+    public void Format(const char[] format, any ...) {
+    }
 }
 
 ---
@@ -128,7 +141,16 @@ methodmap PerkContainerIter {
                     type: (type_expression (builtin_type))
                     name: (symbol)
                     defaultValue: (int_literal)))
-            (block (return_statement (bool_literal) (semicolon))))))
+            (block (return_statement (bool_literal) (semicolon))))
+        (methodmap_method
+            returnType: (builtin_type)
+            name: (symbol)
+            (argument_declarations
+                (argument_declaration
+                    type: (type_expression (builtin_type) (dimension))
+                    name: (symbol))
+                (rest_argument type: (type_expression (any_type))))
+            (block))))
 
 
 ============================================

@@ -147,8 +147,12 @@ module.exports = grammar({
     argument_declarations: ($) =>
       seq(
         "(",
-        optional(
-          seq($.argument_declaration, repeat(seq(",", $.argument_declaration)))
+        choice(
+          $.rest_argument,
+          seq(
+            commaSep($.argument_declaration),
+            optional(seq(",", $.rest_argument))
+          )
         ),
         ")"
       ),
@@ -171,6 +175,7 @@ module.exports = grammar({
           )
         )
       ),
+    rest_argument: ($) => seq(field("type", $.type_expression), "..."),
 
     variable_declaration_statement: ($) =>
       seq(
@@ -262,7 +267,7 @@ module.exports = grammar({
     typedef_arg: ($) =>
       seq(
         optional("const"),
-        field("type", choice($.type_expression, $.any_type)),
+        field("type", $.type_expression, $.any_type),
         optional("&"),
         field("name", $.symbol),
         optional($.fixed_dimension)
@@ -400,7 +405,7 @@ module.exports = grammar({
     methodmap_visibility: ($) => "public",
 
     type_expression: ($) =>
-      seq(choice($.builtin_type, $.symbol), repeat($.dimension)),
+      seq(choice($.builtin_type, $.symbol, $.any_type), repeat($.dimension)),
     old_type_expression: ($) =>
       seq(choice($.old_builtin_type, seq($.symbol, ":")), repeat($.dimension)),
 

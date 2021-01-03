@@ -212,6 +212,10 @@
         {
           "type": "argument_declaration",
           "named": true
+        },
+        {
+          "type": "rest_argument",
+          "named": true
         }
       ]
     }
@@ -1702,6 +1706,27 @@
     }
   },
   {
+    "type": "rest_argument",
+    "named": true,
+    "fields": {
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "rest_operator",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "return_statement",
     "named": true,
     "fields": {},
@@ -1839,6 +1864,10 @@
       "required": true,
       "types": [
         {
+          "type": "any_type",
+          "named": true
+        },
+        {
           "type": "builtin_type",
           "named": true
         },
@@ -1901,10 +1930,6 @@
         "multiple": false,
         "required": true,
         "types": [
-          {
-            "type": "any_type",
-            "named": true
-          },
           {
             "type": "type_expression",
             "named": true
@@ -2319,6 +2344,10 @@
     "named": false
   },
   {
+    "type": "...",
+    "named": false
+  },
+  {
     "type": "/",
     "named": false
   },
@@ -2473,10 +2502,6 @@
   {
     "type": "public",
     "named": false
-  },
-  {
-    "type": "rest_operator",
-    "named": true
   },
   {
     "type": "return",
