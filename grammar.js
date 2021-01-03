@@ -67,10 +67,10 @@ module.exports = grammar({
           $._top_level_statements,
           $.preproc_include,
           $.preproc_tryinclude,
-          $.preproc_def,
+          $.preproc_define,
+          $.preproc_undefine,
           $.preproc_if,
-          $.preproc_endif,
-          $.preproc_undef
+          $.preproc_endif
         )
       ),
 
@@ -90,16 +90,16 @@ module.exports = grammar({
         "\n"
       ),
 
-    preproc_def: ($) =>
+    preproc_define: ($) =>
       seq(
         preprocessor("define"),
         field("name", $.symbol),
-        field("value", optional($.preproc_arg)),
+        field("value", optional($.preproc_define_arg)),
         "\n"
       ),
-    preproc_undef: ($) =>
+    preproc_define_arg: ($) => token(prec(-1, repeat1(/.|\\\r?\n/))),
+    preproc_undefine: ($) =>
       seq(preprocessor("undef"), field("name", $.symbol), "\n"),
-    preproc_arg: ($) => token(prec(-1, repeat1(/.|\\\r?\n/))),
 
     preproc_if: ($) =>
       seq(preprocessor("if"), field("condition", $.symbol), "\n"),

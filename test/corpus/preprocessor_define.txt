@@ -1,0 +1,71 @@
+===============
+define constant
+===============
+
+#define START_INDEX -1
+#define ZERO 0.0
+#define VERSION "1.0.0"
+#define ACTIVATED true
+#define DONE Plugin_Handled
+
+---
+
+(source_file
+    (preproc_define
+        name: (symbol)
+        value: (preproc_define_arg))
+    (preproc_define
+        name: (symbol)
+        value: (preproc_define_arg))
+    (preproc_define
+        name: (symbol)
+        value: (preproc_define_arg))
+    (preproc_define
+        name: (symbol)
+        value: (preproc_define_arg))
+    (preproc_define
+        name: (symbol)
+        value: (preproc_define_arg)))
+
+
+=================
+define expression
+=================
+
+#define START (1 << 2)
+#define SOUND_INTV GetRandomFloat(1.5, 3.0)
+
+---
+
+(source_file
+    (preproc_define
+        name: (symbol)
+        value: (preproc_define_arg))
+    (preproc_define
+        name: (symbol)
+        value: (preproc_define_arg)))
+
+
+==========================
+define handles spaces/tabs
+==========================
+
+#define		Test		    "Hello"
+
+---
+
+(source_file
+    (preproc_define
+        name: (symbol)
+        value: (preproc_define_arg)))
+
+
+========
+undefine
+========
+
+#undef Test
+
+---
+
+(source_file (preproc_undefine name: (symbol)))

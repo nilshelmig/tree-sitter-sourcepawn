@@ -20,9 +20,9 @@ enum {
   aux_sym_preproc_include_token1 = 2,
   anon_sym_LF = 3,
   aux_sym_preproc_tryinclude_token1 = 4,
-  aux_sym_preproc_def_token1 = 5,
-  aux_sym_preproc_undef_token1 = 6,
-  sym_preproc_arg = 7,
+  aux_sym_preproc_define_token1 = 5,
+  sym_preproc_define_arg = 6,
+  aux_sym_preproc_undefine_token1 = 7,
   aux_sym_preproc_if_token1 = 8,
   aux_sym_preproc_endif_token1 = 9,
   anon_sym_stock = 10,
@@ -103,8 +103,8 @@ enum {
   sym_source_file = 85,
   sym_preproc_include = 86,
   sym_preproc_tryinclude = 87,
-  sym_preproc_def = 88,
-  sym_preproc_undef = 89,
+  sym_preproc_define = 88,
+  sym_preproc_undefine = 89,
   sym_preproc_if = 90,
   sym_preproc_endif = 91,
   sym_function_declaration = 92,
@@ -197,9 +197,9 @@ static const char *ts_symbol_names[] = {
   [aux_sym_preproc_include_token1] = "#include",
   [anon_sym_LF] = "\n",
   [aux_sym_preproc_tryinclude_token1] = "#tryinclude",
-  [aux_sym_preproc_def_token1] = "#define",
-  [aux_sym_preproc_undef_token1] = "#undef",
-  [sym_preproc_arg] = "preproc_arg",
+  [aux_sym_preproc_define_token1] = "#define",
+  [sym_preproc_define_arg] = "preproc_define_arg",
+  [aux_sym_preproc_undefine_token1] = "#undef",
   [aux_sym_preproc_if_token1] = "#if",
   [aux_sym_preproc_endif_token1] = "#endif",
   [anon_sym_stock] = "stock",
@@ -280,8 +280,8 @@ static const char *ts_symbol_names[] = {
   [sym_source_file] = "source_file",
   [sym_preproc_include] = "preproc_include",
   [sym_preproc_tryinclude] = "preproc_tryinclude",
-  [sym_preproc_def] = "preproc_def",
-  [sym_preproc_undef] = "preproc_undef",
+  [sym_preproc_define] = "preproc_define",
+  [sym_preproc_undefine] = "preproc_undefine",
   [sym_preproc_if] = "preproc_if",
   [sym_preproc_endif] = "preproc_endif",
   [sym_function_declaration] = "function_declaration",
@@ -374,9 +374,9 @@ static TSSymbol ts_symbol_map[] = {
   [aux_sym_preproc_include_token1] = aux_sym_preproc_include_token1,
   [anon_sym_LF] = anon_sym_LF,
   [aux_sym_preproc_tryinclude_token1] = aux_sym_preproc_tryinclude_token1,
-  [aux_sym_preproc_def_token1] = aux_sym_preproc_def_token1,
-  [aux_sym_preproc_undef_token1] = aux_sym_preproc_undef_token1,
-  [sym_preproc_arg] = sym_preproc_arg,
+  [aux_sym_preproc_define_token1] = aux_sym_preproc_define_token1,
+  [sym_preproc_define_arg] = sym_preproc_define_arg,
+  [aux_sym_preproc_undefine_token1] = aux_sym_preproc_undefine_token1,
   [aux_sym_preproc_if_token1] = aux_sym_preproc_if_token1,
   [aux_sym_preproc_endif_token1] = aux_sym_preproc_endif_token1,
   [anon_sym_stock] = anon_sym_stock,
@@ -457,8 +457,8 @@ static TSSymbol ts_symbol_map[] = {
   [sym_source_file] = sym_source_file,
   [sym_preproc_include] = sym_preproc_include,
   [sym_preproc_tryinclude] = sym_preproc_tryinclude,
-  [sym_preproc_def] = sym_preproc_def,
-  [sym_preproc_undef] = sym_preproc_undef,
+  [sym_preproc_define] = sym_preproc_define,
+  [sym_preproc_undefine] = sym_preproc_undefine,
   [sym_preproc_if] = sym_preproc_if,
   [sym_preproc_endif] = sym_preproc_endif,
   [sym_function_declaration] = sym_function_declaration,
@@ -566,17 +566,17 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = false,
   },
-  [aux_sym_preproc_def_token1] = {
+  [aux_sym_preproc_define_token1] = {
     .visible = true,
     .named = false,
   },
-  [aux_sym_preproc_undef_token1] = {
-    .visible = true,
-    .named = false,
-  },
-  [sym_preproc_arg] = {
+  [sym_preproc_define_arg] = {
     .visible = true,
     .named = true,
+  },
+  [aux_sym_preproc_undefine_token1] = {
+    .visible = true,
+    .named = false,
   },
   [aux_sym_preproc_if_token1] = {
     .visible = true,
@@ -898,11 +898,11 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = true,
   },
-  [sym_preproc_def] = {
+  [sym_preproc_define] = {
     .visible = true,
     .named = true,
   },
-  [sym_preproc_undef] = {
+  [sym_preproc_undefine] = {
     .visible = true,
     .named = true,
   },
@@ -1702,12 +1702,12 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       END_STATE();
     case 10:
       if (lookahead == '\n') ADVANCE(82);
-      if (lookahead == '/') ADVANCE(92);
-      if (lookahead == '\\') ADVANCE(90);
+      if (lookahead == '/') ADVANCE(91);
+      if (lookahead == '\\') ADVANCE(89);
       if (lookahead == '\t' ||
           lookahead == '\r' ||
-          lookahead == ' ') ADVANCE(89);
-      if (lookahead != 0) ADVANCE(93);
+          lookahead == ' ') ADVANCE(88);
+      if (lookahead != 0) ADVANCE(92);
       END_STATE();
     case 11:
       if (lookahead == '\n') SKIP(13)
@@ -1921,7 +1921,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == 'f') ADVANCE(100);
       END_STATE();
     case 44:
-      if (lookahead == 'f') ADVANCE(86);
+      if (lookahead == 'f') ADVANCE(98);
       END_STATE();
     case 45:
       if (lookahead == 'i') ADVANCE(51);
@@ -2123,10 +2123,10 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
     case 82:
       ACCEPT_TOKEN(anon_sym_LF);
       if (lookahead == '\n') ADVANCE(82);
-      if (lookahead == '\\') ADVANCE(90);
+      if (lookahead == '\\') ADVANCE(89);
       if (lookahead == '\t' ||
           lookahead == '\r' ||
-          lookahead == ' ') ADVANCE(89);
+          lookahead == ' ') ADVANCE(88);
       END_STATE();
     case 83:
       ACCEPT_TOKEN(anon_sym_LF);
@@ -2136,102 +2136,102 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(aux_sym_preproc_tryinclude_token1);
       END_STATE();
     case 85:
-      ACCEPT_TOKEN(aux_sym_preproc_def_token1);
+      ACCEPT_TOKEN(aux_sym_preproc_define_token1);
       END_STATE();
     case 86:
-      ACCEPT_TOKEN(aux_sym_preproc_undef_token1);
+      ACCEPT_TOKEN(sym_preproc_define_arg);
+      if (lookahead == '\n') ADVANCE(19);
+      if (lookahead == '*') ADVANCE(86);
+      if (lookahead == '/') ADVANCE(186);
+      if (lookahead == '\\') ADVANCE(97);
+      if (lookahead != 0) ADVANCE(87);
       END_STATE();
     case 87:
-      ACCEPT_TOKEN(sym_preproc_arg);
+      ACCEPT_TOKEN(sym_preproc_define_arg);
       if (lookahead == '\n') ADVANCE(19);
-      if (lookahead == '*') ADVANCE(87);
-      if (lookahead == '/') ADVANCE(186);
-      if (lookahead == '\\') ADVANCE(98);
-      if (lookahead != 0) ADVANCE(88);
+      if (lookahead == '*') ADVANCE(86);
+      if (lookahead == '\\') ADVANCE(97);
+      if (lookahead != 0) ADVANCE(87);
       END_STATE();
     case 88:
-      ACCEPT_TOKEN(sym_preproc_arg);
-      if (lookahead == '\n') ADVANCE(19);
-      if (lookahead == '*') ADVANCE(87);
-      if (lookahead == '\\') ADVANCE(98);
-      if (lookahead != 0) ADVANCE(88);
-      END_STATE();
-    case 89:
-      ACCEPT_TOKEN(sym_preproc_arg);
+      ACCEPT_TOKEN(sym_preproc_define_arg);
       if (lookahead == '\n') ADVANCE(82);
-      if (lookahead == '/') ADVANCE(92);
-      if (lookahead == '\\') ADVANCE(90);
+      if (lookahead == '/') ADVANCE(91);
+      if (lookahead == '\\') ADVANCE(89);
       if (lookahead == '\t' ||
           lookahead == '\r' ||
-          lookahead == ' ') ADVANCE(89);
-      if (lookahead != 0) ADVANCE(93);
+          lookahead == ' ') ADVANCE(88);
+      if (lookahead != 0) ADVANCE(92);
+      END_STATE();
+    case 89:
+      ACCEPT_TOKEN(sym_preproc_define_arg);
+      if (lookahead == '\n') ADVANCE(88);
+      if (lookahead == '\r') ADVANCE(90);
+      if (lookahead == '\\') ADVANCE(94);
+      if (lookahead != 0) ADVANCE(92);
       END_STATE();
     case 90:
-      ACCEPT_TOKEN(sym_preproc_arg);
-      if (lookahead == '\n') ADVANCE(89);
-      if (lookahead == '\r') ADVANCE(91);
-      if (lookahead == '\\') ADVANCE(95);
-      if (lookahead != 0) ADVANCE(93);
+      ACCEPT_TOKEN(sym_preproc_define_arg);
+      if (lookahead == '\n') ADVANCE(88);
+      if (lookahead == '\\') ADVANCE(94);
+      if (lookahead != 0) ADVANCE(92);
       END_STATE();
     case 91:
-      ACCEPT_TOKEN(sym_preproc_arg);
-      if (lookahead == '\n') ADVANCE(89);
-      if (lookahead == '\\') ADVANCE(95);
-      if (lookahead != 0) ADVANCE(93);
+      ACCEPT_TOKEN(sym_preproc_define_arg);
+      if (lookahead == '*') ADVANCE(87);
+      if (lookahead == '/') ADVANCE(189);
+      if (lookahead == '\\') ADVANCE(94);
+      if (lookahead != 0 &&
+          lookahead != '\n') ADVANCE(92);
       END_STATE();
     case 92:
-      ACCEPT_TOKEN(sym_preproc_arg);
-      if (lookahead == '*') ADVANCE(88);
-      if (lookahead == '/') ADVANCE(189);
-      if (lookahead == '\\') ADVANCE(95);
+      ACCEPT_TOKEN(sym_preproc_define_arg);
+      if (lookahead == '\\') ADVANCE(94);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(93);
+          lookahead != '\n') ADVANCE(92);
       END_STATE();
     case 93:
-      ACCEPT_TOKEN(sym_preproc_arg);
-      if (lookahead == '\\') ADVANCE(95);
+      ACCEPT_TOKEN(sym_preproc_define_arg);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(93);
+          lookahead != '\\') ADVANCE(92);
+      if (lookahead == '\\') ADVANCE(94);
       END_STATE();
     case 94:
-      ACCEPT_TOKEN(sym_preproc_arg);
-      if (lookahead != 0 &&
-          lookahead != '\\') ADVANCE(93);
-      if (lookahead == '\\') ADVANCE(95);
-      END_STATE();
-    case 95:
-      ACCEPT_TOKEN(sym_preproc_arg);
+      ACCEPT_TOKEN(sym_preproc_define_arg);
       if (lookahead != 0 &&
           lookahead != '\r' &&
-          lookahead != '\\') ADVANCE(93);
-      if (lookahead == '\r') ADVANCE(94);
-      if (lookahead == '\\') ADVANCE(95);
+          lookahead != '\\') ADVANCE(92);
+      if (lookahead == '\r') ADVANCE(93);
+      if (lookahead == '\\') ADVANCE(94);
       END_STATE();
-    case 96:
-      ACCEPT_TOKEN(sym_preproc_arg);
+    case 95:
+      ACCEPT_TOKEN(sym_preproc_define_arg);
       if (lookahead != 0 &&
           lookahead != '\r' &&
           lookahead != '\\') ADVANCE(189);
       if (lookahead == '\r') ADVANCE(191);
       if (lookahead == '\\') ADVANCE(187);
       END_STATE();
-    case 97:
-      ACCEPT_TOKEN(sym_preproc_arg);
+    case 96:
+      ACCEPT_TOKEN(sym_preproc_define_arg);
       if (lookahead != 0 &&
           lookahead != '*' &&
-          lookahead != '\\') ADVANCE(88);
-      if (lookahead == '*') ADVANCE(87);
-      if (lookahead == '\\') ADVANCE(98);
+          lookahead != '\\') ADVANCE(87);
+      if (lookahead == '*') ADVANCE(86);
+      if (lookahead == '\\') ADVANCE(97);
       END_STATE();
-    case 98:
-      ACCEPT_TOKEN(sym_preproc_arg);
+    case 97:
+      ACCEPT_TOKEN(sym_preproc_define_arg);
       if (lookahead != 0 &&
           lookahead != '\r' &&
           lookahead != '*' &&
-          lookahead != '\\') ADVANCE(88);
-      if (lookahead == '\r') ADVANCE(97);
-      if (lookahead == '*') ADVANCE(87);
-      if (lookahead == '\\') ADVANCE(98);
+          lookahead != '\\') ADVANCE(87);
+      if (lookahead == '\r') ADVANCE(96);
+      if (lookahead == '*') ADVANCE(86);
+      if (lookahead == '\\') ADVANCE(97);
+      END_STATE();
+    case 98:
+      ACCEPT_TOKEN(aux_sym_preproc_undefine_token1);
       END_STATE();
     case 99:
       ACCEPT_TOKEN(aux_sym_preproc_if_token1);
@@ -2698,7 +2698,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
     case 187:
       ACCEPT_TOKEN(sym_comment);
       if (lookahead == '\r') ADVANCE(189);
-      if (lookahead == '\\') ADVANCE(96);
+      if (lookahead == '\\') ADVANCE(95);
       if (lookahead != 0 &&
           lookahead != '\n') ADVANCE(189);
       END_STATE();
@@ -2710,7 +2710,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       END_STATE();
     case 189:
       ACCEPT_TOKEN(sym_comment);
-      if (lookahead == '\\') ADVANCE(96);
+      if (lookahead == '\\') ADVANCE(95);
       if (lookahead != 0 &&
           lookahead != '\n') ADVANCE(189);
       END_STATE();
@@ -2724,7 +2724,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(sym_comment);
       if (lookahead != 0 &&
           lookahead != '\\') ADVANCE(189);
-      if (lookahead == '\\') ADVANCE(96);
+      if (lookahead == '\\') ADVANCE(95);
       END_STATE();
     default:
       return false;
@@ -3829,8 +3829,8 @@ static uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_symbol] = ACTIONS(1),
     [aux_sym_preproc_include_token1] = ACTIONS(1),
     [aux_sym_preproc_tryinclude_token1] = ACTIONS(1),
-    [aux_sym_preproc_def_token1] = ACTIONS(1),
-    [aux_sym_preproc_undef_token1] = ACTIONS(1),
+    [aux_sym_preproc_define_token1] = ACTIONS(1),
+    [aux_sym_preproc_undefine_token1] = ACTIONS(1),
     [aux_sym_preproc_if_token1] = ACTIONS(1),
     [aux_sym_preproc_endif_token1] = ACTIONS(1),
     [anon_sym_stock] = ACTIONS(1),
@@ -3909,8 +3909,8 @@ static uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_source_file] = STATE(603),
     [sym_preproc_include] = STATE(48),
     [sym_preproc_tryinclude] = STATE(48),
-    [sym_preproc_def] = STATE(48),
-    [sym_preproc_undef] = STATE(48),
+    [sym_preproc_define] = STATE(48),
+    [sym_preproc_undefine] = STATE(48),
     [sym_preproc_if] = STATE(48),
     [sym_preproc_endif] = STATE(48),
     [sym_function_declaration] = STATE(48),
@@ -3935,8 +3935,8 @@ static uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_symbol] = ACTIONS(7),
     [aux_sym_preproc_include_token1] = ACTIONS(9),
     [aux_sym_preproc_tryinclude_token1] = ACTIONS(11),
-    [aux_sym_preproc_def_token1] = ACTIONS(13),
-    [aux_sym_preproc_undef_token1] = ACTIONS(15),
+    [aux_sym_preproc_define_token1] = ACTIONS(13),
+    [aux_sym_preproc_undefine_token1] = ACTIONS(15),
     [aux_sym_preproc_if_token1] = ACTIONS(17),
     [aux_sym_preproc_endif_token1] = ACTIONS(19),
     [anon_sym_stock] = ACTIONS(21),
@@ -4517,8 +4517,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -4578,8 +4578,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -4705,8 +4705,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -4766,8 +4766,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -4822,8 +4822,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -4879,8 +4879,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -4997,8 +4997,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -5053,8 +5053,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -5086,8 +5086,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -5223,8 +5223,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -5264,8 +5264,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -5333,8 +5333,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -5401,8 +5401,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -5468,8 +5468,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -5533,8 +5533,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -5589,8 +5589,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -5648,8 +5648,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -5771,8 +5771,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -5827,8 +5827,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -5883,8 +5883,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -5939,8 +5939,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -5995,8 +5995,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -6056,8 +6056,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -6096,8 +6096,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -6176,8 +6176,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -6214,8 +6214,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -6279,8 +6279,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -6352,8 +6352,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -6408,8 +6408,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -6461,8 +6461,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -6537,8 +6537,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -6598,8 +6598,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -6654,8 +6654,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -6710,8 +6710,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -6766,8 +6766,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -6822,8 +6822,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -6855,9 +6855,9 @@ static uint16_t ts_small_parse_table[] = {
     ACTIONS(11), 1,
       aux_sym_preproc_tryinclude_token1,
     ACTIONS(13), 1,
-      aux_sym_preproc_def_token1,
+      aux_sym_preproc_define_token1,
     ACTIONS(15), 1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_undefine_token1,
     ACTIONS(17), 1,
       aux_sym_preproc_if_token1,
     ACTIONS(19), 1,
@@ -6911,8 +6911,8 @@ static uint16_t ts_small_parse_table[] = {
     STATE(52), 17,
       sym_preproc_include,
       sym_preproc_tryinclude,
-      sym_preproc_def,
-      sym_preproc_undef,
+      sym_preproc_define,
+      sym_preproc_undefine,
       sym_preproc_if,
       sym_preproc_endif,
       sym_function_declaration,
@@ -7107,9 +7107,9 @@ static uint16_t ts_small_parse_table[] = {
     ACTIONS(299), 1,
       aux_sym_preproc_tryinclude_token1,
     ACTIONS(302), 1,
-      aux_sym_preproc_def_token1,
+      aux_sym_preproc_define_token1,
     ACTIONS(305), 1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_undefine_token1,
     ACTIONS(308), 1,
       aux_sym_preproc_if_token1,
     ACTIONS(311), 1,
@@ -7161,8 +7161,8 @@ static uint16_t ts_small_parse_table[] = {
     STATE(52), 17,
       sym_preproc_include,
       sym_preproc_tryinclude,
-      sym_preproc_def,
-      sym_preproc_undef,
+      sym_preproc_define,
+      sym_preproc_undefine,
       sym_preproc_if,
       sym_preproc_endif,
       sym_function_declaration,
@@ -7664,8 +7664,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -7732,8 +7732,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -7800,8 +7800,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -7868,8 +7868,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -9882,8 +9882,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -9950,8 +9950,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -10018,8 +10018,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -10086,8 +10086,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -11072,8 +11072,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -11877,8 +11877,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -11959,8 +11959,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -12784,8 +12784,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -13382,8 +13382,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -13474,8 +13474,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -13566,8 +13566,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -13707,8 +13707,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -14103,8 +14103,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -14321,8 +14321,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -14674,8 +14674,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -14853,8 +14853,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -14891,8 +14891,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -14928,8 +14928,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -14959,8 +14959,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_RBRACE,
@@ -14993,8 +14993,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_RBRACE,
@@ -15031,8 +15031,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -15069,8 +15069,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -15106,8 +15106,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -15143,8 +15143,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -15174,8 +15174,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_RBRACE,
@@ -15214,8 +15214,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -15245,8 +15245,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_RBRACE,
@@ -15279,8 +15279,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_RBRACE,
@@ -15312,8 +15312,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -15345,8 +15345,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_COMMA,
@@ -15378,8 +15378,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_LBRACE,
@@ -15411,8 +15411,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_LBRACE,
@@ -15444,8 +15444,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_RBRACE,
@@ -15477,8 +15477,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       anon_sym_LBRACE,
@@ -15512,8 +15512,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -15545,8 +15545,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -15578,8 +15578,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -15611,8 +15611,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -15644,8 +15644,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -15677,8 +15677,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -15710,8 +15710,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -15743,8 +15743,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -15774,8 +15774,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -15805,8 +15805,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -15836,8 +15836,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -15867,8 +15867,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -15898,8 +15898,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -15929,8 +15929,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -15960,8 +15960,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -15991,8 +15991,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -16022,8 +16022,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -16053,8 +16053,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -16084,8 +16084,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -16115,8 +16115,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -16146,8 +16146,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -16177,8 +16177,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -16208,8 +16208,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -16239,8 +16239,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -16270,8 +16270,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -16301,8 +16301,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -16332,8 +16332,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -16363,8 +16363,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -16394,8 +16394,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -16425,8 +16425,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -16456,8 +16456,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -16487,8 +16487,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -16518,8 +16518,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -16549,8 +16549,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -16580,8 +16580,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -16611,8 +16611,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -16642,8 +16642,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -16673,8 +16673,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -16704,8 +16704,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -16735,8 +16735,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -16766,8 +16766,8 @@ static uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       aux_sym_preproc_include_token1,
       aux_sym_preproc_tryinclude_token1,
-      aux_sym_preproc_def_token1,
-      aux_sym_preproc_undef_token1,
+      aux_sym_preproc_define_token1,
+      aux_sym_preproc_undefine_token1,
       aux_sym_preproc_if_token1,
       aux_sym_preproc_endif_token1,
       sym_old_builtin_type,
@@ -19621,7 +19621,7 @@ static uint16_t ts_small_parse_table[] = {
     ACTIONS(1428), 1,
       anon_sym_LF,
     ACTIONS(1430), 1,
-      sym_preproc_arg,
+      sym_preproc_define_arg,
   [18946] = 3,
     ACTIONS(3), 1,
       sym_comment,
@@ -21511,12 +21511,12 @@ static TSParseActionEntry ts_parse_actions[] = {
   [796] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_callback_implementation, 5, .production_id = 11),
   [798] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_preproc_if, 3, .production_id = 5),
   [800] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_preproc_if, 3, .production_id = 5),
-  [802] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_preproc_undef, 3, .production_id = 4),
-  [804] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_preproc_undef, 3, .production_id = 4),
+  [802] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_preproc_undefine, 3, .production_id = 4),
+  [804] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_preproc_undefine, 3, .production_id = 4),
   [806] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_enum_entries, 4),
   [808] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_enum_entries, 4),
-  [810] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_preproc_def, 3, .production_id = 4),
-  [812] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_preproc_def, 3, .production_id = 4),
+  [810] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_preproc_define, 3, .production_id = 4),
+  [812] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_preproc_define, 3, .production_id = 4),
   [814] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_enum, 2),
   [816] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_enum, 2),
   [818] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_preproc_tryinclude, 3, .production_id = 3),
@@ -21533,8 +21533,8 @@ static TSParseActionEntry ts_parse_actions[] = {
   [840] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_function_definition, 5, .production_id = 11),
   [842] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_typeset, 6, .production_id = 4),
   [844] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_typeset, 6, .production_id = 4),
-  [846] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_preproc_def, 4, .production_id = 10),
-  [848] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_preproc_def, 4, .production_id = 10),
+  [846] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_preproc_define, 4, .production_id = 10),
+  [848] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_preproc_define, 4, .production_id = 10),
   [850] = {.entry = {.count = 1, .reusable = true}}, SHIFT(117),
   [852] = {.entry = {.count = 1, .reusable = true}}, SHIFT(30),
   [854] = {.entry = {.count = 1, .reusable = true}}, SHIFT(67),

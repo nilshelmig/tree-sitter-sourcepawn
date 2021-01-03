@@ -1553,7 +1553,7 @@
     }
   },
   {
-    "type": "preproc_def",
+    "type": "preproc_define",
     "named": true,
     "fields": {
       "name": {
@@ -1571,7 +1571,7 @@
         "required": false,
         "types": [
           {
-            "type": "preproc_arg",
+            "type": "preproc_define_arg",
             "named": true
           }
         ]
@@ -1640,7 +1640,7 @@
     }
   },
   {
-    "type": "preproc_undef",
+    "type": "preproc_undefine",
     "named": true,
     "fields": {
       "name": {
@@ -1731,7 +1731,7 @@
           "named": true
         },
         {
-          "type": "preproc_def",
+          "type": "preproc_define",
           "named": true
         },
         {
@@ -1751,7 +1751,7 @@
           "named": true
         },
         {
-          "type": "preproc_undef",
+          "type": "preproc_undefine",
           "named": true
         },
         {
@@ -2417,7 +2417,7 @@
     "named": true
   },
   {
-    "type": "preproc_arg",
+    "type": "preproc_define_arg",
     "named": true
   },
   {
