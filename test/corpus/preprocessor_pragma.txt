@@ -1,0 +1,51 @@
+=====================
+pragma for semicolons
+=====================
+
+#pragma semicolon 1
+#pragma semicolon 0
+
+---
+
+(source_file
+    (preproc_pragma_semicolon enabled: (int_literal))
+    (preproc_pragma_semicolon enabled: (int_literal)))
+
+
+===========================
+pragma for new declarations
+===========================
+
+#pragma newdecls required
+#pragma newdecls optional
+
+---
+
+(source_file
+    (preproc_pragma_newdecls value: (symbol))
+    (preproc_pragma_newdecls value: (symbol)))
+
+
+=======================
+pragma for deprecations
+=======================
+
+#pragma deprecated
+#pragma deprecated Please use this alternative
+
+---
+
+(source_file
+    (preproc_pragma_deprecated)
+    (preproc_pragma_deprecated info: (preproc_arg)))
+
+
+==================
+pragma for dynamic
+==================
+
+#pragma dynamic 32768
+
+---
+
+(source_file (preproc_pragma_dynamic value: (int_literal)))

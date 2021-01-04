@@ -66,6 +66,22 @@
           {
             "type": "SYMBOL",
             "name": "preproc_endif"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "preproc_pragma_semicolon"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "preproc_pragma_newdecls"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "preproc_pragma_deprecated"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "preproc_pragma_dynamic"
           }
         ]
       }
@@ -168,7 +184,7 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "preproc_define_arg"
+                "name": "preproc_arg"
               },
               {
                 "type": "BLANK"
@@ -182,7 +198,7 @@
         }
       ]
     },
-    "preproc_define_arg": {
+    "preproc_arg": {
       "type": "TOKEN",
       "content": {
         "type": "PREC",
@@ -305,6 +321,134 @@
           },
           "named": false,
           "value": "#endif"
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
+    },
+    "preproc_pragma_semicolon": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "#[ \t]*pragma"
+          },
+          "named": false,
+          "value": "#pragma"
+        },
+        {
+          "type": "STRING",
+          "value": "semicolon"
+        },
+        {
+          "type": "FIELD",
+          "name": "enabled",
+          "content": {
+            "type": "SYMBOL",
+            "name": "int_literal"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
+    },
+    "preproc_pragma_newdecls": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "#[ \t]*pragma"
+          },
+          "named": false,
+          "value": "#pragma"
+        },
+        {
+          "type": "STRING",
+          "value": "newdecls"
+        },
+        {
+          "type": "FIELD",
+          "name": "value",
+          "content": {
+            "type": "SYMBOL",
+            "name": "symbol"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
+    },
+    "preproc_pragma_deprecated": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "#[ \t]*pragma"
+          },
+          "named": false,
+          "value": "#pragma"
+        },
+        {
+          "type": "STRING",
+          "value": "deprecated"
+        },
+        {
+          "type": "FIELD",
+          "name": "info",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "preproc_arg"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
+    },
+    "preproc_pragma_dynamic": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "#[ \t]*pragma"
+          },
+          "named": false,
+          "value": "#pragma"
+        },
+        {
+          "type": "STRING",
+          "value": "dynamic"
+        },
+        {
+          "type": "FIELD",
+          "name": "value",
+          "content": {
+            "type": "SYMBOL",
+            "name": "int_literal"
+          }
         },
         {
           "type": "STRING",

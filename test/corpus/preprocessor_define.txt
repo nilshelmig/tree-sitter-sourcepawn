@@ -13,19 +13,19 @@ define constant
 (source_file
     (preproc_define
         name: (symbol)
-        value: (preproc_define_arg))
+        value: (preproc_arg))
     (preproc_define
         name: (symbol)
-        value: (preproc_define_arg))
+        value: (preproc_arg))
     (preproc_define
         name: (symbol)
-        value: (preproc_define_arg))
+        value: (preproc_arg))
     (preproc_define
         name: (symbol)
-        value: (preproc_define_arg))
+        value: (preproc_arg))
     (preproc_define
         name: (symbol)
-        value: (preproc_define_arg)))
+        value: (preproc_arg)))
 
 
 =================
@@ -40,10 +40,10 @@ define expression
 (source_file
     (preproc_define
         name: (symbol)
-        value: (preproc_define_arg))
+        value: (preproc_arg))
     (preproc_define
         name: (symbol)
-        value: (preproc_define_arg)))
+        value: (preproc_arg)))
 
 
 ==========================
@@ -57,7 +57,7 @@ define handles spaces/tabs
 (source_file
     (preproc_define
         name: (symbol)
-        value: (preproc_define_arg)))
+        value: (preproc_arg)))
 
 
 ========

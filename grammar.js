@@ -70,7 +70,11 @@ module.exports = grammar({
           $.preproc_define,
           $.preproc_undefine,
           $.preproc_if,
-          $.preproc_endif
+          $.preproc_endif,
+          $.preproc_pragma_semicolon,
+          $.preproc_pragma_newdecls,
+          $.preproc_pragma_deprecated,
+          $.preproc_pragma_dynamic
         )
       ),
 
@@ -94,10 +98,10 @@ module.exports = grammar({
       seq(
         preprocessor("define"),
         field("name", $.symbol),
-        field("value", optional($.preproc_define_arg)),
+        field("value", optional($.preproc_arg)),
         "\n"
       ),
-    preproc_define_arg: ($) => token(prec(-1, repeat1(/.|\\\r?\n/))),
+    preproc_arg: ($) => token(prec(-1, repeat1(/.|\\\r?\n/))),
     preproc_undefine: ($) =>
       seq(preprocessor("undef"), field("name", $.symbol), "\n"),
 
@@ -110,6 +114,33 @@ module.exports = grammar({
     preproc_defined_condition: ($) =>
       seq(token(seq(optional("!"), "defined")), field("name", $.symbol)),
     preproc_endif: ($) => seq(preprocessor("endif"), "\n"),
+
+    preproc_pragma_semicolon: ($) =>
+      seq(
+        preprocessor("pragma"),
+        "semicolon",
+        field("enabled", $.int_literal),
+        "\n"
+      ),
+
+    preproc_pragma_newdecls: ($) =>
+      seq(preprocessor("pragma"), "newdecls", field("value", $.symbol), "\n"),
+
+    preproc_pragma_deprecated: ($) =>
+      seq(
+        preprocessor("pragma"),
+        "deprecated",
+        field("info", optional($.preproc_arg)),
+        "\n"
+      ),
+
+    preproc_pragma_dynamic: ($) =>
+      seq(
+        preprocessor("pragma"),
+        "dynamic",
+        field("value", $.int_literal),
+        "\n"
+      ),
 
     // Main Grammar
 

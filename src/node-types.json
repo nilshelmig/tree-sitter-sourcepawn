@@ -1601,7 +1601,7 @@
         "required": false,
         "types": [
           {
-            "type": "preproc_define_arg",
+            "type": "preproc_arg",
             "named": true
           }
         ]
@@ -1663,6 +1663,70 @@
           },
           {
             "type": "system_lib_string",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "preproc_pragma_deprecated",
+    "named": true,
+    "fields": {
+      "info": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "preproc_arg",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "preproc_pragma_dynamic",
+    "named": true,
+    "fields": {
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "int_literal",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "preproc_pragma_newdecls",
+    "named": true,
+    "fields": {
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "preproc_pragma_semicolon",
+    "named": true,
+    "fields": {
+      "enabled": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "int_literal",
             "named": true
           }
         ]
@@ -1815,6 +1879,22 @@
         },
         {
           "type": "preproc_include",
+          "named": true
+        },
+        {
+          "type": "preproc_pragma_deprecated",
+          "named": true
+        },
+        {
+          "type": "preproc_pragma_dynamic",
+          "named": true
+        },
+        {
+          "type": "preproc_pragma_newdecls",
+          "named": true
+        },
+        {
+          "type": "preproc_pragma_semicolon",
           "named": true
         },
         {
@@ -2284,6 +2364,10 @@
     "named": false
   },
   {
+    "type": "#pragma",
+    "named": false
+  },
+  {
     "type": "#tryinclude",
     "named": false
   },
@@ -2436,6 +2520,14 @@
     "named": false
   },
   {
+    "type": "deprecated",
+    "named": false
+  },
+  {
+    "type": "dynamic",
+    "named": false
+  },
+  {
     "type": "enum",
     "named": false
   },
@@ -2484,6 +2576,10 @@
     "named": false
   },
   {
+    "type": "newdecls",
+    "named": false
+  },
+  {
     "type": "null",
     "named": true
   },
@@ -2492,7 +2588,7 @@
     "named": true
   },
   {
-    "type": "preproc_define_arg",
+    "type": "preproc_arg",
     "named": true
   },
   {
@@ -2510,6 +2606,10 @@
   {
     "type": "semicolon",
     "named": true
+  },
+  {
+    "type": "semicolon",
+    "named": false
   },
   {
     "type": "set",
