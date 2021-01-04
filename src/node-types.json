@@ -1625,6 +1625,11 @@
     }
   },
   {
+    "type": "preproc_else",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "preproc_endif",
     "named": true,
     "fields": {}
@@ -1867,6 +1872,10 @@
         },
         {
           "type": "preproc_define",
+          "named": true
+        },
+        {
+          "type": "preproc_else",
           "named": true
         },
         {
@@ -2349,6 +2358,10 @@
   },
   {
     "type": "#define",
+    "named": false
+  },
+  {
+    "type": "#else",
     "named": false
   },
   {

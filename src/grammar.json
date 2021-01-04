@@ -65,6 +65,10 @@
           },
           {
             "type": "SYMBOL",
+            "name": "preproc_else"
+          },
+          {
+            "type": "SYMBOL",
             "name": "preproc_endif"
           },
           {
@@ -307,6 +311,24 @@
             "type": "SYMBOL",
             "name": "symbol"
           }
+        }
+      ]
+    },
+    "preproc_else": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "#[ \t]*else"
+          },
+          "named": false,
+          "value": "#else"
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
         }
       ]
     },

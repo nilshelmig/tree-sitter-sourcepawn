@@ -70,6 +70,7 @@ module.exports = grammar({
           $.preproc_define,
           $.preproc_undefine,
           $.preproc_if,
+          $.preproc_else,
           $.preproc_endif,
           $.preproc_pragma_semicolon,
           $.preproc_pragma_newdecls,
@@ -113,6 +114,7 @@ module.exports = grammar({
       ),
     preproc_defined_condition: ($) =>
       seq(token(seq(optional("!"), "defined")), field("name", $.symbol)),
+    preproc_else: ($) => seq(preprocessor("else"), "\n"),
     preproc_endif: ($) => seq(preprocessor("endif"), "\n"),
 
     preproc_pragma_semicolon: ($) =>

@@ -35,6 +35,17 @@ preprocessor condition - not defined constant
         condition: (preproc_defined_condition name: (symbol))))
 
 
+====
+else
+====
+
+#else
+
+---
+
+(source_file (preproc_else))
+
+
 =====
 endif
 =====
