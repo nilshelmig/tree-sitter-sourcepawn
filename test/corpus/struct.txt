@@ -1,0 +1,79 @@
+=================
+struct definition
+=================
+
+struct Plugin
+{
+   public const char[] name;
+   public const char[] description;
+   public const char[] author;
+   public const char[] version;
+   public char[] url;
+};
+
+---
+
+(source_file
+    (struct
+        name: (symbol)
+        (struct_field
+            type: (type_expression (builtin_type) (dimension))
+            name: (symbol)
+            (semicolon))
+        (struct_field
+            type: (type_expression (builtin_type) (dimension))
+            name: (symbol)
+            (semicolon))
+        (struct_field
+            type: (type_expression (builtin_type) (dimension))
+            name: (symbol)
+            (semicolon))
+        (struct_field
+            type: (type_expression (builtin_type) (dimension))
+            name: (symbol)
+            (semicolon))
+        (struct_field
+            type: (type_expression (builtin_type) (dimension))
+            name: (symbol)
+            (semicolon))
+        (semicolon)))
+
+
+=====================
+struct initialization
+=====================
+
+public Plugin myinfo =
+{
+    name = "Test",
+    author = "Developer",
+    description = "demonstrating parser" ... "with expressions",
+    version = PLUGIN_VERSION,
+    url = "http://forums.alliedmods.net"
+};
+
+---
+
+(source_file
+    (global_variable
+        type: (symbol)
+        name: (symbol)
+        value: (struct_constructor
+            (struct_field_value
+                name: (symbol)
+                value: (string_literal))
+            (struct_field_value
+                name: (symbol)
+                value: (string_literal))
+            (struct_field_value
+                name: (symbol)
+                value: (concatenated_string
+                    left: (string_literal)
+                    right: (string_literal)))
+            (struct_field_value
+                name: (symbol)
+                value: (symbol))
+            (struct_field_value
+                name: (symbol)
+                value: (string_literal)))
+        (semicolon)))

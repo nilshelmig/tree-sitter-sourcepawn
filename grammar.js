@@ -48,6 +48,7 @@ module.exports = grammar({
     ],
     [$.argument_declaration, $.type_expression],
     [$.argument_declarations, $.function_call_arguments],
+    [$.global_variable, $._type],
   ],
 
   word: ($) => $.symbol,
@@ -64,6 +65,8 @@ module.exports = grammar({
           $.typedef,
           $.typeset,
           $.methodmap,
+          $.struct,
+          $.global_variable,
           $._top_level_statements,
           $.preproc_include,
           $.preproc_tryinclude,
@@ -461,6 +464,37 @@ module.exports = grammar({
         ")"
       ),
     methodmap_visibility: ($) => "public",
+
+    struct: ($) =>
+      seq(
+        "struct",
+        field("name", $.symbol),
+        "{",
+        repeat($.struct_field),
+        "}",
+        optional($.semicolon)
+      ),
+    struct_field: ($) =>
+      seq(
+        "public",
+        optional("const"),
+        field("type", $.type_expression),
+        field("name", $.symbol),
+        $.semicolon
+      ),
+
+    global_variable: ($) =>
+      seq(
+        "public",
+        field("type", $.symbol),
+        field("name", $.symbol),
+        "=",
+        field("value", $.struct_constructor),
+        optional($.semicolon)
+      ),
+    struct_constructor: ($) => seq("{", commaSep($.struct_field_value), "}"),
+    struct_field_value: ($) =>
+      seq(field("name", $.symbol), "=", field("value", $._expression)),
 
     type_expression: ($) =>
       seq(choice($.builtin_type, $.symbol, $.any_type), repeat($.dimension)),
