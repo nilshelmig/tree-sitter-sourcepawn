@@ -227,7 +227,9 @@ module.exports = grammar({
         repeat(choice($.dimension, $.fixed_dimension)),
         field(
           "initialValue",
-          optional(seq("=", choice($._expression, $.dynamic_array)))
+          optional(
+            seq("=", choice($._expression, $.dynamic_array, $.new_instance))
+          )
         )
       ),
 
@@ -238,6 +240,13 @@ module.exports = grammar({
         "[",
         field("size", $._expression),
         "]"
+      ),
+
+    new_instance: ($) =>
+      seq(
+        "new",
+        field("class", $.symbol),
+        field("arguments", $.function_call_arguments)
       ),
 
     old_variable_declaration_statement: ($) =>

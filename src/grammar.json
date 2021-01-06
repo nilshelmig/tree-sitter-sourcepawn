@@ -1036,6 +1036,10 @@
                       {
                         "type": "SYMBOL",
                         "name": "dynamic_array"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "new_instance"
                       }
                     ]
                   }
@@ -1088,6 +1092,31 @@
         {
           "type": "STRING",
           "value": "]"
+        }
+      ]
+    },
+    "new_instance": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "new"
+        },
+        {
+          "type": "FIELD",
+          "name": "class",
+          "content": {
+            "type": "SYMBOL",
+            "name": "symbol"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "arguments",
+          "content": {
+            "type": "SYMBOL",
+            "name": "function_call_arguments"
+          }
         }
       ]
     },

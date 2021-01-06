@@ -90,6 +90,36 @@ Handle handle = null;
         (semicolon)))
 
 
+==========================
+initialization - methodmap
+==========================
+
+ArrayList arr1 = new ArrayList();
+ArrayList arr2 = new ArrayList(1, 5);
+
+---
+
+(source_file
+    (variable_declaration_statement
+        type: (type_expression (symbol))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (new_instance
+                class: (symbol)
+                arguments: (function_call_arguments)))
+        (semicolon))
+    (variable_declaration_statement
+        type: (type_expression (symbol))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (new_instance
+                class: (symbol)
+                arguments: (function_call_arguments
+                    (int_literal)
+                    (int_literal))))
+        (semicolon)))
+
+
 ====================
 array initialization
 ====================

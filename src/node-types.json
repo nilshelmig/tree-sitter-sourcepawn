@@ -1655,6 +1655,32 @@
     }
   },
   {
+    "type": "new_instance",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "function_call_arguments",
+            "named": true
+          }
+        ]
+      },
+      "class": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "old_type_expression",
     "named": true,
     "fields": {},
@@ -2517,6 +2543,10 @@
           {
             "type": "dynamic_array",
             "named": true
+          },
+          {
+            "type": "new_instance",
+            "named": true
           }
         ]
       },
@@ -2998,11 +3028,11 @@
   },
   {
     "type": "semicolon",
-    "named": true
+    "named": false
   },
   {
     "type": "semicolon",
-    "named": false
+    "named": true
   },
   {
     "type": "set",
