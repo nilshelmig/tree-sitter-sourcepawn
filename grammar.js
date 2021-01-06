@@ -48,6 +48,9 @@ module.exports = grammar({
     ],
     [$.argument_declaration, $.type_expression],
     [$.argument_declarations, $.function_call_arguments],
+    [$.expression_statement],
+    [$.old_variable_declaration_statement],
+    [$.variable_declaration_statement],
   ],
 
   word: ($) => $.symbol,
@@ -459,6 +462,7 @@ module.exports = grammar({
       choice(
         $.block,
         $._top_level_statements,
+        $.for_loop,
         $.return_statement,
         $.delete_statement,
         $.expression_statement
@@ -468,6 +472,19 @@ module.exports = grammar({
       choice(
         $.variable_declaration_statement,
         $.old_variable_declaration_statement
+      ),
+
+    for_loop: ($) =>
+      seq(
+        "for",
+        "(",
+        field("initialization", optional($._statement)),
+        $.semicolon,
+        field("condition", optional($._expression)),
+        $.semicolon,
+        field("iteration", optional($._statement)),
+        ")",
+        $.block
       ),
 
     expression_statement: ($) =>

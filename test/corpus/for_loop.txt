@@ -1,0 +1,151 @@
+========
+for loop
+========
+
+public void OnPluginStart() {
+    for(int i = 0; i < 0; i++) {
+
+    }
+}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (for_loop
+                initialization: (variable_declaration_statement
+                    type: (type_expression (builtin_type))
+                    (variable_declaration
+                        name: (symbol)
+                        initialValue: (int_literal)))
+                (semicolon)
+                condition: (binary_expression
+                    left: (symbol)
+                    right: (int_literal))
+                (semicolon)
+                iteration: (expression_statement
+                    (update_expression
+                        argument: (symbol)))
+                (block)))))
+
+
+===============================
+for loop without initialization
+===============================
+
+public void OnPluginStart() {
+    for(; i < 0; i++) {
+
+    }
+}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (for_loop
+                (semicolon)
+                condition: (binary_expression
+                    left: (symbol)
+                    right: (int_literal))
+                (semicolon)
+                iteration: (expression_statement
+                    (update_expression
+                        argument: (symbol)))
+                (block)))))
+
+
+==========================
+for loop without iteration
+==========================
+
+public void OnPluginStart() {
+    for(int i = 0 ;; i++) {
+
+    }
+}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (for_loop
+                initialization: (variable_declaration_statement
+                    type: (type_expression (builtin_type))
+                    (variable_declaration
+                        name: (symbol)
+                        initialValue: (int_literal)))
+                (semicolon)
+                (semicolon)
+                iteration: (expression_statement
+                    (update_expression
+                        argument: (symbol)))
+                (block)))))
+
+
+==========================
+for loop without iteration
+==========================
+
+public void OnPluginStart() {
+    for(int i = 0; i < 0; ) {
+
+    }
+}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (for_loop
+                initialization: (variable_declaration_statement
+                    type: (type_expression (builtin_type))
+                    (variable_declaration
+                        name: (symbol)
+                        initialValue: (int_literal)))
+                (semicolon)
+                condition: (binary_expression
+                    left: (symbol)
+                    right: (int_literal))
+                (semicolon)
+                (block)))))
+
+
+========================
+for loop without control
+========================
+
+public void OnPluginStart() {
+    for(;;) {
+
+    }
+}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (for_loop
+                (semicolon)
+                (semicolon)
+                (block)))))
