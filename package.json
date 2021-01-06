@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "description": "SourcePawn grammar for node-tree-sitter",
   "main": "index.js",
+  "keywords": [
+    "parser",
+    "sourcepawn",
+    "sourcemod"
+  ],
   "scripts": {
     "build": "tree-sitter generate; node-gyp build",
     "generate": "tree-sitter generate",
@@ -10,6 +15,10 @@
   },
   "author": "Nils Helmig",
   "license": "MIT",
+  "repository": "https://github.com/nilshelmig/tree-sitter-sourcepawn",
+  "bugs": {
+    "url": "https://github.com/nilshelmig/tree-sitter-sourcepawn/issues"
+  },
   "devDependencies": {
     "tree-sitter-cli": "^0.17.3"
   },
