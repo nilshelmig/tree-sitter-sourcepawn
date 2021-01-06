@@ -469,6 +469,7 @@ module.exports = grammar({
         $.break_statement,
         $.continue_statement,
         $.condition_statement,
+        $.switch_statement,
         $.return_statement,
         $.delete_statement,
         $.expression_statement
@@ -521,6 +522,30 @@ module.exports = grammar({
           optional(seq("else", field("falsePath", $._statement)))
         )
       ),
+
+    switch_statement: ($) =>
+      seq(
+        "switch",
+        "(",
+        field("condition", $._expression),
+        ")",
+        "{",
+        repeat(choice($.switch_case, $.switch_default_case)),
+        "}"
+      ),
+    switch_case: ($) =>
+      seq(
+        "case",
+        field("value", $.switch_case_values),
+        ":",
+        $._statement,
+        optional($.break_statement)
+      ),
+    switch_case_values: ($) =>
+      prec.left(commaSep1(choice($._literal, $.symbol))),
+    switch_default_case: ($) =>
+      seq("default", ":", $._statement, optional($.break_statement)),
+
     expression_statement: ($) =>
       prec.right(
         seq(choice($._expression, $.comma_expression), optional($.semicolon))

@@ -1,0 +1,142 @@
+================
+switch statement
+================
+
+public void OnPluginStart() {
+    switch(i) {
+        case 1:
+            i++;
+            break;
+        case 2:
+            return;
+        case Plugin_Handled:
+        {
+            i++;
+            return;
+        }
+    }
+}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (switch_statement
+                condition: (symbol)
+                (switch_case
+                    value: (switch_case_values (int_literal))
+                    (expression_statement
+                        (update_expression argument: (symbol))
+                        (semicolon))
+                    (break_statement (semicolon)))
+                (switch_case
+                    value: (switch_case_values (int_literal))
+                    (return_statement (semicolon)))
+                (switch_case
+                    value: (switch_case_values (symbol))
+                    (block
+                        (expression_statement
+                            (update_expression argument: (symbol))
+                            (semicolon))
+                        (return_statement (semicolon))))))))
+
+
+===============================
+switch statement - default case
+===============================
+
+public void OnPluginStart() {
+    switch(i) {
+        case 1:
+            i++;
+            break;
+        case 2:
+            return;
+        default:
+        {
+            i++;
+            return;
+        }
+    }
+}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (switch_statement
+                condition: (symbol)
+                (switch_case
+                    value: (switch_case_values (int_literal))
+                    (expression_statement
+                        (update_expression argument: (symbol))
+                        (semicolon))
+                    (break_statement (semicolon)))
+                (switch_case
+                    value: (switch_case_values (int_literal))
+                    (return_statement (semicolon)))
+                (switch_default_case
+                    (block
+                        (expression_statement
+                            (update_expression argument: (symbol))
+                            (semicolon))
+                        (return_statement (semicolon))))))))
+
+
+==============================================
+switch statement - multiple values in one case
+==============================================
+
+public void OnPluginStart() {
+    switch(i) {
+        case 1, 2, 3, 4, 5:
+            return;
+    }
+}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (switch_statement
+                condition: (symbol)
+                (switch_case
+                    value: (switch_case_values
+                        (int_literal)
+                        (int_literal)
+                        (int_literal)
+                        (int_literal)
+                        (int_literal))
+                    (return_statement (semicolon)))))))
+
+
+===========================
+switch statement - no cases
+===========================
+
+public void OnPluginStart() {
+    switch(i) {
+    }
+}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (switch_statement condition: (symbol)))))
