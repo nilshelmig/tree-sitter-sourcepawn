@@ -680,6 +680,36 @@
     }
   },
   {
+    "type": "dynamic_array",
+    "named": true,
+    "fields": {
+      "size": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "_expression",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "builtin_type",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "enum",
     "named": true,
     "fields": {
@@ -2482,6 +2512,10 @@
           },
           {
             "type": "_expression",
+            "named": true
+          },
+          {
+            "type": "dynamic_array",
             "named": true
           }
         ]

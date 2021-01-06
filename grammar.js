@@ -225,7 +225,19 @@ module.exports = grammar({
       seq(
         field("name", $.symbol),
         repeat(choice($.dimension, $.fixed_dimension)),
-        field("initialValue", optional(seq("=", $._expression)))
+        field(
+          "initialValue",
+          optional(seq("=", choice($._expression, $.dynamic_array)))
+        )
+      ),
+
+    dynamic_array: ($) =>
+      seq(
+        "new",
+        field("type", choice($.builtin_type, $.symbol)),
+        "[",
+        field("size", $._expression),
+        "]"
       ),
 
     old_variable_declaration_statement: ($) =>

@@ -98,6 +98,8 @@ char[] text = "Hello world";
 int numbers[] = { 1, 2, 3 };
 float vec[3] = { 0.0, 14.2, 13.22 };
 bool client_has_stuff[MAXPLAYERS] = { true, ... };
+char[] name = new char[players*2];
+Action[] actions = new Action[maxActions];
 
 ---
 
@@ -128,6 +130,24 @@ bool client_has_stuff[MAXPLAYERS] = { true, ... };
             name: (symbol)
             (fixed_dimension (symbol))
             initialValue: (vector (bool_literal) (rest_operator)))
+        (semicolon))
+    (variable_declaration_statement
+        type: (type_expression (builtin_type) (dimension))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (dynamic_array
+                type: (builtin_type)
+                size: (binary_expression
+                    left: (symbol)
+                    right: (int_literal))))
+        (semicolon))
+    (variable_declaration_statement
+        type: (type_expression (symbol) (dimension))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (dynamic_array
+                type: (symbol)
+                size: (symbol)))
         (semicolon)))
 
 
