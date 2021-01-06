@@ -1,11 +1,10 @@
-==========
-while loop
-==========
+=============
+do while loop
+=============
 
 public void OnPluginStart() {
-    while(true) {
-
-    }
+    do {
+    } while(true);
 }
 
 ---
@@ -16,19 +15,19 @@ public void OnPluginStart() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-            (while_loop
+            (do_while_loop
+                (block)
                 condition: (bool_literal)
-                (block)))))
+                (semicolon)))))
 
 
-==========================
-while loop with expression
-==========================
+=======================================
+do while loop - expression as condition
+=======================================
 
 public void OnPluginStart() {
-    while(i < 10 && j < 2) {
-
-    }
+    do {
+    } while(20 > 10);
 }
 
 ---
@@ -39,25 +38,22 @@ public void OnPluginStart() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-            (while_loop
+            (do_while_loop
+                (block)
                 condition: (binary_expression
-                    left: (binary_expression
-                        left: (symbol)
-                        right: (int_literal))
-                    right: (binary_expression
-                        left: (symbol)
-                        right: (int_literal)))
-                (block)))))
+                    left: (int_literal)
+                    right: (int_literal))
+                (semicolon)))))
 
 
-==================
-while loop - break
-==================
+=====================
+do while loop - break
+=====================
 
 public void OnPluginStart() {
-    while(true) {
+    do {
         break;
-    }
+    } while(true);
 }
 
 ---
@@ -68,19 +64,20 @@ public void OnPluginStart() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-            (while_loop
+            (do_while_loop
+                (block (break_statement (semicolon)))
                 condition: (bool_literal)
-                (block (break_statement (semicolon)))))))
+                (semicolon)))))
 
 
-=====================
-while loop - continue
-=====================
+========================
+do while loop - continue
+========================
 
 public void OnPluginStart() {
-    while(true) {
+    do {
         continue;
-    }
+    } while(true);
 }
 
 ---
@@ -91,17 +88,20 @@ public void OnPluginStart() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-            (while_loop
+            (do_while_loop
+                (block (continue_statement (semicolon)))
                 condition: (bool_literal)
-                (block (continue_statement (semicolon)))))))
+                (semicolon)))))
 
 
-=============================
-while loop - single statement
-=============================
+==================================
+do while loop - optional semicolon
+==================================
 
 public void OnPluginStart() {
-    while(true) continue;
+    do {
+        continue;
+    } while(true)
 }
 
 ---
@@ -112,6 +112,6 @@ public void OnPluginStart() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-            (while_loop
-                condition: (bool_literal)
-                (continue_statement (semicolon))))))
+            (do_while_loop
+                (block (continue_statement (semicolon)))
+                condition: (bool_literal)))))

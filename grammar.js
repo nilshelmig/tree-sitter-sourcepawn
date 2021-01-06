@@ -48,9 +48,6 @@ module.exports = grammar({
     ],
     [$.argument_declaration, $.type_expression],
     [$.argument_declarations, $.function_call_arguments],
-    [$.expression_statement],
-    [$.old_variable_declaration_statement],
-    [$.variable_declaration_statement],
   ],
 
   word: ($) => $.symbol,
@@ -214,11 +211,13 @@ module.exports = grammar({
     rest_argument: ($) => seq(field("type", $.type_expression), "..."),
 
     variable_declaration_statement: ($) =>
-      seq(
-        optional($.variable_storage_class),
-        field("type", $.type_expression),
-        commaSep1($.variable_declaration),
-        optional($.semicolon)
+      prec.left(
+        seq(
+          optional($.variable_storage_class),
+          field("type", $.type_expression),
+          commaSep1($.variable_declaration),
+          optional($.semicolon)
+        )
       ),
 
     variable_storage_class: ($) => choice("const", "static"),
@@ -230,10 +229,12 @@ module.exports = grammar({
       ),
 
     old_variable_declaration_statement: ($) =>
-      seq(
-        $.old_variable_storage_class,
-        commaSep1($.old_variable_declaration),
-        optional($.semicolon)
+      prec.left(
+        seq(
+          $.old_variable_storage_class,
+          commaSep1($.old_variable_declaration),
+          optional($.semicolon)
+        )
       ),
     old_variable_storage_class: ($) => choice("new", "decl", "const", "static"),
     old_variable_declaration: ($) =>
@@ -464,6 +465,7 @@ module.exports = grammar({
         $._top_level_statements,
         $.for_loop,
         $.while_loop,
+        $.do_while_loop,
         $.break_statement,
         $.continue_statement,
         $.return_statement,
@@ -491,12 +493,27 @@ module.exports = grammar({
       ),
     while_loop: ($) =>
       seq("while", "(", field("condition", $._expression), ")", $._statement),
+
+    do_while_loop: ($) =>
+      prec.right(
+        seq(
+          "do",
+          $.block,
+          "while",
+          "(",
+          field("condition", $._expression),
+          ")",
+          optional($.semicolon)
+        )
+      ),
     break_statement: ($) => prec.right(seq("break", optional($.semicolon))),
     continue_statement: ($) =>
       prec.right(seq("continue", optional($.semicolon))),
 
     expression_statement: ($) =>
-      seq(choice($._expression, $.comma_expression), optional($.semicolon)),
+      prec.right(
+        seq(choice($._expression, $.comma_expression), optional($.semicolon))
+      ),
 
     return_statement: ($) =>
       prec.right(
