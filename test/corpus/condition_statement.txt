@@ -1,0 +1,123 @@
+============
+if condition
+============
+
+public void OnPluginStart() {
+    if (true) return;
+}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (condition_statement
+                condition: (bool_literal)
+                truePath: (return_statement (semicolon))))))
+
+
+========================
+if condition - else case
+========================
+
+public void OnPluginStart() {
+    if (true) return;
+    else return;
+}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (condition_statement
+                condition: (bool_literal)
+                truePath: (return_statement (semicolon))
+                falsePath: (return_statement (semicolon))))))
+
+
+=============================
+if condition - multiple cases
+=============================
+
+public void OnPluginStart() {
+    if (true) return;
+    else if (false) return;
+    else if (false) return;
+    else return;
+}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (condition_statement
+                condition: (bool_literal)
+                truePath: (return_statement (semicolon))
+                falsePath: (condition_statement
+                    condition: (bool_literal)
+                    truePath: (return_statement (semicolon))
+                    falsePath: (condition_statement
+                        condition: (bool_literal)
+                        truePath: (return_statement (semicolon))
+                        falsePath: (return_statement (semicolon))))))))
+
+
+====================
+if condition - block
+====================
+
+public void OnPluginStart() {
+    if (true) {
+        return;
+    }
+}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (condition_statement
+                condition: (bool_literal)
+                truePath: (block (return_statement (semicolon)))))))
+
+
+==============================
+if condition - else case block
+==============================
+
+public void OnPluginStart() {
+    if (true) {
+        return;
+    }
+    else {
+
+    }
+}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (condition_statement
+                condition: (bool_literal)
+                truePath: (block (return_statement (semicolon)))
+                falsePath: (block)))))

@@ -468,6 +468,7 @@ module.exports = grammar({
         $.do_while_loop,
         $.break_statement,
         $.continue_statement,
+        $.condition_statement,
         $.return_statement,
         $.delete_statement,
         $.expression_statement
@@ -493,7 +494,6 @@ module.exports = grammar({
       ),
     while_loop: ($) =>
       seq("while", "(", field("condition", $._expression), ")", $._statement),
-
     do_while_loop: ($) =>
       prec.right(
         seq(
@@ -510,6 +510,17 @@ module.exports = grammar({
     continue_statement: ($) =>
       prec.right(seq("continue", optional($.semicolon))),
 
+    condition_statement: ($) =>
+      prec.left(
+        seq(
+          "if",
+          "(",
+          field("condition", $._expression),
+          ")",
+          field("truePath", $._statement),
+          optional(seq("else", field("falsePath", $._statement)))
+        )
+      ),
     expression_statement: ($) =>
       prec.right(
         seq(choice($._expression, $.comma_expression), optional($.semicolon))

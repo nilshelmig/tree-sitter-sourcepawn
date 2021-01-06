@@ -98,6 +98,10 @@
         "named": true
       },
       {
+        "type": "condition_statement",
+        "named": true
+      },
+      {
         "type": "continue_statement",
         "named": true
       },
@@ -521,6 +525,42 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "condition_statement",
+    "named": true,
+    "fields": {
+      "condition": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "_expression",
+            "named": true
+          }
+        ]
+      },
+      "falsePath": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "_statement",
+            "named": true
+          }
+        ]
+      },
+      "truePath": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "_statement",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -2709,6 +2749,10 @@
     "named": false
   },
   {
+    "type": "else",
+    "named": false
+  },
+  {
     "type": "enum",
     "named": false
   },
@@ -2738,6 +2782,10 @@
   },
   {
     "type": "get",
+    "named": false
+  },
+  {
+    "type": "if",
     "named": false
   },
   {
