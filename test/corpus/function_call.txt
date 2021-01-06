@@ -54,6 +54,66 @@ void Test() {
             (semicolon)))))
 
 
+==================================
+function call with named arguments
+==================================
+
+void Test() {
+    MyFunc("test", .c = 2, .f = 2.13, .o = &outVar);
+}
+
+---
+
+(source_file
+  (function_declaration
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations)
+    (block
+        (expression_statement
+            (function_call
+                function: (symbol)
+                (function_call_arguments
+                    (string_literal)
+                    (named_arg
+                        name: (symbol)
+                        value: (int_literal))
+                    (named_arg
+                        name: (symbol)
+                        value: (float_literal))
+                    (named_arg
+                        name: (symbol)
+                        value: (symbol))))
+            (semicolon)))))
+
+
+===================================
+function call with irgnore argument
+===================================
+
+void Test() {
+    MyFunc("test", _, 2.13, _);
+}
+
+---
+
+(source_file
+  (function_declaration
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations)
+    (block
+        (expression_statement
+            (function_call
+                function: (symbol)
+                (function_call_arguments
+                    (string_literal)
+                    (ignore_argument)
+                    (float_literal)
+                    (ignore_argument)))
+            (semicolon)))))
+
+
 ===========================
 function call as expression
 ===========================

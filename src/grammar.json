@@ -3407,6 +3407,14 @@
                       {
                         "type": "SYMBOL",
                         "name": "_expression"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "named_arg"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "ignore_argument"
                       }
                     ]
                   },
@@ -3438,6 +3446,14 @@
                             {
                               "type": "SYMBOL",
                               "name": "_expression"
+                            },
+                            {
+                              "type": "SYMBOL",
+                              "name": "named_arg"
+                            },
+                            {
+                              "type": "SYMBOL",
+                              "name": "ignore_argument"
                             }
                           ]
                         }
@@ -3457,6 +3473,57 @@
           }
         ]
       }
+    },
+    "named_arg": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "."
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "symbol"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "FIELD",
+          "name": "value",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "&"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "symbol"
+                  }
+                ]
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_expression"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ignore_argument": {
+      "type": "STRING",
+      "value": "_"
     },
     "array_indexed_access": {
       "type": "PREC",

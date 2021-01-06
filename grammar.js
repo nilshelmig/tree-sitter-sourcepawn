@@ -646,8 +646,27 @@ module.exports = grammar({
     function_call_arguments: ($) =>
       prec.left(
         -11,
-        seq("(", commaSep(choice(seq("&", $.symbol), $._expression)), ")")
+        seq(
+          "(",
+          commaSep(
+            choice(
+              seq("&", $.symbol),
+              $._expression,
+              $.named_arg,
+              $.ignore_argument
+            )
+          ),
+          ")"
+        )
       ),
+    named_arg: ($) =>
+      seq(
+        ".",
+        field("name", $.symbol),
+        "=",
+        field("value", choice(seq("&", $.symbol), $._expression))
+      ),
+    ignore_argument: ($) => "_",
 
     array_indexed_access: ($) =>
       prec(

@@ -1080,6 +1080,14 @@
         {
           "type": "_expression",
           "named": true
+        },
+        {
+          "type": "ignore_argument",
+          "named": true
+        },
+        {
+          "type": "named_arg",
+          "named": true
         }
       ]
     }
@@ -1675,6 +1683,36 @@
           },
           {
             "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "named_arg",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "&",
+            "named": false
+          },
+          {
+            "type": "_expression",
             "named": true
           }
         ]
@@ -3132,6 +3170,10 @@
     "named": false
   },
   {
+    "type": "ignore_argument",
+    "named": true
+  },
+  {
     "type": "int",
     "named": false
   },
@@ -3181,11 +3223,11 @@
   },
   {
     "type": "semicolon",
-    "named": true
+    "named": false
   },
   {
     "type": "semicolon",
-    "named": false
+    "named": true
   },
   {
     "type": "set",
