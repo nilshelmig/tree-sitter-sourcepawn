@@ -149,3 +149,51 @@ public void OnPluginStart() {
                 (semicolon)
                 (semicolon)
                 (block)))))
+
+
+================
+for loop - break
+================
+
+public void OnPluginStart() {
+    for(;;) {
+        break;
+    }
+}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (for_loop
+                (semicolon)
+                (semicolon)
+                (block (break_statement (semicolon)))))))
+
+
+===================
+for loop - continue
+===================
+
+public void OnPluginStart() {
+    for(;;) {
+        continue;
+    }
+}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (for_loop
+                (semicolon)
+                (semicolon)
+                (block (continue_statement (semicolon)))))))            

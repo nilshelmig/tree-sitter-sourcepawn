@@ -1,0 +1,96 @@
+==========
+while loop
+==========
+
+public void OnPluginStart() {
+    while(true) {
+
+    }
+}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (while_loop
+                condition: (bool_literal)
+                (block)))))
+
+
+==========================
+while loop with expression
+==========================
+
+public void OnPluginStart() {
+    while(i < 10 && j < 2) {
+
+    }
+}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (while_loop
+                condition: (binary_expression
+                    left: (binary_expression
+                        left: (symbol)
+                        right: (int_literal))
+                    right: (binary_expression
+                        left: (symbol)
+                        right: (int_literal)))
+                (block)))))
+
+
+==================
+while loop - break
+==================
+
+public void OnPluginStart() {
+    while(true) {
+        break;
+    }
+}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (while_loop
+                condition: (bool_literal)
+                (block (break_statement (semicolon)))))))
+
+
+=====================
+while loop - continue
+=====================
+
+public void OnPluginStart() {
+    while(true) {
+        continue;
+    }
+}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (while_loop
+                condition: (bool_literal)
+                (block (continue_statement (semicolon)))))))
