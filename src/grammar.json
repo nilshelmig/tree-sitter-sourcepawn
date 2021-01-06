@@ -4939,14 +4939,45 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "SYMBOL",
-            "name": "string_literal"
+            "type": "FIELD",
+            "name": "left",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "string_literal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "symbol"
+                }
+              ]
+            }
           },
           {
-            "type": "REPEAT1",
+            "type": "STRING",
+            "value": "..."
+          },
+          {
+            "type": "FIELD",
+            "name": "right",
             "content": {
-              "type": "SYMBOL",
-              "name": "string_literal"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "string_literal"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "symbol"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "concatenated_string"
+                }
+              ]
             }
           }
         ]

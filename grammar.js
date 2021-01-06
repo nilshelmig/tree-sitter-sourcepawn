@@ -819,7 +819,16 @@ module.exports = grammar({
       seq("'", choice($.escape_sequence, token.immediate(/[^\n']/)), "'"),
 
     concatenated_string: ($) =>
-      prec.left(seq($.string_literal, repeat1($.string_literal))),
+      prec.left(
+        seq(
+          field("left", choice($.string_literal, $.symbol)),
+          "...",
+          field(
+            "right",
+            choice($.string_literal, $.symbol, $.concatenated_string)
+          )
+        )
+      ),
 
     string_literal: ($) =>
       seq(
