@@ -2602,7 +2602,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "block"
+          "name": "_statement"
         }
       ]
     },
@@ -2631,7 +2631,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "block"
+          "name": "_statement"
         }
       ]
     },

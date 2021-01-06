@@ -94,3 +94,25 @@ public void OnPluginStart() {
             (while_loop
                 condition: (bool_literal)
                 (block (continue_statement (semicolon)))))))
+
+
+=============================
+while loop - single statement
+=============================
+
+
+public void OnPluginStart() {
+    while(true) continue;
+}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (while_loop
+                condition: (bool_literal)
+                (continue_statement (semicolon))))))

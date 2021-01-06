@@ -487,10 +487,10 @@ module.exports = grammar({
         $.semicolon,
         field("iteration", optional($._statement)),
         ")",
-        $.block
+        $._statement
       ),
     while_loop: ($) =>
-      seq("while", "(", field("condition", $._expression), ")", $.block),
+      seq("while", "(", field("condition", $._expression), ")", $._statement),
     break_statement: ($) => prec.right(seq("break", optional($.semicolon))),
     continue_statement: ($) =>
       prec.right(seq("continue", optional($.semicolon))),

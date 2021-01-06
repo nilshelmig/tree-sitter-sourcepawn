@@ -196,4 +196,26 @@ public void OnPluginStart() {
             (for_loop
                 (semicolon)
                 (semicolon)
-                (block (continue_statement (semicolon)))))))            
+                (block (continue_statement (semicolon)))))))
+
+
+===========================
+for loop - single statement
+===========================
+
+public void OnPluginStart() {
+    for(;;) break;
+}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (for_loop
+                (semicolon)
+                (semicolon)
+                (break_statement (semicolon))))))
