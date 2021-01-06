@@ -134,6 +134,10 @@
         "named": true
       },
       {
+        "type": "update_statement",
+        "named": true
+      },
+      {
         "type": "variable_declaration_statement",
         "named": true
       },
@@ -2525,6 +2529,100 @@
     }
   },
   {
+    "type": "update_statement",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "_expression",
+            "named": true
+          }
+        ]
+      },
+      "operator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "&=",
+            "named": false
+          },
+          {
+            "type": "*=",
+            "named": false
+          },
+          {
+            "type": "+=",
+            "named": false
+          },
+          {
+            "type": "-=",
+            "named": false
+          },
+          {
+            "type": "/=",
+            "named": false
+          },
+          {
+            "type": "<<=",
+            "named": false
+          },
+          {
+            "type": "=",
+            "named": false
+          },
+          {
+            "type": ">>=",
+            "named": false
+          },
+          {
+            "type": "^=",
+            "named": false
+          },
+          {
+            "type": "|=",
+            "named": false
+          },
+          {
+            "type": "~=",
+            "named": false
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "_expression",
+            "named": true
+          },
+          {
+            "type": "dynamic_array",
+            "named": true
+          },
+          {
+            "type": "new_instance",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "semicolon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "variable_declaration",
     "named": true,
     "fields": {
@@ -2779,6 +2877,10 @@
     "named": false
   },
   {
+    "type": "&=",
+    "named": false
+  },
+  {
     "type": "'",
     "named": false
   },
@@ -2795,11 +2897,19 @@
     "named": false
   },
   {
+    "type": "*=",
+    "named": false
+  },
+  {
     "type": "+",
     "named": false
   },
   {
     "type": "++",
+    "named": false
+  },
+  {
+    "type": "+=",
     "named": false
   },
   {
@@ -2815,6 +2925,10 @@
     "named": false
   },
   {
+    "type": "-=",
+    "named": false
+  },
+  {
     "type": ".",
     "named": false
   },
@@ -2827,6 +2941,10 @@
     "named": false
   },
   {
+    "type": "/=",
+    "named": false
+  },
+  {
     "type": ":",
     "named": false
   },
@@ -2836,6 +2954,10 @@
   },
   {
     "type": "<<",
+    "named": false
+  },
+  {
+    "type": "<<=",
     "named": false
   },
   {
@@ -2863,6 +2985,10 @@
     "named": false
   },
   {
+    "type": ">>=",
+    "named": false
+  },
+  {
     "type": "?",
     "named": false
   },
@@ -2876,6 +3002,10 @@
   },
   {
     "type": "^",
+    "named": false
+  },
+  {
+    "type": "^=",
     "named": false
   },
   {
@@ -3028,11 +3158,11 @@
   },
   {
     "type": "semicolon",
-    "named": false
+    "named": true
   },
   {
     "type": "semicolon",
-    "named": true
+    "named": false
   },
   {
     "type": "set",
@@ -3099,6 +3229,10 @@
     "named": false
   },
   {
+    "type": "|=",
+    "named": false
+  },
+  {
     "type": "||",
     "named": false
   },
@@ -3108,6 +3242,10 @@
   },
   {
     "type": "~",
+    "named": false
+  },
+  {
+    "type": "~=",
     "named": false
   }
 ]

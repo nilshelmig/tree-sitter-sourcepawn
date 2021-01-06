@@ -493,6 +493,7 @@ module.exports = grammar({
         $.switch_statement,
         $.return_statement,
         $.delete_statement,
+        $.update_statement,
         $.expression_statement
       ),
 
@@ -583,6 +584,35 @@ module.exports = grammar({
 
     delete_statement: ($) =>
       prec.right(seq("delete", field("free", $.symbol), optional($.semicolon))),
+
+    update_statement: ($) =>
+      prec.left(
+        PREC.ASSIGNMENT,
+        seq(
+          field("left", $._expression),
+          field(
+            "operator",
+            choice(
+              "=",
+              "+=",
+              "-=",
+              "*=",
+              "/=",
+              "|=",
+              "&=",
+              "^=",
+              "~=",
+              "<<=",
+              ">>="
+            )
+          ),
+          field(
+            "right",
+            choice($._expression, $.dynamic_array, $.new_instance)
+          ),
+          optional($.semicolon)
+        )
+      ),
 
     semicolon: ($) => ";",
 
