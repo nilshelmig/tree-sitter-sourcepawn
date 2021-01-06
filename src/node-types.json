@@ -2976,6 +2976,10 @@
           "named": true
         },
         {
+          "type": "symbol",
+          "named": true
+        },
+        {
           "type": "vector",
           "named": true
         }

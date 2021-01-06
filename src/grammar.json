@@ -4722,6 +4722,10 @@
                   {
                     "type": "SYMBOL",
                     "name": "_literal"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "symbol"
                   }
                 ]
               },
@@ -4744,6 +4748,10 @@
                         {
                           "type": "SYMBOL",
                           "name": "_literal"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "symbol"
                         }
                       ]
                     }

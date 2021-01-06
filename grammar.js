@@ -812,7 +812,7 @@ module.exports = grammar({
         10,
         seq(
           "{",
-          commaSep1(choice($.vector, $._literal)),
+          commaSep1(choice($.vector, $._literal, $.symbol)),
           optional(seq(",", $.rest_operator)),
           "}"
         )

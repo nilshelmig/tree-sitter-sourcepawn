@@ -181,6 +181,32 @@ Action[] actions = new Action[maxActions];
         (semicolon)))
 
 
+==========================
+enum struct initialization
+==========================
+
+MyStruct s = {1, "test", 2.31, true, {1.0, 2.0, 3.0}, Plugin_Handled};
+
+---
+
+(source_file
+    (variable_declaration_statement
+        type: (type_expression (symbol))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (vector
+                (int_literal)
+                (string_literal)
+                (float_literal)
+                (bool_literal)
+                (vector
+                    (float_literal)
+                    (float_literal)
+                    (float_literal))
+                (symbol)))
+        (semicolon)))
+
+
 =============
 storage class
 =============
