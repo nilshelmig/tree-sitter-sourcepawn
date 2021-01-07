@@ -1,5 +1,7 @@
 # tree-sitter-sourcepawn
 
+[![npm version](https://badge.fury.io/js/tree-sitter-sourcepawn.svg)](https://badge.fury.io/js/tree-sitter-sourcepawn)
+
 [sourcepawn](https://github.com/alliedmodders/sourcepawn) grammar for [tree-sitter](https://github.com/tree-sitter/tree-sitter)
 
 ## Install
