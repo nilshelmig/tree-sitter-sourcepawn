@@ -487,6 +487,7 @@ module.exports = grammar({
       seq(
         "public",
         field("type", $.symbol),
+        optional(":"),
         field("name", $.symbol),
         "=",
         field("value", $.struct_constructor),
