@@ -664,6 +664,7 @@ module.exports = grammar({
         $.update_expression,
         $.sizeof_expression,
         $.view_as,
+        $.old_style_type_cast,
         $.symbol,
         $._literal,
         $.concatenated_string,
@@ -810,6 +811,15 @@ module.exports = grammar({
           "(",
           field("value", $._expression),
           ")"
+        )
+      ),
+
+    old_style_type_cast: ($) =>
+      prec.left(
+        PREC.CAST,
+        seq(
+          field("type", choice($.old_builtin_type, seq($.symbol, ":"))),
+          field("value", $._expression)
         )
       ),
 
