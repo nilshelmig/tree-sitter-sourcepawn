@@ -8,6 +8,7 @@ char character;
 bool boolean;
 char[] text;
 float vec[3];
+bool active[MAXPLAYERS + 1];
 Action action;
 
 ---
@@ -38,6 +39,15 @@ Action action;
         (variable_declaration
             name: (symbol)
             (fixed_dimension (int_literal)))
+        (semicolon))
+    (variable_declaration_statement
+        type: (type_expression (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            (fixed_dimension
+                (binary_expression
+                    left: (symbol)
+                    right: (int_literal))))
         (semicolon))
     (variable_declaration_statement
         type: (type_expression (symbol))
@@ -413,6 +423,7 @@ old style variables - arrays
 ============================
 
 new a[16];
+new players[MAXPLAYERS + 1];
 new String:d[12] = "hello world";
 new Float:origin[3] = {1.0, 2.0, 3.0};
 new numbers[] = {1, 3, 5, 7, 9};
@@ -425,6 +436,15 @@ new numbers[] = {1, 3, 5, 7, 9};
         (old_variable_declaration
             name: (symbol)
             (fixed_dimension (int_literal)))
+        (semicolon))
+    (old_variable_declaration_statement
+        (old_variable_storage_class)
+        (old_variable_declaration
+            name: (symbol)
+            (fixed_dimension
+                (binary_expression
+                    left: (symbol)
+                    right: (int_literal))))
         (semicolon))
     (old_variable_declaration_statement
         (old_variable_storage_class)
@@ -491,6 +511,7 @@ old style variables - optional semicolon
 new a
 new bool:c = true
 decl String:arg1[32]
+new Handle:h = INVALID_HANDLE
 
 ---
 
@@ -509,7 +530,13 @@ decl String:arg1[32]
         (old_variable_declaration
             type: (old_builtin_type)
             name: (symbol)
-            (fixed_dimension (int_literal)))))
+            (fixed_dimension (int_literal))))
+    (old_variable_declaration_statement
+        (old_variable_storage_class)
+        (old_variable_declaration
+            type: (symbol)
+            name: (symbol)
+            initialValue: (symbol))))
 
 
 ===============

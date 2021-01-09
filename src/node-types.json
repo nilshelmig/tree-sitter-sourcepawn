@@ -983,11 +983,7 @@
       "required": true,
       "types": [
         {
-          "type": "int_literal",
-          "named": true
-        },
-        {
-          "type": "symbol",
+          "type": "_expression",
           "named": true
         }
       ]

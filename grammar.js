@@ -502,7 +502,7 @@ module.exports = grammar({
       seq(choice($.old_builtin_type, seq($.symbol, ":")), repeat($.dimension)),
 
     dimension: ($) => seq("[", "]"),
-    fixed_dimension: ($) => seq("[", choice($.int_literal, $.symbol), "]"),
+    fixed_dimension: ($) => seq("[", $._expression, "]"),
 
     _type: ($) =>
       choice($.builtin_type, $.old_builtin_type, seq($.symbol, optional(":"))),
