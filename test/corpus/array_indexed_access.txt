@@ -110,3 +110,31 @@ int MyFunc(int[] myvar) {
                     array: (symbol)
                     index: (int_literal)))
             (semicolon)))))
+
+
+======================================
+access array member - multidimensional
+======================================
+
+int MyFunc(int[][] myvar) {
+    return myvar[0][client];
+}
+
+---
+
+(source_file
+  (function_declaration
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations
+        (argument_declaration
+            type: (type_expression (builtin_type) (dimension) (dimension))
+            name: (symbol)))
+    (block
+        (return_statement
+            (array_indexed_access
+                    array: (array_indexed_access
+                        array: (symbol)
+                        index: (int_literal))
+                    index: (symbol))
+            (semicolon)))))

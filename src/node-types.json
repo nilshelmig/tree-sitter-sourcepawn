@@ -261,6 +261,10 @@
         "required": true,
         "types": [
           {
+            "type": "array_indexed_access",
+            "named": true
+          },
+          {
             "type": "symbol",
             "named": true
           }

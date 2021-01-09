@@ -709,3 +709,38 @@ void Test() {
                     class: (symbol)
                     arguments: (function_call_arguments))
                 (semicolon)))))
+
+
+===========================================
+variable assignment - indexed array access
+===========================================
+
+void Test() {
+    clients[2] = 14;
+    clients[client] = Math_GetRandomInt(100, 300);
+}
+
+---
+
+(source_file
+    (function_declaration
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (update_statement
+                left: (array_indexed_access
+                    array: (symbol)
+                    index: (int_literal))
+                right: (int_literal)
+                (semicolon))
+            (update_statement
+                left: (array_indexed_access
+                    array: (symbol)
+                    index: (symbol))
+                right: (function_call
+                    function: (symbol)
+                    (function_call_arguments
+                        (int_literal)
+                        (int_literal)))
+                (semicolon)))))

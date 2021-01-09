@@ -706,7 +706,12 @@ module.exports = grammar({
     array_indexed_access: ($) =>
       prec(
         PREC.ARRAY_MEMBER,
-        seq(field("array", $.symbol), "[", field("index", $._expression), "]")
+        seq(
+          field("array", choice($.symbol, $.array_indexed_access)),
+          "[",
+          field("index", $._expression),
+          "]"
+        )
       ),
 
     parenthesized_expression: ($) =>
