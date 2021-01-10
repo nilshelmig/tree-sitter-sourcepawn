@@ -48,3 +48,24 @@ int Test() {
                     type: (symbol)
                     (dimension))
                 (semicolon)))))
+
+
+==========================
+sizeof without parentheses
+==========================
+
+int Test() {
+    return sizeof a;
+}
+
+---
+
+(source_file
+    (function_declaration
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (return_statement
+                (sizeof_expression type: (symbol))
+                (semicolon)))))
