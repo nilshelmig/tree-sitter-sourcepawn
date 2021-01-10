@@ -121,3 +121,46 @@ public void OnPluginStart() {
                 condition: (bool_literal)
                 truePath: (block (return_statement (semicolon)))
                 falsePath: (block)))))
+
+
+===============================
+if condition - unary expression
+===============================
+
+public void OnPluginStart() {
+    if (!false) return;
+    if (-(20 + 20) < -20) return;
+    if (+(20) > 2) return;
+    if (~a != 32) return;
+}
+
+---
+
+(source_file
+    (callback_implementation
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (condition_statement
+                condition: (unary_expression argument: (bool_literal))
+                truePath: (return_statement (semicolon)))
+            (condition_statement
+                condition: (binary_expression
+                    left: (unary_expression
+                        argument: (parenthesized_expression
+                            (binary_expression
+                                left: (int_literal)
+                                right: (int_literal))))
+                    right: (int_literal))
+                truePath: (return_statement (semicolon)))
+            (condition_statement
+                condition: (binary_expression
+                    left: (unary_expression argument: (parenthesized_expression (int_literal)))
+                    right: (int_literal))
+                truePath: (return_statement (semicolon)))
+            (condition_statement
+                condition: (binary_expression
+                    left: (unary_expression argument: (symbol))
+                    right: (int_literal))
+                truePath: (return_statement (semicolon))))))
