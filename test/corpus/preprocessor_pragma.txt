@@ -12,6 +12,24 @@ pragma for semicolons
     (preproc_pragma_semicolon enabled: (int_literal)))
 
 
+==========================================
+pragma for semicolons - optional semicolon
+==========================================
+
+#pragma semicolon 1;
+#pragma semicolon 0;
+
+---
+
+(source_file
+    (preproc_pragma_semicolon
+        enabled: (int_literal)
+        (semicolon))
+    (preproc_pragma_semicolon
+        enabled: (int_literal)
+        (semicolon)))
+
+
 ===========================
 pragma for new declarations
 ===========================

@@ -127,6 +127,7 @@ module.exports = grammar({
         preprocessor("pragma"),
         "semicolon",
         field("enabled", $.int_literal),
+        optional($.semicolon),
         "\n"
       ),
 
