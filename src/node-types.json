@@ -509,6 +509,18 @@
         {
           "type": "_statement",
           "named": true
+        },
+        {
+          "type": "preproc_else",
+          "named": true
+        },
+        {
+          "type": "preproc_endif",
+          "named": true
+        },
+        {
+          "type": "preproc_if",
+          "named": true
         }
       ]
     }

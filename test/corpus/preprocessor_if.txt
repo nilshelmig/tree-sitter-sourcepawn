@@ -55,3 +55,38 @@ endif
 ---
 
 (source_file (preproc_endif))
+
+
+====================================
+preprocessor condition in code block
+====================================
+
+void MyFunc() {
+    #if DEBUG
+    Debug();
+    #else
+    Production();
+    #endif
+}
+
+---
+
+(source_file
+    (function_declaration
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+        (preproc_if condition: (symbol))
+        (expression_statement
+            (function_call
+            function: (symbol)
+            (function_call_arguments))
+            (semicolon))
+        (preproc_else)
+        (expression_statement
+            (function_call
+            function: (symbol)
+            (function_call_arguments))
+            (semicolon))
+        (preproc_endif))))

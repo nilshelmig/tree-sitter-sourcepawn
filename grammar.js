@@ -533,7 +533,14 @@ module.exports = grammar({
       token(seq(choice("_", "Float", "bool", "String"), token.immediate(":"))),
     any_type: ($) => "any",
 
-    block: ($) => seq("{", repeat($._statement), "}"),
+    block: ($) =>
+      seq(
+        "{",
+        repeat(
+          choice($._statement, $.preproc_if, $.preproc_else, $.preproc_endif)
+        ),
+        "}"
+      ),
 
     // Statements
     _statement: ($) =>
