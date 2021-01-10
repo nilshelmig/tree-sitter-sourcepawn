@@ -481,6 +481,28 @@ MyFunc4(bool:condition) {}
     (block)))
 
 
+=====================================
+function with any argument - oldstyle
+=====================================
+
+MyFunc0(any:data) {}
+MyFunc1(args, any:data) {}
+
+---
+
+(source_file
+  (function_declaration
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (old_type_expression (any_type)) name: (symbol)))
+    (block))
+  (function_declaration
+    name: (symbol)
+    arguments: (argument_declarations
+      (argument_declaration name: (symbol))
+      (argument_declaration type: (old_type_expression (any_type)) name: (symbol)))
+    (block)))
+
+
 ================================
 function with multiple arguments
 ================================

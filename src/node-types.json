@@ -1838,6 +1838,10 @@
       "required": true,
       "types": [
         {
+          "type": "any_type",
+          "named": true
+        },
+        {
           "type": "dimension",
           "named": true
         },

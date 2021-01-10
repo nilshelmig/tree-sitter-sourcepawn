@@ -239,6 +239,32 @@ forward MyFunc9(String:a[MAX_PATH]);
         (semicolon)))
 
 
+===============================================
+forward functions with any argument - old style
+===============================================
+
+forward void MyFunc1(any:data);
+forward void MyFunc2(_:client, any:data);
+
+---
+
+(source_file
+    (function_definition
+        (function_definition_type)
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations (argument_declaration type: (old_type_expression (any_type)) name: (symbol)))
+    (semicolon))
+    (function_definition
+        (function_definition_type)
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations
+            (argument_declaration type: (old_type_expression (old_builtin_type)) name: (symbol))
+            (argument_declaration type: (old_type_expression (any_type)) name: (symbol)))
+    (semicolon)))
+
+
 =================================
 forward functions - rest argument
 =================================

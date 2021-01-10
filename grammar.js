@@ -500,7 +500,10 @@ module.exports = grammar({
     type_expression: ($) =>
       seq(choice($.builtin_type, $.symbol, $.any_type), repeat($.dimension)),
     old_type_expression: ($) =>
-      seq(choice($.old_builtin_type, seq($.symbol, ":")), repeat($.dimension)),
+      seq(
+        choice($.old_builtin_type, seq($.any_type, ":"), seq($.symbol, ":")),
+        repeat($.dimension)
+      ),
 
     dimension: ($) => seq("[", "]"),
     fixed_dimension: ($) => seq("[", $._expression, "]"),

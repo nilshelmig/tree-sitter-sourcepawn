@@ -2614,6 +2614,19 @@
               "members": [
                 {
                   "type": "SYMBOL",
+                  "name": "any_type"
+                },
+                {
+                  "type": "STRING",
+                  "value": ":"
+                }
+              ]
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
                   "name": "symbol"
                 },
                 {

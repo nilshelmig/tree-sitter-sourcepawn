@@ -188,8 +188,29 @@ public Callback6(Handle:handle) {}
     (callback_implementation
         name: (symbol)
         arguments: (argument_declarations (argument_declaration type: (old_type_expression (symbol)) name: (symbol)))
+        (block)))
+
+
+================================================
+implement callback - old style with any argument
+================================================
+
+public Callback1(any:data) {}
+public Callback2(args, any:data) {}
+
+---
+
+(source_file
+    (callback_implementation
+        name: (symbol)
+        arguments: (argument_declarations (argument_declaration type: (old_type_expression (any_type)) name: (symbol)))
         (block))
-    )
+    (callback_implementation
+        name: (symbol)
+        arguments: (argument_declarations
+            (argument_declaration name: (symbol))
+            (argument_declaration type: (old_type_expression (any_type)) name: (symbol)))
+        (block)))
 
 
 ==========================================================
