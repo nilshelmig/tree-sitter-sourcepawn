@@ -26,6 +26,24 @@ pragma for new declarations
     (preproc_pragma_newdecls value: (symbol)))
 
 
+================================================
+pragma for new declarations - optional semicolon
+================================================
+
+#pragma newdecls required;
+#pragma newdecls optional;
+
+---
+
+(source_file
+    (preproc_pragma_newdecls
+        value: (symbol)
+        (semicolon))
+    (preproc_pragma_newdecls
+        value: (symbol)
+        (semicolon)))
+
+
 =======================
 pragma for deprecations
 =======================

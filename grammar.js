@@ -130,7 +130,13 @@ module.exports = grammar({
       ),
 
     preproc_pragma_newdecls: ($) =>
-      seq(preprocessor("pragma"), "newdecls", field("value", $.symbol), "\n"),
+      seq(
+        preprocessor("pragma"),
+        "newdecls",
+        field("value", $.symbol),
+        optional($.semicolon),
+        "\n"
+      ),
 
     preproc_pragma_deprecated: ($) =>
       seq(

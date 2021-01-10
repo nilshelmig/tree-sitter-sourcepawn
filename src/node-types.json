@@ -2223,6 +2223,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "semicolon",
+          "named": true
+        }
+      ]
     }
   },
   {
