@@ -2868,8 +2868,17 @@
             "type": "CHOICE",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "_statement"
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_top_level_statements"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "assignment_expression"
+                  }
+                ]
               },
               {
                 "type": "BLANK"

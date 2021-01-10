@@ -1112,7 +1112,15 @@
         "required": false,
         "types": [
           {
-            "type": "_statement",
+            "type": "assignment_expression",
+            "named": true
+          },
+          {
+            "type": "old_variable_declaration_statement",
+            "named": true
+          },
+          {
+            "type": "variable_declaration_statement",
             "named": true
           }
         ]
