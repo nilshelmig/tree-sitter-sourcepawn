@@ -2330,6 +2330,10 @@
         "required": true,
         "types": [
           {
+            "type": "old_type_expression",
+            "named": true
+          },
+          {
             "type": "type_expression",
             "named": true
           }

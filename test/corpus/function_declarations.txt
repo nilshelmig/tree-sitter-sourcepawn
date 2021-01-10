@@ -603,3 +603,28 @@ void MyFunc2(const char[] format, any ...) {}
         name: (symbol))
       (rest_argument type: (type_expression (any_type))))
     (block)))
+
+
+=======================================
+function with rest argument - old style
+=======================================
+
+MyFunc1(any:...) {}
+MyFunc2(const String:format[], any:...) {}
+
+---
+
+(source_file
+  (function_declaration
+    name: (symbol)
+    arguments: (argument_declarations (rest_argument type: (old_type_expression (any_type))))
+    (block))
+  (function_declaration
+    name: (symbol)
+    arguments: (argument_declarations
+      (argument_declaration
+        type: (old_type_expression (old_builtin_type))
+        name: (symbol)
+        (dimension))
+      (rest_argument type: (old_type_expression (any_type))))
+    (block)))

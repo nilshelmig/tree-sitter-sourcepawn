@@ -222,7 +222,11 @@ module.exports = grammar({
           )
         )
       ),
-    rest_argument: ($) => seq(field("type", $.type_expression), "..."),
+    rest_argument: ($) =>
+      seq(
+        field("type", choice($.type_expression, $.old_type_expression)),
+        "..."
+      ),
 
     variable_declaration_statement: ($) =>
       prec.left(
