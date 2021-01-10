@@ -49,6 +49,7 @@ module.exports = grammar({
     [$.argument_declaration, $.type_expression],
     [$.argument_declarations, $.function_call_arguments],
     [$.global_variable, $._type],
+    [$.global_variable, $._old_type],
   ],
 
   word: ($) => $.symbol,
@@ -263,7 +264,7 @@ module.exports = grammar({
     old_variable_storage_class: ($) => choice("new", "decl", "const", "static"),
     old_variable_declaration: ($) =>
       seq(
-        field("type", optional(choice($.old_builtin_type, seq($.symbol, ":")))),
+        field("type", optional($._old_type)),
         field("name", $.symbol),
         repeat(choice($.dimension, $.fixed_dimension)),
         field("initialValue", optional(seq("=", $._expression)))
@@ -486,8 +487,7 @@ module.exports = grammar({
     global_variable: ($) =>
       seq(
         "public",
-        field("type", $.symbol),
-        optional(":"),
+        field("type", choice($.symbol, seq($.symbol, token.immediate(":")))),
         field("name", $.symbol),
         "=",
         field("value", $.struct_constructor),
@@ -501,18 +501,19 @@ module.exports = grammar({
       seq(choice($.builtin_type, $.symbol, $.any_type), repeat($.dimension)),
     old_type_expression: ($) =>
       seq(
-        choice($.old_builtin_type, seq($.any_type, ":"), seq($.symbol, ":")),
+        choice($._old_type, seq($.any_type, token.immediate(":"))),
         repeat($.dimension)
       ),
 
     dimension: ($) => seq("[", "]"),
     fixed_dimension: ($) => seq("[", $._expression, "]"),
 
-    _type: ($) =>
-      choice($.builtin_type, $.old_builtin_type, seq($.symbol, optional(":"))),
+    _type: ($) => choice($.builtin_type, $.symbol, $._old_type),
+    _old_type: ($) =>
+      choice($.old_builtin_type, seq($.symbol, token.immediate(":"))),
     builtin_type: ($) => choice("void", "bool", "int", "float", "char"),
     old_builtin_type: ($) =>
-      token(seq(choice("_", "Float", "bool", "String"), ":")),
+      token(seq(choice("_", "Float", "bool", "String"), token.immediate(":"))),
     any_type: ($) => "any",
 
     block: ($) => seq("{", repeat($._statement), "}"),
@@ -820,10 +821,7 @@ module.exports = grammar({
     old_type_cast: ($) =>
       prec.left(
         PREC.CAST,
-        seq(
-          field("type", choice($.old_builtin_type, seq($.symbol, ":"))),
-          field("value", $._expression)
-        )
+        seq(field("type", $._old_type), field("value", $._expression))
       ),
 
     vector: ($) =>
