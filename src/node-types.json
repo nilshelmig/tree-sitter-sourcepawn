@@ -198,6 +198,10 @@
           {
             "type": "symbol",
             "named": true
+          },
+          {
+            "type": "vector",
+            "named": true
           }
         ]
       },
