@@ -811,6 +811,7 @@ module.exports = grammar({
         ["<", PREC.RELATIONAL],
         ["<<", PREC.SHIFT],
         [">>", PREC.SHIFT],
+        [">>>", PREC.SHIFT],
       ];
 
       return choice(
