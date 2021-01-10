@@ -860,11 +860,15 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "enum_entries",
+          "named": true
+        },
+        {
+          "type": "semicolon",
           "named": true
         }
       ]

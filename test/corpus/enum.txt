@@ -105,3 +105,20 @@ enum NumberType
             (enum_entry name: (symbol))
             (enum_entry name: (symbol))
             (enum_entry name: (symbol)))))
+
+
+=========================
+enum - optional semicolon
+=========================
+
+enum f_invulnmode {
+    INVULNMODE_MORTAL,
+};
+
+---
+
+(source_file
+    (enum
+        name: (symbol)
+        (enum_entries (enum_entry name: (symbol)))
+        (semicolon)))

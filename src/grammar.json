@@ -1295,6 +1295,18 @@
         {
           "type": "SYMBOL",
           "name": "enum_entries"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "semicolon"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },

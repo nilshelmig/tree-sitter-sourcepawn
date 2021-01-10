@@ -270,7 +270,13 @@ module.exports = grammar({
         field("initialValue", optional(seq("=", $._expression)))
       ),
 
-    enum: ($) => seq("enum", field("name", optional($.symbol)), $.enum_entries),
+    enum: ($) =>
+      seq(
+        "enum",
+        field("name", optional($.symbol)),
+        $.enum_entries,
+        optional($.semicolon)
+      ),
     enum_entries: ($) => seq("{", commaSep1($.enum_entry), optional(","), "}"),
     enum_entry: ($) =>
       seq(
