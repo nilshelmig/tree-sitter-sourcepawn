@@ -3,6 +3,7 @@ const PREC = {
   ASSIGNMENT: -1,
   CONDITIONAL: -2,
   DEFAULT: 0,
+  FREE: 1,
   LOGICAL_OR: 1,
   LOGICAL_AND: 2,
   INCLUSIVE_OR: 3,
@@ -636,7 +637,10 @@ module.exports = grammar({
       ),
 
     delete_statement: ($) =>
-      prec.right(seq("delete", field("free", $.symbol), optional($.semicolon))),
+      prec.right(
+        PREC.FREE,
+        seq("delete", field("free", $._expression), optional($.semicolon))
+      ),
 
     semicolon: ($) => ";",
 

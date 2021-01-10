@@ -17,3 +17,131 @@ void SaveClose(Handle myhandle) {
         (delete_statement
             free: (symbol)
             (semicolon)))))
+
+
+===========================
+delete - index array access
+===========================
+
+void SaveClose(Handle[] myhandle) {
+    delete myhandle[0];
+}
+
+---
+
+(source_file
+  (function_declaration
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (symbol) (dimension)) name: (symbol)))
+    (block
+        (delete_statement
+            free: (array_indexed_access
+              array: (symbol)
+              index: (int_literal))
+            (semicolon)))))
+
+
+================
+delete - view as
+================
+
+void SaveClose(Handle myhandle) {
+    delete view_as<DataPack>(myhandle);
+}
+
+---
+
+(source_file
+  (function_declaration
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (type_expression (symbol)) name: (symbol)))
+    (block
+        (delete_statement
+            free: (view_as
+              type: (symbol)
+              value: (symbol))
+            (semicolon)))))
+
+
+=============
+delete - this
+=============
+
+methodmap Handle
+{
+  public void Dispose() {
+      delete this;
+  }
+}
+
+---
+
+(source_file
+  (methodmap
+    name: (symbol)
+    (methodmap_method
+      returnType: (builtin_type)
+      name: (symbol)
+      (argument_declarations)
+      (block
+          (delete_statement
+              free: (this)
+              (semicolon))))))
+
+
+=====================
+delete - field access
+=====================
+
+methodmap Handle
+{
+  public void Dispose() {
+      delete this.garbage;
+  }
+}
+
+---
+
+(source_file
+  (methodmap
+    name: (symbol)
+    (methodmap_method
+      returnType: (builtin_type)
+      name: (symbol)
+      (argument_declarations)
+      (block
+          (delete_statement
+              free: (field_access
+                target: (this)
+                field: (symbol))
+              (semicolon))))))
+
+
+======================
+delete - function call
+======================
+
+methodmap Handle
+{
+  public void Dispose() {
+      delete GetHandle();
+  }
+}
+
+---
+
+(source_file
+  (methodmap
+    name: (symbol)
+    (methodmap_method
+      returnType: (builtin_type)
+      name: (symbol)
+      (argument_declarations)
+      (block
+          (delete_statement
+              free: (function_call
+                function: (symbol)
+                (function_call_arguments))
+              (semicolon))))))

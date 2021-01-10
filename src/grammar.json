@@ -3407,7 +3407,7 @@
     },
     "delete_statement": {
       "type": "PREC_RIGHT",
-      "value": 0,
+      "value": 1,
       "content": {
         "type": "SEQ",
         "members": [
@@ -3420,7 +3420,7 @@
             "name": "free",
             "content": {
               "type": "SYMBOL",
-              "name": "symbol"
+              "name": "_expression"
             }
           },
           {
@@ -5644,6 +5644,7 @@
     "ASSIGNMENT": -1,
     "CONDITIONAL": -2,
     "DEFAULT": 0,
+    "FREE": 1,
     "LOGICAL_OR": 1,
     "LOGICAL_AND": 2,
     "INCLUSIVE_OR": 3,
