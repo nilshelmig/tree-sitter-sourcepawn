@@ -48,7 +48,7 @@
         "named": true
       },
       {
-        "type": "old_style_type_cast",
+        "type": "old_type_cast",
         "named": true
       },
       {
@@ -1796,7 +1796,7 @@
     }
   },
   {
-    "type": "old_style_type_cast",
+    "type": "old_type_cast",
     "named": true,
     "fields": {
       "type": {

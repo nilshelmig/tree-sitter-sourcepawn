@@ -3552,7 +3552,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "old_style_type_cast"
+          "name": "old_type_cast"
         },
         {
           "type": "SYMBOL",
@@ -4728,7 +4728,7 @@
         ]
       }
     },
-    "old_style_type_cast": {
+    "old_type_cast": {
       "type": "PREC_LEFT",
       "value": 12,
       "content": {

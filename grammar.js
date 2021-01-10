@@ -667,7 +667,7 @@ module.exports = grammar({
         $.update_expression,
         $.sizeof_expression,
         $.view_as,
-        $.old_style_type_cast,
+        $.old_type_cast,
         $.symbol,
         $._literal,
         $.concatenated_string,
@@ -817,7 +817,7 @@ module.exports = grammar({
         )
       ),
 
-    old_style_type_cast: ($) =>
+    old_type_cast: ($) =>
       prec.left(
         PREC.CAST,
         seq(

@@ -100,27 +100,27 @@ WormDirection:GetOppositeDirection() {
         arguments: (argument_declarations)
         (block
             (expression_statement
-                (old_style_type_cast
+                (old_type_cast
                     type: (old_builtin_type)
                     value: (float_literal))
                 (semicolon))
             (expression_statement
-                (old_style_type_cast
+                (old_type_cast
                     type: (old_builtin_type)
                     value: (int_literal))
                 (semicolon))
             (expression_statement
-                (old_style_type_cast
+                (old_type_cast
                     type: (old_builtin_type)
                     value: (int_literal))
                 (semicolon))
             (expression_statement
-                (old_style_type_cast
+                (old_type_cast
                     type: (old_builtin_type)
                     value: (symbol))
                 (semicolon))
             (return_statement
-                (old_style_type_cast
+                (old_type_cast
                     type: (symbol)
                     value: (int_literal))
                 (semicolon)))))
@@ -144,10 +144,10 @@ Float:GetOppositeDirection() {
         (block
             (return_statement
                 (binary_expression
-                    left: (old_style_type_cast
+                    left: (old_type_cast
                         type: (old_builtin_type)
                         value: (int_literal))
-                    right: (old_style_type_cast
+                    right: (old_type_cast
                         type: (old_builtin_type)
                         value: (int_literal)))
                 (semicolon)))))
