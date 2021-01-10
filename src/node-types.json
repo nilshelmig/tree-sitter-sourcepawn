@@ -295,7 +295,19 @@
         "required": true,
         "types": [
           {
-            "type": "_expression",
+            "type": "array_indexed_access",
+            "named": true
+          },
+          {
+            "type": "field_access",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          },
+          {
+            "type": "this",
             "named": true
           }
         ]

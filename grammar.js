@@ -653,7 +653,10 @@ module.exports = grammar({
       prec.right(
         PREC.ASSIGNMENT,
         seq(
-          field("left", $._expression),
+          field(
+            "left",
+            choice($.array_indexed_access, $.field_access, $.symbol, $.this)
+          ),
           field(
             "operator",
             choice(
