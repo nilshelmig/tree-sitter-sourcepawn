@@ -4648,25 +4648,27 @@
             "value": "sizeof"
           },
           {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "("
-              },
-              {
-                "type": "FIELD",
-                "name": "type",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "symbol"
-                }
-              },
-              {
-                "type": "STRING",
-                "value": ")"
-              }
-            ]
+            "type": "STRING",
+            "value": "("
+          },
+          {
+            "type": "FIELD",
+            "name": "type",
+            "content": {
+              "type": "SYMBOL",
+              "name": "symbol"
+            }
+          },
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "dimension"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ")"
           }
         ]
       }

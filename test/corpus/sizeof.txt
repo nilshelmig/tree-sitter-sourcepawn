@@ -1,0 +1,50 @@
+======
+sizeof
+======
+
+int Test() {
+    return sizeof(a);
+}
+
+---
+
+(source_file
+    (function_declaration
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (return_statement
+                (sizeof_expression type: (symbol))
+                (semicolon)))))
+
+
+===============================
+sizeof - multidimensional array
+===============================
+
+int Test() {
+    sizeof(a[][][]);
+    return sizeof(a[]);
+}
+
+---
+
+(source_file
+    (function_declaration
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (expression_statement
+                (sizeof_expression
+                    type: (symbol)
+                    (dimension)
+                    (dimension)
+                    (dimension))
+                (semicolon))
+            (return_statement
+                (sizeof_expression
+                    type: (symbol)
+                    (dimension))
+                (semicolon)))))

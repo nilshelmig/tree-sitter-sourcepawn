@@ -801,7 +801,10 @@ module.exports = grammar({
     },
 
     sizeof_expression: ($) =>
-      prec(PREC.SIZEOF, seq("sizeof", seq("(", field("type", $.symbol), ")"))),
+      prec(
+        PREC.SIZEOF,
+        seq("sizeof", "(", field("type", $.symbol), repeat($.dimension), ")")
+      ),
 
     view_as: ($) =>
       prec.left(
