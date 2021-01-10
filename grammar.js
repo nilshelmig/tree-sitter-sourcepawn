@@ -683,7 +683,10 @@ module.exports = grammar({
     function_call: ($) =>
       prec.left(
         PREC.CALL,
-        seq(field("function", $.symbol), $.function_call_arguments)
+        seq(
+          field("function", choice($.symbol, $.field_access)),
+          $.function_call_arguments
+        )
       ),
     function_call_arguments: ($) =>
       prec.left(
@@ -714,7 +717,10 @@ module.exports = grammar({
       prec(
         PREC.ARRAY_MEMBER,
         seq(
-          field("array", choice($.symbol, $.array_indexed_access)),
+          field(
+            "array",
+            choice($.symbol, $.array_indexed_access, $.field_access)
+          ),
           "[",
           field("index", $._expression),
           "]"

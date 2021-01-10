@@ -269,6 +269,10 @@
             "named": true
           },
           {
+            "type": "field_access",
+            "named": true
+          },
+          {
             "type": "symbol",
             "named": true
           }
@@ -1159,6 +1163,10 @@
         "multiple": false,
         "required": true,
         "types": [
+          {
+            "type": "field_access",
+            "named": true
+          },
           {
             "type": "symbol",
             "named": true

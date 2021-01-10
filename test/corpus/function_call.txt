@@ -182,3 +182,28 @@ int count = CurrentCount();
                 function: (symbol)
                 (function_call_arguments)))
         (semicolon)))
+
+
+===============================
+function call from field access
+===============================
+
+void Test() {
+    event.GetInt("userid");
+}
+
+---
+
+(source_file
+    (function_declaration
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (expression_statement
+                (function_call
+                        function: (field_access
+                            target: (symbol)
+                            field: (symbol))
+                        (function_call_arguments (string_literal)))
+                (semicolon)))))

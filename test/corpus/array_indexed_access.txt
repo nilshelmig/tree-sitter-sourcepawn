@@ -138,3 +138,32 @@ int MyFunc(int[][] myvar) {
                         index: (int_literal))
                     index: (symbol))
             (semicolon)))))
+
+
+======================================
+access array member - array from field
+======================================
+
+int MyFunc(File target) {
+    return target.buffer[0];
+}
+
+---
+
+(source_file
+  (function_declaration
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations
+        (argument_declaration
+            type: (type_expression (symbol))
+            name: (symbol)))
+    (block
+        (return_statement
+            (array_indexed_access
+                    array: (field_access
+                        target: (symbol)
+                        field: (symbol))
+                    index: (int_literal))
+            (semicolon)))))
+        

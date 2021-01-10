@@ -3600,8 +3600,17 @@
             "type": "FIELD",
             "name": "function",
             "content": {
-              "type": "SYMBOL",
-              "name": "symbol"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "symbol"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "field_access"
+                }
+              ]
             }
           },
           {
@@ -3783,6 +3792,10 @@
                 {
                   "type": "SYMBOL",
                   "name": "array_indexed_access"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "field_access"
                 }
               ]
             }
