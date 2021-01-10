@@ -532,7 +532,6 @@ module.exports = grammar({
         $.switch_statement,
         $.return_statement,
         $.delete_statement,
-        $.update_statement,
         $.expression_statement
       ),
 
@@ -624,8 +623,34 @@ module.exports = grammar({
     delete_statement: ($) =>
       prec.right(seq("delete", field("free", $.symbol), optional($.semicolon))),
 
-    update_statement: ($) =>
-      prec.left(
+    semicolon: ($) => ";",
+
+    // Expressions
+
+    _expression: ($) =>
+      choice(
+        $.assignment_expression,
+        $.function_call,
+        $.array_indexed_access,
+        $.conditional_expression,
+        $.field_access,
+        $.binary_expression,
+        $.unary_expression,
+        $.update_expression,
+        $.sizeof_expression,
+        $.view_as,
+        $.old_type_cast,
+        $.symbol,
+        $._literal,
+        $.concatenated_string,
+        $.char_literal,
+        $.parenthesized_expression,
+        $.vector,
+        $.this
+      ),
+
+    assignment_expression: ($) =>
+      prec.right(
         PREC.ASSIGNMENT,
         seq(
           field("left", $._expression),
@@ -645,37 +670,8 @@ module.exports = grammar({
               ">>="
             )
           ),
-          field(
-            "right",
-            choice($._expression, $.dynamic_array, $.new_instance)
-          ),
-          optional($.semicolon)
+          field("right", choice($._expression, $.dynamic_array, $.new_instance))
         )
-      ),
-
-    semicolon: ($) => ";",
-
-    // Expressions
-
-    _expression: ($) =>
-      choice(
-        $.function_call,
-        $.array_indexed_access,
-        $.conditional_expression,
-        $.field_access,
-        $.binary_expression,
-        $.unary_expression,
-        $.update_expression,
-        $.sizeof_expression,
-        $.view_as,
-        $.old_type_cast,
-        $.symbol,
-        $._literal,
-        $.concatenated_string,
-        $.char_literal,
-        $.parenthesized_expression,
-        $.vector,
-        $.this
       ),
 
     function_call: ($) =>

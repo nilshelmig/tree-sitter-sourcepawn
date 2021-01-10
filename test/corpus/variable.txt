@@ -539,9 +539,9 @@ new Handle:h = INVALID_HANDLE
             initialValue: (symbol))))
 
 
-===============
-variable update
-===============
+===================
+variable assignment
+===================
 
 void Test() {
     i = 2;
@@ -565,119 +565,65 @@ void Test() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-            (update_statement
-                left: (symbol)
-                right: (int_literal)
-                (semicolon))
-            (update_statement
-                left: (symbol)
-                right: (int_literal)
-                (semicolon))
-            (update_statement
-                left: (symbol)
-                right: (symbol)
-                (semicolon))
-            (update_statement
-                left: (symbol)
-                right: (int_literal)
-                (semicolon))
-            (update_statement
-                left: (symbol)
-                right: (binary_expression
-                    left: (int_literal)
+            (expression_statement
+                (assignment_expression
+                    left: (symbol)
                     right: (int_literal))
                 (semicolon))
-            (update_statement
-                left: (array_indexed_access
-                    array: (symbol)
-                    index: (int_literal))
-                right: (int_literal)
+            (expression_statement
+                (assignment_expression
+                    left: (symbol)
+                    right: (int_literal))
                 (semicolon))
-            (update_statement
-                left: (symbol)
-                right: (int_literal)
+            (expression_statement
+                (assignment_expression
+                    left: (symbol)
+                    right: (symbol))
                 (semicolon))
-            (update_statement
-                left: (symbol)
-                right: (int_literal)
+            (expression_statement
+                (assignment_expression
+                    left: (symbol)
+                    right: (int_literal))
                 (semicolon))
-            (update_statement
-                left: (symbol)
-                right: (int_literal)
+            (expression_statement
+                (assignment_expression
+                    left: (symbol)
+                    right: (binary_expression
+                        left: (int_literal)
+                        right: (int_literal)))
                 (semicolon))
-            (update_statement
-                left: (symbol)
-                right: (int_literal)
+            (expression_statement
+                (assignment_expression
+                    left: (array_indexed_access
+                        array: (symbol)
+                        index: (int_literal))
+                    right: (int_literal))
                 (semicolon))
-            (update_statement
-                left: (symbol)
-                right: (int_literal)
+            (expression_statement
+                (assignment_expression
+                    left: (symbol)
+                    right: (int_literal))
+                (semicolon))
+            (expression_statement
+                (assignment_expression
+                    left: (symbol)
+                    right: (int_literal))
+                (semicolon))
+            (expression_statement
+                (assignment_expression
+                    left: (symbol)
+                    right: (int_literal))
+                (semicolon))
+            (expression_statement
+                (assignment_expression
+                    left: (symbol)
+                    right: (int_literal))
+                (semicolon))
+            (expression_statement
+                (assignment_expression
+                    left: (symbol)
+                    right: (int_literal))
                 (semicolon)))))
-
-
-====================================
-variable update - optional semicolon
-====================================
-
-void Test() {
-    i = 2
-    i += 5
-    i -= size
-    i *= -1
-    i /= 2 + 10
-    a[1] ^= 2
-    i |= 2
-    i &= 1001
-    i ~= 0110
-    i <<= 2
-    i >>= 2
-}
-
----
-
-(source_file
-    (function_declaration
-        returnType: (builtin_type)
-        name: (symbol)
-        arguments: (argument_declarations)
-        (block
-            (update_statement
-                left: (symbol)
-                right: (int_literal))
-            (update_statement
-                left: (symbol)
-                right: (int_literal))
-            (update_statement
-                left: (symbol)
-                right: (symbol))
-            (update_statement
-                left: (symbol)
-                right: (int_literal))
-            (update_statement
-                left: (symbol)
-                right: (binary_expression
-                    left: (int_literal)
-                    right: (int_literal)))
-            (update_statement
-                left: (array_indexed_access
-                    array: (symbol)
-                    index: (int_literal))
-                right: (int_literal))
-            (update_statement
-                left: (symbol)
-                right: (int_literal))
-            (update_statement
-                left: (symbol)
-                right: (int_literal))
-            (update_statement
-                left: (symbol)
-                right: (int_literal))
-            (update_statement
-                left: (symbol)
-                right: (int_literal))
-            (update_statement
-                left: (symbol)
-                right: (int_literal)))))
 
 
 ==================================
@@ -697,23 +643,25 @@ void Test() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-            (update_statement
-                left: (symbol)
-                right: (dynamic_array
-                    type: (builtin_type)
-                    size: (symbol))
+            (expression_statement
+                (assignment_expression
+                    left: (symbol)
+                    right: (dynamic_array
+                        type: (builtin_type)
+                        size: (symbol)))
                 (semicolon))
-            (update_statement
-                left: (symbol)
-                right: (new_instance
-                    class: (symbol)
-                    arguments: (function_call_arguments))
+            (expression_statement
+                (assignment_expression
+                    left: (symbol)
+                    right: (new_instance
+                        class: (symbol)
+                        arguments: (function_call_arguments)))
                 (semicolon)))))
 
 
-===========================================
+==========================================
 variable assignment - indexed array access
-===========================================
+==========================================
 
 void Test() {
     clients[2] = 14;
@@ -728,19 +676,57 @@ void Test() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-            (update_statement
-                left: (array_indexed_access
-                    array: (symbol)
-                    index: (int_literal))
-                right: (int_literal)
+            (expression_statement
+                (assignment_expression
+                    left: (array_indexed_access
+                        array: (symbol)
+                        index: (int_literal))
+                    right: (int_literal))
                 (semicolon))
-            (update_statement
-                left: (array_indexed_access
-                    array: (symbol)
-                    index: (symbol))
-                right: (function_call
-                    function: (symbol)
-                    (function_call_arguments
-                        (int_literal)
-                        (int_literal)))
+            (expression_statement
+                (assignment_expression
+                    left: (array_indexed_access
+                        array: (symbol)
+                        index: (symbol))
+                    right: (function_call
+                        function: (symbol)
+                        (function_call_arguments
+                            (int_literal)
+                            (int_literal))))
+                (semicolon)))))
+
+
+=================================
+variable assignment as expression
+=================================
+
+void Test() {
+    if ((a = Test()) != 0) return;
+    a = b = 2;
+}
+
+---
+
+(source_file
+    (function_declaration
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (condition_statement
+                condition: (binary_expression
+                    left: (parenthesized_expression
+                        (assignment_expression
+                            left: (symbol)
+                            right: (function_call
+                                function: (symbol)
+                                (function_call_arguments))))
+                    right: (int_literal))
+                    truePath: (return_statement (semicolon)))
+            (expression_statement
+                (assignment_expression
+                    left: (symbol)
+                    right: (assignment_expression
+                        left: (symbol)
+                        right: (int_literal)))
                 (semicolon)))))

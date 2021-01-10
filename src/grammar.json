@@ -2833,10 +2833,6 @@
         },
         {
           "type": "SYMBOL",
-          "name": "update_statement"
-        },
-        {
-          "type": "SYMBOL",
           "name": "expression_statement"
         }
       ]
@@ -3396,8 +3392,89 @@
         ]
       }
     },
-    "update_statement": {
-      "type": "PREC_LEFT",
+    "semicolon": {
+      "type": "STRING",
+      "value": ";"
+    },
+    "_expression": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "assignment_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "function_call"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "array_indexed_access"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "conditional_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "field_access"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "binary_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "unary_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "update_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "sizeof_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "view_as"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "old_type_cast"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "symbol"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "concatenated_string"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "char_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "parenthesized_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "vector"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "this"
+        }
+      ]
+    },
+    "assignment_expression": {
+      "type": "PREC_RIGHT",
       "value": -1,
       "content": {
         "type": "SEQ",
@@ -3483,98 +3560,9 @@
                 }
               ]
             }
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "semicolon"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
           }
         ]
       }
-    },
-    "semicolon": {
-      "type": "STRING",
-      "value": ";"
-    },
-    "_expression": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "function_call"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "array_indexed_access"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "conditional_expression"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "field_access"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "binary_expression"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "unary_expression"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "update_expression"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "sizeof_expression"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "view_as"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "old_type_cast"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "symbol"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_literal"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "concatenated_string"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "char_literal"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "parenthesized_expression"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "vector"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "this"
-        }
-      ]
     },
     "function_call": {
       "type": "PREC_LEFT",
