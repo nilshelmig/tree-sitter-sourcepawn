@@ -271,7 +271,8 @@ module.exports = grammar({
           optional($.semicolon)
         )
       ),
-    old_variable_storage_class: ($) => choice("new", "decl", "const", "static"),
+    old_variable_storage_class: ($) =>
+      choice(seq("new", optional("const")), "decl", "static"),
     old_variable_declaration: ($) =>
       seq(
         field("type", optional($._old_type)),

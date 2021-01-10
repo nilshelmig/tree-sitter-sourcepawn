@@ -1223,16 +1223,29 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "STRING",
-          "value": "new"
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "new"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "const"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
         },
         {
           "type": "STRING",
           "value": "decl"
-        },
-        {
-          "type": "STRING",
-          "value": "const"
         },
         {
           "type": "STRING",
