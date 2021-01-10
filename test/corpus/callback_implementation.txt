@@ -256,3 +256,27 @@ public Action:Callback6() {}
         name: (symbol)
         arguments: (argument_declarations)
         (block)))
+
+
+===============================================
+implement callback - old style single statement
+===============================================
+
+public Callback1() return 2;
+public Callback1() Test();
+
+---
+
+(source_file
+    (callback_implementation
+        name: (symbol)
+        arguments: (argument_declarations)
+        (return_statement (int_literal) (semicolon)))
+    (callback_implementation
+        name: (symbol)
+        arguments: (argument_declarations)
+        (expression_statement
+            (function_call
+                function: (symbol)
+                (function_call_arguments))
+            (semicolon))))

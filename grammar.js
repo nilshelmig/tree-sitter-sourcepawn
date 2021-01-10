@@ -184,7 +184,7 @@ module.exports = grammar({
         field("returnType", optional($._type)),
         field("name", $.symbol),
         field("arguments", $.argument_declarations),
-        $.block
+        choice($.block, $._statement)
       ),
 
     argument_declarations: ($) =>
