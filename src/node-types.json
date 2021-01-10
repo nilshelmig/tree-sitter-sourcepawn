@@ -188,6 +188,10 @@
             "named": true
           },
           {
+            "type": "old_type_cast",
+            "named": true
+          },
+          {
             "type": "string_literal",
             "named": true
           },

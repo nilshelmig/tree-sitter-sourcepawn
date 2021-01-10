@@ -214,7 +214,7 @@ module.exports = grammar({
           repeat(choice($.dimension, $.fixed_dimension)),
           field(
             "defaultValue",
-            optional(seq("=", choice($._literal, $.symbol)))
+            optional(seq("=", choice($._literal, $.old_type_cast, $.symbol)))
           )
         )
       ),

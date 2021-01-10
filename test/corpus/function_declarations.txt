@@ -330,6 +330,27 @@ MyFunc5(Action:args = Plugin_Handled) {}
     (block)))
 
 
+==================================================
+function with type casted default value - oldstyle
+==================================================
+
+MyFunc(bool:args = bool:4) {}
+
+---
+
+(source_file
+  (function_declaration
+    name: (symbol)
+    arguments: (argument_declarations
+      (argument_declaration
+        type: (old_type_expression (old_builtin_type))
+        name: (symbol)
+        defaultValue: (old_type_cast
+          type: (old_builtin_type)
+          value: (int_literal))))
+    (block)))
+
+
 ================================
 function with one array argument
 ================================
