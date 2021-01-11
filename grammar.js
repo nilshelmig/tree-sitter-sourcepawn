@@ -255,9 +255,7 @@ module.exports = grammar({
       seq(
         "new",
         field("type", choice($.builtin_type, $.symbol)),
-        "[",
-        field("size", $._expression),
-        "]"
+        repeat1($.fixed_dimension)
       ),
 
     new_instance: ($) =>

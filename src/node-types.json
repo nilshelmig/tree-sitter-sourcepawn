@@ -842,16 +842,6 @@
     "type": "dynamic_array",
     "named": true,
     "fields": {
-      "size": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "_expression",
-            "named": true
-          }
-        ]
-      },
       "type": {
         "multiple": false,
         "required": true,
@@ -866,6 +856,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "fixed_dimension",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -3518,11 +3518,11 @@
   },
   {
     "type": "semicolon",
-    "named": true
+    "named": false
   },
   {
     "type": "semicolon",
-    "named": false
+    "named": true
   },
   {
     "type": "set",

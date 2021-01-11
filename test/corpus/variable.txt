@@ -177,9 +177,9 @@ Action[] actions = new Action[maxActions];
             name: (symbol)
             initialValue: (dynamic_array
                 type: (builtin_type)
-                size: (binary_expression
+                (fixed_dimension (binary_expression
                     left: (symbol)
-                    right: (int_literal))))
+                    right: (int_literal)))))
         (semicolon))
     (variable_declaration_statement
         type: (type_expression (symbol) (dimension))
@@ -187,7 +187,7 @@ Action[] actions = new Action[maxActions];
             name: (symbol)
             initialValue: (dynamic_array
                 type: (symbol)
-                size: (symbol)))
+                (fixed_dimension (symbol))))
         (semicolon)))
 
 
@@ -256,6 +256,7 @@ multidimensional arrays
 Action[][] a;
 float vec[MAXPLAYERS][10];
 int bla[][] = { {1,2,3}, {4,5,6}, {7,8,9} };
+char[][] name = new char[players*2][5];
 
 ---
 
@@ -278,6 +279,18 @@ int bla[][] = { {1,2,3}, {4,5,6}, {7,8,9} };
             (dimension)
             (dimension)
             initialValue: (vector (vector (int_literal) (int_literal) (int_literal)) (vector (int_literal) (int_literal) (int_literal)) (vector (int_literal) (int_literal) (int_literal))))
+        (semicolon))
+    (variable_declaration_statement
+        type: (type_expression (builtin_type) (dimension) (dimension))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (dynamic_array
+                type: (builtin_type)
+                (fixed_dimension
+                    (binary_expression
+                        left: (symbol)
+                        right: (int_literal)))
+                (fixed_dimension (int_literal))))
         (semicolon)))
 
 
@@ -674,7 +687,7 @@ void Test() {
                     left: (symbol)
                     right: (dynamic_array
                         type: (builtin_type)
-                        size: (symbol)))
+                        (fixed_dimension (symbol))))
                 (semicolon))
             (expression_statement
                 (assignment_expression
