@@ -90,3 +90,35 @@ void MyFunc() {
             (function_call_arguments))
             (semicolon))
         (preproc_endif))))
+
+
+==============================
+preprocessor condition in enum
+==============================
+
+enum
+{
+    Flag_Steam_ID,
+    #if defined _steamtools_included
+    Flag_MaxPlayers = 1,
+    #else
+    Flag_MaxPlayers = 2,
+    #endif
+};
+
+---
+
+(source_file
+    (enum
+        (enum_entries
+            (enum_entry name: (symbol))
+            (preproc_if condition: (preproc_defined_condition name: (symbol)))
+            (enum_entry
+                name: (symbol)
+                value: (int_literal))
+            (preproc_else)
+            (enum_entry
+                name: (symbol)
+                value: (int_literal))
+            (preproc_endif))
+        (semicolon)))

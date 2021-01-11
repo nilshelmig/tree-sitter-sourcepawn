@@ -69,18 +69,6 @@
           },
           {
             "type": "SYMBOL",
-            "name": "preproc_if"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "preproc_else"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "preproc_endif"
-          },
-          {
-            "type": "SYMBOL",
             "name": "preproc_pragma_semicolon"
           },
           {
@@ -2852,25 +2840,8 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "_statement"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "preproc_if"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "preproc_else"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "preproc_endif"
-              }
-            ]
+            "type": "SYMBOL",
+            "name": "_statement"
           }
         },
         {
@@ -5692,6 +5663,18 @@
     {
       "type": "SYMBOL",
       "name": "comment"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "preproc_endif"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "preproc_if"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "preproc_else"
     }
   ],
   "conflicts": [

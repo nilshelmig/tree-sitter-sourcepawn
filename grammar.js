@@ -25,7 +25,13 @@ const PREC = {
 module.exports = grammar({
   name: "sourcepawn",
 
-  extras: ($) => [/\s|\\\r?\n/, $.comment],
+  extras: ($) => [
+    /\s|\\\r?\n/,
+    $.comment,
+    $.preproc_endif,
+    $.preproc_if,
+    $.preproc_else,
+  ],
 
   inline: ($) => [
     $._statement,
@@ -74,9 +80,6 @@ module.exports = grammar({
           $.preproc_tryinclude,
           $.preproc_define,
           $.preproc_undefine,
-          $.preproc_if,
-          $.preproc_else,
-          $.preproc_endif,
           $.preproc_pragma_semicolon,
           $.preproc_pragma_newdecls,
           $.preproc_pragma_deprecated,
@@ -536,14 +539,7 @@ module.exports = grammar({
       token(seq(choice("_", "Float", "bool", "String"), token.immediate(":"))),
     any_type: ($) => "any",
 
-    block: ($) =>
-      seq(
-        "{",
-        repeat(
-          choice($._statement, $.preproc_if, $.preproc_else, $.preproc_endif)
-        ),
-        "}"
-      ),
+    block: ($) => seq("{", repeat($._statement), "}"),
 
     // Statements
     _statement: ($) =>
