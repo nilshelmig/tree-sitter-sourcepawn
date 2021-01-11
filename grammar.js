@@ -294,7 +294,7 @@ module.exports = grammar({
     enum_entry: ($) =>
       seq(
         field("name", $.symbol),
-        field("value", optional(seq("=", $.int_literal)))
+        field("value", optional(seq("=", $._expression)))
       ),
 
     enum_struct: ($) =>

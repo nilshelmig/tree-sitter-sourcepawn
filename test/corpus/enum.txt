@@ -64,6 +64,41 @@ enum NumberType
             (enum_entry name: (symbol) value: (int_literal)))))
 
 
+============================
+enum with binary expressions
+============================
+
+enum NumberType
+{
+    NumberType_Int8 = (1<<4),
+    NumberType_Int16 = 1<<5,
+    NumberType_Int32 = 31 + 1
+}
+
+---
+
+(source_file
+    (enum
+        name: (symbol)
+        (enum_entries
+            (enum_entry
+                name: (symbol)
+                value: (parenthesized_expression
+                    (binary_expression
+                        left: (int_literal)
+                        right: (int_literal))))
+            (enum_entry
+                name: (symbol)
+                value: (binary_expression
+                    left: (int_literal)
+                    right: (int_literal)))
+            (enum_entry
+                name: (symbol)
+                value: (binary_expression
+                    left: (int_literal)
+                    right: (int_literal))))))
+
+
 ==============
 anonymous enum
 ==============

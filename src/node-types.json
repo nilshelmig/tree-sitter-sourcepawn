@@ -936,7 +936,7 @@
             "named": false
           },
           {
-            "type": "int_literal",
+            "type": "_expression",
             "named": true
           }
         ]
