@@ -122,3 +122,21 @@ enum
                 value: (int_literal))
             (preproc_endif))
         (semicolon)))
+
+
+=========================
+preprocessor with comment
+=========================
+
+#if DEBUG /* Easy error tracing */
+#else /* production code */
+#endif /* finished */
+
+---
+
+(source_file
+    (preproc_if
+        condition: (symbol)
+        (comment))
+    (preproc_else (comment))
+    (preproc_endif (comment)))

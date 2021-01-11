@@ -118,12 +118,13 @@ module.exports = grammar({
       seq(
         preprocessor("if"),
         field("condition", choice($.symbol, $.preproc_defined_condition)),
+        optional($.comment),
         "\n"
       ),
     preproc_defined_condition: ($) =>
       seq(token(seq(optional("!"), "defined")), field("name", $.symbol)),
-    preproc_else: ($) => seq(preprocessor("else"), "\n"),
-    preproc_endif: ($) => seq(preprocessor("endif"), "\n"),
+    preproc_else: ($) => seq(preprocessor("else"), optional($.comment), "\n"),
+    preproc_endif: ($) => seq(preprocessor("endif"), optional($.comment), "\n"),
 
     preproc_pragma_semicolon: ($) =>
       seq(
