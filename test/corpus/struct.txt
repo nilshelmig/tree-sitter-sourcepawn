@@ -156,3 +156,42 @@ public Plugin myinfo =
             (struct_field_value
                 name: (symbol)
                 value: (string_literal)))))
+
+
+======================================
+struct initialization - trailing comma
+======================================
+
+public Plugin myinfo =
+{
+    name = "Test",
+    author = "Developer",
+    description = "demonstrating parser" ... "with expressions",
+    version = PLUGIN_VERSION,
+    url = "http://forums.alliedmods.net",
+}
+
+---
+
+(source_file
+    (global_variable
+        type: (symbol)
+        name: (symbol)
+        value: (struct_constructor
+            (struct_field_value
+                name: (symbol)
+                value: (string_literal))
+            (struct_field_value
+                name: (symbol)
+                value: (string_literal))
+            (struct_field_value
+                name: (symbol)
+                value: (concatenated_string
+                    left: (string_literal)
+                    right: (string_literal)))
+            (struct_field_value
+                name: (symbol)
+                value: (symbol))
+            (struct_field_value
+                name: (symbol)
+                value: (string_literal)))))
