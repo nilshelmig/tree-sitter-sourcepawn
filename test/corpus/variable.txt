@@ -262,7 +262,9 @@ multidimensional arrays
 =======================
 
 Action[][] a;
+Action [] [] a;
 float vec[MAXPLAYERS][10];
+float vec [MAXPLAYERS] [10];
 int bla[][] = { {1,2,3}, {4,5,6}, {7,8,9} };
 char[][] name = new char[players*2][5];
 
@@ -272,6 +274,17 @@ char[][] name = new char[players*2][5];
     (variable_declaration_statement
         type: (type_expression (symbol) (dimension) (dimension))
         (variable_declaration name: (symbol))
+        (semicolon))
+    (variable_declaration_statement
+        type: (type_expression (symbol) (dimension) (dimension))
+        (variable_declaration name: (symbol))
+        (semicolon))
+    (variable_declaration_statement
+        type: (type_expression (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            (fixed_dimension (symbol))
+            (fixed_dimension (int_literal)))
         (semicolon))
     (variable_declaration_statement
         type: (type_expression (builtin_type))
