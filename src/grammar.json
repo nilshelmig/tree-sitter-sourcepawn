@@ -5769,6 +5769,7 @@
       "_old_type"
     ]
   ],
+  "precedences": [],
   "externals": [],
   "inline": [
     "_statement",
