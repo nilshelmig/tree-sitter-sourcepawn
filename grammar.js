@@ -237,7 +237,7 @@ module.exports = grammar({
     variable_declaration_statement: ($) =>
       prec.left(
         seq(
-          optional($.variable_storage_class),
+          repeat($.variable_storage_class),
           field("type", $.type_expression),
           commaSep1($.variable_declaration),
           optional($.semicolon)

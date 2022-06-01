@@ -225,6 +225,8 @@ const int a = 1;
 const a = 1;
 static float b;
 static bool c = false;
+static const char d[] = "lorem";
+public const int e;
 
 ---
 
@@ -254,6 +256,20 @@ static bool c = false;
         (variable_declaration
             name: (symbol)
             initialValue: (bool_literal))
+        (semicolon)))
+    (variable_declaration_statement
+        (variable_storage_class)
+        (variable_storage_class)
+        type: (type_expression (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            (dimension)
+            initialValue: (string_literal))
+        (semicolon)))
+    (variable_declaration_statement
+        (variable_storage_class)
+        type: (type_expression (builtin_type))
+        (variable_declaration name: (symbol)
         (semicolon)))
 
 
