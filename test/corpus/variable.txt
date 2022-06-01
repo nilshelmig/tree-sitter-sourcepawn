@@ -222,12 +222,20 @@ storage class
 =============
 
 const int a = 1;
+const a = 1;
 static float b;
 static bool c = false;
 
 ---
 
 (source_file
+    (variable_declaration_statement
+        (variable_storage_class)
+        type: (type_expression (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (int_literal))
+        (semicolon))
     (variable_declaration_statement
         (variable_storage_class)
         type: (type_expression (builtin_type))
@@ -379,10 +387,13 @@ old style variables
 ===================
 
 new a;
+a;
 new Float:b = 0.23;
+Float:b = 0.23;
 new bool:c;
 new _:d = 2, Float:e, bool:f = true, String:g = 'c';
 new Action:ac = INVALID_HANDLE;
+Action:ac = INVALID_HANDLE;
 
 ---
 
@@ -392,7 +403,16 @@ new Action:ac = INVALID_HANDLE;
         (old_variable_declaration name: (symbol))
         (semicolon))
     (old_variable_declaration_statement
+        (old_variable_declaration name: (symbol))
+        (semicolon))
+    (old_variable_declaration_statement
         (old_variable_storage_class)
+        (old_variable_declaration
+            type: (old_builtin_type)
+            name: (symbol)
+            initialValue: (float_literal))
+        (semicolon))
+    (old_variable_declaration_statement
         (old_variable_declaration
             type: (old_builtin_type)
             name: (symbol)
@@ -424,6 +444,12 @@ new Action:ac = INVALID_HANDLE;
         (semicolon))
     (old_variable_declaration_statement
         (old_variable_storage_class)
+        (old_variable_declaration
+            type: (symbol)
+            name: (symbol)
+            initialValue: (symbol))
+        (semicolon))
+    (old_variable_declaration_statement
         (old_variable_declaration
             type: (symbol)
             name: (symbol)
