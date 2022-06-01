@@ -73,6 +73,7 @@ module.exports = grammar({
           $.typedef,
           $.typeset,
           $.functag,
+          $.funcenum,
           $.methodmap,
           $.struct,
           $.global_variable,
@@ -366,6 +367,23 @@ module.exports = grammar({
         optional("&"),
         field("name", $.symbol),
         optional($.fixed_dimension)
+      ),
+
+    funcenum: ($) =>
+      seq(
+        "funcenum",
+        field("name", $.symbol),
+        "{",
+        commaSep1($.funcenum_member),
+        optional(","),
+        "}",
+        optional($.semicolon)
+      ),
+    funcenum_member: ($) =>
+      seq(
+        field("returnType", optional($.old_type_expression)),
+        "public",
+        $.functag_args
       ),
 
     functag: ($) =>

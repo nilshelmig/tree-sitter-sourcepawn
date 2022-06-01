@@ -1180,6 +1180,62 @@
     }
   },
   {
+    "type": "funcenum",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "funcenum_member",
+          "named": true
+        },
+        {
+          "type": "semicolon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "funcenum_member",
+    "named": true,
+    "fields": {
+      "returnType": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "old_type_expression",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "functag_args",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "functag",
     "named": true,
     "fields": {
@@ -2567,6 +2623,10 @@
           "named": true
         },
         {
+          "type": "funcenum",
+          "named": true
+        },
+        {
           "type": "functag",
           "named": true
         },
@@ -3597,6 +3657,10 @@
   },
   {
     "type": "forward",
+    "named": false
+  },
+  {
+    "type": "funcenum",
     "named": false
   },
   {

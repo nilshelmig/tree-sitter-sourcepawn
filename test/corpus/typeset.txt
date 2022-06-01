@@ -97,3 +97,100 @@ typeset Timer {
                     name: (symbol))))
         (semicolon)
         (semicolon)))
+
+
+========
+funcenum
+========
+
+funcenum Timer {
+  Action:public(Handle:Timer, Handle:hndl),
+  Action:public(Handle:timer),
+}
+
+---
+
+
+(source_file
+    (funcenum
+        name: (symbol)
+        (funcenum_member
+            returnType: (old_type_expression
+            (symbol))
+            (functag_args
+                (functag_arg
+                    type: (old_type_expression (symbol))
+                    name: (symbol))
+                (functag_arg
+                    type: (old_type_expression (symbol))
+                    name: (symbol))))
+        (funcenum_member
+            returnType: (old_type_expression (symbol))
+            (functag_args
+                (functag_arg
+                    type: (old_type_expression (symbol))
+                    name: (symbol))))))
+
+
+=======================
+funcenum with semicolon
+=======================
+
+funcenum Timer {
+  Action:public(Handle:Timer, Handle:hndl),
+  Action:public(Handle:timer),
+};
+
+---
+
+
+(source_file
+    (funcenum
+        name: (symbol)
+        (funcenum_member
+            returnType: (old_type_expression
+            (symbol))
+            (functag_args
+                (functag_arg
+                    type: (old_type_expression (symbol))
+                    name: (symbol))
+                (functag_arg
+                    type: (old_type_expression (symbol))
+                    name: (symbol))))
+        (funcenum_member
+            returnType: (old_type_expression (symbol))
+            (functag_args
+                (functag_arg
+                    type: (old_type_expression (symbol))
+                    name: (symbol))))
+        (semicolon)))
+
+
+=======================
+funcenum no return type
+=======================
+
+funcenum Timer {
+  public(Handle:Timer, Handle:hndl),
+  public(Handle:timer),
+}
+
+---
+
+
+(source_file
+    (funcenum
+        name: (symbol)
+        (funcenum_member
+            (functag_args
+                (functag_arg
+                    type: (old_type_expression (symbol))
+                    name: (symbol))
+                (functag_arg
+                    type: (old_type_expression (symbol))
+                    name: (symbol))))
+        (funcenum_member
+            (functag_args
+                (functag_arg
+                    type: (old_type_expression (symbol))
+                    name: (symbol))))))
