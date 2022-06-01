@@ -419,7 +419,7 @@ module.exports = grammar({
       seq(
         "methodmap",
         field("name", $.symbol),
-        optional(seq("<", field("inherits", $.symbol))),
+        optional(choice(seq("<", field("inherits", $.symbol)), "__nullable__")),
         "{",
         repeat(
           choice(

@@ -3572,6 +3572,10 @@
     "named": false
   },
   {
+    "type": "__nullable__",
+    "named": false
+  },
+  {
     "type": "any_type",
     "named": true
   },
@@ -3733,11 +3737,11 @@
   },
   {
     "type": "semicolon",
-    "named": true
+    "named": false
   },
   {
     "type": "semicolon",
-    "named": false
+    "named": true
   },
   {
     "type": "set",

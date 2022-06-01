@@ -12,6 +12,18 @@ methodmap AdtArray < Handle {}
         inherits: (symbol)))
 
 
+=======================
+methodmap with nullable
+=======================
+
+methodmap AdtArray __nullable__ {}
+
+---
+
+(source_file
+    (methodmap name: (symbol)))
+
+
 ===========================
 methodmap with method alias
 ===========================
