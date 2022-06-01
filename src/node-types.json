@@ -1180,6 +1180,101 @@
     }
   },
   {
+    "type": "functag",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "returnType": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "old_type_expression",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "functag_args",
+          "named": true
+        },
+        {
+          "type": "semicolon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "functag_arg",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "any_type",
+            "named": true
+          },
+          {
+            "type": "old_type_expression",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "fixed_dimension",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "functag_args",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "functag_arg",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "function_call",
     "named": true,
     "fields": {
@@ -2472,6 +2567,10 @@
           "named": true
         },
         {
+          "type": "functag",
+          "named": true
+        },
+        {
           "type": "function_declaration",
           "named": true
         },
@@ -3501,6 +3600,10 @@
     "named": false
   },
   {
+    "type": "functag",
+    "named": false
+  },
+  {
     "type": "function",
     "named": false
   },
@@ -3566,11 +3669,11 @@
   },
   {
     "type": "semicolon",
-    "named": false
+    "named": true
   },
   {
     "type": "semicolon",
-    "named": true
+    "named": false
   },
   {
     "type": "set",

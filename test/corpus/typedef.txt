@@ -106,3 +106,89 @@ typedef CustomHandler =
                     type: (type_expression (any_type))
                     name: (symbol))))
         (semicolon)))
+
+
+=======
+functag
+=======
+
+functag public Action:SrvCmd(args, &Handle:datapack)
+
+---
+
+(source_file
+    (functag
+        returnType: (old_type_expression
+            (symbol))
+        name: (symbol)
+        (functag_args
+            (functag_arg
+                name: (symbol))
+                (functag_arg
+                    type: (old_type_expression
+                    (symbol))
+                name: (symbol)))))
+
+
+======================
+functag with semicolon
+======================
+
+functag public Action:SrvCmd(args, &Handle:datapack);
+
+---
+
+(source_file
+    (functag
+        returnType: (old_type_expression
+            (symbol))
+        name: (symbol)
+        (functag_args
+            (functag_arg
+                name: (symbol))
+                (functag_arg
+                    type: (old_type_expression
+                    (symbol))
+                name: (symbol)))
+        (semicolon)))
+
+
+======================
+functag no return type
+======================
+
+functag SrvCmd public(args, &Handle:datapack)
+
+---
+
+(source_file
+    (functag
+        name: (symbol)
+        (functag_args
+            (functag_arg
+                name: (symbol))
+                (functag_arg
+                    type: (old_type_expression
+                    (symbol))
+                name: (symbol)))))
+
+
+=====================================
+functag no return type with semicolon
+=====================================
+
+functag SrvCmd public(args, &Handle:datapack);
+
+---
+
+(source_file
+    (functag
+        name: (symbol)
+        (functag_args
+            (functag_arg
+                name: (symbol))
+                (functag_arg
+                    type: (old_type_expression
+                    (symbol))
+                name: (symbol)))
+        (semicolon)))
