@@ -17,6 +17,46 @@ typedef SrvCmd = function Action (int args)
                     name: (symbol))))))
 
 
+=================================
+typedef with wrapping parenthesis
+=================================
+
+typedef SrvCmd = (function Action (int args));
+
+---
+
+(source_file
+    (typedef
+        name: (symbol)
+        (typedef_expression
+            returnType: (symbol)
+            (typedef_args
+                (typedef_arg
+                    type: (type_expression (builtin_type))
+                    name: (symbol))))
+        (semicolon)))
+
+
+======================
+typedef with semicolon
+======================
+
+typedef SrvCmd = function Action (int args);
+
+---
+
+(source_file
+    (typedef
+        name: (symbol)
+        (typedef_expression
+            returnType: (symbol)
+            (typedef_args
+                (typedef_arg
+                    type: (type_expression (builtin_type))
+                    name: (symbol))))
+        (semicolon)))
+
+
 ===============================
 typedef with multiple arguments
 ===============================
@@ -108,6 +148,40 @@ typeset with ending semicolon
 typeset Timer {
     function Action (Handle timer, Handle hndl);
     function Action (Handle timer);
+};
+
+---
+
+(source_file
+    (typeset
+        name: (symbol)
+        (typedef_expression
+            returnType: (symbol)
+            (typedef_args
+                (typedef_arg
+                    type: (type_expression (symbol))
+                    name: (symbol))
+                (typedef_arg
+                    type: (type_expression (symbol))
+                    name: (symbol))))
+        (semicolon)
+        (typedef_expression
+            returnType: (symbol)
+            (typedef_args
+                (typedef_arg
+                    type: (type_expression (symbol))
+                    name: (symbol))))
+        (semicolon)
+        (semicolon)))
+
+
+=================================
+typeset with wrapping parenthesis
+=================================
+
+typeset Timer {
+    (function Action (Handle timer, Handle hndl));
+    (function Action (Handle timer));
 };
 
 ---

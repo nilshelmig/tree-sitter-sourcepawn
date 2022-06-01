@@ -343,10 +343,19 @@ module.exports = grammar({
         optional($.semicolon)
       ),
     typedef_expression: ($) =>
-      seq(
-        "function",
-        field("returnType", choice($.builtin_type, $.symbol)),
-        $.typedef_args
+      choice(
+        seq(
+          "function",
+          field("returnType", choice($.builtin_type, $.symbol)),
+          $.typedef_args
+        ),
+        seq(
+          "(",
+          "function",
+          field("returnType", choice($.builtin_type, $.symbol)),
+          $.typedef_args,
+          ")"
+        )
       ),
     typedef_args: ($) => seq("(", commaSep($.typedef_arg), ")"),
     typedef_arg: ($) =>
