@@ -60,6 +60,10 @@
         "named": true
       },
       {
+        "type": "scope_access",
+        "named": true
+      },
+      {
         "type": "sizeof_expression",
         "named": true
       },
@@ -312,6 +316,10 @@
           },
           {
             "type": "field_access",
+            "named": true
+          },
+          {
+            "type": "scope_access",
             "named": true
           },
           {
@@ -2388,6 +2396,32 @@
     }
   },
   {
+    "type": "scope_access",
+    "named": true,
+    "fields": {
+      "field": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "scope": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "sizeof_expression",
     "named": true,
     "fields": {
@@ -2395,6 +2429,10 @@
         "multiple": false,
         "required": true,
         "types": [
+          {
+            "type": "scope_access",
+            "named": true
+          },
           {
             "type": "symbol",
             "named": true
@@ -3304,6 +3342,10 @@
   },
   {
     "type": ":",
+    "named": false
+  },
+  {
+    "type": "::",
     "named": false
   },
   {

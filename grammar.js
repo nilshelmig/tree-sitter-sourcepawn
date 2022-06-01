@@ -664,6 +664,7 @@ module.exports = grammar({
         $.array_indexed_access,
         $.conditional_expression,
         $.field_access,
+        $.scope_access,
         $.binary_expression,
         $.unary_expression,
         $.update_expression,
@@ -685,7 +686,13 @@ module.exports = grammar({
         seq(
           field(
             "left",
-            choice($.array_indexed_access, $.field_access, $.symbol, $.this)
+            choice(
+              $.array_indexed_access,
+              $.field_access,
+              $.scope_access,
+              $.symbol,
+              $.this
+            )
           ),
           field(
             "operator",
@@ -782,6 +789,12 @@ module.exports = grammar({
         seq(field("target", $._expression), ".", field("field", $.symbol))
       ),
 
+    scope_access: ($) =>
+      prec.right(
+        PREC.FIELD,
+        seq(field("scope", $.symbol), "::", field("field", $.symbol))
+      ),
+
     unary_expression: ($) =>
       prec.left(
         PREC.UNARY,
@@ -843,8 +856,16 @@ module.exports = grammar({
         seq(
           "sizeof",
           choice(
-            seq("(", field("type", $.symbol), repeat($.dimension), ")"),
-            seq(field("type", $.symbol), repeat($.dimension))
+            seq(
+              "(",
+              field("type", choice($.symbol, $.scope_access)),
+              repeat($.dimension),
+              ")"
+            ),
+            seq(
+              field("type", choice($.symbol, $.scope_access)),
+              repeat($.dimension)
+            )
           )
         )
       ),
