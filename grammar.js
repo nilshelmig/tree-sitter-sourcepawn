@@ -180,7 +180,7 @@ module.exports = grammar({
     function_declaration: ($) =>
       seq(
         optional($.function_storage_class),
-        field("returnType", optional($._type)),
+        field("returnType", optional(seq($._type, optional($.dimension)))),
         field("name", $.symbol),
         field("arguments", $.argument_declarations),
         $.block
@@ -191,7 +191,7 @@ module.exports = grammar({
     function_definition: ($) =>
       seq(
         $.function_definition_type,
-        field("returnType", optional($._type)),
+        field("returnType", optional(seq($._type, optional($.dimension)))),
         field("name", $.symbol),
         field("arguments", $.argument_declarations),
         optional($.semicolon)
@@ -202,7 +202,7 @@ module.exports = grammar({
     callback_implementation: ($) =>
       seq(
         "public",
-        field("returnType", optional($._type)),
+        field("returnType", optional(seq($._type, optional($.dimension)))),
         field("name", $.symbol),
         field("arguments", $.argument_declarations),
         choice($.block, $._statement)
@@ -361,13 +361,13 @@ module.exports = grammar({
       choice(
         seq(
           "function",
-          field("returnType", choice($.builtin_type, $.symbol)),
+          field("returnType", choice(seq($._type, optional($.dimension)))),
           $.typedef_args
         ),
         seq(
           "(",
           "function",
-          field("returnType", choice($.builtin_type, $.symbol)),
+          field("returnType", choice(seq($._type, optional($.dimension)))),
           $.typedef_args,
           ")"
         )

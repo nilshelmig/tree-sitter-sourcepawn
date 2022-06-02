@@ -155,6 +155,23 @@ bool MyFunc4() { return true; }
     (block (return_statement (bool_literal) (semicolon)))))
 
 
+=================
+array return type
+=================
+
+int[] MyFunc() { return; }
+
+---
+
+(source_file
+  (function_declaration
+    returnType: (builtin_type)
+    returnType: (dimension)
+    name: (symbol)
+    arguments: (argument_declarations)
+    (block (return_statement (semicolon)))))
+
+
 ==============================
 old style builtin return types
 ==============================
