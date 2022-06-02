@@ -3437,6 +3437,10 @@
           "named": true
         },
         {
+          "type": "old_type_cast",
+          "named": true
+        },
+        {
           "type": "rest_operator",
           "named": true
         },
@@ -3450,6 +3454,10 @@
         },
         {
           "type": "vector",
+          "named": true
+        },
+        {
+          "type": "view_as",
           "named": true
         }
       ]

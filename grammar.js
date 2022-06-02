@@ -1019,8 +1019,10 @@ module.exports = grammar({
         10,
         seq(
           "{",
-          commaSep1(choice($.vector, $._literal, $.symbol)),
-          optional(seq(",", $.rest_operator)),
+          commaSep1(
+            choice($.vector, $._literal, $.symbol, $.view_as, $.old_type_cast)
+          ),
+          optional(seq(",", optional($.rest_operator))),
           "}"
         )
       ),

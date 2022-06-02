@@ -5828,6 +5828,14 @@
                   {
                     "type": "SYMBOL",
                     "name": "symbol"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "view_as"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "old_type_cast"
                   }
                 ]
               },
@@ -5854,6 +5862,14 @@
                         {
                           "type": "SYMBOL",
                           "name": "symbol"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "view_as"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "old_type_cast"
                         }
                       ]
                     }
@@ -5873,8 +5889,16 @@
                     "value": ","
                   },
                   {
-                    "type": "SYMBOL",
-                    "name": "rest_operator"
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "rest_operator"
+                      },
+                      {
+                        "type": "BLANK"
+                      }
+                    ]
                   }
                 ]
               },

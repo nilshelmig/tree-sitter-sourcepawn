@@ -339,13 +339,38 @@ static chatColorInfo[][ChatColorInfo] =
       (old_variable_declaration_statement
         (old_variable_storage_class)
         (old_variable_declaration
-          name: (symbol)
-          (dimension)
-                (fixed_dimension
-                    (binary_expression
-                        left: (symbol)
-                        right: (int_literal)))
-                (fixed_dimension (int_literal))))
+            name: (symbol)
+            (dimension)
+            (fixed_dimension
+                (symbol))
+            initialValue: (vector
+                (comment)
+                (vector
+                    (char_literal
+                        (escape_sequence))
+                    (int_literal)
+                    (comment)
+                    (bool_literal)
+                    (symbol))
+                    (comment)
+                (vector
+                    (char_literal
+                        (escape_sequence))
+                    (int_literal)
+                    (comment)
+                    (bool_literal)
+                    (old_type_cast
+                        type: (symbol)
+                        value: (int_literal)))
+                    (comment)
+                (vector
+                    (char_literal
+                    (escape_sequence))
+                (int_literal)
+                (comment)
+                (bool_literal)
+                (symbol))
+                (comment)))
         (semicolon)))
 
 
@@ -509,6 +534,7 @@ old style variables - arrays
 ============================
 
 new a[16];
+a[16];
 new players[MAXPLAYERS + 1];
 new String:d[12] = "hello world";
 new Float:origin[3] = {1.0, 2.0, 3.0};
