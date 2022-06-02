@@ -52,33 +52,36 @@ int GetOppositeDirection() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
+          (old_variable_declaration_statement
+            (old_variable_storage_class)
+            (old_variable_declaration
+              type: (symbol)
+              name: (symbol)
+              initialValue: (function_call
+                function: (symbol)
+                (function_call_arguments
+                  (string_literal)
+                  (symbol)
+                  (parenthesized_expression
+                    (ternary_expression
+                      condition: (symbol)
+                      consequence: (symbol)
+                      alternative: (int_literal))))))
+            (semicolon))
+                  (return_statement
             (ternary_expression
-                condition: (binary_expression
-                    left: (symbol)
-                    right: (int_literal))
-                consequence: (parenthesized_expression
-                    (old_type_cast
-                        type: (old_builtin_type)
-                        value: (float_literal)))
-                alternative: (parenthesized_expression
-                    (old_type_cast
-                        type: (symbol)
-                        value: (int_literal))))
-            (return_statement
-                (ternary_expression
-                    condition: (binary_expression
-                        left: (symbol)
-                        right: (int_literal))
-                    consequence: (parenthesized_expression
-                        (old_type_cast
-                            type: (old_builtin_type)
-                            value: (float_literal)))
-                    alternative: (parenthesized_expression
-                        (old_type_cast
-                            type: (symbol)
-                            value: (int_literal))))
-                (semicolon)))))
-
+              condition: (binary_expression
+                left: (symbol)
+                right: (int_literal))
+              consequence: (parenthesized_expression
+                (old_type_cast
+                  type: (old_builtin_type)
+                  value: (float_literal)))
+              alternative: (parenthesized_expression
+                (old_type_cast
+                  type: (symbol)
+                  value: (int_literal))))
+            (semicolon)))))
 
 ==================================================
 ternary expression with conditional expression
