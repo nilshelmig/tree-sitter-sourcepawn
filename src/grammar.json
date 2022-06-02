@@ -2432,6 +2432,51 @@
               ]
             }
           ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "functag"
+            },
+            {
+              "type": "FIELD",
+              "name": "name",
+              "content": {
+                "type": "SYMBOL",
+                "name": "symbol"
+              }
+            },
+            {
+              "type": "FIELD",
+              "name": "returnType",
+              "content": {
+                "type": "SYMBOL",
+                "name": "old_type_expression"
+              }
+            },
+            {
+              "type": "STRING",
+              "value": "public"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "functag_args"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "semicolon"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -6596,7 +6641,7 @@
   "PREC": {
     "PAREN_DECLARATOR": -10,
     "ASSIGNMENT": -1,
-    "CONDITIONAL": -2,
+    "TERNARY": -2,
     "DEFAULT": 0,
     "FREE": 1,
     "LOGICAL_OR": 1,

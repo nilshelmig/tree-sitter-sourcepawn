@@ -1,7 +1,7 @@
 const PREC = {
   PAREN_DECLARATOR: -10,
   ASSIGNMENT: -1,
-  CONDITIONAL: -2,
+  TERNARY: -2,
   DEFAULT: 0,
   FREE: 1,
   LOGICAL_OR: 1,
@@ -460,6 +460,14 @@ module.exports = grammar({
           "public",
           $.functag_args,
           optional($.semicolon)
+        ),
+        seq(
+          "functag",
+          field("name", $.symbol),
+          field("returnType", $.old_type_expression),
+          "public",
+          $.functag_args,
+          optional($.semicolon)
         )
       ),
 
@@ -888,7 +896,7 @@ module.exports = grammar({
 
     ternary_expression: ($) =>
       prec.right(
-        PREC.CONDITIONAL,
+        PREC.TERNARY,
         seq(
           field("condition", $._expression),
           "?",
