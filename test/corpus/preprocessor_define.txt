@@ -13,19 +13,19 @@ define constant
 (source_file
     (preproc_define
         name: (symbol)
-        value: (preproc_arg))
+        value: (int_literal))
     (preproc_define
         name: (symbol)
-        value: (preproc_arg))
+        value: (float_literal))
     (preproc_define
         name: (symbol)
-        value: (preproc_arg))
+        value: (string_literal))
     (preproc_define
         name: (symbol)
-        value: (preproc_arg))
+        value: (bool_literal))
     (preproc_define
         name: (symbol)
-        value: (preproc_arg)))
+        value: (symbol)))
 
 
 =================
@@ -40,10 +40,17 @@ define expression
 (source_file
     (preproc_define
         name: (symbol)
-        value: (preproc_arg))
+        value: (parenthesized_expression
+          (binary_expression
+            left: (int_literal)
+            right: (int_literal))))
     (preproc_define
         name: (symbol)
-        value: (preproc_arg)))
+        value: (function_call
+          function: (symbol)
+          (function_call_arguments
+            (float_literal)
+            (float_literal)))))
 
 
 ==========================
@@ -57,13 +64,57 @@ define handles spaces/tabs
 (source_file
     (preproc_define
         name: (symbol)
-        value: (preproc_arg)))
+        value: (string_literal)))
+
+
+============================
+define with trailing comment
+============================
+
+#define MAXPLAYERS 65 /**< Maximum number of players SourceMod supports */
+#define MAXPLAYERS 65 // Maximum number of players SourceMod supports
+#define MAXPLAYERS 65 /**< Maximum number of 
+                        players SourceMod supports */
+
+
+---
+
+(source_file
+    (preproc_define
+        name: (symbol)
+        value: (int_literal)
+        (comment))
+      (preproc_define
+        name: (symbol)
+        value: (int_literal)
+        (comment))
+      (preproc_define
+        name: (symbol)
+        value: (int_literal)
+        (comment)))
+
 
 ============
 define macro
 ============
 
 #define LOOP_CLIENTS(%1,%2) for (int %1=Client_GetNext(%2); %1 >= 1 && %1 <= MaxClients; %1=Client_GetNext(%2, ++%1))
+
+---
+
+(source_file
+    (preproc_macro
+        name: (symbol)
+        value: (preproc_arg)))
+
+
+======================
+define macro multiline
+======================
+
+#define LOOP_CLIENTS(%1,%2) for (int %1=Client_GetNext(%2);\
+                            %1 >= 1 && %1 <= MaxClients;\
+                            %1=Client_GetNext(%2, ++%1))
 
 ---
 

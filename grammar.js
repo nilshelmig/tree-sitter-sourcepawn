@@ -113,17 +113,19 @@ module.exports = grammar({
         token.immediate("("),
         commaSep1(seq("%", /[0-9]/)),
         token.immediate(")"),
-        field("value", optional($.preproc_arg)),
+        field("value", $.preproc_arg),
         "\n"
       ),
+
     preproc_define: ($) =>
       seq(
         preprocessor("define"),
         field("name", $.symbol),
-        field("value", optional($.preproc_arg)),
+        field("value", optional($._expression)),
         "\n"
       ),
     preproc_arg: ($) => token(prec(-1, repeat1(/.|\\\r?\n/))),
+
     preproc_undefine: ($) =>
       seq(preprocessor("undef"), field("name", $.symbol), "\n"),
 

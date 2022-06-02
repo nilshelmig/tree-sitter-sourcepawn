@@ -2275,7 +2275,7 @@
         "required": false,
         "types": [
           {
-            "type": "preproc_arg",
+            "type": "_expression",
             "named": true
           }
         ]
@@ -2394,7 +2394,7 @@
       },
       "value": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
             "type": "preproc_arg",
