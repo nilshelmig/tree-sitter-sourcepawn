@@ -1,25 +1,25 @@
 const PREC = {
   PAREN_DECLARATOR: -10,
   ASSIGNMENT: -1,
-  TERNARY: -2,
   DEFAULT: 0,
-  FREE: 1,
-  LOGICAL_OR: 1,
-  LOGICAL_AND: 2,
-  INCLUSIVE_OR: 3,
-  EXCLUSIVE_OR: 4,
-  BITWISE_AND: 5,
-  EQUAL: 6,
-  RELATIONAL: 7,
-  SIZEOF: 8,
-  SHIFT: 9,
-  ADD: 10,
-  MULTIPLY: 11,
-  CAST: 12,
-  UNARY: 13,
-  CALL: 14,
-  FIELD: 15,
-  ARRAY_MEMBER: 16,
+  TERNARY: 1,
+  FREE: 2,
+  LOGICAL_OR: 2,
+  LOGICAL_AND: 3,
+  INCLUSIVE_OR: 4,
+  EXCLUSIVE_OR: 5,
+  BITWISE_AND: 6,
+  EQUAL: 7,
+  RELATIONAL: 8,
+  SIZEOF: 9,
+  SHIFT: 10,
+  ADD: 11,
+  MULTIPLY: 12,
+  UNARY: 14,
+  CAST: 15,
+  CALL: 16,
+  FIELD: 17,
+  ARRAY_MEMBER: 18,
 };
 
 module.exports = grammar({
@@ -53,6 +53,7 @@ module.exports = grammar({
       $.variable_storage_class,
       $.old_variable_storage_class,
     ],
+    // [$.old_type_cast, $.ternary_expression],
     [$.argument_declaration, $.type_expression],
     [$.argument_declarations, $.function_call_arguments],
     [$.global_variable, $._type],
@@ -896,12 +897,12 @@ module.exports = grammar({
       ),
 
     ternary_expression: ($) =>
-      prec.right(
-        PREC.TERNARY,
+      prec.left(
+        20,
         seq(
           field("condition", $._expression),
           "?",
-          field("consequence", $._expression),
+          field("consequence", prec.left(16, $._expression)),
           ":",
           field("alternative", $._expression)
         )
