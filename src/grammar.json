@@ -4409,6 +4409,10 @@
                 },
                 {
                   "type": "SYMBOL",
+                  "name": "view_as"
+                },
+                {
+                  "type": "SYMBOL",
                   "name": "field_access"
                 },
                 {

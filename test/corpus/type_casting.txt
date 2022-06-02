@@ -83,21 +83,28 @@ bool test = view_as<bool>(view_as<int>(Plugin_Handled));
 view_as as assignment
 =====================
 
-bool test = view_as<bool>(foo) = foo & (bar);
+void foo(){
+    view_as<bool>(foo) = foo & (bar);
+}
 
 ---
 
-(source_file
-    (variable_declaration_statement
-        type: (type_expression (builtin_type))
-        (variable_declaration
-            name: (symbol)
-            initialValue: (view_as
-                type: (builtin_type)
-                value: (view_as
-                    type: (builtin_type)
-                    value: (symbol))))
-        (semicolon)))
+    (source_file
+      (function_declaration
+        returnType: (builtin_type)
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (expression_statement
+                (assignment_expression
+                    left: (view_as
+                        type: (builtin_type)
+                        value: (symbol))
+                    right: (binary_expression
+                        left: (symbol)
+                        right: (parenthesized_expression
+                            (symbol))))
+        (semicolon)))))
 
 
 =============

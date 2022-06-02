@@ -811,6 +811,7 @@ module.exports = grammar({
             "left",
             choice(
               $.array_indexed_access,
+              $.view_as,
               $.field_access,
               $.scope_access,
               $.symbol,
