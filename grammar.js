@@ -732,7 +732,7 @@ module.exports = grammar({
         $.assignment_expression,
         $.function_call,
         $.array_indexed_access,
-        $.conditional_expression,
+        $.ternary_expression,
         $.field_access,
         $.scope_access,
         $.binary_expression,
@@ -841,7 +841,7 @@ module.exports = grammar({
         field("right", choice($._expression, $.comma_expression))
       ),
 
-    conditional_expression: ($) =>
+    ternary_expression: ($) =>
       prec.right(
         PREC.CONDITIONAL,
         seq(

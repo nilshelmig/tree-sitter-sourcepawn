@@ -1,6 +1,6 @@
-======================
-conditional expression
-======================
+==================
+ternary expression
+==================
 
 int GetOppositeDirection() {
     i < 0 ? Plugin_Handled : MyFunc();
@@ -16,7 +16,7 @@ int GetOppositeDirection() {
         arguments: (argument_declarations)
         (block
             (expression_statement
-                (conditional_expression
+                (ternary_expression
                     condition: (binary_expression
                         left: (symbol)
                         right: (int_literal))
@@ -26,7 +26,7 @@ int GetOppositeDirection() {
                         (function_call_arguments)))
                 (semicolon))
             (return_statement
-                (conditional_expression
+                (ternary_expression
                     condition: (binary_expression
                         left: (symbol)
                         right: (int_literal))
@@ -35,9 +35,9 @@ int GetOppositeDirection() {
                 (semicolon)))))
 
 
-============================================
-conditional expression - old style type cast
-============================================
+========================================
+ternary expression - old style type cast
+========================================
 
 int GetOppositeDirection() {
     new Handle:userMessage = StartMessageOne("Fade", client, (reliable?USERMSG_RELIABLE:0));
@@ -52,7 +52,7 @@ int GetOppositeDirection() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-            (conditional_expression
+            (ternary_expression
                 condition: (binary_expression
                     left: (symbol)
                     right: (int_literal))
@@ -65,7 +65,7 @@ int GetOppositeDirection() {
                         type: (symbol)
                         value: (int_literal))))
             (return_statement
-                (conditional_expression
+                (ternary_expression
                     condition: (binary_expression
                         left: (symbol)
                         right: (int_literal))
@@ -81,7 +81,7 @@ int GetOppositeDirection() {
 
 
 ==================================================
-conditional expression with conditional expression
+ternary expression with conditional expression
 ==================================================
 
 int GetOppositeDirection() {
@@ -101,12 +101,12 @@ int GetOppositeDirection() {
         arguments: (argument_declarations)
         (block
             (return_statement
-                (conditional_expression
+                (ternary_expression
                     condition: (binary_expression
                         left: (symbol)
                         right: (int_literal))
                     consequence: (int_literal)
-                    alternative: (conditional_expression
+                    alternative: (ternary_expression
                         condition: (binary_expression
                             left: (symbol)
                             right: (int_literal))
