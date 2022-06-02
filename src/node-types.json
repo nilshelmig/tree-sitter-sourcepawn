@@ -28,10 +28,6 @@
         "named": true
       },
       {
-        "type": "conditional_expression",
-        "named": true
-      },
-      {
         "type": "field_access",
         "named": true
       },
@@ -73,6 +69,10 @@
       },
       {
         "type": "symbol",
+        "named": true
+      },
+      {
+        "type": "ternary_expression",
         "named": true
       },
       {
@@ -727,42 +727,6 @@
     }
   },
   {
-    "type": "conditional_expression",
-    "named": true,
-    "fields": {
-      "alternative": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "_expression",
-            "named": true
-          }
-        ]
-      },
-      "condition": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "_expression",
-            "named": true
-          }
-        ]
-      },
-      "consequence": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "_expression",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
     "type": "continue_statement",
     "named": true,
     "fields": {},
@@ -872,6 +836,16 @@
     "type": "enum",
     "named": true,
     "fields": {
+      "entries": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "enum_entries",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": false,
         "required": false,
@@ -885,10 +859,10 @@
     },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
-          "type": "enum_entries",
+          "type": "_expression",
           "named": true
         },
         {
@@ -921,6 +895,24 @@
         "multiple": false,
         "required": true,
         "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "builtin_type",
+            "named": true
+          },
           {
             "type": "symbol",
             "named": true
@@ -2977,6 +2969,42 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "ternary_expression",
+    "named": true,
+    "fields": {
+      "alternative": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "_expression",
+            "named": true
+          }
+        ]
+      },
+      "condition": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "_expression",
+            "named": true
+          }
+        ]
+      },
+      "consequence": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "_expression",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {

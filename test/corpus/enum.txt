@@ -14,7 +14,7 @@ enum NumberType
 (source_file
     (enum
         name: (symbol)
-        (enum_entries
+        entries: (enum_entries
             (enum_entry name: (symbol))
             (enum_entry name: (symbol))
             (enum_entry name: (symbol)))))
@@ -36,7 +36,7 @@ enum NumberType
 (source_file
     (enum
         name: (symbol)
-        (enum_entries
+        entries: (enum_entries
             (enum_entry name: (symbol) value: (int_literal))
             (enum_entry name: (symbol))
             (enum_entry name: (symbol)))))
@@ -58,7 +58,7 @@ enum NumberType
 (source_file
     (enum
         name: (symbol)
-        (enum_entries
+        entries: (enum_entries
             (enum_entry name: (symbol) value: (int_literal))
             (enum_entry name: (symbol) value: (int_literal))
             (enum_entry name: (symbol) value: (int_literal)))))
@@ -80,7 +80,7 @@ enum NumberType
 (source_file
     (enum
         name: (symbol)
-        (enum_entries
+        entries: (enum_entries
             (enum_entry
                 name: (symbol)
                 value: (parenthesized_expression
@@ -114,7 +114,7 @@ enum
 
 (source_file
     (enum
-        (enum_entries
+        entries: (enum_entries
             (enum_entry name: (symbol))
             (enum_entry name: (symbol))
             (enum_entry name: (symbol)))))
@@ -136,7 +136,7 @@ enum NumberType
 (source_file
     (enum
         name: (symbol)
-        (enum_entries
+        entries: (enum_entries
             (enum_entry name: (symbol))
             (enum_entry name: (symbol))
             (enum_entry name: (symbol)))))
@@ -155,7 +155,7 @@ enum f_invulnmode {
 (source_file
     (enum
         name: (symbol)
-        (enum_entries (enum_entry name: (symbol)))
+        entries: (enum_entries (enum_entry name: (symbol)))
         (semicolon)))
 
 
@@ -176,5 +176,58 @@ enum ChatColorInfo
 (source_file
     (enum
         name: (symbol)
-        (enum_entries (enum_entry name: (symbol)))
+        entries: (enum_entries 
+            (enum_entry 
+                name: (symbol))
+            (enum_entry
+                name: (symbol))
+            (enum_entry
+                type: (builtin_type)
+                name: (symbol))
+            (enum_entry
+                type: (symbol)
+                name: (symbol)))
         (semicolon)))
+
+
+===============================
+enum with custom incrementation
+===============================
+
+enum FOO (<<= 1)
+{
+    CONSTANT1,
+    CONSTANT2,
+    CONSTANT3
+}
+
+enum (+= 1000)
+{
+    TASK_ID_1 = 1000,
+    TASK_ID_2,
+    TASK_ID_3
+}
+
+---
+
+(source_file
+    (enum
+        name: (symbol)
+        (int_literal)
+        entries: (enum_entries 
+            (enum_entry 
+                name: (symbol))
+            (enum_entry
+                name: (symbol))
+            (enum_entry
+                name: (symbol))))
+    (enum
+        (int_literal)
+        entries: (enum_entries
+            (enum_entry
+                name: (symbol)
+                value: (int_literal))
+            (enum_entry
+                name: (symbol))
+            (enum_entry
+                name: (symbol)))))

@@ -110,7 +110,7 @@ enum
 
 (source_file
     (enum
-        (enum_entries
+        entries: (enum_entries
             (enum_entry name: (symbol))
             (preproc_if condition: (preproc_defined_condition name: (symbol)))
             (enum_entry
