@@ -192,3 +192,24 @@ functag SrvCmd public(args, &Handle:datapack);
                     (symbol))
                 name: (symbol)))
         (semicolon)))
+
+
+===============================
+functag alternative declaration
+===============================
+
+functag Entity_ChangeOverTimeCallback bool:public(&entity, &Float:interval, &currentCall);
+
+---
+
+(source_file
+    (functag
+        name: (symbol)
+        (functag_args
+            (functag_arg
+                name: (symbol))
+                (functag_arg
+                    type: (old_type_expression
+                    (symbol))
+                name: (symbol)))
+        (semicolon)))

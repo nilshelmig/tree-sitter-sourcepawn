@@ -79,6 +79,27 @@ bool test = view_as<bool>(view_as<int>(Plugin_Handled));
         (semicolon)))
 
 
+=====================
+view_as as assignment
+=====================
+
+bool test = view_as<bool>(foo) = foo & (bar);
+
+---
+
+(source_file
+    (variable_declaration_statement
+        type: (type_expression (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (view_as
+                type: (builtin_type)
+                value: (view_as
+                    type: (builtin_type)
+                    value: (symbol))))
+        (semicolon)))
+
+
 =============
 old style tag
 =============

@@ -157,3 +157,24 @@ enum f_invulnmode {
         name: (symbol)
         (enum_entries (enum_entry name: (symbol)))
         (semicolon)))
+
+
+======================
+enum with type casting
+======================
+
+enum ChatColorInfo
+{
+	ChatColorInfo_Code,
+	ChatColorInfo_Alternative,
+	bool:ChatColorInfo_Supported,
+	ChatColorSubjectType:ChatColorInfo_SubjectType
+};
+
+---
+
+(source_file
+    (enum
+        name: (symbol)
+        (enum_entries (enum_entry name: (symbol)))
+        (semicolon)))

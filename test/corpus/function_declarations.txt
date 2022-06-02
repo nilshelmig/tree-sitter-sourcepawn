@@ -277,6 +277,7 @@ void MyFunc3(char args = 'a') {}
 void MyFunc4(bool args = false) {}
 void MyFunc5(Action args = Plugin_Handled) {}
 void MyFunc6(float vec[3] = {0.0, 0.0, 0.0}) {}
+void MyFunc7(int mode=FOO|BAR|BAZ) {}
 
 ---
 
@@ -306,6 +307,19 @@ void MyFunc6(float vec[3] = {0.0, 0.0, 0.0}) {}
     name: (symbol)
     arguments: (argument_declarations (argument_declaration type: (type_expression (symbol)) name: (symbol) defaultValue: (symbol)))
     (block))
+  (function_declaration
+    returnType: (builtin_type)
+    name: (symbol)
+    arguments: (argument_declarations
+      (argument_declaration
+        type: (type_expression (builtin_type))
+        name: (symbol)
+        (fixed_dimension (int_literal))
+        defaultValue: (vector
+          (float_literal)
+          (float_literal)
+          (float_literal))))
+    (block)))
   (function_declaration
     returnType: (builtin_type)
     name: (symbol)

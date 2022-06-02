@@ -40,6 +40,7 @@ conditional expression - old style type cast
 ============================================
 
 int GetOppositeDirection() {
+    new Handle:userMessage = StartMessageOne("Fade", client, (reliable?USERMSG_RELIABLE:0));
     return i < 0 ? (_:2.5) : (Action:0);
 }
 
@@ -51,6 +52,18 @@ int GetOppositeDirection() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
+            (conditional_expression
+                condition: (binary_expression
+                    left: (symbol)
+                    right: (int_literal))
+                consequence: (parenthesized_expression
+                    (old_type_cast
+                        type: (old_builtin_type)
+                        value: (float_literal)))
+                alternative: (parenthesized_expression
+                    (old_type_cast
+                        type: (symbol)
+                        value: (int_literal))))
             (return_statement
                 (conditional_expression
                     condition: (binary_expression

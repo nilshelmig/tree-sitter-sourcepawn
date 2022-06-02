@@ -256,6 +256,9 @@ for loop - old style
 
 public void OnPluginStart() {
     for(new i = 0; i < 3; i++) break;
+    for (i = 0, ii = 0; i < 14; ++i, ii += 4) {
+		inx[i] = (input[ii + 3] << 24) | (input[ii + 2] << 16) | (input[ii + 1] << 8) | input[ii];
+	}
 }
 
 ---

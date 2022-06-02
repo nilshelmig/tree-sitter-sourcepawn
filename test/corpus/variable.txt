@@ -283,6 +283,13 @@ float vec[MAXPLAYERS][10];
 float vec [MAXPLAYERS] [10];
 int bla[][] = { {1,2,3}, {4,5,6}, {7,8,9} };
 char[][] name = new char[players*2][5];
+static chatColorInfo[][ChatColorInfo] =
+{
+	// Code , alternative	, Is Supported?	Chat color subject type 		   Color name
+	{ '\x01', 0	/* None	 */	, true,			ChatColorSubjectType_none,	},	// Orange
+	{ '\x03', 9	/* Green */	, true,			ChatColorSubjectType:2		},	// Red
+	{ '\x03', 9	/* Green */	, true,			ChatColorSubjectType_player	},	// Team
+};
 
 ---
 
@@ -317,6 +324,18 @@ char[][] name = new char[players*2][5];
             (dimension)
             initialValue: (vector (vector (int_literal) (int_literal) (int_literal)) (vector (int_literal) (int_literal) (int_literal)) (vector (int_literal) (int_literal) (int_literal))))
         (semicolon))
+    (variable_declaration_statement
+        type: (type_expression (builtin_type) (dimension) (dimension))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (dynamic_array
+                type: (builtin_type)
+                (fixed_dimension
+                    (binary_expression
+                        left: (symbol)
+                        right: (int_literal)))
+                (fixed_dimension (int_literal))))
+        (semicolon)))
     (variable_declaration_statement
         type: (type_expression (builtin_type) (dimension) (dimension))
         (variable_declaration
@@ -572,6 +591,23 @@ old style variables - storage class
 decl String:txt[256];
 new const a = 2;
 static bool:b = false;
+static const base64_cFillChar			= '=';
+static const String:base64_sTable[] =
+  // 0000000000111111111122222222223333333333444444444455555555556666
+  // 0123456789012345678901234567890123456789012345678901234567890123
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+static const base64_decodeTable[] = {
+//  0   1   2   3   4   5   6   7   8   9
+    0,  0,  0,  0,  0,  0,  0,  0,  0,  0,   // 240 - 249
+    0,  0,  0,  0,  0,  0                    // 250 - 256
+};
+static localIPRanges[] =
+{
+	10	<< 24,				// 10.
+	127	<< 24 | 1		,	// 127.0.0.1
+	127	<< 24 | 16	<< 16,	// 127.16.
+	192	<< 24 | 168	<< 16,	// 192.168.
+};
 
 ---
 
@@ -589,6 +625,34 @@ static bool:b = false;
             name: (symbol)
             initialValue: (int_literal))
         (semicolon))
+    (old_variable_declaration_statement
+        (old_variable_storage_class)
+        (old_variable_declaration
+            type: (old_builtin_type)
+            name: (symbol)
+            initialValue: (bool_literal))
+        (semicolon)))
+    (old_variable_declaration_statement
+        (old_variable_storage_class)
+        (old_variable_declaration
+            type: (old_builtin_type)
+            name: (symbol)
+            initialValue: (bool_literal))
+        (semicolon)))
+    (old_variable_declaration_statement
+        (old_variable_storage_class)
+        (old_variable_declaration
+            type: (old_builtin_type)
+            name: (symbol)
+            initialValue: (bool_literal))
+        (semicolon)))
+    (old_variable_declaration_statement
+        (old_variable_storage_class)
+        (old_variable_declaration
+            type: (old_builtin_type)
+            name: (symbol)
+            initialValue: (bool_literal))
+        (semicolon)))
     (old_variable_declaration_statement
         (old_variable_storage_class)
         (old_variable_declaration
