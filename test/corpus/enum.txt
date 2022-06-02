@@ -159,6 +159,44 @@ enum f_invulnmode {
         (semicolon)))
 
 
+=====================
+enum - optional colon
+=====================
+
+enum FOO: {
+    test,
+};
+
+---
+
+(source_file
+    (enum
+        name: (symbol)
+        entries: (enum_entries (enum_entry name: (symbol)))
+        (semicolon)))
+
+
+=======================
+array based enum struct
+=======================
+
+enum FOO
+{
+	qTARGETS[5],
+};
+
+---
+
+(source_file
+    (enum
+        name: (symbol)
+        entries: (enum_entries 
+            (enum_entry 
+                name: (symbol)
+                (fixed_dimension
+                (int_literal))))
+        (semicolon)))
+
 ======================
 enum with type casting
 ======================

@@ -305,7 +305,7 @@ module.exports = grammar({
     enum: ($) =>
       seq(
         "enum",
-        field("name", optional($.symbol)),
+        field("name", optional(seq($.symbol, optional(token.immediate(":"))))),
         optional(
           seq(
             "(",
@@ -337,6 +337,7 @@ module.exports = grammar({
           optional(seq(choice($.builtin_type, $.symbol), token.immediate(":")))
         ),
         field("name", $.symbol),
+        optional($.fixed_dimension),
         field("value", optional(seq("=", $._expression)))
       ),
 

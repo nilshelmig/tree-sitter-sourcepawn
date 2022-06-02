@@ -847,9 +847,13 @@
         ]
       },
       "name": {
-        "multiple": false,
+        "multiple": true,
         "required": false,
         "types": [
+          {
+            "type": ":",
+            "named": false
+          },
           {
             "type": "symbol",
             "named": true
@@ -933,6 +937,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "fixed_dimension",
+          "named": true
+        }
+      ]
     }
   },
   {
