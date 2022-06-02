@@ -81,6 +81,7 @@ module.exports = grammar({
           $.preproc_include,
           $.preproc_tryinclude,
           $.preproc_define,
+          $.preproc_macro,
           $.preproc_undefine,
           $.preproc_pragma_semicolon,
           $.preproc_pragma_newdecls,
@@ -105,6 +106,16 @@ module.exports = grammar({
         "\n"
       ),
 
+    preproc_macro: ($) =>
+      seq(
+        preprocessor("define"),
+        field("name", $.symbol),
+        token.immediate("("),
+        commaSep1(seq("%", /[0-9]/)),
+        token.immediate(")"),
+        field("value", optional($.preproc_arg)),
+        "\n"
+      ),
     preproc_define: ($) =>
       seq(
         preprocessor("define"),

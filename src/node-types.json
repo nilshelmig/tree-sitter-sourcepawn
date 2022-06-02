@@ -2379,6 +2379,32 @@
     }
   },
   {
+    "type": "preproc_macro",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "preproc_arg",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "preproc_pragma_deprecated",
     "named": true,
     "fields": {
@@ -2656,6 +2682,10 @@
         },
         {
           "type": "preproc_include",
+          "named": true
+        },
+        {
+          "type": "preproc_macro",
           "named": true
         },
         {
@@ -3737,11 +3767,11 @@
   },
   {
     "type": "semicolon",
-    "named": false
+    "named": true
   },
   {
     "type": "semicolon",
-    "named": true
+    "named": false
   },
   {
     "type": "set",

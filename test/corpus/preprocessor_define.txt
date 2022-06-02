@@ -59,6 +59,19 @@ define handles spaces/tabs
         name: (symbol)
         value: (preproc_arg)))
 
+============
+define macro
+============
+
+#define LOOP_CLIENTS(%1,%2) for (int %1=Client_GetNext(%2); %1 >= 1 && %1 <= MaxClients; %1=Client_GetNext(%2, ++%1))
+
+---
+
+(source_file
+    (preproc_macro
+        name: (symbol)
+        value: (preproc_arg)))
+
 
 ========
 undefine
