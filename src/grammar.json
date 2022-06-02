@@ -1118,6 +1118,14 @@
                         },
                         {
                           "type": "SYMBOL",
+                          "name": "view_as"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "old_type_cast"
+                        },
+                        {
+                          "type": "SYMBOL",
                           "name": "symbol"
                         },
                         {

@@ -246,6 +246,8 @@ module.exports = grammar({
                   $.binary_expression,
                   $.unary_expression,
                   $.sizeof_expression,
+                  $.view_as,
+                  $.old_type_cast,
                   $.symbol,
                   $._literal,
                   $.concatenated_string,

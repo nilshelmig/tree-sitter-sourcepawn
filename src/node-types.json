@@ -204,6 +204,10 @@
             "named": true
           },
           {
+            "type": "old_type_cast",
+            "named": true
+          },
+          {
             "type": "parenthesized_expression",
             "named": true
           },
@@ -233,6 +237,10 @@
           },
           {
             "type": "vector",
+            "named": true
+          },
+          {
+            "type": "view_as",
             "named": true
           }
         ]
