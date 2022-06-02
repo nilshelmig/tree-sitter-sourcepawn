@@ -666,7 +666,7 @@ module.exports = grammar({
         "(",
         field(
           "initialization",
-          optional(choice($._top_level_statements, $.assignment_expression))
+          commaSep(choice($._top_level_statements, $.assignment_expression))
         ),
         $.semicolon,
         field("condition", optional($._expression)),

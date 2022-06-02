@@ -3654,15 +3654,45 @@
             "type": "CHOICE",
             "members": [
               {
-                "type": "CHOICE",
+                "type": "SEQ",
                 "members": [
                   {
-                    "type": "SYMBOL",
-                    "name": "_top_level_statements"
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "_top_level_statements"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "assignment_expression"
+                      }
+                    ]
                   },
                   {
-                    "type": "SYMBOL",
-                    "name": "assignment_expression"
+                    "type": "REPEAT",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": ","
+                        },
+                        {
+                          "type": "CHOICE",
+                          "members": [
+                            {
+                              "type": "SYMBOL",
+                              "name": "_top_level_statements"
+                            },
+                            {
+                              "type": "SYMBOL",
+                              "name": "assignment_expression"
+                            }
+                          ]
+                        }
+                      ]
+                    }
                   }
                 ]
               },

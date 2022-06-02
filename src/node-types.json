@@ -1146,9 +1146,13 @@
         ]
       },
       "initialization": {
-        "multiple": false,
+        "multiple": true,
         "required": false,
         "types": [
+          {
+            "type": ",",
+            "named": false
+          },
           {
             "type": "assignment_expression",
             "named": true

@@ -257,7 +257,7 @@ for loop - old style
 public void OnPluginStart() {
     for(new i = 0; i < 3; i++) break;
     for (i = 0, ii = 0; i < 14; ++i, ii += 4) {
-		inx[i] = (input[ii + 3] << 24) | (input[ii + 2] << 16) | (input[ii + 1] << 8) | input[ii];
+		break;
 	}
 }
 
@@ -281,4 +281,27 @@ public void OnPluginStart() {
                     right: (int_literal))
                 (semicolon)
                 iteration: (expression_statement (update_expression argument: (symbol)))
-                (break_statement (semicolon))))))
+                (break_statement
+              (semicolon)))
+            (for_loop
+                initialization: (assignment_expression
+                    left: (symbol)
+                    right: (int_literal))
+                initialization: (assignment_expression
+                    left: (symbol)
+                    right: (int_literal))
+                (semicolon)
+                condition: (binary_expression
+                    left: (symbol)
+                    right: (int_literal))
+                (semicolon)
+                iteration: (expression_statement
+                (comma_expression
+                    left: (update_expression
+                    argument: (symbol))
+                    right: (assignment_expression
+                        left: (symbol)
+                        right: (int_literal))))
+            (block
+              (break_statement
+                (semicolon)))))))
