@@ -168,6 +168,14 @@
             "named": false
           },
           {
+            "type": "array_indexed_access",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
             "type": "bool_literal",
             "named": true
           },
@@ -177,6 +185,10 @@
           },
           {
             "type": "concatenated_string",
+            "named": true
+          },
+          {
+            "type": "field_access",
             "named": true
           },
           {
@@ -192,7 +204,15 @@
             "named": true
           },
           {
-            "type": "old_type_cast",
+            "type": "parenthesized_expression",
+            "named": true
+          },
+          {
+            "type": "scope_access",
+            "named": true
+          },
+          {
+            "type": "sizeof_expression",
             "named": true
           },
           {
@@ -201,6 +221,14 @@
           },
           {
             "type": "symbol",
+            "named": true
+          },
+          {
+            "type": "ternary_expression",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
             "named": true
           },
           {

@@ -319,20 +319,21 @@ void MyFunc7(int mode=FOO|BAR|BAZ) {}
           (float_literal)
           (float_literal)
           (float_literal))))
-    (block)))
-  (function_declaration
-    returnType: (builtin_type)
-    name: (symbol)
-    arguments: (argument_declarations
-      (argument_declaration
-        type: (type_expression (builtin_type))
+        (block))
+      (function_declaration
+        returnType: (builtin_type)
         name: (symbol)
-        (fixed_dimension (int_literal))
-        defaultValue: (vector
-          (float_literal)
-          (float_literal)
-          (float_literal))))
-    (block)))
+        arguments: (argument_declarations
+          (argument_declaration
+            type: (type_expression
+              (builtin_type))
+            name: (symbol)
+            defaultValue: (binary_expression
+              left: (binary_expression
+                left: (symbol)
+                right: (symbol))
+              right: (symbol))))
+          (block)))
 
 
 =======================================================

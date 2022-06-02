@@ -1090,15 +1090,51 @@
                       "members": [
                         {
                           "type": "SYMBOL",
-                          "name": "_literal"
+                          "name": "array_indexed_access"
                         },
                         {
                           "type": "SYMBOL",
-                          "name": "old_type_cast"
+                          "name": "ternary_expression"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "field_access"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "scope_access"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "binary_expression"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "unary_expression"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "sizeof_expression"
                         },
                         {
                           "type": "SYMBOL",
                           "name": "symbol"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "_literal"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "concatenated_string"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "char_literal"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "parenthesized_expression"
                         },
                         {
                           "type": "SYMBOL",

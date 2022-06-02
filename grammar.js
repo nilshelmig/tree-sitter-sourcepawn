@@ -236,11 +236,29 @@ module.exports = grammar({
           field(
             "defaultValue",
             optional(
-              seq("=", choice($._literal, $.old_type_cast, $.symbol, $.vector))
+              seq(
+                "=",
+                choice(
+                  $.array_indexed_access,
+                  $.ternary_expression,
+                  $.field_access,
+                  $.scope_access,
+                  $.binary_expression,
+                  $.unary_expression,
+                  $.sizeof_expression,
+                  $.symbol,
+                  $._literal,
+                  $.concatenated_string,
+                  $.char_literal,
+                  $.parenthesized_expression,
+                  $.vector
+                )
+              )
             )
           )
         )
       ),
+
     rest_argument: ($) =>
       seq(
         field("type", choice($.type_expression, $.old_type_expression)),
