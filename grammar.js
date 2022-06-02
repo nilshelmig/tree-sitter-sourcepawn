@@ -1094,7 +1094,7 @@ module.exports = grammar({
       seq(
         '"',
         repeat(
-          choice(token.immediate(prec(1, /[^\\"\n]+/)), $.escape_sequence)
+          choice(token.immediate(prec(1, /[^"]|\\\r?\n/)), $.escape_sequence)
         ),
         '"'
       ),

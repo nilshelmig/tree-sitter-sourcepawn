@@ -12,7 +12,7 @@ char[] text = "This is a really long string of text that should be \
         type: (type_expression (builtin_type) (dimension))
         (variable_declaration
             name: (symbol)
-            initialValue: (string_literal (escape_sequence)))
+            initialValue: (string_literal))
         (semicolon)))
 
 
