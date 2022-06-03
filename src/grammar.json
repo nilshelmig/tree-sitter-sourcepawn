@@ -4797,8 +4797,8 @@
       ]
     },
     "ternary_expression": {
-      "type": "PREC_LEFT",
-      "value": 20,
+      "type": "PREC_RIGHT",
+      "value": 1,
       "content": {
         "type": "SEQ",
         "members": [

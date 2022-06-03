@@ -897,8 +897,8 @@ module.exports = grammar({
       ),
 
     ternary_expression: ($) =>
-      prec.left(
-        20,
+      prec.right(
+        PREC.TERNARY,
         seq(
           field("condition", $._expression),
           "?",
