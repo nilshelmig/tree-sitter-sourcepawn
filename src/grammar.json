@@ -53,7 +53,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "global_variable"
+            "name": "struct_declaration"
           },
           {
             "type": "SYMBOL",
@@ -3283,7 +3283,7 @@
         }
       ]
     },
-    "global_variable": {
+    "struct_declaration": {
       "type": "SEQ",
       "members": [
         {
@@ -6651,11 +6651,11 @@
       "function_call_arguments"
     ],
     [
-      "global_variable",
+      "struct_declaration",
       "_type"
     ],
     [
-      "global_variable",
+      "struct_declaration",
       "_old_type"
     ]
   ],

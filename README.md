@@ -37,7 +37,7 @@ public void OnPluginStart() {
 const tree = parser.parse(sourceCode);
 console.log(tree.rootNode.toString());
 // (source_file
-//     (global_variable
+//     (struct_declaration
 //         type: (symbol)
 //         name: (symbol)
 //         value: (struct_constructor

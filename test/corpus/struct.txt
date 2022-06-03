@@ -55,7 +55,7 @@ public Plugin myinfo =
 ---
 
 (source_file
-    (global_variable
+    (struct_declaration
         type: (symbol)
         name: (symbol)
         value: (struct_constructor
@@ -95,7 +95,7 @@ public Plugin:myinfo =
 ---
 
 (source_file
-    (global_variable
+    (struct_declaration
         type: (symbol)
         name: (symbol)
         value: (struct_constructor
@@ -135,7 +135,7 @@ public Plugin myinfo =
 ---
 
 (source_file
-    (global_variable
+    (struct_declaration
         type: (symbol)
         name: (symbol)
         value: (struct_constructor
@@ -174,7 +174,7 @@ public Plugin myinfo =
 ---
 
 (source_file
-    (global_variable
+    (struct_declaration
         type: (symbol)
         name: (symbol)
         value: (struct_constructor

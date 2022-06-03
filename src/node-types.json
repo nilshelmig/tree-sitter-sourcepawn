@@ -1580,56 +1580,6 @@
     "fields": {}
   },
   {
-    "type": "global_variable",
-    "named": true,
-    "fields": {
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "symbol",
-            "named": true
-          }
-        ]
-      },
-      "type": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": ":",
-            "named": false
-          },
-          {
-            "type": "symbol",
-            "named": true
-          }
-        ]
-      },
-      "value": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "struct_constructor",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "semicolon",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "methodmap",
     "named": true,
     "fields": {
@@ -2727,10 +2677,6 @@
           "named": true
         },
         {
-          "type": "global_variable",
-          "named": true
-        },
-        {
           "type": "methodmap",
           "named": true
         },
@@ -2776,6 +2722,10 @@
         },
         {
           "type": "struct",
+          "named": true
+        },
+        {
+          "type": "struct_declaration",
           "named": true
         },
         {
@@ -2848,6 +2798,56 @@
       "types": [
         {
           "type": "struct_field_value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "struct_declaration",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "struct_constructor",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "semicolon",
           "named": true
         }
       ]

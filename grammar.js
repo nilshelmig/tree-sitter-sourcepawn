@@ -56,8 +56,8 @@ module.exports = grammar({
     // [$.old_type_cast, $.ternary_expression],
     [$.argument_declaration, $.type_expression],
     [$.argument_declarations, $.function_call_arguments],
-    [$.global_variable, $._type],
-    [$.global_variable, $._old_type],
+    [$.struct_declaration, $._type],
+    [$.struct_declaration, $._old_type],
   ],
 
   word: ($) => $.symbol,
@@ -77,7 +77,7 @@ module.exports = grammar({
           $.funcenum,
           $.methodmap,
           $.struct,
-          $.global_variable,
+          $.struct_declaration,
           $._top_level_statements,
           $.preproc_include,
           $.preproc_tryinclude,
@@ -631,7 +631,7 @@ module.exports = grammar({
         $.semicolon
       ),
 
-    global_variable: ($) =>
+    struct_declaration: ($) =>
       seq(
         "public",
         field("type", choice($.symbol, seq($.symbol, token.immediate(":")))),
