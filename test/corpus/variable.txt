@@ -671,100 +671,96 @@ static localIPRanges[] =
 ---
 
 (source_file
-      (old_global_variable_declaration
+    (old_global_variable_declaration
         (old_variable_storage_class)
         (old_variable_declaration
-          (old_builtin_type)
-          (symbol)
-          (fixed_dimension
-            (int_literal)))
+        (old_builtin_type)
+        (symbol)
+        (fixed_dimension (int_literal)))
         (semicolon))
-      (old_global_variable_declaration
+    (old_global_variable_declaration
         (old_variable_storage_class)
         (old_variable_declaration
-          (symbol)
-          (int_literal))
+        (symbol) (int_literal))
         (semicolon))
-      (old_global_variable_declaration
+    (old_global_variable_declaration
         (old_variable_declaration_with_type
-          (old_builtin_type)
-          (symbol)
-          (bool_literal))
+        (old_builtin_type) (symbol) (bool_literal))
         (semicolon))
-      (global_variable_declaration
+    (global_variable_declaration
         (variable_storage_class)
         (variable_storage_class)
         (variable_declaration
-          (symbol)
-          (char_literal))
+            (symbol)
+            (char_literal))
         (semicolon))
-      (old_global_variable_declaration
+    (old_global_variable_declaration
         (old_variable_declaration_with_type
-          (old_builtin_type)
-          (symbol)
-          (dimension)
-          (comment)
-          (comment)
-          (string_literal))
+        (old_builtin_type)
+        (symbol)
+        (dimension)
+        (comment)
+        (comment)
+        (string_literal))
         (semicolon))
-      (global_variable_declaration
+    (global_variable_declaration
         (variable_storage_class)
         (variable_storage_class)
         (variable_declaration
-          (symbol)
-          (dimension)
-          (array_litteral
-            (comment)
-            (int_literal)
-            (int_literal)
-            (int_literal)
-            (int_literal)
-            (int_literal)
-            (int_literal)
-            (int_literal)
-            (int_literal)
-            (int_literal)
-            (int_literal)
-            (comment)
-            (int_literal)
-            (int_literal)
-            (int_literal)
-            (int_literal)
-            (int_literal)
-            (int_literal)
-            (comment)))
+            (symbol)
+            (dimension)
+            (array_litteral
+                (comment)
+                (int_literal)
+                (int_literal)
+                (int_literal)
+                (int_literal)
+                (int_literal)
+                (int_literal)
+                (int_literal)
+                (int_literal)
+                (int_literal)
+                (int_literal)
+                (comment)
+                (int_literal)
+                (int_literal)
+                (int_literal)
+                (int_literal)
+                (int_literal)
+                (int_literal)
+                (comment)))
         (semicolon))
-      (global_variable_declaration
+    (global_variable_declaration
         (variable_storage_class)
         (variable_declaration
-          (symbol)
-          (dimension)
-          (array_litteral
-            (binary_expression
-              (int_literal)
-              (int_literal))
-            (comment)
-            (binary_expression
-              (binary_expression
+            (symbol)
+            (dimension)
+            (array_litteral
+                (binary_expression
+                    (int_literal)
+                    (int_literal))
+                (comment)
+                (binary_expression
+                (binary_expression
                 (int_literal)
                 (int_literal))
-              (int_literal))
+            (int_literal))
             (comment)
             (binary_expression
-              (binary_expression
-                (int_literal)
-                (int_literal))
-              (binary_expression
-                (int_literal)
-                (int_literal)))
+                (binary_expression
+                    (int_literal)
+                    (int_literal))
+                (binary_expression
+                    (int_literal)
+                    (int_literal)))
             (comment)
             (binary_expression
-              (binary_expression
-                (int_literal)
-                (int_literal))
-              (binary_expression
-                (int_literal)
-                (int_literal)))
+                (binary_expression
+                    (int_literal)
+                    (int_literal))
+                (binary_expression
+                    (int_literal)
+                    (int_literal)))
             (comment)))
         (semicolon)))
 
