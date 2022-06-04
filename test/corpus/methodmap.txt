@@ -64,37 +64,37 @@ methodmap AdminId {
     (methodmap
         name: (symbol)
         (methodmap_native
-            returnType: (builtin_type)
+            returnType: (type (builtin_type))
             name: (symbol)
             (argument_declarations
                 (argument_declaration
-                    type: (type_expression (builtin_type) (dimension))
+                    type: (type (builtin_type) (dimension))
                     name: (symbol))
                 (argument_declaration
-                    type: (type_expression (builtin_type))
+                    type: (type (builtin_type))
                     name: (symbol)))
             (semicolon))
         (methodmap_native
-            returnType: (builtin_type)
+            returnType: (type (builtin_type))
             name: (symbol)
             (argument_declarations
                 (argument_declaration
-                    type: (type_expression (builtin_type) (dimension))
+                    type: (type (builtin_type) (dimension))
                     name: (symbol)
                     defaultValue: (string_literal))
                 (argument_declaration
-                    type: (type_expression (builtin_type))
+                    type: (type (builtin_type))
                     name: (symbol)
                     defaultValue: (int_literal)))
             (semicolon))
         (methodmap_native
-            returnType: (builtin_type)
+            returnType: (type (builtin_type))
             name: (symbol)
             (argument_declarations
                 (argument_declaration
-                    type: (type_expression (builtin_type) (dimension))
+                    type: (type (builtin_type) (dimension))
                     name: (symbol))
-                (rest_argument type: (type_expression (any_type))))
+                (rest_argument type: (type (any_type))))
             (semicolon))))
 
 
@@ -116,7 +116,7 @@ methodmap AdminId {
             name: (symbol)
             (argument_declarations
                 (argument_declaration
-                    type: (type_expression (builtin_type))
+                    type: (type (builtin_type))
                     name: (symbol)))
             (semicolon))
         (methodmap_native_destructor
@@ -143,25 +143,25 @@ methodmap PerkContainerIter {
     (methodmap
         name: (symbol)
         (methodmap_method
-            returnType: (builtin_type)
+            returnType: (type (builtin_type))
             name: (symbol)
             (argument_declarations
                 (argument_declaration
-                    type: (type_expression (builtin_type))
+                    type: (type (builtin_type))
                     name: (symbol))
                 (argument_declaration
-                    type: (type_expression (builtin_type))
+                    type: (type (builtin_type))
                     name: (symbol)
                     defaultValue: (int_literal)))
             (block (return_statement (bool_literal) (semicolon))))
         (methodmap_method
-            returnType: (builtin_type)
+            returnType: (type (builtin_type))
             name: (symbol)
             (argument_declarations
                 (argument_declaration
-                    type: (type_expression (builtin_type) (dimension))
+                    type: (type (builtin_type) (dimension))
                     name: (symbol))
-                (rest_argument type: (type_expression (any_type))))
+                (rest_argument type: (type (any_type))))
             (block))))
 
 
@@ -186,7 +186,7 @@ methodmap AdminId {
             name: (symbol)
             (argument_declarations
                 (argument_declaration
-                    type: (type_expression (builtin_type))
+                    type: (type (builtin_type))
                     name: (symbol)))
             (block (return_statement (symbol) (semicolon))))
         (methodmap_method_destructor
@@ -210,14 +210,14 @@ methodmap PerkContainerIter {
     (methodmap
         name: (symbol)
         (methodmap_method
-            returnType: (builtin_type)
+            returnType: (type (builtin_type))
             name: (symbol)
             (argument_declarations
                 (argument_declaration
-                    type: (type_expression (builtin_type))
+                    type: (type (builtin_type))
                     name: (symbol))
                 (argument_declaration
-                    type: (type_expression (builtin_type))
+                    type: (type (builtin_type))
                     name: (symbol)
                     defaultValue: (int_literal)))
             (block (return_statement (bool_literal) (semicolon))))))
@@ -239,7 +239,7 @@ methodmap MyValue {
     (methodmap
         name: (symbol)
         (methodmap_method
-            returnType: (builtin_type)
+            returnType: (type (builtin_type))
             name: (symbol)
             (argument_declarations)
             (block (return_statement (this) (semicolon))))))

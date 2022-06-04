@@ -13,7 +13,7 @@ public void OnPluginStart() {
 (source_file
     (function_declaration
         (function_visibility)
-        returnType: (builtin_type)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
@@ -37,7 +37,7 @@ public void OnPluginStart() {
 (source_file
     (function_declaration
         (function_visibility)
-        returnType: (builtin_type)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
@@ -67,7 +67,7 @@ public void OnPluginStart() {
 (source_file
     (function_declaration
         (function_visibility)
-        returnType: (builtin_type)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
@@ -91,7 +91,7 @@ public void OnPluginStart() {
 (source_file
     (function_declaration
         (function_visibility)
-        returnType: (builtin_type)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
@@ -113,7 +113,7 @@ public void OnPluginStart() {
 (source_file
     (function_declaration
         (function_visibility)
-        returnType: (builtin_type)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block

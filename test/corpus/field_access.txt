@@ -10,7 +10,7 @@ void Test() {
 
 (source_file
     (function_declaration
-        returnType: (builtin_type)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
@@ -45,7 +45,7 @@ enum struct Rectangle
             (semicolon))
 
         (enum_struct_method
-            returnType: (builtin_type)
+            returnType: (type (builtin_type))
             name: (symbol)
             (argument_declarations)
             (block
@@ -68,7 +68,7 @@ void Test() {
 
 (source_file
     (function_declaration
-        returnType: (builtin_type)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
@@ -93,7 +93,7 @@ void Test() {
 
 (source_file
     (function_declaration
-        returnType: (builtin_type)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block

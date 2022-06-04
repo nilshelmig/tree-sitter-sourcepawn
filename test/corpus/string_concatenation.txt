@@ -8,8 +8,7 @@ char[] text = "This is a really long string of text that should be \
 ---
 
 (source_file
-    (variable_declaration_statement
-        type: (type_expression (builtin_type) (dimension))
+    (global_variable_declaration type: (type (builtin_type) (dimension))
         (variable_declaration
             name: (symbol)
             initialValue: (string_literal))
@@ -28,24 +27,21 @@ char[] text3 = "Version: " ... PLUGIN_VERSION ... " in development";
 ---
 
 (source_file
-    (variable_declaration_statement
-        type: (type_expression (builtin_type) (dimension))
+    (global_variable_declaration type: (type (builtin_type) (dimension))
         (variable_declaration
             name: (symbol)
             initialValue: (concatenated_string
                 left: (string_literal)
                 right: (string_literal)))
         (semicolon))
-    (variable_declaration_statement
-        type: (type_expression (builtin_type) (dimension))
+    (global_variable_declaration type: (type (builtin_type) (dimension))
         (variable_declaration
             name: (symbol)
             initialValue: (concatenated_string
                 left: (string_literal)
                 right: (symbol)))
         (semicolon))
-    (variable_declaration_statement
-        type: (type_expression (builtin_type) (dimension))
+    (global_variable_declaration type: (type (builtin_type) (dimension))
         (variable_declaration
             name: (symbol)
             initialValue: (concatenated_string

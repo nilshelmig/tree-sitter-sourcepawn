@@ -13,7 +13,7 @@ typedef SrvCmd = function Action (int args)
             returnType: (symbol)
             (typedef_args
                 (typedef_arg
-                    type: (type_expression (builtin_type))
+                    type: (type (builtin_type))
                     name: (symbol))))))
 
 
@@ -32,7 +32,7 @@ typedef SrvCmd = (function Action (int args));
             returnType: (symbol)
             (typedef_args
                 (typedef_arg
-                    type: (type_expression (builtin_type))
+                    type: (type (builtin_type))
                     name: (symbol))))
         (semicolon)))
 
@@ -52,7 +52,7 @@ typedef SrvCmd = function Action (int args);
             returnType: (symbol)
             (typedef_args
                 (typedef_arg
-                    type: (type_expression (builtin_type))
+                    type: (type (builtin_type))
                     name: (symbol))))
         (semicolon)))
 
@@ -78,32 +78,32 @@ typedef CustomHandler =
     (typedef
         name: (symbol)
         (typedef_expression
-            returnType: (builtin_type)
+            returnType: (type (builtin_type))
             (typedef_args
                 (typedef_arg
-                    type: (type_expression (symbol))
+                    type: (type (symbol))
                     name: (symbol))
                 (typedef_arg
-                    type: (type_expression (builtin_type))
+                    type: (type (builtin_type))
                     name: (symbol))
                 (typedef_arg
-                    type: (type_expression (builtin_type))
+                    type: (type (builtin_type))
                     name: (symbol))
                 (typedef_arg
-                    type: (type_expression (builtin_type) (dimension))
+                    type: (type (builtin_type) (dimension))
                     name: (symbol))
                 (typedef_arg
-                    type: (type_expression (builtin_type))
+                    type: (type (builtin_type))
                     name: (symbol))
                 (typedef_arg
-                    type: (type_expression (builtin_type))
+                    type: (type (builtin_type))
                     name: (symbol))
                 (typedef_arg
-                    type: (type_expression (builtin_type))
+                    type: (type (builtin_type))
                     name: (symbol)
                     (fixed_dimension (int_literal)))
                 (typedef_arg
-                    type: (type_expression (any_type))
+                    type: (type (any_type))
                     name: (symbol))))
         (semicolon)))
 
@@ -118,14 +118,14 @@ functag public Action:SrvCmd(args, &Handle:datapack)
 
 (source_file
     (functag
-        returnType: (old_type_expression
+        returnType: (type
             (symbol))
         name: (symbol)
         (functag_args
             (functag_arg
                 name: (symbol))
                 (functag_arg
-                    type: (old_type_expression
+                    type: (type
                     (symbol))
                 name: (symbol)))))
 
@@ -140,14 +140,14 @@ functag public Action:SrvCmd(args, &Handle:datapack);
 
 (source_file
     (functag
-        returnType: (old_type_expression
+        returnType: (type
             (symbol))
         name: (symbol)
         (functag_args
             (functag_arg
                 name: (symbol))
                 (functag_arg
-                    type: (old_type_expression
+                    type: (type
                     (symbol))
                 name: (symbol)))
         (semicolon)))
@@ -168,7 +168,7 @@ functag SrvCmd public(args, &Handle:datapack)
             (functag_arg
                 name: (symbol))
                 (functag_arg
-                    type: (old_type_expression
+                    type: (type
                     (symbol))
                 name: (symbol)))))
 
@@ -188,7 +188,7 @@ functag SrvCmd public(args, &Handle:datapack);
             (functag_arg
                 name: (symbol))
                 (functag_arg
-                    type: (old_type_expression
+                    type: (type
                     (symbol))
                 name: (symbol)))
         (semicolon)))
@@ -205,13 +205,13 @@ functag Entity_ChangeOverTimeCallback bool:public(&entity, &Float:interval, &cur
 (source_file
     (functag
         name: (symbol)
-        returnType: (old_type_expression
+        returnType: (type
             (old_builtin_type))
         (functag_args
             (functag_arg
                 name: (symbol))
                 (functag_arg
-                    type: (old_type_expression
+                    type: (type
                         (old_builtin_type))
                             name: (symbol))
                 (functag_arg

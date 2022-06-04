@@ -10,9 +10,9 @@ void SaveClose(Handle myhandle) {
 
 (source_file
   (function_declaration
-    returnType: (builtin_type)
+    returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type_expression (symbol)) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (type (symbol)) name: (symbol)))
     (block
         (delete_statement
             free: (symbol)
@@ -31,9 +31,9 @@ void SaveClose(Handle[] myhandle) {
 
 (source_file
   (function_declaration
-    returnType: (builtin_type)
+    returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type_expression (symbol) (dimension)) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (type (symbol) (dimension)) name: (symbol)))
     (block
         (delete_statement
             free: (array_indexed_access
@@ -54,9 +54,9 @@ void SaveClose(Handle myhandle) {
 
 (source_file
   (function_declaration
-    returnType: (builtin_type)
+    returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type_expression (symbol)) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (type (symbol)) name: (symbol)))
     (block
         (delete_statement
             free: (view_as
@@ -82,7 +82,7 @@ methodmap Handle
   (methodmap
     name: (symbol)
     (methodmap_method
-      returnType: (builtin_type)
+      returnType: (type (builtin_type))
       name: (symbol)
       (argument_declarations)
       (block
@@ -108,7 +108,7 @@ methodmap Handle
   (methodmap
     name: (symbol)
     (methodmap_method
-      returnType: (builtin_type)
+      returnType: (type (builtin_type))
       name: (symbol)
       (argument_declarations)
       (block
@@ -136,7 +136,7 @@ methodmap Handle
   (methodmap
     name: (symbol)
     (methodmap_method
-      returnType: (builtin_type)
+      returnType: (type (builtin_type))
       name: (symbol)
       (argument_declarations)
       (block

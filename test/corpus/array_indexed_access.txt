@@ -10,11 +10,11 @@ void MyFunc(int[] myvar) {
 
 (source_file
   (function_declaration
-    returnType: (builtin_type)
+    returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations
         (argument_declaration
-            type: (type_expression (builtin_type) (dimension))
+            type: (type (builtin_type) (dimension))
             name: (symbol)))
     (block
         (expression_statement
@@ -37,11 +37,11 @@ void MyFunc(int[] myvar) {
 
 (source_file
   (function_declaration
-    returnType: (builtin_type)
+    returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations
         (argument_declaration
-            type: (type_expression (builtin_type) (dimension))
+            type: (type (builtin_type) (dimension))
             name: (symbol)))
     (block
         (expression_statement
@@ -68,11 +68,11 @@ void MyFunc(int[] myvar) {
 
 (source_file
   (function_declaration
-    returnType: (builtin_type)
+    returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations
         (argument_declaration
-            type: (type_expression (builtin_type) (dimension))
+            type: (type (builtin_type) (dimension))
             name: (symbol)))
     (block
         (expression_statement
@@ -96,11 +96,11 @@ int MyFunc(int[] myvar) {
 
 (source_file
   (function_declaration
-    returnType: (builtin_type)
+    returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations
         (argument_declaration
-            type: (type_expression (builtin_type) (dimension))
+            type: (type (builtin_type) (dimension))
             name: (symbol)))
     (block
         (return_statement
@@ -124,11 +124,11 @@ int MyFunc(int[][] myvar) {
 
 (source_file
   (function_declaration
-    returnType: (builtin_type)
+    returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations
         (argument_declaration
-            type: (type_expression (builtin_type) (dimension) (dimension))
+            type: (type (builtin_type) (dimension) (dimension))
             name: (symbol)))
     (block
         (return_statement
@@ -152,11 +152,11 @@ int MyFunc(File target) {
 
 (source_file
   (function_declaration
-    returnType: (builtin_type)
+    returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations
         (argument_declaration
-            type: (type_expression (symbol))
+            type: (type (symbol))
             name: (symbol)))
     (block
         (return_statement

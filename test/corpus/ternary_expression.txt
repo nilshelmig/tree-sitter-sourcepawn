@@ -11,7 +11,7 @@ int GetOppositeDirection() {
 
 (source_file
     (function_declaration
-        returnType: (builtin_type)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
@@ -48,7 +48,7 @@ int GetOppositeDirection() {
 
 (source_file
     (function_declaration
-        returnType: (builtin_type)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
@@ -99,7 +99,7 @@ int GetOppositeDirection() {
 
 (source_file
     (function_declaration
-        returnType: (builtin_type)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block

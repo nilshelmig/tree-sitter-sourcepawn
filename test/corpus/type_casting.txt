@@ -12,7 +12,7 @@ void Test() {
 
 (source_file
     (function_declaration
-        returnType: (builtin_type)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
@@ -42,8 +42,7 @@ int test = view_as<int>(2 < 5 && 10 > 8);
 ---
 
 (source_file
-    (variable_declaration_statement
-        type: (type_expression (builtin_type))
+    (global_variable_declaration type: (type (builtin_type))
         (variable_declaration
             name: (symbol)
             initialValue: (view_as
@@ -67,8 +66,7 @@ bool test = view_as<bool>(view_as<int>(Plugin_Handled));
 ---
 
 (source_file
-    (variable_declaration_statement
-        type: (type_expression (builtin_type))
+    (global_variable_declaration type: (type (builtin_type))
         (variable_declaration
             name: (symbol)
             initialValue: (view_as
@@ -91,7 +89,7 @@ void foo(){
 
     (source_file
       (function_declaration
-        returnType: (builtin_type)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block

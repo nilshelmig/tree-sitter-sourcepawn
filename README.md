@@ -57,8 +57,8 @@ console.log(tree.rootNode.toString());
 //                 name: (symbol)
 //                 value: (string_literal)))
 //         (semicolon))
-//     (callback_implementation
-//         returnType: (builtin_type)
+//     (function_declaration (function_visibility)
+//         returnType: (type (builtin_type))
 //         name: (symbol)
 //         arguments: (argument_declarations)
 //         (block (comment))))

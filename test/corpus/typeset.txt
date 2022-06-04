@@ -16,17 +16,17 @@ typeset Timer {
             returnType: (symbol)
             (typedef_args
                 (typedef_arg
-                    type: (type_expression (symbol))
+                    type: (type (symbol))
                     name: (symbol))
                 (typedef_arg
-                    type: (type_expression (symbol))
+                    type: (type (symbol))
                     name: (symbol))))
         (semicolon)
         (typedef_expression
             returnType: (symbol)
             (typedef_args
                 (typedef_arg
-                    type: (type_expression (symbol))
+                    type: (type (symbol))
                     name: (symbol))))
         (semicolon)))
 
@@ -49,17 +49,17 @@ typeset Timer {
             returnType: (symbol)
             (typedef_args
                 (typedef_arg
-                    type: (type_expression (symbol))
+                    type: (type (symbol))
                     name: (symbol))
                 (typedef_arg
-                    type: (type_expression (symbol))
+                    type: (type (symbol))
                     name: (symbol))))
         (semicolon)
         (typedef_expression
             returnType: (symbol)
             (typedef_args
                 (typedef_arg
-                    type: (type_expression (symbol))
+                    type: (type (symbol))
                     name: (symbol))))
         (semicolon)
         (semicolon)))
@@ -83,17 +83,17 @@ typeset Timer {
             returnType: (symbol)
             (typedef_args
                 (typedef_arg
-                    type: (type_expression (symbol))
+                    type: (type (symbol))
                     name: (symbol))
                 (typedef_arg
-                    type: (type_expression (symbol))
+                    type: (type (symbol))
                     name: (symbol))))
         (semicolon)
         (typedef_expression
             returnType: (symbol)
             (typedef_args
                 (typedef_arg
-                    type: (type_expression (symbol))
+                    type: (type (symbol))
                     name: (symbol))))
         (semicolon)
         (semicolon)))
@@ -115,20 +115,20 @@ funcenum Timer {
     (funcenum
         name: (symbol)
         (funcenum_member
-            returnType: (old_type_expression
+            returnType: (type
             (symbol))
             (functag_args
                 (functag_arg
-                    type: (old_type_expression (symbol))
+                    type: (type (symbol))
                     name: (symbol))
                 (functag_arg
-                    type: (old_type_expression (symbol))
+                    type: (type (symbol))
                     name: (symbol))))
         (funcenum_member
-            returnType: (old_type_expression (symbol))
+            returnType: (type (symbol))
             (functag_args
                 (functag_arg
-                    type: (old_type_expression (symbol))
+                    type: (type (symbol))
                     name: (symbol))))))
 
 
@@ -148,20 +148,20 @@ funcenum Timer {
     (funcenum
         name: (symbol)
         (funcenum_member
-            returnType: (old_type_expression
+            returnType: (type
             (symbol))
             (functag_args
                 (functag_arg
-                    type: (old_type_expression (symbol))
+                    type: (type (symbol))
                     name: (symbol))
                 (functag_arg
-                    type: (old_type_expression (symbol))
+                    type: (type (symbol))
                     name: (symbol))))
         (funcenum_member
-            returnType: (old_type_expression (symbol))
+            returnType: (type (symbol))
             (functag_args
                 (functag_arg
-                    type: (old_type_expression (symbol))
+                    type: (type (symbol))
                     name: (symbol))))
         (semicolon)))
 
@@ -184,13 +184,13 @@ funcenum Timer {
         (funcenum_member
             (functag_args
                 (functag_arg
-                    type: (old_type_expression (symbol))
+                    type: (type (symbol))
                     name: (symbol))
                 (functag_arg
-                    type: (old_type_expression (symbol))
+                    type: (type (symbol))
                     name: (symbol))))
         (funcenum_member
             (functag_args
                 (functag_arg
-                    type: (old_type_expression (symbol))
+                    type: (type (symbol))
                     name: (symbol))))))

@@ -9,8 +9,8 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (callback_implementation
-        returnType: (builtin_type)
+    (function_declaration (function_visibility)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
@@ -31,8 +31,8 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (callback_implementation
-        returnType: (builtin_type)
+    (function_declaration (function_visibility)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
@@ -56,8 +56,8 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (callback_implementation
-        returnType: (builtin_type)
+    (function_declaration (function_visibility)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
@@ -86,8 +86,8 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (callback_implementation
-        returnType: (builtin_type)
+    (function_declaration (function_visibility)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
@@ -112,8 +112,8 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (callback_implementation
-        returnType: (builtin_type)
+    (function_declaration (function_visibility)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
@@ -137,8 +137,8 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (callback_implementation
-        returnType: (builtin_type)
+    (function_declaration (function_visibility)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
