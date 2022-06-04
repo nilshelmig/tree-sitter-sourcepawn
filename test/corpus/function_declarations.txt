@@ -315,7 +315,7 @@ void MyFunc7(int mode=FOO|BAR|BAZ) {}
         type: (type_expression (builtin_type))
         name: (symbol)
         (fixed_dimension (int_literal))
-        defaultValue: (vector
+        defaultValue: (array_litteral
           (float_literal)
           (float_literal)
           (float_literal))))
