@@ -1,0 +1,59 @@
+
+===============
+old declaration
+===============
+
+void Test() {
+    new a;
+    new Float:b = 0.23;
+    new bool:c;
+    new _:d = 2, Float:e, bool:f = true, String:g = 'c';
+    new Action:ac = INVALID_HANDLE;
+    Action:ac = INVALID_HANDLE;
+}
+
+---
+
+==========
+old arrays
+==========
+
+void Test() {
+    new a[16];
+    new players[MAXPLAYERS + 1];
+    new String:d[12] = "hello world";
+    new Float:origin[3] = {1.0, 2.0, 3.0};
+    new numbers[] = {1, 3, 5, 7, 9};
+}
+
+---
+
+
+=================
+old storage class
+=================
+
+void Test(){
+    decl String:txt[256];
+    new const a = 2;
+    static bool:b = false;
+    static const base64_cFillChar			= '=';
+    static const String:base64_sTable[] =
+    // 0000000000111111111122222222223333333333444444444455555555556666
+    // 0123456789012345678901234567890123456789012345678901234567890123
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+    static const base64_decodeTable[] = {
+    //  0   1   2   3   4   5   6   7   8   9
+        0,  0,  0,  0,  0,  0,  0,  0,  0,  0,   // 240 - 249
+        0,  0,  0,  0,  0,  0                    // 250 - 256
+    };
+    static localIPRanges[] =
+    {
+        10	<< 24,				// 10.
+        127	<< 24 | 1		,	// 127.0.0.1
+        127	<< 24 | 16	<< 16,	// 127.16.
+        192	<< 24 | 168	<< 16,	// 192.168.
+    };
+}
+
+---

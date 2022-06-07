@@ -3412,6 +3412,10 @@
       "required": true,
       "types": [
         {
+          "type": "dimension",
+          "named": true
+        },
+        {
           "type": "semicolon",
           "named": true
         },
@@ -3420,7 +3424,63 @@
           "named": true
         },
         {
-          "type": "variable_storage_class",
+          "type": "variable_declaration_no_dimension",
+          "named": true
+        },
+        {
+          "type": "variable_declaration_with_value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "variable_declaration_with_value",
+    "named": true,
+    "fields": {
+      "initialValue": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "=",
+            "named": false
+          },
+          {
+            "type": "_expression",
+            "named": true
+          },
+          {
+            "type": "dynamic_array",
+            "named": true
+          },
+          {
+            "type": "new_instance",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "dimension",
+          "named": true
+        },
+        {
+          "type": "fixed_dimension",
           "named": true
         }
       ]

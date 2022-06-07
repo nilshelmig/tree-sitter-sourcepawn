@@ -19,7 +19,7 @@ const PREC = {
   CAST: 15,
   CALL: 16,
   FIELD: 17,
-  ARRAY_MEMBER: 18,
+  ARRAY_MEMBER: 1,
 };
 
 module.exports = grammar({
@@ -63,6 +63,8 @@ module.exports = grammar({
     [$.old_variable_declaration],
     [$.type, $._expression],
     [$.variable_declaration, $.type],
+    [$.array_indexed_access, $.type],
+    //[$.variable_declaration_statement, $.array_indexed_access],
     [$.variable_declaration, $.old_variable_declaration_with_type],
     [$.variable_storage_class, $.old_global_variable_declaration],
     // [$.old_type_cast, $.ternary_expression],
@@ -292,12 +294,26 @@ module.exports = grammar({
       ),
 
     variable_declaration_statement: ($) =>
-      prec.left(
+      choice(
         seq(
-          repeat($.variable_storage_class),
+          optional("static"),
           field("type", $.type),
-          commaSep1($.variable_declaration),
-          optional($.semicolon)
+          choice(
+            seq(
+              repeat1($.dimension),
+              commaSep1($.variable_declaration_no_dimension)
+            ),
+            commaSep1($.variable_declaration)
+            /* [] Should not be allowed here */
+          ),
+          choice($.semicolon, "\n")
+        ),
+        seq(
+          optional("static"),
+          "const",
+          field("type", $.type),
+          commaSep1($.variable_declaration_with_value),
+          choice($.semicolon, "\n")
         )
       ),
 
@@ -317,6 +333,16 @@ module.exports = grammar({
               seq("=", choice($._expression, $.dynamic_array, $.new_instance))
             )
           )
+        )
+      ),
+
+    variable_declaration_with_value: ($) =>
+      seq(
+        field("name", $.symbol),
+        repeat(choice($.dimension, $.fixed_dimension)),
+        field(
+          "initialValue",
+          seq("=", choice($._expression, $.dynamic_array, $.new_instance))
         )
       ),
 

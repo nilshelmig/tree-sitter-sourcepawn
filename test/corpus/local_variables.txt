@@ -1,195 +1,326 @@
-===================
-variable assignment
-===================
+===========
+declaration
+===========
 
 void Test() {
-    i = 2;
-    i += 5;
-    i -= size;
-    i *= -1;
-    i /= 2 + 10;
-    a[1] ^= 2;
-    i |= 2;
-    i &= 1001;
-    i ~= 0110;
-    i <<= 2;
-    i >>= 2;
+    int number;
+    float pointnumber;
+    char character;
+    bool boolean;
+    char[] text = "lorem ipsum";
+    float vec[3];
+    bool active[MAXPLAYERS + 1];
+    Action action;
 }
 
 ---
 
 (source_file
     (function_declaration
-        returnType: (type
-            (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
+        (type (builtin_type))
+        (symbol)
+        (argument_declarations)
         (block
-            (expression_statement
-                (assignment_expression
-                    left: (symbol)
-                    right: (int_literal))
+            (variable_declaration_statement
+                (type (builtin_type))
+                (variable_declaration (symbol))
                 (semicolon))
-            (expression_statement
-                (assignment_expression
-                    left: (symbol)
-                    right: (int_literal))
+            (variable_declaration_statement
+                (type (builtin_type))
+                (variable_declaration (symbol))
                 (semicolon))
-            (expression_statement
-                (assignment_expression
-                    left: (symbol)
-                    right: (symbol))
+            (variable_declaration_statement
+                (type (builtin_type))
+                (variable_declaration (symbol))
                 (semicolon))
-            (expression_statement
-                (assignment_expression
-                    left: (symbol)
-                    right: (int_literal))
+            (variable_declaration_statement
+                (type (builtin_type))
+                (variable_declaration (symbol))
                 (semicolon))
-            (expression_statement
-                (assignment_expression
-                    left: (symbol)
-                    right: (binary_expression
-                        left: (int_literal)
-                        right: (int_literal)))
+            (variable_declaration_statement
+                (type (builtin_type))
+                (dimension)
+                (variable_declaration_no_dimension
+                    (symbol)
+                    (string_literal))
                 (semicolon))
-            (expression_statement
-                (assignment_expression
-                    left: (array_indexed_access
-                        array: (symbol)
-                        index: (int_literal))
-                    right: (int_literal))
+            (variable_declaration_statement
+                (type (builtin_type))
+                (variable_declaration
+                (symbol)
+                (fixed_dimension (int_literal)))
                 (semicolon))
-            (expression_statement
-                (assignment_expression
-                    left: (symbol)
-                    right: (int_literal))
+            (variable_declaration_statement
+                (type (builtin_type))
+                (variable_declaration
+                (symbol)
+                (fixed_dimension 
+                    (binary_expression (symbol) (int_literal))))
                 (semicolon))
-            (expression_statement
-                (assignment_expression
-                    left: (symbol)
-                    right: (int_literal))
-                (semicolon))
-            (expression_statement
-                (assignment_expression
-                    left: (symbol)
-                    right: (int_literal))
-                (semicolon))
-            (expression_statement
-                (assignment_expression
-                    left: (symbol)
-                    right: (int_literal))
-                (semicolon))
-            (expression_statement
-                (assignment_expression
-                    left: (symbol)
-                    right: (int_literal))
-                (semicolon)))))
+            (variable_declaration_statement
+                (type (symbol))
+            (variable_declaration (symbol))
+            (semicolon)))))
 
 
-==================================
-variable assignment - new operator
-==================================
+==============
+initialization
+==============
 
 void Test() {
-    a = new char[size];
-    b = new MethodMap();
+    int money = 5400;
+    float percent = 67.3;
+    char key = 'A';
+    bool enabled = false;
+    Handle handle = null;
 }
 
 ---
 
 (source_file
     (function_declaration
-        returnType: (type
-            (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
+        (type (builtin_type))
+        (symbol)
+        (argument_declarations)
         (block
-            (expression_statement
-                (assignment_expression
-                    left: (symbol)
-                    right: (dynamic_array
-                        type: (builtin_type)
-                        (fixed_dimension (symbol))))
-                (semicolon))
-            (expression_statement
-                (assignment_expression
-                    left: (symbol)
-                    right: (new_instance
-                        class: (symbol)
-                        arguments: (function_call_arguments)))
-                (semicolon)))))
+            (variable_declaration_statement
+            (type (builtin_type))
+            (variable_declaration
+                (symbol) (int_literal))
+            (semicolon))
+            (variable_declaration_statement
+            (type (builtin_type))
+            (variable_declaration
+                (symbol) (float_literal))
+            (semicolon))
+            (variable_declaration_statement
+                (type (builtin_type))
+            (variable_declaration
+                (symbol) (char_literal))
+            (semicolon))
+            (variable_declaration_statement
+                (type (builtin_type))
+            (variable_declaration
+                (symbol) (bool_literal))
+            (semicolon))
+            (variable_declaration_statement
+                (type (symbol))
+            (variable_declaration
+              (symbol) (null))
+            (semicolon)))))
 
 
-==========================================
-variable assignment - indexed array access
-==========================================
+====================
+array initialization
+====================
 
 void Test() {
-    clients[2] = 14;
-    clients[client] = Math_GetRandomInt(100, 300);
+    char[] text = "Hello world";
+    int numbers[] = { 1, 2, 3 };
+    float vec[3] = { 0.0, 14.2, 13.22 };
+    bool client_has_stuff[MAXPLAYERS] = { true, ... };
+    char[] name = new char[players*2];
+    Action[] actions = new Action[maxActions];
 }
 
 ---
 
 (source_file
     (function_declaration
-        returnType: (type
-            (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
+        (type (builtin_type))
+        (symbol)
+        (argument_declarations)
         (block
-            (expression_statement
-                (assignment_expression
-                    left: (array_indexed_access
-                        array: (symbol)
-                        index: (int_literal))
-                    right: (int_literal))
-                (semicolon))
-            (expression_statement
-                (assignment_expression
-                    left: (array_indexed_access
-                        array: (symbol)
-                        index: (symbol))
-                    right: (function_call
-                        function: (symbol)
-                        (function_call_arguments
-                            (int_literal)
-                            (int_literal))))
-                (semicolon)))))
+            (variable_declaration_statement
+            (type (builtin_type))
+            (dimension)
+            (variable_declaration_no_dimension
+                (symbol) (string_literal))
+            (semicolon))
+            (variable_declaration_statement
+                (type (builtin_type))
+                (variable_declaration
+                    (symbol)
+                    (dimension)
+                    (array_litteral
+                    (int_literal)
+                    (int_literal)
+                    (int_literal)))
+            (semicolon))
+            (variable_declaration_statement
+                (type (builtin_type))
+                (variable_declaration
+                    (symbol)
+                    (fixed_dimension (int_literal))
+                    (array_litteral
+                        (float_literal)
+                        (float_literal)
+                        (float_literal)))
+            (semicolon))
+            (variable_declaration_statement
+                (type (builtin_type))
+                (variable_declaration
+                    (symbol)
+                    (fixed_dimension (symbol))
+                    (array_litteral
+                        (bool_literal)
+                        (rest_operator)))
+            (semicolon))
+            (variable_declaration_statement
+                (type (builtin_type))
+                (dimension)
+                (variable_declaration_no_dimension
+                    (symbol)
+                    (dynamic_array (builtin_type)
+                    (fixed_dimension
+                        (binary_expression
+                        (symbol)
+                        (int_literal)))))
+            (semicolon))
+            (variable_declaration_statement
+                (type (symbol))
+                (dimension)
+                (variable_declaration_no_dimension
+                    (symbol)
+                    (dynamic_array
+                        (symbol)
+                        (fixed_dimension
+                        (symbol))))
+            (semicolon)))))
 
 
-=================================
-variable assignment as expression
-=================================
+=============
+storage class
+=============
 
 void Test() {
-    if ((a = Test()) != 0) return;
-    a = b = 2;
+    static const int foo = 1;
+    static const Action foo = 1;
+    const int foo = 1;
+    static Action foo;
 }
 
 ---
 
 (source_file
     (function_declaration
-        returnType: (type
-            (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
+        (type (builtin_type))
+        (symbol)
+        (argument_declarations)
         (block
-            (condition_statement
-                condition: (binary_expression
-                    left: (parenthesized_expression
-                        (assignment_expression
-                            left: (symbol)
-                            right: (function_call
-                                function: (symbol)
-                                (function_call_arguments))))
-                    right: (int_literal))
-                    truePath: (return_statement (semicolon)))
-            (expression_statement
-                (assignment_expression
-                    left: (symbol)
-                    right: (assignment_expression
-                        left: (symbol)
-                        right: (int_literal)))
-                (semicolon)))))
+            (variable_declaration_statement
+                (type (builtin_type))
+                (variable_declaration_with_value
+                    (symbol) (int_literal))
+            (semicolon))
+            (variable_declaration_statement
+                (type (symbol))
+                (variable_declaration_with_value
+                    (symbol) (int_literal))
+            (semicolon))
+            (variable_declaration_statement
+                (type (builtin_type))
+                (variable_declaration_with_value
+                    (symbol) (int_literal))
+            (semicolon))
+            (variable_declaration_statement
+                (type (symbol))
+                (variable_declaration (symbol))
+            (semicolon)))))
+
+
+=======================
+multidimensional arrays
+=======================
+
+void Test(){
+    Action[][] a;
+    Action [] [] a;
+    float vec[MAXPLAYERS][10];
+    float vec [MAXPLAYERS] [10];
+    int bla[][] = { {1,2,3}, {4,5,6}, {7,8,9} };
+    char[][] name = new char[players*2][5];
+}
+
+---
+
+   (source_file
+      (function_declaration
+        (type
+          (builtin_type))
+        (symbol)
+        (argument_declarations)
+        (block
+          (variable_declaration_statement
+            (type
+              (symbol))
+            (dimension)
+            (dimension)
+            (variable_declaration_no_dimension
+              (symbol))
+            (semicolon))
+          (variable_declaration_statement
+            (type
+              (symbol))
+            (dimension)
+            (dimension)
+            (variable_declaration_no_dimension
+              (symbol))
+            (semicolon))
+          (variable_declaration_statement
+            (type
+              (builtin_type))
+            (variable_declaration
+              (symbol)
+              (fixed_dimension
+                (symbol))
+              (fixed_dimension
+                (int_literal)))
+            (semicolon))
+          (variable_declaration_statement
+            (type
+              (builtin_type))
+            (variable_declaration
+              (symbol)
+              (fixed_dimension
+                (symbol))
+              (fixed_dimension
+                (int_literal)))
+            (semicolon))
+          (variable_declaration_statement
+            (type
+              (builtin_type))
+            (variable_declaration
+              (symbol)
+              (dimension)
+              (dimension)
+              (array_litteral
+                (array_litteral
+                  (int_literal)
+                  (int_literal)
+                  (int_literal))
+                (array_litteral
+                  (int_literal)
+                  (int_literal)
+                  (int_literal))
+                (array_litteral
+                  (int_literal)
+                  (int_literal)
+                  (int_literal))))
+            (semicolon))
+          (variable_declaration_statement
+            (type
+              (builtin_type))
+            (dimension)
+            (dimension)
+            (variable_declaration_no_dimension
+              (symbol)
+              (dynamic_array
+                (builtin_type)
+                (fixed_dimension
+                  (binary_expression
+                    (symbol)
+                    (int_literal)))
+                (fixed_dimension
+                  (int_literal))))
+            (semicolon)))))
