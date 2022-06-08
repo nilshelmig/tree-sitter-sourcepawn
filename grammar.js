@@ -367,12 +367,11 @@ module.exports = grammar({
       ),
 
     old_variable_declaration_statement: ($) =>
-      prec.left(
-        seq(
-          $.old_variable_storage_class,
-          commaSep1($.old_variable_declaration),
-          optional($.semicolon)
-        )
+      seq(
+        choice("new", "decl"),
+        optional("const"),
+        commaSep1($.old_variable_declaration),
+        choice($.semicolon, "\n")
       ),
 
     old_variable_storage_class: ($) =>
@@ -1087,7 +1086,7 @@ module.exports = grammar({
     old_type_cast: ($) =>
       prec.left(
         PREC.CAST,
-        seq(field("type", $._old_type), field("value", $._expression))
+        seq(field("type", $.old_type), field("value", $._expression))
       ),
 
     array_litteral: ($) =>

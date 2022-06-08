@@ -515,7 +515,7 @@ static chatColorInfo[][ChatColorInfo] =
                 (comment)
                 (bool_literal)
                 (old_type_cast
-                    type: (symbol)
+                    type: (old_type (symbol))
                     value: (int_literal)))
                 (comment)
                 (array_litteral
