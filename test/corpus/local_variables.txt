@@ -1,6 +1,6 @@
-===========
-declaration
-===========
+============
+declarations
+============
 
 void Test() {
     int number;
@@ -323,4 +323,133 @@ void Test(){
                     (int_literal)))
                 (fixed_dimension
                   (int_literal))))
+            (semicolon)))))
+
+
+==================
+old - declarations
+==================
+
+void Test() {
+    new number;
+    new Float:pointnumber;
+}
+
+---
+
+(source_file
+    (function_declaration
+      (type (builtin_type))
+      (symbol)
+      (argument_declarations)
+      (block
+        (old_variable_declaration_statement
+          (old_variable_declaration
+            (symbol))
+        (semicolon))
+        (old_variable_declaration_statement
+          (old_variable_declaration
+            (old_type (old_builtin_type))
+            (symbol))
+        (semicolon)))))
+
+
+====================
+old - initialization
+====================
+
+void Test() {
+    new number = 10;
+    new Float:pointnumber = 10.0;
+}
+
+---
+
+(source_file
+    (function_declaration
+        (type (builtin_type))
+        (symbol)
+        (argument_declarations)
+        (block
+            (old_variable_declaration_statement
+                (old_variable_declaration
+                    (symbol)
+                    (int_literal))
+            (semicolon))
+            (old_variable_declaration_statement
+                (old_variable_declaration
+                    (old_type (old_builtin_type))
+                    (symbol)
+                    (float_literal))
+            (semicolon)))))
+
+
+==========================
+old - array initialization
+==========================
+
+void Test() {
+    new String:foo[MAXPLAYERS+1] = "Lorem";
+    new bool:foo[MAXPLAYERS+1] = { true, ...};
+}
+
+---
+
+(source_file
+    (function_declaration
+        (type (builtin_type))
+        (symbol)
+        (argument_declarations)
+        (block
+            (old_variable_declaration_statement
+                (old_variable_declaration
+                (old_type (old_builtin_type))
+                (symbol)
+                (fixed_dimension
+                    (binary_expression
+                        (symbol)
+                        (int_literal)))
+                (string_literal))
+            (semicolon))
+            (old_variable_declaration_statement
+                (old_variable_declaration
+                    (old_type (old_builtin_type))
+                (symbol)
+                (fixed_dimension
+                    (binary_expression
+                        (symbol)
+                        (int_literal)))
+                (array_litteral (bool_literal)
+                (rest_operator)))
+            (semicolon)))))
+
+
+===================
+old - storage class
+===================
+
+void Test() {
+    new const Float:foo = 1.0;
+    static Float:foo = 1.0;
+}
+
+---
+
+(source_file
+    (function_declaration
+        (type (builtin_type))
+        (symbol)
+        (argument_declarations)
+        (block
+            (old_variable_declaration_statement
+                (old_variable_declaration
+                    (old_type (old_builtin_type))
+                (symbol)
+                (float_literal))
+            (semicolon))
+            (old_variable_declaration_statement
+                (old_variable_declaration
+                    (old_type (old_builtin_type))
+                (symbol)
+                (float_literal))
             (semicolon)))))

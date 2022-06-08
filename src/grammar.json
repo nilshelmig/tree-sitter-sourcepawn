@@ -1704,24 +1704,38 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "STRING",
-              "value": "new"
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "new"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "decl"
+                    }
+                  ]
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "const"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "type": "STRING",
-              "value": "decl"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "const"
-            },
-            {
-              "type": "BLANK"
+              "value": "static"
             }
           ]
         },
