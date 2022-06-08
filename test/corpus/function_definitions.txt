@@ -14,31 +14,31 @@ forward Action MyFunc6();
 (source_file
     (function_definition
         (function_definition_type)
-        returnType: (type (builtin_type))
+        returnType: (builtin_type)
         name: (symbol)
         arguments: (argument_declarations)
         (semicolon))
     (function_definition
         (function_definition_type)
-        returnType: (type (builtin_type))
+        returnType: (builtin_type)
         name: (symbol)
         arguments: (argument_declarations)
         (semicolon))
     (function_definition
         (function_definition_type)
-        returnType: (type (builtin_type))
+        returnType: (builtin_type)
         name: (symbol)
         arguments: (argument_declarations)
         (semicolon))
     (function_definition
         (function_definition_type)
-        returnType: (type (builtin_type))
+        returnType: (builtin_type)
         name: (symbol)
         arguments: (argument_declarations)
         (semicolon))
     (function_definition
         (function_definition_type)
-        returnType: (type (builtin_type))
+        returnType: (builtin_type)
         name: (symbol)
         arguments: (argument_declarations)
         (semicolon))
@@ -314,31 +314,31 @@ native Action MyFunc6();
 (source_file
     (function_definition
         (function_definition_type)
-        returnType: (type (builtin_type))
+        returnType: (builtin_type)
         name: (symbol)
         arguments: (argument_declarations)
         (semicolon))
     (function_definition
         (function_definition_type)
-        returnType: (type (builtin_type))
+        returnType: (builtin_type)
         name: (symbol)
         arguments: (argument_declarations)
         (semicolon))
     (function_definition
         (function_definition_type)
-        returnType: (type (builtin_type))
+        returnType: (builtin_type)
         name: (symbol)
         arguments: (argument_declarations)
         (semicolon))
     (function_definition
         (function_definition_type)
-        returnType: (type (builtin_type))
+        returnType: (builtin_type)
         name: (symbol)
         arguments: (argument_declarations)
         (semicolon))
     (function_definition
         (function_definition_type)
-        returnType: (type (builtin_type))
+        returnType: (builtin_type)
         name: (symbol)
         arguments: (argument_declarations)
         (semicolon))
@@ -350,9 +350,9 @@ native Action MyFunc6();
         (semicolon)))
 
 
-===========================
-native functions - oldstyle
-===========================
+======================
+old - native functions
+======================
 
 native MyFunc1();
 native _:MyFunc2();
@@ -413,17 +413,17 @@ native void MyFunc2(const char[] format, any ...);
 (source_file
     (function_definition
         (function_definition_type)
-        returnType: (type (builtin_type))
+        returnType: (builtin_type)
         name: (symbol)
         arguments: (argument_declarations (rest_argument type: (type (builtin_type))))
         (semicolon))
     (function_definition
         (function_definition_type)
-        returnType: (type (builtin_type))
+        returnType: (builtin_type)
         name: (symbol)
         arguments: (argument_declarations
             (argument_declaration
-                type: (type (builtin_type) (dimension))
+                type: (type (builtin_type)) (dimension)
                 name: (symbol))
             (rest_argument type: (type (any_type))))
         (semicolon)))
@@ -440,6 +440,6 @@ native void MyFunc()
 (source_file
     (function_definition
         (function_definition_type)
-        returnType: (type (builtin_type))
+        returnType: (builtin_type)
         name: (symbol)
         arguments: (argument_declarations)))

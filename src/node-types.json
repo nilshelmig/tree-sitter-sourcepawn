@@ -256,9 +256,17 @@
         ]
       },
       "type": {
-        "multiple": false,
+        "multiple": true,
         "required": false,
         "types": [
+          {
+            "type": "&",
+            "named": false
+          },
+          {
+            "type": "old_type",
+            "named": true
+          },
           {
             "type": "type",
             "named": true
@@ -270,6 +278,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "dimension",
+          "named": true
+        },
         {
           "type": "fixed_dimension",
           "named": true
@@ -1452,10 +1464,14 @@
       },
       "returnType": {
         "multiple": true,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "dimension",
+            "named": true
+          },
+          {
+            "type": "old_type",
             "named": true
           },
           {
@@ -2591,6 +2607,10 @@
         "multiple": false,
         "required": true,
         "types": [
+          {
+            "type": "old_type",
+            "named": true
+          },
           {
             "type": "type",
             "named": true

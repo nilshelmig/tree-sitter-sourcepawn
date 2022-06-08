@@ -46,6 +46,7 @@ module.exports = grammar({
     [$.function_visibility, $.variable_visibility, $.struct_declaration],
     [$.function_visibility, $.variable_storage_class],
     [$.function_visibility, $.old_variable_storage_class],
+    [$.function_visibility, $.old_global_variable_declaration],
     [
       $.function_visibility,
       $.old_variable_storage_class,
@@ -188,7 +189,13 @@ module.exports = grammar({
     function_declaration: ($) =>
       seq(
         optional($.function_visibility),
-        field("returnType", seq($.type, optional($.dimension))),
+        field(
+          "returnType",
+          choice(
+            optional(seq($.old_type, repeat($.dimension))),
+            seq($.type, repeat($.dimension))
+          )
+        ),
         field("name", $.symbol),
         field("arguments", $.argument_declarations),
         $.block
@@ -234,11 +241,13 @@ module.exports = grammar({
         PREC.PAREN_DECLARATOR,
         seq(
           optional("const"),
-          optional("&"),
-          field("type", optional($.type)),
-          optional("&"),
+          field(
+            "type",
+            choice(optional(seq(optional("&"), $.old_type)), $.type)
+          ),
+          optional(choice("&", repeat1($.dimension))),
           field("name", $.symbol),
-          repeat($.fixed_dimension),
+          repeat(choice($.dimension, $.fixed_dimension)),
           field(
             "defaultValue",
             optional(
@@ -267,7 +276,7 @@ module.exports = grammar({
         )
       ),
 
-    rest_argument: ($) => seq(field("type", $.type), "..."),
+    rest_argument: ($) => seq(field("type", choice($.type, $.old_type)), "..."),
 
     global_variable_declaration: ($) =>
       seq(
