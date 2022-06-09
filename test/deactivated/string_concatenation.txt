@@ -2,15 +2,16 @@
 string concatenation - backslash
 ================================
 
-char[] text = "This is a really long string of text that should be \
+char text[1028] = "This is a really long string of text that should be \
     split over multiple lines for the sake of readability.";
 
 ---
 
 (source_file
-    (global_variable_declaration type: (type (builtin_type) (dimension))
+    (global_variable_declaration type: (type (builtin_type))
         (variable_declaration
             name: (symbol)
+            (fixed_dimension (int_literal))
             initialValue: (string_literal))
         (semicolon)))
 
@@ -19,31 +20,44 @@ char[] text = "This is a really long string of text that should be \
 string concatenation - operator
 ===============================
 
-char[] text1 = "This is a really long string of text that should be"
+char text[1028] = "This is a really long string of text that should be" ... 
+    "split over multiple lines for the sake of readability.";
+char text[1028] = "This is a really long string of text that should be" 
     ... "split over multiple lines for the sake of readability.";
-char[] text2 = "Version: " ... PLUGIN_VERSION;
-char[] text3 = "Version: " ... PLUGIN_VERSION ... " in development";
+char text[1028] = "Version: " ... PLUGIN_VERSION;
+char text[1028] = "Version: " ... PLUGIN_VERSION ... " in development";
 
 ---
 
 (source_file
-    (global_variable_declaration type: (type (builtin_type) (dimension))
+    (global_variable_declaration type: (type (builtin_type))
         (variable_declaration
             name: (symbol)
+            (fixed_dimension (int_literal))
             initialValue: (concatenated_string
                 left: (string_literal)
                 right: (string_literal)))
         (semicolon))
-    (global_variable_declaration type: (type (builtin_type) (dimension))
+    (global_variable_declaration type: (type (builtin_type))
         (variable_declaration
             name: (symbol)
+            (fixed_dimension (int_literal))
+            initialValue: (concatenated_string
+                left: (string_literal)
+                right: (string_literal)))
+        (semicolon))
+    (global_variable_declaration type: (type (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            (fixed_dimension (int_literal))
             initialValue: (concatenated_string
                 left: (string_literal)
                 right: (symbol)))
         (semicolon))
-    (global_variable_declaration type: (type (builtin_type) (dimension))
+    (global_variable_declaration type: (type (builtin_type))
         (variable_declaration
             name: (symbol)
+            (fixed_dimension (int_literal))
             initialValue: (concatenated_string
                 left: (string_literal)
                 right: (concatenated_string
