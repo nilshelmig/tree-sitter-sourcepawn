@@ -276,27 +276,12 @@ module.exports = grammar({
 
     variable_declaration_statement: ($) =>
       prec.right(
-        choice(
-          seq(
-            optional("static"),
-            field("type", $.type),
-            choice(
-              seq(
-                repeat1($.dimension),
-                commaSep1($.variable_declaration_no_dimension)
-              ),
-              commaSep1($.variable_declaration)
-              /* [] Should not be allowed here */
-            ),
-            optional($.semicolon)
-          ),
-          seq(
-            optional("static"),
-            "const",
-            field("type", $.type),
-            commaSep1($.variable_declaration_with_value),
-            optional($.semicolon)
-          )
+        seq(
+          optional($.variable_storage_class),
+          field("type", $.type),
+          repeat($.dimension),
+          commaSep1($.variable_declaration),
+          optional($.semicolon)
         )
       ),
 
@@ -309,27 +294,6 @@ module.exports = grammar({
       seq(
         field("name", $.symbol),
         repeat(choice($.dimension, $.fixed_dimension)),
-        field(
-          "initialValue",
-          optional(
-            seq("=", choice($._expression, $.dynamic_array, $.new_instance))
-          )
-        )
-      ),
-
-    variable_declaration_with_value: ($) =>
-      seq(
-        field("name", $.symbol),
-        repeat(choice($.dimension, $.fixed_dimension)),
-        field(
-          "initialValue",
-          seq("=", choice($._expression, $.dynamic_array, $.new_instance))
-        )
-      ),
-
-    variable_declaration_no_dimension: ($) =>
-      seq(
-        field("name", $.symbol),
         field(
           "initialValue",
           optional(
@@ -366,10 +330,8 @@ module.exports = grammar({
       prec.right(
         seq(
           choice(
-            seq(choice("new", "decl"), optional("const")),
-            "static",
-            "const",
-            seq("static", "const")
+            seq(choice("new", "decl"), optional($.variable_storage_class)),
+            $.variable_storage_class
           ),
           commaSep1($.old_variable_declaration),
           optional($.semicolon)

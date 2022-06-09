@@ -1,80 +1,149 @@
-
-===============
-old declaration
-===============
+==================
+old - declarations
+==================
 
 void Test() {
-    new a;
-    new Float:b = 0.23;
-    new bool:c;
-    new _:d = 2, Float:e, bool:f = true, String:g = 'c';
-    new Action:ac = INVALID_HANDLE;
-    Action:ac = INVALID_HANDLE;
+    new number;
+    new Float:pointnumber;
 }
 
 ---
 
 (source_file
-      (function_declaration
-        (type
-          (builtin_type))
+    (function_declaration
+      (type (builtin_type))
+      (symbol)
+      (argument_declarations)
+      (block
+        (old_variable_declaration_statement
+          (old_variable_declaration
+            (symbol))
+        (semicolon))
+        (old_variable_declaration_statement
+          (old_variable_declaration
+            (old_type (old_builtin_type))
+            (symbol))
+        (semicolon)))))
+
+
+====================
+old - initialization
+====================
+
+void Test() {
+    new number = 10;
+    new number = 1
+    + 1;
+    new number = 1
+    + 1
+    new Float:pointnumber = 10.0;
+}
+
+---
+
+(source_file
+    (function_declaration
+        (type (builtin_type))
         (symbol)
         (argument_declarations)
         (block
-          (old_variable_declaration_statement
-            (old_variable_declaration
-              (symbol))
+            (old_variable_declaration_statement
+                (old_variable_declaration
+                    (symbol)
+                    (int_literal))
             (semicolon))
-          (old_variable_declaration_statement
-            (old_variable_declaration
-              (old_type
-                (old_builtin_type))
-              (symbol)
-              (float_literal))
+            (old_variable_declaration_statement
+                (old_variable_declaration
+                    (symbol)
+                    (binary_expression
+                        (int_literal)
+                        (int_literal)))
             (semicolon))
-          (old_variable_declaration_statement
-            (old_variable_declaration
-              (old_type
-                (old_builtin_type))
-              (symbol))
-            (semicolon))
-          (old_variable_declaration_statement
-            (old_variable_declaration
-              (old_type
-                (old_builtin_type))
-              (symbol)
-              (int_literal))
-            (old_variable_declaration
-              (old_type
-                (old_builtin_type))
-              (symbol))
-            (old_variable_declaration
-              (old_type
-                (old_builtin_type))
-              (symbol)
-              (bool_literal))
-            (old_variable_declaration
-              (old_type
-                (old_builtin_type))
-              (symbol)
-              (char_literal))
-            (semicolon))
-          (old_variable_declaration_statement
-            (old_variable_declaration
-              (old_type
-                (symbol))
-              (symbol)
-              (symbol))
-            (semicolon))
-          (expression_statement
-            (old_type_cast
-              (old_type
-                (symbol))
-              (assignment_expression
-                (symbol)
-                (symbol)))
+            (old_variable_declaration_statement
+                (old_variable_declaration
+                    (symbol)
+                    (binary_expression
+                        (int_literal)
+                        (int_literal))))
+            (old_variable_declaration_statement
+                (old_variable_declaration
+                    (old_type (old_builtin_type))
+                    (symbol)
+                    (float_literal))
             (semicolon)))))
 
+
+==========================
+old - array initialization
+==========================
+
+void Test() {
+    new String:foo[MAXPLAYERS+1] = "Lorem";
+    new bool:foo[MAXPLAYERS+1] = { true, ...};
+}
+
+---
+
+(source_file
+    (function_declaration
+        (type (builtin_type))
+        (symbol)
+        (argument_declarations)
+        (block
+            (old_variable_declaration_statement
+                (old_variable_declaration
+                (old_type (old_builtin_type))
+                (symbol)
+                (fixed_dimension
+                    (binary_expression
+                        (symbol)
+                        (int_literal)))
+                (string_literal))
+            (semicolon))
+            (old_variable_declaration_statement
+                (old_variable_declaration
+                    (old_type (old_builtin_type))
+                (symbol)
+                (fixed_dimension
+                    (binary_expression
+                        (symbol)
+                        (int_literal)))
+                (array_litteral (bool_literal)
+                (rest_operator)))
+            (semicolon)))))
+
+
+===================
+old - storage class
+===================
+
+void Test() {
+    new const Float:foo = 1.0;
+    static Float:foo = 1.0;
+}
+
+---
+
+(source_file
+    (function_declaration
+        (type (builtin_type))
+        (symbol)
+        (argument_declarations)
+        (block
+            (old_variable_declaration_statement
+                (variable_storage_class)
+                (old_variable_declaration
+                    (old_type (old_builtin_type))
+                (symbol)
+                (float_literal))
+            (semicolon))
+            (old_variable_declaration_statement
+                (variable_storage_class)
+                (old_variable_declaration
+                    (old_type (old_builtin_type))
+                (symbol)
+                (float_literal))
+            (semicolon)))))
 
 ==========
 old arrays
@@ -142,134 +211,4 @@ void Test() {
                 (int_literal)
                 (int_literal)
                 (int_literal)))
-            (semicolon)))))
-
-
-=================
-old storage class
-=================
-
-void Test(){
-    decl String:txt[256];
-    new const a = 2;
-    static bool:b = false;
-    static const base64_cFillChar			= '=';
-    static const String:base64_sTable[] =
-    // 0000000000111111111122222222223333333333444444444455555555556666
-    // 0123456789012345678901234567890123456789012345678901234567890123
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-    static const base64_decodeTable[] = {
-    //  0   1   2   3   4   5   6   7   8   9
-        0,  0,  0,  0,  0,  0,  0,  0,  0,  0,   // 240 - 249
-        0,  0,  0,  0,  0,  0                    // 250 - 256
-    };
-    static localIPRanges[] =
-    {
-        10	<< 24,				// 10.
-        127	<< 24 | 1		,	// 127.0.0.1
-        127	<< 24 | 16	<< 16,	// 127.16.
-        192	<< 24 | 168	<< 16,	// 192.168.
-    };
-}
-
----
-
-(source_file
-    (function_declaration
-        (type
-          (builtin_type))
-        (symbol)
-        (argument_declarations)
-        (block
-          (old_variable_declaration_statement
-            (old_variable_declaration
-              (old_type
-                (old_builtin_type))
-              (symbol)
-              (fixed_dimension
-                (int_literal)))
-            (semicolon))
-          (old_variable_declaration_statement
-            (old_variable_declaration
-              (symbol)
-              (int_literal))
-            (semicolon))
-          (old_variable_declaration_statement
-            (old_variable_declaration
-              (old_type
-                (old_builtin_type))
-              (symbol)
-              (bool_literal))
-            (semicolon))
-          (old_variable_declaration_statement
-            (old_variable_declaration
-              (symbol)
-              (char_literal))
-            (semicolon))
-          (old_variable_declaration_statement
-            (old_variable_declaration
-              (old_type
-                (old_builtin_type))
-              (symbol)
-              (dimension)
-              (comment)
-              (comment)
-              (string_literal))
-            (semicolon))
-          (old_variable_declaration_statement
-            (old_variable_declaration
-              (symbol)
-              (dimension)
-              (array_litteral
-                (comment)
-                (int_literal)
-                (int_literal)
-                (int_literal)
-                (int_literal)
-                (int_literal)
-                (int_literal)
-                (int_literal)
-                (int_literal)
-                (int_literal)
-                (int_literal)
-                (comment)
-                (int_literal)
-                (int_literal)
-                (int_literal)
-                (int_literal)
-                (int_literal)
-                (int_literal)
-                (comment)))
-            (semicolon))
-          (old_variable_declaration_statement
-            (old_variable_declaration
-              (symbol)
-              (dimension)
-              (array_litteral
-                (binary_expression
-                  (int_literal)
-                  (int_literal))
-                (comment)
-                (binary_expression
-                  (binary_expression
-                    (int_literal)
-                    (int_literal))
-                  (int_literal))
-                (comment)
-                (binary_expression
-                  (binary_expression
-                    (int_literal)
-                    (int_literal))
-                  (binary_expression
-                    (int_literal)
-                    (int_literal)))
-                (comment)
-                (binary_expression
-                  (binary_expression
-                    (int_literal)
-                    (int_literal))
-                  (binary_expression
-                    (int_literal)
-                    (int_literal)))
-                (comment)))
             (semicolon)))))

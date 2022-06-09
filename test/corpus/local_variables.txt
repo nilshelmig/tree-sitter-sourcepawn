@@ -40,7 +40,7 @@ void Test() {
             (variable_declaration_statement
                 (type (builtin_type))
                 (dimension)
-                (variable_declaration_no_dimension
+                (variable_declaration
                     (symbol)
                     (string_literal))
                 (semicolon))
@@ -153,7 +153,7 @@ void Test() {
             (variable_declaration_statement
             (type (builtin_type))
             (dimension)
-            (variable_declaration_no_dimension
+            (variable_declaration
                 (symbol) (string_literal))
             (semicolon))
             (variable_declaration_statement
@@ -188,7 +188,7 @@ void Test() {
             (variable_declaration_statement
                 (type (builtin_type))
                 (dimension)
-                (variable_declaration_no_dimension
+                (variable_declaration
                     (symbol)
                     (dynamic_array (builtin_type)
                     (fixed_dimension
@@ -199,7 +199,7 @@ void Test() {
             (variable_declaration_statement
                 (type (symbol))
                 (dimension)
-                (variable_declaration_no_dimension
+                (variable_declaration
                     (symbol)
                     (dynamic_array
                         (symbol)
@@ -228,21 +228,25 @@ void Test() {
         (argument_declarations)
         (block
             (variable_declaration_statement
+                (variable_storage_class)
                 (type (builtin_type))
-                (variable_declaration_with_value
+                (variable_declaration
                     (symbol) (int_literal))
             (semicolon))
             (variable_declaration_statement
+                (variable_storage_class)
                 (type (symbol))
-                (variable_declaration_with_value
+                (variable_declaration
                     (symbol) (int_literal))
             (semicolon))
             (variable_declaration_statement
+                (variable_storage_class)
                 (type (builtin_type))
-                (variable_declaration_with_value
+                (variable_declaration
                     (symbol) (int_literal))
             (semicolon))
             (variable_declaration_statement
+                (variable_storage_class)
                 (type (symbol))
                 (variable_declaration (symbol))
             (semicolon)))))
@@ -275,7 +279,7 @@ void Test(){
               (symbol))
             (dimension)
             (dimension)
-            (variable_declaration_no_dimension
+            (variable_declaration
               (symbol))
             (semicolon))
           (variable_declaration_statement
@@ -283,7 +287,7 @@ void Test(){
               (symbol))
             (dimension)
             (dimension)
-            (variable_declaration_no_dimension
+            (variable_declaration
               (symbol))
             (semicolon))
           (variable_declaration_statement
@@ -332,7 +336,7 @@ void Test(){
               (builtin_type))
             (dimension)
             (dimension)
-            (variable_declaration_no_dimension
+            (variable_declaration
               (symbol)
               (dynamic_array
                 (builtin_type)
@@ -342,150 +346,4 @@ void Test(){
                     (int_literal)))
                 (fixed_dimension
                   (int_literal))))
-            (semicolon)))))
-
-
-==================
-old - declarations
-==================
-
-void Test() {
-    new number;
-    new Float:pointnumber;
-}
-
----
-
-(source_file
-    (function_declaration
-      (type (builtin_type))
-      (symbol)
-      (argument_declarations)
-      (block
-        (old_variable_declaration_statement
-          (old_variable_declaration
-            (symbol))
-        (semicolon))
-        (old_variable_declaration_statement
-          (old_variable_declaration
-            (old_type (old_builtin_type))
-            (symbol))
-        (semicolon)))))
-
-
-====================
-old - initialization
-====================
-
-void Test() {
-    new number = 10;
-    new number = 1
-    + 1;
-    new number = 1
-    + 1
-    new Float:pointnumber = 10.0;
-}
-
----
-
-(source_file
-    (function_declaration
-        (type (builtin_type))
-        (symbol)
-        (argument_declarations)
-        (block
-            (old_variable_declaration_statement
-                (old_variable_declaration
-                    (symbol)
-                    (int_literal))
-            (semicolon))
-            (old_variable_declaration_statement
-                (old_variable_declaration
-                    (symbol)
-                    (binary_expression
-                        (int_literal)
-                        (int_literal)))
-            (semicolon))
-            (old_variable_declaration_statement
-                (old_variable_declaration
-                    (symbol)
-                    (binary_expression
-                        (int_literal)
-                        (int_literal))))
-            (old_variable_declaration_statement
-                (old_variable_declaration
-                    (old_type (old_builtin_type))
-                    (symbol)
-                    (float_literal))
-            (semicolon)))))
-
-
-==========================
-old - array initialization
-==========================
-
-void Test() {
-    new String:foo[MAXPLAYERS+1] = "Lorem";
-    new bool:foo[MAXPLAYERS+1] = { true, ...};
-}
-
----
-
-(source_file
-    (function_declaration
-        (type (builtin_type))
-        (symbol)
-        (argument_declarations)
-        (block
-            (old_variable_declaration_statement
-                (old_variable_declaration
-                (old_type (old_builtin_type))
-                (symbol)
-                (fixed_dimension
-                    (binary_expression
-                        (symbol)
-                        (int_literal)))
-                (string_literal))
-            (semicolon))
-            (old_variable_declaration_statement
-                (old_variable_declaration
-                    (old_type (old_builtin_type))
-                (symbol)
-                (fixed_dimension
-                    (binary_expression
-                        (symbol)
-                        (int_literal)))
-                (array_litteral (bool_literal)
-                (rest_operator)))
-            (semicolon)))))
-
-
-===================
-old - storage class
-===================
-
-void Test() {
-    new const Float:foo = 1.0;
-    static Float:foo = 1.0;
-}
-
----
-
-(source_file
-    (function_declaration
-        (type (builtin_type))
-        (symbol)
-        (argument_declarations)
-        (block
-            (old_variable_declaration_statement
-                (old_variable_declaration
-                    (old_type (old_builtin_type))
-                (symbol)
-                (float_literal))
-            (semicolon))
-            (old_variable_declaration_statement
-                (old_variable_declaration
-                    (old_type (old_builtin_type))
-                (symbol)
-                (float_literal))
             (semicolon)))))
