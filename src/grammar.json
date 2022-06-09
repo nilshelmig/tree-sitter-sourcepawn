@@ -1980,17 +1980,8 @@
                       "value": "="
                     },
                     {
-                      "type": "CHOICE",
-                      "members": [
-                        {
-                          "type": "SYMBOL",
-                          "name": "_literal"
-                        },
-                        {
-                          "type": "SYMBOL",
-                          "name": "symbol"
-                        }
-                      ]
+                      "type": "SYMBOL",
+                      "name": "_expression"
                     }
                   ]
                 },
@@ -5863,7 +5854,7 @@
     },
     "view_as": {
       "type": "PREC_LEFT",
-      "value": 15,
+      "value": 0,
       "content": {
         "type": "SEQ",
         "members": [

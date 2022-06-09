@@ -401,10 +401,7 @@ module.exports = grammar({
           field("type", optional($.old_type)),
           field("name", $.symbol),
           repeat(choice($.dimension, $.fixed_dimension)),
-          field(
-            "initialValue",
-            optional(seq("=", choice($._literal, $.symbol)))
-          )
+          field("initialValue", optional(seq("=", $._expression)))
         )
       ),
 
@@ -1069,7 +1066,6 @@ module.exports = grammar({
 
     view_as: ($) =>
       prec.left(
-        PREC.CAST,
         seq(
           "view_as",
           "<",

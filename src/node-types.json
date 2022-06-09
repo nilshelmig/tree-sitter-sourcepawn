@@ -2137,39 +2137,7 @@
             "named": false
           },
           {
-            "type": "array_litteral",
-            "named": true
-          },
-          {
-            "type": "bool_literal",
-            "named": true
-          },
-          {
-            "type": "char_literal",
-            "named": true
-          },
-          {
-            "type": "concatenated_string",
-            "named": true
-          },
-          {
-            "type": "float_literal",
-            "named": true
-          },
-          {
-            "type": "int_literal",
-            "named": true
-          },
-          {
-            "type": "null",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "symbol",
+            "type": "_expression",
             "named": true
           }
         ]

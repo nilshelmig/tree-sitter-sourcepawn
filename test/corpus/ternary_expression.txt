@@ -40,6 +40,7 @@ ternary expression - old style type cast
 ========================================
 
 int GetOppositeDirection() {
+    foo()?USERMSG_RELIABLE:0;
     new Handle:userMessage = StartMessageOne("Fade", client, (reliable?USERMSG_RELIABLE:0));
     return i < 0 ? (_:2.5) : (Action:0);
 }
@@ -52,10 +53,17 @@ int GetOppositeDirection() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
+            (expression_statement
+                (ternary_expression
+                    condition: (function_call
+                        function: (symbol)
+                        (function_call_arguments))
+                    consequence: (symbol)
+                    alternative: (int_literal))
+                (semicolon))
           (old_variable_declaration_statement
-            (old_variable_storage_class)
             (old_variable_declaration
-              type: (symbol)
+              type: (old_type (symbol))
               name: (symbol)
               initialValue: (function_call
                 function: (symbol)
@@ -75,11 +83,11 @@ int GetOppositeDirection() {
                 right: (int_literal))
               consequence: (parenthesized_expression
                 (old_type_cast
-                  type: (old_builtin_type)
+                  type: (old_type (old_builtin_type))
                   value: (float_literal)))
               alternative: (parenthesized_expression
                 (old_type_cast
-                  type: (symbol)
+                  type: (old_type (symbol))
                   value: (int_literal))))
             (semicolon)))))
 
