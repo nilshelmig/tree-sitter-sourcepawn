@@ -2297,6 +2297,21 @@
     }
   },
   {
+    "type": "preproc_endinput",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "preproc_if",
     "named": true,
     "fields": {
@@ -2642,6 +2657,10 @@
         },
         {
           "type": "preproc_define",
+          "named": true
+        },
+        {
+          "type": "preproc_endinput",
           "named": true
         },
         {
@@ -3391,6 +3410,10 @@
     "named": false
   },
   {
+    "type": "#endinput",
+    "named": false
+  },
+  {
     "type": "#if",
     "named": false
   },
@@ -3732,11 +3755,11 @@
   },
   {
     "type": "semicolon",
-    "named": true
+    "named": false
   },
   {
     "type": "semicolon",
-    "named": false
+    "named": true
   },
   {
     "type": "set",
