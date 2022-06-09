@@ -62,8 +62,8 @@ module.exports = grammar({
     [$.variable_storage_class, $.old_global_variable_declaration],
     [$.variable_declaration, $.expression_statement],
     [$.argument_declarations, $.function_call_arguments],
-    [$.struct_declaration, $._type],
-    [$.struct_declaration, $._old_type],
+    [$.struct_declaration, $.old_type],
+    [$.struct_declaration, $.type],
     [$.builtin_type, $.old_builtin_type],
     [$.type, $.old_variable_declaration],
   ],
@@ -486,13 +486,19 @@ module.exports = grammar({
       choice(
         seq(
           "function",
-          field("returnType", choice(seq($._type, optional($.dimension)))),
+          field(
+            "returnType",
+            choice(seq($.type, optional($.dimension)), optional($.old_type))
+          ),
           $.typedef_args
         ),
         seq(
           "(",
           "function",
-          field("returnType", choice(seq($._type, optional($.dimension)))),
+          field(
+            "returnType",
+            choice(seq($.type, optional($.dimension)), optional($.old_type))
+          ),
           $.typedef_args,
           ")"
         )
@@ -593,7 +599,7 @@ module.exports = grammar({
       seq(
         $.methodmap_visibility,
         "native",
-        field("returnType", choice($.builtin_type, $.symbol)),
+        field("returnType", $.type),
         field("name", $.symbol),
         $.argument_declarations,
         $.semicolon
@@ -620,7 +626,7 @@ module.exports = grammar({
       seq(
         $.methodmap_visibility,
         optional("static"),
-        field("returnType", choice($.builtin_type, $.symbol)),
+        field("returnType", $.type),
         field("name", $.symbol),
         $.argument_declarations,
         $.block
@@ -644,7 +650,7 @@ module.exports = grammar({
     methodmap_property: ($) =>
       seq(
         "property",
-        field("type", choice($.builtin_type, $.symbol)),
+        field("type", $.type),
         field("name", $.symbol),
         "{",
         repeat1(
@@ -679,13 +685,7 @@ module.exports = grammar({
       ),
     methodmap_property_getter: ($) => seq("get", "(", ")"),
     methodmap_property_setter: ($) =>
-      seq(
-        "set",
-        "(",
-        field("type", choice($.builtin_type, $.symbol)),
-        field("name", $.symbol),
-        ")"
-      ),
+      seq("set", "(", field("type", $.type), field("name", $.symbol), ")"),
     methodmap_visibility: ($) => "public",
 
     struct: ($) =>
@@ -734,11 +734,6 @@ module.exports = grammar({
     dimension: ($) => seq("[", "]"),
 
     fixed_dimension: ($) => seq("[", $._expression, "]"),
-
-    _type: ($) => prec.right(2, choice($.builtin_type, $.symbol, $._old_type)),
-
-    _old_type: ($) =>
-      choice($.old_builtin_type, seq($.symbol, token.immediate(":"))),
 
     builtin_type: ($) => choice("void", "bool", "int", "float", "char"),
 
