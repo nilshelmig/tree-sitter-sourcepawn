@@ -215,7 +215,10 @@ module.exports = grammar({
     function_definition: ($) =>
       seq(
         $.function_definition_type,
-        field("returnType", optional(seq($._type, optional($.dimension)))),
+        field(
+          "returnType",
+          optional(choice(seq($.type, optional($.dimension)), $.old_type))
+        ),
         field("name", $.symbol),
         field("arguments", $.argument_declarations),
         optional($.semicolon)

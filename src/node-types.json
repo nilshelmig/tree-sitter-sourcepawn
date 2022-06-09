@@ -1525,23 +1525,15 @@
         "required": false,
         "types": [
           {
-            "type": ":",
-            "named": false
-          },
-          {
-            "type": "builtin_type",
-            "named": true
-          },
-          {
             "type": "dimension",
             "named": true
           },
           {
-            "type": "old_builtin_type",
+            "type": "old_type",
             "named": true
           },
           {
-            "type": "symbol",
+            "type": "type",
             "named": true
           }
         ]
