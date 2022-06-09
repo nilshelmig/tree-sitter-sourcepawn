@@ -5850,17 +5850,8 @@
             "type": "FIELD",
             "name": "type",
             "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "builtin_type"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "symbol"
-                }
-              ]
+              "type": "SYMBOL",
+              "name": "type"
             }
           },
           {

@@ -3341,11 +3341,7 @@
         "required": true,
         "types": [
           {
-            "type": "builtin_type",
-            "named": true
-          },
-          {
-            "type": "symbol",
+            "type": "type",
             "named": true
           }
         ]

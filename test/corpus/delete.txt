@@ -60,7 +60,7 @@ void SaveClose(Handle myhandle) {
     (block
         (delete_statement
             free: (view_as
-              type: (symbol)
+              type: (type (symbol))
               value: (symbol))
             (semicolon)))))
 

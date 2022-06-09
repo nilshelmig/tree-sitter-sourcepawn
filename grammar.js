@@ -1069,7 +1069,7 @@ module.exports = grammar({
         seq(
           "view_as",
           "<",
-          field("type", choice($.builtin_type, $.symbol)),
+          field("type", $.type),
           ">",
           "(",
           field("value", $._expression),

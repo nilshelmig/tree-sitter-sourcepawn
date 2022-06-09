@@ -18,17 +18,17 @@ void Test() {
         (block
             (expression_statement
                 (view_as
-                    type: (builtin_type)
+                    type: (type (builtin_type))
                     value: (int_literal))
                 (semicolon))
             (expression_statement
                 (view_as
-                    type: (symbol)
+                    type: (type (symbol))
                     value: (int_literal))
                 (semicolon))
             (expression_statement
                 (view_as
-                    type: (builtin_type)
+                    type: (type (builtin_type))
                     value: (symbol))
                 (semicolon)))))
 
@@ -46,7 +46,7 @@ int test = view_as<int>(2 < 5 && 10 > 8);
         (variable_declaration
             name: (symbol)
             initialValue: (view_as
-                type: (builtin_type)
+                type: (type (builtin_type))
                 value: (binary_expression
                     left: (binary_expression
                         left: (int_literal)
@@ -70,9 +70,9 @@ bool test = view_as<bool>(view_as<int>(Plugin_Handled));
         (variable_declaration
             name: (symbol)
             initialValue: (view_as
-                type: (builtin_type)
+                type: (type (builtin_type))
                 value: (view_as
-                    type: (builtin_type)
+                    type: (type (builtin_type))
                     value: (symbol))))
         (semicolon)))
 
@@ -96,7 +96,7 @@ void foo(){
             (expression_statement
                 (assignment_expression
                     left: (view_as
-                        type: (builtin_type)
+                        type: (type (builtin_type))
                         value: (symbol))
                     right: (binary_expression
                         left: (symbol)
@@ -121,33 +121,33 @@ WormDirection:GetOppositeDirection() {
 
 (source_file
     (function_declaration
-        returnType: (symbol)
+        returnType: (old_type (symbol))
         name: (symbol)
         arguments: (argument_declarations)
         (block
             (expression_statement
                 (old_type_cast
-                    type: (old_builtin_type)
+                    type: (old_type (old_builtin_type))
                     value: (float_literal))
                 (semicolon))
             (expression_statement
                 (old_type_cast
-                    type: (old_builtin_type)
+                    type: (old_type (old_builtin_type))
                     value: (int_literal))
                 (semicolon))
             (expression_statement
                 (old_type_cast
-                    type: (old_builtin_type)
+                    type: (old_type (old_builtin_type))
                     value: (int_literal))
                 (semicolon))
             (expression_statement
                 (old_type_cast
-                    type: (old_builtin_type)
+                    type: (old_type (old_builtin_type))
                     value: (symbol))
                 (semicolon))
             (return_statement
                 (old_type_cast
-                    type: (symbol)
+                    type: (old_type (symbol))
                     value: (int_literal))
                 (semicolon)))))
 
@@ -164,16 +164,16 @@ Float:GetOppositeDirection() {
 
 (source_file
     (function_declaration
-        returnType: (old_builtin_type)
+        returnType: (old_type (old_builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
             (return_statement
                 (binary_expression
                     left: (old_type_cast
-                        type: (old_builtin_type)
+                        type: (old_type (old_builtin_type))
                         value: (int_literal))
                     right: (old_type_cast
-                        type: (old_builtin_type)
+                        type: (old_type (old_builtin_type))
                         value: (int_literal)))
                 (semicolon)))))
