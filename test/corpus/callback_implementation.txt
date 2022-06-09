@@ -51,7 +51,7 @@ public void OnRebuildAdminCache(AdminCachePart part) {
     (function_declaration (function_visibility)
         returnType: (type (builtin_type))
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (type (builtin_type) (dimension)) name: (symbol)))
+        arguments: (argument_declarations (argument_declaration type: (type (builtin_type)) (dimension) name: (symbol)))
         (block))
     (function_declaration (function_visibility)
         returnType: (type (builtin_type))
@@ -86,8 +86,8 @@ public void OnClientSayCommand_Post(int client, const char[] command, char[] sAr
         name: (symbol)
         arguments: (argument_declarations
             (argument_declaration type: (type (builtin_type)) name: (symbol))
-            (argument_declaration type: (type (builtin_type) (dimension)) name: (symbol))
-            (argument_declaration type: (type (builtin_type) (dimension)) name: (symbol))
+            (argument_declaration type: (type (builtin_type)) (dimension) name: (symbol))
+            (argument_declaration type: (type (builtin_type)) (dimension) name: (symbol))
             (argument_declaration type: (type (builtin_type)) name: (symbol))
             (argument_declaration type: (type (builtin_type)) name: (symbol))
             (argument_declaration type: (type (builtin_type)) name: (symbol) (fixed_dimension (int_literal))))
@@ -128,15 +128,15 @@ public Action Callback5() {}
         arguments: (argument_declarations)
     (block))
     (function_declaration (function_visibility)
-        returnType: (symbol)
+        returnType: (type (symbol))
         name: (symbol)
         arguments: (argument_declarations)
     (block)))
 
 
-==============================
-implement callback - old style
-==============================
+========================
+old - implement callback
+========================
 
 public OnPluginStart() {
 
@@ -151,9 +151,9 @@ public OnPluginStart() {
         (block)))
 
 
-=============================================
-implement callback - old style with arguments
-=============================================
+=======================================
+old - implement callback with arguments
+=======================================
 
 public Callback1(client) {}
 public Callback2(_:client) {}
@@ -171,29 +171,29 @@ public Callback6(Handle:handle) {}
         (block))
     (function_declaration (function_visibility)
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (type (old_builtin_type)) name: (symbol)))
+        arguments: (argument_declarations (argument_declaration type: (old_type (old_builtin_type)) name: (symbol)))
         (block))
     (function_declaration (function_visibility)
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (type (old_builtin_type)) name: (symbol)))
+        arguments: (argument_declarations (argument_declaration type: (old_type (old_builtin_type)) name: (symbol)))
         (block))
     (function_declaration (function_visibility)
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (type (old_builtin_type)) name: (symbol)))
+        arguments: (argument_declarations (argument_declaration type: (old_type (old_builtin_type)) name: (symbol)))
         (block))
     (function_declaration (function_visibility)
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (type (old_builtin_type)) name: (symbol) (dimension)))
+        arguments: (argument_declarations (argument_declaration type: (old_type (old_builtin_type)) name: (symbol) (dimension)))
         (block))
     (function_declaration (function_visibility)
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (type (symbol)) name: (symbol)))
+        arguments: (argument_declarations (argument_declaration type: (old_type (symbol)) name: (symbol)))
         (block)))
 
 
-================================================
-implement callback - old style with any argument
-================================================
+==========================================
+old - implement callback with any argument
+==========================================
 
 public Callback1(any:data) {}
 public Callback2(args, any:data) {}
@@ -203,19 +203,19 @@ public Callback2(args, any:data) {}
 (source_file
     (function_declaration (function_visibility)
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (type (any_type)) name: (symbol)))
+        arguments: (argument_declarations (argument_declaration type: (old_type (any_type)) name: (symbol)))
         (block))
     (function_declaration (function_visibility)
         name: (symbol)
         arguments: (argument_declarations
             (argument_declaration name: (symbol))
-            (argument_declaration type: (type (any_type)) name: (symbol)))
+            (argument_declaration type: (old_type (any_type)) name: (symbol)))
         (block)))
 
 
-==========================================================
-implement callback - old style with different return types
-==========================================================
+====================================================
+old - implement callback with different return types
+====================================================
 
 public Callback1() {}
 public _:Callback2() {}
@@ -232,35 +232,35 @@ public Action:Callback6() {}
         arguments: (argument_declarations)
         (block))
     (function_declaration (function_visibility)
-        returnType: (old_builtin_type)
+        returnType: (old_type (old_builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block))
     (function_declaration (function_visibility)
-        returnType: (old_builtin_type)
+        returnType: (old_type (old_builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block))
     (function_declaration (function_visibility)
-        returnType: (old_builtin_type)
+        returnType: (old_type (old_builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block))
     (function_declaration (function_visibility)
-        returnType: (old_builtin_type)
+        returnType: (old_type (old_builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block))
     (function_declaration (function_visibility)
-        returnType: (symbol)
+        returnType: (old_type (symbol))
         name: (symbol)
         arguments: (argument_declarations)
         (block)))
 
 
-===============================================
-implement callback - old style single statement
-===============================================
+=========================================
+old - implement callback single statement
+=========================================
 
 public Callback1() return 2;
 public Callback1() Test();

@@ -198,7 +198,7 @@ module.exports = grammar({
         ),
         field("name", $.symbol),
         field("arguments", $.argument_declarations),
-        $.block
+        choice($.block, $._statement)
       ),
 
     function_visibility: ($) =>
