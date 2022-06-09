@@ -497,25 +497,15 @@ module.exports = grammar({
         seq(
           "function",
           field("returnType", seq($.type, repeat($.dimension))),
-          $.typedef_args
+          $.argument_declarations
         ),
         seq(
           "(",
           "function",
           field("returnType", seq($.type, repeat($.dimension))),
-          $.typedef_args,
+          $.argument_declarations,
           ")"
         )
-      ),
-
-    typedef_args: ($) => seq("(", commaSep($.typedef_arg), ")"),
-    typedef_arg: ($) =>
-      seq(
-        optional("const"),
-        field("type", $.type),
-        optional("&"),
-        field("name", $.symbol),
-        optional($.fixed_dimension)
       ),
 
     funcenum: ($) =>
@@ -528,44 +518,39 @@ module.exports = grammar({
         "}",
         optional($.semicolon)
       ),
+
     funcenum_member: ($) =>
-      seq(field("returnType", $.type), "public", $.functag_args),
+      seq(
+        field("returnType", optional($.old_type)),
+        "public",
+        $.argument_declarations
+      ),
 
     functag: ($) =>
       choice(
         seq(
           "functag",
           "public",
-          field("returnType", $.type),
+          field("returnType", $.old_type),
           field("name", $.symbol),
-          $.functag_args,
+          $.argument_declarations,
           optional($.semicolon)
         ),
         seq(
           "functag",
           field("name", $.symbol),
           "public",
-          $.functag_args,
+          $.argument_declarations,
           optional($.semicolon)
         ),
         seq(
           "functag",
           field("name", $.symbol),
-          field("returnType", $.type),
+          field("returnType", $.old_type),
           "public",
-          $.functag_args,
+          $.argument_declarations,
           optional($.semicolon)
         )
-      ),
-
-    functag_args: ($) => seq("(", commaSep($.functag_arg), ")"),
-    functag_arg: ($) =>
-      seq(
-        optional("const"),
-        optional("&"),
-        field("type", optional($.type)),
-        field("name", $.symbol),
-        optional($.fixed_dimension)
       ),
 
     methodmap: ($) =>

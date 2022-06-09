@@ -1266,10 +1266,10 @@
     "fields": {
       "returnType": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
-            "type": "type",
+            "type": "old_type",
             "named": true
           }
         ]
@@ -1280,7 +1280,7 @@
       "required": true,
       "types": [
         {
-          "type": "functag_args",
+          "type": "argument_declarations",
           "named": true
         }
       ]
@@ -1305,7 +1305,7 @@
         "required": false,
         "types": [
           {
-            "type": "type",
+            "type": "old_type",
             "named": true
           }
         ]
@@ -1316,62 +1316,11 @@
       "required": true,
       "types": [
         {
-          "type": "functag_args",
+          "type": "argument_declarations",
           "named": true
         },
         {
           "type": "semicolon",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "functag_arg",
-    "named": true,
-    "fields": {
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "symbol",
-            "named": true
-          }
-        ]
-      },
-      "type": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "type",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "fixed_dimension",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "functag_args",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "functag_arg",
           "named": true
         }
       ]
@@ -3062,57 +3011,6 @@
     }
   },
   {
-    "type": "typedef_arg",
-    "named": true,
-    "fields": {
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "symbol",
-            "named": true
-          }
-        ]
-      },
-      "type": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "type",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "fixed_dimension",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "typedef_args",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "typedef_arg",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "typedef_expression",
     "named": true,
     "fields": {
@@ -3136,7 +3034,7 @@
       "required": true,
       "types": [
         {
-          "type": "typedef_args",
+          "type": "argument_declarations",
           "named": true
         }
       ]

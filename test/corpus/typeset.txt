@@ -13,19 +13,19 @@ typeset Timer {
     (typeset
         name: (symbol)
         (typedef_expression
-            returnType: (symbol)
-            (typedef_args
-                (typedef_arg
+            returnType: (type (symbol))
+            (argument_declarations
+                (argument_declaration
                     type: (type (symbol))
                     name: (symbol))
-                (typedef_arg
+                (argument_declaration
                     type: (type (symbol))
                     name: (symbol))))
         (semicolon)
         (typedef_expression
-            returnType: (symbol)
-            (typedef_args
-                (typedef_arg
+            returnType: (type (symbol))
+            (argument_declarations
+                (argument_declaration
                     type: (type (symbol))
                     name: (symbol))))
         (semicolon)))
@@ -46,19 +46,19 @@ typeset Timer {
     (typeset
         name: (symbol)
         (typedef_expression
-            returnType: (symbol)
-            (typedef_args
-                (typedef_arg
+            returnType: (type (symbol))
+            (argument_declarations
+                (argument_declaration
                     type: (type (symbol))
                     name: (symbol))
-                (typedef_arg
+                (argument_declaration
                     type: (type (symbol))
                     name: (symbol))))
         (semicolon)
         (typedef_expression
-            returnType: (symbol)
-            (typedef_args
-                (typedef_arg
+            returnType: (type (symbol))
+            (argument_declarations
+                (argument_declaration
                     type: (type (symbol))
                     name: (symbol))))
         (semicolon)
@@ -80,19 +80,19 @@ typeset Timer {
     (typeset
         name: (symbol)
         (typedef_expression
-            returnType: (symbol)
-            (typedef_args
-                (typedef_arg
+            returnType: (type (symbol))
+            (argument_declarations
+                (argument_declaration
                     type: (type (symbol))
                     name: (symbol))
-                (typedef_arg
+                (argument_declaration
                     type: (type (symbol))
                     name: (symbol))))
         (semicolon)
         (typedef_expression
-            returnType: (symbol)
-            (typedef_args
-                (typedef_arg
+            returnType: (type (symbol))
+            (argument_declarations
+                (argument_declaration
                     type: (type (symbol))
                     name: (symbol))))
         (semicolon)
@@ -115,20 +115,19 @@ funcenum Timer {
     (funcenum
         name: (symbol)
         (funcenum_member
-            returnType: (type
-            (symbol))
-            (functag_args
-                (functag_arg
-                    type: (type (symbol))
+            returnType: (old_type (symbol))
+            (argument_declarations
+                (argument_declaration
+                    type: (old_type (symbol))
                     name: (symbol))
-                (functag_arg
-                    type: (type (symbol))
+                (argument_declaration
+                    type: (old_type (symbol))
                     name: (symbol))))
         (funcenum_member
-            returnType: (type (symbol))
-            (functag_args
-                (functag_arg
-                    type: (type (symbol))
+            returnType: (old_type (symbol))
+            (argument_declarations
+                (argument_declaration
+                    type: (old_type (symbol))
                     name: (symbol))))))
 
 
@@ -148,20 +147,19 @@ funcenum Timer {
     (funcenum
         name: (symbol)
         (funcenum_member
-            returnType: (type
-            (symbol))
-            (functag_args
-                (functag_arg
-                    type: (type (symbol))
+            returnType: (old_type (symbol))
+            (argument_declarations
+                (argument_declaration
+                    type: (old_type (symbol))
                     name: (symbol))
-                (functag_arg
-                    type: (type (symbol))
+                (argument_declaration
+                    type: (old_type (symbol))
                     name: (symbol))))
         (funcenum_member
-            returnType: (type (symbol))
-            (functag_args
-                (functag_arg
-                    type: (type (symbol))
+            returnType: (old_type (symbol))
+            (argument_declarations
+                (argument_declaration
+                    type: (old_type (symbol))
                     name: (symbol))))
         (semicolon)))
 
@@ -182,15 +180,15 @@ funcenum Timer {
     (funcenum
         name: (symbol)
         (funcenum_member
-            (functag_args
-                (functag_arg
-                    type: (type (symbol))
+            (argument_declarations
+                (argument_declaration
+                    type: (old_type (symbol))
                     name: (symbol))
-                (functag_arg
-                    type: (type (symbol))
+                (argument_declaration
+                    type: (old_type (symbol))
                     name: (symbol))))
         (funcenum_member
-            (functag_args
-                (functag_arg
-                    type: (type (symbol))
+            (argument_declarations
+                (argument_declaration
+                    type: (old_type (symbol))
                     name: (symbol))))))
