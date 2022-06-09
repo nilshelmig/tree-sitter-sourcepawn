@@ -1,0 +1,43 @@
+name: Build WASM
+
+on:
+  push:
+    branches:
+      - dev
+  pull_request:
+    branches:
+      - dev
+
+env:
+  EM_VERSION: 2.0.24
+  EM_CACHE_FOLDER: "emsdk-cache"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup cache
+        id: cache-system-libraries
+        uses: actions/cache@v2
+        with:
+          path: ${{env.EM_CACHE_FOLDER}}
+          key: ${{env.EM_VERSION}}-${{ runner.os }}
+      - run: npm install
+      - uses: mymindstorm/setup-emsdk@v11
+        with:
+          version: ${{env.EM_VERSION}}
+          actions-cache-folder: ${{env.EM_CACHE_FOLDER}}
+      - name: Get package version
+        run: node -p -e '`PACKAGE_VERSION=${require("./package.json").version}`' >> $GITHUB_ENV
+      # - name: Changelog
+      #   id: changelog
+      #   uses: mindsers/changelog-reader-action@v2.0.0
+      - name: Build parser
+        run: npm run generate
+      - name: Run tests
+        run: npm run test
+      - name: Build .wasm
+        run: emcc -o tree-sitter-sourcepawn.wasm -Os -s WASM=1 -I src -s SIDE_MODULE=1 -s EXPORTED_FUNCTIONS=[\"_tree_sitter_sourcepawn\"] -fno-exceptions src/parser.c
