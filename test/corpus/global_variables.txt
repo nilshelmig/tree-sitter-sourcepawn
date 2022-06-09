@@ -54,6 +54,8 @@ initialization
 ==============
 
 int money = 5400;
+int money = 5400
++1;
 float percent = 67.3;
 char key = 'A';
 bool enabled = false;
@@ -62,6 +64,12 @@ Handle handle = null;
 ---
 
 (source_file
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (int_literal))
+        (semicolon))
     (global_variable_declaration
         type: (type (builtin_type))
         (variable_declaration

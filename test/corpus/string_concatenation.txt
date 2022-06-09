@@ -20,10 +20,10 @@ char text[1028] = "This is a really long string of text that should be \
 string concatenation - operator
 ===============================
 
-char text[1028] = "This is a really long string of text that should be" ... 
-    "split over multiple lines for the sake of readability.";
-char text[1028] = "This is a really long string of text that should be" 
-    ... "split over multiple lines for the sake of readability.";
+char text[1028] = "a" ... 
+    "b";
+char text[1028] = "a"
+    ... "b";
 char text[1028] = "Version: " ... PLUGIN_VERSION;
 char text[1028] = "Version: " ... PLUGIN_VERSION ... " in development";
 
