@@ -450,16 +450,18 @@ module.exports = grammar({
         repeat1(choice($.enum_struct_field, $.enum_struct_method)),
         "}"
       ),
+
     enum_struct_field: ($) =>
       seq(
-        field("type", choice($.builtin_type, $.symbol)),
+        field("type", $.type),
         field("name", $.symbol),
         optional($.fixed_dimension),
         $.semicolon
       ),
+
     enum_struct_method: ($) =>
       seq(
-        field("returnType", choice($.builtin_type, $.symbol)),
+        field("returnType", $.type),
         field("name", $.symbol),
         $.argument_declarations,
         $.block
@@ -473,6 +475,7 @@ module.exports = grammar({
         $.typedef_expression,
         optional($.semicolon)
       ),
+
     typeset: ($) =>
       seq(
         "typeset",
@@ -482,27 +485,23 @@ module.exports = grammar({
         "}",
         optional($.semicolon)
       ),
+
     typedef_expression: ($) =>
       choice(
         seq(
           "function",
-          field(
-            "returnType",
-            choice(seq($.type, optional($.dimension)), optional($.old_type))
-          ),
+          field("returnType", seq($.type, repeat($.dimension))),
           $.typedef_args
         ),
         seq(
           "(",
           "function",
-          field(
-            "returnType",
-            choice(seq($.type, optional($.dimension)), optional($.old_type))
-          ),
+          field("returnType", seq($.type, repeat($.dimension))),
           $.typedef_args,
           ")"
         )
       ),
+
     typedef_args: ($) => seq("(", commaSep($.typedef_arg), ")"),
     typedef_arg: ($) =>
       seq(

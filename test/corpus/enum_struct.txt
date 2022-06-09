@@ -18,28 +18,28 @@ enum struct MyStruct
     (enum_struct
         name: (symbol)
         (enum_struct_field
-            type: (builtin_type)
+            type: (type (builtin_type))
             name: (symbol)
             (semicolon))
         (enum_struct_field
-            type: (builtin_type)
+            type: (type (builtin_type))
             name: (symbol)
             (semicolon))
         (enum_struct_field
-            type: (builtin_type)
+            type: (type (builtin_type))
             name: (symbol)
             (semicolon))
         (enum_struct_field
-            type: (builtin_type)
+            type: (type (builtin_type))
             name: (symbol)
             (semicolon))
         (enum_struct_field
-            type: (builtin_type)
+            type: (type (builtin_type))
             name: (symbol)
             (fixed_dimension (int_literal))
             (semicolon))
         (enum_struct_field
-            type: (symbol)
+            type: (type (symbol))
             name: (symbol)
             (semicolon))))
 
@@ -64,11 +64,11 @@ enum struct Rectangle
     (enum_struct
         name: (symbol)
         (enum_struct_field
-            type: (builtin_type)
+            type: (type (builtin_type))
             name: (symbol)
             (semicolon))
         (enum_struct_field
-            type: (builtin_type)
+            type: (type (builtin_type))
             name: (symbol)
             (semicolon))
 
@@ -108,11 +108,11 @@ enum struct Rectangle
     (enum_struct
         name: (symbol)
         (enum_struct_field
-            type: (builtin_type)
+            type: (type (builtin_type))
             name: (symbol)
             (semicolon))
         (enum_struct_field
-            type: (builtin_type)
+            type: (type (builtin_type))
             name: (symbol)
             (semicolon))
 

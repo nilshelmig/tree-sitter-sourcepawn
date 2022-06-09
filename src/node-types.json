@@ -1043,11 +1043,7 @@
         "required": true,
         "types": [
           {
-            "type": "builtin_type",
-            "named": true
-          },
-          {
-            "type": "symbol",
+            "type": "type",
             "named": true
           }
         ]
@@ -1087,11 +1083,7 @@
         "required": true,
         "types": [
           {
-            "type": "builtin_type",
-            "named": true
-          },
-          {
-            "type": "symbol",
+            "type": "type",
             "named": true
           }
         ]
@@ -3126,14 +3118,10 @@
     "fields": {
       "returnType": {
         "multiple": true,
-        "required": false,
+        "required": true,
         "types": [
           {
             "type": "dimension",
-            "named": true
-          },
-          {
-            "type": "old_type",
             "named": true
           },
           {
