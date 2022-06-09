@@ -69,6 +69,10 @@ initialization
 
 void Test() {
     int money = 5400;
+    int money = 0
+    + 1;
+    int money = 0
+    + 1
     float percent = 67.3;
     char key = 'A';
     bool enabled = false;
@@ -84,30 +88,45 @@ void Test() {
         (argument_declarations)
         (block
             (variable_declaration_statement
-            (type (builtin_type))
-            (variable_declaration
-                (symbol) (int_literal))
-            (semicolon))
+                (type (builtin_type))
+                (variable_declaration
+                    (symbol) (int_literal))
+                (semicolon))
             (variable_declaration_statement
-            (type (builtin_type))
-            (variable_declaration
-                (symbol) (float_literal))
-            (semicolon))
+                (type (builtin_type))
+                (variable_declaration
+                    (symbol) 
+                    (binary_expression
+                        (int_literal)
+                        (int_literal)))
+                (semicolon))
+            (variable_declaration_statement
+                (type (builtin_type))
+                (variable_declaration
+                    (symbol) 
+                    (binary_expression
+                        (int_literal)
+                        (int_literal))))
+            (variable_declaration_statement
+                (type (builtin_type))
+                (variable_declaration
+                    (symbol) (float_literal))
+                (semicolon))
             (variable_declaration_statement
                 (type (builtin_type))
             (variable_declaration
                 (symbol) (char_literal))
-            (semicolon))
+                (semicolon))
             (variable_declaration_statement
                 (type (builtin_type))
             (variable_declaration
                 (symbol) (bool_literal))
-            (semicolon))
+                (semicolon))
             (variable_declaration_statement
                 (type (symbol))
             (variable_declaration
-              (symbol) (null))
-            (semicolon)))))
+                (symbol) (null))
+                (semicolon)))))
 
 
 ====================
@@ -360,6 +379,10 @@ old - initialization
 
 void Test() {
     new number = 10;
+    new number = 1
+    + 1;
+    new number = 1
+    + 1
     new Float:pointnumber = 10.0;
 }
 
@@ -376,6 +399,19 @@ void Test() {
                     (symbol)
                     (int_literal))
             (semicolon))
+            (old_variable_declaration_statement
+                (old_variable_declaration
+                    (symbol)
+                    (binary_expression
+                        (int_literal)
+                        (int_literal)))
+            (semicolon))
+            (old_variable_declaration_statement
+                (old_variable_declaration
+                    (symbol)
+                    (binary_expression
+                        (int_literal)
+                        (int_literal))))
             (old_variable_declaration_statement
                 (old_variable_declaration
                     (old_type (old_builtin_type))

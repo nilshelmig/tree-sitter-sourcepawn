@@ -275,26 +275,28 @@ module.exports = grammar({
       ),
 
     variable_declaration_statement: ($) =>
-      choice(
-        seq(
-          optional("static"),
-          field("type", $.type),
-          choice(
-            seq(
-              repeat1($.dimension),
-              commaSep1($.variable_declaration_no_dimension)
+      prec.right(
+        choice(
+          seq(
+            optional("static"),
+            field("type", $.type),
+            choice(
+              seq(
+                repeat1($.dimension),
+                commaSep1($.variable_declaration_no_dimension)
+              ),
+              commaSep1($.variable_declaration)
+              /* [] Should not be allowed here */
             ),
-            commaSep1($.variable_declaration)
-            /* [] Should not be allowed here */
+            optional($.semicolon)
           ),
-          choice($.semicolon, "\n")
-        ),
-        seq(
-          optional("static"),
-          "const",
-          field("type", $.type),
-          commaSep1($.variable_declaration_with_value),
-          choice($.semicolon, "\n")
+          seq(
+            optional("static"),
+            "const",
+            field("type", $.type),
+            commaSep1($.variable_declaration_with_value),
+            optional($.semicolon)
+          )
         )
       ),
 
@@ -361,19 +363,18 @@ module.exports = grammar({
       ),
 
     old_variable_declaration_statement: ($) =>
-      seq(
-        choice(
-          seq(choice("new", "decl"), optional("const")),
-          "static",
-          "const",
-          seq("static", "const")
-        ),
-        commaSep1($.old_variable_declaration),
-        choice($.semicolon, "\n")
+      prec.right(
+        seq(
+          choice(
+            seq(choice("new", "decl"), optional("const")),
+            "static",
+            "const",
+            seq("static", "const")
+          ),
+          commaSep1($.old_variable_declaration),
+          optional($.semicolon)
+        )
       ),
-
-    old_variable_storage_class: ($) =>
-      choice(seq("new", optional("const")), "decl"),
 
     old_variable_declaration: ($) =>
       prec(
