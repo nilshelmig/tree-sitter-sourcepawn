@@ -14,7 +14,7 @@ void MyFunc(int[] myvar) {
     name: (symbol)
     arguments: (argument_declarations
         (argument_declaration
-            type: (type (builtin_type) (dimension))
+            type: (type (builtin_type)) (dimension)
             name: (symbol)))
     (block
         (expression_statement
@@ -41,7 +41,7 @@ void MyFunc(int[] myvar) {
     name: (symbol)
     arguments: (argument_declarations
         (argument_declaration
-            type: (type (builtin_type) (dimension))
+            type: (type (builtin_type)) (dimension)
             name: (symbol)))
     (block
         (expression_statement
@@ -72,7 +72,7 @@ void MyFunc(int[] myvar) {
     name: (symbol)
     arguments: (argument_declarations
         (argument_declaration
-            type: (type (builtin_type) (dimension))
+            type: (type (builtin_type)) (dimension)
             name: (symbol)))
     (block
         (expression_statement
@@ -100,7 +100,7 @@ int MyFunc(int[] myvar) {
     name: (symbol)
     arguments: (argument_declarations
         (argument_declaration
-            type: (type (builtin_type) (dimension))
+            type: (type (builtin_type)) (dimension)
             name: (symbol)))
     (block
         (return_statement
@@ -128,7 +128,7 @@ int MyFunc(int[][] myvar) {
     name: (symbol)
     arguments: (argument_declarations
         (argument_declaration
-            type: (type (builtin_type) (dimension) (dimension))
+            type: (type (builtin_type)) (dimension) (dimension)
             name: (symbol)))
     (block
         (return_statement
