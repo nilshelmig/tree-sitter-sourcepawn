@@ -17,23 +17,28 @@ struct Plugin
     (struct
         name: (symbol)
         (struct_field
-            type: (type (builtin_type) (dimension))
+            type: (type (builtin_type)) 
+            type: (dimension)
             name: (symbol)
             (semicolon))
         (struct_field
-            type: (type (builtin_type) (dimension))
+            type: (type (builtin_type)) 
+            type: (dimension)
             name: (symbol)
             (semicolon))
         (struct_field
-            type: (type (builtin_type) (dimension))
+            type: (type (builtin_type)) 
+            type: (dimension)
             name: (symbol)
             (semicolon))
         (struct_field
-            type: (type (builtin_type) (dimension))
+            type: (type (builtin_type)) 
+            type: (dimension)
             name: (symbol)
             (semicolon))
         (struct_field
-            type: (type (builtin_type) (dimension))
+            type: (type (builtin_type)) 
+            type: (dimension)
             name: (symbol)
             (semicolon))
         (semicolon)))

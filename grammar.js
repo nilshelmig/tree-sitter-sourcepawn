@@ -84,8 +84,8 @@ module.exports = grammar({
           $.functag,
           $.funcenum,
           $.methodmap,
-          // $.struct,
-          // $.struct_declaration,
+          $.struct,
+          $.struct_declaration,
           $.global_variable_declaration,
           $.old_global_variable_declaration,
           $.preproc_include,
@@ -687,11 +687,15 @@ module.exports = grammar({
         "}",
         optional($.semicolon)
       ),
+
     struct_field: ($) =>
       seq(
         "public",
         optional("const"),
-        field("type", $.type),
+        field(
+          "type",
+          seq($.type, repeat(choice($.dimension, $.fixed_dimension)))
+        ),
         field("name", $.symbol),
         $.semicolon
       ),

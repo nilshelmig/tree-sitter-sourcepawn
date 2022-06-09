@@ -45,6 +45,14 @@
           },
           {
             "type": "SYMBOL",
+            "name": "struct"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "struct_declaration"
+          },
+          {
+            "type": "SYMBOL",
             "name": "global_variable_declaration"
           },
           {
@@ -3423,8 +3431,29 @@
           "type": "FIELD",
           "name": "type",
           "content": {
-            "type": "SYMBOL",
-            "name": "type"
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "type"
+              },
+              {
+                "type": "REPEAT",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "dimension"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "fixed_dimension"
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         {
