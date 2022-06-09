@@ -66,6 +66,7 @@ module.exports = grammar({
     [$.struct_declaration, $.type],
     [$.builtin_type, $.old_builtin_type],
     [$.type, $.old_variable_declaration],
+    [$.for_loop, $._expression],
   ],
 
   word: ($) => $.symbol,
@@ -768,15 +769,13 @@ module.exports = grammar({
           "initialization",
           commaSep(
             choice(
-              choice(
-                $.variable_declaration_statement,
-                $.old_variable_declaration_statement
-              ),
-              $.assignment_expression
+              $.variable_declaration_statement,
+              $.old_variable_declaration_statement,
+              seq($.assignment_expression)
             )
           )
         ),
-        $.semicolon,
+        optional($.semicolon),
         field("condition", optional($._expression)),
         $.semicolon,
         field("iteration", optional($._statement)),

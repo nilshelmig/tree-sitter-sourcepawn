@@ -21,8 +21,8 @@ public void OnPluginStart() {
                     type: (type (builtin_type))
                     (variable_declaration
                         name: (symbol)
-                        initialValue: (int_literal)))
-                (semicolon)
+                        initialValue: (int_literal))
+                (semicolon))
                 condition: (binary_expression
                     left: (symbol)
                     right: (int_literal))
@@ -86,8 +86,8 @@ public void OnPluginStart() {
                     type: (type (builtin_type))
                     (variable_declaration
                         name: (symbol)
-                        initialValue: (int_literal)))
-                (semicolon)
+                        initialValue: (int_literal))
+                (semicolon))
                 (semicolon)
                 iteration: (expression_statement
                     (update_expression
@@ -118,13 +118,13 @@ public void OnPluginStart() {
                     type: (type (builtin_type))
                     (variable_declaration
                         name: (symbol)
-                        initialValue: (int_literal)))
-                (semicolon)
+                        initialValue: (int_literal))
+                (semicolon))
                 condition: (binary_expression
                     left: (symbol)
                     right: (int_literal))
-                (semicolon)
-                (block)))))
+                    (semicolon)
+                    (block)))))
 
 
 ========================
@@ -250,9 +250,9 @@ public void OnPluginStart() {
                 (break_statement (semicolon))))))
 
 
-====================
-for loop - old style
-====================
+==============
+old - for loop
+==============
 
 public void OnPluginStart() {
     for(new i = 0; i < 3; i++) break;
@@ -271,11 +271,10 @@ public void OnPluginStart() {
         (block
             (for_loop
                 initialization: (old_variable_declaration_statement
-                    (old_variable_storage_class)
                     (old_variable_declaration
                         name: (symbol)
-                        initialValue: (int_literal)))
-                (semicolon)
+                        initialValue: (int_literal))
+                (semicolon))
                 condition: (binary_expression
                     left: (symbol)
                     right: (int_literal))

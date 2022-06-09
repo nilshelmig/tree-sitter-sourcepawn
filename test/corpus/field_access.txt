@@ -40,7 +40,7 @@ enum struct Rectangle
     (enum_struct
         name: (symbol)
         (enum_struct_field
-            type: (builtin_type)
+            type: (type (builtin_type))
             name: (symbol)
             (semicolon))
 

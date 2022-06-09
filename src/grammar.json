@@ -4018,21 +4018,21 @@
                     "type": "CHOICE",
                     "members": [
                       {
-                        "type": "CHOICE",
-                        "members": [
-                          {
-                            "type": "SYMBOL",
-                            "name": "variable_declaration_statement"
-                          },
-                          {
-                            "type": "SYMBOL",
-                            "name": "old_variable_declaration_statement"
-                          }
-                        ]
+                        "type": "SYMBOL",
+                        "name": "variable_declaration_statement"
                       },
                       {
                         "type": "SYMBOL",
-                        "name": "assignment_expression"
+                        "name": "old_variable_declaration_statement"
+                      },
+                      {
+                        "type": "SEQ",
+                        "members": [
+                          {
+                            "type": "SYMBOL",
+                            "name": "assignment_expression"
+                          }
+                        ]
                       }
                     ]
                   },
@@ -4049,21 +4049,21 @@
                           "type": "CHOICE",
                           "members": [
                             {
-                              "type": "CHOICE",
-                              "members": [
-                                {
-                                  "type": "SYMBOL",
-                                  "name": "variable_declaration_statement"
-                                },
-                                {
-                                  "type": "SYMBOL",
-                                  "name": "old_variable_declaration_statement"
-                                }
-                              ]
+                              "type": "SYMBOL",
+                              "name": "variable_declaration_statement"
                             },
                             {
                               "type": "SYMBOL",
-                              "name": "assignment_expression"
+                              "name": "old_variable_declaration_statement"
+                            },
+                            {
+                              "type": "SEQ",
+                              "members": [
+                                {
+                                  "type": "SYMBOL",
+                                  "name": "assignment_expression"
+                                }
+                              ]
                             }
                           ]
                         }
@@ -4079,8 +4079,16 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "semicolon"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "semicolon"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "FIELD",
@@ -6969,6 +6977,10 @@
     [
       "type",
       "old_variable_declaration"
+    ],
+    [
+      "for_loop",
+      "_expression"
     ]
   ],
   "precedences": [],
