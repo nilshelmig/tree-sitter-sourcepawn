@@ -81,6 +81,10 @@
           },
           {
             "type": "SYMBOL",
+            "name": "preproc_endinput"
+          },
+          {
+            "type": "SYMBOL",
             "name": "preproc_pragma_semicolon"
           },
           {
@@ -466,6 +470,36 @@
           },
           "named": false,
           "value": "#endif"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "comment"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
+    },
+    "preproc_endinput": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "#[ \t]*endinput"
+          },
+          "named": false,
+          "value": "#endinput"
         },
         {
           "type": "CHOICE",
