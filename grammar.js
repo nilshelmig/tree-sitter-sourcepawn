@@ -46,7 +46,6 @@ module.exports = grammar({
       $.variable_storage_class,
     ],
     [$.array_indexed_access, $.type],
-    // [$.variable_storage_class, $.old_global_variable_declaration],
     [$.type, $.old_variable_declaration],
     [$.for_loop, $._expression],
     [$._expression, $._literal],
@@ -578,6 +577,7 @@ module.exports = grammar({
         ")",
         $.block
       ),
+
     methodmap_property: ($) =>
       seq(
         "property",
@@ -593,6 +593,7 @@ module.exports = grammar({
         ),
         "}"
       ),
+
     methodmap_property_alias: ($) =>
       seq(
         $.methodmap_visibility,
@@ -601,6 +602,7 @@ module.exports = grammar({
         field("function", $.symbol),
         $.semicolon
       ),
+
     methodmap_property_native: ($) =>
       seq(
         $.methodmap_visibility,
@@ -608,6 +610,7 @@ module.exports = grammar({
         choice($.methodmap_property_getter, $.methodmap_property_setter),
         $.semicolon
       ),
+
     methodmap_property_method: ($) =>
       seq(
         $.methodmap_visibility,
@@ -615,8 +618,10 @@ module.exports = grammar({
         $.block
       ),
     methodmap_property_getter: ($) => seq("get", "(", ")"),
+
     methodmap_property_setter: ($) =>
       seq("set", "(", field("type", $.type), field("name", $.symbol), ")"),
+
     methodmap_visibility: ($) => "public",
 
     struct: ($) =>
@@ -650,20 +655,19 @@ module.exports = grammar({
         field("value", $.struct_constructor),
         optional($.semicolon)
       ),
+
     struct_constructor: ($) =>
       seq("{", commaSep($.struct_field_value), optional(","), "}"),
+
     struct_field_value: ($) =>
       seq(field("name", $.symbol), "=", field("value", $._expression)),
 
     type: ($) => prec(1, choice($.builtin_type, $.symbol, $.any_type)),
 
     old_type: ($) =>
-      prec(
-        1,
-        seq(
-          choice($.old_builtin_type, $.symbol, $.any_type),
-          token.immediate(":")
-        )
+      seq(
+        choice($.old_builtin_type, $.symbol, $.any_type),
+        token.immediate(":")
       ),
 
     dimension: ($) => seq("[", "]"),
@@ -1009,16 +1013,14 @@ module.exports = grammar({
       ),
 
     view_as: ($) =>
-      prec.left(
-        seq(
-          "view_as",
-          "<",
-          field("type", $.type),
-          ">",
-          "(",
-          field("value", $._expression),
-          ")"
-        )
+      seq(
+        "view_as",
+        "<",
+        field("type", $.type),
+        ">",
+        "(",
+        field("value", $._expression),
+        ")"
       ),
 
     old_type_cast: ($) =>
