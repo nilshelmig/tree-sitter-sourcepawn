@@ -40,7 +40,7 @@ ternary expression - old style type cast
 ========================================
 
 int GetOppositeDirection() {
-    foo()?USERMSG_RELIABLE:0;
+    foo() ? USERMSG_RELIABLE : 0;
     new Handle:userMessage = StartMessageOne("Fade", client, (reliable?USERMSG_RELIABLE:0));
     return i < 0 ? (_:2.5) : (Action:0);
 }

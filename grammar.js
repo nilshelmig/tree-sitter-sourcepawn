@@ -971,7 +971,7 @@ module.exports = grammar({
         seq(
           field("condition", $._expression),
           "?",
-          field("consequence", prec.left(16, $._expression)),
+          field("consequence", $._expression),
           ":",
           field("alternative", $._expression)
         )

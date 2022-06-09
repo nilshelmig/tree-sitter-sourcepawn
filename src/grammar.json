@@ -4944,12 +4944,8 @@
             "type": "FIELD",
             "name": "consequence",
             "content": {
-              "type": "PREC_LEFT",
-              "value": 16,
-              "content": {
-                "type": "SYMBOL",
-                "name": "_expression"
-              }
+              "type": "SYMBOL",
+              "name": "_expression"
             }
           },
           {
