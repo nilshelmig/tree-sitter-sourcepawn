@@ -33,11 +33,7 @@ module.exports = grammar({
     $.preproc_else,
   ],
 
-  inline: ($) => [
-    $._statement,
-    $._top_level_statements,
-    $.methodmap_visibility,
-  ],
+  inline: ($) => [$._statement, $.methodmap_visibility],
 
   conflicts: ($) => [
     [$.function_visibility, $.variable_visibility],
@@ -50,9 +46,10 @@ module.exports = grammar({
       $.variable_storage_class,
     ],
     [$.array_indexed_access, $.type],
-    [$.variable_storage_class, $.old_global_variable_declaration],
+    // [$.variable_storage_class, $.old_global_variable_declaration],
     [$.type, $.old_variable_declaration],
     [$.for_loop, $._expression],
+    [$._expression, $._literal],
   ],
 
   word: ($) => $.symbol,
@@ -271,10 +268,10 @@ module.exports = grammar({
     global_variable_declaration: ($) =>
       seq(
         optional($.variable_visibility), // Handle MaxClient
-        repeat($.variable_storage_class),
+        optional($.variable_storage_class),
         field("type", $.type),
         commaSep1($.variable_declaration),
-        choice($.semicolon, "\n")
+        optional($.semicolon)
       ),
 
     variable_declaration_statement: ($) =>
@@ -301,21 +298,19 @@ module.exports = grammar({
         )
       ),
 
-    variable_storage_class: ($) => choice("const", "static"),
+    variable_storage_class: ($) =>
+      choice("static", "const", seq("static", "const")),
 
     variable_visibility: ($) => "public",
 
     variable_declaration: ($) =>
-      prec(
-        1,
-        seq(
-          field("name", $.symbol),
-          repeat(choice($.dimension, $.fixed_dimension)),
-          field(
-            "initialValue",
-            optional(
-              seq("=", choice($._expression, $.dynamic_array, $.new_instance))
-            )
+      seq(
+        field("name", $.symbol),
+        repeat(choice($.dimension, $.fixed_dimension)),
+        field(
+          "initialValue",
+          optional(
+            seq("=", choice($._expression, $.dynamic_array, $.new_instance))
           )
         )
       ),
@@ -358,11 +353,11 @@ module.exports = grammar({
     old_global_variable_declaration: ($) =>
       seq(
         choice(
-          seq(choice("new", "decl"), optional("const")),
-          optional(choice("static", "const", seq("static", "const")))
+          seq(choice("new", "decl"), optional($.variable_storage_class)),
+          optional($.variable_storage_class)
         ),
         commaSep1($.old_variable_declaration),
-        choice($.semicolon, "\n")
+        optional($.semicolon)
       ),
 
     old_variable_declaration_statement: ($) =>
@@ -1089,18 +1084,15 @@ module.exports = grammar({
       ),
 
     _literal: ($) =>
-      prec(
-        10,
-        choice(
-          $.int_literal,
-          $.float_literal,
-          $.char_literal,
-          $.string_literal,
-          $.concatenated_string,
-          $.bool_literal,
-          $.array_litteral,
-          $.null
-        )
+      choice(
+        $.int_literal,
+        $.float_literal,
+        $.char_literal,
+        $.string_literal,
+        $.concatenated_string,
+        $.bool_literal,
+        $.array_litteral,
+        $.null
       ),
 
     int_literal: ($) => {

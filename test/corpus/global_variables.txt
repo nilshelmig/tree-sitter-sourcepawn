@@ -56,6 +56,8 @@ initialization
 int money = 5400;
 int money = 5400
 +1;
+int money = 5400
++1
 float percent = 67.3;
 char key = 'A';
 bool enabled = false;
@@ -74,8 +76,17 @@ Handle handle = null;
         type: (type (builtin_type))
         (variable_declaration
             name: (symbol)
-            initialValue: (int_literal))
+            initialValue: (binary_expression
+                left: (int_literal)
+                right: (int_literal)))
         (semicolon))
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (binary_expression
+                left: (int_literal)
+                right: (int_literal))))
     (global_variable_declaration
         type: (type (builtin_type))
         (variable_declaration
@@ -226,7 +237,6 @@ public const int e;
         (semicolon))
     (global_variable_declaration
         (variable_storage_class)
-        (variable_storage_class)
         type: (type
             (builtin_type))
         (variable_declaration
@@ -359,15 +369,17 @@ char j[10] = "whatever!", k[256];
         (semicolon)))
 
 
-===============
-old declaration
-===============
+=================
+old - declaration
+=================
 
 new a;
 const a;
 a;
 new Float:b = 0.23;
 Float:b = 0.23;
+new a = 0
++1;
 new bool:c;
 new _:d = 2, Float:e, bool:f = true, String:g = 'c';
 new Action:ac = INVALID_HANDLE;
@@ -383,6 +395,7 @@ vec[];
         (old_variable_declaration name: (symbol))
         (semicolon))
     (old_global_variable_declaration
+        (variable_storage_class)
         (old_variable_declaration name: (symbol))
         (semicolon))
     (old_global_variable_declaration
@@ -399,6 +412,13 @@ vec[];
             type: (old_type (old_builtin_type))
             name: (symbol)
             initialValue: (float_literal))
+        (semicolon))
+    (old_global_variable_declaration
+        (old_variable_declaration
+            name: (symbol)
+            initialValue: (binary_expression
+                left: (int_literal)
+                right: (int_literal)))
         (semicolon))
     (old_global_variable_declaration
         (old_variable_declaration
@@ -449,9 +469,9 @@ vec[];
         (semicolon)))
 
 
-============================
-old style variables - arrays
-============================
+============
+old - arrays
+============
 
 new a[16];
 new players[MAXPLAYERS + 1];
@@ -504,6 +524,7 @@ static chatColorInfo[][ChatColorInfo] =
             initialValue: (array_litteral (int_literal) (int_literal) (int_literal) (int_literal) (int_literal)))
         (semicolon))
     (old_global_variable_declaration
+        (variable_storage_class)
         (old_variable_declaration
             name: (symbol)
             (dimension)
@@ -536,9 +557,9 @@ static chatColorInfo[][ChatColorInfo] =
         (semicolon)))
 
 
-=============================================
-old style variables - multidimensional arrays
-=============================================
+=============================
+old - multidimensional arrays
+=============================
 
 new g_DefaultColors_c[7][4] = { {255,255,255,255}, {255,0,0,255}, {0,255,0,255}, {0,0,255,255}, {255,255,0,255}, {0,255,255,255}, {255,0,255,255} };
 
@@ -561,9 +582,9 @@ new g_DefaultColors_c[7][4] = { {255,255,255,255}, {255,0,0,255}, {0,255,0,255},
         (semicolon)))
 
 
-===================================
-old style variables - storage class
-===================================
+===================
+old - storage class
+===================
 
 decl String:txt[256];
 new const a = 2;
@@ -596,19 +617,23 @@ static localIPRanges[] =
         (fixed_dimension (int_literal)))
         (semicolon))
     (old_global_variable_declaration
+        (variable_storage_class)
         (old_variable_declaration
         (symbol) (int_literal))
         (semicolon))
     (old_global_variable_declaration
+        (variable_storage_class)
         (old_variable_declaration
         (old_type (old_builtin_type)) (symbol) (bool_literal))
         (semicolon))
     (old_global_variable_declaration
+        (variable_storage_class)
         (old_variable_declaration
             (symbol)
             (char_literal))
         (semicolon))
     (old_global_variable_declaration
+        (variable_storage_class)
         (old_variable_declaration
             (old_type (old_builtin_type))
             (symbol)
@@ -618,6 +643,7 @@ static localIPRanges[] =
             (string_literal))
         (semicolon))
     (old_global_variable_declaration
+        (variable_storage_class)
         (old_variable_declaration
             (symbol)
             (dimension)
@@ -643,6 +669,7 @@ static localIPRanges[] =
                 (comment)))
         (semicolon))
     (old_global_variable_declaration
+        (variable_storage_class)
         (old_variable_declaration
             (symbol)
             (dimension)
@@ -676,9 +703,9 @@ static localIPRanges[] =
         (semicolon)))
 
 
-========================================
-old style variables - optional semicolon
-========================================
+========================
+old - optional semicolon
+========================
 
 new a
 new bool:c = true

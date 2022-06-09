@@ -2071,6 +2071,10 @@
         {
           "type": "semicolon",
           "named": true
+        },
+        {
+          "type": "variable_storage_class",
+          "named": true
         }
       ]
     }
