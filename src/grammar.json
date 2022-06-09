@@ -1822,6 +1822,23 @@
             {
               "type": "STRING",
               "value": "static"
+            },
+            {
+              "type": "STRING",
+              "value": "const"
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "static"
+                },
+                {
+                  "type": "STRING",
+                  "value": "const"
+                }
+              ]
             }
           ]
         },

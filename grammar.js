@@ -381,7 +381,12 @@ module.exports = grammar({
 
     old_variable_declaration_statement: ($) =>
       seq(
-        choice(seq(choice("new", "decl"), optional("const")), "static"),
+        choice(
+          seq(choice("new", "decl"), optional("const")),
+          "static",
+          "const",
+          seq("static", "const")
+        ),
         commaSep1($.old_variable_declaration),
         choice($.semicolon, "\n")
       ),
