@@ -70,53 +70,53 @@ forward void MyFunc8(char a[MAX_PATH]);
         (function_definition_type)
         returnType: (type (builtin_type))
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (type (builtin_type)) name: (symbol)))
+        arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol)))
         (semicolon))
     (function_definition
         (function_definition_type)
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations
-            (argument_declaration type: (type (builtin_type)) name: (symbol))
-            (argument_declaration type: (type (builtin_type)) name: (symbol))
-            (argument_declaration type: (type (builtin_type)) name: (symbol))
-            (argument_declaration type: (type (builtin_type)) name: (symbol)))
+            (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol))
+            (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol))
+            (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol))
+            (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol)))
         (semicolon))
     (function_definition
         (function_definition_type)
         returnType: (type (builtin_type))
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (type (symbol)) name: (symbol)))
+        arguments: (argument_declarations (argument_declaration type: (argument_type (type (symbol))) name: (symbol)))
         (semicolon))
     (function_definition
         (function_definition_type)
         returnType: (type (builtin_type))
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (type (builtin_type)) (dimension) name: (symbol)))
+        arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type)) (dimension)) name: (symbol)))
         (semicolon))
     (function_definition
         (function_definition_type)
         returnType: (type (builtin_type))
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (type (builtin_type)) name: (symbol)))
+        arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol)))
         (semicolon))
     (function_definition
         (function_definition_type)
         returnType: (type (builtin_type))
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (type (builtin_type)) name: (symbol) defaultValue: (int_literal)))
+        arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol) defaultValue: (int_literal)))
         (semicolon))
     (function_definition
         (function_definition_type)
         returnType: (type (builtin_type))
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (type (builtin_type)) name: (symbol) (fixed_dimension (int_literal))))
+        arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol) (fixed_dimension (int_literal))))
         (semicolon))
     (function_definition
         (function_definition_type)
         returnType: (type (builtin_type))
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (type (builtin_type)) name: (symbol) (fixed_dimension (symbol))))
+        arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol) (fixed_dimension (symbol))))
         (semicolon)))
 
 
@@ -197,30 +197,30 @@ forward MyFunc9(String:a[MAX_PATH]);
         (function_definition_type)
         name: (symbol)
         arguments: (argument_declarations
-            (argument_declaration type: (old_type (old_builtin_type)) name: (symbol))
-            (argument_declaration type: (old_type (old_builtin_type)) name: (symbol))
-            (argument_declaration type: (old_type (old_builtin_type)) name: (symbol))
-            (argument_declaration type: (old_type (old_builtin_type)) name: (symbol)))
+            (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol))
+            (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol))
+            (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol))
+            (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol)))
         (semicolon))
     (function_definition
         (function_definition_type)
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (old_type (symbol)) name: (symbol)))
+        arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (symbol))) name: (symbol)))
         (semicolon))
     (function_definition
         (function_definition_type)
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (old_type (old_builtin_type)) name: (symbol) (dimension)))
+        arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol) (dimension)))
         (semicolon))
     (function_definition
         (function_definition_type)
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration name: (symbol)))
+        arguments: (argument_declarations (argument_declaration type: (argument_type) name: (symbol)))
         (semicolon))
     (function_definition
         (function_definition_type)
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (old_type (old_builtin_type)) name: (symbol)))
+        arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol)))
         (semicolon))
     (function_definition
         (function_definition_type)
@@ -230,12 +230,12 @@ forward MyFunc9(String:a[MAX_PATH]);
     (function_definition
         (function_definition_type)
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (old_type (old_builtin_type)) name: (symbol) (fixed_dimension (int_literal))))
+        arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol) (fixed_dimension (int_literal))))
         (semicolon))
     (function_definition
         (function_definition_type)
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (old_type (old_builtin_type)) name: (symbol) (fixed_dimension (symbol))))
+        arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol) (fixed_dimension (symbol))))
         (semicolon)))
 
 
@@ -253,15 +253,15 @@ forward void MyFunc2(_:client, any:data);
         (function_definition_type)
         returnType: (type (builtin_type))
         name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (old_type (any_type)) name: (symbol)))
+        arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (any_type))) name: (symbol)))
     (semicolon))
     (function_definition
         (function_definition_type)
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations
-            (argument_declaration type: (old_type (old_builtin_type)) name: (symbol))
-            (argument_declaration type: (old_type (any_type)) name: (symbol)))
+            (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol))
+            (argument_declaration type: (argument_type (old_type (any_type))) name: (symbol)))
     (semicolon)))
 
 
@@ -423,7 +423,7 @@ native void MyFunc2(const char[] format, any ...);
         name: (symbol)
         arguments: (argument_declarations
             (argument_declaration
-                type: (type (builtin_type)) (dimension)
+                type: (argument_type (type (builtin_type)) (dimension))
                 name: (symbol))
             (rest_argument type: (type (any_type))))
         (semicolon)))

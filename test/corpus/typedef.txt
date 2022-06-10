@@ -13,7 +13,8 @@ typedef SrvCmd = function Action (int args)
             returnType: (type (symbol))
             (argument_declarations
                 (argument_declaration
-                    type: (type (builtin_type))
+                    type: (argument_type
+                        (type (builtin_type)))
                     name: (symbol))))))
 
 
@@ -32,7 +33,8 @@ typedef SrvCmd = (function Action (int args));
             returnType: (type (symbol))
             (argument_declarations
                 (argument_declaration
-                    type: (type (builtin_type))
+                    type: (argument_type
+                        (type (builtin_type)))
                     name: (symbol))))
         (semicolon)))
 
@@ -52,7 +54,8 @@ typedef SrvCmd = function Action (int args);
             returnType: (type (symbol))
             (argument_declarations
                 (argument_declaration
-                    type: (type (builtin_type))
+                    type: (argument_type
+                        (type (builtin_type)))
                     name: (symbol))))
         (semicolon)))
 
@@ -81,29 +84,37 @@ typedef CustomHandler =
             returnType: (type (builtin_type))
             (argument_declarations
                 (argument_declaration
-                    type: (type (symbol))
+                    type: (argument_type
+                        (type (symbol)))
                     name: (symbol))
                 (argument_declaration
-                    type: (type (builtin_type))
+                    type: (argument_type
+                        (type (builtin_type)))
                     name: (symbol))
                 (argument_declaration
-                    type: (type (builtin_type))
+                    type: (argument_type
+                        (type (builtin_type)))
                     name: (symbol))
                 (argument_declaration
-                    type: (type (builtin_type)) (dimension)
+                    type: (argument_type
+                        (type (builtin_type)) (dimension))
                     name: (symbol))
                 (argument_declaration
-                    type: (type (builtin_type))
+                    type: (argument_type
+                        (type (builtin_type)))
                     name: (symbol))
                 (argument_declaration
-                    type: (type (builtin_type))
+                    type: (argument_type
+                        (type (builtin_type)))
                     name: (symbol))
                 (argument_declaration
-                    type: (type (builtin_type))
+                    type: (argument_type
+                        (type (builtin_type)))
                     name: (symbol)
                     (fixed_dimension (int_literal)))
                 (argument_declaration
-                    type: (type (any_type))
+                    type: (argument_type
+                        (type (any_type)))
                     name: (symbol))))
         (semicolon)))
 
@@ -125,8 +136,8 @@ functag public Action:SrvCmd(args, &Handle:datapack)
             (argument_declaration
                 name: (symbol))
                 (argument_declaration
-                    type: (old_type
-                    (symbol))
+                    type: (argument_type
+                        (old_type (symbol)))
                 name: (symbol)))))
 
 
@@ -147,8 +158,8 @@ functag public Action:SrvCmd(args, &Handle:datapack);
             (argument_declaration
                 name: (symbol))
                 (argument_declaration
-                    type: (old_type
-                    (symbol))
+                    type: (argument_type
+                        (old_type (symbol)))
                 name: (symbol)))
         (semicolon)))
 
@@ -168,8 +179,8 @@ functag SrvCmd public(args, &Handle:datapack)
             (argument_declaration
                 name: (symbol))
                 (argument_declaration
-                    type: (old_type
-                    (symbol))
+                    type: (argument_type
+                        (old_type (symbol)))
                 name: (symbol)))))
 
 
@@ -188,8 +199,8 @@ functag SrvCmd public(args, &Handle:datapack);
             (argument_declaration
                 name: (symbol))
                 (argument_declaration
-                    type: (old_type
-                    (symbol))
+                    type: (argument_type
+                        (old_type (symbol)))
                 name: (symbol)))
         (semicolon)))
 
@@ -209,11 +220,14 @@ functag Entity_ChangeOverTimeCallback bool:public(&entity, &Float:interval, &cur
             (old_builtin_type))
         (argument_declarations
             (argument_declaration
+                type: (argument_type)
                 name: (symbol))
-                (argument_declaration
-                    type: (old_type
-                        (old_builtin_type))
-                            name: (symbol))
-                (argument_declaration
-                    name: (symbol)))
+            (argument_declaration
+                type: (argument_type 
+                    (old_type
+                        (old_builtin_type)))
+                name: (symbol))
+            (argument_declaration
+                type: (argument_type)
+                name: (symbol)))
         (semicolon)))

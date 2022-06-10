@@ -12,7 +12,7 @@ void SaveClose(Handle myhandle) {
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type (symbol)) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (type (symbol))) name: (symbol)))
     (block
         (delete_statement
             free: (symbol)
@@ -33,7 +33,11 @@ void SaveClose(Handle[] myhandle) {
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type (symbol)) (dimension) name: (symbol)))
+    arguments: (argument_declarations 
+        (argument_declaration
+            type: (argument_type 
+                (type (symbol)) (dimension)) 
+            name: (symbol)))
     (block
         (delete_statement
             free: (array_indexed_access
@@ -56,7 +60,7 @@ void SaveClose(Handle myhandle) {
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type (symbol)) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (type (symbol))) name: (symbol)))
     (block
         (delete_statement
             free: (view_as

@@ -256,19 +256,11 @@
         ]
       },
       "type": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "&",
-            "named": false
-          },
-          {
-            "type": "old_type",
-            "named": true
-          },
-          {
-            "type": "type",
+            "type": "argument_type",
             "named": true
           }
         ]
@@ -303,6 +295,29 @@
         },
         {
           "type": "rest_argument",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "argument_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "dimension",
+          "named": true
+        },
+        {
+          "type": "old_type",
+          "named": true
+        },
+        {
+          "type": "type",
           "named": true
         }
       ]

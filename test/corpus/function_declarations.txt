@@ -243,27 +243,27 @@ void MyFunc4(Handle args) {}
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type (builtin_type)) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol)))
     (block))
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type (builtin_type)) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol)))
     (block))
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type (builtin_type)) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol)))
     (block))
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type (builtin_type)) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol)))
     (block))
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type (symbol)) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (type (symbol))) name: (symbol)))
     (block)))
 
 
@@ -285,34 +285,35 @@ void MyFunc7(int mode=FOO|BAR|BAZ) {}
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type (builtin_type)) name: (symbol) defaultValue: (int_literal)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol) defaultValue: (int_literal)))
     (block))
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type (builtin_type)) name: (symbol) defaultValue: (float_literal)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol) defaultValue: (float_literal)))
     (block))
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type (builtin_type)) name: (symbol) defaultValue: (char_literal)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol) defaultValue: (char_literal)))
     (block))
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type (builtin_type)) name: (symbol) defaultValue: (bool_literal)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol) defaultValue: (bool_literal)))
     (block))
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type (symbol)) name: (symbol) defaultValue: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (type (symbol))) name: (symbol) defaultValue: (symbol)))
     (block))
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations
       (argument_declaration
-        type: (type (builtin_type))
+        type: (argument_type 
+            (type (builtin_type)))
         name: (symbol)
         (fixed_dimension (int_literal))
         defaultValue: (array_litteral
@@ -320,19 +321,19 @@ void MyFunc7(int mode=FOO|BAR|BAZ) {}
           (float_literal)
           (float_literal))))
         (block))
-      (function_declaration
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations
+  (function_declaration
+      returnType: (type (builtin_type))
+      name: (symbol)
+      arguments: (argument_declarations
           (argument_declaration
-            type: (type
-              (builtin_type))
+            type: (argument_type 
+                (type (builtin_type)))
             name: (symbol)
             defaultValue: (binary_expression
-              left: (binary_expression
-                left: (symbol)
-                right: (symbol))
-              right: (symbol))))
+                left: (binary_expression
+                    left: (symbol)
+                    right: (symbol))
+                right: (symbol))))
           (block)))
 
 
@@ -356,23 +357,23 @@ MyFunc5(Action:args = Plugin_Handled) {}
     (block))
   (function_declaration
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (old_type (old_builtin_type)) name: (symbol) defaultValue: (int_literal)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol) defaultValue: (int_literal)))
     (block))
   (function_declaration
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (old_type (old_builtin_type)) name: (symbol) defaultValue: (float_literal)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol) defaultValue: (float_literal)))
     (block))
   (function_declaration
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (old_type (old_builtin_type)) name: (symbol) defaultValue: (char_literal)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol) defaultValue: (char_literal)))
     (block))
   (function_declaration
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (old_type (old_builtin_type)) name: (symbol) defaultValue: (bool_literal)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol) defaultValue: (bool_literal)))
     (block))
   (function_declaration
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (old_type (symbol)) name: (symbol) defaultValue: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (symbol))) name: (symbol) defaultValue: (symbol)))
     (block)))
 
 
@@ -389,7 +390,7 @@ MyFunc(bool:args = bool:4) {}
     name: (symbol)
     arguments: (argument_declarations
       (argument_declaration
-        type: (old_type (old_builtin_type))
+        type: (argument_type (old_type (old_builtin_type)))
         name: (symbol)
         defaultValue: (old_type_cast
           type: (old_type (old_builtin_type))
@@ -414,32 +415,32 @@ void MyFunc6(const Handle[][] a) {}
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type (builtin_type)) (dimension) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type)) (dimension)) name: (symbol)))
     (block))
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type (builtin_type)) (dimension) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type)) (dimension)) name: (symbol)))
     (block))
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type (symbol)) (dimension) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (type (symbol)) (dimension)) name: (symbol)))
     (block))
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type (symbol)) (dimension) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (type (symbol)) (dimension)) name: (symbol)))
     (block))
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type (builtin_type)) (dimension) (dimension) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type)) (dimension) (dimension)) name: (symbol)))
     (block))
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type (symbol)) (dimension) (dimension) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (type (symbol)) (dimension) (dimension)) name: (symbol)))
     (block)))
 
 
@@ -455,7 +456,7 @@ void MyFunc(int &a) {}
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type (builtin_type)) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol)))
     (block)))
 
 
@@ -472,15 +473,18 @@ static stock MD5Transform(buf[], input[]) {}
 (source_file
   (function_declaration
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type) name: (symbol)))
     (block))
   (function_declaration
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (old_type (old_builtin_type)) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol)))
     (block))
   (function_declaration
+    (function_visibility)
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (old_type (old_builtin_type)) name: (symbol)))
+    arguments: (argument_declarations 
+      (argument_declaration name: (symbol) (dimension))
+      (argument_declaration name: (symbol) (dimension)))
     (block)))
 
 
@@ -499,22 +503,22 @@ void MyFunc(char vec[MAX_PATH][3]) {}
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type (builtin_type)) name: (symbol) (fixed_dimension (int_literal))))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol) (fixed_dimension (int_literal))))
     (block))
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type (builtin_type)) name: (symbol) (fixed_dimension (int_literal)) (fixed_dimension (int_literal))))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol) (fixed_dimension (int_literal)) (fixed_dimension (int_literal))))
     (block))
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type (builtin_type)) name: (symbol) (fixed_dimension (symbol))))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol) (fixed_dimension (symbol))))
     (block))
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type (builtin_type)) name: (symbol) (fixed_dimension (symbol)) (fixed_dimension (int_literal))))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol) (fixed_dimension (symbol)) (fixed_dimension (int_literal))))
     (block)))
 
 
@@ -537,19 +541,19 @@ MyFunc4(bool:condition) {}
     (block))
   (function_declaration
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (old_type (old_builtin_type)) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol)))
     (block))
   (function_declaration
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (old_type (old_builtin_type)) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol)))
     (block))
   (function_declaration
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (old_type (old_builtin_type)) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol)))
     (block))
   (function_declaration
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (old_type (old_builtin_type)) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol)))
     (block)))
 
 
@@ -565,13 +569,13 @@ MyFunc1(args, any:data) {}
 (source_file
   (function_declaration
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (old_type (any_type)) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (any_type))) name: (symbol)))
     (block))
   (function_declaration
     name: (symbol)
     arguments: (argument_declarations
       (argument_declaration name: (symbol))
-      (argument_declaration type: (old_type (any_type)) name: (symbol)))
+      (argument_declaration type: (argument_type (old_type (any_type))) name: (symbol)))
     (block)))
 
 
@@ -588,10 +592,10 @@ void MyFunc(int a, float b, char c, bool d) {}
     returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations
-      (argument_declaration type: (type (builtin_type)) name: (symbol))
-      (argument_declaration type: (type (builtin_type)) name: (symbol))
-      (argument_declaration type: (type (builtin_type)) name: (symbol))
-      (argument_declaration type: (type (builtin_type)) name: (symbol)))
+      (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol))
+      (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol))
+      (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol))
+      (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol)))
     (block)))
 
 
@@ -609,10 +613,10 @@ void MyFunc(a, _:b, Float:c, String:d, bool:e) {}
     name: (symbol)
     arguments: (argument_declarations
       (argument_declaration name: (symbol))
-      (argument_declaration type: (old_type (old_builtin_type)) name: (symbol))
-      (argument_declaration type: (old_type (old_builtin_type)) name: (symbol))
-      (argument_declaration type: (old_type (old_builtin_type)) name: (symbol))
-      (argument_declaration type: (old_type (old_builtin_type)) name: (symbol)))
+      (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol))
+      (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol))
+      (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol))
+      (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol)))
     (block)))
 
 
@@ -636,7 +640,7 @@ void MyFunc2(const char[] format, any ...) {}
     name: (symbol)
     arguments: (argument_declarations
       (argument_declaration
-        type: (type (builtin_type)) (dimension)
+        type: (argument_type (type (builtin_type)) (dimension))
         name: (symbol))
       (rest_argument type: (type (any_type))))
     (block)))
@@ -660,7 +664,7 @@ MyFunc2(const String:format[], any:...) {}
     name: (symbol)
     arguments: (argument_declarations
       (argument_declaration
-        type: (old_type (old_builtin_type))
+        type: (argument_type (old_type (old_builtin_type)))
         name: (symbol)
         (dimension))
       (rest_argument type: (old_type (any_type))))
@@ -676,4 +680,24 @@ public MyFunc2(color[4]) {}
 
 ---
 
-a
+(source_file
+    (function_declaration
+        (symbol)
+        (argument_declarations
+            (argument_declaration
+              (symbol)
+              (fixed_dimension (int_literal))
+              (array_litteral
+                  (int_literal)
+                  (int_literal)
+                  (int_literal)
+                  (int_literal))))
+        (block))
+    (function_declaration
+        (function_visibility)
+        (symbol)
+        (argument_declarations
+            (argument_declaration
+              (symbol)
+              (fixed_dimension (int_literal))))
+        (block)))

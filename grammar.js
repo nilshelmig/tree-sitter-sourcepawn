@@ -1,5 +1,4 @@
 const PREC = {
-  PAREN_DECLARATOR: -10,
   ASSIGNMENT: -1,
   DEFAULT: 0,
   TERNARY: 1,
@@ -49,6 +48,8 @@ module.exports = grammar({
     [$.type, $.old_variable_declaration],
     [$.for_loop, $._expression],
     [$._expression, $._literal],
+    [$.argument_declaration, $.type],
+    [$.argument_type],
   ],
 
   word: ($) => $.symbol,
@@ -218,28 +219,21 @@ module.exports = grammar({
     function_definition_type: ($) => choice("forward", "native"),
 
     argument_declarations: ($) =>
-      seq(
-        "(",
-        choice(
-          $.rest_argument,
-          seq(
-            commaSep($.argument_declaration),
-            optional(seq(",", $.rest_argument))
-          )
-        ),
-        ")"
+      seq("(", commaSep(choice($.argument_declaration, $.rest_argument)), ")"),
+
+    argument_type: ($) =>
+      choice(
+        "&",
+        seq(optional("&"), $.old_type),
+        seq($.type, choice(optional("&"), repeat($.dimension)))
       ),
 
     argument_declaration: ($) =>
       prec(
-        PREC.PAREN_DECLARATOR,
+        1,
         seq(
           optional("const"),
-          field(
-            "type",
-            choice(optional(seq(optional("&"), $.old_type)), $.type)
-          ),
-          optional(choice("&", repeat1($.dimension))),
+          field("type", optional($.argument_type)),
           field("name", $.symbol),
           repeat(choice($.dimension, $.fixed_dimension)),
           field(

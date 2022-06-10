@@ -68,10 +68,10 @@ methodmap AdminId {
             name: (symbol)
             (argument_declarations
                 (argument_declaration
-                    type: (type (builtin_type)) (dimension)
+                        type: (argument_type (type (builtin_type)) (dimension))
                     name: (symbol))
                 (argument_declaration
-                    type: (type (builtin_type))
+                        type: (argument_type (type (builtin_type)))
                     name: (symbol)))
             (semicolon))
         (methodmap_native
@@ -79,11 +79,11 @@ methodmap AdminId {
             name: (symbol)
             (argument_declarations
                 (argument_declaration
-                    type: (type (builtin_type)) (dimension)
+                        type: (argument_type (type (builtin_type)) (dimension))
                     name: (symbol)
                     defaultValue: (string_literal))
                 (argument_declaration
-                    type: (type (builtin_type))
+                        type: (argument_type (type (builtin_type)))
                     name: (symbol)
                     defaultValue: (int_literal)))
             (semicolon))
@@ -92,15 +92,15 @@ methodmap AdminId {
             name: (symbol)
             (argument_declarations
                 (argument_declaration
-                    type: (type (builtin_type)) (dimension)
+                        type: (argument_type (type (builtin_type)) (dimension))
                     name: (symbol))
                 (rest_argument type: (type (any_type))))
             (semicolon))))
 
 
-=======================================
+============================================
 methodmap with native con-/destructor method
-=======================================
+============================================
 
 methodmap AdminId {
     public native AdminId(int id);
@@ -116,7 +116,7 @@ methodmap AdminId {
             name: (symbol)
             (argument_declarations
                 (argument_declaration
-                    type: (type (builtin_type))
+                        type: (argument_type (type (builtin_type)))
                     name: (symbol)))
             (semicolon))
         (methodmap_native_destructor
@@ -147,10 +147,10 @@ methodmap PerkContainerIter {
             name: (symbol)
             (argument_declarations
                 (argument_declaration
-                    type: (type (builtin_type))
+                        type: (argument_type (type (builtin_type)))
                     name: (symbol))
                 (argument_declaration
-                    type: (type (builtin_type))
+                        type: (argument_type (type (builtin_type)))
                     name: (symbol)
                     defaultValue: (int_literal)))
             (block (return_statement (bool_literal) (semicolon))))
@@ -159,7 +159,7 @@ methodmap PerkContainerIter {
             name: (symbol)
             (argument_declarations
                 (argument_declaration
-                    type: (type (builtin_type)) (dimension)
+                        type: (argument_type (type (builtin_type)) (dimension))
                     name: (symbol))
                 (rest_argument type: (type (any_type))))
             (block))))
@@ -186,7 +186,7 @@ methodmap AdminId {
             name: (symbol)
             (argument_declarations
                 (argument_declaration
-                    type: (type (builtin_type))
+                        type: (argument_type (type (builtin_type)))
                     name: (symbol)))
             (block (return_statement (symbol) (semicolon))))
         (methodmap_method_destructor
@@ -214,10 +214,10 @@ methodmap PerkContainerIter {
             name: (symbol)
             (argument_declarations
                 (argument_declaration
-                    type: (type (builtin_type))
+                        type: (argument_type (type (builtin_type)))
                     name: (symbol))
                 (argument_declaration
-                    type: (type (builtin_type))
+                        type: (argument_type (type (builtin_type)))
                     name: (symbol)
                     defaultValue: (int_literal)))
             (block (return_statement (bool_literal) (semicolon))))))

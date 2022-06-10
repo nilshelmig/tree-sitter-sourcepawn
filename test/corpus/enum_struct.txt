@@ -121,7 +121,7 @@ enum struct Rectangle
             name: (symbol)
             (argument_declarations
                 (argument_declaration
-                    type: (type (symbol))
+                        type: (argument_type (type (symbol)))
                     name: (symbol)))
             (block
                 (return_statement
