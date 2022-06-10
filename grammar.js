@@ -47,7 +47,6 @@ module.exports = grammar({
     [$.array_indexed_access, $.type],
     [$.type, $.old_variable_declaration],
     [$.for_loop, $._expression],
-    [$._expression, $._literal],
     [$.argument_declaration, $.type],
     [$.argument_type],
   ],
@@ -827,10 +826,7 @@ module.exports = grammar({
         $.old_type_cast,
         $.symbol,
         $._literal,
-        $.concatenated_string,
-        $.char_literal,
         $.parenthesized_expression,
-        $.array_litteral,
         $.this
       ),
 

@@ -4295,19 +4295,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "concatenated_string"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "char_literal"
-        },
-        {
-          "type": "SYMBOL",
           "name": "parenthesized_expression"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "array_litteral"
         },
         {
           "type": "SYMBOL",
@@ -6544,10 +6532,6 @@
     [
       "for_loop",
       "_expression"
-    ],
-    [
-      "_expression",
-      "_literal"
     ],
     [
       "argument_declaration",
