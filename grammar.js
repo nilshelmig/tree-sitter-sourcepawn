@@ -329,7 +329,7 @@ module.exports = grammar({
           )
         ),
         commaSep1($.old_variable_declaration),
-        optional($.semicolon)
+        choice($.semicolon, "\n")
       ),
 
     old_variable_declaration_statement: ($) =>

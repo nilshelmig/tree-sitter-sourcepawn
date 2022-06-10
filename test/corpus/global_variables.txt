@@ -62,6 +62,10 @@ float percent = 67.3;
 char key = 'A';
 bool enabled = false;
 Handle handle = null;
+/*----------  MaxSpeed Variables  ----------*/
+bool g_bInMaxSpeed[MAXPLAYERS + 1];
+/*----------  VIP Variables  ----------*/
+ConVar g_hAutoVipFlag = null;
 
 ---
 
@@ -105,6 +109,23 @@ Handle handle = null;
             name: (symbol)
             initialValue: (bool_literal))
         (semicolon))
+    (global_variable_declaration
+        type: (type (symbol))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (null))
+        (semicolon))
+      (comment)
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            (fixed_dimension
+                (binary_expression
+                    left: (symbol)
+                    right: (int_literal))))
+        (semicolon))
+    (comment)
     (global_variable_declaration
         type: (type (symbol))
         (variable_declaration

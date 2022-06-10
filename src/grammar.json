@@ -1625,7 +1625,8 @@
               "name": "semicolon"
             },
             {
-              "type": "BLANK"
+              "type": "STRING",
+              "value": "\n"
             }
           ]
         }
