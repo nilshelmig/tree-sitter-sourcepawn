@@ -36,6 +36,7 @@ void Test() {
     + 1;
     new number = 1
     + 1
+    new number = MaxClients + 1
     new Float:pointnumber = 10.0;
 }
 
@@ -64,6 +65,12 @@ void Test() {
                     (symbol)
                     (binary_expression
                         (int_literal)
+                        (int_literal))))
+            (old_variable_declaration_statement
+                (old_variable_declaration
+                    (symbol)
+                    (binary_expression
+                        (symbol)
                         (int_literal))))
             (old_variable_declaration_statement
                 (old_variable_declaration

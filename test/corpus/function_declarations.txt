@@ -465,6 +465,7 @@ old - function with argument passing by reference
 
 MyFunc(&a) {}
 MyFunc(&Float:a) {}
+static stock MD5Transform(buf[], input[]) {}
 
 ---
 
@@ -472,6 +473,10 @@ MyFunc(&Float:a) {}
   (function_declaration
     name: (symbol)
     arguments: (argument_declarations (argument_declaration name: (symbol)))
+    (block))
+  (function_declaration
+    name: (symbol)
+    arguments: (argument_declarations (argument_declaration type: (old_type (old_builtin_type)) name: (symbol)))
     (block))
   (function_declaration
     name: (symbol)
@@ -590,9 +595,9 @@ void MyFunc(int a, float b, char c, bool d) {}
     (block)))
 
 
-=========================================
-function with multiple oldstyle arguments
-=========================================
+======================================
+old - function with multiple arguments
+======================================
 
 void MyFunc(a, _:b, Float:c, String:d, bool:e) {}
 
@@ -660,3 +665,14 @@ MyFunc2(const String:format[], any:...) {}
         (dimension))
       (rest_argument type: (old_type (any_type))))
     (block)))
+
+
+=============================================
+old - function with fixed size array argument
+=============================================
+
+MyFunc2(const color[4]={255, 255, 255, 255}) {}
+
+---
+
+a

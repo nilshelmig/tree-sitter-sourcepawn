@@ -1544,6 +1544,21 @@
     }
   },
   {
+    "type": "hardcoded_symbol",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "semicolon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "ignore_argument",
     "named": true,
     "fields": {}
@@ -2645,6 +2660,10 @@
         },
         {
           "type": "global_variable_declaration",
+          "named": true
+        },
+        {
+          "type": "hardcoded_symbol",
           "named": true
         },
         {
@@ -3803,6 +3822,10 @@
   },
   {
     "type": "typeset",
+    "named": false
+  },
+  {
+    "type": "using __intrinsics__.Handle",
     "named": false
   },
   {

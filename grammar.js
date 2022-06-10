@@ -79,7 +79,8 @@ module.exports = grammar({
           $.preproc_pragma_semicolon,
           $.preproc_pragma_newdecls,
           $.preproc_pragma_deprecated,
-          $.preproc_pragma_dynamic
+          $.preproc_pragma_dynamic,
+          $.hardcoded_symbol
         )
       ),
 
@@ -169,6 +170,10 @@ module.exports = grammar({
         field("value", $.int_literal),
         "\n"
       ),
+
+    // Hardcoded symbol
+    // https://github.com/alliedmodders/sourcemod/blob/5c0ae11a4619e9cba93478683c7737253ea93ba6/plugins/include/handles.inc#L78
+    hardcoded_symbol: ($) => seq("using __intrinsics__.Handle", $.semicolon),
 
     // Main Grammar
 
@@ -277,7 +282,10 @@ module.exports = grammar({
       ),
 
     variable_declaration_statement: ($) =>
-      prec.right(
+      /* Use left precedence to resolve conflict with variable
+      declarations in for loops
+       */
+      prec.left(
         seq(
           optional($.variable_storage_class),
           field("type", $.type),
@@ -329,7 +337,10 @@ module.exports = grammar({
       ),
 
     old_variable_declaration_statement: ($) =>
-      prec.right(
+      /* Use left precedence to resolve conflict with variable
+      declarations in for loops
+       */
+      prec.left(
         seq(
           choice(
             seq(choice("new", "decl"), optional($.variable_storage_class)),
@@ -713,11 +724,11 @@ module.exports = grammar({
             choice(
               $.variable_declaration_statement,
               $.old_variable_declaration_statement,
-              seq($.assignment_expression)
+              $.assignment_expression
             )
           )
         ),
-        optional($.semicolon),
+        $.semicolon,
         field("condition", optional($._expression)),
         $.semicolon,
         field("iteration", optional($._statement)),
@@ -1118,7 +1129,7 @@ module.exports = grammar({
       seq(
         '"',
         repeat(
-          choice(token.immediate(prec(1, /[^"]|\\\r?\n/)), $.escape_sequence)
+          choice(token.immediate(prec(1, /[^"\\]|\\\r?\n/)), $.escape_sequence)
         ),
         '"'
       ),

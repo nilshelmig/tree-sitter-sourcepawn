@@ -3,9 +3,8 @@ for loop
 ========
 
 public void OnPluginStart() {
-    for(int i = 0; i < 0; i++) {
-
-    }
+    for(int i = 0; i < 0; i++) {}
+    for(int i = 0; i < j; i++) {}
 }
 
 ---
@@ -21,8 +20,8 @@ public void OnPluginStart() {
                     type: (type (builtin_type))
                     (variable_declaration
                         name: (symbol)
-                        initialValue: (int_literal))
-                (semicolon))
+                        initialValue: (int_literal)))
+                (semicolon)
                 condition: (binary_expression
                     left: (symbol)
                     right: (int_literal))
@@ -30,6 +29,21 @@ public void OnPluginStart() {
                 iteration: (expression_statement
                     (update_expression
                         argument: (symbol)))
+                (block))
+            (for_loop
+                initialization: (variable_declaration_statement
+                type: (type (builtin_type))
+                (variable_declaration
+                    name: (symbol)
+                    initialValue: (int_literal)))
+                (semicolon)
+                condition: (binary_expression
+                    left: (symbol)
+                    right: (symbol))
+                (semicolon)
+                iteration: (expression_statement
+                (update_expression
+                    argument: (symbol)))
                 (block)))))
 
 
@@ -86,8 +100,8 @@ public void OnPluginStart() {
                     type: (type (builtin_type))
                     (variable_declaration
                         name: (symbol)
-                        initialValue: (int_literal))
-                (semicolon))
+                        initialValue: (int_literal)))
+                (semicolon)
                 (semicolon)
                 iteration: (expression_statement
                     (update_expression
@@ -95,9 +109,9 @@ public void OnPluginStart() {
                 (block)))))
 
 
-==========================
-for loop without iteration
-==========================
+===============================
+for loop without incrementation
+===============================
 
 public void OnPluginStart() {
     for(int i = 0; i < 0; ) {
@@ -118,8 +132,8 @@ public void OnPluginStart() {
                     type: (type (builtin_type))
                     (variable_declaration
                         name: (symbol)
-                        initialValue: (int_literal))
-                (semicolon))
+                        initialValue: (int_literal)))
+                (semicolon)
                 condition: (binary_expression
                     left: (symbol)
                     right: (int_literal))
@@ -256,6 +270,7 @@ old - for loop
 
 public void OnPluginStart() {
     for(new i = 0; i < 3; i++) break;
+    for (new entity=MaxClients+1; entity < maxEntities; entity++) {}
     for (i = 0, ii = 0; i < 14; ++i, ii += 4) {
 		break;
 	}
@@ -273,15 +288,30 @@ public void OnPluginStart() {
                 initialization: (old_variable_declaration_statement
                     (old_variable_declaration
                         name: (symbol)
-                        initialValue: (int_literal))
-                (semicolon))
+                        initialValue: (int_literal)))
+                (semicolon)
                 condition: (binary_expression
                     left: (symbol)
                     right: (int_literal))
                 (semicolon)
                 iteration: (expression_statement (update_expression argument: (symbol)))
                 (break_statement
-              (semicolon)))
+                (semicolon)))
+            (for_loop
+                initialization: (old_variable_declaration_statement
+                    (old_variable_declaration
+                        name: (symbol)
+                        initialValue: (binary_expression
+                            left: (symbol)
+                            right: (int_literal))))
+                (semicolon)
+                condition: (binary_expression
+                    left: (symbol)
+                    right: (symbol))
+                (semicolon)
+                iteration: (expression_statement
+                    (update_expression argument: (symbol)))
+            (block))
             (for_loop
                 initialization: (assignment_expression
                     left: (symbol)

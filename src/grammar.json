@@ -98,6 +98,10 @@
           {
             "type": "SYMBOL",
             "name": "preproc_pragma_dynamic"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "hardcoded_symbol"
           }
         ]
       }
@@ -668,6 +672,19 @@
         {
           "type": "STRING",
           "value": "\n"
+        }
+      ]
+    },
+    "hardcoded_symbol": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "using __intrinsics__.Handle"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "semicolon"
         }
       ]
     },
@@ -1285,7 +1302,7 @@
       ]
     },
     "variable_declaration_statement": {
-      "type": "PREC_RIGHT",
+      "type": "PREC_LEFT",
       "value": 0,
       "content": {
         "type": "SEQ",
@@ -1602,7 +1619,7 @@
       ]
     },
     "old_variable_declaration_statement": {
-      "type": "PREC_RIGHT",
+      "type": "PREC_LEFT",
       "value": 0,
       "content": {
         "type": "SEQ",
@@ -3619,13 +3636,8 @@
                         "name": "old_variable_declaration_statement"
                       },
                       {
-                        "type": "SEQ",
-                        "members": [
-                          {
-                            "type": "SYMBOL",
-                            "name": "assignment_expression"
-                          }
-                        ]
+                        "type": "SYMBOL",
+                        "name": "assignment_expression"
                       }
                     ]
                   },
@@ -3650,13 +3662,8 @@
                               "name": "old_variable_declaration_statement"
                             },
                             {
-                              "type": "SEQ",
-                              "members": [
-                                {
-                                  "type": "SYMBOL",
-                                  "name": "assignment_expression"
-                                }
-                              ]
+                              "type": "SYMBOL",
+                              "name": "assignment_expression"
                             }
                           ]
                         }
@@ -3672,16 +3679,8 @@
           }
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "semicolon"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "semicolon"
         },
         {
           "type": "FIELD",
@@ -6291,7 +6290,7 @@
                   "value": 1,
                   "content": {
                     "type": "PATTERN",
-                    "value": "[^\"]|\\\\\\r?\\n"
+                    "value": "[^\"\\\\]|\\\\\\r?\\n"
                   }
                 }
               },
