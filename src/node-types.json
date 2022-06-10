@@ -2090,6 +2090,10 @@
         {
           "type": "variable_storage_class",
           "named": true
+        },
+        {
+          "type": "variable_visibility",
+          "named": true
         }
       ]
     }

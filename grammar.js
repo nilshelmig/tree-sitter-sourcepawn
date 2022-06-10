@@ -330,7 +330,10 @@ module.exports = grammar({
       seq(
         choice(
           seq(choice("new", "decl"), optional($.variable_storage_class)),
-          optional($.variable_storage_class)
+          seq(
+            optional($.variable_visibility),
+            optional($.variable_storage_class)
+          )
         ),
         commaSep1($.old_variable_declaration),
         optional($.semicolon)

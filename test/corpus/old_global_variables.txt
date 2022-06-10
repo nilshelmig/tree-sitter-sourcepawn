@@ -16,7 +16,6 @@ Action:ac = INVALID_HANDLE;
 vec[MAXPLAYERS + 1];
 vec[];
 
-
 ---
 
 (source_file
@@ -235,6 +234,7 @@ static localIPRanges[] =
 	127	<< 24 | 16	<< 16,	// 127.16.
 	192	<< 24 | 168	<< 16,	// 192.168.
 };
+public numHaleKills = 0;
 
 ---
 
@@ -329,6 +329,11 @@ static localIPRanges[] =
                     (int_literal)
                     (int_literal)))
             (comment)))
+        (semicolon))
+    (old_global_variable_declaration
+        (variable_visibility)
+        (old_variable_declaration
+          (symbol) (int_literal))
         (semicolon)))
 
 
