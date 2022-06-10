@@ -539,6 +539,7 @@ module.exports = grammar({
     methodmap_native: ($) =>
       seq(
         $.methodmap_visibility,
+        optional("static"),
         "native",
         field("returnType", $.type),
         field("name", $.symbol),
@@ -548,6 +549,7 @@ module.exports = grammar({
     methodmap_native_constructor: ($) =>
       seq(
         $.methodmap_visibility,
+        optional("static"),
         "native",
         field("name", $.symbol),
         $.argument_declarations,

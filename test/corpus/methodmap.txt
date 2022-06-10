@@ -56,6 +56,7 @@ methodmap AdminId {
     public native void GetUsername(char[] name, int maxlength);
     public native bool GetPassword(char[] buffer="", int maxlength=0);
     public native bool Format(const char[] format, any ...);
+	public static native Cookie Find(const char[] name);
 }
 
 ---
@@ -95,6 +96,14 @@ methodmap AdminId {
                         type: (argument_type (type (builtin_type)) (dimension))
                     name: (symbol))
                 (rest_argument type: (type (any_type))))
+            (semicolon))
+        (methodmap_native
+            returnType: (type (symbol))
+            name: (symbol)
+            (argument_declarations
+                (argument_declaration
+                        type: (argument_type (type (builtin_type)) (dimension))
+                    name: (symbol)))
             (semicolon))))
 
 
