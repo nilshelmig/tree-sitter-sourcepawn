@@ -291,7 +291,7 @@ module.exports = grammar({
     variable_storage_class: ($) =>
       choice("static", "const", seq("static", "const")),
 
-    variable_visibility: ($) => "public",
+    variable_visibility: ($) => choice("public", "stock"),
 
     variable_declaration: ($) =>
       seq(

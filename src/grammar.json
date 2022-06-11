@@ -1397,8 +1397,17 @@
       ]
     },
     "variable_visibility": {
-      "type": "STRING",
-      "value": "public"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "public"
+        },
+        {
+          "type": "STRING",
+          "value": "stock"
+        }
+      ]
     },
     "variable_declaration": {
       "type": "SEQ",

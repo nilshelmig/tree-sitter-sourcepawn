@@ -233,6 +233,7 @@ static float b;
 static bool c = false;
 static const char d[] = "lorem";
 public const int e;
+stock const int e;
 
 ---
 
@@ -264,6 +265,14 @@ public const int e;
             name: (symbol)
             (dimension)
             initialValue: (string_literal))
+        (semicolon))
+    (global_variable_declaration
+        (variable_visibility)
+        (variable_storage_class)
+        type: (type
+            (builtin_type))
+        (variable_declaration
+            name: (symbol))
         (semicolon))
     (global_variable_declaration
         (variable_visibility)
