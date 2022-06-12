@@ -6461,7 +6461,7 @@
               },
               {
                 "type": "PATTERN",
-                "value": "(\\\\(.|\\r?\\n)|[^\\\\\\n])*"
+                "value": ".*"
               }
             ]
           },
@@ -6506,6 +6506,10 @@
     {
       "type": "SYMBOL",
       "name": "preproc_else"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "preproc_pragma_deprecated"
     }
   ],
   "conflicts": [

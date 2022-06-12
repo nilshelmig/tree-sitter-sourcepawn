@@ -287,6 +287,13 @@ methodmap Player {
         public native get();
         public native set(int health);
     }
+
+    // Connect timeout in seconds. Defaults to 10.
+	#pragma deprecated Use HTTPRequest.ConnectTimeout instead.
+	property int ConnectTimeout {
+		public native get();
+		public native set(int connectTimeout);
+	}
 }
 
 ---
@@ -304,7 +311,20 @@ methodmap Player {
                 (methodmap_property_setter
                     type: (type (builtin_type))
                     name: (symbol))
-                (semicolon)))))
+            (semicolon)))
+        (comment)
+        (preproc_pragma_deprecated info: (preproc_arg))
+        (methodmap_property
+            type: (type (builtin_type))
+            name: (symbol)
+            (methodmap_property_native
+                (methodmap_property_getter)
+                (semicolon))
+            (methodmap_property_native
+                (methodmap_property_setter
+                    type: (type (builtin_type))
+                    name: (symbol))
+            (semicolon)))))
 
 
 =======================================
