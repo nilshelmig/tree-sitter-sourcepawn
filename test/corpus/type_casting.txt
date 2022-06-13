@@ -6,6 +6,8 @@ void Test() {
     view_as<bool>(1);
     view_as < Action > ( 1 );
     view_as<bool>(Plugin_Handled);
+    view_as<bool>(this.foo);
+    view_as<bool>(new AdtArray());
 }
 
 ---
@@ -30,7 +32,21 @@ void Test() {
                 (view_as
                     type: (type (builtin_type))
                     value: (symbol))
-                (semicolon)))))
+            (semicolon))
+            (expression_statement
+                (view_as
+                    type: (type (builtin_type))
+                    value: (field_access
+                    target: (this)
+                    field: (symbol)))
+            (semicolon))
+            (expression_statement
+                (view_as
+                    type: (type (builtin_type))
+                    value: (new_instance
+                    class: (symbol)
+                    arguments: (function_call_arguments)))
+            (semicolon)))))
 
 
 ============================

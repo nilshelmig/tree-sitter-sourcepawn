@@ -48,6 +48,10 @@
         "named": true
       },
       {
+        "type": "new_instance",
+        "named": true
+      },
+      {
         "type": "null",
         "named": true
       },
@@ -514,10 +518,6 @@
           },
           {
             "type": "dynamic_array",
-            "named": true
-          },
-          {
-            "type": "new_instance",
             "named": true
           }
         ]
@@ -3285,10 +3285,6 @@
           },
           {
             "type": "dynamic_array",
-            "named": true
-          },
-          {
-            "type": "new_instance",
             "named": true
           }
         ]

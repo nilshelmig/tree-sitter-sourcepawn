@@ -300,9 +300,7 @@ module.exports = grammar({
         repeat(choice($.dimension, $.fixed_dimension)),
         field(
           "initialValue",
-          optional(
-            seq("=", choice($._expression, $.dynamic_array, $.new_instance))
-          )
+          optional(seq("=", choice($._expression, $.dynamic_array)))
         )
       ),
 
@@ -829,7 +827,8 @@ module.exports = grammar({
         $.symbol,
         $._literal,
         $.parenthesized_expression,
-        $.this
+        $.this,
+        $.new_instance
       ),
 
     assignment_expression: ($) =>
@@ -863,7 +862,7 @@ module.exports = grammar({
               ">>="
             )
           ),
-          field("right", choice($._expression, $.dynamic_array, $.new_instance))
+          field("right", choice($._expression, $.dynamic_array))
         )
       ),
 
