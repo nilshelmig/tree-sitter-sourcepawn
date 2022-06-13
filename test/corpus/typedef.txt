@@ -2,7 +2,8 @@
 typedef
 =======
 
-typedef SrvCmd = function Action (int args)
+typedef SrvCmd = function Action (int args);
+typedef SrvCmd = function Action[MAXPLAYERS+1][](int args, const char[] args, int &foo);
 
 ---
 
