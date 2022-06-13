@@ -24,7 +24,9 @@ sizeof - multidimensional array
 ===============================
 
 int Test() {
+    sizeof(this.foo);
     sizeof(a[][][]);
+    sizeof(a[10][][]);
     return sizeof(a[]);
 }
 
@@ -38,15 +40,29 @@ int Test() {
         (block
             (expression_statement
                 (sizeof_expression
+                    type: (field_access
+                    target: (this)
+                    field: (symbol)))
+                (semicolon))
+            (expression_statement
+                (sizeof_expression
                     type: (symbol)
-                    (dimension)
-                    (dimension)
-                    (dimension))
+                    type: (dimension)
+                    type: (dimension)
+                    type: (dimension))
+                (semicolon))
+            (expression_statement
+                (sizeof_expression
+                    type: (array_indexed_access
+                    array: (symbol)
+                    index: (int_literal))
+                    type: (dimension)
+                    type: (dimension))
                 (semicolon))
             (return_statement
                 (sizeof_expression
                     type: (symbol)
-                    (dimension))
+                    type: (dimension))
                 (semicolon)))))
 
 

@@ -1010,13 +1010,53 @@ module.exports = grammar({
           choice(
             seq(
               "(",
-              field("type", choice($.symbol, $.scope_access)),
-              repeat($.dimension),
+              field(
+                "type",
+                choice(
+                  $.function_call,
+                  prec.right(1, seq($.symbol, repeat($.dimension))),
+                  prec.right(
+                    1,
+                    seq($.array_indexed_access, repeat($.dimension))
+                  ),
+                  $.ternary_expression,
+                  $.field_access,
+                  $.scope_access,
+                  $.binary_expression,
+                  $.unary_expression,
+                  $.view_as,
+                  $.old_type_cast,
+                  $._literal,
+                  $.parenthesized_expression,
+                  $.this,
+                  $.new_instance
+                )
+              ),
               ")"
             ),
             seq(
-              field("type", choice($.symbol, $.scope_access)),
-              repeat($.dimension)
+              field(
+                "type",
+                choice(
+                  $.function_call,
+                  prec.right(1, seq($.symbol, repeat($.dimension))),
+                  prec.right(
+                    1,
+                    seq($.array_indexed_access, repeat($.dimension))
+                  ),
+                  $.ternary_expression,
+                  $.field_access,
+                  $.scope_access,
+                  $.binary_expression,
+                  $.unary_expression,
+                  $.view_as,
+                  $.old_type_cast,
+                  $._literal,
+                  $.parenthesized_expression,
+                  $.this,
+                  $.new_instance
+                )
+              )
             )
           )
         )

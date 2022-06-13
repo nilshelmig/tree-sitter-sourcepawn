@@ -5584,20 +5584,93 @@
                       "members": [
                         {
                           "type": "SYMBOL",
-                          "name": "symbol"
+                          "name": "function_call"
+                        },
+                        {
+                          "type": "PREC_RIGHT",
+                          "value": 1,
+                          "content": {
+                            "type": "SEQ",
+                            "members": [
+                              {
+                                "type": "SYMBOL",
+                                "name": "symbol"
+                              },
+                              {
+                                "type": "REPEAT",
+                                "content": {
+                                  "type": "SYMBOL",
+                                  "name": "dimension"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "PREC_RIGHT",
+                          "value": 1,
+                          "content": {
+                            "type": "SEQ",
+                            "members": [
+                              {
+                                "type": "SYMBOL",
+                                "name": "array_indexed_access"
+                              },
+                              {
+                                "type": "REPEAT",
+                                "content": {
+                                  "type": "SYMBOL",
+                                  "name": "dimension"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "ternary_expression"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "field_access"
                         },
                         {
                           "type": "SYMBOL",
                           "name": "scope_access"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "binary_expression"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "unary_expression"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "view_as"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "old_type_cast"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "_literal"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "parenthesized_expression"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "this"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "new_instance"
                         }
                       ]
-                    }
-                  },
-                  {
-                    "type": "REPEAT",
-                    "content": {
-                      "type": "SYMBOL",
-                      "name": "dimension"
                     }
                   },
                   {
@@ -5617,20 +5690,93 @@
                       "members": [
                         {
                           "type": "SYMBOL",
-                          "name": "symbol"
+                          "name": "function_call"
+                        },
+                        {
+                          "type": "PREC_RIGHT",
+                          "value": 1,
+                          "content": {
+                            "type": "SEQ",
+                            "members": [
+                              {
+                                "type": "SYMBOL",
+                                "name": "symbol"
+                              },
+                              {
+                                "type": "REPEAT",
+                                "content": {
+                                  "type": "SYMBOL",
+                                  "name": "dimension"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "PREC_RIGHT",
+                          "value": 1,
+                          "content": {
+                            "type": "SEQ",
+                            "members": [
+                              {
+                                "type": "SYMBOL",
+                                "name": "array_indexed_access"
+                              },
+                              {
+                                "type": "REPEAT",
+                                "content": {
+                                  "type": "SYMBOL",
+                                  "name": "dimension"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "ternary_expression"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "field_access"
                         },
                         {
                           "type": "SYMBOL",
                           "name": "scope_access"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "binary_expression"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "unary_expression"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "view_as"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "old_type_cast"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "_literal"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "parenthesized_expression"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "this"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "new_instance"
                         }
                       ]
-                    }
-                  },
-                  {
-                    "type": "REPEAT",
-                    "content": {
-                      "type": "SYMBOL",
-                      "name": "dimension"
                     }
                   }
                 ]
