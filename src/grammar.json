@@ -2304,8 +2304,17 @@
                   {
                     "type": "REPEAT",
                     "content": {
-                      "type": "SYMBOL",
-                      "name": "dimension"
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "dimension"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "fixed_dimension"
+                        }
+                      ]
                     }
                   }
                 ]
@@ -2341,8 +2350,17 @@
                   {
                     "type": "REPEAT",
                     "content": {
-                      "type": "SYMBOL",
-                      "name": "dimension"
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "dimension"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "fixed_dimension"
+                        }
+                      ]
                     }
                   }
                 ]

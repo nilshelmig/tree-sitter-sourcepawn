@@ -93,6 +93,8 @@ new operator
 void Test() {
     a = new char[size];
     b = new MethodMap();
+
+    (new HTTPRequest(szUrl)).Get(HTTPRequest_CheckServer);
 }
 
 ---
@@ -117,6 +119,17 @@ void Test() {
                     right: (new_instance
                         class: (symbol)
                         arguments: (function_call_arguments)))
+            (semicolon))
+            (expression_statement
+                (function_call
+                    function: (field_access
+                    target: (parenthesized_expression
+                        (new_instance
+                            class: (symbol)
+                            arguments: (function_call_arguments (symbol))))
+                    field: (symbol))
+                (function_call_arguments
+                (symbol)))
                 (semicolon)))))
 
 

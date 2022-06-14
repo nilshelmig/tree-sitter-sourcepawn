@@ -16,7 +16,32 @@ typedef SrvCmd = function Action[MAXPLAYERS+1][](int args, const char[] args, in
                 (argument_declaration
                     type: (argument_type
                         (type (builtin_type)))
-                    name: (symbol))))))
+                    name: (symbol))))
+            (semicolon))
+    (typedef
+        name: (symbol)
+        (typedef_expression
+            returnType: (type (symbol))
+            returnType: (fixed_dimension
+                (binary_expression
+                    left: (symbol)
+                    right: (int_literal)))
+            returnType: (dimension)
+            (argument_declarations
+                (argument_declaration
+                    type: (argument_type
+                        (type (builtin_type)))
+                    name: (symbol))
+            (argument_declaration
+                type: (argument_type
+                    (type (builtin_type))
+                    (dimension))
+                name: (symbol))
+            (argument_declaration
+                type: (argument_type
+                    (type (builtin_type)))
+                name: (symbol))))
+            (semicolon)))
 
 
 =================================

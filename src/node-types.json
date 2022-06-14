@@ -3222,6 +3222,10 @@
             "named": true
           },
           {
+            "type": "fixed_dimension",
+            "named": true
+          },
+          {
             "type": "type",
             "named": true
           }

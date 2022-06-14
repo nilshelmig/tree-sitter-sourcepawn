@@ -445,13 +445,19 @@ module.exports = grammar({
       choice(
         seq(
           "function",
-          field("returnType", seq($.type, repeat($.dimension))),
+          field(
+            "returnType",
+            seq($.type, repeat(choice($.dimension, $.fixed_dimension)))
+          ),
           $.argument_declarations
         ),
         seq(
           "(",
           "function",
-          field("returnType", seq($.type, repeat($.dimension))),
+          field(
+            "returnType",
+            seq($.type, repeat(choice($.dimension, $.fixed_dimension)))
+          ),
           $.argument_declarations,
           ")"
         )
