@@ -116,9 +116,10 @@ module.exports = grammar({
       seq(
         preprocessor("define"),
         field("name", $.symbol),
-        field("value", optional($._expression)),
+        field("value", optional($.preproc_arg)),
         "\n"
       ),
+
     preproc_arg: ($) => token(prec(-1, repeat1(/.|\\\r?\n/))),
 
     preproc_undefine: ($) =>

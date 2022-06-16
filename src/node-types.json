@@ -2277,7 +2277,7 @@
         "required": false,
         "types": [
           {
-            "type": "_expression",
+            "type": "preproc_arg",
             "named": true
           }
         ]

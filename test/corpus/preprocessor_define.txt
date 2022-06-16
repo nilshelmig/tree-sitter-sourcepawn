@@ -13,19 +13,19 @@ define constant
 (source_file
     (preproc_define
         name: (symbol)
-        value: (int_literal))
+        value: (preproc_arg))
     (preproc_define
         name: (symbol)
-        value: (float_literal))
+        value: (preproc_arg))
     (preproc_define
         name: (symbol)
-        value: (string_literal))
+        value: (preproc_arg))
     (preproc_define
         name: (symbol)
-        value: (bool_literal))
+        value: (preproc_arg))
     (preproc_define
         name: (symbol)
-        value: (symbol)))
+        value: (preproc_arg)))
 
 
 =================
@@ -40,17 +40,10 @@ define expression
 (source_file
     (preproc_define
         name: (symbol)
-        value: (parenthesized_expression
-          (binary_expression
-            left: (int_literal)
-            right: (int_literal))))
+        value: (preproc_arg))
     (preproc_define
         name: (symbol)
-        value: (function_call
-          function: (symbol)
-          (function_call_arguments
-            (float_literal)
-            (float_literal)))))
+        value: (preproc_arg)))
 
 
 ==========================
@@ -64,7 +57,7 @@ define handles spaces/tabs
 (source_file
     (preproc_define
         name: (symbol)
-        value: (string_literal)))
+        value: (preproc_arg)))
 
 
 ============================
@@ -73,6 +66,8 @@ define with trailing comment
 
 #define MAXPLAYERS 65 /**< Maximum number of players SourceMod supports */
 #define MAXPLAYERS 65 // Maximum number of players SourceMod supports
+#define MAXPLAYERS 65 /**< Maximum number of \
+                        players SourceMod supports */
 #define MAXPLAYERS 65 /**< Maximum number of 
                         players SourceMod supports */
 
@@ -82,17 +77,38 @@ define with trailing comment
 (source_file
     (preproc_define
         name: (symbol)
-        value: (int_literal)
-        (comment))
+        value: (preproc_arg))
       (preproc_define
         name: (symbol)
-        value: (int_literal)
-        (comment))
+        value: (preproc_arg))
       (preproc_define
         name: (symbol)
-        value: (int_literal)
-        (comment)))
+        value: (preproc_arg))
+      (preproc_define
+        name: (symbol)
+        value: (preproc_arg)))
 
+
+============================
+non valid expression defines
+============================
+
+#define FOO view_as<int>(
+#define elif else if
+#define FOO view_as<int>( //
+
+---
+
+    (source_file
+      (preproc_define
+        (symbol)
+        (preproc_arg))
+      (preproc_define
+        (symbol)
+        (preproc_arg))
+      (preproc_define
+        (symbol)
+        (preproc_arg)))
 
 ============
 define macro
@@ -106,7 +122,6 @@ define macro
     (preproc_macro
         name: (symbol)
         value: (preproc_arg)))
-
 
 ======================
 define macro multiline

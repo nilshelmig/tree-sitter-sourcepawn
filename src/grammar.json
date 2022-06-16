@@ -295,7 +295,7 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "_expression"
+                "name": "preproc_arg"
               },
               {
                 "type": "BLANK"
