@@ -117,3 +117,27 @@ native float operator-(float oper1, float oper2) = FloatSub;
                 (symbol)))
         (symbol)
         (semicolon)))
+
+
+===================
+forbidden operators
+===================
+
+forward operator%(float oper1, float oper2);
+
+---
+
+(source_file
+    (alias_assignment
+        (function_definition_type)
+        (alias_operator)
+        (argument_declarations
+            (argument_declaration
+                (argument_type
+                    (type (builtin_type)))
+                (symbol))
+            (argument_declaration
+                (argument_type
+                    (type (builtin_type)))
+                (symbol)))
+        (semicolon)))

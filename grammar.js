@@ -37,7 +37,9 @@ module.exports = grammar({
 
   conflicts: ($) => [
     [$.function_visibility, $.variable_visibility],
+    [$.function_declaration, $.alias_assignment],
     [$.function_definition, $.alias_assignment],
+    [$.alias_declaration, $.alias_assignment],
     [$.function_visibility, $.variable_visibility, $.struct_declaration],
     [$.function_visibility, $.variable_storage_class],
     [$.function_visibility, $.old_global_variable_declaration],
@@ -258,7 +260,9 @@ module.exports = grammar({
           "<",
           "<<",
           ">>",
-          ">>>"
+          ">>>",
+          "!",
+          "%"
         )
       ),
 
@@ -279,20 +283,23 @@ module.exports = grammar({
       ),
 
     alias_assignment: ($) =>
-      seq(
-        optional($.function_definition_type),
-        field(
-          "returnType",
-          choice(
-            optional(seq($.old_type, repeat($.dimension))),
-            seq($.type, repeat($.dimension))
-          )
+      choice(
+        seq(
+          optional($.function_definition_type),
+          field("returnType", seq($.type, repeat($.dimension))),
+          choice(seq("operator", $.alias_operator), $.symbol),
+          field("arguments", $.argument_declarations),
+          "=",
+          $.symbol,
+          optional($.semicolon)
         ),
-        choice(seq("operator", $.alias_operator), $.symbol),
-        field("arguments", $.argument_declarations),
-        "=",
-        $.symbol,
-        optional($.semicolon)
+        seq(
+          optional($.function_definition_type),
+          "operator",
+          $.alias_operator,
+          field("arguments", $.argument_declarations),
+          optional($.semicolon)
+        )
       ),
 
     global_variable_declaration: ($) =>
