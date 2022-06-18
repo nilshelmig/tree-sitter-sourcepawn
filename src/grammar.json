@@ -85,19 +85,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "preproc_pragma_semicolon"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "preproc_pragma_newdecls"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "preproc_pragma_deprecated"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "preproc_pragma_dynamic"
+            "name": "preproc_pragma"
           },
           {
             "type": "SYMBOL",
@@ -531,7 +519,7 @@
         }
       ]
     },
-    "preproc_pragma_semicolon": {
+    "preproc_pragma": {
       "type": "SEQ",
       "members": [
         {
@@ -544,138 +532,8 @@
           "value": "#pragma"
         },
         {
-          "type": "STRING",
-          "value": "semicolon"
-        },
-        {
-          "type": "FIELD",
-          "name": "enabled",
-          "content": {
-            "type": "SYMBOL",
-            "name": "int_literal"
-          }
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "semicolon"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": "\n"
-        }
-      ]
-    },
-    "preproc_pragma_newdecls": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "PATTERN",
-            "value": "#[ \t]*pragma"
-          },
-          "named": false,
-          "value": "#pragma"
-        },
-        {
-          "type": "STRING",
-          "value": "newdecls"
-        },
-        {
-          "type": "FIELD",
-          "name": "value",
-          "content": {
-            "type": "SYMBOL",
-            "name": "symbol"
-          }
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "semicolon"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": "\n"
-        }
-      ]
-    },
-    "preproc_pragma_deprecated": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "PATTERN",
-            "value": "#[ \t]*pragma"
-          },
-          "named": false,
-          "value": "#pragma"
-        },
-        {
-          "type": "STRING",
-          "value": "deprecated"
-        },
-        {
-          "type": "FIELD",
-          "name": "info",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "preproc_arg"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          }
-        },
-        {
-          "type": "STRING",
-          "value": "\n"
-        }
-      ]
-    },
-    "preproc_pragma_dynamic": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "PATTERN",
-            "value": "#[ \t]*pragma"
-          },
-          "named": false,
-          "value": "#pragma"
-        },
-        {
-          "type": "STRING",
-          "value": "dynamic"
-        },
-        {
-          "type": "FIELD",
-          "name": "value",
-          "content": {
-            "type": "SYMBOL",
-            "name": "int_literal"
-          }
+          "type": "SYMBOL",
+          "name": "preproc_arg"
         },
         {
           "type": "STRING",
@@ -6980,7 +6838,7 @@
     },
     {
       "type": "SYMBOL",
-      "name": "preproc_pragma_deprecated"
+      "name": "preproc_pragma"
     }
   ],
   "conflicts": [

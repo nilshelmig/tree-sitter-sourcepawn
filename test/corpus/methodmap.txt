@@ -313,7 +313,7 @@ methodmap Player {
                     name: (symbol))
             (semicolon)))
         (comment)
-        (preproc_pragma_deprecated info: (preproc_arg))
+        (preproc_pragma (preproc_arg))
         (methodmap_property
             type: (type (builtin_type))
             name: (symbol)

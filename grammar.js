@@ -30,7 +30,7 @@ module.exports = grammar({
     $.preproc_endif,
     $.preproc_if,
     $.preproc_else,
-    $.preproc_pragma_deprecated,
+    $.preproc_pragma,
   ],
 
   inline: ($) => [$._statement, $.methodmap_visibility],
@@ -78,17 +78,14 @@ module.exports = grammar({
           $.preproc_macro,
           $.preproc_undefine,
           $.preproc_endinput,
-          $.preproc_pragma_semicolon,
-          $.preproc_pragma_newdecls,
-          $.preproc_pragma_deprecated,
-          $.preproc_pragma_dynamic,
+          $.preproc_pragma,
           $.hardcoded_symbol,
           $.alias_declaration,
           $.alias_assignment
         )
       ),
 
-    // Preprocesser
+    // Preprocessor
 
     preproc_include: ($) =>
       seq(
@@ -142,39 +139,7 @@ module.exports = grammar({
     preproc_endinput: ($) =>
       seq(preprocessor("endinput"), optional($.comment), "\n"),
 
-    preproc_pragma_semicolon: ($) =>
-      seq(
-        preprocessor("pragma"),
-        "semicolon",
-        field("enabled", $.int_literal),
-        optional($.semicolon),
-        "\n"
-      ),
-
-    preproc_pragma_newdecls: ($) =>
-      seq(
-        preprocessor("pragma"),
-        "newdecls",
-        field("value", $.symbol),
-        optional($.semicolon),
-        "\n"
-      ),
-
-    preproc_pragma_deprecated: ($) =>
-      seq(
-        preprocessor("pragma"),
-        "deprecated",
-        field("info", optional($.preproc_arg)),
-        "\n"
-      ),
-
-    preproc_pragma_dynamic: ($) =>
-      seq(
-        preprocessor("pragma"),
-        "dynamic",
-        field("value", $.int_literal),
-        "\n"
-      ),
+    preproc_pragma: ($) => seq(preprocessor("pragma"), $.preproc_arg, "\n"),
 
     // Hardcoded symbol
     // https://github.com/alliedmodders/sourcemod/blob/5c0ae11a4619e9cba93478683c7737253ea93ba6/plugins/include/handles.inc#L78
