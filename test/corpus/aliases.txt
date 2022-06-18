@@ -1,0 +1,119 @@
+=======
+aliases
+=======
+
+stock float operator++(float oper)
+{
+	return oper+1.0;
+}
+
+stock float operator--(float oper)
+{
+	return oper-1.0;
+}
+
+---
+
+(source_file
+    (alias_declaration
+        (function_visibility)
+        (type (builtin_type))
+        (alias_operator)
+        (argument_declarations
+            (argument_declaration
+                (argument_type
+                    (type (builtin_type)))
+            (symbol)))
+        (block
+            (return_statement (symbol))
+            (expression_statement
+                (float_literal)
+            (semicolon))))
+    (alias_declaration
+        (function_visibility)
+        (type (builtin_type))
+        (alias_operator)
+        (argument_declarations
+            (argument_declaration
+                (argument_type
+                    (type (builtin_type)))
+            (symbol)))
+        (block
+            (return_statement (symbol))
+            (expression_statement
+                (float_literal)
+            (semicolon)))))
+
+
+===================
+aliases assignments
+===================
+
+native float __FLOAT_MUL__(float a, float b) = FloatMul;
+native float __FLOAT_DIV__(float a, float b) = FloatDiv;
+native float operator*(float oper1, float oper2) = FloatMul;
+native float operator-(float oper1, float oper2) = FloatSub;
+
+---
+
+(source_file
+    (alias_assignment
+        (function_definition_type)
+        (type (builtin_type))
+        (symbol)
+        (argument_declarations
+            (argument_declaration
+                (argument_type
+                    (type (builtin_type)))
+                (symbol))
+            (argument_declaration
+                (argument_type
+                    (type (builtin_type)))
+                (symbol)))
+        (symbol)
+        (semicolon))
+    (alias_assignment
+        (function_definition_type)
+        (type (builtin_type))
+        (symbol)
+        (argument_declarations
+            (argument_declaration
+                (argument_type
+                    (type (builtin_type)))
+                (symbol))
+            (argument_declaration
+                (argument_type
+                    (type (builtin_type)))
+                (symbol)))
+        (symbol)
+        (semicolon))
+    (alias_assignment
+        (function_definition_type)
+        (type (builtin_type))
+        (alias_operator)
+        (argument_declarations
+            (argument_declaration
+                (argument_type
+                    (type (builtin_type)))
+                (symbol))
+            (argument_declaration
+                (argument_type
+                    (type (builtin_type)))
+                (symbol)))
+        (symbol)
+        (semicolon))
+    (alias_assignment
+        (function_definition_type)
+        (type (builtin_type))
+        (alias_operator)
+        (argument_declarations
+            (argument_declaration
+                (argument_type
+                    (type (builtin_type)))
+                (symbol))
+            (argument_declaration
+                (argument_type
+                    (type (builtin_type)))
+                (symbol)))
+        (symbol)
+        (semicolon)))

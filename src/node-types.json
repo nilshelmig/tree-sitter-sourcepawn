@@ -160,6 +160,114 @@
     ]
   },
   {
+    "type": "alias_assignment",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "argument_declarations",
+            "named": true
+          }
+        ]
+      },
+      "returnType": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "dimension",
+            "named": true
+          },
+          {
+            "type": "old_type",
+            "named": true
+          },
+          {
+            "type": "type",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "alias_operator",
+          "named": true
+        },
+        {
+          "type": "function_definition_type",
+          "named": true
+        },
+        {
+          "type": "semicolon",
+          "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "alias_declaration",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "argument_declarations",
+            "named": true
+          }
+        ]
+      },
+      "returnType": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "dimension",
+            "named": true
+          },
+          {
+            "type": "old_type",
+            "named": true
+          },
+          {
+            "type": "type",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "_statement",
+          "named": true
+        },
+        {
+          "type": "alias_operator",
+          "named": true
+        },
+        {
+          "type": "function_visibility",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "argument_declaration",
     "named": true,
     "fields": {
@@ -2724,6 +2832,14 @@
       "required": false,
       "types": [
         {
+          "type": "alias_assignment",
+          "named": true
+        },
+        {
+          "type": "alias_declaration",
+          "named": true
+        },
+        {
           "type": "enum",
           "named": true
         },
@@ -3710,6 +3826,10 @@
     "named": false
   },
   {
+    "type": "alias_operator",
+    "named": true
+  },
+  {
     "type": "any_type",
     "named": true
   },
@@ -3844,6 +3964,10 @@
   {
     "type": "null",
     "named": true
+  },
+  {
+    "type": "operator",
+    "named": false
   },
   {
     "type": "preproc_arg",

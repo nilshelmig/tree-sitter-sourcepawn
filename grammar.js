@@ -37,6 +37,7 @@ module.exports = grammar({
 
   conflicts: ($) => [
     [$.function_visibility, $.variable_visibility],
+    [$.function_definition, $.alias_assignment],
     [$.function_visibility, $.variable_visibility, $.struct_declaration],
     [$.function_visibility, $.variable_storage_class],
     [$.function_visibility, $.old_global_variable_declaration],
@@ -81,7 +82,9 @@ module.exports = grammar({
           $.preproc_pragma_newdecls,
           $.preproc_pragma_deprecated,
           $.preproc_pragma_dynamic,
-          $.hardcoded_symbol
+          $.hardcoded_symbol,
+          $.alias_declaration,
+          $.alias_assignment
         )
       ),
 
@@ -266,6 +269,66 @@ module.exports = grammar({
       ),
 
     rest_argument: ($) => seq(field("type", choice($.type, $.old_type)), "..."),
+
+    alias_operator: ($) =>
+      token.immediate(
+        choice(
+          "+",
+          "++",
+          "-",
+          "--",
+          "*",
+          "/",
+          "%",
+          "||",
+          "&&",
+          "|",
+          "^",
+          "&",
+          "==",
+          "!=",
+          ">",
+          ">=",
+          "<=",
+          "<",
+          "<<",
+          ">>",
+          ">>>"
+        )
+      ),
+
+    alias_declaration: ($) =>
+      seq(
+        optional($.function_visibility),
+        field(
+          "returnType",
+          choice(
+            optional(seq($.old_type, repeat($.dimension))),
+            seq($.type, repeat($.dimension))
+          )
+        ),
+        "operator",
+        $.alias_operator,
+        field("arguments", $.argument_declarations),
+        choice($.block, $._statement)
+      ),
+
+    alias_assignment: ($) =>
+      seq(
+        optional($.function_definition_type),
+        field(
+          "returnType",
+          choice(
+            optional(seq($.old_type, repeat($.dimension))),
+            seq($.type, repeat($.dimension))
+          )
+        ),
+        choice(seq("operator", $.alias_operator), $.symbol),
+        field("arguments", $.argument_declarations),
+        "=",
+        $.symbol,
+        optional($.semicolon)
+      ),
 
     global_variable_declaration: ($) =>
       seq(
