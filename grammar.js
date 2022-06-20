@@ -1155,8 +1155,13 @@ module.exports = grammar({
     int_literal: ($) => {
       const separator = "'";
       const hex = /[0-9a-fA-F]/;
+      const octo = /[o0-7]/;
       const decimal = /[0-9]/;
       const hexDigits = seq(repeat1(hex), repeat(seq(separator, repeat1(hex))));
+      const octoDigits = seq(
+        repeat1(octo),
+        repeat(seq(separator, repeat1(octo)))
+      );
       const decimalDigits = seq(
         repeat1(decimal),
         repeat(seq(separator, repeat1(decimal)))
@@ -1164,7 +1169,12 @@ module.exports = grammar({
       return token(
         seq(
           optional(/[-\+]/),
-          choice(decimalDigits, seq("0b", decimalDigits), seq("0x", hexDigits)),
+          choice(
+            decimalDigits,
+            seq("0b", decimalDigits),
+            seq("0x", hexDigits),
+            seq("0o", octoDigits)
+          ),
           optional(seq(/[eEpP]/, optional(seq(optional(/[-\+]/), hexDigits))))
         )
       );

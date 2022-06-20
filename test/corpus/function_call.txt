@@ -27,7 +27,7 @@ function call with arguments
 
 void Test() {
     MyFunc1("test");
-    MyFunc2("test", 2, &ref, myVar);
+    MyFunc2("test", 2, &ref, myVar, 0.0, 0xFE, 0b01, 0o13);
 }
 
 ---
@@ -50,7 +50,11 @@ void Test() {
                     (string_literal)
                     (int_literal)
                     (symbol)
-                    (symbol)))
+                    (symbol)
+                    (float_literal)
+                    (int_literal)
+                    (int_literal)
+                    (int_literal)))
             (semicolon)))))
 
 
