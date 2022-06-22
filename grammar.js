@@ -24,6 +24,8 @@ const PREC = {
 module.exports = grammar({
   name: "sourcepawn",
 
+  externals: ($) => [$._automatic_semicolon, $._ternary_colon],
+
   extras: ($) => [
     /\s|\\\r?\n/,
     $.comment,
@@ -145,7 +147,7 @@ module.exports = grammar({
 
     // Hardcoded symbol
     // https://github.com/alliedmodders/sourcemod/blob/5c0ae11a4619e9cba93478683c7737253ea93ba6/plugins/include/handles.inc#L78
-    hardcoded_symbol: ($) => seq("using __intrinsics__.Handle", $.semicolon),
+    hardcoded_symbol: ($) => seq("using __intrinsics__.Handle", $._semicolon),
 
     // Main Grammar
 
@@ -184,7 +186,7 @@ module.exports = grammar({
         ),
         field("name", $.symbol),
         field("arguments", $.argument_declarations),
-        optional($.semicolon)
+        $._semicolon
       ),
 
     function_definition_type: ($) => choice("forward", "native"),
@@ -291,14 +293,14 @@ module.exports = grammar({
           field("arguments", $.argument_declarations),
           "=",
           $.symbol,
-          optional($.semicolon)
+          $._semicolon
         ),
         seq(
           optional($.function_definition_type),
           "operator",
           $.alias_operator,
           field("arguments", $.argument_declarations),
-          optional($.semicolon)
+          $._semicolon
         )
       ),
 
@@ -308,7 +310,7 @@ module.exports = grammar({
         optional($.variable_storage_class),
         field("type", $.type),
         commaSep1($.variable_declaration),
-        optional($.semicolon)
+        $._semicolon
       ),
 
     variable_declaration_statement: ($) =>
@@ -321,7 +323,7 @@ module.exports = grammar({
           field("type", $.type),
           repeat($.dimension),
           commaSep1($.variable_declaration),
-          optional($.semicolon)
+          optional($._semicolon)
         )
       ),
 
@@ -364,7 +366,7 @@ module.exports = grammar({
           )
         ),
         commaSep1($.old_variable_declaration),
-        choice($.semicolon, "\n")
+        $._semicolon
       ),
 
     old_variable_declaration_statement: ($) =>
@@ -378,7 +380,7 @@ module.exports = grammar({
             $.variable_storage_class
           ),
           commaSep1($.old_variable_declaration),
-          optional($.semicolon)
+          optional($._semicolon)
         )
       ),
 
@@ -418,7 +420,7 @@ module.exports = grammar({
           )
         ),
         field("entries", $.enum_entries),
-        optional($.semicolon)
+        optional($._semicolon)
       ),
     enum_entries: ($) => seq("{", commaSep1($.enum_entry), optional(","), "}"),
     enum_entry: ($) =>
@@ -447,7 +449,7 @@ module.exports = grammar({
         field("type", $.type),
         field("name", $.symbol),
         optional($.fixed_dimension),
-        $.semicolon
+        $._semicolon
       ),
 
     enum_struct_method: ($) =>
@@ -464,7 +466,7 @@ module.exports = grammar({
         field("name", $.symbol),
         "=",
         $.typedef_expression,
-        optional($.semicolon)
+        $._semicolon
       ),
 
     typeset: ($) =>
@@ -472,9 +474,9 @@ module.exports = grammar({
         "typeset",
         field("name", $.symbol),
         "{",
-        repeat1(seq($.typedef_expression, optional($.semicolon))),
+        repeat1(seq($.typedef_expression, optional($._semicolon))),
         "}",
-        optional($.semicolon)
+        optional($._semicolon)
       ),
 
     typedef_expression: ($) =>
@@ -507,7 +509,7 @@ module.exports = grammar({
         commaSep1($.funcenum_member),
         optional(","),
         "}",
-        optional($.semicolon)
+        optional($._semicolon)
       ),
 
     funcenum_member: ($) =>
@@ -525,14 +527,14 @@ module.exports = grammar({
           field("returnType", $.old_type),
           field("name", $.symbol),
           $.argument_declarations,
-          optional($.semicolon)
+          optional($._semicolon)
         ),
         seq(
           "functag",
           field("name", $.symbol),
           "public",
           $.argument_declarations,
-          optional($.semicolon)
+          optional($._semicolon)
         ),
         seq(
           "functag",
@@ -540,7 +542,7 @@ module.exports = grammar({
           field("returnType", $.old_type),
           "public",
           $.argument_declarations,
-          optional($.semicolon)
+          optional($._semicolon)
         )
       ),
 
@@ -563,7 +565,7 @@ module.exports = grammar({
           )
         ),
         "}",
-        optional($.semicolon)
+        optional($._semicolon)
       ),
 
     methodmap_alias: ($) =>
@@ -575,7 +577,7 @@ module.exports = grammar({
         ")",
         "=",
         field("function", $.symbol),
-        $.semicolon
+        optional($._semicolon)
       ),
     methodmap_native: ($) =>
       seq(
@@ -585,7 +587,7 @@ module.exports = grammar({
         field("returnType", $.type),
         field("name", $.symbol),
         $.argument_declarations,
-        $.semicolon
+        optional($._semicolon)
       ),
     methodmap_native_constructor: ($) =>
       seq(
@@ -594,7 +596,7 @@ module.exports = grammar({
         "native",
         field("name", $.symbol),
         $.argument_declarations,
-        $.semicolon
+        optional($._semicolon)
       ),
     methodmap_native_destructor: ($) =>
       seq(
@@ -604,7 +606,7 @@ module.exports = grammar({
         field("name", $.symbol),
         "(",
         ")",
-        $.semicolon
+        optional($._semicolon)
       ),
     methodmap_method: ($) =>
       seq(
@@ -654,7 +656,7 @@ module.exports = grammar({
         $.methodmap_property_getter,
         "=",
         field("function", $.symbol),
-        $.semicolon
+        optional($._semicolon)
       ),
 
     methodmap_property_native: ($) =>
@@ -662,7 +664,7 @@ module.exports = grammar({
         $.methodmap_visibility,
         "native",
         choice($.methodmap_property_getter, $.methodmap_property_setter),
-        $.semicolon
+        optional($._semicolon)
       ),
 
     methodmap_property_method: ($) =>
@@ -685,7 +687,7 @@ module.exports = grammar({
         "{",
         repeat($.struct_field),
         "}",
-        optional($.semicolon)
+        optional($._semicolon)
       ),
 
     struct_field: ($) =>
@@ -697,7 +699,7 @@ module.exports = grammar({
           seq($.type, repeat(choice($.dimension, $.fixed_dimension)))
         ),
         field("name", $.symbol),
-        $.semicolon
+        optional($._semicolon)
       ),
 
     struct_declaration: ($) =>
@@ -707,7 +709,7 @@ module.exports = grammar({
         field("name", $.symbol),
         "=",
         field("value", $.struct_constructor),
-        optional($.semicolon)
+        optional($._semicolon)
       ),
 
     struct_constructor: ($) =>
@@ -768,9 +770,9 @@ module.exports = grammar({
             )
           )
         ),
-        $.semicolon,
+        $._semicolon,
         field("condition", optional($._expression)),
-        $.semicolon,
+        $._semicolon,
         field("iteration", optional($._statement)),
         ")",
         $._statement
@@ -786,12 +788,12 @@ module.exports = grammar({
           "(",
           field("condition", $._expression),
           ")",
-          optional($.semicolon)
+          optional($._semicolon)
         )
       ),
-    break_statement: ($) => prec.right(seq("break", optional($.semicolon))),
+    break_statement: ($) => prec.right(seq("break", optional($._semicolon))),
     continue_statement: ($) =>
-      prec.right(seq("continue", optional($.semicolon))),
+      prec.right(seq("continue", optional($._semicolon))),
 
     condition_statement: ($) =>
       prec.left(
@@ -830,7 +832,7 @@ module.exports = grammar({
 
     expression_statement: ($) =>
       prec.right(
-        seq(choice($._expression, $.comma_expression), optional($.semicolon))
+        seq(choice($._expression, $.comma_expression), optional($._semicolon))
       ),
 
     return_statement: ($) =>
@@ -838,17 +840,17 @@ module.exports = grammar({
         seq(
           "return",
           optional(choice($._expression, $.comma_expression)),
-          optional($.semicolon)
+          optional($._semicolon)
         )
       ),
 
     delete_statement: ($) =>
       prec.right(
         PREC.FREE,
-        seq("delete", field("free", $._expression), optional($.semicolon))
+        seq("delete", field("free", $._expression), optional($._semicolon))
       ),
 
-    semicolon: ($) => ";",
+    _semicolon: ($) => choice($._automatic_semicolon, ";"),
 
     // Expressions
 
@@ -972,7 +974,7 @@ module.exports = grammar({
           field("condition", $._expression),
           "?",
           field("consequence", $._expression),
-          ":",
+          $._ternary_colon,
           field("alternative", $._expression)
         )
       ),

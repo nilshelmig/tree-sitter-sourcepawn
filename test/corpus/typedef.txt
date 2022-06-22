@@ -17,7 +17,7 @@ typedef SrvCmd = function Action[MAXPLAYERS+1][](int args, const char[] args, in
                     type: (argument_type
                         (type (builtin_type)))
                     name: (symbol))))
-            (semicolon))
+            )
     (typedef
         name: (symbol)
         (typedef_expression
@@ -41,7 +41,7 @@ typedef SrvCmd = function Action[MAXPLAYERS+1][](int args, const char[] args, in
                 type: (argument_type
                     (type (builtin_type)))
                 name: (symbol))))
-            (semicolon)))
+            ))
 
 
 =================================
@@ -62,7 +62,7 @@ typedef SrvCmd = (function Action (int args));
                     type: (argument_type
                         (type (builtin_type)))
                     name: (symbol))))
-        (semicolon)))
+        ))
 
 
 ======================
@@ -83,7 +83,7 @@ typedef SrvCmd = function Action (int args);
                     type: (argument_type
                         (type (builtin_type)))
                     name: (symbol))))
-        (semicolon)))
+        ))
 
 
 ===============================
@@ -142,7 +142,7 @@ typedef CustomHandler =
                     type: (argument_type
                         (type (any_type)))
                     name: (symbol))))
-        (semicolon)))
+        ))
 
 
 =======
@@ -187,7 +187,7 @@ functag public Action:SrvCmd(args, &Handle:datapack);
                     type: (argument_type
                         (old_type (symbol)))
                 name: (symbol)))
-        (semicolon)))
+        ))
 
 
 ======================
@@ -228,7 +228,7 @@ functag SrvCmd public(args, &Handle:datapack);
                     type: (argument_type
                         (old_type (symbol)))
                 name: (symbol)))
-        (semicolon)))
+        ))
 
 
 ===============================
@@ -256,4 +256,4 @@ functag Entity_ChangeOverTimeCallback bool:public(&entity, &Float:interval, &cur
             (argument_declaration
                 type: (argument_type)
                 name: (symbol)))
-        (semicolon)))
+        ))

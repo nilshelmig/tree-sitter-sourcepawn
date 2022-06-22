@@ -18,7 +18,7 @@ void Test() {
             (variable_declaration_statement
                 type: (type (symbol))
                 (variable_declaration name: (symbol))
-                (semicolon))
+                )
             (expression_statement
                 (function_call
                     function: (symbol)
@@ -32,7 +32,7 @@ void Test() {
                             field: (symbol)))
                         (string_literal)
                         (string_literal)))
-                (semicolon)))))
+                ))))
 
 =======================
 scope access expression
@@ -59,7 +59,7 @@ void Test() {
                     initialValue: (new_instance
                         class: (symbol)
                         arguments: (function_call_arguments)))
-                (semicolon))
+                )
             (expression_statement
                 (function_call
                     function: (field_access
@@ -70,4 +70,4 @@ void Test() {
                     (scope_access
                         scope: (symbol)
                         field: (symbol))))
-            (semicolon)))))
+            ))))

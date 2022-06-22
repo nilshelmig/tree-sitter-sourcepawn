@@ -16,7 +16,7 @@ int Test() {
         (block
             (return_statement
                 (sizeof_expression type: (symbol))
-                (semicolon)))))
+                ))))
 
 
 ===============================
@@ -43,14 +43,14 @@ int Test() {
                     type: (field_access
                     target: (this)
                     field: (symbol)))
-                (semicolon))
+                )
             (expression_statement
                 (sizeof_expression
                     type: (symbol)
                     type: (dimension)
                     type: (dimension)
                     type: (dimension))
-                (semicolon))
+                )
             (expression_statement
                 (sizeof_expression
                     type: (array_indexed_access
@@ -58,12 +58,12 @@ int Test() {
                     index: (int_literal))
                     type: (dimension)
                     type: (dimension))
-                (semicolon))
+                )
             (return_statement
                 (sizeof_expression
                     type: (symbol)
                     type: (dimension))
-                (semicolon)))))
+                ))))
 
 
 ==========================
@@ -84,4 +84,4 @@ int Test() {
         (block
             (return_statement
                 (sizeof_expression type: (symbol))
-                (semicolon)))))
+                ))))

@@ -271,7 +271,7 @@ public Callback1() Test();
     (function_declaration (function_visibility)
         name: (symbol)
         arguments: (argument_declarations)
-        (return_statement (int_literal) (semicolon)))
+        (return_statement (int_literal) ))
     (function_declaration (function_visibility)
         name: (symbol)
         arguments: (argument_declarations)
@@ -279,4 +279,4 @@ public Callback1() Test();
             (function_call
                 function: (symbol)
                 (function_call_arguments))
-            (semicolon))))
+            )))

@@ -16,7 +16,7 @@ void SaveClose(Handle myhandle) {
     (block
         (delete_statement
             free: (symbol)
-            (semicolon)))))
+            ))))
 
 
 ===========================
@@ -43,7 +43,7 @@ void SaveClose(Handle[] myhandle) {
             free: (array_indexed_access
               array: (symbol)
               index: (int_literal))
-            (semicolon)))))
+            ))))
 
 
 ================
@@ -66,7 +66,7 @@ void SaveClose(Handle myhandle) {
             free: (view_as
               type: (type (symbol))
               value: (symbol))
-            (semicolon)))))
+            ))))
 
 
 =============
@@ -92,7 +92,7 @@ methodmap Handle
       (block
           (delete_statement
               free: (this)
-              (semicolon))))))
+              )))))
 
 
 =====================
@@ -120,7 +120,7 @@ methodmap Handle
               free: (field_access
                 target: (this)
                 field: (symbol))
-              (semicolon))))))
+              )))))
 
 
 ======================
@@ -148,4 +148,4 @@ methodmap Handle
               free: (function_call
                 function: (symbol)
                 (function_call_arguments))
-              (semicolon))))))
+              )))))

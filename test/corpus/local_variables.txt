@@ -24,43 +24,43 @@ void Test() {
             (variable_declaration_statement
                 (type (builtin_type))
                 (variable_declaration (symbol))
-                (semicolon))
+                )
             (variable_declaration_statement
                 (type (builtin_type))
                 (variable_declaration (symbol))
-                (semicolon))
+                )
             (variable_declaration_statement
                 (type (builtin_type))
                 (variable_declaration (symbol))
-                (semicolon))
+                )
             (variable_declaration_statement
                 (type (builtin_type))
                 (variable_declaration (symbol))
-                (semicolon))
+                )
             (variable_declaration_statement
                 (type (builtin_type))
                 (dimension)
                 (variable_declaration
                     (symbol)
                     (string_literal))
-                (semicolon))
+                )
             (variable_declaration_statement
                 (type (builtin_type))
                 (variable_declaration
                 (symbol)
                 (fixed_dimension (int_literal)))
-                (semicolon))
+                )
             (variable_declaration_statement
                 (type (builtin_type))
                 (variable_declaration
                 (symbol)
                 (fixed_dimension 
                     (binary_expression (symbol) (int_literal))))
-                (semicolon))
+                )
             (variable_declaration_statement
                 (type (symbol))
             (variable_declaration (symbol))
-            (semicolon)))))
+            ))))
 
 
 ==============
@@ -91,7 +91,7 @@ void Test() {
                 (type (builtin_type))
                 (variable_declaration
                     (symbol) (int_literal))
-                (semicolon))
+                )
             (variable_declaration_statement
                 (type (builtin_type))
                 (variable_declaration
@@ -99,7 +99,7 @@ void Test() {
                     (binary_expression
                         (int_literal)
                         (int_literal)))
-                (semicolon))
+                )
             (variable_declaration_statement
                 (type (builtin_type))
                 (variable_declaration
@@ -111,22 +111,22 @@ void Test() {
                 (type (builtin_type))
                 (variable_declaration
                     (symbol) (float_literal))
-                (semicolon))
+                )
             (variable_declaration_statement
                 (type (builtin_type))
             (variable_declaration
                 (symbol) (char_literal))
-                (semicolon))
+                )
             (variable_declaration_statement
                 (type (builtin_type))
             (variable_declaration
                 (symbol) (bool_literal))
-                (semicolon))
+                )
             (variable_declaration_statement
                 (type (symbol))
             (variable_declaration
                 (symbol) (null))
-                (semicolon)))))
+                ))))
 
 
 ====================
@@ -155,7 +155,7 @@ void Test() {
             (dimension)
             (variable_declaration
                 (symbol) (string_literal))
-            (semicolon))
+            )
             (variable_declaration_statement
                 (type (builtin_type))
                 (variable_declaration
@@ -165,7 +165,7 @@ void Test() {
                     (int_literal)
                     (int_literal)
                     (int_literal)))
-            (semicolon))
+            )
             (variable_declaration_statement
                 (type (builtin_type))
                 (variable_declaration
@@ -175,7 +175,7 @@ void Test() {
                         (float_literal)
                         (float_literal)
                         (float_literal)))
-            (semicolon))
+            )
             (variable_declaration_statement
                 (type (builtin_type))
                 (variable_declaration
@@ -184,7 +184,7 @@ void Test() {
                     (array_litteral
                         (bool_literal)
                         (rest_operator)))
-            (semicolon))
+            )
             (variable_declaration_statement
                 (type (builtin_type))
                 (dimension)
@@ -195,7 +195,7 @@ void Test() {
                         (binary_expression
                         (symbol)
                         (int_literal)))))
-            (semicolon))
+            )
             (variable_declaration_statement
                 (type (symbol))
                 (dimension)
@@ -205,7 +205,7 @@ void Test() {
                         (symbol)
                         (fixed_dimension
                         (symbol))))
-            (semicolon)))))
+            ))))
 
 
 =============
@@ -232,24 +232,24 @@ void Test() {
                 (type (builtin_type))
                 (variable_declaration
                     (symbol) (int_literal))
-            (semicolon))
+            )
             (variable_declaration_statement
                 (variable_storage_class)
                 (type (symbol))
                 (variable_declaration
                     (symbol) (int_literal))
-            (semicolon))
+            )
             (variable_declaration_statement
                 (variable_storage_class)
                 (type (builtin_type))
                 (variable_declaration
                     (symbol) (int_literal))
-            (semicolon))
+            )
             (variable_declaration_statement
                 (variable_storage_class)
                 (type (symbol))
                 (variable_declaration (symbol))
-            (semicolon)))))
+            ))))
 
 
 =======================
@@ -281,7 +281,7 @@ void Test(){
             (dimension)
             (variable_declaration
               (symbol))
-            (semicolon))
+            )
           (variable_declaration_statement
             (type
               (symbol))
@@ -289,7 +289,7 @@ void Test(){
             (dimension)
             (variable_declaration
               (symbol))
-            (semicolon))
+            )
           (variable_declaration_statement
             (type
               (builtin_type))
@@ -299,7 +299,7 @@ void Test(){
                 (symbol))
               (fixed_dimension
                 (int_literal)))
-            (semicolon))
+            )
           (variable_declaration_statement
             (type
               (builtin_type))
@@ -309,7 +309,7 @@ void Test(){
                 (symbol))
               (fixed_dimension
                 (int_literal)))
-            (semicolon))
+            )
           (variable_declaration_statement
             (type
               (builtin_type))
@@ -330,7 +330,7 @@ void Test(){
                   (int_literal)
                   (int_literal)
                   (int_literal))))
-            (semicolon))
+            )
           (variable_declaration_statement
             (type
               (builtin_type))
@@ -346,4 +346,4 @@ void Test(){
                     (int_literal)))
                 (fixed_dimension
                   (int_literal))))
-            (semicolon)))))
+            ))))

@@ -18,7 +18,7 @@ void Test() {
                 (field_access
                     target: (symbol)
                     field: (symbol))
-                (semicolon)))))
+                ))))
 
 
 ======================
@@ -42,7 +42,7 @@ enum struct Rectangle
         (enum_struct_field
             type: (type (builtin_type))
             name: (symbol)
-            (semicolon))
+            )
 
         (enum_struct_method
             returnType: (type (builtin_type))
@@ -53,7 +53,7 @@ enum struct Rectangle
                     (field_access
                         target: (this)
                         field: (symbol))
-                    (semicolon))))))
+                    )))))
 
 
 ======================================
@@ -78,7 +78,7 @@ void Test() {
                         array: (symbol)
                         index: (int_literal))
                     field: (symbol))
-                (semicolon)))))
+                ))))
 
 
 ===============================
@@ -103,4 +103,4 @@ void Test() {
                         function: (symbol)
                         (function_call_arguments))
                     field: (symbol))
-                (semicolon)))))
+                ))))

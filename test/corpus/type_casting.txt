@@ -22,31 +22,31 @@ void Test() {
                 (view_as
                     type: (type (builtin_type))
                     value: (int_literal))
-                (semicolon))
+                )
             (expression_statement
                 (view_as
                     type: (type (symbol))
                     value: (int_literal))
-                (semicolon))
+                )
             (expression_statement
                 (view_as
                     type: (type (builtin_type))
                     value: (symbol))
-            (semicolon))
+            )
             (expression_statement
                 (view_as
                     type: (type (builtin_type))
                     value: (field_access
                     target: (this)
                     field: (symbol)))
-            (semicolon))
+            )
             (expression_statement
                 (view_as
                     type: (type (builtin_type))
                     value: (new_instance
                     class: (symbol)
                     arguments: (function_call_arguments)))
-            (semicolon)))))
+            ))))
 
 
 ============================
@@ -70,7 +70,7 @@ int test = view_as<int>(2 < 5 && 10 > 8);
                     right: (binary_expression
                         left: (int_literal)
                         right: (int_literal)))))
-        (semicolon)))
+        ))
 
 
 ======================
@@ -90,7 +90,7 @@ bool test = view_as<bool>(view_as<int>(Plugin_Handled));
                 value: (view_as
                     type: (type (builtin_type))
                     value: (symbol))))
-        (semicolon)))
+        ))
 
 
 =====================
@@ -118,7 +118,7 @@ void foo(){
                         left: (symbol)
                         right: (parenthesized_expression
                             (symbol))))
-        (semicolon)))))
+        ))))
 
 
 =============
@@ -145,27 +145,27 @@ WormDirection:GetOppositeDirection() {
                 (old_type_cast
                     type: (old_type (old_builtin_type))
                     value: (float_literal))
-                (semicolon))
+                )
             (expression_statement
                 (old_type_cast
                     type: (old_type (old_builtin_type))
                     value: (int_literal))
-                (semicolon))
+                )
             (expression_statement
                 (old_type_cast
                     type: (old_type (old_builtin_type))
                     value: (int_literal))
-                (semicolon))
+                )
             (expression_statement
                 (old_type_cast
                     type: (old_type (old_builtin_type))
                     value: (symbol))
-                (semicolon))
+                )
             (return_statement
                 (old_type_cast
                     type: (old_type (symbol))
                     value: (int_literal))
-                (semicolon)))))
+                ))))
 
 
 =====================================
@@ -192,4 +192,4 @@ Float:GetOppositeDirection() {
                     right: (old_type_cast
                         type: (old_type (old_builtin_type))
                         value: (int_literal)))
-                (semicolon)))))
+                ))))

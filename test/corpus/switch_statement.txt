@@ -31,18 +31,18 @@ public void OnPluginStart() {
                     value: (switch_case_values (int_literal))
                     (expression_statement
                         (update_expression argument: (symbol))
-                        (semicolon))
-                    (break_statement (semicolon)))
+                        )
+                    (break_statement ))
                 (switch_case
                     value: (switch_case_values (int_literal))
-                    (return_statement (semicolon)))
+                    (return_statement ))
                 (switch_case
                     value: (switch_case_values (symbol))
                     (block
                         (expression_statement
                             (update_expression argument: (symbol))
-                            (semicolon))
-                        (return_statement (semicolon))))))))
+                            )
+                        (return_statement )))))))
 
 
 ===============================
@@ -78,17 +78,17 @@ public void OnPluginStart() {
                     value: (switch_case_values (int_literal))
                     (expression_statement
                         (update_expression argument: (symbol))
-                        (semicolon))
-                    (break_statement (semicolon)))
+                        )
+                    (break_statement ))
                 (switch_case
                     value: (switch_case_values (int_literal))
-                    (return_statement (semicolon)))
+                    (return_statement ))
                 (switch_default_case
                     (block
                         (expression_statement
                             (update_expression argument: (symbol))
-                            (semicolon))
-                        (return_statement (semicolon))))))))
+                            )
+                        (return_statement )))))))
 
 
 ==============================================
@@ -119,7 +119,7 @@ public void OnPluginStart() {
                         (int_literal)
                         (int_literal)
                         (int_literal))
-                    (return_statement (semicolon)))))))
+                    (return_statement ))))))
 
 
 ===========================

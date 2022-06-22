@@ -16,7 +16,7 @@ public void OnPluginStart() {
         (block
             (condition_statement
                 condition: (bool_literal)
-                truePath: (return_statement (semicolon))))))
+                truePath: (return_statement )))))
 
 
 ========================
@@ -38,8 +38,8 @@ public void OnPluginStart() {
         (block
             (condition_statement
                 condition: (bool_literal)
-                truePath: (return_statement (semicolon))
-                falsePath: (return_statement (semicolon))))))
+                truePath: (return_statement )
+                falsePath: (return_statement )))))
 
 
 =============================
@@ -63,14 +63,14 @@ public void OnPluginStart() {
         (block
             (condition_statement
                 condition: (bool_literal)
-                truePath: (return_statement (semicolon))
+                truePath: (return_statement )
                 falsePath: (condition_statement
                     condition: (bool_literal)
-                    truePath: (return_statement (semicolon))
+                    truePath: (return_statement )
                     falsePath: (condition_statement
                         condition: (bool_literal)
-                        truePath: (return_statement (semicolon))
-                        falsePath: (return_statement (semicolon))))))))
+                        truePath: (return_statement )
+                        falsePath: (return_statement )))))))
 
 
 ====================
@@ -93,7 +93,7 @@ public void OnPluginStart() {
         (block
             (condition_statement
                 condition: (bool_literal)
-                truePath: (block (return_statement (semicolon)))))))
+                truePath: (block (return_statement ))))))
 
 
 ==============================
@@ -119,7 +119,7 @@ public void OnPluginStart() {
         (block
             (condition_statement
                 condition: (bool_literal)
-                truePath: (block (return_statement (semicolon)))
+                truePath: (block (return_statement ))
                 falsePath: (block)))))
 
 
@@ -144,7 +144,7 @@ public void OnPluginStart() {
         (block
             (condition_statement
                 condition: (unary_expression argument: (bool_literal))
-                truePath: (return_statement (semicolon)))
+                truePath: (return_statement ))
             (condition_statement
                 condition: (binary_expression
                     left: (unary_expression
@@ -153,14 +153,14 @@ public void OnPluginStart() {
                                 left: (int_literal)
                                 right: (int_literal))))
                     right: (int_literal))
-                truePath: (return_statement (semicolon)))
+                truePath: (return_statement ))
             (condition_statement
                 condition: (binary_expression
                     left: (unary_expression argument: (parenthesized_expression (int_literal)))
                     right: (int_literal))
-                truePath: (return_statement (semicolon)))
+                truePath: (return_statement ))
             (condition_statement
                 condition: (binary_expression
                     left: (unary_expression argument: (symbol))
                     right: (int_literal))
-                truePath: (return_statement (semicolon))))))
+                truePath: (return_statement )))))

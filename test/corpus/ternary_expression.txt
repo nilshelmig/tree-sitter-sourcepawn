@@ -24,7 +24,7 @@ int GetOppositeDirection() {
                     alternative: (function_call
                         function: (symbol)
                         (function_call_arguments)))
-                (semicolon))
+                )
             (return_statement
                 (ternary_expression
                     condition: (binary_expression
@@ -32,7 +32,7 @@ int GetOppositeDirection() {
                         right: (int_literal))
                     consequence: (int_literal)
                     alternative: (symbol))
-                (semicolon)))))
+                ))))
 
 
 ========================================
@@ -60,7 +60,7 @@ int GetOppositeDirection() {
                         (function_call_arguments))
                     consequence: (symbol)
                     alternative: (int_literal))
-                (semicolon))
+                )
           (old_variable_declaration_statement
             (old_variable_declaration
               type: (old_type (symbol))
@@ -75,7 +75,7 @@ int GetOppositeDirection() {
                       condition: (symbol)
                       consequence: (symbol)
                       alternative: (int_literal))))))
-            (semicolon))
+            )
                   (return_statement
             (ternary_expression
               condition: (binary_expression
@@ -89,7 +89,7 @@ int GetOppositeDirection() {
                 (old_type_cast
                   type: (old_type (symbol))
                   value: (int_literal))))
-            (semicolon)))))
+            ))))
 
 ==================================================
 ternary expression with conditional expression
@@ -123,4 +123,4 @@ int GetOppositeDirection() {
                             right: (int_literal))
                         consequence: (int_literal)
                         alternative: (symbol)))
-                (semicolon)))))
+                ))))

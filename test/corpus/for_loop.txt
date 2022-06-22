@@ -21,11 +21,11 @@ public void OnPluginStart() {
                     (variable_declaration
                         name: (symbol)
                         initialValue: (int_literal)))
-                (semicolon)
+                
                 condition: (binary_expression
                     left: (symbol)
                     right: (int_literal))
-                (semicolon)
+                
                 iteration: (expression_statement
                     (update_expression
                         argument: (symbol)))
@@ -36,11 +36,11 @@ public void OnPluginStart() {
                 (variable_declaration
                     name: (symbol)
                     initialValue: (int_literal)))
-                (semicolon)
+                
                 condition: (binary_expression
                     left: (symbol)
                     right: (symbol))
-                (semicolon)
+                
                 iteration: (expression_statement
                 (update_expression
                     argument: (symbol)))
@@ -66,11 +66,11 @@ public void OnPluginStart() {
         arguments: (argument_declarations)
         (block
             (for_loop
-                (semicolon)
+                
                 condition: (binary_expression
                     left: (symbol)
                     right: (int_literal))
-                (semicolon)
+                
                 iteration: (expression_statement
                     (update_expression
                         argument: (symbol)))
@@ -101,8 +101,8 @@ public void OnPluginStart() {
                     (variable_declaration
                         name: (symbol)
                         initialValue: (int_literal)))
-                (semicolon)
-                (semicolon)
+                
+                
                 iteration: (expression_statement
                     (update_expression
                         argument: (symbol)))
@@ -133,11 +133,11 @@ public void OnPluginStart() {
                     (variable_declaration
                         name: (symbol)
                         initialValue: (int_literal)))
-                (semicolon)
+                
                 condition: (binary_expression
                     left: (symbol)
                     right: (int_literal))
-                    (semicolon)
+                    
                     (block)))))
 
 
@@ -160,8 +160,8 @@ public void OnPluginStart() {
         arguments: (argument_declarations)
         (block
             (for_loop
-                (semicolon)
-                (semicolon)
+                
+                
                 (block)))))
 
 
@@ -184,9 +184,9 @@ public void OnPluginStart() {
         arguments: (argument_declarations)
         (block
             (for_loop
-                (semicolon)
-                (semicolon)
-                (block (break_statement (semicolon)))))))
+                
+                
+                (block (break_statement ))))))
 
 
 ===================
@@ -208,9 +208,9 @@ public void OnPluginStart() {
         arguments: (argument_declarations)
         (block
             (for_loop
-                (semicolon)
-                (semicolon)
-                (block (continue_statement (semicolon)))))))
+                
+                
+                (block (continue_statement ))))))
 
 
 ===========================
@@ -230,9 +230,9 @@ public void OnPluginStart() {
         arguments: (argument_declarations)
         (block
             (for_loop
-                (semicolon)
-                (semicolon)
-                (break_statement (semicolon))))))
+                
+                
+                (break_statement )))))
 
 
 =======================================
@@ -255,13 +255,13 @@ public void OnPluginStart() {
                 initialization: (assignment_expression
                         left: (symbol)
                         right: (int_literal))
-                (semicolon)
+                
                 condition: (binary_expression
                     left: (symbol)
                     right: (int_literal))
-                (semicolon)
+                
                 iteration: (expression_statement (update_expression argument: (symbol)))
-                (break_statement (semicolon))))))
+                (break_statement )))))
 
 
 ==============
@@ -289,14 +289,14 @@ public void OnPluginStart() {
                     (old_variable_declaration
                         name: (symbol)
                         initialValue: (int_literal)))
-                (semicolon)
+                
                 condition: (binary_expression
                     left: (symbol)
                     right: (int_literal))
-                (semicolon)
+                
                 iteration: (expression_statement (update_expression argument: (symbol)))
                 (break_statement
-                (semicolon)))
+                ))
             (for_loop
                 initialization: (old_variable_declaration_statement
                     (old_variable_declaration
@@ -304,11 +304,11 @@ public void OnPluginStart() {
                         initialValue: (binary_expression
                             left: (symbol)
                             right: (int_literal))))
-                (semicolon)
+                
                 condition: (binary_expression
                     left: (symbol)
                     right: (symbol))
-                (semicolon)
+                
                 iteration: (expression_statement
                     (update_expression argument: (symbol)))
             (block))
@@ -319,11 +319,11 @@ public void OnPluginStart() {
                 initialization: (assignment_expression
                     left: (symbol)
                     right: (int_literal))
-                (semicolon)
+                
                 condition: (binary_expression
                     left: (symbol)
                     right: (int_literal))
-                (semicolon)
+                
                 iteration: (expression_statement
                 (comma_expression
                     left: (update_expression
@@ -333,4 +333,4 @@ public void OnPluginStart() {
                         right: (int_literal))))
             (block
               (break_statement
-                (semicolon)))))))
+                ))))))

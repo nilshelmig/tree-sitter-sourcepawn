@@ -17,37 +17,37 @@ forward Action MyFunc6();
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (type (symbol))
         name: (symbol)
         arguments: (argument_declarations)
-        (semicolon)))
+        ))
 
 
 ================================
@@ -71,7 +71,7 @@ forward void MyFunc8(char a[MAX_PATH]);
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol)))
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (type (builtin_type))
@@ -81,43 +81,43 @@ forward void MyFunc8(char a[MAX_PATH]);
             (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol))
             (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol))
             (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol)))
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations (argument_declaration type: (argument_type (type (symbol))) name: (symbol)))
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type)) (dimension)) name: (symbol)))
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol)))
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol) defaultValue: (int_literal)))
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol) (fixed_dimension (int_literal))))
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol) (fixed_dimension (symbol))))
-        (semicolon)))
+        ))
 
 
 ============================
@@ -138,37 +138,37 @@ forward Action:MyFunc6();
         (function_definition_type)
         name: (symbol)
         arguments: (argument_declarations)
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (old_type (old_builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (old_type (old_builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (old_type (old_builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (old_type (old_builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (old_type (symbol))
         name: (symbol)
         arguments: (argument_declarations)
-        (semicolon)))
+        ))
 
 
 ======================================
@@ -192,7 +192,7 @@ forward MyFunc9(String:a[MAX_PATH]);
         (function_definition_type)
         name: (symbol)
         arguments: (argument_declarations (argument_declaration name: (symbol)))
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         name: (symbol)
@@ -201,42 +201,42 @@ forward MyFunc9(String:a[MAX_PATH]);
             (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol))
             (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol))
             (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol)))
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         name: (symbol)
         arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (symbol))) name: (symbol)))
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         name: (symbol)
         arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol) (dimension)))
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         name: (symbol)
         arguments: (argument_declarations (argument_declaration type: (argument_type) name: (symbol)))
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         name: (symbol)
         arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol)))
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         name: (symbol)
         arguments: (argument_declarations (argument_declaration name: (symbol) defaultValue: (int_literal)))
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         name: (symbol)
         arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol) (fixed_dimension (int_literal))))
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         name: (symbol)
         arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol) (fixed_dimension (symbol))))
-        (semicolon)))
+        ))
 
 
 =========================================
@@ -254,7 +254,7 @@ forward void MyFunc2(_:client, any:data);
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (any_type))) name: (symbol)))
-    (semicolon))
+    )
     (function_definition
         (function_definition_type)
         returnType: (type (builtin_type))
@@ -262,7 +262,7 @@ forward void MyFunc2(_:client, any:data);
         arguments: (argument_declarations
             (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol))
             (argument_declaration type: (argument_type (old_type (any_type))) name: (symbol)))
-    (semicolon)))
+    ))
 
 
 =================================
@@ -279,7 +279,7 @@ forward void MyFunc(any ...);
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations (rest_argument type: (type (any_type))))
-    (semicolon)))
+    ))
 
 
 ======================================
@@ -317,37 +317,37 @@ native Action MyFunc6();
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (type (symbol))
         name: (symbol)
         arguments: (argument_declarations)
-        (semicolon)))
+        ))
 
 
 ======================
@@ -368,37 +368,37 @@ native Action:MyFunc6();
         (function_definition_type)
         name: (symbol)
         arguments: (argument_declarations)
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (old_type (old_builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (old_type (old_builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (old_type (old_builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (old_type (old_builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (old_type (symbol))
         name: (symbol)
         arguments: (argument_declarations)
-        (semicolon)))
+        ))
 
 
 ================================
@@ -416,7 +416,7 @@ native void MyFunc2(const char[] format, any ...);
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations (rest_argument type: (type (builtin_type))))
-        (semicolon))
+        )
     (function_definition
         (function_definition_type)
         returnType: (type (builtin_type))
@@ -426,7 +426,7 @@ native void MyFunc2(const char[] format, any ...);
                 type: (argument_type (type (builtin_type)) (dimension))
                 name: (symbol))
             (rest_argument type: (type (any_type))))
-        (semicolon)))
+        ))
 
 
 =====================================

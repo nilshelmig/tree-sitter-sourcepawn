@@ -18,7 +18,7 @@ void Test() {
             (function_call
                 function: (symbol)
                 (function_call_arguments))
-            (semicolon)))))
+            ))))
 
 
 ============================
@@ -42,7 +42,7 @@ void Test() {
             (function_call
                 function: (symbol)
                 (function_call_arguments (string_literal)))
-            (semicolon))
+            )
         (expression_statement
             (function_call
                 function: (symbol)
@@ -55,7 +55,7 @@ void Test() {
                     (int_literal)
                     (int_literal)
                     (int_literal)))
-            (semicolon)))))
+            ))))
 
 
 ==================================
@@ -88,7 +88,7 @@ void Test() {
                     (named_arg
                         name: (symbol)
                         value: (symbol))))
-            (semicolon)))))
+            ))))
 
 
 ===================================
@@ -115,7 +115,7 @@ void Test() {
                     (ignore_argument)
                     (float_literal)
                     (ignore_argument)))
-            (semicolon)))))
+            ))))
 
 
 ===========================
@@ -140,7 +140,7 @@ bool Test() {
                     right: (function_call
                         function: (symbol)
                         (function_call_arguments)))
-                (semicolon)))))
+                ))))
 
 
 =======================================
@@ -166,7 +166,7 @@ void Test() {
                         (function_call
                             function: (symbol)
                             (function_call_arguments))))
-                (semicolon)))))
+                ))))
 
 
 ==============================
@@ -184,7 +184,7 @@ int count = CurrentCount();
             initialValue: (function_call
                 function: (symbol)
                 (function_call_arguments)))
-        (semicolon)))
+        ))
 
 
 ===============================
@@ -209,4 +209,4 @@ void Test() {
                             target: (symbol)
                             field: (symbol))
                         (function_call_arguments (string_literal)))
-                (semicolon)))))
+                ))))

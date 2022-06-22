@@ -41,11 +41,11 @@ methodmap Handle {
         (methodmap_alias
             name: (symbol)
             function: (symbol)
-            (semicolon))
+            )
         (methodmap_alias
             name: (symbol)
             function: (symbol)
-            (semicolon))))
+            )))
 
 
 ============================
@@ -74,7 +74,7 @@ methodmap AdminId {
                 (argument_declaration
                         type: (argument_type (type (builtin_type)))
                     name: (symbol)))
-            (semicolon))
+            )
         (methodmap_native
             returnType: (type (builtin_type))
             name: (symbol)
@@ -87,7 +87,7 @@ methodmap AdminId {
                         type: (argument_type (type (builtin_type)))
                     name: (symbol)
                     defaultValue: (int_literal)))
-            (semicolon))
+            )
         (methodmap_native
             returnType: (type (builtin_type))
             name: (symbol)
@@ -96,7 +96,7 @@ methodmap AdminId {
                         type: (argument_type (type (builtin_type)) (dimension))
                     name: (symbol))
                 (rest_argument type: (type (any_type))))
-            (semicolon))
+            )
         (methodmap_native
             returnType: (type (symbol))
             name: (symbol)
@@ -104,7 +104,7 @@ methodmap AdminId {
                 (argument_declaration
                         type: (argument_type (type (builtin_type)) (dimension))
                     name: (symbol)))
-            (semicolon))))
+            )))
 
 
 ============================================
@@ -127,10 +127,10 @@ methodmap AdminId {
                 (argument_declaration
                         type: (argument_type (type (builtin_type)))
                     name: (symbol)))
-            (semicolon))
+            )
         (methodmap_native_destructor
             name: (symbol)
-            (semicolon))))
+            )))
 
 
 ============================
@@ -162,7 +162,7 @@ methodmap PerkContainerIter {
                         type: (argument_type (type (builtin_type)))
                     name: (symbol)
                     defaultValue: (int_literal)))
-            (block (return_statement (bool_literal) (semicolon))))
+            (block (return_statement (bool_literal) )))
         (methodmap_method
             returnType: (type (builtin_type))
             name: (symbol)
@@ -197,7 +197,7 @@ methodmap AdminId {
                 (argument_declaration
                         type: (argument_type (type (builtin_type)))
                     name: (symbol)))
-            (block (return_statement (symbol) (semicolon))))
+            (block (return_statement (symbol) )))
         (methodmap_method_destructor
             name: (symbol)
             (block))))
@@ -229,7 +229,7 @@ methodmap PerkContainerIter {
                         type: (argument_type (type (builtin_type)))
                     name: (symbol)
                     defaultValue: (int_literal)))
-            (block (return_statement (bool_literal) (semicolon))))))
+            (block (return_statement (bool_literal) )))))
 
 
 ===================================
@@ -251,7 +251,7 @@ methodmap MyValue {
             returnType: (type (builtin_type))
             name: (symbol)
             (argument_declarations)
-            (block (return_statement (this) (semicolon))))))
+            (block (return_statement (this) )))))
 
 
 ===============================
@@ -275,7 +275,7 @@ methodmap AdtArray {
             (methodmap_property_alias
                 (methodmap_property_getter)
                 function: (symbol)
-                (semicolon)))))
+                ))))
 
 
 ================================
@@ -306,12 +306,12 @@ methodmap Player {
             name: (symbol)
             (methodmap_property_native
                 (methodmap_property_getter)
-                (semicolon))
+                )
             (methodmap_property_native
                 (methodmap_property_setter
                     type: (type (builtin_type))
                     name: (symbol))
-            (semicolon)))
+            ))
         (comment)
         (preproc_pragma (preproc_arg))
         (methodmap_property
@@ -319,12 +319,12 @@ methodmap Player {
             name: (symbol)
             (methodmap_property_native
                 (methodmap_property_getter)
-                (semicolon))
+                )
             (methodmap_property_native
                 (methodmap_property_setter
                     type: (type (builtin_type))
                     name: (symbol))
-            (semicolon)))))
+            ))))
 
 
 =======================================
@@ -355,13 +355,13 @@ methodmap Player {
                 (block
                     (return_statement
                         (bool_literal)
-                        (semicolon))))
+                        )))
             (methodmap_property_method
                 (methodmap_property_setter
                     type: (type (builtin_type))
                     name: (symbol))
                 (block
-                    (return_statement (semicolon)))))))
+                    (return_statement ))))))
 
 
 ==============================
@@ -381,9 +381,9 @@ methodmap Handle {
         (methodmap_alias
             name: (symbol)
             function: (symbol)
-            (semicolon))
+            )
         (methodmap_alias
             name: (symbol)
             function: (symbol)
-            (semicolon))
-        (semicolon)))
+            )
+        ))

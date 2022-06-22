@@ -21,38 +21,38 @@ vec[];
 (source_file
     (old_global_variable_declaration
         (old_variable_declaration name: (symbol))
-        (semicolon))
+        )
     (old_global_variable_declaration
         (variable_storage_class)
         (old_variable_declaration name: (symbol))
-        (semicolon))
+        )
     (old_global_variable_declaration
         (old_variable_declaration name: (symbol))
-        (semicolon))
+        )
     (old_global_variable_declaration
         (old_variable_declaration
             type: (old_type (old_builtin_type))
             name: (symbol)
             initialValue: (float_literal))
-        (semicolon))
+        )
     (old_global_variable_declaration
         (old_variable_declaration
             type: (old_type (old_builtin_type))
             name: (symbol)
             initialValue: (float_literal))
-        (semicolon))
+        )
     (old_global_variable_declaration
         (old_variable_declaration
             name: (symbol)
             initialValue: (binary_expression
                 left: (int_literal)
                 right: (int_literal)))
-        (semicolon))
+        )
     (old_global_variable_declaration
         (old_variable_declaration
             type: (old_type (old_builtin_type))
             name: (symbol))
-        (semicolon))
+        )
     (old_global_variable_declaration
         (old_variable_declaration
             type: (old_type (old_builtin_type))
@@ -69,19 +69,19 @@ vec[];
             type: (old_type (old_builtin_type))
             name: (symbol)
             initialValue: (char_literal))
-        (semicolon))
+        )
     (old_global_variable_declaration
         (old_variable_declaration
             type: (old_type (symbol))
             name: (symbol)
             initialValue: (symbol))
-        (semicolon))
+        )
     (old_global_variable_declaration
         (old_variable_declaration
             type: (old_type (symbol))
             name: (symbol)
             initialValue: (symbol))
-        (semicolon))
+        )
     (old_global_variable_declaration
         (old_variable_declaration
             name: (symbol)
@@ -89,12 +89,12 @@ vec[];
                 (binary_expression
                     left: (symbol)
                     right: (int_literal))))
-        (semicolon))
+        )
     (old_global_variable_declaration
         (old_variable_declaration
             name: (symbol)
             (dimension))
-        (semicolon)))
+        ))
 
 
 ============
@@ -122,7 +122,7 @@ static chatColorInfo[][ChatColorInfo] =
         (old_variable_declaration
             name: (symbol)
             (fixed_dimension (int_literal)))
-        (semicolon))
+        )
     (old_global_variable_declaration
         (old_variable_declaration
             name: (symbol)
@@ -130,27 +130,27 @@ static chatColorInfo[][ChatColorInfo] =
             (binary_expression
                 left: (symbol)
                 right: (int_literal))))
-        (semicolon))
+        )
     (old_global_variable_declaration
         (old_variable_declaration
             type: (old_type (old_builtin_type))
             name: (symbol)
             (fixed_dimension (int_literal))
             initialValue: (string_literal))
-        (semicolon))
+        )
     (old_global_variable_declaration
         (old_variable_declaration
             type: (old_type (old_builtin_type))
             name: (symbol)
             (fixed_dimension (int_literal))
             initialValue: (array_litteral (float_literal) (float_literal) (float_literal)))
-        (semicolon))
+        )
     (old_global_variable_declaration
         (old_variable_declaration
             name: (symbol)
             (dimension)
             initialValue: (array_litteral (int_literal) (int_literal) (int_literal) (int_literal) (int_literal)))
-        (semicolon))
+        )
     (old_global_variable_declaration
         (variable_storage_class)
         (old_variable_declaration
@@ -182,7 +182,7 @@ static chatColorInfo[][ChatColorInfo] =
                     (bool_literal)
                     (symbol))
                 (comment)))
-        (semicolon)))
+        ))
 
 
 =============================
@@ -207,7 +207,7 @@ new g_DefaultColors_c[7][4] = { {255,255,255,255}, {255,0,0,255}, {0,255,0,255},
                 (array_litteral (int_literal) (int_literal) (int_literal) (int_literal))
                 (array_litteral (int_literal) (int_literal) (int_literal) (int_literal))
                 (array_litteral (int_literal) (int_literal) (int_literal) (int_literal))))
-        (semicolon)))
+        ))
 
 
 ===================
@@ -244,23 +244,23 @@ public numHaleKills = 0;
             (old_type (old_builtin_type))
             (symbol)
             (fixed_dimension (int_literal)))
-            (semicolon))
+            )
     (old_global_variable_declaration
         (variable_storage_class)
         (old_variable_declaration
             (symbol) (int_literal))
-            (semicolon))
+            )
     (old_global_variable_declaration
         (variable_storage_class)
         (old_variable_declaration
         (old_type (old_builtin_type)) (symbol) (bool_literal))
-        (semicolon))
+        )
     (old_global_variable_declaration
         (variable_storage_class)
         (old_variable_declaration
             (symbol)
             (char_literal))
-        (semicolon))
+        )
     (old_global_variable_declaration
         (variable_storage_class)
         (old_variable_declaration
@@ -270,7 +270,7 @@ public numHaleKills = 0;
             (comment)
             (comment)
             (string_literal))
-        (semicolon))
+        )
     (old_global_variable_declaration
         (variable_storage_class)
         (old_variable_declaration
@@ -296,7 +296,7 @@ public numHaleKills = 0;
                 (int_literal)
                 (int_literal)
                 (comment)))
-        (semicolon))
+        )
     (old_global_variable_declaration
         (variable_storage_class)
         (old_variable_declaration
@@ -329,12 +329,12 @@ public numHaleKills = 0;
                     (int_literal)
                     (int_literal)))
             (comment)))
-        (semicolon))
+        )
     (old_global_variable_declaration
         (variable_visibility)
         (old_variable_declaration
           (symbol) (int_literal))
-        (semicolon)))
+        ))
 
 
 ========================

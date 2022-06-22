@@ -82,13 +82,13 @@ void MyFunc() {
             (function_call
             function: (symbol)
             (function_call_arguments))
-            (semicolon))
+            )
         (preproc_else)
         (expression_statement
             (function_call
             function: (symbol)
             (function_call_arguments))
-            (semicolon))
+            )
         (preproc_endif))))
 
 
@@ -121,7 +121,7 @@ enum
                 name: (symbol)
                 value: (int_literal))
             (preproc_endif))
-        (semicolon)))
+        ))
 
 
 =========================

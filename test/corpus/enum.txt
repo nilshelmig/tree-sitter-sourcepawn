@@ -156,7 +156,7 @@ enum f_invulnmode {
     (enum
         name: (symbol)
         entries: (enum_entries (enum_entry name: (symbol)))
-        (semicolon)))
+        ))
 
 
 =====================
@@ -173,7 +173,7 @@ enum FOO: {
     (enum
         name: (symbol)
         entries: (enum_entries (enum_entry name: (symbol)))
-        (semicolon)))
+        ))
 
 
 =======================
@@ -195,7 +195,7 @@ enum FOO
                 name: (symbol)
                 (fixed_dimension
                 (int_literal))))
-        (semicolon)))
+        ))
 
 ======================
 enum with type casting
@@ -225,7 +225,7 @@ enum ChatColorInfo
             (enum_entry
                 type: (symbol)
                 name: (symbol)))
-        (semicolon)))
+        ))
 
 
 ===============================

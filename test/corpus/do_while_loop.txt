@@ -19,7 +19,7 @@ public void OnPluginStart() {
             (do_while_loop
                 (block)
                 condition: (bool_literal)
-                (semicolon)))))
+                ))))
 
 
 =======================================
@@ -45,7 +45,7 @@ public void OnPluginStart() {
                 condition: (binary_expression
                     left: (int_literal)
                     right: (int_literal))
-                (semicolon)))))
+                ))))
 
 
 =====================
@@ -68,9 +68,9 @@ public void OnPluginStart() {
         arguments: (argument_declarations)
         (block
             (do_while_loop
-                (block (break_statement (semicolon)))
+                (block (break_statement ))
                 condition: (bool_literal)
-                (semicolon)))))
+                ))))
 
 
 ========================
@@ -93,9 +93,9 @@ public void OnPluginStart() {
         arguments: (argument_declarations)
         (block
             (do_while_loop
-                (block (continue_statement (semicolon)))
+                (block (continue_statement ))
                 condition: (bool_literal)
-                (semicolon)))))
+                ))))
 
 
 ==================================
@@ -118,5 +118,5 @@ public void OnPluginStart() {
         arguments: (argument_declarations)
         (block
             (do_while_loop
-                (block (continue_statement (semicolon)))
+                (block (continue_statement ))
                 condition: (bool_literal)))))

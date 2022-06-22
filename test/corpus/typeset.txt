@@ -23,7 +23,7 @@ typeset Timer {
                     type: (argument_type 
                         (type (symbol)))
                     name: (symbol))))
-        (semicolon)
+        
         (typedef_expression
             returnType: (type (symbol))
             (argument_declarations
@@ -31,7 +31,7 @@ typeset Timer {
                     type: (argument_type 
                         (type (symbol)))
                     name: (symbol))))
-        (semicolon)))
+        ))
 
 
 =============================
@@ -59,7 +59,7 @@ typeset Timer {
                     type: (argument_type 
                         (type (symbol)))
                     name: (symbol))))
-        (semicolon)
+        
         (typedef_expression
             returnType: (type (symbol))
             (argument_declarations
@@ -67,8 +67,8 @@ typeset Timer {
                     type: (argument_type 
                         (type (symbol)))
                     name: (symbol))))
-        (semicolon)
-        (semicolon)))
+        
+        ))
 
 
 =================================
@@ -96,7 +96,7 @@ typeset Timer {
                     type: (argument_type 
                         (type (symbol)))
                     name: (symbol))))
-        (semicolon)
+        
         (typedef_expression
             returnType: (type (symbol))
             (argument_declarations
@@ -104,8 +104,8 @@ typeset Timer {
                     type: (argument_type 
                         (type (symbol)))
                     name: (symbol))))
-        (semicolon)
-        (semicolon)))
+        
+        ))
 
 
 ========
@@ -173,7 +173,7 @@ funcenum Timer {
                 (argument_declaration
                     type: (argument_type (old_type (symbol)))
                     name: (symbol))))
-        (semicolon)))
+        ))
 
 
 =======================

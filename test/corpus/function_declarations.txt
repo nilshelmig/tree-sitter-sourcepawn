@@ -132,27 +132,27 @@ bool MyFunc4() { return true; }
     returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations)
-    (block (return_statement (semicolon))))
+    (block (return_statement )))
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations)
-    (block (return_statement (int_literal) (semicolon))))
+    (block (return_statement (int_literal) )))
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations)
-    (block (return_statement (float_literal) (semicolon))))
+    (block (return_statement (float_literal) )))
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations)
-    (block (return_statement (char_literal) (semicolon))))
+    (block (return_statement (char_literal) )))
   (function_declaration
     returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations)
-    (block (return_statement (bool_literal) (semicolon)))))
+    (block (return_statement (bool_literal) ))))
 
 
 =================
@@ -169,7 +169,7 @@ int[] MyFunc() { return; }
     returnType: (dimension)
     name: (symbol)
     arguments: (argument_declarations)
-    (block (return_statement (semicolon)))))
+    (block (return_statement ))))
 
 
 ==============================
@@ -188,27 +188,27 @@ bool:MyFunc4() { return true; }
   (function_declaration
     name: (symbol)
     arguments: (argument_declarations)
-    (block (return_statement (int_literal) (semicolon))))
+    (block (return_statement (int_literal) )))
   (function_declaration
     returnType: (old_type (old_builtin_type))
     name: (symbol)
     arguments: (argument_declarations)
-    (block (return_statement (int_literal) (semicolon))))
+    (block (return_statement (int_literal) )))
   (function_declaration
     returnType: (old_type (old_builtin_type))
     name: (symbol)
     arguments: (argument_declarations)
-    (block (return_statement (float_literal) (semicolon))))
+    (block (return_statement (float_literal) )))
   (function_declaration
     returnType: (old_type (old_builtin_type))
     name: (symbol)
     arguments: (argument_declarations)
-    (block (return_statement (char_literal) (semicolon))))
+    (block (return_statement (char_literal) )))
   (function_declaration
     returnType: (old_type (old_builtin_type))
     name: (symbol)
     arguments: (argument_declarations)
-    (block (return_statement (bool_literal) (semicolon)))))
+    (block (return_statement (bool_literal) ))))
 
 
 ==================
@@ -224,7 +224,7 @@ Handle MyFunc() { return INVALID_HANDLE; }
     returnType: (type (symbol))
     name: (symbol)
     arguments: (argument_declarations)
-    (block (return_statement (symbol) (semicolon)))))
+    (block (return_statement (symbol) ))))
 
 
 ==========================

@@ -16,25 +16,25 @@ Action action;
     (global_variable_declaration
         type: (type (builtin_type))
         (variable_declaration name: (symbol))
-        (semicolon))
+        )
     (global_variable_declaration
         type: (type (builtin_type))
         (variable_declaration name: (symbol))
-        (semicolon))
+        )
     (global_variable_declaration
         type: (type (builtin_type))
         (variable_declaration name: (symbol))
-        (semicolon))
+        )
     (global_variable_declaration
         type: (type (builtin_type))
         (variable_declaration name: (symbol))
-        (semicolon))
+        )
     (global_variable_declaration
         type: (type (builtin_type))
         (variable_declaration
             name: (symbol)
             (fixed_dimension (int_literal)))
-        (semicolon))
+        )
     (global_variable_declaration
         type: (type (builtin_type))
         (variable_declaration
@@ -43,11 +43,11 @@ Action action;
                 (binary_expression
                     left: (symbol)
                     right: (int_literal))))
-        (semicolon))
+        )
     (global_variable_declaration
         type: (type (symbol))
         (variable_declaration name: (symbol))
-        (semicolon)))
+        ))
 
 ==============
 initialization
@@ -75,7 +75,7 @@ ConVar g_hAutoVipFlag = null;
         (variable_declaration
             name: (symbol)
             initialValue: (int_literal))
-        (semicolon))
+        )
     (global_variable_declaration
         type: (type (builtin_type))
         (variable_declaration
@@ -83,7 +83,7 @@ ConVar g_hAutoVipFlag = null;
             initialValue: (binary_expression
                 left: (int_literal)
                 right: (int_literal)))
-        (semicolon))
+        )
     (global_variable_declaration
         type: (type (builtin_type))
         (variable_declaration
@@ -96,25 +96,25 @@ ConVar g_hAutoVipFlag = null;
         (variable_declaration
             name: (symbol)
             initialValue: (float_literal))
-        (semicolon))
+        )
     (global_variable_declaration
         type: (type (builtin_type))
         (variable_declaration
             name: (symbol)
             initialValue: (char_literal))
-        (semicolon))
+        )
     (global_variable_declaration
         type: (type (builtin_type))
         (variable_declaration
             name: (symbol)
             initialValue: (bool_literal))
-        (semicolon))
+        )
     (global_variable_declaration
         type: (type (symbol))
         (variable_declaration
             name: (symbol)
             initialValue: (null))
-        (semicolon))
+        )
       (comment)
     (global_variable_declaration
         type: (type (builtin_type))
@@ -124,14 +124,14 @@ ConVar g_hAutoVipFlag = null;
                 (binary_expression
                     left: (symbol)
                     right: (int_literal))))
-        (semicolon))
+        )
     (comment)
     (global_variable_declaration
         type: (type (symbol))
         (variable_declaration
             name: (symbol)
             initialValue: (null))
-        (semicolon)))
+        ))
 
 
 ==========================
@@ -151,7 +151,7 @@ ArrayList arr2 = new ArrayList(1, 5);
             initialValue: (new_instance
                 class: (symbol)
                 arguments: (function_call_arguments)))
-        (semicolon))
+        )
     (global_variable_declaration
         type: (type (symbol))
         (variable_declaration
@@ -161,7 +161,7 @@ ArrayList arr2 = new ArrayList(1, 5);
                 arguments: (function_call_arguments
                     (int_literal)
                     (int_literal))))
-        (semicolon)))
+        ))
 
 
 ====================
@@ -181,21 +181,21 @@ Action action[MAXPLAYERS] = { true, ... };
             name: (symbol)
             (dimension)
             initialValue: (array_litteral (int_literal) (int_literal) (int_literal)))
-        (semicolon))
+        )
     (global_variable_declaration
         type: (type (builtin_type))
         (variable_declaration
             name: (symbol)
             (fixed_dimension (int_literal))
             initialValue: (array_litteral (float_literal) (float_literal) (float_literal)))
-        (semicolon))
+        )
     (global_variable_declaration
         type: (type (symbol))
         (variable_declaration
             name: (symbol)
             (fixed_dimension (symbol))
             initialValue: (array_litteral (bool_literal) (rest_operator)))
-        (semicolon)))
+        ))
 
 
 ==========================
@@ -221,7 +221,7 @@ MyStruct s = {1, "test", 2.31, true, {1.0, 2.0, 3.0}, Plugin_Handled};
                     (float_literal)
                     (float_literal))
                 (symbol)))
-        (semicolon)))
+        ))
 
 
 =============
@@ -244,19 +244,19 @@ stock const int e;
         (variable_declaration
             name: (symbol)
             initialValue: (int_literal))
-        (semicolon))
+        )
     (global_variable_declaration
         (variable_storage_class)
         type: (type (builtin_type))
         (variable_declaration name: (symbol))
-        (semicolon))
+        )
     (global_variable_declaration
         (variable_storage_class)
         type: (type (builtin_type))
         (variable_declaration
             name: (symbol)
             initialValue: (bool_literal))
-        (semicolon))
+        )
     (global_variable_declaration
         (variable_storage_class)
         type: (type
@@ -265,7 +265,7 @@ stock const int e;
             name: (symbol)
             (dimension)
             initialValue: (string_literal))
-        (semicolon))
+        )
     (global_variable_declaration
         (variable_visibility)
         (variable_storage_class)
@@ -273,7 +273,7 @@ stock const int e;
             (builtin_type))
         (variable_declaration
             name: (symbol))
-        (semicolon))
+        )
     (global_variable_declaration
         (variable_visibility)
         (variable_storage_class)
@@ -281,7 +281,7 @@ stock const int e;
             (builtin_type))
         (variable_declaration
             name: (symbol))
-        (semicolon)))
+        ))
 
 
 =======================
@@ -301,14 +301,14 @@ int bla[][] = { {1,2,3}, {4,5,6}, {7,8,9} };
             name: (symbol)
             (fixed_dimension (symbol))
             (fixed_dimension (int_literal)))
-        (semicolon))
+        )
     (global_variable_declaration
         type: (type (builtin_type))
         (variable_declaration
             name: (symbol)
             (fixed_dimension (symbol))
             (fixed_dimension (int_literal)))
-        (semicolon))
+        )
     (global_variable_declaration
         type: (type (builtin_type))
         (variable_declaration
@@ -316,7 +316,7 @@ int bla[][] = { {1,2,3}, {4,5,6}, {7,8,9} };
             (dimension)
             (dimension)
             initialValue: (array_litteral (array_litteral (int_literal) (int_literal) (int_literal)) (array_litteral (int_literal) (int_literal) (int_literal)) (array_litteral (int_literal) (int_literal) (int_literal))))
-        (semicolon)))
+        ))
 
 
 ==================
@@ -360,14 +360,14 @@ char j[10] = "whatever!", k[256];
         type: (type (builtin_type))
         (variable_declaration name: (symbol))
         (variable_declaration name: (symbol))
-        (semicolon))
+        )
     (global_variable_declaration
         type: (type (builtin_type))
         (variable_declaration name: (symbol))
         (variable_declaration
             name: (symbol)
             initialValue: (bool_literal))
-        (semicolon))
+        )
     (global_variable_declaration
         type: (type (builtin_type))
         (variable_declaration
@@ -379,14 +379,14 @@ char j[10] = "whatever!", k[256];
         (variable_declaration
             name: (symbol)
             initialValue: (float_literal))
-        (semicolon))
+        )
     (global_variable_declaration
         type: (type (builtin_type))
         (variable_declaration
             name: (symbol)
             initialValue: (char_literal))
         (variable_declaration name: (symbol))
-        (semicolon))
+        )
     (global_variable_declaration
         type: (type (builtin_type))
         (variable_declaration
@@ -396,4 +396,4 @@ char j[10] = "whatever!", k[256];
         (variable_declaration
             name: (symbol)
             (fixed_dimension (int_literal)))
-        (semicolon)))
+        ))

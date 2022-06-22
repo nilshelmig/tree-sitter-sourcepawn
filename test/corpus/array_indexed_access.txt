@@ -21,7 +21,7 @@ void MyFunc(int[] myvar) {
             (array_indexed_access
                 array: (symbol)
                 index: (int_literal))
-            (semicolon)))))
+            ))))
 
 
 ==============================
@@ -48,12 +48,12 @@ void MyFunc(int[] myvar) {
             (array_indexed_access
                 array: (symbol)
                 index: (symbol))
-            (semicolon))
+            )
         (expression_statement
             (array_indexed_access
                 array: (symbol)
                 index: (symbol))
-            (semicolon)))))
+            ))))
 
 
 =================================
@@ -81,7 +81,7 @@ void MyFunc(int[] myvar) {
                 index: (binary_expression
                     left: (symbol)
                     right: (int_literal)))
-            (semicolon)))))
+            ))))
 
 
 ==================================
@@ -109,7 +109,7 @@ int MyFunc(int[] myvar) {
                 index: (array_indexed_access
                     array: (symbol)
                     index: (int_literal)))
-            (semicolon)))))
+            ))))
 
 
 ======================================
@@ -137,7 +137,7 @@ int MyFunc(int[][] myvar) {
                         array: (symbol)
                         index: (int_literal))
                     index: (symbol))
-            (semicolon)))))
+            ))))
 
 
 ======================================
@@ -165,5 +165,5 @@ int MyFunc(File target) {
                         target: (symbol)
                         field: (symbol))
                     index: (int_literal))
-            (semicolon)))))
+            ))))
         

@@ -1,5 +1,10 @@
 {
-    "[sourcepawn]": {
-        "editor.formatOnSave": false
-    }
+  "[sourcepawn]": {
+    "editor.formatOnSave": false
+  },
+  "files.associations": {
+    "wctype.h": "c",
+    "parser.h": "c"
+  },
+  "editor.formatOnSave": true
 }

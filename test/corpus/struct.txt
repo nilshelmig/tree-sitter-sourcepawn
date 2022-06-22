@@ -20,28 +20,28 @@ struct Plugin
             type: (type (builtin_type)) 
             type: (dimension)
             name: (symbol)
-            (semicolon))
+            )
         (struct_field
             type: (type (builtin_type)) 
             type: (dimension)
             name: (symbol)
-            (semicolon))
+            )
         (struct_field
             type: (type (builtin_type)) 
             type: (dimension)
             name: (symbol)
-            (semicolon))
+            )
         (struct_field
             type: (type (builtin_type)) 
             type: (dimension)
             name: (symbol)
-            (semicolon))
+            )
         (struct_field
             type: (type (builtin_type)) 
             type: (dimension)
             name: (symbol)
-            (semicolon))
-        (semicolon)))
+            )
+        ))
 
 
 =====================
@@ -81,7 +81,7 @@ public Plugin myinfo =
             (struct_field_value
                 name: (symbol)
                 value: (string_literal)))
-        (semicolon)))
+        ))
 
 
 =================================
@@ -121,7 +121,7 @@ public Plugin:myinfo =
             (struct_field_value
                 name: (symbol)
                 value: (string_literal)))
-        (semicolon)))
+        ))
 
 
 ==========================================

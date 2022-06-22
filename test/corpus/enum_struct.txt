@@ -20,28 +20,28 @@ enum struct MyStruct
         (enum_struct_field
             type: (type (builtin_type))
             name: (symbol)
-            (semicolon))
+            )
         (enum_struct_field
             type: (type (builtin_type))
             name: (symbol)
-            (semicolon))
+            )
         (enum_struct_field
             type: (type (builtin_type))
             name: (symbol)
-            (semicolon))
+            )
         (enum_struct_field
             type: (type (builtin_type))
             name: (symbol)
-            (semicolon))
+            )
         (enum_struct_field
             type: (type (builtin_type))
             name: (symbol)
             (fixed_dimension (int_literal))
-            (semicolon))
+            )
         (enum_struct_field
             type: (type (symbol))
             name: (symbol)
-            (semicolon))))
+            )))
 
 
 ====================
@@ -66,11 +66,11 @@ enum struct Rectangle
         (enum_struct_field
             type: (type (builtin_type))
             name: (symbol)
-            (semicolon))
+            )
         (enum_struct_field
             type: (type (builtin_type))
             name: (symbol)
-            (semicolon))
+            )
 
         (enum_struct_method
             returnType: (type (builtin_type))
@@ -85,7 +85,7 @@ enum struct Rectangle
                         right: (field_access
                             target: (this)
                             field: (symbol)))
-                    (semicolon))))))
+                    )))))
 
 
 ====================================
@@ -110,11 +110,11 @@ enum struct Rectangle
         (enum_struct_field
             type: (type (builtin_type))
             name: (symbol)
-            (semicolon))
+            )
         (enum_struct_field
             type: (type (builtin_type))
             name: (symbol)
-            (semicolon))
+            )
 
         (enum_struct_method
             returnType: (type (builtin_type))
@@ -140,4 +140,4 @@ enum struct Rectangle
                             right: (field_access
                                 target: (this)
                                 field: (symbol))))
-                    (semicolon))))))
+                    )))))

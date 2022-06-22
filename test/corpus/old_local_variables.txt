@@ -18,12 +18,12 @@ void Test() {
         (old_variable_declaration_statement
           (old_variable_declaration
             (symbol))
-        (semicolon))
+        )
         (old_variable_declaration_statement
           (old_variable_declaration
             (old_type (old_builtin_type))
             (symbol))
-        (semicolon)))))
+        ))))
 
 
 ====================
@@ -52,14 +52,14 @@ void Test() {
                 (old_variable_declaration
                     (symbol)
                     (int_literal))
-            (semicolon))
+            )
             (old_variable_declaration_statement
                 (old_variable_declaration
                     (symbol)
                     (binary_expression
                         (int_literal)
                         (int_literal)))
-            (semicolon))
+            )
             (old_variable_declaration_statement
                 (old_variable_declaration
                     (symbol)
@@ -77,7 +77,7 @@ void Test() {
                     (old_type (old_builtin_type))
                     (symbol)
                     (float_literal))
-            (semicolon)))))
+            ))))
 
 
 ==========================
@@ -106,7 +106,7 @@ void Test() {
                         (symbol)
                         (int_literal)))
                 (string_literal))
-            (semicolon))
+            )
             (old_variable_declaration_statement
                 (old_variable_declaration
                     (old_type (old_builtin_type))
@@ -117,7 +117,7 @@ void Test() {
                         (int_literal)))
                 (array_litteral (bool_literal)
                 (rest_operator)))
-            (semicolon)))))
+            ))))
 
 
 ===================
@@ -143,14 +143,14 @@ void Test() {
                     (old_type (old_builtin_type))
                 (symbol)
                 (float_literal))
-            (semicolon))
+            )
             (old_variable_declaration_statement
                 (variable_storage_class)
                 (old_variable_declaration
                     (old_type (old_builtin_type))
                 (symbol)
                 (float_literal))
-            (semicolon)))))
+            ))))
 
 ==========
 old arrays
@@ -178,7 +178,7 @@ void Test() {
               (symbol)
               (fixed_dimension
                 (int_literal)))
-            (semicolon))
+            )
           (old_variable_declaration_statement
             (old_variable_declaration
               (symbol)
@@ -186,7 +186,7 @@ void Test() {
                 (binary_expression
                   (symbol)
                   (int_literal))))
-            (semicolon))
+            )
           (old_variable_declaration_statement
             (old_variable_declaration
               (old_type
@@ -195,7 +195,7 @@ void Test() {
               (fixed_dimension
                 (int_literal))
               (string_literal))
-            (semicolon))
+            )
           (old_variable_declaration_statement
             (old_variable_declaration
               (old_type
@@ -207,7 +207,7 @@ void Test() {
                 (float_literal)
                 (float_literal)
                 (float_literal)))
-            (semicolon))
+            )
           (old_variable_declaration_statement
             (old_variable_declaration
               (symbol)
@@ -218,4 +218,4 @@ void Test() {
                 (int_literal)
                 (int_literal)
                 (int_literal)))
-            (semicolon)))))
+            ))))

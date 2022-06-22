@@ -73,7 +73,7 @@ public void OnPluginStart() {
         (block
             (while_loop
                 condition: (bool_literal)
-                (block (break_statement (semicolon)))))))
+                (block (break_statement ))))))
 
 
 =====================
@@ -97,7 +97,7 @@ public void OnPluginStart() {
         (block
             (while_loop
                 condition: (bool_literal)
-                (block (continue_statement (semicolon)))))))
+                (block (continue_statement ))))))
 
 
 =============================
@@ -119,4 +119,4 @@ public void OnPluginStart() {
         (block
             (while_loop
                 condition: (bool_literal)
-                (continue_statement (semicolon))))))
+                (continue_statement )))))

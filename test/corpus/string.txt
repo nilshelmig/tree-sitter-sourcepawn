@@ -24,4 +24,4 @@ void Test() {
 				(escape_sequence)
 				(escape_sequence)
 				(escape_sequence))))
-		(semicolon)))))
+		))))
