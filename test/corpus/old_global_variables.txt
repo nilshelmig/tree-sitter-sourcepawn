@@ -345,6 +345,7 @@ new a
 new bool:c = true
 decl String:arg1[32]
 new Handle:h = INVALID_HANDLE
+a
 
 ---
 
@@ -365,4 +366,7 @@ new Handle:h = INVALID_HANDLE
         (old_variable_declaration
             type: (old_type (symbol))
             name: (symbol)
-            initialValue: (symbol))))
+            initialValue: (symbol)))
+    (old_global_variable_declaration
+        (old_variable_declaration
+            name: (symbol))))

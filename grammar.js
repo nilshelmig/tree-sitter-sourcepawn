@@ -55,6 +55,8 @@ module.exports = grammar({
     [$.for_loop, $._expression],
     [$.argument_declaration, $.type],
     [$.argument_type],
+    [$.variable_storage_class],
+    [$.global_variable_declaration, $.old_global_variable_declaration],
   ],
 
   word: ($) => $.symbol,
@@ -357,16 +359,16 @@ module.exports = grammar({
       ),
 
     old_global_variable_declaration: ($) =>
-      seq(
-        choice(
-          seq(choice("new", "decl"), optional($.variable_storage_class)),
-          seq(
-            optional($.variable_visibility),
-            optional($.variable_storage_class)
-          )
+      choice(
+        seq(
+          choice(
+            seq(choice("new", "decl"), optional($.variable_storage_class)),
+            repeat1(choice($.variable_visibility, $.variable_storage_class))
+          ),
+          commaSep1($.old_variable_declaration),
+          $._semicolon
         ),
-        commaSep1($.old_variable_declaration),
-        $._semicolon
+        seq(commaSep1($.old_variable_declaration), ";")
       ),
 
     old_variable_declaration_statement: ($) =>

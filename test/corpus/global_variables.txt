@@ -9,6 +9,9 @@ bool boolean;
 float vec[3];
 bool active[MAXPLAYERS + 1];
 Action action;
+Action
+ action1,
+ action2;
 
 ---
 
@@ -46,6 +49,11 @@ Action action;
         )
     (global_variable_declaration
         type: (type (symbol))
+        (variable_declaration name: (symbol))
+        )
+    (global_variable_declaration
+        type: (type (symbol))
+        (variable_declaration name: (symbol))
         (variable_declaration name: (symbol))
         ))
 
