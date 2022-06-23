@@ -40,4 +40,4 @@ jobs:
       - name: Run tests
         run: npm run test
       - name: Build .wasm
-        run: emcc -o tree-sitter-sourcepawn.wasm -Os -s WASM=1 -I src -s SIDE_MODULE=1 -s EXPORTED_FUNCTIONS=[\"_tree_sitter_sourcepawn\"] -fno-exceptions src/parser.c
+        run: emcc -o tree-sitter-sourcepawn.wasm -Os -s WASM=1 -I src -s SIDE_MODULE=1 -s EXPORTED_FUNCTIONS=[\"_tree_sitter_sourcepawn\"] -fno-exceptions src/parser.c src/scanner.c
