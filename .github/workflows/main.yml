@@ -29,6 +29,8 @@ jobs:
           actions-cache-folder: ${{env.EM_CACHE_FOLDER}}
       - name: Build parser
         run: npm run generate
+      - name: Run tests
+        run: npm run test
       - name: Get package version
         run: node -p -e '`PACKAGE_VERSION=${require("./package.json").version}`' >> $GITHUB_ENV
       # - name: Changelog
@@ -36,6 +38,9 @@ jobs:
       #   uses: mindsers/changelog-reader-action@v2.0.0
       - name: Build .wasm
         run: emcc -o tree-sitter-sourcepawn.wasm -Os -s WASM=1 -I src -s SIDE_MODULE=1 -s EXPORTED_FUNCTIONS=[\"_tree_sitter_sourcepawn\"] -fno-exceptions src/parser.c src/scanner.c
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
       - name: Create Release
         uses: ncipollo/release-action@v1
         env:

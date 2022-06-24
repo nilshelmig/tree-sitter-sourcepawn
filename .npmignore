@@ -1,1 +1,4 @@
-/test
+test
+.github
+.vscode
+build

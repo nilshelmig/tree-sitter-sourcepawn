@@ -3,3 +3,4 @@ build/
 parser.exp
 parser.lib
 *.obj
+.vscode
