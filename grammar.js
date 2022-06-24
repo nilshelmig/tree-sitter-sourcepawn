@@ -97,14 +97,14 @@ module.exports = grammar({
       seq(
         preprocessor("include"),
         field("path", choice($.string_literal, $.system_lib_string)),
-        "\n"
+        choice($.comment, "\n")
       ),
 
     preproc_tryinclude: ($) =>
       seq(
         preprocessor("tryinclude"),
         field("path", choice($.string_literal, $.system_lib_string)),
-        "\n"
+        choice($.comment, "\n")
       ),
 
     preproc_macro: ($) =>
@@ -115,7 +115,7 @@ module.exports = grammar({
         commaSep1(seq("%", /[0-9]/)),
         token.immediate(")"),
         field("value", $.preproc_arg),
-        "\n"
+        choice($.comment, "\n")
       ),
 
     preproc_define: ($) =>
@@ -123,13 +123,17 @@ module.exports = grammar({
         preprocessor("define"),
         field("name", $.symbol),
         field("value", optional($.preproc_arg)),
-        "\n"
+        choice($.comment, "\n")
       ),
 
-    preproc_arg: ($) => token(prec(-1, repeat1(/.|\\\r?\n/))),
+    preproc_arg: ($) => token(prec(-1, repeat1(/[^\/\/\/\*\n]|\\\r?\n/))),
 
     preproc_undefine: ($) =>
-      seq(preprocessor("undef"), field("name", $.symbol), "\n"),
+      seq(
+        preprocessor("undef"),
+        field("name", $.symbol),
+        choice($.comment, "\n")
+      ),
 
     preproc_if: ($) =>
       seq(
@@ -140,12 +144,13 @@ module.exports = grammar({
       ),
     preproc_defined_condition: ($) =>
       seq(token(seq(optional("!"), "defined")), field("name", $.symbol)),
-    preproc_else: ($) => seq(preprocessor("else"), optional($.comment), "\n"),
-    preproc_endif: ($) => seq(preprocessor("endif"), optional($.comment), "\n"),
+    preproc_else: ($) => seq(preprocessor("else"), choice($.comment, "\n")),
+    preproc_endif: ($) => seq(preprocessor("endif"), choice($.comment, "\n")),
     preproc_endinput: ($) =>
-      seq(preprocessor("endinput"), optional($.comment), "\n"),
+      seq(preprocessor("endinput"), choice($.comment, "\n")),
 
-    preproc_pragma: ($) => seq(preprocessor("pragma"), $.preproc_arg, "\n"),
+    preproc_pragma: ($) =>
+      seq(preprocessor("pragma"), $.preproc_arg, choice($.comment, "\n")),
 
     // Hardcoded symbol
     // https://github.com/alliedmodders/sourcemod/blob/5c0ae11a4619e9cba93478683c7737253ea93ba6/plugins/include/handles.inc#L78

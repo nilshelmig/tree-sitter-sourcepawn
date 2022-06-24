@@ -77,16 +77,20 @@ define with trailing comment
 (source_file
     (preproc_define
         name: (symbol)
-        value: (preproc_arg))
+        value: (preproc_arg)
+        (comment))
       (preproc_define
         name: (symbol)
-        value: (preproc_arg))
+        value: (preproc_arg)
+        (comment))
       (preproc_define
         name: (symbol)
-        value: (preproc_arg))
+        value: (preproc_arg)
+        (comment))
       (preproc_define
         name: (symbol)
-        value: (preproc_arg)))
+        value: (preproc_arg)
+        (comment)))
 
 
 ============================
@@ -108,7 +112,8 @@ non valid expression defines
         (preproc_arg))
       (preproc_define
         (symbol)
-        (preproc_arg)))
+        (preproc_arg)
+        (comment)))
 
 ============
 define macro
