@@ -6987,6 +6987,10 @@
       "type"
     ],
     [
+      "type",
+      "old_variable_declaration"
+    ],
+    [
       "argument_declaration",
       "type"
     ],
