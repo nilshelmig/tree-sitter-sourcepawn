@@ -52,7 +52,6 @@ module.exports = grammar({
     ],
     [$.array_indexed_access, $.type],
     [$.type, $.old_variable_declaration],
-    [$.for_loop, $._expression],
     [$.argument_declaration, $.type],
     [$.argument_type],
     [$.variable_storage_class],

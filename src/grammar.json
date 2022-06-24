@@ -6987,14 +6987,6 @@
       "type"
     ],
     [
-      "type",
-      "old_variable_declaration"
-    ],
-    [
-      "for_loop",
-      "_expression"
-    ],
-    [
       "argument_declaration",
       "type"
     ],
