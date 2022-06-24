@@ -1266,7 +1266,7 @@ module.exports = grammar({
 module.exports.PREC = PREC;
 
 function preprocessor(command) {
-  return alias(new RegExp("#[ \t]*" + command), "#" + command);
+  return `#${command}`;
 }
 
 function commaSep(rule) {
