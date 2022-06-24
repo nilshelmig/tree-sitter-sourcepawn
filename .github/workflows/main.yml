@@ -31,6 +31,7 @@ jobs:
         run: npm run generate
       - name: Run tests
         run: npm run test
+        continue-on-error: true
       - name: Get package version
         run: node -p -e '`PACKAGE_VERSION=${require("./package.json").version}`' >> $GITHUB_ENV
       # - name: Changelog
