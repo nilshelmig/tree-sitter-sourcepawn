@@ -6,31 +6,47 @@ void Test() {
     view_as<bool>(1);
     view_as < Action > ( 1 );
     view_as<bool>(Plugin_Handled);
+    view_as<bool>(this.foo);
+    view_as<bool>(new AdtArray());
 }
 
 ---
 
 (source_file
     (function_declaration
-        returnType: (builtin_type)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
             (expression_statement
                 (view_as
-                    type: (builtin_type)
+                    type: (type (builtin_type))
                     value: (int_literal))
-                (semicolon))
+                )
             (expression_statement
                 (view_as
-                    type: (symbol)
+                    type: (type (symbol))
                     value: (int_literal))
-                (semicolon))
+                )
             (expression_statement
                 (view_as
-                    type: (builtin_type)
+                    type: (type (builtin_type))
                     value: (symbol))
-                (semicolon)))))
+            )
+            (expression_statement
+                (view_as
+                    type: (type (builtin_type))
+                    value: (field_access
+                    target: (this)
+                    field: (symbol)))
+            )
+            (expression_statement
+                (view_as
+                    type: (type (builtin_type))
+                    value: (new_instance
+                    class: (symbol)
+                    arguments: (function_call_arguments)))
+            ))))
 
 
 ============================
@@ -42,12 +58,11 @@ int test = view_as<int>(2 < 5 && 10 > 8);
 ---
 
 (source_file
-    (variable_declaration_statement
-        type: (type_expression (builtin_type))
+    (global_variable_declaration type: (type (builtin_type))
         (variable_declaration
             name: (symbol)
             initialValue: (view_as
-                type: (builtin_type)
+                type: (type (builtin_type))
                 value: (binary_expression
                     left: (binary_expression
                         left: (int_literal)
@@ -55,7 +70,7 @@ int test = view_as<int>(2 < 5 && 10 > 8);
                     right: (binary_expression
                         left: (int_literal)
                         right: (int_literal)))))
-        (semicolon)))
+        ))
 
 
 ======================
@@ -67,16 +82,43 @@ bool test = view_as<bool>(view_as<int>(Plugin_Handled));
 ---
 
 (source_file
-    (variable_declaration_statement
-        type: (type_expression (builtin_type))
+    (global_variable_declaration type: (type (builtin_type))
         (variable_declaration
             name: (symbol)
             initialValue: (view_as
-                type: (builtin_type)
+                type: (type (builtin_type))
                 value: (view_as
-                    type: (builtin_type)
+                    type: (type (builtin_type))
                     value: (symbol))))
-        (semicolon)))
+        ))
+
+
+=====================
+view_as as assignment
+=====================
+
+void foo(){
+    view_as<bool>(foo) = foo & (bar);
+}
+
+---
+
+    (source_file
+      (function_declaration
+        returnType: (type (builtin_type))
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (expression_statement
+                (assignment_expression
+                    left: (view_as
+                        type: (type (builtin_type))
+                        value: (symbol))
+                    right: (binary_expression
+                        left: (symbol)
+                        right: (parenthesized_expression
+                            (symbol))))
+        ))))
 
 
 =============
@@ -95,35 +137,35 @@ WormDirection:GetOppositeDirection() {
 
 (source_file
     (function_declaration
-        returnType: (symbol)
+        returnType: (old_type (symbol))
         name: (symbol)
         arguments: (argument_declarations)
         (block
             (expression_statement
                 (old_type_cast
-                    type: (old_builtin_type)
+                    type: (old_type (old_builtin_type))
                     value: (float_literal))
-                (semicolon))
+                )
             (expression_statement
                 (old_type_cast
-                    type: (old_builtin_type)
+                    type: (old_type (old_builtin_type))
                     value: (int_literal))
-                (semicolon))
+                )
             (expression_statement
                 (old_type_cast
-                    type: (old_builtin_type)
+                    type: (old_type (old_builtin_type))
                     value: (int_literal))
-                (semicolon))
+                )
             (expression_statement
                 (old_type_cast
-                    type: (old_builtin_type)
+                    type: (old_type (old_builtin_type))
                     value: (symbol))
-                (semicolon))
+                )
             (return_statement
                 (old_type_cast
-                    type: (symbol)
+                    type: (old_type (symbol))
                     value: (int_literal))
-                (semicolon)))))
+                ))))
 
 
 =====================================
@@ -138,16 +180,16 @@ Float:GetOppositeDirection() {
 
 (source_file
     (function_declaration
-        returnType: (old_builtin_type)
+        returnType: (old_type (old_builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
             (return_statement
                 (binary_expression
                     left: (old_type_cast
-                        type: (old_builtin_type)
+                        type: (old_type (old_builtin_type))
                         value: (int_literal))
                     right: (old_type_cast
-                        type: (old_builtin_type)
+                        type: (old_type (old_builtin_type))
                         value: (int_literal)))
-                (semicolon)))))
+                ))))

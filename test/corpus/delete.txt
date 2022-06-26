@@ -10,13 +10,13 @@ void SaveClose(Handle myhandle) {
 
 (source_file
   (function_declaration
-    returnType: (builtin_type)
+    returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type_expression (symbol)) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (type (symbol))) name: (symbol)))
     (block
         (delete_statement
             free: (symbol)
-            (semicolon)))))
+            ))))
 
 
 ===========================
@@ -31,15 +31,19 @@ void SaveClose(Handle[] myhandle) {
 
 (source_file
   (function_declaration
-    returnType: (builtin_type)
+    returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type_expression (symbol) (dimension)) name: (symbol)))
+    arguments: (argument_declarations 
+        (argument_declaration
+            type: (argument_type 
+                (type (symbol)) (dimension)) 
+            name: (symbol)))
     (block
         (delete_statement
             free: (array_indexed_access
               array: (symbol)
               index: (int_literal))
-            (semicolon)))))
+            ))))
 
 
 ================
@@ -54,15 +58,15 @@ void SaveClose(Handle myhandle) {
 
 (source_file
   (function_declaration
-    returnType: (builtin_type)
+    returnType: (type (builtin_type))
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (type_expression (symbol)) name: (symbol)))
+    arguments: (argument_declarations (argument_declaration type: (argument_type (type (symbol))) name: (symbol)))
     (block
         (delete_statement
             free: (view_as
-              type: (symbol)
+              type: (type (symbol))
               value: (symbol))
-            (semicolon)))))
+            ))))
 
 
 =============
@@ -82,13 +86,13 @@ methodmap Handle
   (methodmap
     name: (symbol)
     (methodmap_method
-      returnType: (builtin_type)
+      returnType: (type (builtin_type))
       name: (symbol)
       (argument_declarations)
       (block
           (delete_statement
               free: (this)
-              (semicolon))))))
+              )))))
 
 
 =====================
@@ -108,7 +112,7 @@ methodmap Handle
   (methodmap
     name: (symbol)
     (methodmap_method
-      returnType: (builtin_type)
+      returnType: (type (builtin_type))
       name: (symbol)
       (argument_declarations)
       (block
@@ -116,7 +120,7 @@ methodmap Handle
               free: (field_access
                 target: (this)
                 field: (symbol))
-              (semicolon))))))
+              )))))
 
 
 ======================
@@ -136,7 +140,7 @@ methodmap Handle
   (methodmap
     name: (symbol)
     (methodmap_method
-      returnType: (builtin_type)
+      returnType: (type (builtin_type))
       name: (symbol)
       (argument_declarations)
       (block
@@ -144,4 +148,4 @@ methodmap Handle
               free: (function_call
                 function: (symbol)
                 (function_call_arguments))
-              (semicolon))))))
+              )))))

@@ -1,0 +1,208 @@
+===========
+expressions
+===========
+
+void Test() {
+    i = 2;
+    i += 5;
+    i -= size;
+    i *= -1;
+    i /= 2 + 10;
+    a[1] ^= 2;
+    i |= 2;
+    i &= 1001;
+    i ~= 0110;
+    i <<= 2;
+    i >>= 2;
+}
+
+---
+
+(source_file
+    (function_declaration
+        returnType: (type
+            (builtin_type))
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (expression_statement
+                (assignment_expression
+                    left: (symbol)
+                    right: (int_literal))
+                )
+            (expression_statement
+                (assignment_expression
+                    left: (symbol)
+                    right: (int_literal))
+                )
+            (expression_statement
+                (assignment_expression
+                    left: (symbol)
+                    right: (symbol))
+                )
+            (expression_statement
+                (assignment_expression
+                    left: (symbol)
+                    right: (int_literal))
+                )
+            (expression_statement
+                (assignment_expression
+                    left: (symbol)
+                    right: (binary_expression
+                        left: (int_literal)
+                        right: (int_literal)))
+                )
+            (expression_statement
+                (assignment_expression
+                    left: (array_indexed_access
+                        array: (symbol)
+                        index: (int_literal))
+                    right: (int_literal))
+                )
+            (expression_statement
+                (assignment_expression
+                    left: (symbol)
+                    right: (int_literal))
+                )
+            (expression_statement
+                (assignment_expression
+                    left: (symbol)
+                    right: (int_literal))
+                )
+            (expression_statement
+                (assignment_expression
+                    left: (symbol)
+                    right: (int_literal))
+                )
+            (expression_statement
+                (assignment_expression
+                    left: (symbol)
+                    right: (int_literal))
+                )
+            (expression_statement
+                (assignment_expression
+                    left: (symbol)
+                    right: (int_literal))
+                ))))
+
+
+============
+new operator
+============
+
+void Test() {
+    a = new char[size];
+    b = new MethodMap();
+
+    (new HTTPRequest(szUrl)).Get(HTTPRequest_CheckServer);
+}
+
+---
+
+(source_file
+    (function_declaration
+        returnType: (type
+            (builtin_type))
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (expression_statement
+                (assignment_expression
+                    left: (symbol)
+                    right: (dynamic_array
+                        type: (builtin_type)
+                        (fixed_dimension (symbol))))
+                )
+            (expression_statement
+                (assignment_expression
+                    left: (symbol)
+                    right: (new_instance
+                        class: (symbol)
+                        arguments: (function_call_arguments)))
+            )
+            (expression_statement
+                (function_call
+                    function: (field_access
+                    target: (parenthesized_expression
+                        (new_instance
+                            class: (symbol)
+                            arguments: (function_call_arguments (symbol))))
+                    field: (symbol))
+                (function_call_arguments
+                (symbol)))
+                ))))
+
+
+====================
+indexed array access
+====================
+
+void Test() {
+    clients[2] = 14;
+    clients[client] = Math_GetRandomInt(100, 300);
+}
+
+---
+
+(source_file
+    (function_declaration
+        returnType: (type
+            (builtin_type))
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (expression_statement
+                (assignment_expression
+                    left: (array_indexed_access
+                        array: (symbol)
+                        index: (int_literal))
+                    right: (int_literal))
+                )
+            (expression_statement
+                (assignment_expression
+                    left: (array_indexed_access
+                        array: (symbol)
+                        index: (symbol))
+                    right: (function_call
+                        function: (symbol)
+                        (function_call_arguments
+                            (int_literal)
+                            (int_literal))))
+                ))))
+
+
+========================
+assignment as expression
+========================
+
+void Test() {
+    if ((a = Test()) != 0) return;
+    a = b = 2;
+}
+
+---
+
+(source_file
+    (function_declaration
+        returnType: (type
+            (builtin_type))
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (condition_statement
+                condition: (binary_expression
+                    left: (parenthesized_expression
+                        (assignment_expression
+                            left: (symbol)
+                            right: (function_call
+                                function: (symbol)
+                                (function_call_arguments))))
+                    right: (int_literal))
+                    truePath: (return_statement ))
+            (expression_statement
+                (assignment_expression
+                    left: (symbol)
+                    right: (assignment_expression
+                        left: (symbol)
+                        right: (int_literal)))
+                ))))

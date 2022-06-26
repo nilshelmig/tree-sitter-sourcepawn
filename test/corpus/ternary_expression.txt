@@ -1,0 +1,126 @@
+==================
+ternary expression
+==================
+
+int GetOppositeDirection() {
+    i < 0 ? Plugin_Handled : MyFunc();
+    return i < 0 ? 0 : i;
+}
+
+---
+
+(source_file
+    (function_declaration
+        returnType: (type (builtin_type))
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (expression_statement
+                (ternary_expression
+                    condition: (binary_expression
+                        left: (symbol)
+                        right: (int_literal))
+                    consequence: (symbol)
+                    alternative: (function_call
+                        function: (symbol)
+                        (function_call_arguments)))
+                )
+            (return_statement
+                (ternary_expression
+                    condition: (binary_expression
+                        left: (symbol)
+                        right: (int_literal))
+                    consequence: (int_literal)
+                    alternative: (symbol))
+                ))))
+
+
+========================================
+ternary expression - old style type cast
+========================================
+
+int GetOppositeDirection() {
+    foo() ? USERMSG_RELIABLE : 0;
+    new Handle:userMessage = StartMessageOne("Fade", client, (reliable?USERMSG_RELIABLE:0));
+    return i < 0 ? (_:2.5) : (Action:0);
+}
+
+---
+
+(source_file
+    (function_declaration
+        returnType: (type (builtin_type))
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (expression_statement
+                (ternary_expression
+                    condition: (function_call
+                        function: (symbol)
+                        (function_call_arguments))
+                    consequence: (symbol)
+                    alternative: (int_literal))
+                )
+          (old_variable_declaration_statement
+            (old_variable_declaration
+              type: (old_type (symbol))
+              name: (symbol)
+              initialValue: (function_call
+                function: (symbol)
+                (function_call_arguments
+                  (string_literal)
+                  (symbol)
+                  (parenthesized_expression
+                    (ternary_expression
+                      condition: (symbol)
+                      consequence: (symbol)
+                      alternative: (int_literal))))))
+            )
+                  (return_statement
+            (ternary_expression
+              condition: (binary_expression
+                left: (symbol)
+                right: (int_literal))
+              consequence: (parenthesized_expression
+                (old_type_cast
+                  type: (old_type (old_builtin_type))
+                  value: (float_literal)))
+              alternative: (parenthesized_expression
+                (old_type_cast
+                  type: (old_type (symbol))
+                  value: (int_literal))))
+            ))))
+
+==================================================
+ternary expression with conditional expression
+==================================================
+
+int GetOppositeDirection() {
+    return i < 0
+        ? 0
+        : i > 10
+            ? 10
+            : i;
+}
+
+---
+
+(source_file
+    (function_declaration
+        returnType: (type (builtin_type))
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (return_statement
+                (ternary_expression
+                    condition: (binary_expression
+                        left: (symbol)
+                        right: (int_literal))
+                    consequence: (int_literal)
+                    alternative: (ternary_expression
+                        condition: (binary_expression
+                            left: (symbol)
+                            right: (int_literal))
+                        consequence: (int_literal)
+                        alternative: (symbol)))
+                ))))

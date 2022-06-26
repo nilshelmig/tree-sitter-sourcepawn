@@ -10,13 +10,13 @@ int Test() {
 
 (source_file
     (function_declaration
-        returnType: (builtin_type)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
             (return_statement
                 (sizeof_expression type: (symbol))
-                (semicolon)))))
+                ))))
 
 
 ===============================
@@ -24,7 +24,9 @@ sizeof - multidimensional array
 ===============================
 
 int Test() {
+    sizeof(this.foo);
     sizeof(a[][][]);
+    sizeof(a[10][][]);
     return sizeof(a[]);
 }
 
@@ -32,22 +34,36 @@ int Test() {
 
 (source_file
     (function_declaration
-        returnType: (builtin_type)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
             (expression_statement
                 (sizeof_expression
+                    type: (field_access
+                    target: (this)
+                    field: (symbol)))
+                )
+            (expression_statement
+                (sizeof_expression
                     type: (symbol)
-                    (dimension)
-                    (dimension)
-                    (dimension))
-                (semicolon))
+                    type: (dimension)
+                    type: (dimension)
+                    type: (dimension))
+                )
+            (expression_statement
+                (sizeof_expression
+                    type: (array_indexed_access
+                    array: (symbol)
+                    index: (int_literal))
+                    type: (dimension)
+                    type: (dimension))
+                )
             (return_statement
                 (sizeof_expression
                     type: (symbol)
-                    (dimension))
-                (semicolon)))))
+                    type: (dimension))
+                ))))
 
 
 ==========================
@@ -62,10 +78,10 @@ int Test() {
 
 (source_file
     (function_declaration
-        returnType: (builtin_type)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
             (return_statement
                 (sizeof_expression type: (symbol))
-                (semicolon)))))
+                ))))

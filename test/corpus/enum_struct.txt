@@ -18,30 +18,30 @@ enum struct MyStruct
     (enum_struct
         name: (symbol)
         (enum_struct_field
-            type: (builtin_type)
+            type: (type (builtin_type))
             name: (symbol)
-            (semicolon))
+            )
         (enum_struct_field
-            type: (builtin_type)
+            type: (type (builtin_type))
             name: (symbol)
-            (semicolon))
+            )
         (enum_struct_field
-            type: (builtin_type)
+            type: (type (builtin_type))
             name: (symbol)
-            (semicolon))
+            )
         (enum_struct_field
-            type: (builtin_type)
+            type: (type (builtin_type))
             name: (symbol)
-            (semicolon))
+            )
         (enum_struct_field
-            type: (builtin_type)
+            type: (type (builtin_type))
             name: (symbol)
             (fixed_dimension (int_literal))
-            (semicolon))
+            )
         (enum_struct_field
-            type: (symbol)
+            type: (type (symbol))
             name: (symbol)
-            (semicolon))))
+            )))
 
 
 ====================
@@ -64,16 +64,16 @@ enum struct Rectangle
     (enum_struct
         name: (symbol)
         (enum_struct_field
-            type: (builtin_type)
+            type: (type (builtin_type))
             name: (symbol)
-            (semicolon))
+            )
         (enum_struct_field
-            type: (builtin_type)
+            type: (type (builtin_type))
             name: (symbol)
-            (semicolon))
+            )
 
         (enum_struct_method
-            returnType: (builtin_type)
+            returnType: (type (builtin_type))
             name: (symbol)
             (argument_declarations)
             (block
@@ -85,7 +85,7 @@ enum struct Rectangle
                         right: (field_access
                             target: (this)
                             field: (symbol)))
-                    (semicolon))))))
+                    )))))
 
 
 ====================================
@@ -108,20 +108,20 @@ enum struct Rectangle
     (enum_struct
         name: (symbol)
         (enum_struct_field
-            type: (builtin_type)
+            type: (type (builtin_type))
             name: (symbol)
-            (semicolon))
+            )
         (enum_struct_field
-            type: (builtin_type)
+            type: (type (builtin_type))
             name: (symbol)
-            (semicolon))
+            )
 
         (enum_struct_method
-            returnType: (builtin_type)
+            returnType: (type (builtin_type))
             name: (symbol)
             (argument_declarations
                 (argument_declaration
-                    type: (type_expression (symbol))
+                        type: (argument_type (type (symbol)))
                     name: (symbol)))
             (block
                 (return_statement
@@ -140,4 +140,4 @@ enum struct Rectangle
                             right: (field_access
                                 target: (this)
                                 field: (symbol))))
-                    (semicolon))))))
+                    )))))

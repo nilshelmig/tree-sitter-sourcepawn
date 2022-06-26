@@ -17,26 +17,31 @@ struct Plugin
     (struct
         name: (symbol)
         (struct_field
-            type: (type_expression (builtin_type) (dimension))
+            type: (type (builtin_type)) 
+            type: (dimension)
             name: (symbol)
-            (semicolon))
+            )
         (struct_field
-            type: (type_expression (builtin_type) (dimension))
+            type: (type (builtin_type)) 
+            type: (dimension)
             name: (symbol)
-            (semicolon))
+            )
         (struct_field
-            type: (type_expression (builtin_type) (dimension))
+            type: (type (builtin_type)) 
+            type: (dimension)
             name: (symbol)
-            (semicolon))
+            )
         (struct_field
-            type: (type_expression (builtin_type) (dimension))
+            type: (type (builtin_type)) 
+            type: (dimension)
             name: (symbol)
-            (semicolon))
+            )
         (struct_field
-            type: (type_expression (builtin_type) (dimension))
+            type: (type (builtin_type)) 
+            type: (dimension)
             name: (symbol)
-            (semicolon))
-        (semicolon)))
+            )
+        ))
 
 
 =====================
@@ -55,7 +60,7 @@ public Plugin myinfo =
 ---
 
 (source_file
-    (global_variable
+    (struct_declaration
         type: (symbol)
         name: (symbol)
         value: (struct_constructor
@@ -76,7 +81,7 @@ public Plugin myinfo =
             (struct_field_value
                 name: (symbol)
                 value: (string_literal)))
-        (semicolon)))
+        ))
 
 
 =================================
@@ -95,7 +100,7 @@ public Plugin:myinfo =
 ---
 
 (source_file
-    (global_variable
+    (struct_declaration
         type: (symbol)
         name: (symbol)
         value: (struct_constructor
@@ -116,7 +121,7 @@ public Plugin:myinfo =
             (struct_field_value
                 name: (symbol)
                 value: (string_literal)))
-        (semicolon)))
+        ))
 
 
 ==========================================
@@ -135,7 +140,7 @@ public Plugin myinfo =
 ---
 
 (source_file
-    (global_variable
+    (struct_declaration
         type: (symbol)
         name: (symbol)
         value: (struct_constructor
@@ -174,7 +179,7 @@ public Plugin myinfo =
 ---
 
 (source_file
-    (global_variable
+    (struct_declaration
         type: (symbol)
         name: (symbol)
         value: (struct_constructor

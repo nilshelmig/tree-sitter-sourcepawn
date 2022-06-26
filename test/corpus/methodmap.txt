@@ -12,6 +12,18 @@ methodmap AdtArray < Handle {}
         inherits: (symbol)))
 
 
+=======================
+methodmap with nullable
+=======================
+
+methodmap AdtArray __nullable__ {}
+
+---
+
+(source_file
+    (methodmap name: (symbol)))
+
+
 ===========================
 methodmap with method alias
 ===========================
@@ -29,11 +41,11 @@ methodmap Handle {
         (methodmap_alias
             name: (symbol)
             function: (symbol)
-            (semicolon))
+            )
         (methodmap_alias
             name: (symbol)
             function: (symbol)
-            (semicolon))))
+            )))
 
 
 ============================
@@ -44,6 +56,7 @@ methodmap AdminId {
     public native void GetUsername(char[] name, int maxlength);
     public native bool GetPassword(char[] buffer="", int maxlength=0);
     public native bool Format(const char[] format, any ...);
+	public static native Cookie Find(const char[] name);
 }
 
 ---
@@ -52,43 +65,51 @@ methodmap AdminId {
     (methodmap
         name: (symbol)
         (methodmap_native
-            returnType: (builtin_type)
+            returnType: (type (builtin_type))
             name: (symbol)
             (argument_declarations
                 (argument_declaration
-                    type: (type_expression (builtin_type) (dimension))
+                        type: (argument_type (type (builtin_type)) (dimension))
                     name: (symbol))
                 (argument_declaration
-                    type: (type_expression (builtin_type))
+                        type: (argument_type (type (builtin_type)))
                     name: (symbol)))
-            (semicolon))
+            )
         (methodmap_native
-            returnType: (builtin_type)
+            returnType: (type (builtin_type))
             name: (symbol)
             (argument_declarations
                 (argument_declaration
-                    type: (type_expression (builtin_type) (dimension))
+                        type: (argument_type (type (builtin_type)) (dimension))
                     name: (symbol)
                     defaultValue: (string_literal))
                 (argument_declaration
-                    type: (type_expression (builtin_type))
+                        type: (argument_type (type (builtin_type)))
                     name: (symbol)
                     defaultValue: (int_literal)))
-            (semicolon))
+            )
         (methodmap_native
-            returnType: (builtin_type)
+            returnType: (type (builtin_type))
             name: (symbol)
             (argument_declarations
                 (argument_declaration
-                    type: (type_expression (builtin_type) (dimension))
+                        type: (argument_type (type (builtin_type)) (dimension))
                     name: (symbol))
-                (rest_argument type: (type_expression (any_type))))
-            (semicolon))))
+                (rest_argument type: (type (any_type))))
+            )
+        (methodmap_native
+            returnType: (type (symbol))
+            name: (symbol)
+            (argument_declarations
+                (argument_declaration
+                        type: (argument_type (type (builtin_type)) (dimension))
+                    name: (symbol)))
+            )))
 
 
-=======================================
+============================================
 methodmap with native con-/destructor method
-=======================================
+============================================
 
 methodmap AdminId {
     public native AdminId(int id);
@@ -104,12 +125,12 @@ methodmap AdminId {
             name: (symbol)
             (argument_declarations
                 (argument_declaration
-                    type: (type_expression (builtin_type))
+                        type: (argument_type (type (builtin_type)))
                     name: (symbol)))
-            (semicolon))
+            )
         (methodmap_native_destructor
             name: (symbol)
-            (semicolon))))
+            )))
 
 
 ============================
@@ -131,25 +152,25 @@ methodmap PerkContainerIter {
     (methodmap
         name: (symbol)
         (methodmap_method
-            returnType: (builtin_type)
+            returnType: (type (builtin_type))
             name: (symbol)
             (argument_declarations
                 (argument_declaration
-                    type: (type_expression (builtin_type))
+                        type: (argument_type (type (builtin_type)))
                     name: (symbol))
                 (argument_declaration
-                    type: (type_expression (builtin_type))
+                        type: (argument_type (type (builtin_type)))
                     name: (symbol)
                     defaultValue: (int_literal)))
-            (block (return_statement (bool_literal) (semicolon))))
+            (block (return_statement (bool_literal) )))
         (methodmap_method
-            returnType: (builtin_type)
+            returnType: (type (builtin_type))
             name: (symbol)
             (argument_declarations
                 (argument_declaration
-                    type: (type_expression (builtin_type) (dimension))
+                        type: (argument_type (type (builtin_type)) (dimension))
                     name: (symbol))
-                (rest_argument type: (type_expression (any_type))))
+                (rest_argument type: (type (any_type))))
             (block))))
 
 
@@ -174,9 +195,9 @@ methodmap AdminId {
             name: (symbol)
             (argument_declarations
                 (argument_declaration
-                    type: (type_expression (builtin_type))
+                        type: (argument_type (type (builtin_type)))
                     name: (symbol)))
-            (block (return_statement (symbol) (semicolon))))
+            (block (return_statement (symbol) )))
         (methodmap_method_destructor
             name: (symbol)
             (block))))
@@ -198,17 +219,17 @@ methodmap PerkContainerIter {
     (methodmap
         name: (symbol)
         (methodmap_method
-            returnType: (builtin_type)
+            returnType: (type (builtin_type))
             name: (symbol)
             (argument_declarations
                 (argument_declaration
-                    type: (type_expression (builtin_type))
+                        type: (argument_type (type (builtin_type)))
                     name: (symbol))
                 (argument_declaration
-                    type: (type_expression (builtin_type))
+                        type: (argument_type (type (builtin_type)))
                     name: (symbol)
                     defaultValue: (int_literal)))
-            (block (return_statement (bool_literal) (semicolon))))))
+            (block (return_statement (bool_literal) )))))
 
 
 ===================================
@@ -227,10 +248,10 @@ methodmap MyValue {
     (methodmap
         name: (symbol)
         (methodmap_method
-            returnType: (builtin_type)
+            returnType: (type (builtin_type))
             name: (symbol)
             (argument_declarations)
-            (block (return_statement (this) (semicolon))))))
+            (block (return_statement (this) )))))
 
 
 ===============================
@@ -249,12 +270,12 @@ methodmap AdtArray {
     (methodmap
         name: (symbol)
         (methodmap_property
-            type: (builtin_type)
+            type: (type (builtin_type))
             name: (symbol)
             (methodmap_property_alias
                 (methodmap_property_getter)
                 function: (symbol)
-                (semicolon)))))
+                ))))
 
 
 ================================
@@ -266,6 +287,13 @@ methodmap Player {
         public native get();
         public native set(int health);
     }
+
+    // Connect timeout in seconds. Defaults to 10.
+	#pragma deprecated Use HTTPRequest.ConnectTimeout instead.
+	property int ConnectTimeout {
+		public native get();
+		public native set(int connectTimeout);
+	}
 }
 
 ---
@@ -274,16 +302,29 @@ methodmap Player {
     (methodmap
         name: (symbol)
         (methodmap_property
-            type: (builtin_type)
+            type: (type (builtin_type))
             name: (symbol)
             (methodmap_property_native
                 (methodmap_property_getter)
-                (semicolon))
+                )
             (methodmap_property_native
                 (methodmap_property_setter
-                    type: (builtin_type)
+                    type: (type (builtin_type))
                     name: (symbol))
-                (semicolon)))))
+            ))
+        (comment)
+        (preproc_pragma (preproc_arg))
+        (methodmap_property
+            type: (type (builtin_type))
+            name: (symbol)
+            (methodmap_property_native
+                (methodmap_property_getter)
+                )
+            (methodmap_property_native
+                (methodmap_property_setter
+                    type: (type (builtin_type))
+                    name: (symbol))
+            ))))
 
 
 =======================================
@@ -307,20 +348,20 @@ methodmap Player {
     (methodmap
         name: (symbol)
         (methodmap_property
-            type: (builtin_type)
+            type: (type (builtin_type))
             name: (symbol)
             (methodmap_property_method
                 (methodmap_property_getter)
                 (block
                     (return_statement
                         (bool_literal)
-                        (semicolon))))
+                        )))
             (methodmap_property_method
                 (methodmap_property_setter
-                    type: (builtin_type)
+                    type: (type (builtin_type))
                     name: (symbol))
                 (block
-                    (return_statement (semicolon)))))))
+                    (return_statement ))))))
 
 
 ==============================
@@ -340,9 +381,9 @@ methodmap Handle {
         (methodmap_alias
             name: (symbol)
             function: (symbol)
-            (semicolon))
+            )
         (methodmap_alias
             name: (symbol)
             function: (symbol)
-            (semicolon))
-        (semicolon)))
+            )
+        ))

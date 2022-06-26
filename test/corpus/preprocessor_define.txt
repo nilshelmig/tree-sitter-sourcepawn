@@ -60,6 +60,90 @@ define handles spaces/tabs
         value: (preproc_arg)))
 
 
+============================
+define with trailing comment
+============================
+
+#define MAXPLAYERS 65 /**< Maximum number of players SourceMod supports */
+#define MAXPLAYERS 65 // Maximum number of players SourceMod supports
+#define MAXPLAYERS 65 /**< Maximum number of \
+                        players SourceMod supports */
+#define MAXPLAYERS 65 /**< Maximum number of 
+                        players SourceMod supports */
+
+
+---
+
+(source_file
+    (preproc_define
+        name: (symbol)
+        value: (preproc_arg)
+        (comment))
+      (preproc_define
+        name: (symbol)
+        value: (preproc_arg)
+        (comment))
+      (preproc_define
+        name: (symbol)
+        value: (preproc_arg)
+        (comment))
+      (preproc_define
+        name: (symbol)
+        value: (preproc_arg)
+        (comment)))
+
+
+============================
+non valid expression defines
+============================
+
+#define FOO view_as<int>(
+#define elif else if
+#define FOO view_as<int>( //
+
+---
+
+    (source_file
+      (preproc_define
+        (symbol)
+        (preproc_arg))
+      (preproc_define
+        (symbol)
+        (preproc_arg))
+      (preproc_define
+        (symbol)
+        (preproc_arg)
+        (comment)))
+
+============
+define macro
+============
+
+#define LOOP_CLIENTS(%1,%2) for (int %1=Client_GetNext(%2); %1 >= 1 && %1 <= MaxClients; %1=Client_GetNext(%2, ++%1))
+
+---
+
+(source_file
+    (preproc_macro
+        name: (symbol)
+        value: (preproc_arg)))
+
+======================
+define macro multiline
+======================
+
+#define LOOP_CLIENTS(%1,%2) for (int %1=Client_GetNext(%2);\
+                            %1 >= 1 && %1 <= MaxClients;\
+                            %1=Client_GetNext(%2, ++%1))
+
+---
+
+(source_file
+    (preproc_macro
+        name: (symbol)
+        value: (preproc_arg)))
+
+
 ========
 undefine
 ========

@@ -1,0 +1,209 @@
+=======
+typeset
+=======
+
+typeset Timer {
+    function Action (Handle timer, Handle hndl);
+    function Action (Handle timer);
+}
+
+---
+
+(source_file
+    (typeset
+        name: (symbol)
+        (typedef_expression
+            returnType: (type (symbol))
+            (argument_declarations
+                (argument_declaration
+                    type: (argument_type 
+                        (type (symbol)))
+                    name: (symbol))
+                (argument_declaration
+                    type: (argument_type 
+                        (type (symbol)))
+                    name: (symbol))))
+        
+        (typedef_expression
+            returnType: (type (symbol))
+            (argument_declarations
+                (argument_declaration
+                    type: (argument_type 
+                        (type (symbol)))
+                    name: (symbol))))
+        ))
+
+
+=============================
+typeset with ending semicolon
+=============================
+
+typeset Timer {
+    function Action (Handle timer, Handle hndl);
+    function Action (Handle timer);
+};
+
+---
+
+(source_file
+    (typeset
+        name: (symbol)
+        (typedef_expression
+            returnType: (type (symbol))
+            (argument_declarations
+                (argument_declaration
+                    type: (argument_type 
+                        (type (symbol)))
+                    name: (symbol))
+                (argument_declaration
+                    type: (argument_type 
+                        (type (symbol)))
+                    name: (symbol))))
+        
+        (typedef_expression
+            returnType: (type (symbol))
+            (argument_declarations
+                (argument_declaration
+                    type: (argument_type 
+                        (type (symbol)))
+                    name: (symbol))))
+        
+        ))
+
+
+=================================
+typeset with wrapping parenthesis
+=================================
+
+typeset Timer {
+    (function Action (Handle timer, Handle hndl));
+    (function Action (Handle timer));
+};
+
+---
+
+(source_file
+    (typeset
+        name: (symbol)
+        (typedef_expression
+            returnType: (type (symbol))
+            (argument_declarations
+                (argument_declaration
+                    type: (argument_type 
+                        (type (symbol)))
+                    name: (symbol))
+                (argument_declaration
+                    type: (argument_type 
+                        (type (symbol)))
+                    name: (symbol))))
+        
+        (typedef_expression
+            returnType: (type (symbol))
+            (argument_declarations
+                (argument_declaration
+                    type: (argument_type 
+                        (type (symbol)))
+                    name: (symbol))))
+        
+        ))
+
+
+========
+funcenum
+========
+
+funcenum Timer {
+  Action:public(Handle:Timer, Handle:hndl),
+  Action:public(Handle:timer),
+}
+
+---
+
+
+(source_file
+    (funcenum
+        name: (symbol)
+        (funcenum_member
+            returnType: (old_type (symbol))
+            (argument_declarations
+                (argument_declaration
+                    type: (argument_type 
+                        (old_type (symbol)))
+                    name: (symbol))
+                (argument_declaration
+                    type: (argument_type 
+                        (old_type (symbol)))
+                    name: (symbol))))
+        (funcenum_member
+            returnType: (old_type (symbol))
+            (argument_declarations
+                (argument_declaration
+                    type: (argument_type 
+                        (old_type (symbol)))
+                    name: (symbol))))))
+
+
+=======================
+funcenum with semicolon
+=======================
+
+funcenum Timer {
+  Action:public(Handle:Timer, Handle:hndl),
+  Action:public(Handle:timer),
+};
+
+---
+
+
+(source_file
+    (funcenum
+        name: (symbol)
+        (funcenum_member
+            returnType: (old_type (symbol))
+            (argument_declarations
+                (argument_declaration
+                    type: (argument_type (old_type (symbol)))
+                    name: (symbol))
+                (argument_declaration
+                    type: (argument_type (old_type (symbol)))
+                    name: (symbol))))
+        (funcenum_member
+            returnType: (old_type (symbol))
+            (argument_declarations
+                (argument_declaration
+                    type: (argument_type (old_type (symbol)))
+                    name: (symbol))))
+        ))
+
+
+=======================
+funcenum no return type
+=======================
+
+funcenum Timer {
+  public(Handle:Timer, Handle:hndl),
+  public(Handle:timer),
+}
+
+---
+
+
+(source_file
+    (funcenum
+        name: (symbol)
+        (funcenum_member
+            (argument_declarations
+                (argument_declaration
+                    type: (argument_type 
+                        (old_type (symbol)))
+                    name: (symbol))
+                (argument_declaration
+                    type: (argument_type 
+                        (old_type (symbol)))
+                    name: (symbol))))
+        (funcenum_member
+            (argument_declarations
+                (argument_declaration
+                    type: (argument_type
+                        (old_type (symbol)))
+                    name: (symbol))))))

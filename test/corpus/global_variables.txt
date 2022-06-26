@@ -1,0 +1,407 @@
+===========
+declaration
+===========
+
+int number;
+float pointnumber;
+char character;
+bool boolean;
+float vec[3];
+bool active[MAXPLAYERS + 1];
+Action action;
+Action
+ action1,
+ action2;
+
+---
+
+(source_file
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration name: (symbol))
+        )
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration name: (symbol))
+        )
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration name: (symbol))
+        )
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration name: (symbol))
+        )
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            (fixed_dimension (int_literal)))
+        )
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            (fixed_dimension
+                (binary_expression
+                    left: (symbol)
+                    right: (int_literal))))
+        )
+    (global_variable_declaration
+        type: (type (symbol))
+        (variable_declaration name: (symbol))
+        )
+    (global_variable_declaration
+        type: (type (symbol))
+        (variable_declaration name: (symbol))
+        (variable_declaration name: (symbol))
+        ))
+
+==============
+initialization
+==============
+
+int money = 5400;
+int money = 5400
++1;
+int money = 5400
++1
+float percent = 67.3;
+char key = 'A';
+bool enabled = false;
+Handle handle = null;
+/*----------  MaxSpeed Variables  ----------*/
+bool g_bInMaxSpeed[MAXPLAYERS + 1];
+/*----------  VIP Variables  ----------*/
+ConVar g_hAutoVipFlag = null;
+
+---
+
+(source_file
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (int_literal))
+        )
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (binary_expression
+                left: (int_literal)
+                right: (int_literal)))
+        )
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (binary_expression
+                left: (int_literal)
+                right: (int_literal))))
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (float_literal))
+        )
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (char_literal))
+        )
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (bool_literal))
+        )
+    (global_variable_declaration
+        type: (type (symbol))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (null))
+        )
+      (comment)
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            (fixed_dimension
+                (binary_expression
+                    left: (symbol)
+                    right: (int_literal))))
+        )
+    (comment)
+    (global_variable_declaration
+        type: (type (symbol))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (null))
+        ))
+
+
+==========================
+initialization - methodmap
+==========================
+
+ArrayList arr1 = new ArrayList();
+ArrayList arr2 = new ArrayList(1, 5);
+
+---
+
+(source_file
+    (global_variable_declaration
+        type: (type (symbol))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (new_instance
+                class: (symbol)
+                arguments: (function_call_arguments)))
+        )
+    (global_variable_declaration
+        type: (type (symbol))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (new_instance
+                class: (symbol)
+                arguments: (function_call_arguments
+                    (int_literal)
+                    (int_literal))))
+        ))
+
+
+====================
+array initialization
+====================
+
+int numbers[] = { 1, 2, 3 };
+float vec[3] = { 0.0, 14.2, 13.22 };
+Action action[MAXPLAYERS] = { true, ... };
+
+---
+
+(source_file
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            (dimension)
+            initialValue: (array_litteral (int_literal) (int_literal) (int_literal)))
+        )
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            (fixed_dimension (int_literal))
+            initialValue: (array_litteral (float_literal) (float_literal) (float_literal)))
+        )
+    (global_variable_declaration
+        type: (type (symbol))
+        (variable_declaration
+            name: (symbol)
+            (fixed_dimension (symbol))
+            initialValue: (array_litteral (bool_literal) (rest_operator)))
+        ))
+
+
+==========================
+enum struct initialization
+==========================
+
+MyStruct s = {1, "test", 2.31, true, {1.0, 2.0, 3.0}, Plugin_Handled};
+
+---
+
+(source_file
+    (global_variable_declaration
+        type: (type (symbol))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (array_litteral
+                (int_literal)
+                (string_literal)
+                (float_literal)
+                (bool_literal)
+                (array_litteral
+                    (float_literal)
+                    (float_literal)
+                    (float_literal))
+                (symbol)))
+        ))
+
+
+=============
+storage class
+=============
+
+const int a = 1;
+static float b;
+static bool c = false;
+static const char d[] = "lorem";
+public const int e;
+stock const int e;
+
+---
+
+(source_file
+    (global_variable_declaration
+        (variable_storage_class)
+        type: (type (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (int_literal))
+        )
+    (global_variable_declaration
+        (variable_storage_class)
+        type: (type (builtin_type))
+        (variable_declaration name: (symbol))
+        )
+    (global_variable_declaration
+        (variable_storage_class)
+        type: (type (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (bool_literal))
+        )
+    (global_variable_declaration
+        (variable_storage_class)
+        type: (type
+            (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            (dimension)
+            initialValue: (string_literal))
+        )
+    (global_variable_declaration
+        (variable_visibility)
+        (variable_storage_class)
+        type: (type
+            (builtin_type))
+        (variable_declaration
+            name: (symbol))
+        )
+    (global_variable_declaration
+        (variable_visibility)
+        (variable_storage_class)
+        type: (type
+            (builtin_type))
+        (variable_declaration
+            name: (symbol))
+        ))
+
+
+=======================
+multidimensional arrays
+=======================
+
+float vec[MAXPLAYERS][10];
+float vec [MAXPLAYERS] [10];
+int bla[][] = { {1,2,3}, {4,5,6}, {7,8,9} };
+
+---
+
+(source_file
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            (fixed_dimension (symbol))
+            (fixed_dimension (int_literal)))
+        )
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            (fixed_dimension (symbol))
+            (fixed_dimension (int_literal)))
+        )
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            (dimension)
+            (dimension)
+            initialValue: (array_litteral (array_litteral (int_literal) (int_literal) (int_literal)) (array_litteral (int_literal) (int_literal) (int_literal)) (array_litteral (int_literal) (int_literal) (int_literal))))
+        ))
+
+
+==================
+optional semicolon
+==================
+
+int i
+bool b
+float f = 2.3
+
+---
+
+(source_file
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration name: (symbol)))
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration name: (symbol)))
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (float_literal))))
+
+
+===============================
+multiple variables of same type
+===============================
+
+int a, b;
+bool c, d = true;
+float e = 12.92, f = 1.2, g = 82.00;
+char h = 'c', i;
+char j[10] = "whatever!", k[256];
+
+---
+
+(source_file
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration name: (symbol))
+        (variable_declaration name: (symbol))
+        )
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration name: (symbol))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (bool_literal))
+        )
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (float_literal))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (float_literal))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (float_literal))
+        )
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            initialValue: (char_literal))
+        (variable_declaration name: (symbol))
+        )
+    (global_variable_declaration
+        type: (type (builtin_type))
+        (variable_declaration
+            name: (symbol)
+            (fixed_dimension (int_literal))
+            initialValue: (string_literal))
+        (variable_declaration
+            name: (symbol)
+            (fixed_dimension (int_literal)))
+        ))

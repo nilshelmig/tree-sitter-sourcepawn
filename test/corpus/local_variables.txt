@@ -1,0 +1,349 @@
+============
+declarations
+============
+
+void Test() {
+    int number;
+    float pointnumber;
+    char character;
+    bool boolean;
+    char[] text = "lorem ipsum";
+    float vec[3];
+    bool active[MAXPLAYERS + 1];
+    Action action;
+}
+
+---
+
+(source_file
+    (function_declaration
+        (type (builtin_type))
+        (symbol)
+        (argument_declarations)
+        (block
+            (variable_declaration_statement
+                (type (builtin_type))
+                (variable_declaration (symbol))
+                )
+            (variable_declaration_statement
+                (type (builtin_type))
+                (variable_declaration (symbol))
+                )
+            (variable_declaration_statement
+                (type (builtin_type))
+                (variable_declaration (symbol))
+                )
+            (variable_declaration_statement
+                (type (builtin_type))
+                (variable_declaration (symbol))
+                )
+            (variable_declaration_statement
+                (type (builtin_type))
+                (dimension)
+                (variable_declaration
+                    (symbol)
+                    (string_literal))
+                )
+            (variable_declaration_statement
+                (type (builtin_type))
+                (variable_declaration
+                (symbol)
+                (fixed_dimension (int_literal)))
+                )
+            (variable_declaration_statement
+                (type (builtin_type))
+                (variable_declaration
+                (symbol)
+                (fixed_dimension 
+                    (binary_expression (symbol) (int_literal))))
+                )
+            (variable_declaration_statement
+                (type (symbol))
+            (variable_declaration (symbol))
+            ))))
+
+
+==============
+initialization
+==============
+
+void Test() {
+    int money = 5400;
+    int money = 0
+    + 1;
+    int money = 0
+    + 1
+    float percent = 67.3;
+    char key = 'A';
+    bool enabled = false;
+    Handle handle = null;
+}
+
+---
+
+(source_file
+    (function_declaration
+        (type (builtin_type))
+        (symbol)
+        (argument_declarations)
+        (block
+            (variable_declaration_statement
+                (type (builtin_type))
+                (variable_declaration
+                    (symbol) (int_literal))
+                )
+            (variable_declaration_statement
+                (type (builtin_type))
+                (variable_declaration
+                    (symbol) 
+                    (binary_expression
+                        (int_literal)
+                        (int_literal)))
+                )
+            (variable_declaration_statement
+                (type (builtin_type))
+                (variable_declaration
+                    (symbol) 
+                    (binary_expression
+                        (int_literal)
+                        (int_literal))))
+            (variable_declaration_statement
+                (type (builtin_type))
+                (variable_declaration
+                    (symbol) (float_literal))
+                )
+            (variable_declaration_statement
+                (type (builtin_type))
+            (variable_declaration
+                (symbol) (char_literal))
+                )
+            (variable_declaration_statement
+                (type (builtin_type))
+            (variable_declaration
+                (symbol) (bool_literal))
+                )
+            (variable_declaration_statement
+                (type (symbol))
+            (variable_declaration
+                (symbol) (null))
+                ))))
+
+
+====================
+array initialization
+====================
+
+void Test() {
+    char[] text = "Hello world";
+    int numbers[] = { 1, 2, 3 };
+    float vec[3] = { 0.0, 14.2, 13.22 };
+    bool client_has_stuff[MAXPLAYERS] = { true, ... };
+    char[] name = new char[players*2];
+    Action[] actions = new Action[maxActions];
+}
+
+---
+
+(source_file
+    (function_declaration
+        (type (builtin_type))
+        (symbol)
+        (argument_declarations)
+        (block
+            (variable_declaration_statement
+            (type (builtin_type))
+            (dimension)
+            (variable_declaration
+                (symbol) (string_literal))
+            )
+            (variable_declaration_statement
+                (type (builtin_type))
+                (variable_declaration
+                    (symbol)
+                    (dimension)
+                    (array_litteral
+                    (int_literal)
+                    (int_literal)
+                    (int_literal)))
+            )
+            (variable_declaration_statement
+                (type (builtin_type))
+                (variable_declaration
+                    (symbol)
+                    (fixed_dimension (int_literal))
+                    (array_litteral
+                        (float_literal)
+                        (float_literal)
+                        (float_literal)))
+            )
+            (variable_declaration_statement
+                (type (builtin_type))
+                (variable_declaration
+                    (symbol)
+                    (fixed_dimension (symbol))
+                    (array_litteral
+                        (bool_literal)
+                        (rest_operator)))
+            )
+            (variable_declaration_statement
+                (type (builtin_type))
+                (dimension)
+                (variable_declaration
+                    (symbol)
+                    (dynamic_array (builtin_type)
+                    (fixed_dimension
+                        (binary_expression
+                        (symbol)
+                        (int_literal)))))
+            )
+            (variable_declaration_statement
+                (type (symbol))
+                (dimension)
+                (variable_declaration
+                    (symbol)
+                    (dynamic_array
+                        (symbol)
+                        (fixed_dimension
+                        (symbol))))
+            ))))
+
+
+=============
+storage class
+=============
+
+void Test() {
+    static const int foo = 1;
+    static const Action foo = 1;
+    const int foo = 1;
+    static Action foo;
+}
+
+---
+
+(source_file
+    (function_declaration
+        (type (builtin_type))
+        (symbol)
+        (argument_declarations)
+        (block
+            (variable_declaration_statement
+                (variable_storage_class)
+                (type (builtin_type))
+                (variable_declaration
+                    (symbol) (int_literal))
+            )
+            (variable_declaration_statement
+                (variable_storage_class)
+                (type (symbol))
+                (variable_declaration
+                    (symbol) (int_literal))
+            )
+            (variable_declaration_statement
+                (variable_storage_class)
+                (type (builtin_type))
+                (variable_declaration
+                    (symbol) (int_literal))
+            )
+            (variable_declaration_statement
+                (variable_storage_class)
+                (type (symbol))
+                (variable_declaration (symbol))
+            ))))
+
+
+=======================
+multidimensional arrays
+=======================
+
+void Test(){
+    Action[][] a;
+    Action [] [] a;
+    float vec[MAXPLAYERS][10];
+    float vec [MAXPLAYERS] [10];
+    int bla[][] = { {1,2,3}, {4,5,6}, {7,8,9} };
+    char[][] name = new char[players*2][5];
+}
+
+---
+
+   (source_file
+      (function_declaration
+        (type
+          (builtin_type))
+        (symbol)
+        (argument_declarations)
+        (block
+          (variable_declaration_statement
+            (type
+              (symbol))
+            (dimension)
+            (dimension)
+            (variable_declaration
+              (symbol))
+            )
+          (variable_declaration_statement
+            (type
+              (symbol))
+            (dimension)
+            (dimension)
+            (variable_declaration
+              (symbol))
+            )
+          (variable_declaration_statement
+            (type
+              (builtin_type))
+            (variable_declaration
+              (symbol)
+              (fixed_dimension
+                (symbol))
+              (fixed_dimension
+                (int_literal)))
+            )
+          (variable_declaration_statement
+            (type
+              (builtin_type))
+            (variable_declaration
+              (symbol)
+              (fixed_dimension
+                (symbol))
+              (fixed_dimension
+                (int_literal)))
+            )
+          (variable_declaration_statement
+            (type
+              (builtin_type))
+            (variable_declaration
+              (symbol)
+              (dimension)
+              (dimension)
+              (array_litteral
+                (array_litteral
+                  (int_literal)
+                  (int_literal)
+                  (int_literal))
+                (array_litteral
+                  (int_literal)
+                  (int_literal)
+                  (int_literal))
+                (array_litteral
+                  (int_literal)
+                  (int_literal)
+                  (int_literal))))
+            )
+          (variable_declaration_statement
+            (type
+              (builtin_type))
+            (dimension)
+            (dimension)
+            (variable_declaration
+              (symbol)
+              (dynamic_array
+                (builtin_type)
+                (fixed_dimension
+                  (binary_expression
+                    (symbol)
+                    (int_literal)))
+                (fixed_dimension
+                  (int_literal))))
+            ))))

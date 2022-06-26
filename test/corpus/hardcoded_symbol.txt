@@ -1,0 +1,11 @@
+================
+hardcoded symbol
+================
+
+using __intrinsics__.Handle;
+
+---
+
+(source_file
+	(hardcoded_symbol
+	))

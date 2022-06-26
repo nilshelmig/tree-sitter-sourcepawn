@@ -1,0 +1,57 @@
+name: Build WASM
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  EM_VERSION: 2.0.24
+  EM_CACHE_FOLDER: "emsdk-cache"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup cache
+        id: cache-system-libraries
+        uses: actions/cache@v2
+        with:
+          path: ${{env.EM_CACHE_FOLDER}}
+          key: ${{env.EM_VERSION}}-${{ runner.os }}
+      - run: npm install
+      - uses: mymindstorm/setup-emsdk@v11
+        with:
+          version: ${{env.EM_VERSION}}
+          actions-cache-folder: ${{env.EM_CACHE_FOLDER}}
+      - name: Build parser
+        run: npm run generate
+      - name: Run tests
+        run: npm run test
+        continue-on-error: true
+      - name: Get package version
+        run: node -p -e '`PACKAGE_VERSION=${require("./package.json").version}`' >> $GITHUB_ENV
+      # - name: Changelog
+      #   id: changelog
+      #   uses: mindsers/changelog-reader-action@v2.0.0
+      - name: Build .wasm
+        run: emcc -o tree-sitter-sourcepawn.wasm -Os -s WASM=1 -I src -s SIDE_MODULE=1 -s EXPORTED_FUNCTIONS=[\"_tree_sitter_sourcepawn\"] -fno-exceptions src/parser.c src/scanner.c
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: v${{ env.PACKAGE_VERSION }}
+          artifacts: "*.wasm"
+          body: ${{ steps.changelog.outputs.changes }}
+          draft: false
+          allowUpdates: true
+          prerelease: false
+          replacesArtifacts: true
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}

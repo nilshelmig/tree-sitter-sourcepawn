@@ -10,7 +10,7 @@ void Test() {
 
 (source_file
   (function_declaration
-    returnType: (builtin_type)
+    returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations)
     (block
@@ -18,7 +18,7 @@ void Test() {
             (function_call
                 function: (symbol)
                 (function_call_arguments))
-            (semicolon)))))
+            ))))
 
 
 ============================
@@ -27,14 +27,14 @@ function call with arguments
 
 void Test() {
     MyFunc1("test");
-    MyFunc2("test", 2, &ref, myVar);
+    MyFunc2("test", 2, &ref, myVar, 0.0, 0xFE, 0b01, 0o13);
 }
 
 ---
 
 (source_file
   (function_declaration
-    returnType: (builtin_type)
+    returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations)
     (block
@@ -42,7 +42,7 @@ void Test() {
             (function_call
                 function: (symbol)
                 (function_call_arguments (string_literal)))
-            (semicolon))
+            )
         (expression_statement
             (function_call
                 function: (symbol)
@@ -50,8 +50,12 @@ void Test() {
                     (string_literal)
                     (int_literal)
                     (symbol)
-                    (symbol)))
-            (semicolon)))))
+                    (symbol)
+                    (float_literal)
+                    (int_literal)
+                    (int_literal)
+                    (int_literal)))
+            ))))
 
 
 ==================================
@@ -66,7 +70,7 @@ void Test() {
 
 (source_file
   (function_declaration
-    returnType: (builtin_type)
+    returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations)
     (block
@@ -84,7 +88,7 @@ void Test() {
                     (named_arg
                         name: (symbol)
                         value: (symbol))))
-            (semicolon)))))
+            ))))
 
 
 ===================================
@@ -99,7 +103,7 @@ void Test() {
 
 (source_file
   (function_declaration
-    returnType: (builtin_type)
+    returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations)
     (block
@@ -111,7 +115,7 @@ void Test() {
                     (ignore_argument)
                     (float_literal)
                     (ignore_argument)))
-            (semicolon)))))
+            ))))
 
 
 ===========================
@@ -126,7 +130,7 @@ bool Test() {
 
 (source_file
     (function_declaration
-        returnType: (builtin_type)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
@@ -136,7 +140,7 @@ bool Test() {
                     right: (function_call
                         function: (symbol)
                         (function_call_arguments)))
-                (semicolon)))))
+                ))))
 
 
 =======================================
@@ -151,7 +155,7 @@ void Test() {
 
 (source_file
     (function_declaration
-        returnType: (builtin_type)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
@@ -162,7 +166,7 @@ void Test() {
                         (function_call
                             function: (symbol)
                             (function_call_arguments))))
-                (semicolon)))))
+                ))))
 
 
 ==============================
@@ -174,14 +178,13 @@ int count = CurrentCount();
 ---
 
 (source_file
-    (variable_declaration_statement
-        type: (type_expression (builtin_type))
+    (global_variable_declaration type: (type (builtin_type))
         (variable_declaration
             name: (symbol)
             initialValue: (function_call
                 function: (symbol)
                 (function_call_arguments)))
-        (semicolon)))
+        ))
 
 
 ===============================
@@ -196,7 +199,7 @@ void Test() {
 
 (source_file
     (function_declaration
-        returnType: (builtin_type)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
@@ -206,4 +209,4 @@ void Test() {
                             target: (symbol)
                             field: (symbol))
                         (function_call_arguments (string_literal)))
-                (semicolon)))))
+                ))))

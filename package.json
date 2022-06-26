@@ -1,8 +1,8 @@
 {
   "name": "tree-sitter-sourcepawn",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "SourcePawn grammar for node-tree-sitter",
-  "main": "index.js",
+  "main": "bindings/node",
   "keywords": [
     "parser",
     "sourcepawn",
@@ -20,7 +20,7 @@
     "url": "https://github.com/nilshelmig/tree-sitter-sourcepawn/issues"
   },
   "devDependencies": {
-    "tree-sitter-cli": "^0.18.0"
+    "tree-sitter-cli": "^0.20.6"
   },
   "dependencies": {
     "nan": "^2.14.2"

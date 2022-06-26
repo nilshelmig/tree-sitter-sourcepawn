@@ -2,7 +2,8 @@
 typedef
 =======
 
-typedef SrvCmd = function Action (int args)
+typedef SrvCmd = function Action (int args);
+typedef SrvCmd = function Action[MAXPLAYERS+1][](int args, const char[] args, int &foo);
 
 ---
 
@@ -10,11 +11,79 @@ typedef SrvCmd = function Action (int args)
     (typedef
         name: (symbol)
         (typedef_expression
-            returnType: (symbol)
-            (typedef_args
-                (typedef_arg
-                    type: (type_expression (builtin_type))
-                    name: (symbol))))))
+            returnType: (type (symbol))
+            (argument_declarations
+                (argument_declaration
+                    type: (argument_type
+                        (type (builtin_type)))
+                    name: (symbol))))
+            )
+    (typedef
+        name: (symbol)
+        (typedef_expression
+            returnType: (type (symbol))
+            returnType: (fixed_dimension
+                (binary_expression
+                    left: (symbol)
+                    right: (int_literal)))
+            returnType: (dimension)
+            (argument_declarations
+                (argument_declaration
+                    type: (argument_type
+                        (type (builtin_type)))
+                    name: (symbol))
+            (argument_declaration
+                type: (argument_type
+                    (type (builtin_type))
+                    (dimension))
+                name: (symbol))
+            (argument_declaration
+                type: (argument_type
+                    (type (builtin_type)))
+                name: (symbol))))
+            ))
+
+
+=================================
+typedef with wrapping parenthesis
+=================================
+
+typedef SrvCmd = (function Action (int args));
+
+---
+
+(source_file
+    (typedef
+        name: (symbol)
+        (typedef_expression
+            returnType: (type (symbol))
+            (argument_declarations
+                (argument_declaration
+                    type: (argument_type
+                        (type (builtin_type)))
+                    name: (symbol))))
+        ))
+
+
+======================
+typedef with semicolon
+======================
+
+typedef SrvCmd = function Action (int args);
+
+---
+
+(source_file
+    (typedef
+        name: (symbol)
+        (typedef_expression
+            returnType: (type (symbol))
+            (argument_declarations
+                (argument_declaration
+                    type: (argument_type
+                        (type (builtin_type)))
+                    name: (symbol))))
+        ))
 
 
 ===============================
@@ -38,98 +107,153 @@ typedef CustomHandler =
     (typedef
         name: (symbol)
         (typedef_expression
-            returnType: (builtin_type)
-            (typedef_args
-                (typedef_arg
-                    type: (type_expression (symbol))
+            returnType: (type (builtin_type))
+            (argument_declarations
+                (argument_declaration
+                    type: (argument_type
+                        (type (symbol)))
                     name: (symbol))
-                (typedef_arg
-                    type: (type_expression (builtin_type))
+                (argument_declaration
+                    type: (argument_type
+                        (type (builtin_type)))
                     name: (symbol))
-                (typedef_arg
-                    type: (type_expression (builtin_type))
+                (argument_declaration
+                    type: (argument_type
+                        (type (builtin_type)))
                     name: (symbol))
-                (typedef_arg
-                    type: (type_expression (builtin_type) (dimension))
+                (argument_declaration
+                    type: (argument_type
+                        (type (builtin_type)) (dimension))
                     name: (symbol))
-                (typedef_arg
-                    type: (type_expression (builtin_type))
+                (argument_declaration
+                    type: (argument_type
+                        (type (builtin_type)))
                     name: (symbol))
-                (typedef_arg
-                    type: (type_expression (builtin_type))
+                (argument_declaration
+                    type: (argument_type
+                        (type (builtin_type)))
                     name: (symbol))
-                (typedef_arg
-                    type: (type_expression (builtin_type))
+                (argument_declaration
+                    type: (argument_type
+                        (type (builtin_type)))
                     name: (symbol)
                     (fixed_dimension (int_literal)))
-                (typedef_arg
-                    type: (type_expression (any_type))
+                (argument_declaration
+                    type: (argument_type
+                        (type (any_type)))
                     name: (symbol))))
-        (semicolon)))
+        ))
 
 
 =======
-typeset
+functag
 =======
 
-typeset Timer {
-    function Action (Handle timer, Handle hndl);
-    function Action (Handle timer);
-}
+functag public Action:SrvCmd(args, &Handle:datapack)
 
 ---
 
 (source_file
-    (typeset
+    (functag
+        returnType: (old_type
+            (symbol))
         name: (symbol)
-        (typedef_expression
-            returnType: (symbol)
-            (typedef_args
-                (typedef_arg
-                    type: (type_expression (symbol))
-                    name: (symbol))
-                (typedef_arg
-                    type: (type_expression (symbol))
-                    name: (symbol))))
-        (semicolon)
-        (typedef_expression
-            returnType: (symbol)
-            (typedef_args
-                (typedef_arg
-                    type: (type_expression (symbol))
-                    name: (symbol))))
-        (semicolon)))
+        (argument_declarations
+            (argument_declaration
+                name: (symbol))
+                (argument_declaration
+                    type: (argument_type
+                        (old_type (symbol)))
+                name: (symbol)))))
 
 
-=============================
-typeset with ending semicolon
-=============================
+======================
+functag with semicolon
+======================
 
-typeset Timer {
-    function Action (Handle timer, Handle hndl);
-    function Action (Handle timer);
-};
+functag public Action:SrvCmd(args, &Handle:datapack);
 
 ---
 
 (source_file
-    (typeset
+    (functag
+        returnType: (old_type
+            (symbol))
         name: (symbol)
-        (typedef_expression
-            returnType: (symbol)
-            (typedef_args
-                (typedef_arg
-                    type: (type_expression (symbol))
-                    name: (symbol))
-                (typedef_arg
-                    type: (type_expression (symbol))
-                    name: (symbol))))
-        (semicolon)
-        (typedef_expression
-            returnType: (symbol)
-            (typedef_args
-                (typedef_arg
-                    type: (type_expression (symbol))
-                    name: (symbol))))
-        (semicolon)
-        (semicolon)))
+        (argument_declarations
+            (argument_declaration
+                name: (symbol))
+                (argument_declaration
+                    type: (argument_type
+                        (old_type (symbol)))
+                name: (symbol)))
+        ))
+
+
+======================
+functag no return type
+======================
+
+functag SrvCmd public(args, &Handle:datapack)
+
+---
+
+(source_file
+    (functag
+        name: (symbol)
+        (argument_declarations
+            (argument_declaration
+                name: (symbol))
+                (argument_declaration
+                    type: (argument_type
+                        (old_type (symbol)))
+                name: (symbol)))))
+
+
+=====================================
+functag no return type with semicolon
+=====================================
+
+functag SrvCmd public(args, &Handle:datapack);
+
+---
+
+(source_file
+    (functag
+        name: (symbol)
+        (argument_declarations
+            (argument_declaration
+                name: (symbol))
+                (argument_declaration
+                    type: (argument_type
+                        (old_type (symbol)))
+                name: (symbol)))
+        ))
+
+
+===============================
+functag alternative declaration
+===============================
+
+functag Entity_ChangeOverTimeCallback bool:public(&entity, &Float:interval, &currentCall);
+
+---
+
+(source_file
+    (functag
+        name: (symbol)
+        returnType: (old_type
+            (old_builtin_type))
+        (argument_declarations
+            (argument_declaration
+                type: (argument_type)
+                name: (symbol))
+            (argument_declaration
+                type: (argument_type 
+                    (old_type
+                        (old_builtin_type)))
+                name: (symbol))
+            (argument_declaration
+                type: (argument_type)
+                name: (symbol)))
+        ))

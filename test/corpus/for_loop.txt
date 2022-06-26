@@ -3,33 +3,47 @@ for loop
 ========
 
 public void OnPluginStart() {
-    for(int i = 0; i < 0; i++) {
-
-    }
+    for(int i = 0; i < 0; i++) {}
+    for(int i = 0; i < j; i++) {}
 }
 
 ---
 
 (source_file
-    (callback_implementation
-        returnType: (builtin_type)
+    (function_declaration (function_visibility)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
             (for_loop
                 initialization: (variable_declaration_statement
-                    type: (type_expression (builtin_type))
+                    type: (type (builtin_type))
                     (variable_declaration
                         name: (symbol)
                         initialValue: (int_literal)))
-                (semicolon)
+                
                 condition: (binary_expression
                     left: (symbol)
                     right: (int_literal))
-                (semicolon)
+                
                 iteration: (expression_statement
                     (update_expression
                         argument: (symbol)))
+                (block))
+            (for_loop
+                initialization: (variable_declaration_statement
+                type: (type (builtin_type))
+                (variable_declaration
+                    name: (symbol)
+                    initialValue: (int_literal)))
+                
+                condition: (binary_expression
+                    left: (symbol)
+                    right: (symbol))
+                
+                iteration: (expression_statement
+                (update_expression
+                    argument: (symbol)))
                 (block)))))
 
 
@@ -46,17 +60,17 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (callback_implementation
-        returnType: (builtin_type)
+    (function_declaration (function_visibility)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
             (for_loop
-                (semicolon)
+                
                 condition: (binary_expression
                     left: (symbol)
                     right: (int_literal))
-                (semicolon)
+                
                 iteration: (expression_statement
                     (update_expression
                         argument: (symbol)))
@@ -76,28 +90,28 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (callback_implementation
-        returnType: (builtin_type)
+    (function_declaration (function_visibility)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
             (for_loop
                 initialization: (variable_declaration_statement
-                    type: (type_expression (builtin_type))
+                    type: (type (builtin_type))
                     (variable_declaration
                         name: (symbol)
                         initialValue: (int_literal)))
-                (semicolon)
-                (semicolon)
+                
+                
                 iteration: (expression_statement
                     (update_expression
                         argument: (symbol)))
                 (block)))))
 
 
-==========================
-for loop without iteration
-==========================
+===============================
+for loop without incrementation
+===============================
 
 public void OnPluginStart() {
     for(int i = 0; i < 0; ) {
@@ -108,23 +122,23 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (callback_implementation
-        returnType: (builtin_type)
+    (function_declaration (function_visibility)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
             (for_loop
                 initialization: (variable_declaration_statement
-                    type: (type_expression (builtin_type))
+                    type: (type (builtin_type))
                     (variable_declaration
                         name: (symbol)
                         initialValue: (int_literal)))
-                (semicolon)
+                
                 condition: (binary_expression
                     left: (symbol)
                     right: (int_literal))
-                (semicolon)
-                (block)))))
+                    
+                    (block)))))
 
 
 ========================
@@ -140,14 +154,14 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (callback_implementation
-        returnType: (builtin_type)
+    (function_declaration (function_visibility)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
             (for_loop
-                (semicolon)
-                (semicolon)
+                
+                
                 (block)))))
 
 
@@ -164,15 +178,15 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (callback_implementation
-        returnType: (builtin_type)
+    (function_declaration (function_visibility)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
             (for_loop
-                (semicolon)
-                (semicolon)
-                (block (break_statement (semicolon)))))))
+                
+                
+                (block (break_statement ))))))
 
 
 ===================
@@ -188,15 +202,15 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (callback_implementation
-        returnType: (builtin_type)
+    (function_declaration (function_visibility)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
             (for_loop
-                (semicolon)
-                (semicolon)
-                (block (continue_statement (semicolon)))))))
+                
+                
+                (block (continue_statement ))))))
 
 
 ===========================
@@ -210,15 +224,15 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (callback_implementation
-        returnType: (builtin_type)
+    (function_declaration (function_visibility)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
             (for_loop
-                (semicolon)
-                (semicolon)
-                (break_statement (semicolon))))))
+                
+                
+                (break_statement )))))
 
 
 =======================================
@@ -232,8 +246,8 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (callback_implementation
-        returnType: (builtin_type)
+    (function_declaration (function_visibility)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
@@ -241,41 +255,82 @@ public void OnPluginStart() {
                 initialization: (assignment_expression
                         left: (symbol)
                         right: (int_literal))
-                (semicolon)
+                
                 condition: (binary_expression
                     left: (symbol)
                     right: (int_literal))
-                (semicolon)
+                
                 iteration: (expression_statement (update_expression argument: (symbol)))
-                (break_statement (semicolon))))))
+                (break_statement )))))
 
 
-====================
-for loop - old style
-====================
+==============
+old - for loop
+==============
 
 public void OnPluginStart() {
     for(new i = 0; i < 3; i++) break;
+    for (new entity=MaxClients+1; entity < maxEntities; entity++) {}
+    for (i = 0, ii = 0; i < 14; ++i, ii += 4) {
+		break;
+	}
 }
 
 ---
 
 (source_file
-    (callback_implementation
-        returnType: (builtin_type)
+    (function_declaration (function_visibility)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
             (for_loop
                 initialization: (old_variable_declaration_statement
-                    (old_variable_storage_class)
                     (old_variable_declaration
                         name: (symbol)
                         initialValue: (int_literal)))
-                (semicolon)
+                
                 condition: (binary_expression
                     left: (symbol)
                     right: (int_literal))
-                (semicolon)
+                
                 iteration: (expression_statement (update_expression argument: (symbol)))
-                (break_statement (semicolon))))))
+                (break_statement
+                ))
+            (for_loop
+                initialization: (old_variable_declaration_statement
+                    (old_variable_declaration
+                        name: (symbol)
+                        initialValue: (binary_expression
+                            left: (symbol)
+                            right: (int_literal))))
+                
+                condition: (binary_expression
+                    left: (symbol)
+                    right: (symbol))
+                
+                iteration: (expression_statement
+                    (update_expression argument: (symbol)))
+            (block))
+            (for_loop
+                initialization: (assignment_expression
+                    left: (symbol)
+                    right: (int_literal))
+                initialization: (assignment_expression
+                    left: (symbol)
+                    right: (int_literal))
+                
+                condition: (binary_expression
+                    left: (symbol)
+                    right: (int_literal))
+                
+                iteration: (expression_statement
+                (comma_expression
+                    left: (update_expression
+                    argument: (symbol))
+                    right: (assignment_expression
+                        left: (symbol)
+                        right: (int_literal))))
+            (block
+              (break_statement
+                ))))))

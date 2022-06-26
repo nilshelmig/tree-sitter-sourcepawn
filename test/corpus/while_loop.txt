@@ -11,8 +11,9 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (callback_implementation
-        returnType: (builtin_type)
+    (function_declaration
+        (function_visibility)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
@@ -34,8 +35,9 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (callback_implementation
-        returnType: (builtin_type)
+    (function_declaration
+        (function_visibility)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
@@ -63,14 +65,15 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (callback_implementation
-        returnType: (builtin_type)
+    (function_declaration
+        (function_visibility)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
             (while_loop
                 condition: (bool_literal)
-                (block (break_statement (semicolon)))))))
+                (block (break_statement ))))))
 
 
 =====================
@@ -86,14 +89,15 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (callback_implementation
-        returnType: (builtin_type)
+    (function_declaration
+        (function_visibility)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
             (while_loop
                 condition: (bool_literal)
-                (block (continue_statement (semicolon)))))))
+                (block (continue_statement ))))))
 
 
 =============================
@@ -107,11 +111,12 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (callback_implementation
-        returnType: (builtin_type)
+    (function_declaration
+        (function_visibility)
+        returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
         (block
             (while_loop
                 condition: (bool_literal)
-                (continue_statement (semicolon))))))
+                (continue_statement )))))

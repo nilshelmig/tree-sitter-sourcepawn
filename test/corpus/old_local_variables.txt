@@ -1,0 +1,221 @@
+==================
+old - declarations
+==================
+
+void Test() {
+    new number;
+    new Float:pointnumber;
+}
+
+---
+
+(source_file
+    (function_declaration
+      (type (builtin_type))
+      (symbol)
+      (argument_declarations)
+      (block
+        (old_variable_declaration_statement
+          (old_variable_declaration
+            (symbol))
+        )
+        (old_variable_declaration_statement
+          (old_variable_declaration
+            (old_type (old_builtin_type))
+            (symbol))
+        ))))
+
+
+====================
+old - initialization
+====================
+
+void Test() {
+    new number = 10;
+    new number = 1
+    + 1;
+    new number = 1
+    + 1
+    new number = MaxClients + 1
+    new Float:pointnumber = 10.0;
+}
+
+---
+
+(source_file
+    (function_declaration
+        (type (builtin_type))
+        (symbol)
+        (argument_declarations)
+        (block
+            (old_variable_declaration_statement
+                (old_variable_declaration
+                    (symbol)
+                    (int_literal))
+            )
+            (old_variable_declaration_statement
+                (old_variable_declaration
+                    (symbol)
+                    (binary_expression
+                        (int_literal)
+                        (int_literal)))
+            )
+            (old_variable_declaration_statement
+                (old_variable_declaration
+                    (symbol)
+                    (binary_expression
+                        (int_literal)
+                        (int_literal))))
+            (old_variable_declaration_statement
+                (old_variable_declaration
+                    (symbol)
+                    (binary_expression
+                        (symbol)
+                        (int_literal))))
+            (old_variable_declaration_statement
+                (old_variable_declaration
+                    (old_type (old_builtin_type))
+                    (symbol)
+                    (float_literal))
+            ))))
+
+
+==========================
+old - array initialization
+==========================
+
+void Test() {
+    new String:foo[MAXPLAYERS+1] = "Lorem";
+    new bool:foo[MAXPLAYERS+1] = { true, ...};
+}
+
+---
+
+(source_file
+    (function_declaration
+        (type (builtin_type))
+        (symbol)
+        (argument_declarations)
+        (block
+            (old_variable_declaration_statement
+                (old_variable_declaration
+                (old_type (old_builtin_type))
+                (symbol)
+                (fixed_dimension
+                    (binary_expression
+                        (symbol)
+                        (int_literal)))
+                (string_literal))
+            )
+            (old_variable_declaration_statement
+                (old_variable_declaration
+                    (old_type (old_builtin_type))
+                (symbol)
+                (fixed_dimension
+                    (binary_expression
+                        (symbol)
+                        (int_literal)))
+                (array_litteral (bool_literal)
+                (rest_operator)))
+            ))))
+
+
+===================
+old - storage class
+===================
+
+void Test() {
+    new const Float:foo = 1.0;
+    static Float:foo = 1.0;
+}
+
+---
+
+(source_file
+    (function_declaration
+        (type (builtin_type))
+        (symbol)
+        (argument_declarations)
+        (block
+            (old_variable_declaration_statement
+                (variable_storage_class)
+                (old_variable_declaration
+                    (old_type (old_builtin_type))
+                (symbol)
+                (float_literal))
+            )
+            (old_variable_declaration_statement
+                (variable_storage_class)
+                (old_variable_declaration
+                    (old_type (old_builtin_type))
+                (symbol)
+                (float_literal))
+            ))))
+
+==========
+old arrays
+==========
+
+void Test() {
+    new a[16];
+    new players[MAXPLAYERS + 1];
+    new String:d[12] = "hello world";
+    new Float:origin[3] = {1.0, 2.0, 3.0};
+    new numbers[] = {1, 3, 5, 7, 9};
+}
+
+---
+
+(source_file
+      (function_declaration
+        (type
+          (builtin_type))
+        (symbol)
+        (argument_declarations)
+        (block
+          (old_variable_declaration_statement
+            (old_variable_declaration
+              (symbol)
+              (fixed_dimension
+                (int_literal)))
+            )
+          (old_variable_declaration_statement
+            (old_variable_declaration
+              (symbol)
+              (fixed_dimension
+                (binary_expression
+                  (symbol)
+                  (int_literal))))
+            )
+          (old_variable_declaration_statement
+            (old_variable_declaration
+              (old_type
+                (old_builtin_type))
+              (symbol)
+              (fixed_dimension
+                (int_literal))
+              (string_literal))
+            )
+          (old_variable_declaration_statement
+            (old_variable_declaration
+              (old_type
+                (old_builtin_type))
+              (symbol)
+              (fixed_dimension
+                (int_literal))
+              (array_litteral
+                (float_literal)
+                (float_literal)
+                (float_literal)))
+            )
+          (old_variable_declaration_statement
+            (old_variable_declaration
+              (symbol)
+              (dimension)
+              (array_litteral
+                (int_literal)
+                (int_literal)
+                (int_literal)
+                (int_literal)
+                (int_literal)))
+            ))))

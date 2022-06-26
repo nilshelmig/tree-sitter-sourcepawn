@@ -10,18 +10,18 @@ void MyFunc(int[] myvar) {
 
 (source_file
   (function_declaration
-    returnType: (builtin_type)
+    returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations
         (argument_declaration
-            type: (type_expression (builtin_type) (dimension))
+            type: (argument_type (type (builtin_type)) (dimension))
             name: (symbol)))
     (block
         (expression_statement
             (array_indexed_access
                 array: (symbol)
                 index: (int_literal))
-            (semicolon)))))
+            ))))
 
 
 ==============================
@@ -37,23 +37,23 @@ void MyFunc(int[] myvar) {
 
 (source_file
   (function_declaration
-    returnType: (builtin_type)
+    returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations
         (argument_declaration
-            type: (type_expression (builtin_type) (dimension))
+            type: (argument_type (type (builtin_type)) (dimension))
             name: (symbol)))
     (block
         (expression_statement
             (array_indexed_access
                 array: (symbol)
                 index: (symbol))
-            (semicolon))
+            )
         (expression_statement
             (array_indexed_access
                 array: (symbol)
                 index: (symbol))
-            (semicolon)))))
+            ))))
 
 
 =================================
@@ -68,11 +68,11 @@ void MyFunc(int[] myvar) {
 
 (source_file
   (function_declaration
-    returnType: (builtin_type)
+    returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations
         (argument_declaration
-            type: (type_expression (builtin_type) (dimension))
+            type: (argument_type (type (builtin_type)) (dimension))
             name: (symbol)))
     (block
         (expression_statement
@@ -81,7 +81,7 @@ void MyFunc(int[] myvar) {
                 index: (binary_expression
                     left: (symbol)
                     right: (int_literal)))
-            (semicolon)))))
+            ))))
 
 
 ==================================
@@ -96,11 +96,11 @@ int MyFunc(int[] myvar) {
 
 (source_file
   (function_declaration
-    returnType: (builtin_type)
+    returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations
         (argument_declaration
-            type: (type_expression (builtin_type) (dimension))
+            type: (argument_type (type (builtin_type)) (dimension))
             name: (symbol)))
     (block
         (return_statement
@@ -109,7 +109,7 @@ int MyFunc(int[] myvar) {
                 index: (array_indexed_access
                     array: (symbol)
                     index: (int_literal)))
-            (semicolon)))))
+            ))))
 
 
 ======================================
@@ -124,11 +124,11 @@ int MyFunc(int[][] myvar) {
 
 (source_file
   (function_declaration
-    returnType: (builtin_type)
+    returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations
         (argument_declaration
-            type: (type_expression (builtin_type) (dimension) (dimension))
+            type: (argument_type (type (builtin_type)) (dimension) (dimension))
             name: (symbol)))
     (block
         (return_statement
@@ -137,7 +137,7 @@ int MyFunc(int[][] myvar) {
                         array: (symbol)
                         index: (int_literal))
                     index: (symbol))
-            (semicolon)))))
+            ))))
 
 
 ======================================
@@ -152,11 +152,11 @@ int MyFunc(File target) {
 
 (source_file
   (function_declaration
-    returnType: (builtin_type)
+    returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations
         (argument_declaration
-            type: (type_expression (symbol))
+            type: (argument_type (type (symbol)))
             name: (symbol)))
     (block
         (return_statement
@@ -165,5 +165,5 @@ int MyFunc(File target) {
                         target: (symbol)
                         field: (symbol))
                     index: (int_literal))
-            (semicolon)))))
+            ))))
         
