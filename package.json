@@ -6,7 +6,9 @@
   "keywords": [
     "parser",
     "sourcepawn",
-    "sourcemod"
+    "sourcemod",
+    "ast",
+    "tree-sitter"
   ],
   "scripts": {
     "build": "tree-sitter generate; node-gyp build",
