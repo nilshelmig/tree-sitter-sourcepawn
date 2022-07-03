@@ -9,7 +9,6 @@ edition = "2018"
 license = "MIT"
 
 include = ["bindings/rust/*", "grammar.js", "src/*", "LICENSE", "README.md"]
-exclude = ["node_modules/*", "emsdk-cache/*"]
 build = "bindings/rust/build.rs"
 
 [lib]

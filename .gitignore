@@ -1,5 +1,4 @@
 node_modules/
-emsdk-cache/
 build/
 parser.exp
 parser.lib
