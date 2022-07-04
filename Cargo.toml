@@ -18,4 +18,4 @@ path = "bindings/rust/lib.rs"
 tree-sitter = "~0.20.8"
 
 [build-dependencies]
-cc = "*"
+cc = "1.0"

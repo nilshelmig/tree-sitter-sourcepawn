@@ -11,6 +11,7 @@ void Test() {
     float vec[3];
     bool active[MAXPLAYERS + 1];
     Action action;
+    Action foo = null, bar;
 }
 
 ---
@@ -59,8 +60,16 @@ void Test() {
                 )
             (variable_declaration_statement
                 (type (symbol))
-            (variable_declaration (symbol))
-            ))))
+            (variable_declaration 
+                          (symbol)))
+          (variable_declaration_statement
+              (type
+                (symbol))
+              (variable_declaration
+                (symbol)
+                (null))
+              (variable_declaration
+                (symbol))))))
 
 
 ==============
