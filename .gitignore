@@ -3,4 +3,9 @@ build/
 parser.exp
 parser.lib
 *.obj
-.vscode
+.vscode/
+Cargo.lock
+.node-version
+*.log
+target/
+.build/
