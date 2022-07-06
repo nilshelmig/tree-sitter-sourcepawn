@@ -23,7 +23,7 @@ int GetOppositeDirection() {
                     consequence: (symbol)
                     alternative: (function_call
                         function: (symbol)
-                        (function_call_arguments)))
+                        arguments: (function_call_arguments)))
                 )
             (return_statement
                 (ternary_expression
@@ -57,7 +57,7 @@ int GetOppositeDirection() {
                 (ternary_expression
                     condition: (function_call
                         function: (symbol)
-                        (function_call_arguments))
+                        arguments: (function_call_arguments))
                     consequence: (symbol)
                     alternative: (int_literal))
                 )
@@ -67,7 +67,7 @@ int GetOppositeDirection() {
               name: (symbol)
               initialValue: (function_call
                 function: (symbol)
-                (function_call_arguments
+                arguments: (function_call_arguments
                   (string_literal)
                   (symbol)
                   (parenthesized_expression

@@ -128,7 +128,7 @@ void Test() {
                             class: (symbol)
                             arguments: (function_call_arguments (symbol))))
                     field: (symbol))
-                (function_call_arguments
+                arguments: (function_call_arguments
                 (symbol)))
                 ))))
 
@@ -165,7 +165,7 @@ void Test() {
                         index: (symbol))
                     right: (function_call
                         function: (symbol)
-                        (function_call_arguments
+                        arguments: (function_call_arguments
                             (int_literal)
                             (int_literal))))
                 ))))
@@ -196,7 +196,7 @@ void Test() {
                             left: (symbol)
                             right: (function_call
                                 function: (symbol)
-                                (function_call_arguments))))
+                                arguments: (function_call_arguments))))
                     right: (int_literal))
                     truePath: (return_statement ))
             (expression_statement

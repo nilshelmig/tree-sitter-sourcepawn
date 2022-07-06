@@ -278,5 +278,5 @@ public Callback1() Test();
         (expression_statement
             (function_call
                 function: (symbol)
-                (function_call_arguments))
+                arguments: (function_call_arguments))
             )))

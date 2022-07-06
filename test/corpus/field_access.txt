@@ -101,6 +101,6 @@ void Test() {
                 (field_access
                     target: (function_call
                         function: (symbol)
-                        (function_call_arguments))
+                        arguments: (function_call_arguments))
                     field: (symbol))
                 ))))

@@ -17,7 +17,7 @@ void Test() {
         (expression_statement
             (function_call
                 function: (symbol)
-                (function_call_arguments))
+                arguments: (function_call_arguments))
             ))))
 
 
@@ -41,12 +41,12 @@ void Test() {
         (expression_statement
             (function_call
                 function: (symbol)
-                (function_call_arguments (string_literal)))
+                arguments: (function_call_arguments (string_literal)))
             )
         (expression_statement
             (function_call
                 function: (symbol)
-                (function_call_arguments
+                arguments: (function_call_arguments
                     (string_literal)
                     (int_literal)
                     (symbol)
@@ -77,7 +77,7 @@ void Test() {
         (expression_statement
             (function_call
                 function: (symbol)
-                (function_call_arguments
+                arguments: (function_call_arguments
                     (string_literal)
                     (named_arg
                         name: (symbol)
@@ -110,7 +110,7 @@ void Test() {
         (expression_statement
             (function_call
                 function: (symbol)
-                (function_call_arguments
+                arguments: (function_call_arguments
                     (string_literal)
                     (ignore_argument)
                     (float_literal)
@@ -139,7 +139,7 @@ bool Test() {
                     left: (int_literal)
                     right: (function_call
                         function: (symbol)
-                        (function_call_arguments)))
+                        arguments: (function_call_arguments)))
                 ))))
 
 
@@ -162,10 +162,10 @@ void Test() {
             (expression_statement
                 (function_call
                     function: (symbol)
-                    (function_call_arguments
+                    arguments: (function_call_arguments
                         (function_call
                             function: (symbol)
-                            (function_call_arguments))))
+                            arguments: (function_call_arguments))))
                 ))))
 
 
@@ -183,7 +183,7 @@ int count = CurrentCount();
             name: (symbol)
             initialValue: (function_call
                 function: (symbol)
-                (function_call_arguments)))
+                arguments: (function_call_arguments)))
         ))
 
 
@@ -208,5 +208,5 @@ void Test() {
                         function: (field_access
                             target: (symbol)
                             field: (symbol))
-                        (function_call_arguments (string_literal)))
+                        arguments: (function_call_arguments (string_literal)))
                 ))))

@@ -4702,8 +4702,12 @@
             }
           },
           {
-            "type": "SYMBOL",
-            "name": "function_call_arguments"
+            "type": "FIELD",
+            "name": "arguments",
+            "content": {
+              "type": "SYMBOL",
+              "name": "function_call_arguments"
+            }
           }
         ]
       }

@@ -81,13 +81,13 @@ void MyFunc() {
         (expression_statement
             (function_call
             function: (symbol)
-            (function_call_arguments))
+            arguments: (function_call_arguments))
             )
         (preproc_else)
         (expression_statement
             (function_call
             function: (symbol)
-            (function_call_arguments))
+            arguments: (function_call_arguments))
             )
         (preproc_endif))))
 

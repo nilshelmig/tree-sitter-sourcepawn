@@ -921,9 +921,10 @@ module.exports = grammar({
         PREC.CALL,
         seq(
           field("function", choice($.symbol, $.field_access)),
-          $.function_call_arguments
+          field("arguments", $.function_call_arguments)
         )
       ),
+
     function_call_arguments: ($) =>
       prec.left(
         -11,
@@ -940,6 +941,7 @@ module.exports = grammar({
           ")"
         )
       ),
+
     named_arg: ($) =>
       seq(
         ".",
@@ -947,6 +949,7 @@ module.exports = grammar({
         "=",
         field("value", choice(seq("&", $.symbol), $._expression))
       ),
+
     ignore_argument: ($) => "_",
 
     array_indexed_access: ($) =>
