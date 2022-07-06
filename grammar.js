@@ -235,7 +235,7 @@ module.exports = grammar({
                   $.concatenated_string,
                   $.char_literal,
                   $.parenthesized_expression,
-                  $.array_litteral
+                  $.array_literal
                 )
               )
             )
@@ -1136,7 +1136,7 @@ module.exports = grammar({
         seq(field("type", $.old_type), field("value", $._expression))
       ),
 
-    array_litteral: ($) =>
+    array_literal: ($) =>
       prec(
         10,
         seq(
@@ -1163,7 +1163,7 @@ module.exports = grammar({
         $.string_literal,
         $.concatenated_string,
         $.bool_literal,
-        $.array_litteral,
+        $.array_literal,
         $.null
       ),
 

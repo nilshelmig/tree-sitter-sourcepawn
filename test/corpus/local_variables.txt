@@ -170,7 +170,7 @@ void Test() {
                 (variable_declaration
                     (symbol)
                     (dimension)
-                    (array_litteral
+                    (array_literal
                     (int_literal)
                     (int_literal)
                     (int_literal)))
@@ -180,7 +180,7 @@ void Test() {
                 (variable_declaration
                     (symbol)
                     (fixed_dimension (int_literal))
-                    (array_litteral
+                    (array_literal
                         (float_literal)
                         (float_literal)
                         (float_literal)))
@@ -190,7 +190,7 @@ void Test() {
                 (variable_declaration
                     (symbol)
                     (fixed_dimension (symbol))
-                    (array_litteral
+                    (array_literal
                         (bool_literal)
                         (rest_operator)))
             )
@@ -326,16 +326,16 @@ void Test(){
               (symbol)
               (dimension)
               (dimension)
-              (array_litteral
-                (array_litteral
+              (array_literal
+                (array_literal
                   (int_literal)
                   (int_literal)
                   (int_literal))
-                (array_litteral
+                (array_literal
                   (int_literal)
                   (int_literal)
                   (int_literal))
-                (array_litteral
+                (array_literal
                   (int_literal)
                   (int_literal)
                   (int_literal))))

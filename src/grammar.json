@@ -1035,7 +1035,7 @@
                         },
                         {
                           "type": "SYMBOL",
-                          "name": "array_litteral"
+                          "name": "array_literal"
                         }
                       ]
                     }
@@ -6113,7 +6113,7 @@
         ]
       }
     },
-    "array_litteral": {
+    "array_literal": {
       "type": "PREC",
       "value": 10,
       "content": {
@@ -6255,7 +6255,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "array_litteral"
+          "name": "array_literal"
         },
         {
           "type": "SYMBOL",
