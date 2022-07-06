@@ -316,7 +316,7 @@ void MyFunc7(int mode=FOO|BAR|BAZ) {}
             (type (builtin_type)))
         name: (symbol)
         (fixed_dimension (int_literal))
-        defaultValue: (array_litteral
+        defaultValue: (array_literal
           (float_literal)
           (float_literal)
           (float_literal))))
@@ -687,7 +687,7 @@ public MyFunc2(color[4]) {}
             (argument_declaration
               (symbol)
               (fixed_dimension (int_literal))
-              (array_litteral
+              (array_literal
                   (int_literal)
                   (int_literal)
                   (int_literal)

@@ -115,7 +115,7 @@ void Test() {
                     (binary_expression
                         (symbol)
                         (int_literal)))
-                (array_litteral (bool_literal)
+                (array_literal (bool_literal)
                 (rest_operator)))
             ))))
 
@@ -203,7 +203,7 @@ void Test() {
               (symbol)
               (fixed_dimension
                 (int_literal))
-              (array_litteral
+              (array_literal
                 (float_literal)
                 (float_literal)
                 (float_literal)))
@@ -212,7 +212,7 @@ void Test() {
             (old_variable_declaration
               (symbol)
               (dimension)
-              (array_litteral
+              (array_literal
                 (int_literal)
                 (int_literal)
                 (int_literal)

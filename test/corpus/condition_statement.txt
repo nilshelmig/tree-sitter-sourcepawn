@@ -149,14 +149,15 @@ public void OnPluginStart() {
                 condition: (binary_expression
                     left: (unary_expression
                         argument: (parenthesized_expression
-                            (binary_expression
-                                left: (int_literal)
-                                right: (int_literal))))
+                            expression: 
+                                (binary_expression
+                                    left: (int_literal)
+                                    right: (int_literal))))
                     right: (int_literal))
                 truePath: (return_statement ))
             (condition_statement
                 condition: (binary_expression
-                    left: (unary_expression argument: (parenthesized_expression (int_literal)))
+                    left: (unary_expression argument: (parenthesized_expression expression: (int_literal)))
                     right: (int_literal))
                 truePath: (return_statement ))
             (condition_statement

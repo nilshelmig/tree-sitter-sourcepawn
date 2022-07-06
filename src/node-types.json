@@ -8,7 +8,7 @@
         "named": true
       },
       {
-        "type": "array_litteral",
+        "type": "array_literal",
         "named": true
       },
       {
@@ -276,7 +276,7 @@
             "named": true
           },
           {
-            "type": "array_litteral",
+            "type": "array_literal",
             "named": true
           },
           {
@@ -462,7 +462,7 @@
     }
   },
   {
-    "type": "array_litteral",
+    "type": "array_literal",
     "named": true,
     "fields": {},
     "children": {
@@ -470,7 +470,7 @@
       "required": true,
       "types": [
         {
-          "type": "array_litteral",
+          "type": "array_literal",
           "named": true
         },
         {
@@ -1387,6 +1387,16 @@
     "type": "function_call",
     "named": true,
     "fields": {
+      "arguments": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "function_call_arguments",
+            "named": true
+          }
+        ]
+      },
       "function": {
         "multiple": false,
         "required": true,
@@ -1401,16 +1411,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "function_call_arguments",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -2218,20 +2218,21 @@
   {
     "type": "parenthesized_expression",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "_expression",
-          "named": true
-        },
-        {
-          "type": "comma_expression",
-          "named": true
-        }
-      ]
+    "fields": {
+      "expression": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "_expression",
+            "named": true
+          },
+          {
+            "type": "comma_expression",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -2585,7 +2586,7 @@
             "named": true
           },
           {
-            "type": "array_litteral",
+            "type": "array_literal",
             "named": true
           },
           {
@@ -2966,7 +2967,7 @@
       "required": true,
       "types": [
         {
-          "type": "array_litteral",
+          "type": "array_literal",
           "named": true
         },
         {

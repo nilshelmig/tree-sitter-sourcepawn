@@ -235,7 +235,7 @@ module.exports = grammar({
                   $.concatenated_string,
                   $.char_literal,
                   $.parenthesized_expression,
-                  $.array_litteral
+                  $.array_literal
                 )
               )
             )
@@ -921,9 +921,10 @@ module.exports = grammar({
         PREC.CALL,
         seq(
           field("function", choice($.symbol, $.field_access)),
-          $.function_call_arguments
+          field("arguments", $.function_call_arguments)
         )
       ),
+
     function_call_arguments: ($) =>
       prec.left(
         -11,
@@ -940,6 +941,7 @@ module.exports = grammar({
           ")"
         )
       ),
+
     named_arg: ($) =>
       seq(
         ".",
@@ -947,6 +949,7 @@ module.exports = grammar({
         "=",
         field("value", choice(seq("&", $.symbol), $._expression))
       ),
+
     ignore_argument: ($) => "_",
 
     array_indexed_access: ($) =>
@@ -964,7 +967,11 @@ module.exports = grammar({
       ),
 
     parenthesized_expression: ($) =>
-      seq("(", choice($._expression, $.comma_expression), ")"),
+      seq(
+        "(",
+        field("expression", choice($._expression, $.comma_expression)),
+        ")"
+      ),
 
     comma_expression: ($) =>
       seq(
@@ -1129,7 +1136,7 @@ module.exports = grammar({
         seq(field("type", $.old_type), field("value", $._expression))
       ),
 
-    array_litteral: ($) =>
+    array_literal: ($) =>
       prec(
         10,
         seq(
@@ -1156,7 +1163,7 @@ module.exports = grammar({
         $.string_literal,
         $.concatenated_string,
         $.bool_literal,
-        $.array_litteral,
+        $.array_literal,
         $.null
       ),
 

@@ -22,7 +22,7 @@ void Test() {
             (expression_statement
                 (function_call
                     function: (symbol)
-                    (function_call_arguments
+                    arguments: (function_call_arguments
                         (field_access
                             target: (symbol)
                             field: (symbol))
@@ -65,7 +65,7 @@ void Test() {
                     function: (field_access
                         target: (symbol)
                         field: (symbol))
-                (function_call_arguments
+                arguments: (function_call_arguments
                     (int_literal)
                     (scope_access
                         scope: (symbol)

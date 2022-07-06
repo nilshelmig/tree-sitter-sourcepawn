@@ -147,5 +147,5 @@ methodmap Handle
           (delete_statement
               free: (function_call
                 function: (symbol)
-                (function_call_arguments))
+                arguments: (function_call_arguments))
               )))))

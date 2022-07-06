@@ -84,9 +84,10 @@ enum NumberType
             (enum_entry
                 name: (symbol)
                 value: (parenthesized_expression
-                    (binary_expression
-                        left: (int_literal)
-                        right: (int_literal))))
+                    expression: 
+                        (binary_expression
+                            left: (int_literal)
+                            right: (int_literal))))
             (enum_entry
                 name: (symbol)
                 value: (binary_expression

@@ -143,13 +143,13 @@ static chatColorInfo[][ChatColorInfo] =
             type: (old_type (old_builtin_type))
             name: (symbol)
             (fixed_dimension (int_literal))
-            initialValue: (array_litteral (float_literal) (float_literal) (float_literal)))
+            initialValue: (array_literal (float_literal) (float_literal) (float_literal)))
         )
     (old_global_variable_declaration
         (old_variable_declaration
             name: (symbol)
             (dimension)
-            initialValue: (array_litteral (int_literal) (int_literal) (int_literal) (int_literal) (int_literal)))
+            initialValue: (array_literal (int_literal) (int_literal) (int_literal) (int_literal) (int_literal)))
         )
     (old_global_variable_declaration
         (variable_storage_class)
@@ -157,16 +157,16 @@ static chatColorInfo[][ChatColorInfo] =
             name: (symbol)
             (dimension)
             (fixed_dimension (symbol))
-            initialValue: (array_litteral
+            initialValue: (array_literal
                 (comment)
-                (array_litteral 
+                (array_literal 
                     (char_literal (escape_sequence))
                     (int_literal)
                     (comment)
                     (bool_literal)
                     (symbol))
                 (comment)
-                (array_litteral
+                (array_literal
                     (char_literal (escape_sequence))
                 (int_literal)
                 (comment)
@@ -175,7 +175,7 @@ static chatColorInfo[][ChatColorInfo] =
                     type: (old_type (symbol))
                     value: (int_literal)))
                 (comment)
-                (array_litteral
+                (array_literal
                     (char_literal (escape_sequence))
                     (int_literal)
                     (comment)
@@ -199,14 +199,14 @@ new g_DefaultColors_c[7][4] = { {255,255,255,255}, {255,0,0,255}, {0,255,0,255},
             name: (symbol)
             (fixed_dimension (int_literal))
             (fixed_dimension (int_literal))
-            initialValue: (array_litteral
-                (array_litteral (int_literal) (int_literal) (int_literal) (int_literal))
-                (array_litteral (int_literal) (int_literal) (int_literal) (int_literal))
-                (array_litteral (int_literal) (int_literal) (int_literal) (int_literal))
-                (array_litteral (int_literal) (int_literal) (int_literal) (int_literal))
-                (array_litteral (int_literal) (int_literal) (int_literal) (int_literal))
-                (array_litteral (int_literal) (int_literal) (int_literal) (int_literal))
-                (array_litteral (int_literal) (int_literal) (int_literal) (int_literal))))
+            initialValue: (array_literal
+                (array_literal (int_literal) (int_literal) (int_literal) (int_literal))
+                (array_literal (int_literal) (int_literal) (int_literal) (int_literal))
+                (array_literal (int_literal) (int_literal) (int_literal) (int_literal))
+                (array_literal (int_literal) (int_literal) (int_literal) (int_literal))
+                (array_literal (int_literal) (int_literal) (int_literal) (int_literal))
+                (array_literal (int_literal) (int_literal) (int_literal) (int_literal))
+                (array_literal (int_literal) (int_literal) (int_literal) (int_literal))))
         ))
 
 
@@ -276,7 +276,7 @@ public numHaleKills = 0;
         (old_variable_declaration
             (symbol)
             (dimension)
-            (array_litteral
+            (array_literal
                 (comment)
                 (int_literal)
                 (int_literal)
@@ -302,7 +302,7 @@ public numHaleKills = 0;
         (old_variable_declaration
             (symbol)
             (dimension)
-            (array_litteral
+            (array_literal
                 (binary_expression
                     (int_literal)
                     (int_literal))
