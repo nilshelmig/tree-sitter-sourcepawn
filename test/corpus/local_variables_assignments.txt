@@ -124,7 +124,7 @@ void Test() {
                 (function_call
                     function: (field_access
                     target: (parenthesized_expression
-                        (new_instance
+                        expression: (new_instance
                             class: (symbol)
                             arguments: (function_call_arguments (symbol))))
                     field: (symbol))
@@ -192,7 +192,7 @@ void Test() {
             (condition_statement
                 condition: (binary_expression
                     left: (parenthesized_expression
-                        (assignment_expression
+                        expression: (assignment_expression
                             left: (symbol)
                             right: (function_call
                                 function: (symbol)

@@ -964,7 +964,11 @@ module.exports = grammar({
       ),
 
     parenthesized_expression: ($) =>
-      seq("(", choice($._expression, $.comma_expression), ")"),
+      seq(
+        "(",
+        field("expression", choice($._expression, $.comma_expression)),
+        ")"
+      ),
 
     comma_expression: ($) =>
       seq(

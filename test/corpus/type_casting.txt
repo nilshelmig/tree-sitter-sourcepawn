@@ -117,7 +117,7 @@ void foo(){
                     right: (binary_expression
                         left: (symbol)
                         right: (parenthesized_expression
-                            (symbol))))
+                            expression: (symbol))))
         ))))
 
 
