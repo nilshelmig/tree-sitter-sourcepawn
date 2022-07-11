@@ -2236,6 +2236,80 @@
     }
   },
   {
+    "type": "preproc_assert",
+    "named": true,
+    "fields": {
+      "condition": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array_literal",
+            "named": true
+          },
+          {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "concatenated_string",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "int_literal",
+            "named": true
+          },
+          {
+            "type": "null",
+            "named": true
+          },
+          {
+            "type": "parenthesized_expression",
+            "named": true
+          },
+          {
+            "type": "preproc_binary_expression",
+            "named": true
+          },
+          {
+            "type": "preproc_defined_condition",
+            "named": true
+          },
+          {
+            "type": "preproc_unary_expression",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "preproc_binary_expression",
     "named": true,
     "fields": {
@@ -2611,6 +2685,25 @@
     }
   },
   {
+    "type": "preproc_error",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "preproc_arg",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "preproc_if",
     "named": true,
     "fields": {
@@ -2912,6 +3005,25 @@
     }
   },
   {
+    "type": "preproc_warning",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "preproc_arg",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "rest_argument",
     "named": true,
     "fields": {
@@ -3151,10 +3263,6 @@
         },
         {
           "type": "preproc_macro",
-          "named": true
-        },
-        {
-          "type": "preproc_pragma",
           "named": true
         },
         {
@@ -3832,6 +3940,10 @@
     "named": false
   },
   {
+    "type": "#assert",
+    "named": false
+  },
+  {
     "type": "#define",
     "named": false
   },
@@ -3852,6 +3964,10 @@
     "named": false
   },
   {
+    "type": "#error",
+    "named": false
+  },
+  {
     "type": "#if",
     "named": false
   },
@@ -3869,6 +3985,10 @@
   },
   {
     "type": "#undef",
+    "named": false
+  },
+  {
+    "type": "#warning",
     "named": false
   },
   {

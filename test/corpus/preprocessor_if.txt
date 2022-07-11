@@ -67,6 +67,35 @@ preprocessor condition - complex condition
                 right: (int_literal)))))))
 
 
+=======================================
+preprocessor assert - complex condition
+=======================================
+
+#assert !(defined TEST) || (MAXPLAYERS+1==66) && (FOO==2)
+
+---
+
+(source_file
+    (preproc_assert
+        condition: (preproc_binary_expression
+          left: (preproc_unary_expression
+            argument: (parenthesized_expression
+              (ERROR
+                (symbol))
+              expression: (symbol)))
+          right: (preproc_binary_expression
+            left: (parenthesized_expression
+              expression: (binary_expression
+                left: (binary_expression
+                  left: (symbol)
+                  right: (int_literal))
+                right: (int_literal)))
+            right: (parenthesized_expression
+              expression: (binary_expression
+                left: (symbol)
+                right: (int_literal)))))))
+
+
 ====
 else
 ====

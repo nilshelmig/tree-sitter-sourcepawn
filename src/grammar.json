@@ -85,10 +85,6 @@
           },
           {
             "type": "SYMBOL",
-            "name": "preproc_pragma"
-          },
-          {
-            "type": "SYMBOL",
             "name": "hardcoded_symbol"
           },
           {
@@ -1134,6 +1130,39 @@
         }
       ]
     },
+    "preproc_assert": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#assert"
+        },
+        {
+          "type": "FIELD",
+          "name": "condition",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_preproc_expression"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "comment"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
+    },
     "preproc_defined_condition": {
       "type": "SEQ",
       "members": [
@@ -1223,6 +1252,58 @@
         {
           "type": "STRING",
           "value": "#pragma"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "preproc_arg"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "comment"
+            },
+            {
+              "type": "STRING",
+              "value": "\n"
+            }
+          ]
+        }
+      ]
+    },
+    "preproc_error": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#error"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "preproc_arg"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "comment"
+            },
+            {
+              "type": "STRING",
+              "value": "\n"
+            }
+          ]
+        }
+      ]
+    },
+    "preproc_warning": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#warning"
         },
         {
           "type": "SYMBOL",
@@ -7660,6 +7741,18 @@
     {
       "type": "SYMBOL",
       "name": "preproc_else"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "preproc_error"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "preproc_warning"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "preproc_assert"
     },
     {
       "type": "SYMBOL",

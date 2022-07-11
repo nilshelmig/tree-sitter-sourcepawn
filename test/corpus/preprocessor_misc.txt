@@ -1,0 +1,22 @@
+==================
+preprocessor error
+==================
+
+#error This is an error message
+
+---
+
+(source_file
+    (preproc_error (preproc_arg)))
+
+
+====================
+preprocessor warning
+====================
+
+#warning This is a warning message
+
+---
+
+(source_file
+    (preproc_warning (preproc_arg)))

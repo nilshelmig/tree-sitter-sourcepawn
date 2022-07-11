@@ -33,6 +33,9 @@ module.exports = grammar({
     $.preproc_if,
     $.preproc_elseif,
     $.preproc_else,
+    $.preproc_error,
+    $.preproc_warning,
+    $.preproc_assert,
     $.preproc_pragma,
   ],
 
@@ -84,7 +87,6 @@ module.exports = grammar({
           $.preproc_macro,
           $.preproc_undefine,
           $.preproc_endinput,
-          $.preproc_pragma,
           $.hardcoded_symbol,
           $.alias_declaration,
           $.alias_assignment
@@ -207,6 +209,14 @@ module.exports = grammar({
         "\n"
       ),
 
+    preproc_assert: ($) =>
+      seq(
+        preprocessor("assert"),
+        field("condition", $._preproc_expression),
+        optional($.comment),
+        "\n"
+      ),
+
     preproc_defined_condition: ($) => seq("defined", field("name", $.symbol)),
 
     preproc_else: ($) => seq(preprocessor("else"), choice($.comment, "\n")),
@@ -218,6 +228,12 @@ module.exports = grammar({
 
     preproc_pragma: ($) =>
       seq(preprocessor("pragma"), $.preproc_arg, choice($.comment, "\n")),
+
+    preproc_error: ($) =>
+      seq(preprocessor("error"), $.preproc_arg, choice($.comment, "\n")),
+
+    preproc_warning: ($) =>
+      seq(preprocessor("warning"), $.preproc_arg, choice($.comment, "\n")),
 
     // Hardcoded symbol
     // https://github.com/alliedmodders/sourcemod/blob/5c0ae11a4619e9cba93478683c7737253ea93ba6/plugins/include/handles.inc#L78
