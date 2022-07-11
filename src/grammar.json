@@ -9,6 +9,10 @@
         "members": [
           {
             "type": "SYMBOL",
+            "name": "assertion"
+          },
+          {
+            "type": "SYMBOL",
             "name": "function_declaration"
           },
           {
@@ -1330,6 +1334,32 @@
         {
           "type": "STRING",
           "value": "using __intrinsics__.Handle"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_semicolon"
+        }
+      ]
+    },
+    "assertion": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "assert"
+            },
+            {
+              "type": "STRING",
+              "value": "static_assert"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "function_call_arguments"
         },
         {
           "type": "SYMBOL",

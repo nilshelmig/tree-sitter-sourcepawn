@@ -525,6 +525,21 @@
     }
   },
   {
+    "type": "assertion",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "function_call_arguments",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "assignment_expression",
     "named": true,
     "fields": {
@@ -3210,6 +3225,10 @@
           "named": true
         },
         {
+          "type": "assertion",
+          "named": true
+        },
+        {
           "type": "enum",
           "named": true
         },
@@ -4172,6 +4191,10 @@
     "named": true
   },
   {
+    "type": "assert",
+    "named": false
+  },
+  {
     "type": "bool",
     "named": false
   },
@@ -4325,6 +4348,10 @@
   },
   {
     "type": "static",
+    "named": false
+  },
+  {
+    "type": "static_assert",
     "named": false
   },
   {

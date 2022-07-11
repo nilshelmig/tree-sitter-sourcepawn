@@ -68,6 +68,7 @@ module.exports = grammar({
     source_file: ($) =>
       repeat(
         choice(
+          $.assertion,
           $.function_declaration,
           $.function_definition,
           $.enum,
@@ -238,6 +239,13 @@ module.exports = grammar({
     // Hardcoded symbol
     // https://github.com/alliedmodders/sourcemod/blob/5c0ae11a4619e9cba93478683c7737253ea93ba6/plugins/include/handles.inc#L78
     hardcoded_symbol: ($) => seq("using __intrinsics__.Handle", $._semicolon),
+
+    assertion: ($) =>
+      seq(
+        choice("assert", "static_assert"),
+        $.function_call_arguments,
+        $._semicolon
+      ),
 
     // Main Grammar
 

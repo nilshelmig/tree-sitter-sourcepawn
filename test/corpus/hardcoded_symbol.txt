@@ -9,3 +9,22 @@ using __intrinsics__.Handle;
 (source_file
 	(hardcoded_symbol
 	))
+
+======
+assert
+======
+
+assert(true, "This is an assertion error");
+static_assert(true, "This is an assertion error");
+
+---
+
+(source_file
+    (assertion
+        (function_call_arguments
+        	(bool_literal)
+          	(string_literal)))
+    (assertion
+        (function_call_arguments
+        	(bool_literal)
+          	(string_literal))))
