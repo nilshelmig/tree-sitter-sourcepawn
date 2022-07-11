@@ -31,6 +31,7 @@ module.exports = grammar({
     $.comment,
     $.preproc_endif,
     $.preproc_if,
+    $.preproc_elseif,
     $.preproc_else,
     $.preproc_pragma,
   ],
@@ -92,6 +93,62 @@ module.exports = grammar({
 
     // Preprocessor
 
+    _preproc_expression: ($) =>
+      choice(
+        $.preproc_binary_expression,
+        $.preproc_unary_expression,
+        $.symbol,
+        $._literal,
+        $.parenthesized_expression,
+        $.preproc_defined_condition
+      ),
+
+    preproc_unary_expression: ($) =>
+      prec.left(
+        PREC.UNARY,
+        seq(
+          field("operator", choice("!", "~", "-", "+")),
+          field("argument", $._preproc_expression)
+        )
+      ),
+
+    preproc_binary_expression: ($) => {
+      const table = [
+        ["+", PREC.ADD],
+        ["-", PREC.ADD],
+        ["*", PREC.MULTIPLY],
+        ["/", PREC.MULTIPLY],
+        ["%", PREC.MULTIPLY],
+        ["||", PREC.LOGICAL_OR],
+        ["&&", PREC.LOGICAL_AND],
+        ["|", PREC.INCLUSIVE_OR],
+        ["^", PREC.EXCLUSIVE_OR],
+        ["&", PREC.BITWISE_AND],
+        ["==", PREC.EQUAL],
+        ["!=", PREC.EQUAL],
+        [">", PREC.RELATIONAL],
+        [">=", PREC.RELATIONAL],
+        ["<=", PREC.RELATIONAL],
+        ["<", PREC.RELATIONAL],
+        ["<<", PREC.SHIFT],
+        [">>", PREC.SHIFT],
+        [">>>", PREC.SHIFT],
+      ];
+
+      return choice(
+        ...table.map(([operator, precedence]) => {
+          return prec.left(
+            precedence,
+            seq(
+              field("left", $._preproc_expression),
+              field("operator", operator),
+              field("right", $._preproc_expression)
+            )
+          );
+        })
+      );
+    },
+
     preproc_include: ($) =>
       seq(
         preprocessor("include"),
@@ -137,14 +194,25 @@ module.exports = grammar({
     preproc_if: ($) =>
       seq(
         preprocessor("if"),
-        field("condition", choice($.symbol, $.preproc_defined_condition)),
+        field("condition", $._preproc_expression),
         optional($.comment),
         "\n"
       ),
-    preproc_defined_condition: ($) =>
-      seq(token(seq(optional("!"), "defined")), field("name", $.symbol)),
+
+    preproc_elseif: ($) =>
+      seq(
+        preprocessor("elseif"),
+        field("condition", $._preproc_expression),
+        optional($.comment),
+        "\n"
+      ),
+
+    preproc_defined_condition: ($) => seq("defined", field("name", $.symbol)),
+
     preproc_else: ($) => seq(preprocessor("else"), choice($.comment, "\n")),
+
     preproc_endif: ($) => seq(preprocessor("endif"), choice($.comment, "\n")),
+
     preproc_endinput: ($) =>
       seq(preprocessor("endinput"), choice($.comment, "\n")),
 
