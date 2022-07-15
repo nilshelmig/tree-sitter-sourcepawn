@@ -32,7 +32,68 @@ preprocessor condition - not defined constant
 
 (source_file
     (preproc_if
-        condition: (preproc_defined_condition name: (symbol))))
+        condition: (preproc_unary_expression
+            argument: (preproc_defined_condition
+                name: (symbol)))))
+
+
+
+==========================================
+preprocessor condition - complex condition
+==========================================
+
+#if !(defined TEST) || (MAXPLAYERS+1==66) && (FOO==2)
+
+---
+
+(source_file
+    (preproc_if
+        condition: (preproc_binary_expression
+          left: (preproc_unary_expression
+            argument: (parenthesized_expression
+              (ERROR
+                (symbol))
+              expression: (symbol)))
+          right: (preproc_binary_expression
+            left: (parenthesized_expression
+              expression: (binary_expression
+                left: (binary_expression
+                  left: (symbol)
+                  right: (int_literal))
+                right: (int_literal)))
+            right: (parenthesized_expression
+              expression: (binary_expression
+                left: (symbol)
+                right: (int_literal)))))))
+
+
+=======================================
+preprocessor assert - complex condition
+=======================================
+
+#assert !(defined TEST) || (MAXPLAYERS+1==66) && (FOO==2)
+
+---
+
+(source_file
+    (preproc_assert
+        condition: (preproc_binary_expression
+          left: (preproc_unary_expression
+            argument: (parenthesized_expression
+              (ERROR
+                (symbol))
+              expression: (symbol)))
+          right: (preproc_binary_expression
+            left: (parenthesized_expression
+              expression: (binary_expression
+                left: (binary_expression
+                  left: (symbol)
+                  right: (int_literal))
+                right: (int_literal)))
+            right: (parenthesized_expression
+              expression: (binary_expression
+                left: (symbol)
+                right: (int_literal)))))))
 
 
 ====
@@ -122,6 +183,42 @@ enum
                 value: (int_literal))
             (preproc_endif))
         ))
+
+
+==============================
+elseif condition in code block
+==============================
+
+void MyFunc() {
+    #if DEBUG
+    Debug();
+    #elseif DEBUG2
+    Production();
+    #endif
+}
+
+---
+
+(source_file
+    (function_declaration
+        returnType: (type (builtin_type))
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+        (preproc_if condition: (symbol))
+        (expression_statement
+            (function_call
+            function: (symbol)
+            arguments: (function_call_arguments))
+            )
+        (preproc_elseif
+            condition: (symbol))
+        (expression_statement
+            (function_call
+            function: (symbol)
+            arguments: (function_call_arguments))
+            )
+        (preproc_endif))))
 
 
 =========================

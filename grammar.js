@@ -31,7 +31,11 @@ module.exports = grammar({
     $.comment,
     $.preproc_endif,
     $.preproc_if,
+    $.preproc_elseif,
     $.preproc_else,
+    $.preproc_error,
+    $.preproc_warning,
+    $.preproc_assert,
     $.preproc_pragma,
   ],
 
@@ -64,6 +68,7 @@ module.exports = grammar({
     source_file: ($) =>
       repeat(
         choice(
+          $.assertion,
           $.function_declaration,
           $.function_definition,
           $.enum,
@@ -83,7 +88,6 @@ module.exports = grammar({
           $.preproc_macro,
           $.preproc_undefine,
           $.preproc_endinput,
-          $.preproc_pragma,
           $.hardcoded_symbol,
           $.alias_declaration,
           $.alias_assignment
@@ -91,6 +95,62 @@ module.exports = grammar({
       ),
 
     // Preprocessor
+
+    _preproc_expression: ($) =>
+      choice(
+        $.preproc_binary_expression,
+        $.preproc_unary_expression,
+        $.symbol,
+        $._literal,
+        $.parenthesized_expression,
+        $.preproc_defined_condition
+      ),
+
+    preproc_unary_expression: ($) =>
+      prec.left(
+        PREC.UNARY,
+        seq(
+          field("operator", choice("!", "~", "-", "+")),
+          field("argument", $._preproc_expression)
+        )
+      ),
+
+    preproc_binary_expression: ($) => {
+      const table = [
+        ["+", PREC.ADD],
+        ["-", PREC.ADD],
+        ["*", PREC.MULTIPLY],
+        ["/", PREC.MULTIPLY],
+        ["%", PREC.MULTIPLY],
+        ["||", PREC.LOGICAL_OR],
+        ["&&", PREC.LOGICAL_AND],
+        ["|", PREC.INCLUSIVE_OR],
+        ["^", PREC.EXCLUSIVE_OR],
+        ["&", PREC.BITWISE_AND],
+        ["==", PREC.EQUAL],
+        ["!=", PREC.EQUAL],
+        [">", PREC.RELATIONAL],
+        [">=", PREC.RELATIONAL],
+        ["<=", PREC.RELATIONAL],
+        ["<", PREC.RELATIONAL],
+        ["<<", PREC.SHIFT],
+        [">>", PREC.SHIFT],
+        [">>>", PREC.SHIFT],
+      ];
+
+      return choice(
+        ...table.map(([operator, precedence]) => {
+          return prec.left(
+            precedence,
+            seq(
+              field("left", $._preproc_expression),
+              field("operator", operator),
+              field("right", $._preproc_expression)
+            )
+          );
+        })
+      );
+    },
 
     preproc_include: ($) =>
       seq(
@@ -137,23 +197,55 @@ module.exports = grammar({
     preproc_if: ($) =>
       seq(
         preprocessor("if"),
-        field("condition", choice($.symbol, $.preproc_defined_condition)),
+        field("condition", $._preproc_expression),
         optional($.comment),
         "\n"
       ),
-    preproc_defined_condition: ($) =>
-      seq(token(seq(optional("!"), "defined")), field("name", $.symbol)),
+
+    preproc_elseif: ($) =>
+      seq(
+        preprocessor("elseif"),
+        field("condition", $._preproc_expression),
+        optional($.comment),
+        "\n"
+      ),
+
+    preproc_assert: ($) =>
+      seq(
+        preprocessor("assert"),
+        field("condition", $._preproc_expression),
+        optional($.comment),
+        "\n"
+      ),
+
+    preproc_defined_condition: ($) => seq("defined", field("name", $.symbol)),
+
     preproc_else: ($) => seq(preprocessor("else"), choice($.comment, "\n")),
+
     preproc_endif: ($) => seq(preprocessor("endif"), choice($.comment, "\n")),
+
     preproc_endinput: ($) =>
       seq(preprocessor("endinput"), choice($.comment, "\n")),
 
     preproc_pragma: ($) =>
       seq(preprocessor("pragma"), $.preproc_arg, choice($.comment, "\n")),
 
+    preproc_error: ($) =>
+      seq(preprocessor("error"), $.preproc_arg, choice($.comment, "\n")),
+
+    preproc_warning: ($) =>
+      seq(preprocessor("warning"), $.preproc_arg, choice($.comment, "\n")),
+
     // Hardcoded symbol
     // https://github.com/alliedmodders/sourcemod/blob/5c0ae11a4619e9cba93478683c7737253ea93ba6/plugins/include/handles.inc#L78
     hardcoded_symbol: ($) => seq("using __intrinsics__.Handle", $._semicolon),
+
+    assertion: ($) =>
+      seq(
+        choice("assert", "static_assert"),
+        $.function_call_arguments,
+        $._semicolon
+      ),
 
     // Main Grammar
 
