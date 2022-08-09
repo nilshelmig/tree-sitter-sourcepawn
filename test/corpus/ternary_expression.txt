@@ -76,7 +76,7 @@ int GetOppositeDirection() {
                       consequence: (symbol)
                       alternative: (int_literal))))))
             )
-                  (return_statement
+            (return_statement
             (ternary_expression
               condition: (binary_expression
                 left: (symbol)

@@ -1275,7 +1275,6 @@ module.exports = grammar({
       );
       return token(
         seq(
-          optional(/[-\+]/),
           choice(
             decimalDigits,
             seq("0b", decimalDigits),
@@ -1296,7 +1295,6 @@ module.exports = grammar({
       );
       return token(
         seq(
-          optional(/[-\+]/),
           choice(
             seq(decimalDigits, optional(seq(".", optional(decimalDigits)))),
             seq(".", decimalDigits)

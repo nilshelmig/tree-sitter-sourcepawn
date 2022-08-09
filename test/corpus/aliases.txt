@@ -25,10 +25,10 @@ stock float operator--(float oper)
                     (type (builtin_type)))
             (symbol)))
         (block
-            (return_statement (symbol))
-            (expression_statement
-                (float_literal)
-            )))
+            (return_statement
+                (binary_expression
+                    (symbol)
+                    (float_literal)))))
     (alias_declaration
         (function_visibility)
         (type (builtin_type))
@@ -39,10 +39,10 @@ stock float operator--(float oper)
                     (type (builtin_type)))
             (symbol)))
         (block
-            (return_statement (symbol))
-            (expression_statement
-                (float_literal)
-            ))))
+            (return_statement
+                (binary_expression
+                    (symbol)
+                    (float_literal))))))
 
 
 ===================

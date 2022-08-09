@@ -1,0 +1,29 @@
+=====================
+expression statements
+=====================
+
+void foo() {
+    int i;
+    i = i+1;
+}
+
+---
+
+(source_file
+    (function_declaration
+    (type
+        (builtin_type))
+    (symbol)
+    (argument_declarations)
+    (block
+        (variable_declaration_statement
+        (type
+            (builtin_type))
+        (variable_declaration
+            (symbol)))
+        (expression_statement
+        (assignment_expression
+            (symbol)
+            (binary_expression
+            (symbol)
+            (int_literal)))))))
