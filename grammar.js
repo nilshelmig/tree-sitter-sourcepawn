@@ -938,7 +938,7 @@ module.exports = grammar({
       ),
 
     switch_case_values: ($) =>
-      prec.left(commaSep1(choice($._literal, $.symbol))),
+      prec.left(commaSep1(choice($._literal, $.unary_expression, $.symbol))),
 
     switch_default_case: ($) =>
       seq("default", ":", $._statement, optional($.break_statement)),
@@ -1254,6 +1254,7 @@ module.exports = grammar({
               $.symbol,
               $.view_as,
               $.old_type_cast,
+              $.unary_expression,
               $.binary_expression
             )
           ),

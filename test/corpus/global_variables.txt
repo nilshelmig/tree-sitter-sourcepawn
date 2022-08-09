@@ -176,8 +176,8 @@ ArrayList arr2 = new ArrayList(1, 5);
 array initialization
 ====================
 
-int numbers[] = { 1, 2, 3 };
-float vec[3] = { 0.0, 14.2, 13.22 };
+int numbers[] = { -1, 2, 3 };
+float vec[3] = { -0.0, 14.2, 13.22 };
 Action action[MAXPLAYERS] = { true, ... };
 
 ---
@@ -188,15 +188,23 @@ Action action[MAXPLAYERS] = { true, ... };
         (variable_declaration
             name: (symbol)
             (dimension)
-            initialValue: (array_literal (int_literal) (int_literal) (int_literal)))
-        )
+            initialValue: 
+                (array_literal 
+                    (unary_expression
+                        argument: (int_literal)) 
+                    (int_literal) 
+                    (int_literal))))
     (global_variable_declaration
         type: (type (builtin_type))
         (variable_declaration
             name: (symbol)
             (fixed_dimension (int_literal))
-            initialValue: (array_literal (float_literal) (float_literal) (float_literal)))
-        )
+            initialValue:
+                (array_literal 
+                    (unary_expression
+                        argument: (float_literal)) 
+                    (float_literal) 
+                    (float_literal))))
     (global_variable_declaration
         type: (type (symbol))
         (variable_declaration

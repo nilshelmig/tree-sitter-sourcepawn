@@ -5124,6 +5124,10 @@
               },
               {
                 "type": "SYMBOL",
+                "name": "unary_expression"
+              },
+              {
+                "type": "SYMBOL",
                 "name": "symbol"
               }
             ]
@@ -5143,6 +5147,10 @@
                     {
                       "type": "SYMBOL",
                       "name": "_literal"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "unary_expression"
                     },
                     {
                       "type": "SYMBOL",
@@ -6965,6 +6973,10 @@
                   },
                   {
                     "type": "SYMBOL",
+                    "name": "unary_expression"
+                  },
+                  {
+                    "type": "SYMBOL",
                     "name": "binary_expression"
                   }
                 ]
@@ -6996,6 +7008,10 @@
                         {
                           "type": "SYMBOL",
                           "name": "old_type_cast"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "unary_expression"
                         },
                         {
                           "type": "SYMBOL",

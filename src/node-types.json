@@ -518,6 +518,10 @@
           "named": true
         },
         {
+          "type": "unary_expression",
+          "named": true
+        },
+        {
           "type": "view_as",
           "named": true
         }
@@ -3535,6 +3539,10 @@
         },
         {
           "type": "symbol",
+          "named": true
+        },
+        {
+          "type": "unary_expression",
           "named": true
         }
       ]
