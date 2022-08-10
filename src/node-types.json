@@ -2698,13 +2698,9 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "comment",
-          "named": true
-        },
         {
           "type": "preproc_arg",
           "named": true
@@ -2830,16 +2826,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "comment",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -2847,13 +2833,9 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "comment",
-          "named": true
-        },
         {
           "type": "preproc_arg",
           "named": true
@@ -2981,16 +2963,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "comment",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -2998,13 +2970,9 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "comment",
-          "named": true
-        },
         {
           "type": "preproc_arg",
           "named": true

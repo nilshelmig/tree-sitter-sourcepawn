@@ -73,8 +73,15 @@ static bool scan_whitespace_and_comments(TSLexer *lexer)
 
 static bool preproc_arg(TSLexer *lexer)
 {
-  int in_string = 0;
   lexer->result_symbol = PREPROC_ARG;
+
+  if (lexer->lookahead == '(')
+  {
+    // Macro declaration.
+    return false;
+  }
+
+  int in_string = 0;
   bool is_escaped = false;
   bool ends_with_multiline_comment = false;
   for (;;)
@@ -238,14 +245,14 @@ static bool ternary_colon(TSLexer *lexer)
 bool tree_sitter_sourcepawn_external_scanner_scan(void *payload, TSLexer *lexer,
                                                   const bool *valid_symbols)
 {
-  if (valid_symbols[PREPROC_ARG])
-  {
-    return preproc_arg(lexer);
-  }
-
   if (valid_symbols[AUTOMATIC_SEMICOLON] && lexer->lookahead != ':' && lexer->lookahead != '?')
   {
     return scan_automatic_semicolon(lexer);
+  }
+
+  if (valid_symbols[PREPROC_ARG])
+  {
+    return preproc_arg(lexer);
   }
 
   if (valid_symbols[TERNARY_COLON])

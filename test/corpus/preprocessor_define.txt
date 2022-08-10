@@ -70,6 +70,11 @@ define with trailing comment
                         players SourceMod supports */
 #define MAXPLAYERS 65 /**< Maximum number of 
                         players SourceMod supports */
+#define MAXPLAYERS 65 /*\
+*/+1
+#define MAXPLAYERS 65+\
+1
+#define MAXPLAYERS 65 /**/ +1
 
 
 ---
@@ -77,20 +82,29 @@ define with trailing comment
 (source_file
     (preproc_define
         name: (symbol)
-        value: (preproc_arg)
-        (comment))
-      (preproc_define
+        value: (preproc_arg))
+    (comment)
+    (preproc_define
         name: (symbol)
-        value: (preproc_arg)
-        (comment))
-      (preproc_define
+        value: (preproc_arg))
+    (comment)
+    (preproc_define
         name: (symbol)
-        value: (preproc_arg)
-        (comment))
-      (preproc_define
+        value: (preproc_arg))
+    (comment)
+    (preproc_define
         name: (symbol)
-        value: (preproc_arg)
-        (comment)))
+        value: (preproc_arg))
+      (comment)
+    (preproc_define
+      name: (symbol)
+      value: (preproc_arg))
+    (preproc_define
+      name: (symbol)
+      value: (preproc_arg))
+    (preproc_define
+      name: (symbol)
+      value: (preproc_arg)))
 
 
 ============================
@@ -114,8 +128,8 @@ non valid expression defines
     (preproc_arg))
   (preproc_define
     (symbol)
-    (preproc_arg)
-    (comment))
+    (preproc_arg))
+  (comment)
   (preproc_define
     (symbol)
     (preproc_arg))
