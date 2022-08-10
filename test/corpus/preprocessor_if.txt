@@ -47,24 +47,23 @@ preprocessor condition - complex condition
 ---
 
 (source_file
-    (preproc_if
-        condition: (preproc_binary_expression
-          left: (preproc_unary_expression
-            argument: (parenthesized_expression
-              (ERROR
-                (symbol))
-              expression: (symbol)))
-          right: (preproc_binary_expression
-            left: (parenthesized_expression
-              expression: (binary_expression
-                left: (binary_expression
-                  left: (symbol)
-                  right: (int_literal))
-                right: (int_literal)))
-            right: (parenthesized_expression
-              expression: (binary_expression
-                left: (symbol)
-                right: (int_literal)))))))
+  (preproc_if
+    (preproc_binary_expression
+      (preproc_unary_expression
+        (preproc_parenthesized_expression
+          (preproc_defined_condition
+            (symbol))))
+      (preproc_binary_expression
+        (preproc_parenthesized_expression
+          (preproc_binary_expression
+            (preproc_binary_expression
+              (symbol)
+              (int_literal))
+            (int_literal)))
+        (preproc_parenthesized_expression
+          (preproc_binary_expression
+            (symbol)
+            (int_literal)))))))
 
 
 =======================================
@@ -76,24 +75,23 @@ preprocessor assert - complex condition
 ---
 
 (source_file
-    (preproc_assert
-        condition: (preproc_binary_expression
-          left: (preproc_unary_expression
-            argument: (parenthesized_expression
-              (ERROR
-                (symbol))
-              expression: (symbol)))
-          right: (preproc_binary_expression
-            left: (parenthesized_expression
-              expression: (binary_expression
-                left: (binary_expression
-                  left: (symbol)
-                  right: (int_literal))
-                right: (int_literal)))
-            right: (parenthesized_expression
-              expression: (binary_expression
-                left: (symbol)
-                right: (int_literal)))))))
+  (preproc_assert
+    (preproc_binary_expression
+      (preproc_unary_expression
+        (preproc_parenthesized_expression
+          (preproc_defined_condition
+            (symbol))))
+      (preproc_binary_expression
+        (preproc_parenthesized_expression
+          (preproc_binary_expression
+            (preproc_binary_expression
+              (symbol)
+              (int_literal))
+            (int_literal)))
+        (preproc_parenthesized_expression
+          (preproc_binary_expression
+            (symbol)
+            (int_literal)))))))
 
 
 ====

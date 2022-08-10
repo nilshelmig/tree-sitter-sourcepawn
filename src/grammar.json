@@ -123,11 +123,28 @@
         },
         {
           "type": "SYMBOL",
-          "name": "parenthesized_expression"
+          "name": "preproc_parenthesized_expression"
         },
         {
           "type": "SYMBOL",
           "name": "preproc_defined_condition"
+        }
+      ]
+    },
+    "preproc_parenthesized_expression": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_preproc_expression"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
         }
       ]
     },

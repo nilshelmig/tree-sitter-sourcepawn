@@ -102,9 +102,12 @@ module.exports = grammar({
         $.preproc_unary_expression,
         $.symbol,
         $._literal,
-        $.parenthesized_expression,
+        $.preproc_parenthesized_expression,
         $.preproc_defined_condition
       ),
+
+    preproc_parenthesized_expression: ($) =>
+      seq("(", $._preproc_expression, ")"),
 
     preproc_unary_expression: ($) =>
       prec.left(
