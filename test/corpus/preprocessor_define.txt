@@ -100,20 +100,26 @@ non valid expression defines
 #define FOO view_as<int>(
 #define elif else if
 #define FOO view_as<int>( //
+#define FOO view_as<int>(
+// unrelated comment
 
 ---
 
-    (source_file
-      (preproc_define
-        (symbol)
-        (preproc_arg))
-      (preproc_define
-        (symbol)
-        (preproc_arg))
-      (preproc_define
-        (symbol)
-        (preproc_arg)
-        (comment)))
+(source_file
+  (preproc_define
+    (symbol)
+    (preproc_arg))
+  (preproc_define
+    (symbol)
+    (preproc_arg))
+  (preproc_define
+    (symbol)
+    (preproc_arg)
+    (comment))
+  (preproc_define
+    (symbol)
+    (preproc_arg))
+  (comment))
 
 ============
 define macro

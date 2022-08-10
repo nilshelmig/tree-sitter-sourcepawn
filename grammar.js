@@ -24,7 +24,7 @@ const PREC = {
 module.exports = grammar({
   name: "sourcepawn",
 
-  externals: ($) => [$._automatic_semicolon, $._ternary_colon],
+  externals: ($) => [$._automatic_semicolon, $._ternary_colon, $.preproc_arg],
 
   extras: ($) => [
     /\s|\\\r?\n/,
@@ -183,7 +183,7 @@ module.exports = grammar({
         choice($.comment, "\n")
       ),
 
-    preproc_arg: ($) => token(prec(-1, repeat1(/[^\/\/\/\*\n]|\\\r?\n/))),
+    // preproc_arg: ($) => token(prec(-1, repeat1(/[^\/\/\/\*\n]|\\\r?\n/))),
 
     preproc_undefine: ($) =>
       seq(

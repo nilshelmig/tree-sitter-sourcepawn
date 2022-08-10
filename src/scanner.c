@@ -5,6 +5,7 @@ enum TokenType
 {
   AUTOMATIC_SEMICOLON,
   TERNARY_COLON,
+  PREPROC_ARG
 };
 
 void *tree_sitter_sourcepawn_external_scanner_create() { return NULL; }
@@ -67,6 +68,38 @@ static bool scan_whitespace_and_comments(TSLexer *lexer)
       return true;
     }
   }
+}
+
+static bool preproc_arg(TSLexer *lexer)
+{
+  int in_string = 0;
+  lexer->result_symbol = PREPROC_ARG;
+  for (;;)
+  {
+    // if (lexer->lookahead == '"')
+    // {
+    //   skip(lexer);
+    //   switch (in_string)
+    //   {
+    //   case 0:
+    //     in_string = 2;
+    //     break;
+    //   case 2:
+    //     in_string = 0;
+    //   default:
+    //     break;
+    //   }
+    // }
+    if (lexer->lookahead == '\n')
+    {
+      break;
+    }
+    advance(lexer);
+  }
+  advance(lexer);
+  lexer->mark_end(lexer);
+
+  return lexer->lookahead == '\n';
 }
 
 static bool scan_automatic_semicolon(TSLexer *lexer)
@@ -150,6 +183,11 @@ static bool ternary_colon(TSLexer *lexer)
 bool tree_sitter_sourcepawn_external_scanner_scan(void *payload, TSLexer *lexer,
                                                   const bool *valid_symbols)
 {
+  if (valid_symbols[PREPROC_ARG])
+  {
+    return preproc_arg(lexer);
+  }
+
   if (valid_symbols[AUTOMATIC_SEMICOLON] && lexer->lookahead != ':' && lexer->lookahead != '?')
   {
     return scan_automatic_semicolon(lexer);

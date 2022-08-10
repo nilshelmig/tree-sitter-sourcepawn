@@ -998,20 +998,6 @@
         }
       ]
     },
-    "preproc_arg": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": -1,
-        "content": {
-          "type": "REPEAT1",
-          "content": {
-            "type": "PATTERN",
-            "value": "[^\\/\\/\\/\\*\\n]|\\\\\\r?\\n"
-          }
-        }
-      }
-    },
     "preproc_undefine": {
       "type": "SEQ",
       "members": [
@@ -7822,6 +7808,10 @@
     {
       "type": "SYMBOL",
       "name": "_ternary_colon"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "preproc_arg"
     }
   ],
   "inline": [
