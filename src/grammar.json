@@ -828,19 +828,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "comment"
-            },
-            {
-              "type": "STRING",
-              "value": "\n"
-            }
-          ]
         }
       ]
     },
@@ -867,19 +854,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "comment"
-            },
-            {
-              "type": "STRING",
-              "value": "\n"
-            }
-          ]
         }
       ]
     },
@@ -7680,7 +7654,7 @@
               "members": [
                 {
                   "type": "PATTERN",
-                  "value": "[^>\\n]"
+                  "value": "[^>]"
                 },
                 {
                   "type": "STRING",

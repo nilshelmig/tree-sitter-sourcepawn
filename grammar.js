@@ -155,15 +155,13 @@ module.exports = grammar({
     preproc_include: ($) =>
       seq(
         preprocessor("include"),
-        field("path", choice($.string_literal, $.system_lib_string)),
-        choice($.comment, "\n")
+        field("path", choice($.string_literal, $.system_lib_string))
       ),
 
     preproc_tryinclude: ($) =>
       seq(
         preprocessor("tryinclude"),
-        field("path", choice($.string_literal, $.system_lib_string)),
-        choice($.comment, "\n")
+        field("path", choice($.string_literal, $.system_lib_string))
       ),
 
     preproc_macro: ($) =>
@@ -1369,7 +1367,7 @@ module.exports = grammar({
     rest_operator: ($) => "...",
 
     system_lib_string: ($) =>
-      token(seq("<", repeat(choice(/[^>\n]/, "\\>")), ">")),
+      token(seq("<", repeat(choice(/[^>]/, "\\>")), ">")),
 
     symbol: ($) => /[a-zA-Z_]\w*/,
 
