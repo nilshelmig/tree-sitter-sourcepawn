@@ -1,5 +1,6 @@
 #include <tree_sitter/parser.h>
 #include <wctype.h>
+#include <stdio.h>
 
 enum TokenType
 {
@@ -74,32 +75,86 @@ static bool preproc_arg(TSLexer *lexer)
 {
   int in_string = 0;
   lexer->result_symbol = PREPROC_ARG;
+  bool is_escaped = false;
+  bool ends_with_multiline_comment = false;
   for (;;)
   {
-    // if (lexer->lookahead == '"')
-    // {
-    //   skip(lexer);
-    //   switch (in_string)
-    //   {
-    //   case 0:
-    //     in_string = 2;
-    //     break;
-    //   case 2:
-    //     in_string = 0;
-    //   default:
-    //     break;
-    //   }
-    // }
-    if (lexer->lookahead == '\n')
+    if (lexer->lookahead == '/')
     {
-      break;
+      // Check if we are in a comment.
+      // Halt the preproc_arg token matching in case it's a comment.
+      lexer->mark_end(lexer);
+      skip(lexer);
+      if (lexer->lookahead == '/')
+      {
+        // Single line comment, return true here, line continuation
+        // would be invalid anyways.
+        return true;
+      }
+
+      if (lexer->lookahead == '*')
+      {
+        // Multiline comment, look for the end.
+        skip(lexer);
+        bool end = false;
+        while (!end)
+        {
+          if (lexer->lookahead == '\n' && !is_escaped)
+          {
+            // EOL reached without any line continuation.
+            // Return true as we are no longer in a preproc_arg.
+            return true;
+          }
+          if (lexer->lookahead != '\r')
+          {
+            // Reached a potential line continuation, and avoid
+            // it being cancelled by a carriage return.
+            is_escaped = lexer->lookahead == '\\';
+          }
+          if (lexer->lookahead != '*')
+          {
+            // Can't be the end of the multiline comment, skip.
+            skip(lexer);
+            continue;
+          }
+          // Check for the end of the multiline comment or EOF.
+          skip(lexer);
+          end = lexer->lookahead == '/' || lexer->lookahead == 0;
+        }
+        // For now, assume the preproc_arg token has ended.
+        ends_with_multiline_comment = true;
+        advance(lexer);
+      }
     }
+
+    if (!(iswspace(lexer->lookahead) || lexer->lookahead == 0) && ends_with_multiline_comment)
+    {
+      // Found a token that is not a WS/EOF, after a multiline comment,
+      // the preproc_arg is therefore not finished.
+      ends_with_multiline_comment = false;
+    }
+
+    if ((lexer->lookahead == '\n' && !is_escaped) || lexer->lookahead == 0)
+    {
+      if (!ends_with_multiline_comment)
+      {
+        // Does not end with a multiline comment, move the end of the
+        // preproc_arg here.
+        lexer->mark_end(lexer);
+      }
+      skip(lexer);
+      return true;
+    }
+
+    if (lexer->lookahead != '\r')
+    {
+      // Reached a potential line continuation, and avoid
+      // it being cancelled by a carriage return.
+      is_escaped = lexer->lookahead == '\\';
+    }
+
     advance(lexer);
   }
-  advance(lexer);
-  lexer->mark_end(lexer);
-
-  return lexer->lookahead == '\n';
 }
 
 static bool scan_automatic_semicolon(TSLexer *lexer)

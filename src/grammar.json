@@ -982,19 +982,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "comment"
-            },
-            {
-              "type": "STRING",
-              "value": "\n"
-            }
-          ]
         }
       ]
     },

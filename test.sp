@@ -1,1 +1,2 @@
-#define FOO "t"
+#define F 1 /*\
+*/+1 // t
