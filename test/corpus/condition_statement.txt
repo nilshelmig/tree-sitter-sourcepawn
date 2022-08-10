@@ -153,7 +153,8 @@ public void OnPluginStart() {
                                 (binary_expression
                                     left: (int_literal)
                                     right: (int_literal))))
-                    right: (int_literal))
+                    right: (unary_expression
+                        argument: (int_literal)))
                 truePath: (return_statement ))
             (condition_statement
                 condition: (binary_expression

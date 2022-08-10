@@ -43,7 +43,8 @@ void Test() {
             (expression_statement
                 (assignment_expression
                     left: (symbol)
-                    right: (int_literal))
+                    right: (unary_expression
+                        argument: (int_literal)))
                 )
             (expression_statement
                 (assignment_expression

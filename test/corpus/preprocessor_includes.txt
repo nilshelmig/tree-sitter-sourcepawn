@@ -14,23 +14,28 @@ tryinclude system lib
 =====================
 
 #tryinclude <sourcemod>
-#tryinclude <tf2>
+#tryinclude <tf2> // The tf2 include
 
 ---
 
 (source_file
   (preproc_tryinclude (system_lib_string))
-  (preproc_tryinclude (system_lib_string)))
+  (preproc_tryinclude (system_lib_string))
+  (comment))
 
 ==================
 include local lib
 ==================
 
+#include "constants.inc" // the constants include
 #include "constants.inc"
 
 ---
 
-(source_file (preproc_include (string_literal)))
+(source_file
+  (preproc_include (string_literal))
+  (comment)
+  (preproc_include (string_literal)))
 
 
 ====================

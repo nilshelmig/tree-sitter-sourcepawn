@@ -155,15 +155,13 @@ module.exports = grammar({
     preproc_include: ($) =>
       seq(
         preprocessor("include"),
-        field("path", choice($.string_literal, $.system_lib_string)),
-        choice($.comment, "\n")
+        field("path", choice($.string_literal, $.system_lib_string))
       ),
 
     preproc_tryinclude: ($) =>
       seq(
         preprocessor("tryinclude"),
-        field("path", choice($.string_literal, $.system_lib_string)),
-        choice($.comment, "\n")
+        field("path", choice($.string_literal, $.system_lib_string))
       ),
 
     preproc_macro: ($) =>
@@ -520,7 +518,9 @@ module.exports = grammar({
         field("entries", $.enum_entries),
         optional($._semicolon)
       ),
+
     enum_entries: ($) => seq("{", commaSep1($.enum_entry), optional(","), "}"),
+
     enum_entry: ($) =>
       seq(
         field(
@@ -677,6 +677,7 @@ module.exports = grammar({
         field("function", $.symbol),
         optional($._semicolon)
       ),
+
     methodmap_native: ($) =>
       seq(
         $.methodmap_visibility,
@@ -687,6 +688,7 @@ module.exports = grammar({
         $.argument_declarations,
         optional($._semicolon)
       ),
+
     methodmap_native_constructor: ($) =>
       seq(
         $.methodmap_visibility,
@@ -696,6 +698,7 @@ module.exports = grammar({
         $.argument_declarations,
         optional($._semicolon)
       ),
+
     methodmap_native_destructor: ($) =>
       seq(
         $.methodmap_visibility,
@@ -706,6 +709,7 @@ module.exports = grammar({
         ")",
         optional($._semicolon)
       ),
+
     methodmap_method: ($) =>
       seq(
         $.methodmap_visibility,
@@ -715,6 +719,7 @@ module.exports = grammar({
         $.argument_declarations,
         $.block
       ),
+
     methodmap_method_constructor: ($) =>
       seq(
         $.methodmap_visibility,
@@ -722,6 +727,7 @@ module.exports = grammar({
         $.argument_declarations,
         $.block
       ),
+
     methodmap_method_destructor: ($) =>
       seq(
         $.methodmap_visibility,
@@ -771,6 +777,7 @@ module.exports = grammar({
         choice($.methodmap_property_getter, $.methodmap_property_setter),
         $.block
       ),
+
     methodmap_property_getter: ($) => seq("get", "(", ")"),
 
     methodmap_property_setter: ($) =>
@@ -875,8 +882,10 @@ module.exports = grammar({
         ")",
         $._statement
       ),
+
     while_loop: ($) =>
       seq("while", "(", field("condition", $._expression), ")", $._statement),
+
     do_while_loop: ($) =>
       prec.right(
         seq(
@@ -890,6 +899,7 @@ module.exports = grammar({
         )
       ),
     break_statement: ($) => prec.right(seq("break", optional($._semicolon))),
+
     continue_statement: ($) =>
       prec.right(seq("continue", optional($._semicolon))),
 
@@ -915,6 +925,7 @@ module.exports = grammar({
         repeat(choice($.switch_case, $.switch_default_case)),
         "}"
       ),
+
     switch_case: ($) =>
       seq(
         "case",
@@ -923,8 +934,10 @@ module.exports = grammar({
         $._statement,
         optional($.break_statement)
       ),
+
     switch_case_values: ($) =>
-      prec.left(commaSep1(choice($._literal, $.symbol))),
+      prec.left(commaSep1(choice($._literal, $.unary_expression, $.symbol))),
+
     switch_default_case: ($) =>
       seq("default", ":", $._statement, optional($.break_statement)),
 
@@ -1239,6 +1252,7 @@ module.exports = grammar({
               $.symbol,
               $.view_as,
               $.old_type_cast,
+              $.unary_expression,
               $.binary_expression
             )
           ),
@@ -1275,7 +1289,6 @@ module.exports = grammar({
       );
       return token(
         seq(
-          optional(/[-\+]/),
           choice(
             decimalDigits,
             seq("0b", decimalDigits),
@@ -1296,7 +1309,6 @@ module.exports = grammar({
       );
       return token(
         seq(
-          optional(/[-\+]/),
           choice(
             seq(decimalDigits, optional(seq(".", optional(decimalDigits)))),
             seq(".", decimalDigits)
@@ -1347,12 +1359,15 @@ module.exports = grammar({
       ),
 
     bool_literal: ($) => token(choice("true", "false")),
+
     null: ($) => "null",
+
     this: ($) => "this",
+
     rest_operator: ($) => "...",
 
     system_lib_string: ($) =>
-      token(seq("<", repeat(choice(/[^>\n]/, "\\>")), ">")),
+      token(seq("<", repeat(choice(/[^>]/, "\\>")), ">")),
 
     symbol: ($) => /[a-zA-Z_]\w*/,
 
