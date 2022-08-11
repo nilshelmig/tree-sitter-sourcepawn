@@ -903,17 +903,8 @@
             "type": "SEQ",
             "members": [
               {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "%"
-                  },
-                  {
-                    "type": "PATTERN",
-                    "value": "[0-9]"
-                  }
-                ]
+                "type": "SYMBOL",
+                "name": "macro_param"
               },
               {
                 "type": "REPEAT",
@@ -925,17 +916,8 @@
                       "value": ","
                     },
                     {
-                      "type": "SEQ",
-                      "members": [
-                        {
-                          "type": "STRING",
-                          "value": "%"
-                        },
-                        {
-                          "type": "PATTERN",
-                          "value": "[0-9]"
-                        }
-                      ]
+                      "type": "SYMBOL",
+                      "name": "macro_param"
                     }
                   ]
                 }
@@ -956,6 +938,22 @@
               "type": "SYMBOL",
               "name": "preproc_arg"
             }
+          }
+        ]
+      }
+    },
+    "macro_param": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "%"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[0-9]"
           }
         ]
       }

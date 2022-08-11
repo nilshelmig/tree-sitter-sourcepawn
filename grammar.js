@@ -174,11 +174,13 @@ module.exports = grammar({
           preprocessor("define"),
           field("name", $.symbol),
           token.immediate("("),
-          commaSep1(seq("%", /[0-9]/)),
+          commaSep1($.macro_param),
           token.immediate(")"),
           field("value", $.preproc_arg)
         )
       ),
+
+    macro_param: ($) => token(seq("%", /[0-9]/)),
 
     preproc_define: ($) =>
       seq(

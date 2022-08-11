@@ -146,6 +146,8 @@ define macro
 (source_file
     (preproc_macro
         name: (symbol)
+        (macro_param)
+        (macro_param)
         value: (preproc_arg)))
 
 ======================
@@ -161,6 +163,8 @@ define macro multiline
 (source_file
     (preproc_macro
         name: (symbol)
+        (macro_param)
+        (macro_param)
         value: (preproc_arg)))
 
 

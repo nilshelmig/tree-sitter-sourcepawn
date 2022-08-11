@@ -2826,6 +2826,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "macro_param",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -4309,6 +4319,10 @@
   },
   {
     "type": "int_literal",
+    "named": true
+  },
+  {
+    "type": "macro_param",
     "named": true
   },
   {
