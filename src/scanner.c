@@ -91,7 +91,7 @@ static bool preproc_arg(TSLexer *lexer)
       // Check if we are in a comment.
       // Halt the preproc_arg token matching in case it's a comment.
       lexer->mark_end(lexer);
-      skip(lexer);
+      advance(lexer);
       if (lexer->lookahead == '/')
       {
         // Single line comment, return true here, line continuation
@@ -102,7 +102,7 @@ static bool preproc_arg(TSLexer *lexer)
       if (lexer->lookahead == '*')
       {
         // Multiline comment, look for the end.
-        skip(lexer);
+        advance(lexer);
         bool end = false;
         while (!end)
         {
@@ -121,11 +121,11 @@ static bool preproc_arg(TSLexer *lexer)
           if (lexer->lookahead != '*')
           {
             // Can't be the end of the multiline comment, skip.
-            skip(lexer);
+            advance(lexer);
             continue;
           }
           // Check for the end of the multiline comment or EOF.
-          skip(lexer);
+          advance(lexer);
           end = lexer->lookahead == '/' || lexer->lookahead == 0;
         }
         // For now, assume the preproc_arg token has ended.
@@ -149,7 +149,7 @@ static bool preproc_arg(TSLexer *lexer)
         // preproc_arg here.
         lexer->mark_end(lexer);
       }
-      skip(lexer);
+      advance(lexer);
       return true;
     }
 
