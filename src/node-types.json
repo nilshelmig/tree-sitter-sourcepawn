@@ -2517,21 +2517,6 @@
     }
   },
   {
-    "type": "preproc_else",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "comment",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "preproc_elseif",
     "named": true,
     "fields": {
@@ -2545,36 +2530,6 @@
           }
         ]
       }
-    }
-  },
-  {
-    "type": "preproc_endif",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "comment",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "preproc_endinput",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "comment",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -3788,10 +3743,6 @@
     }
   },
   {
-    "type": "\n",
-    "named": false
-  },
-  {
     "type": "!",
     "named": false
   },
@@ -3812,19 +3763,7 @@
     "named": false
   },
   {
-    "type": "#else",
-    "named": false
-  },
-  {
     "type": "#elseif",
-    "named": false
-  },
-  {
-    "type": "#endif",
-    "named": false
-  },
-  {
-    "type": "#endinput",
     "named": false
   },
   {
@@ -4173,6 +4112,18 @@
   },
   {
     "type": "preproc_arg",
+    "named": true
+  },
+  {
+    "type": "preproc_else",
+    "named": true
+  },
+  {
+    "type": "preproc_endif",
+    "named": true
+  },
+  {
+    "type": "preproc_endinput",
     "named": true
   },
   {

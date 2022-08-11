@@ -200,5 +200,7 @@ preprocessor with comment
     (preproc_if
         condition: (preproc_arg))
     (comment)
-    (preproc_else (comment))
-    (preproc_endif (comment)))
+    (preproc_else)
+    (comment)
+    (preproc_endif)
+    (comment))

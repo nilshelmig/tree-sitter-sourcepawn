@@ -203,12 +203,11 @@ module.exports = grammar({
 
     preproc_defined_condition: ($) => seq("defined", field("name", $.symbol)),
 
-    preproc_else: ($) => seq(preprocessor("else"), choice($.comment, "\n")),
+    preproc_else: ($) => preprocessor("else"),
 
-    preproc_endif: ($) => seq(preprocessor("endif"), choice($.comment, "\n")),
+    preproc_endif: ($) => preprocessor("endif"),
 
-    preproc_endinput: ($) =>
-      seq(preprocessor("endinput"), choice($.comment, "\n")),
+    preproc_endinput: ($) => preprocessor("endinput"),
 
     preproc_pragma: ($) => seq(preprocessor("pragma"), $.preproc_arg),
 

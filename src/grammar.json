@@ -1077,70 +1077,16 @@
       ]
     },
     "preproc_else": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "#else"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "comment"
-            },
-            {
-              "type": "STRING",
-              "value": "\n"
-            }
-          ]
-        }
-      ]
+      "type": "STRING",
+      "value": "#else"
     },
     "preproc_endif": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "#endif"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "comment"
-            },
-            {
-              "type": "STRING",
-              "value": "\n"
-            }
-          ]
-        }
-      ]
+      "type": "STRING",
+      "value": "#endif"
     },
     "preproc_endinput": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "#endinput"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "comment"
-            },
-            {
-              "type": "STRING",
-              "value": "\n"
-            }
-          ]
-        }
-      ]
+      "type": "STRING",
+      "value": "#endinput"
     },
     "preproc_pragma": {
       "type": "SEQ",
