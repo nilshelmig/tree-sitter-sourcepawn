@@ -1,8 +1,21 @@
-# tree-sitter-sourcepawn
-
-[![npm version](https://badge.fury.io/js/tree-sitter-sourcepawn.svg)](https://badge.fury.io/js/tree-sitter-sourcepawn)
-
-[sourcepawn](https://github.com/alliedmodders/sourcepawn) grammar for [tree-sitter](https://github.com/tree-sitter/tree-sitter)
+<div align="center">
+  <h1><code>tree-sitter-sourcepawn</code></h1>
+  <p>
+    <strong>
+      <a href="https://github.com/alliedmodders/sourcepawn">SourcePawn</a> grammar for <a href="https://github.com/tree-sitter/tree-sitter">tree-sitter</a>
+      </strong>
+  </p>
+  <p style="margin-bottom: 0.5ex;">
+    <a href="https://www.npmjs.com/package/tree-sitter-sourcepawn"><img
+        src="https://img.shields.io/npm/v/tree-sitter-sourcepawn"
+        />
+    </a>
+    <a href="https://crates.io/crates/tree-sitter-sourcepawn"><img
+        src="https://img.shields.io/crates/v/tree-sitter-sourcepawn"
+        />
+    </a>
+  </p>
+</div>
 
 ## Install
 

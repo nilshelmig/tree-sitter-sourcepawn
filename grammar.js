@@ -24,7 +24,7 @@ const PREC = {
 module.exports = grammar({
   name: "sourcepawn",
 
-  externals: ($) => [$._automatic_semicolon, $._ternary_colon],
+  externals: ($) => [$._automatic_semicolon, $._ternary_colon, $.preproc_arg],
 
   extras: ($) => [
     /\s|\\\r?\n/,
@@ -102,9 +102,12 @@ module.exports = grammar({
         $.preproc_unary_expression,
         $.symbol,
         $._literal,
-        $.parenthesized_expression,
+        $.preproc_parenthesized_expression,
         $.preproc_defined_condition
       ),
+
+    preproc_parenthesized_expression: ($) =>
+      seq("(", $._preproc_expression, ")"),
 
     preproc_unary_expression: ($) =>
       prec.left(
@@ -165,32 +168,29 @@ module.exports = grammar({
       ),
 
     preproc_macro: ($) =>
-      seq(
-        preprocessor("define"),
-        field("name", $.symbol),
-        token.immediate("("),
-        commaSep1(seq("%", /[0-9]/)),
-        token.immediate(")"),
-        field("value", $.preproc_arg),
-        choice($.comment, "\n")
+      prec(
+        1,
+        seq(
+          preprocessor("define"),
+          field("name", $.symbol),
+          token.immediate("("),
+          commaSep1($.macro_param),
+          token.immediate(")"),
+          field("value", $.preproc_arg)
+        )
       ),
+
+    macro_param: ($) => token(seq("%", /[0-9]/)),
 
     preproc_define: ($) =>
       seq(
         preprocessor("define"),
         field("name", $.symbol),
-        field("value", optional($.preproc_arg)),
-        choice($.comment, "\n")
+        field("value", optional($.preproc_arg))
       ),
-
-    preproc_arg: ($) => token(prec(-1, repeat1(/[^\/\/\/\*\n]|\\\r?\n/))),
 
     preproc_undefine: ($) =>
-      seq(
-        preprocessor("undef"),
-        field("name", $.symbol),
-        choice($.comment, "\n")
-      ),
+      seq(preprocessor("undef"), field("name", $.symbol)),
 
     preproc_if: ($) =>
       seq(
@@ -225,14 +225,11 @@ module.exports = grammar({
     preproc_endinput: ($) =>
       seq(preprocessor("endinput"), choice($.comment, "\n")),
 
-    preproc_pragma: ($) =>
-      seq(preprocessor("pragma"), $.preproc_arg, choice($.comment, "\n")),
+    preproc_pragma: ($) => seq(preprocessor("pragma"), $.preproc_arg),
 
-    preproc_error: ($) =>
-      seq(preprocessor("error"), $.preproc_arg, choice($.comment, "\n")),
+    preproc_error: ($) => seq(preprocessor("error"), $.preproc_arg),
 
-    preproc_warning: ($) =>
-      seq(preprocessor("warning"), $.preproc_arg, choice($.comment, "\n")),
+    preproc_warning: ($) => seq(preprocessor("warning"), $.preproc_arg),
 
     // Hardcoded symbol
     // https://github.com/alliedmodders/sourcemod/blob/5c0ae11a4619e9cba93478683c7737253ea93ba6/plugins/include/handles.inc#L78
