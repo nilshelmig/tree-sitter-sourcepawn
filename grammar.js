@@ -193,28 +193,13 @@ module.exports = grammar({
       seq(preprocessor("undef"), field("name", $.symbol)),
 
     preproc_if: ($) =>
-      seq(
-        preprocessor("if"),
-        field("condition", $._preproc_expression),
-        optional($.comment),
-        "\n"
-      ),
+      seq(preprocessor("if"), field("condition", $.preproc_arg)),
 
     preproc_elseif: ($) =>
-      seq(
-        preprocessor("elseif"),
-        field("condition", $._preproc_expression),
-        optional($.comment),
-        "\n"
-      ),
+      seq(preprocessor("elseif"), field("condition", $.preproc_arg)),
 
     preproc_assert: ($) =>
-      seq(
-        preprocessor("assert"),
-        field("condition", $._preproc_expression),
-        optional($.comment),
-        "\n"
-      ),
+      seq(preprocessor("assert"), field("condition", $.preproc_arg)),
 
     preproc_defined_condition: ($) => seq("defined", field("name", $.symbol)),
 

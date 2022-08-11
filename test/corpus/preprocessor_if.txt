@@ -6,7 +6,7 @@ preprocessor condition
 
 ---
 
-(source_file (preproc_if condition: (symbol)))
+(source_file (preproc_if condition: (preproc_arg)))
 
 
 =========================================
@@ -19,7 +19,7 @@ preprocessor condition - defined constant
 
 (source_file
     (preproc_if
-        condition: (preproc_defined_condition name: (symbol))))
+        condition: (preproc_arg)))
 
 
 =============================================
@@ -32,9 +32,7 @@ preprocessor condition - not defined constant
 
 (source_file
     (preproc_if
-        condition: (preproc_unary_expression
-            argument: (preproc_defined_condition
-                name: (symbol)))))
+        condition: (preproc_arg)))
 
 
 
@@ -48,22 +46,7 @@ preprocessor condition - complex condition
 
 (source_file
   (preproc_if
-    (preproc_binary_expression
-      (preproc_unary_expression
-        (preproc_parenthesized_expression
-          (preproc_defined_condition
-            (symbol))))
-      (preproc_binary_expression
-        (preproc_parenthesized_expression
-          (preproc_binary_expression
-            (preproc_binary_expression
-              (symbol)
-              (int_literal))
-            (int_literal)))
-        (preproc_parenthesized_expression
-          (preproc_binary_expression
-            (symbol)
-            (int_literal)))))))
+    (preproc_arg)))
 
 
 =======================================
@@ -76,22 +59,7 @@ preprocessor assert - complex condition
 
 (source_file
   (preproc_assert
-    (preproc_binary_expression
-      (preproc_unary_expression
-        (preproc_parenthesized_expression
-          (preproc_defined_condition
-            (symbol))))
-      (preproc_binary_expression
-        (preproc_parenthesized_expression
-          (preproc_binary_expression
-            (preproc_binary_expression
-              (symbol)
-              (int_literal))
-            (int_literal)))
-        (preproc_parenthesized_expression
-          (preproc_binary_expression
-            (symbol)
-            (int_literal)))))))
+    (preproc_arg)))
 
 
 ====
@@ -136,7 +104,7 @@ void MyFunc() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-        (preproc_if condition: (symbol))
+        (preproc_if condition: (preproc_arg))
         (expression_statement
             (function_call
             function: (symbol)
@@ -171,7 +139,7 @@ enum
     (enum
         entries: (enum_entries
             (enum_entry name: (symbol))
-            (preproc_if condition: (preproc_defined_condition name: (symbol)))
+            (preproc_if condition: (preproc_arg))
             (enum_entry
                 name: (symbol)
                 value: (int_literal))
@@ -203,14 +171,13 @@ void MyFunc() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-        (preproc_if condition: (symbol))
+        (preproc_if condition: (preproc_arg))
         (expression_statement
             (function_call
             function: (symbol)
             arguments: (function_call_arguments))
             )
-        (preproc_elseif
-            condition: (symbol))
+        (preproc_elseif condition: (preproc_arg))
         (expression_statement
             (function_call
             function: (symbol)
@@ -231,7 +198,7 @@ preprocessor with comment
 
 (source_file
     (preproc_if
-        condition: (symbol)
-        (comment))
+        condition: (preproc_arg))
+    (comment)
     (preproc_else (comment))
     (preproc_endif (comment)))
