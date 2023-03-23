@@ -533,7 +533,7 @@ module.exports = grammar({
 
     enum_struct_method: ($) =>
       seq(
-        field("returnType", $.type),
+        field("returnType", seq($.type, repeat($.dimension))),
         field("name", $.symbol),
         $.argument_declarations,
         $.block
@@ -664,7 +664,7 @@ module.exports = grammar({
         $.methodmap_visibility,
         optional("static"),
         "native",
-        field("returnType", $.type),
+        field("returnType", seq($.type, repeat($.dimension))),
         field("name", $.symbol),
         $.argument_declarations,
         optional($._semicolon)
@@ -695,7 +695,7 @@ module.exports = grammar({
       seq(
         $.methodmap_visibility,
         optional("static"),
-        field("returnType", $.type),
+        field("returnType", seq($.type, repeat($.dimension))),
         field("name", $.symbol),
         $.argument_declarations,
         $.block

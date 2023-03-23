@@ -1171,9 +1171,13 @@
         ]
       },
       "returnType": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": "dimension",
+            "named": true
+          },
           {
             "type": "type",
             "named": true
@@ -1726,9 +1730,13 @@
         ]
       },
       "returnType": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": "dimension",
+            "named": true
+          },
           {
             "type": "type",
             "named": true
@@ -1822,9 +1830,13 @@
         ]
       },
       "returnType": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": "dimension",
+            "named": true
+          },
           {
             "type": "type",
             "named": true
