@@ -66,7 +66,6 @@ public void OnPluginStart() {
         arguments: (argument_declarations)
         (block
             (for_loop
-                
                 condition: (binary_expression
                     left: (symbol)
                     right: (int_literal))
@@ -160,8 +159,6 @@ public void OnPluginStart() {
         arguments: (argument_declarations)
         (block
             (for_loop
-                
-                
                 (block)))))
 
 
@@ -184,8 +181,6 @@ public void OnPluginStart() {
         arguments: (argument_declarations)
         (block
             (for_loop
-                
-                
                 (block (break_statement ))))))
 
 
@@ -208,8 +203,6 @@ public void OnPluginStart() {
         arguments: (argument_declarations)
         (block
             (for_loop
-                
-                
                 (block (continue_statement ))))))
 
 
@@ -230,8 +223,6 @@ public void OnPluginStart() {
         arguments: (argument_declarations)
         (block
             (for_loop
-                
-                
                 (break_statement )))))
 
 
@@ -264,6 +255,43 @@ public void OnPluginStart() {
                 (break_statement )))))
 
 
+=============================
+for loop - multiple variables
+=============================
+
+public void OnPluginStart() {
+    for(int i = 0, j = 0, k = 0; i < 3; i++) break;
+}
+
+---
+
+(source_file
+    (function_declaration (function_visibility)
+        returnType: (type (builtin_type))
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (for_loop
+                initialization: (variable_declaration_statement
+                    type: (type
+                        (builtin_type))
+                    (variable_declaration
+                        name: (symbol)
+                        initialValue: (int_literal)))
+                initialization: (assignment_expression
+                        left: (symbol)
+                        right: (int_literal))
+                initialization: (assignment_expression
+                    left: (symbol)
+                    right: (int_literal))
+                
+                condition: (binary_expression
+                    left: (symbol)
+                    right: (int_literal))
+                
+                iteration: (expression_statement (update_expression argument: (symbol)))
+                (break_statement )))))
+
 ==============
 old - for loop
 ==============
@@ -289,7 +317,6 @@ public void OnPluginStart() {
                     (old_variable_declaration
                         name: (symbol)
                         initialValue: (int_literal)))
-                
                 condition: (binary_expression
                     left: (symbol)
                     right: (int_literal))
