@@ -27,6 +27,7 @@ int Test() {
     sizeof(this.foo);
     sizeof(a[][][]);
     sizeof(a[10][][]);
+    sizeof(a[].b);
     return sizeof(a[]);
 }
 
@@ -58,6 +59,12 @@ int Test() {
                     index: (int_literal))
                     type: (dimension)
                     type: (dimension))
+                )
+            (expression_statement
+                (sizeof_expression
+                    type: (field_access
+                    target: (this)
+                    field: (symbol)))
                 )
             (return_statement
                 (sizeof_expression
