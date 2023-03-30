@@ -62,8 +62,8 @@ int Test() {
                 )
             (expression_statement
                 (sizeof_expression
-                    type: (field_access
-                    target: (this)
+                    type: (array_scope_access
+                        scope: (symbol)
                     field: (symbol)))
                 )
             (return_statement

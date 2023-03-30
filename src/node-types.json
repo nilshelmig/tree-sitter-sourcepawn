@@ -529,6 +529,32 @@
     }
   },
   {
+    "type": "array_scope_access",
+    "named": true,
+    "fields": {
+      "field": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "scope": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "assertion",
     "named": true,
     "fields": {},
@@ -2933,7 +2959,7 @@
             "named": true
           },
           {
-            "type": "binary_expression",
+            "type": "array_scope_access",
             "named": true
           },
           {
@@ -2969,15 +2995,7 @@
             "named": true
           },
           {
-            "type": "new_instance",
-            "named": true
-          },
-          {
             "type": "null",
-            "named": true
-          },
-          {
-            "type": "old_type_cast",
             "named": true
           },
           {
@@ -2997,19 +3015,7 @@
             "named": true
           },
           {
-            "type": "ternary_expression",
-            "named": true
-          },
-          {
             "type": "this",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
-            "named": true
-          },
-          {
-            "type": "view_as",
             "named": true
           }
         ]
