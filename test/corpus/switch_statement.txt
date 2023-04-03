@@ -140,3 +140,36 @@ public void OnPluginStart() {
         arguments: (argument_declarations)
         (block
             (switch_statement condition: (symbol)))))
+
+
+==============================
+switch statement - parentheses
+==============================
+
+void foo()
+{
+	switch(bar)
+	{
+		case (BAZ):
+    {
+      break;
+    }
+	}
+}
+
+---
+
+(source_file
+  (function_declaration
+    returnType: (type
+      (builtin_type))
+    name: (symbol)
+    arguments: (argument_declarations)
+    (block
+      (switch_statement
+        condition: (symbol)
+        (switch_case
+          value: (switch_case_values
+            (symbol))
+          (block
+            (break_statement)))))))

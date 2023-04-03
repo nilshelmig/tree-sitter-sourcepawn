@@ -910,7 +910,10 @@ module.exports = grammar({
     switch_case: ($) =>
       seq(
         "case",
-        field("value", $.switch_case_values),
+        choice(
+          seq("(", field("value", $.switch_case_values), ")"),
+          field("value", $.switch_case_values)
+        ),
         ":",
         $._statement,
         optional($.break_statement)
@@ -1146,14 +1149,12 @@ module.exports = grammar({
     },
 
     _sizeof_call_expression: ($) =>
-      prec(1,
+      prec(
+        1,
         choice(
           $.function_call,
           prec.right(1, seq($.symbol, repeat($.dimension))),
-          prec.right(
-            1,
-            seq($.array_indexed_access, repeat($.dimension))
-          ),
+          prec.right(1, seq($.array_indexed_access, repeat($.dimension))),
           $.field_access,
           $.scope_access,
           $._literal,
@@ -1166,7 +1167,11 @@ module.exports = grammar({
     array_scope_access: ($) =>
       prec.right(
         PREC.FIELD,
-        seq(field("scope", $.symbol), seq("[", "]", "."), field("field", $.symbol))
+        seq(
+          field("scope", $.symbol),
+          seq("[", "]", "."),
+          field("field", $.symbol)
+        )
       ),
 
     sizeof_expression: ($) =>
@@ -1175,18 +1180,8 @@ module.exports = grammar({
         seq(
           "sizeof",
           choice(
-            seq(
-              "(",
-              field(
-                "type",
-                $._sizeof_call_expression
-              ),
-              ")"
-            ),
-            field(
-              "type",
-              $._sizeof_call_expression
-            )
+            seq("(", field("type", $._sizeof_call_expression), ")"),
+            field("type", $._sizeof_call_expression)
           )
         )
       ),
