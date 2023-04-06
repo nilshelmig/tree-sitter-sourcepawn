@@ -85,9 +85,9 @@ All available nodes are defined in the `grammar.js` or `src/node-types.json`.
 
 ## Install For Neovim
 
-Currently this parser is not ready to add to nvim-treesitter, so it will have to be installed manually.
+Currently this parser is not ready to add officially to nvim-treesitter, so it will have to be installed manually.
 
-First create `nvim/ftdetect/sourcepawn.vim` and put the following inside:
+First create `{YOUR_NVIM_CONFIG_DIR}/ftdetect/sourcepawn.vim` and put the following inside:
 ```vim
 function! s:setf(filetype) abort
     if &filetype !=# a:filetype
@@ -114,7 +114,9 @@ parser_config.sourcepawn = {
 }
 ```
 
-After that, run `:so` and `:TSInstall sourcepawn` (you may need to reload neovim first).
+After that, run `:so` and `:TSInstall sourcepawn` (you may need to reload neovim before these will work).
+
+Lastly, because this is unfortunately a manual install, you\'ll need to copy the query files from the repo\'s `queries` directory into your neovim\'s runtime path: `{YOUR_NVIM_CONFIG_DIR}/queries/sourcepawn/`
 
 ## Want to help?
 
