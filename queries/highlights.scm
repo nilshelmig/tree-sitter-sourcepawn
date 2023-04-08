@@ -25,25 +25,41 @@
   name: (symbol) @variable)
 (variable_storage_class) @storageclass
 (this) @variable.builtin
-(escape_sequence) @punctuation.special
+(escape_sequence) @string.escape
+
+
+; Assume all uppercase symbols are constants
+((symbol) @constant
+  (#match? @constant "^[A-Z][A-Z\\d_]*$"))
 
 
 ; Preprocessor
 (preproc_include) @include
+(preproc_tryinclude) @include
 (system_lib_string) @string
 (string_literal) @string
 
+(preproc_assert) @preproc
 (preproc_pragma) @preproc
 (preproc_arg) @constant
 (preproc_macro) @function.macro
 (macro_param) @parameter
 (preproc_if) @preproc
 (preproc_else) @preproc
+(preproc_elseif) @preproc
 (preproc_endif) @preproc
 (preproc_endinput) @preproc
 (preproc_define) @define
 (preproc_define
   name: (symbol) @constant)
+(preproc_undefine) @define
+(preproc_undefine
+  name: (symbol) @constant)
+(preproc_error) @function.macro ; Wrong colour?
+(preproc_warning) @function.macro ; Wrong colour?
+
+; https://github.com/alliedmodders/sourcemod/blob/5c0ae11a4619e9cba93478683c7737253ea93ba6/plugins/include/handles.inc#L78
+(hardcoded_symbol) @variable.builtin
 
 
 ; Control-flow
@@ -55,6 +71,7 @@
 (switch_case) @conditional
 (switch_case_values) @constant
 (return_statement) @keyword.return
+(ternary_expression) @conditional.ternary
 
 
 ; Constructors (must be after function_call_arguments)
@@ -103,9 +120,11 @@
 
 
 ; Non-type Keywords
-[
-  "const"
-] @type.qualifier
+(variable_storage_class) @storageclass
+(variable_visibility) @storageclass
+(function_visibility) @storageclass
+(assertion) @function.builtin
+(function_definition_type) @keyword.function
 
 [
   "new"
@@ -113,19 +132,8 @@
 ] @keyword.operator
 
 [
-  "static"
-  "stock"
   "public" ; public Plugin myinfo
 ] @storageclass
-(function_visibility) @storageclass
-
-[
-  "native"
-  "forward"
-] @keyword.function ; I don't know if these count as storage classes or not
-
-; static_assert
-(assertion) @function.builtin
 
 [
   ";"
@@ -136,26 +144,44 @@
 
 ; Operators
 [
-  "--"
-  "-"
-  "-="
-  "="
-  "!="
-  "*"
-  "&"
-  "&&"
   "+"
-  "++"
-  "+="
+  "-"
+  "*"
+  "/"
   "%"
-  "<"
+  "++"
+  "--"
+  "="
+  "+="
+  "-="
+  "*="
+  "/="
   "=="
+  "!="
+  "<"
   ">"
+  ">="
+  "<="
+  "!"
+  "&&"
   "||"
+  "&"
+  "|"
   "~"
   "^"
-  "..."
+  "<<"
+  ">>"
+  ">>>"
+  "|="
+  "&="
+  "^="
+  "~="
+  "<<="
+  ">>="
 ] @operator
+(ignore_argument) @operator
+(scope_access) @operator
+(rest_operator) @operator ; Should override (concatenated_string) but currently does nothing
 
 
 ; public Plugin myinfo
@@ -185,6 +211,8 @@
 (char_literal) @character
 (float_literal) @float
 (string_literal) @string
+(array_literal) @punctuation.bracket
+(concatenated_string) @punctuation.delimiter ; Dots in string-literal concat--Doesn't seem to work?
 
 (null) @constant
 ((symbol) @constant
