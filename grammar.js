@@ -193,37 +193,21 @@ module.exports = grammar({
       seq(preprocessor("undef"), field("name", $.symbol)),
 
     preproc_if: ($) =>
-      seq(
-        preprocessor("if"),
-        field("condition", $._preproc_expression),
-        optional($.comment),
-        "\n"
-      ),
+      seq(preprocessor("if"), field("condition", $.preproc_arg)),
 
     preproc_elseif: ($) =>
-      seq(
-        preprocessor("elseif"),
-        field("condition", $._preproc_expression),
-        optional($.comment),
-        "\n"
-      ),
+      seq(preprocessor("elseif"), field("condition", $.preproc_arg)),
 
     preproc_assert: ($) =>
-      seq(
-        preprocessor("assert"),
-        field("condition", $._preproc_expression),
-        optional($.comment),
-        "\n"
-      ),
+      seq(preprocessor("assert"), field("condition", $.preproc_arg)),
 
     preproc_defined_condition: ($) => seq("defined", field("name", $.symbol)),
 
-    preproc_else: ($) => seq(preprocessor("else"), choice($.comment, "\n")),
+    preproc_else: ($) => preprocessor("else"),
 
-    preproc_endif: ($) => seq(preprocessor("endif"), choice($.comment, "\n")),
+    preproc_endif: ($) => preprocessor("endif"),
 
-    preproc_endinput: ($) =>
-      seq(preprocessor("endinput"), choice($.comment, "\n")),
+    preproc_endinput: ($) => preprocessor("endinput"),
 
     preproc_pragma: ($) => seq(preprocessor("pragma"), $.preproc_arg),
 
@@ -549,7 +533,7 @@ module.exports = grammar({
 
     enum_struct_method: ($) =>
       seq(
-        field("returnType", $.type),
+        field("returnType", seq($.type, repeat($.dimension))),
         field("name", $.symbol),
         $.argument_declarations,
         $.block
@@ -680,7 +664,7 @@ module.exports = grammar({
         $.methodmap_visibility,
         optional("static"),
         "native",
-        field("returnType", $.type),
+        field("returnType", seq($.type, repeat($.dimension))),
         field("name", $.symbol),
         $.argument_declarations,
         optional($._semicolon)
@@ -711,7 +695,7 @@ module.exports = grammar({
       seq(
         $.methodmap_visibility,
         optional("static"),
-        field("returnType", $.type),
+        field("returnType", seq($.type, repeat($.dimension))),
         field("name", $.symbol),
         $.argument_declarations,
         $.block
@@ -926,7 +910,10 @@ module.exports = grammar({
     switch_case: ($) =>
       seq(
         "case",
-        field("value", $.switch_case_values),
+        choice(
+          seq("(", field("value", $.switch_case_values), ")"),
+          field("value", $.switch_case_values)
+        ),
         ":",
         $._statement,
         optional($.break_statement)
@@ -1161,62 +1148,40 @@ module.exports = grammar({
       );
     },
 
+    _sizeof_call_expression: ($) =>
+      prec(
+        1,
+        choice(
+          $.function_call,
+          prec.right(1, seq($.symbol, repeat($.dimension))),
+          prec.right(1, seq($.array_indexed_access, repeat($.dimension))),
+          $.field_access,
+          $.scope_access,
+          $._literal,
+          $.parenthesized_expression,
+          $.this,
+          $.array_scope_access
+        )
+      ),
+
+    array_scope_access: ($) =>
+      prec.right(
+        PREC.FIELD,
+        seq(
+          field("scope", $.symbol),
+          seq("[", "]", "."),
+          field("field", $.symbol)
+        )
+      ),
+
     sizeof_expression: ($) =>
       prec(
         PREC.SIZEOF,
         seq(
           "sizeof",
           choice(
-            seq(
-              "(",
-              field(
-                "type",
-                choice(
-                  $.function_call,
-                  prec.right(1, seq($.symbol, repeat($.dimension))),
-                  prec.right(
-                    1,
-                    seq($.array_indexed_access, repeat($.dimension))
-                  ),
-                  $.ternary_expression,
-                  $.field_access,
-                  $.scope_access,
-                  $.binary_expression,
-                  $.unary_expression,
-                  $.view_as,
-                  $.old_type_cast,
-                  $._literal,
-                  $.parenthesized_expression,
-                  $.this,
-                  $.new_instance
-                )
-              ),
-              ")"
-            ),
-            seq(
-              field(
-                "type",
-                choice(
-                  $.function_call,
-                  prec.right(1, seq($.symbol, repeat($.dimension))),
-                  prec.right(
-                    1,
-                    seq($.array_indexed_access, repeat($.dimension))
-                  ),
-                  $.ternary_expression,
-                  $.field_access,
-                  $.scope_access,
-                  $.binary_expression,
-                  $.unary_expression,
-                  $.view_as,
-                  $.old_type_cast,
-                  $._literal,
-                  $.parenthesized_expression,
-                  $.this,
-                  $.new_instance
-                )
-              )
-            )
+            seq("(", field("type", $._sizeof_call_expression), ")"),
+            field("type", $._sizeof_call_expression)
           )
         )
       ),

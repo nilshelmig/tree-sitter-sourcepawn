@@ -56,6 +56,10 @@ enum struct Rectangle
     int Area() {
         return this.width * this.height;
     }
+
+    int[] Area() {
+        return this.width * this.height;
+    }
 }
 
 ---
@@ -84,8 +88,22 @@ enum struct Rectangle
                             field: (symbol))
                         right: (field_access
                             target: (this)
-                            field: (symbol)))
-                    )))))
+                  field: (symbol))))))
+        (enum_struct_method
+            returnType: (type
+            (builtin_type))
+            returnType: (dimension)
+            name: (symbol)
+            (argument_declarations)
+            (block
+                (return_statement
+                    (binary_expression
+                        left: (field_access
+                            target: (this)
+                            field: (symbol))
+                        right: (field_access
+                            target: (this)
+                            field: (symbol))))))))
 
 
 ====================================

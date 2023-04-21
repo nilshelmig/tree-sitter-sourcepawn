@@ -144,6 +144,9 @@ methodmap PerkContainerIter {
 
     public void Format(const char[] format, any ...) {
     }
+
+    public char[] Format(const char[] format, any ...) {
+    }
 }
 
 ---
@@ -171,6 +174,22 @@ methodmap PerkContainerIter {
                         type: (argument_type (type (builtin_type)) (dimension))
                     name: (symbol))
                 (rest_argument type: (type (any_type))))
+            (block))
+        (methodmap_method
+            returnType: (type
+                (builtin_type))
+            returnType: (dimension)
+            name: (symbol)
+            (argument_declarations
+                (argument_declaration
+                    type: (argument_type
+                      (type
+                          (builtin_type))
+                      (dimension))
+                    name: (symbol))
+                (rest_argument
+                    type: (type
+                        (any_type))))
             (block))))
 
 
