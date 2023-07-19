@@ -871,7 +871,7 @@ module.exports = grammar({
       prec.right(
         seq(
           "do",
-          $.block,
+          $._statement,
           "while",
           "(",
           field("condition", $._expression),

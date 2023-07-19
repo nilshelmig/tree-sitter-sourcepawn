@@ -4664,7 +4664,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "block"
+            "name": "_statement"
           },
           {
             "type": "STRING",

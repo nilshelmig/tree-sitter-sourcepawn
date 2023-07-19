@@ -21,6 +21,33 @@ public void OnPluginStart() {
                 condition: (bool_literal)
                 ))))
 
+=============
+do while loop statement
+=============
+
+public void OnPluginStart() {
+    do true; while(true);
+}
+
+---
+
+(source_file
+    (function_declaration
+        (function_visibility)
+        returnType: (type (builtin_type))
+        name: (symbol)
+        arguments: (argument_declarations)
+        (block
+            (do_while_statement
+                (expression_statement
+                    (bool_literal)
+                )
+                condition: (bool_literal)
+            )
+        )
+    )
+)
+
 
 =======================================
 do while loop - expression as condition

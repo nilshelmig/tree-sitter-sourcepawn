@@ -967,7 +967,7 @@
       "required": true,
       "types": [
         {
-          "type": "block",
+          "type": "_statement",
           "named": true
         }
       ]
