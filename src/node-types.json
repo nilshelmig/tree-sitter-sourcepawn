@@ -2528,7 +2528,7 @@
       },
       "value": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
             "type": "preproc_arg",
@@ -3080,30 +3080,6 @@
         },
         {
           "type": "old_global_variable_declaration",
-          "named": true
-        },
-        {
-          "type": "preproc_define",
-          "named": true
-        },
-        {
-          "type": "preproc_endinput",
-          "named": true
-        },
-        {
-          "type": "preproc_include",
-          "named": true
-        },
-        {
-          "type": "preproc_macro",
-          "named": true
-        },
-        {
-          "type": "preproc_tryinclude",
-          "named": true
-        },
-        {
-          "type": "preproc_undefine",
           "named": true
         },
         {

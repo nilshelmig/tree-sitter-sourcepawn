@@ -65,30 +65,6 @@
           },
           {
             "type": "SYMBOL",
-            "name": "preproc_include"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "preproc_tryinclude"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "preproc_define"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "preproc_macro"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "preproc_undefine"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "preproc_endinput"
-          },
-          {
-            "type": "SYMBOL",
             "name": "hardcoded_symbol"
           },
           {
@@ -977,16 +953,8 @@
           "type": "FIELD",
           "name": "value",
           "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "preproc_arg"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
+            "type": "SYMBOL",
+            "name": "preproc_arg"
           }
         }
       ]
@@ -7576,6 +7544,30 @@
     {
       "type": "SYMBOL",
       "name": "preproc_pragma"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "preproc_include"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "preproc_tryinclude"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "preproc_define"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "preproc_macro"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "preproc_undefine"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "preproc_endinput"
     }
   ],
   "conflicts": [

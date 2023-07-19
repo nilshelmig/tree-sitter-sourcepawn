@@ -37,6 +37,12 @@ module.exports = grammar({
     $.preproc_warning,
     $.preproc_assert,
     $.preproc_pragma,
+    $.preproc_include,
+    $.preproc_tryinclude,
+    $.preproc_define,
+    $.preproc_macro,
+    $.preproc_undefine,
+    $.preproc_endinput,
   ],
 
   inline: ($) => [$._statement, $.methodmap_visibility],
@@ -82,12 +88,6 @@ module.exports = grammar({
           $.struct_declaration,
           $.global_variable_declaration,
           $.old_global_variable_declaration,
-          $.preproc_include,
-          $.preproc_tryinclude,
-          $.preproc_define,
-          $.preproc_macro,
-          $.preproc_undefine,
-          $.preproc_endinput,
           $.hardcoded_symbol,
           $.alias_declaration,
           $.alias_assignment
@@ -186,7 +186,7 @@ module.exports = grammar({
       seq(
         preprocessor("define"),
         field("name", $.symbol),
-        field("value", optional($.preproc_arg))
+        field("value", $.preproc_arg)
       ),
 
     preproc_undefine: ($) =>
