@@ -4472,15 +4472,15 @@
         },
         {
           "type": "SYMBOL",
-          "name": "for_loop"
+          "name": "for_statement"
         },
         {
           "type": "SYMBOL",
-          "name": "while_loop"
+          "name": "while_statement"
         },
         {
           "type": "SYMBOL",
-          "name": "do_while_loop"
+          "name": "do_while_statement"
         },
         {
           "type": "SYMBOL",
@@ -4512,7 +4512,7 @@
         }
       ]
     },
-    "for_loop": {
+    "for_statement": {
       "type": "SEQ",
       "members": [
         {
@@ -4530,44 +4530,31 @@
             "type": "CHOICE",
             "members": [
               {
-                "type": "SEQ",
+                "type": "CHOICE",
                 "members": [
                   {
-                    "type": "CHOICE",
+                    "type": "SYMBOL",
+                    "name": "variable_declaration_statement"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "old_variable_declaration_statement"
+                  },
+                  {
+                    "type": "SEQ",
                     "members": [
                       {
                         "type": "SYMBOL",
-                        "name": "variable_declaration_statement"
-                      },
-                      {
-                        "type": "SYMBOL",
-                        "name": "old_variable_declaration_statement"
-                      },
-                      {
-                        "type": "SYMBOL",
                         "name": "assignment_expression"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "REPEAT",
-                    "content": {
-                      "type": "SEQ",
-                      "members": [
-                        {
-                          "type": "STRING",
-                          "value": ","
-                        },
-                        {
-                          "type": "CHOICE",
+                      },
+                      {
+                        "type": "REPEAT",
+                        "content": {
+                          "type": "SEQ",
                           "members": [
                             {
-                              "type": "SYMBOL",
-                              "name": "variable_declaration_statement"
-                            },
-                            {
-                              "type": "SYMBOL",
-                              "name": "old_variable_declaration_statement"
+                              "type": "STRING",
+                              "value": ","
                             },
                             {
                               "type": "SYMBOL",
@@ -4575,8 +4562,8 @@
                             }
                           ]
                         }
-                      ]
-                    }
+                      }
+                    ]
                   }
                 ]
               },
@@ -4588,7 +4575,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_semicolon"
+          "name": "_manual_semicolon"
         },
         {
           "type": "FIELD",
@@ -4608,7 +4595,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_semicolon"
+          "name": "_manual_semicolon"
         },
         {
           "type": "FIELD",
@@ -4636,7 +4623,7 @@
         }
       ]
     },
-    "while_loop": {
+    "while_statement": {
       "type": "SEQ",
       "members": [
         {
@@ -4665,7 +4652,7 @@
         }
       ]
     },
-    "do_while_loop": {
+    "do_while_statement": {
       "type": "PREC_RIGHT",
       "value": 0,
       "content": {
@@ -5135,6 +5122,10 @@
         ]
       }
     },
+    "_manual_semicolon": {
+      "type": "STRING",
+      "value": ";"
+    },
     "_semicolon": {
       "type": "CHOICE",
       "members": [
@@ -5143,8 +5134,8 @@
           "name": "_automatic_semicolon"
         },
         {
-          "type": "STRING",
-          "value": ";"
+          "type": "SYMBOL",
+          "name": "_manual_semicolon"
         }
       ]
     },

@@ -830,9 +830,9 @@ module.exports = grammar({
         $.block,
         $.variable_declaration_statement,
         $.old_variable_declaration_statement,
-        $.for_loop,
-        $.while_loop,
-        $.do_while_loop,
+        $.for_statement,
+        $.while_statement,
+        $.do_while_statement,
         $.break_statement,
         $.continue_statement,
         $.condition_statement,
@@ -842,32 +842,32 @@ module.exports = grammar({
         $.expression_statement
       ),
 
-    for_loop: ($) =>
+    for_statement: ($) =>
       seq(
         "for",
         "(",
         field(
           "initialization",
-          commaSep(
+          optional(
             choice(
               $.variable_declaration_statement,
               $.old_variable_declaration_statement,
-              $.assignment_expression
+              commaSep1($.assignment_expression)
             )
           )
         ),
-        $._semicolon,
+        $._manual_semicolon,
         field("condition", optional($._expression)),
-        $._semicolon,
+        $._manual_semicolon,
         field("iteration", optional($._statement)),
         ")",
         $._statement
       ),
 
-    while_loop: ($) =>
+    while_statement: ($) =>
       seq("while", "(", field("condition", $._expression), ")", $._statement),
 
-    do_while_loop: ($) =>
+    do_while_statement: ($) =>
       prec.right(
         seq(
           "do",
@@ -945,7 +945,9 @@ module.exports = grammar({
         seq("delete", field("free", $._expression), optional($._semicolon))
       ),
 
-    _semicolon: ($) => choice($._automatic_semicolon, ";"),
+    _manual_semicolon: ($) => ";",
+
+    _semicolon: ($) => choice($._automatic_semicolon, $._manual_semicolon),
 
     // Expressions
 

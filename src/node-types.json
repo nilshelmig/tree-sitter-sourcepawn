@@ -126,7 +126,7 @@
         "named": true
       },
       {
-        "type": "do_while_loop",
+        "type": "do_while_statement",
         "named": true
       },
       {
@@ -134,7 +134,7 @@
         "named": true
       },
       {
-        "type": "for_loop",
+        "type": "for_statement",
         "named": true
       },
       {
@@ -154,7 +154,7 @@
         "named": true
       },
       {
-        "type": "while_loop",
+        "type": "while_statement",
         "named": true
       }
     ]
@@ -948,7 +948,7 @@
     "fields": {}
   },
   {
-    "type": "do_while_loop",
+    "type": "do_while_statement",
     "named": true,
     "fields": {
       "condition": {
@@ -1287,7 +1287,7 @@
     }
   },
   {
-    "type": "for_loop",
+    "type": "for_statement",
     "named": true,
     "fields": {
       "condition": {
@@ -3711,7 +3711,7 @@
     }
   },
   {
-    "type": "while_loop",
+    "type": "while_statement",
     "named": true,
     "fields": {
       "condition": {
