@@ -17,7 +17,7 @@ public void OnPluginStart() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-            (while_loop
+            (while_statement
                 condition: (bool_literal)
                 (block)))))
 
@@ -41,7 +41,7 @@ public void OnPluginStart() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-            (while_loop
+            (while_statement
                 condition: (binary_expression
                     left: (binary_expression
                         left: (symbol)
@@ -71,7 +71,7 @@ public void OnPluginStart() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-            (while_loop
+            (while_statement
                 condition: (bool_literal)
                 (block (break_statement ))))))
 
@@ -95,7 +95,7 @@ public void OnPluginStart() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-            (while_loop
+            (while_statement
                 condition: (bool_literal)
                 (block (continue_statement ))))))
 
@@ -117,6 +117,6 @@ public void OnPluginStart() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-            (while_loop
+            (while_statement
                 condition: (bool_literal)
                 (continue_statement )))))

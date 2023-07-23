@@ -3,7 +3,7 @@ for loop
 ========
 
 public void OnPluginStart() {
-    for(int i = 0; i < 0; i++) {}
+    for(int i = 0;i < 0; i++) {}
     for(int i = 0; i < j; i++) {}
 }
 
@@ -15,7 +15,7 @@ public void OnPluginStart() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-            (for_loop
+            (for_statement
                 initialization: (variable_declaration_statement
                     type: (type (builtin_type))
                     (variable_declaration
@@ -30,7 +30,7 @@ public void OnPluginStart() {
                     (update_expression
                         argument: (symbol)))
                 (block))
-            (for_loop
+            (for_statement
                 initialization: (variable_declaration_statement
                 type: (type (builtin_type))
                 (variable_declaration
@@ -65,7 +65,7 @@ public void OnPluginStart() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-            (for_loop
+            (for_statement
                 condition: (binary_expression
                     left: (symbol)
                     right: (int_literal))
@@ -94,7 +94,7 @@ public void OnPluginStart() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-            (for_loop
+            (for_statement
                 initialization: (variable_declaration_statement
                     type: (type (builtin_type))
                     (variable_declaration
@@ -126,7 +126,7 @@ public void OnPluginStart() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-            (for_loop
+            (for_statement
                 initialization: (variable_declaration_statement
                     type: (type (builtin_type))
                     (variable_declaration
@@ -158,7 +158,7 @@ public void OnPluginStart() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-            (for_loop
+            (for_statement
                 (block)))))
 
 
@@ -180,7 +180,7 @@ public void OnPluginStart() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-            (for_loop
+            (for_statement
                 (block (break_statement ))))))
 
 
@@ -202,7 +202,7 @@ public void OnPluginStart() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-            (for_loop
+            (for_statement
                 (block (continue_statement ))))))
 
 
@@ -222,7 +222,7 @@ public void OnPluginStart() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-            (for_loop
+            (for_statement
                 (break_statement )))))
 
 
@@ -242,7 +242,7 @@ public void OnPluginStart() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-            (for_loop
+            (for_statement
                 initialization: (assignment_expression
                         left: (symbol)
                         right: (int_literal))
@@ -271,26 +271,86 @@ public void OnPluginStart() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-            (for_loop
-                initialization: (variable_declaration_statement
-                    type: (type
-                        (builtin_type))
-                    (variable_declaration
-                        name: (symbol)
-                        initialValue: (int_literal)))
-                initialization: (assignment_expression
+            (for_statement
+                initialization: 
+                    (variable_declaration_statement
+                        type: (type (builtin_type))
+                        (variable_declaration
+                            name: (symbol)
+                            initialValue: (int_literal))
+                        (variable_declaration
+                            name: (symbol)
+                            initialValue: (int_literal))
+                        (variable_declaration
+                            name: (symbol)
+                            initialValue: (int_literal)))
+                condition: 
+                    (binary_expression
                         left: (symbol)
                         right: (int_literal))
-                initialization: (assignment_expression
-                    left: (symbol)
-                    right: (int_literal))
-                
-                condition: (binary_expression
-                    left: (symbol)
-                    right: (int_literal))
-                
-                iteration: (expression_statement (update_expression argument: (symbol)))
-                (break_statement )))))
+                iteration: 
+                    (expression_statement
+                        (update_expression
+                            argument: (symbol)
+                        )
+                    )
+                (break_statement)
+            )
+        )
+    )
+)
+
+=============================
+for loop - complex multi variables
+=============================
+
+public void OnPluginStart() {
+    for(
+        int nade_output,
+            nade_slot_max[MAX_SLOT_MAX],
+                current_nade = filtered_items[current_team][LOADOUT_WEAPON_GRENADE].Length;
+        current_nade >= 0;
+        current_nade--
+        )
+        break;
+}
+
+---
+
+(source_file
+    (function_declaration
+    (function_visibility)
+    (type
+        (builtin_type))
+    (symbol)
+    (argument_declarations)
+    (block
+        (for_statement
+        (variable_declaration_statement
+            (type
+            (builtin_type))
+            (variable_declaration
+            (symbol))
+            (variable_declaration
+            (symbol)
+            (fixed_dimension
+                (symbol)))
+            (variable_declaration
+            (symbol)
+            (field_access
+                (array_indexed_access
+                (array_indexed_access
+                    (symbol)
+                    (symbol))
+                (symbol))
+                (symbol))))
+        (binary_expression
+            (symbol)
+            (int_literal))
+        (expression_statement
+            (update_expression
+            (symbol)))
+        (break_statement)))))
 
 ==============
 old - for loop
@@ -312,7 +372,7 @@ public void OnPluginStart() {
         name: (symbol)
         arguments: (argument_declarations)
         (block
-            (for_loop
+            (for_statement
                 initialization: (old_variable_declaration_statement
                     (old_variable_declaration
                         name: (symbol)
@@ -324,7 +384,7 @@ public void OnPluginStart() {
                 iteration: (expression_statement (update_expression argument: (symbol)))
                 (break_statement
                 ))
-            (for_loop
+            (for_statement
                 initialization: (old_variable_declaration_statement
                     (old_variable_declaration
                         name: (symbol)
@@ -339,7 +399,7 @@ public void OnPluginStart() {
                 iteration: (expression_statement
                     (update_expression argument: (symbol)))
             (block))
-            (for_loop
+            (for_statement
                 initialization: (assignment_expression
                     left: (symbol)
                     right: (int_literal))

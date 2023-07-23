@@ -126,7 +126,7 @@
         "named": true
       },
       {
-        "type": "do_while_loop",
+        "type": "do_while_statement",
         "named": true
       },
       {
@@ -134,7 +134,7 @@
         "named": true
       },
       {
-        "type": "for_loop",
+        "type": "for_statement",
         "named": true
       },
       {
@@ -154,7 +154,7 @@
         "named": true
       },
       {
-        "type": "while_loop",
+        "type": "while_statement",
         "named": true
       }
     ]
@@ -948,7 +948,7 @@
     "fields": {}
   },
   {
-    "type": "do_while_loop",
+    "type": "do_while_statement",
     "named": true,
     "fields": {
       "condition": {
@@ -967,7 +967,7 @@
       "required": true,
       "types": [
         {
-          "type": "block",
+          "type": "_statement",
           "named": true
         }
       ]
@@ -1287,7 +1287,7 @@
     }
   },
   {
-    "type": "for_loop",
+    "type": "for_statement",
     "named": true,
     "fields": {
       "condition": {
@@ -2528,7 +2528,7 @@
       },
       "value": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
             "type": "preproc_arg",
@@ -3080,30 +3080,6 @@
         },
         {
           "type": "old_global_variable_declaration",
-          "named": true
-        },
-        {
-          "type": "preproc_define",
-          "named": true
-        },
-        {
-          "type": "preproc_endinput",
-          "named": true
-        },
-        {
-          "type": "preproc_include",
-          "named": true
-        },
-        {
-          "type": "preproc_macro",
-          "named": true
-        },
-        {
-          "type": "preproc_tryinclude",
-          "named": true
-        },
-        {
-          "type": "preproc_undefine",
           "named": true
         },
         {
@@ -3735,7 +3711,7 @@
     }
   },
   {
-    "type": "while_loop",
+    "type": "while_statement",
     "named": true,
     "fields": {
       "condition": {
