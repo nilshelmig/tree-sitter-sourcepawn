@@ -104,7 +104,7 @@ Next install [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitte
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 parser_config.sourcepawn = {
   install_info = {
-    url = "https://github.com/Sarrus1/tree-sitter-sourcepawn",
+    url = "https://github.com/nilshelmig/tree-sitter-sourcepawn",
     files = {"src/parser.c", "src/scanner.c"},
     branch = "main",
     generate_requires_npm = false,
@@ -123,3 +123,6 @@ Lastly, because this is unfortunately a manual install, you\'ll need to copy the
 You can help by writing tests which are not covered or valid Sourcepawn code, that fails parsing. Tests can be found in the `test` directory.
 
 If you aren't familiar with tree-sitter tests, you can refer to the [official documentation](https://tree-sitter.github.io/tree-sitter/creating-parsers#command-test) or read some of the available tests.
+
+## Notable Mentions
+This project is used by the [SourcePawn VSCode](https://github.com/Sarrus1/sourcepawn-vscode) extension. From it, the tree-sitter-sourcepawn got a lot of contributions, especially from [Sarrus1](https://github.com/Sarrus1) ❤️ 
