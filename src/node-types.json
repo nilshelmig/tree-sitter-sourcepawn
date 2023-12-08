@@ -221,6 +221,16 @@
           }
         ]
       },
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "_statement",
+            "named": true
+          }
+        ]
+      },
       "returnType": {
         "multiple": true,
         "required": false,
@@ -244,10 +254,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "_statement",
-          "named": true
-        },
         {
           "type": "alias_operator",
           "named": true
@@ -1186,6 +1192,16 @@
     "type": "enum_struct_method",
     "named": true,
     "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": false,
         "required": true,
@@ -1212,15 +1228,11 @@
       }
     },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
           "type": "argument_declarations",
-          "named": true
-        },
-        {
-          "type": "block",
           "named": true
         }
       ]
@@ -1499,6 +1511,16 @@
           }
         ]
       },
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "_statement",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": false,
         "required": true,
@@ -1529,13 +1551,9 @@
       }
     },
     "children": {
-      "multiple": true,
-      "required": true,
+      "multiple": false,
+      "required": false,
       "types": [
-        {
-          "type": "_statement",
-          "named": true
-        },
         {
           "type": "function_visibility",
           "named": true
@@ -1745,6 +1763,16 @@
     "type": "methodmap_method",
     "named": true,
     "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": false,
         "required": true,
@@ -1771,15 +1799,11 @@
       }
     },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
           "type": "argument_declarations",
-          "named": true
-        },
-        {
-          "type": "block",
           "named": true
         }
       ]
@@ -1789,36 +1813,16 @@
     "type": "methodmap_method_constructor",
     "named": true,
     "fields": {
-      "name": {
+      "body": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "symbol",
+            "type": "block",
             "named": true
           }
         ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "argument_declarations",
-          "named": true
-        },
-        {
-          "type": "block",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "methodmap_method_destructor",
-    "named": true,
-    "fields": {
+      },
       "name": {
         "multiple": false,
         "required": true,
@@ -1835,10 +1839,36 @@
       "required": true,
       "types": [
         {
-          "type": "block",
+          "type": "argument_declarations",
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "methodmap_method_destructor",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -2001,15 +2031,22 @@
   {
     "type": "methodmap_property_method",
     "named": true,
-    "fields": {},
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "block",
-          "named": true
-        },
         {
           "type": "methodmap_property_getter",
           "named": true

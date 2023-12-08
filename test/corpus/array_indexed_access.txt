@@ -16,7 +16,8 @@ void MyFunc(int[] myvar) {
         (argument_declaration
             type: (argument_type (type (builtin_type)) (dimension))
             name: (symbol)))
-    (block
+    body: (block
+
         (expression_statement
             (array_indexed_access
                 array: (symbol)
@@ -43,7 +44,8 @@ void MyFunc(int[] myvar) {
         (argument_declaration
             type: (argument_type (type (builtin_type)) (dimension))
             name: (symbol)))
-    (block
+    body: (block
+
         (expression_statement
             (array_indexed_access
                 array: (symbol)
@@ -74,7 +76,8 @@ void MyFunc(int[] myvar) {
         (argument_declaration
             type: (argument_type (type (builtin_type)) (dimension))
             name: (symbol)))
-    (block
+    body: (block
+
         (expression_statement
             (array_indexed_access
                 array: (symbol)
@@ -102,7 +105,8 @@ int MyFunc(int[] myvar) {
         (argument_declaration
             type: (argument_type (type (builtin_type)) (dimension))
             name: (symbol)))
-    (block
+    body: (block
+
         (return_statement
             (array_indexed_access
                 array: (symbol)
@@ -130,7 +134,8 @@ int MyFunc(int[][] myvar) {
         (argument_declaration
             type: (argument_type (type (builtin_type)) (dimension) (dimension))
             name: (symbol)))
-    (block
+    body: (block
+
         (return_statement
             (array_indexed_access
                     array: (array_indexed_access
@@ -158,7 +163,8 @@ int MyFunc(File target) {
         (argument_declaration
             type: (argument_type (type (symbol)))
             name: (symbol)))
-    (block
+    body: (block
+
         (return_statement
             (array_indexed_access
                     array: (field_access

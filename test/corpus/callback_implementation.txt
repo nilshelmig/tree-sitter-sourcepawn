@@ -13,7 +13,8 @@ public void OnPluginStart() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block)))
+        body: (block
+)))
 
 
 =================================
@@ -47,27 +48,32 @@ public void OnRebuildAdminCache(AdminCachePart part) {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol)))
-        (block))
+        body: (block
+))
     (function_declaration (function_visibility)
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type)) (dimension)) name: (symbol)))
-        (block))
+        body: (block
+))
     (function_declaration (function_visibility)
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol)))
-        (block))
+        body: (block
+))
     (function_declaration (function_visibility)
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol)))
-        (block))
+        body: (block
+))
     (function_declaration (function_visibility)
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations (argument_declaration type: (argument_type (type (symbol))) name: (symbol)))
-        (block)))
+        body: (block
+)))
 
 
 =======================================
@@ -91,7 +97,7 @@ public void OnClientSayCommand_Post(int client, const char[] command, char[] sAr
             (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol))
             (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol))
             (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol) (fixed_dimension (int_literal))))
-        (block)))
+        body: (block)))
 
 
 ===========================================
@@ -111,27 +117,32 @@ public Action Callback5() {}
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-    (block))
+    body: (block
+))
     (function_declaration (function_visibility)
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-    (block))
+    body: (block
+))
     (function_declaration (function_visibility)
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-    (block))
+    body: (block
+))
     (function_declaration (function_visibility)
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-    (block))
+    body: (block
+))
     (function_declaration (function_visibility)
         returnType: (type (symbol))
         name: (symbol)
         arguments: (argument_declarations)
-    (block)))
+    body: (block
+)))
 
 
 ========================
@@ -148,7 +159,8 @@ public OnPluginStart() {
     (function_declaration (function_visibility)
         name: (symbol)
         arguments: (argument_declarations)
-        (block)))
+        body: (block
+)))
 
 
 =======================================
@@ -168,27 +180,32 @@ public Callback6(Handle:handle) {}
     (function_declaration (function_visibility)
         name: (symbol)
         arguments: (argument_declarations (argument_declaration name: (symbol)))
-        (block))
+        body: (block
+))
     (function_declaration (function_visibility)
         name: (symbol)
         arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol)))
-        (block))
+        body: (block
+))
     (function_declaration (function_visibility)
         name: (symbol)
         arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol)))
-        (block))
+        body: (block
+))
     (function_declaration (function_visibility)
         name: (symbol)
         arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol)))
-        (block))
+        body: (block
+))
     (function_declaration (function_visibility)
         name: (symbol)
         arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol) (dimension)))
-        (block))
+        body: (block))
     (function_declaration (function_visibility)
         name: (symbol)
         arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (symbol))) name: (symbol)))
-        (block)))
+        body: (block
+)))
 
 
 ==========================================
@@ -204,13 +221,15 @@ public Callback2(args, any:data) {}
     (function_declaration (function_visibility)
         name: (symbol)
         arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (any_type))) name: (symbol)))
-        (block))
+        body: (block
+))
     (function_declaration (function_visibility)
         name: (symbol)
         arguments: (argument_declarations
             (argument_declaration name: (symbol))
             (argument_declaration type: (argument_type (old_type (any_type))) name: (symbol)))
-        (block)))
+        body: (block
+)))
 
 
 ====================================================
@@ -230,32 +249,38 @@ public Action:Callback6() {}
     (function_declaration (function_visibility)
         name: (symbol)
         arguments: (argument_declarations)
-        (block))
+        body: (block
+))
     (function_declaration (function_visibility)
         returnType: (old_type (old_builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block))
+        body: (block
+))
     (function_declaration (function_visibility)
         returnType: (old_type (old_builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block))
+        body: (block
+))
     (function_declaration (function_visibility)
         returnType: (old_type (old_builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block))
+        body: (block
+))
     (function_declaration (function_visibility)
         returnType: (old_type (old_builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block))
+        body: (block
+))
     (function_declaration (function_visibility)
         returnType: (old_type (symbol))
         name: (symbol)
         arguments: (argument_declarations)
-        (block)))
+        body: (block
+)))
 
 
 =========================================
@@ -271,11 +296,11 @@ public Callback1() Test();
     (function_declaration (function_visibility)
         name: (symbol)
         arguments: (argument_declarations)
-        (return_statement (int_literal) ))
+        body: (return_statement (int_literal) ))
     (function_declaration (function_visibility)
         name: (symbol)
         arguments: (argument_declarations)
-        (expression_statement
+        body: (expression_statement
             (function_call
                 function: (symbol)
                 arguments: (function_call_arguments))

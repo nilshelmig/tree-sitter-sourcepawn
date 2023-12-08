@@ -13,7 +13,8 @@ void Test() {
     returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations)
-    (block
+    body: (block
+
         (expression_statement
             (function_call
                 function: (symbol)
@@ -37,7 +38,8 @@ void Test() {
     returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations)
-    (block
+    body: (block
+
         (expression_statement
             (function_call
                 function: (symbol)
@@ -73,7 +75,8 @@ void Test() {
     returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations)
-    (block
+    body: (block
+
         (expression_statement
             (function_call
                 function: (symbol)
@@ -106,7 +109,8 @@ void Test() {
     returnType: (type (builtin_type))
     name: (symbol)
     arguments: (argument_declarations)
-    (block
+    body: (block
+
         (expression_statement
             (function_call
                 function: (symbol)
@@ -133,7 +137,8 @@ bool Test() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (return_statement
                 (binary_expression
                     left: (int_literal)
@@ -158,7 +163,8 @@ void Test() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (expression_statement
                 (function_call
                     function: (symbol)
@@ -202,7 +208,8 @@ void Test() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (expression_statement
                 (function_call
                         function: (field_access

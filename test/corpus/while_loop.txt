@@ -16,7 +16,8 @@ public void OnPluginStart() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (while_statement
                 condition: (bool_literal)
                 (block)))))
@@ -40,7 +41,8 @@ public void OnPluginStart() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (while_statement
                 condition: (binary_expression
                     left: (binary_expression
@@ -70,7 +72,8 @@ public void OnPluginStart() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (while_statement
                 condition: (bool_literal)
                 (block (break_statement ))))))
@@ -94,7 +97,8 @@ public void OnPluginStart() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (while_statement
                 condition: (bool_literal)
                 (block (continue_statement ))))))
@@ -116,7 +120,8 @@ public void OnPluginStart() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (while_statement
                 condition: (bool_literal)
                 (continue_statement )))))

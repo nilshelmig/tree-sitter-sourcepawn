@@ -165,7 +165,7 @@ methodmap PerkContainerIter {
                         type: (argument_type (type (builtin_type)))
                     name: (symbol)
                     defaultValue: (int_literal)))
-            (block (return_statement (bool_literal) )))
+            body: (block (return_statement (bool_literal) )))
         (methodmap_method
             returnType: (type (builtin_type))
             name: (symbol)
@@ -174,7 +174,7 @@ methodmap PerkContainerIter {
                         type: (argument_type (type (builtin_type)) (dimension))
                     name: (symbol))
                 (rest_argument type: (type (any_type))))
-            (block))
+            body: (block))
         (methodmap_method
             returnType: (type
                 (builtin_type))
@@ -190,7 +190,7 @@ methodmap PerkContainerIter {
                 (rest_argument
                     type: (type
                         (any_type))))
-            (block))))
+            body: (block))))
 
 
 ============================================
@@ -216,10 +216,11 @@ methodmap AdminId {
                 (argument_declaration
                         type: (argument_type (type (builtin_type)))
                     name: (symbol)))
-            (block (return_statement (symbol) )))
+            body: (block
+ (return_statement (symbol) )))
         (methodmap_method_destructor
             name: (symbol)
-            (block))))
+            body: (block))))
 
 
 ===================================
@@ -248,7 +249,7 @@ methodmap PerkContainerIter {
                         type: (argument_type (type (builtin_type)))
                     name: (symbol)
                     defaultValue: (int_literal)))
-            (block (return_statement (bool_literal) )))))
+            body: (block (return_statement (bool_literal) )))))
 
 
 ===================================
@@ -270,7 +271,7 @@ methodmap MyValue {
             returnType: (type (builtin_type))
             name: (symbol)
             (argument_declarations)
-            (block (return_statement (this) )))))
+            body: (block (return_statement (this) )))))
 
 
 ===============================
@@ -371,7 +372,7 @@ methodmap Player {
             name: (symbol)
             (methodmap_property_method
                 (methodmap_property_getter)
-                (block
+                body: (block
                     (return_statement
                         (bool_literal)
                         )))
@@ -379,7 +380,7 @@ methodmap Player {
                 (methodmap_property_setter
                     type: (type (builtin_type))
                     name: (symbol))
-                (block
+                body: (block
                     (return_statement ))))))
 
 

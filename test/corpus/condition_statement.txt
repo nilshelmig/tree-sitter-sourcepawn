@@ -13,7 +13,8 @@ public void OnPluginStart() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (condition_statement
                 condition: (bool_literal)
                 truePath: (return_statement )))))
@@ -35,7 +36,8 @@ public void OnPluginStart() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (condition_statement
                 condition: (bool_literal)
                 truePath: (return_statement )
@@ -60,7 +62,8 @@ public void OnPluginStart() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (condition_statement
                 condition: (bool_literal)
                 truePath: (return_statement )
@@ -90,7 +93,8 @@ public void OnPluginStart() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (condition_statement
                 condition: (bool_literal)
                 truePath: (block (return_statement ))))))
@@ -116,7 +120,8 @@ public void OnPluginStart() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (condition_statement
                 condition: (bool_literal)
                 truePath: (block (return_statement ))
@@ -141,7 +146,8 @@ public void OnPluginStart() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (condition_statement
                 condition: (unary_expression argument: (bool_literal))
                 truePath: (return_statement ))

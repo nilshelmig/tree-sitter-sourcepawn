@@ -13,7 +13,8 @@ void Test() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (expression_statement
                 (field_access
                     target: (symbol)
@@ -48,7 +49,7 @@ enum struct Rectangle
             returnType: (type (builtin_type))
             name: (symbol)
             (argument_declarations)
-            (block
+            body: (block
                 (return_statement
                     (field_access
                         target: (this)
@@ -71,7 +72,8 @@ void Test() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (expression_statement
                 (field_access
                     target: (array_indexed_access
@@ -96,7 +98,8 @@ void Test() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (expression_statement
                 (field_access
                     target: (function_call

@@ -240,7 +240,7 @@ module.exports = grammar({
         ),
         field("name", $.symbol),
         field("arguments", $.argument_declarations),
-        choice($.block, $._statement)
+        field("body", choice($.block, $._statement))
       ),
 
     function_visibility: ($) =>
@@ -358,7 +358,7 @@ module.exports = grammar({
         "operator",
         $.alias_operator,
         field("arguments", $.argument_declarations),
-        choice($.block, $._statement)
+        field("body", choice($.block, $._statement))
       ),
 
     alias_assignment: ($) =>
@@ -536,7 +536,7 @@ module.exports = grammar({
         field("returnType", seq($.type, repeat($.dimension))),
         field("name", $.symbol),
         $.argument_declarations,
-        $.block
+        field("body", $.block)
       ),
 
     typedef: ($) =>
@@ -698,7 +698,7 @@ module.exports = grammar({
         field("returnType", seq($.type, repeat($.dimension))),
         field("name", $.symbol),
         $.argument_declarations,
-        $.block
+        field("body", $.block)
       ),
 
     methodmap_method_constructor: ($) =>
@@ -706,7 +706,7 @@ module.exports = grammar({
         $.methodmap_visibility,
         field("name", $.symbol),
         $.argument_declarations,
-        $.block
+        field("body", $.block)
       ),
 
     methodmap_method_destructor: ($) =>
@@ -716,7 +716,7 @@ module.exports = grammar({
         field("name", $.symbol),
         "(",
         ")",
-        $.block
+        field("body", $.block)
       ),
 
     methodmap_property: ($) =>
@@ -756,7 +756,7 @@ module.exports = grammar({
       seq(
         $.methodmap_visibility,
         choice($.methodmap_property_getter, $.methodmap_property_setter),
-        $.block
+        field("body", $.block)
       ),
 
     methodmap_property_getter: ($) => seq("get", "(", ")"),

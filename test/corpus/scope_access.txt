@@ -14,7 +14,8 @@ void Test() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (variable_declaration_statement
                 type: (type (symbol))
                 (variable_declaration name: (symbol))
@@ -50,7 +51,8 @@ void Test() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (variable_declaration_statement
                 type: (type
                 (symbol))

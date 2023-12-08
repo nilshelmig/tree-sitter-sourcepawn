@@ -24,7 +24,8 @@ public void OnPluginStart() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (switch_statement
                 condition: (symbol)
                 (switch_case
@@ -71,7 +72,8 @@ public void OnPluginStart() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (switch_statement
                 condition: (symbol)
                 (switch_case
@@ -109,7 +111,8 @@ public void OnPluginStart() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (switch_statement
                 condition: (symbol)
                 (switch_case
@@ -138,7 +141,8 @@ public void OnPluginStart() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (switch_statement condition: (symbol)))))
 
 
@@ -165,7 +169,8 @@ void foo()
       (builtin_type))
     name: (symbol)
     arguments: (argument_declarations)
-    (block
+    body: (block
+
       (switch_statement
         condition: (symbol)
         (switch_case

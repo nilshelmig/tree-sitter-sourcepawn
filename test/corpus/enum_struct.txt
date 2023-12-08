@@ -80,7 +80,7 @@ enum struct Rectangle
             returnType: (type (builtin_type))
             name: (symbol)
             (argument_declarations)
-            (block
+            body: (block
                 (return_statement
                     (binary_expression
                         left: (field_access
@@ -95,7 +95,7 @@ enum struct Rectangle
             returnType: (dimension)
             name: (symbol)
             (argument_declarations)
-            (block
+            body: (block
                 (return_statement
                     (binary_expression
                         left: (field_access
@@ -141,7 +141,7 @@ enum struct Rectangle
                 (argument_declaration
                         type: (argument_type (type (symbol)))
                     name: (symbol)))
-            (block
+            body: (block
                 (return_statement
                     (binary_expression
                         left: (binary_expression

@@ -14,7 +14,8 @@ int GetOppositeDirection() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (expression_statement
                 (ternary_expression
                     condition: (binary_expression
@@ -52,7 +53,8 @@ int GetOppositeDirection() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (expression_statement
                 (ternary_expression
                     condition: (function_call
@@ -110,7 +112,8 @@ int GetOppositeDirection() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (return_statement
                 (ternary_expression
                     condition: (binary_expression

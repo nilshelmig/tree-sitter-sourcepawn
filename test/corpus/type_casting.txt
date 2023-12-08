@@ -17,7 +17,8 @@ void Test() {
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (expression_statement
                 (view_as
                     type: (type (builtin_type))
@@ -108,7 +109,8 @@ void foo(){
         returnType: (type (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (expression_statement
                 (assignment_expression
                     left: (view_as
@@ -140,7 +142,8 @@ WormDirection:GetOppositeDirection() {
         returnType: (old_type (symbol))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (expression_statement
                 (old_type_cast
                     type: (old_type (old_builtin_type))
@@ -183,7 +186,8 @@ Float:GetOppositeDirection() {
         returnType: (old_type (old_builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (return_statement
                 (binary_expression
                     left: (old_type_cast

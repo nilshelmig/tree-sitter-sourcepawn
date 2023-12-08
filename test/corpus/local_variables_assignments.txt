@@ -24,7 +24,8 @@ void Test() {
             (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (expression_statement
                 (assignment_expression
                     left: (symbol)
@@ -106,7 +107,8 @@ void Test() {
             (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (expression_statement
                 (assignment_expression
                     left: (symbol)
@@ -151,7 +153,8 @@ void Test() {
             (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (expression_statement
                 (assignment_expression
                     left: (array_indexed_access
@@ -189,7 +192,8 @@ void Test() {
             (builtin_type))
         name: (symbol)
         arguments: (argument_declarations)
-        (block
+        body: (block
+
             (condition_statement
                 condition: (binary_expression
                     left: (parenthesized_expression
