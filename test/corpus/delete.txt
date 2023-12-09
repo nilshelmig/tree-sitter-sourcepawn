@@ -10,14 +10,27 @@ void SaveClose(Handle myhandle) {
 
 (source_file
   (function_declaration
-    returnType: (type (builtin_type))
+    returnType: (type
+      (builtin_type)
+    )
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (argument_type (type (symbol))) name: (symbol)))
+    arguments: (argument_declarations
+      (argument_declaration
+        type: (argument_type
+          (type
+            (symbol)
+          )
+        )
+        name: (symbol)
+      )
+    )
     body: (block
-
-        (delete_statement
-            free: (symbol)
-            ))))
+      (delete_statement
+        free: (symbol)
+      )
+    )
+  )
+)
 
 
 ===========================
@@ -32,20 +45,31 @@ void SaveClose(Handle[] myhandle) {
 
 (source_file
   (function_declaration
-    returnType: (type (builtin_type))
+    returnType: (type
+      (builtin_type)
+    )
     name: (symbol)
-    arguments: (argument_declarations 
-        (argument_declaration
-            type: (argument_type 
-                (type (symbol)) (dimension)) 
-            name: (symbol)))
+    arguments: (argument_declarations
+      (argument_declaration
+        type: (argument_type
+          (type
+            (symbol)
+          )
+          (dimension)
+        )
+        name: (symbol)
+      )
+    )
     body: (block
-
-        (delete_statement
-            free: (array_indexed_access
-              array: (symbol)
-              index: (int_literal))
-            ))))
+      (delete_statement
+        free: (array_indexed_access
+          array: (symbol)
+          index: (int_literal)
+        )
+      )
+    )
+  )
+)
 
 
 ================
@@ -60,16 +84,32 @@ void SaveClose(Handle myhandle) {
 
 (source_file
   (function_declaration
-    returnType: (type (builtin_type))
+    returnType: (type
+      (builtin_type)
+    )
     name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (argument_type (type (symbol))) name: (symbol)))
+    arguments: (argument_declarations
+      (argument_declaration
+        type: (argument_type
+          (type
+            (symbol)
+          )
+        )
+        name: (symbol)
+      )
+    )
     body: (block
-
-        (delete_statement
-            free: (view_as
-              type: (type (symbol))
-              value: (symbol))
-            ))))
+      (delete_statement
+        free: (view_as
+          type: (type
+            (symbol)
+          )
+          value: (symbol)
+        )
+      )
+    )
+  )
+)
 
 
 =============
@@ -89,13 +129,19 @@ methodmap Handle
   (methodmap
     name: (symbol)
     (methodmap_method
-      returnType: (type (builtin_type))
+      returnType: (type
+        (builtin_type)
+      )
       name: (symbol)
       (argument_declarations)
       body: (block
-          (delete_statement
-              free: (this)
-              )))))
+        (delete_statement
+          free: (this)
+        )
+      )
+    )
+  )
+)
 
 
 =====================
@@ -115,15 +161,22 @@ methodmap Handle
   (methodmap
     name: (symbol)
     (methodmap_method
-      returnType: (type (builtin_type))
+      returnType: (type
+        (builtin_type)
+      )
       name: (symbol)
       (argument_declarations)
       body: (block
-          (delete_statement
-              free: (field_access
-                target: (this)
-                field: (symbol))
-              )))))
+        (delete_statement
+          free: (field_access
+            target: (this)
+            field: (symbol)
+          )
+        )
+      )
+    )
+  )
+)
 
 
 ======================
@@ -143,12 +196,19 @@ methodmap Handle
   (methodmap
     name: (symbol)
     (methodmap_method
-      returnType: (type (builtin_type))
+      returnType: (type
+        (builtin_type)
+      )
       name: (symbol)
       (argument_declarations)
       body: (block
-          (delete_statement
-              free: (function_call
-                function: (symbol)
-                arguments: (function_call_arguments))
-              )))))
+        (delete_statement
+          free: (function_call
+            function: (symbol)
+            arguments: (function_call_arguments)
+          )
+        )
+      )
+    )
+  )
+)

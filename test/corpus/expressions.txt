@@ -10,20 +10,30 @@ void foo() {
 ---
 
 (source_file
-    (function_declaration
+  (function_declaration
     (type
-        (builtin_type))
+      (builtin_type)
+    )
     (symbol)
     (argument_declarations)
     (block
-        (variable_declaration_statement
+      (variable_declaration_statement
         (type
-            (builtin_type))
+          (builtin_type)
+        )
         (variable_declaration
-            (symbol)))
-        (expression_statement
+          (symbol)
+        )
+      )
+      (expression_statement
         (assignment_expression
+          (symbol)
+          (binary_expression
             (symbol)
-            (binary_expression
-            (symbol)
-            (int_literal)))))))
+            (int_literal)
+          )
+        )
+      )
+    )
+  )
+)

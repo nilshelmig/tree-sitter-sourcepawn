@@ -19,82 +19,122 @@ vec[];
 ---
 
 (source_file
-    (old_global_variable_declaration
-        (old_variable_declaration name: (symbol))
+  (old_global_variable_declaration
+    (old_variable_declaration
+      name: (symbol)
+    )
+  )
+  (old_global_variable_declaration
+    (variable_storage_class)
+    (old_variable_declaration
+      name: (symbol)
+    )
+  )
+  (old_global_variable_declaration
+    (old_variable_declaration
+      name: (symbol)
+    )
+  )
+  (old_global_variable_declaration
+    (old_variable_declaration
+      type: (old_type
+        (old_builtin_type)
+      )
+      name: (symbol)
+      initialValue: (float_literal)
+    )
+  )
+  (old_global_variable_declaration
+    (old_variable_declaration
+      type: (old_type
+        (old_builtin_type)
+      )
+      name: (symbol)
+      initialValue: (float_literal)
+    )
+  )
+  (old_global_variable_declaration
+    (old_variable_declaration
+      name: (symbol)
+      initialValue: (binary_expression
+        left: (int_literal)
+        right: (int_literal)
+      )
+    )
+  )
+  (old_global_variable_declaration
+    (old_variable_declaration
+      type: (old_type
+        (old_builtin_type)
+      )
+      name: (symbol)
+    )
+  )
+  (old_global_variable_declaration
+    (old_variable_declaration
+      type: (old_type
+        (old_builtin_type)
+      )
+      name: (symbol)
+      initialValue: (int_literal)
+    )
+    (old_variable_declaration
+      type: (old_type
+        (old_builtin_type)
+      )
+      name: (symbol)
+    )
+    (old_variable_declaration
+      type: (old_type
+        (old_builtin_type)
+      )
+      name: (symbol)
+      initialValue: (bool_literal)
+    )
+    (old_variable_declaration
+      type: (old_type
+        (old_builtin_type)
+      )
+      name: (symbol)
+      initialValue: (char_literal)
+    )
+  )
+  (old_global_variable_declaration
+    (old_variable_declaration
+      type: (old_type
+        (symbol)
+      )
+      name: (symbol)
+      initialValue: (symbol)
+    )
+  )
+  (old_global_variable_declaration
+    (old_variable_declaration
+      type: (old_type
+        (symbol)
+      )
+      name: (symbol)
+      initialValue: (symbol)
+    )
+  )
+  (old_global_variable_declaration
+    (old_variable_declaration
+      name: (symbol)
+      (fixed_dimension
+        (binary_expression
+          left: (symbol)
+          right: (int_literal)
         )
-    (old_global_variable_declaration
-        (variable_storage_class)
-        (old_variable_declaration name: (symbol))
-        )
-    (old_global_variable_declaration
-        (old_variable_declaration name: (symbol))
-        )
-    (old_global_variable_declaration
-        (old_variable_declaration
-            type: (old_type (old_builtin_type))
-            name: (symbol)
-            initialValue: (float_literal))
-        )
-    (old_global_variable_declaration
-        (old_variable_declaration
-            type: (old_type (old_builtin_type))
-            name: (symbol)
-            initialValue: (float_literal))
-        )
-    (old_global_variable_declaration
-        (old_variable_declaration
-            name: (symbol)
-            initialValue: (binary_expression
-                left: (int_literal)
-                right: (int_literal)))
-        )
-    (old_global_variable_declaration
-        (old_variable_declaration
-            type: (old_type (old_builtin_type))
-            name: (symbol))
-        )
-    (old_global_variable_declaration
-        (old_variable_declaration
-            type: (old_type (old_builtin_type))
-            name: (symbol)
-            initialValue: (int_literal))
-        (old_variable_declaration
-            type: (old_type (old_builtin_type))
-            name: (symbol))
-        (old_variable_declaration
-            type: (old_type (old_builtin_type))
-            name: (symbol)
-            initialValue: (bool_literal))
-        (old_variable_declaration
-            type: (old_type (old_builtin_type))
-            name: (symbol)
-            initialValue: (char_literal))
-        )
-    (old_global_variable_declaration
-        (old_variable_declaration
-            type: (old_type (symbol))
-            name: (symbol)
-            initialValue: (symbol))
-        )
-    (old_global_variable_declaration
-        (old_variable_declaration
-            type: (old_type (symbol))
-            name: (symbol)
-            initialValue: (symbol))
-        )
-    (old_global_variable_declaration
-        (old_variable_declaration
-            name: (symbol)
-            (fixed_dimension
-                (binary_expression
-                    left: (symbol)
-                    right: (int_literal))))
-        )
-    (old_global_variable_declaration
-        (old_variable_declaration
-            name: (symbol)
-            (dimension))
-        ))
+      )
+    )
+  )
+  (old_global_variable_declaration
+    (old_variable_declaration
+      name: (symbol)
+      (dimension)
+    )
+  )
+)
 
 
 ============
@@ -114,75 +154,118 @@ static chatColorInfo[][ChatColorInfo] =
 	{ '\x03', 9	/* Green */	, true,			ChatColorSubjectType_player	},	// Team
 };
 
-
 ---
 
 (source_file
-    (old_global_variable_declaration
-        (old_variable_declaration
-            name: (symbol)
-            (fixed_dimension (int_literal)))
+  (old_global_variable_declaration
+    (old_variable_declaration
+      name: (symbol)
+      (fixed_dimension
+        (int_literal)
+      )
+    )
+  )
+  (old_global_variable_declaration
+    (old_variable_declaration
+      name: (symbol)
+      (fixed_dimension
+        (binary_expression
+          left: (symbol)
+          right: (int_literal)
         )
-    (old_global_variable_declaration
-        (old_variable_declaration
-            name: (symbol)
-            (fixed_dimension
-            (binary_expression
-                left: (symbol)
-                right: (int_literal))))
+      )
+    )
+  )
+  (old_global_variable_declaration
+    (old_variable_declaration
+      type: (old_type
+        (old_builtin_type)
+      )
+      name: (symbol)
+      (fixed_dimension
+        (int_literal)
+      )
+      initialValue: (string_literal)
+    )
+  )
+  (old_global_variable_declaration
+    (old_variable_declaration
+      type: (old_type
+        (old_builtin_type)
+      )
+      name: (symbol)
+      (fixed_dimension
+        (int_literal)
+      )
+      initialValue: (array_literal
+        (float_literal)
+        (float_literal)
+        (float_literal)
+      )
+    )
+  )
+  (old_global_variable_declaration
+    (old_variable_declaration
+      name: (symbol)
+      (dimension)
+      initialValue: (array_literal
+        (int_literal)
+        (int_literal)
+        (int_literal)
+        (int_literal)
+        (int_literal)
+      )
+    )
+  )
+  (old_global_variable_declaration
+    (variable_storage_class)
+    (old_variable_declaration
+      name: (symbol)
+      (dimension)
+      (fixed_dimension
+        (symbol)
+      )
+      initialValue: (array_literal
+        (comment)
+        (array_literal
+          (char_literal
+            (escape_sequence)
+          )
+          (int_literal)
+          (comment)
+          (bool_literal)
+          (symbol)
         )
-    (old_global_variable_declaration
-        (old_variable_declaration
-            type: (old_type (old_builtin_type))
-            name: (symbol)
-            (fixed_dimension (int_literal))
-            initialValue: (string_literal))
+        (comment)
+        (array_literal
+          (char_literal
+            (escape_sequence)
+          )
+          (int_literal)
+          (comment)
+          (bool_literal)
+          (old_type_cast
+            type: (old_type
+              (symbol)
+            )
+            value: (int_literal)
+          )
         )
-    (old_global_variable_declaration
-        (old_variable_declaration
-            type: (old_type (old_builtin_type))
-            name: (symbol)
-            (fixed_dimension (int_literal))
-            initialValue: (array_literal (float_literal) (float_literal) (float_literal)))
+        (comment)
+        (array_literal
+          (char_literal
+            (escape_sequence)
+          )
+          (int_literal)
+          (comment)
+          (bool_literal)
+          (symbol)
         )
-    (old_global_variable_declaration
-        (old_variable_declaration
-            name: (symbol)
-            (dimension)
-            initialValue: (array_literal (int_literal) (int_literal) (int_literal) (int_literal) (int_literal)))
-        )
-    (old_global_variable_declaration
-        (variable_storage_class)
-        (old_variable_declaration
-            name: (symbol)
-            (dimension)
-            (fixed_dimension (symbol))
-            initialValue: (array_literal
-                (comment)
-                (array_literal 
-                    (char_literal (escape_sequence))
-                    (int_literal)
-                    (comment)
-                    (bool_literal)
-                    (symbol))
-                (comment)
-                (array_literal
-                    (char_literal (escape_sequence))
-                (int_literal)
-                (comment)
-                (bool_literal)
-                (old_type_cast
-                    type: (old_type (symbol))
-                    value: (int_literal)))
-                (comment)
-                (array_literal
-                    (char_literal (escape_sequence))
-                    (int_literal)
-                    (comment)
-                    (bool_literal)
-                    (symbol))
-                (comment)))
-        ))
+        (comment)
+      )
+    )
+  )
+)
 
 
 =============================
@@ -194,20 +277,62 @@ new g_DefaultColors_c[7][4] = { {255,255,255,255}, {255,0,0,255}, {0,255,0,255},
 ---
 
 (source_file
-    (old_global_variable_declaration
-        (old_variable_declaration
-            name: (symbol)
-            (fixed_dimension (int_literal))
-            (fixed_dimension (int_literal))
-            initialValue: (array_literal
-                (array_literal (int_literal) (int_literal) (int_literal) (int_literal))
-                (array_literal (int_literal) (int_literal) (int_literal) (int_literal))
-                (array_literal (int_literal) (int_literal) (int_literal) (int_literal))
-                (array_literal (int_literal) (int_literal) (int_literal) (int_literal))
-                (array_literal (int_literal) (int_literal) (int_literal) (int_literal))
-                (array_literal (int_literal) (int_literal) (int_literal) (int_literal))
-                (array_literal (int_literal) (int_literal) (int_literal) (int_literal))))
-        ))
+  (old_global_variable_declaration
+    (old_variable_declaration
+      name: (symbol)
+      (fixed_dimension
+        (int_literal)
+      )
+      (fixed_dimension
+        (int_literal)
+      )
+      initialValue: (array_literal
+        (array_literal
+          (int_literal)
+          (int_literal)
+          (int_literal)
+          (int_literal)
+        )
+        (array_literal
+          (int_literal)
+          (int_literal)
+          (int_literal)
+          (int_literal)
+        )
+        (array_literal
+          (int_literal)
+          (int_literal)
+          (int_literal)
+          (int_literal)
+        )
+        (array_literal
+          (int_literal)
+          (int_literal)
+          (int_literal)
+          (int_literal)
+        )
+        (array_literal
+          (int_literal)
+          (int_literal)
+          (int_literal)
+          (int_literal)
+        )
+        (array_literal
+          (int_literal)
+          (int_literal)
+          (int_literal)
+          (int_literal)
+        )
+        (array_literal
+          (int_literal)
+          (int_literal)
+          (int_literal)
+          (int_literal)
+        )
+      )
+    )
+  )
+)
 
 
 ===================
@@ -239,102 +364,134 @@ public numHaleKills = 0;
 ---
 
 (source_file
-    (old_global_variable_declaration
-        (old_variable_declaration
-            (old_type (old_builtin_type))
-            (symbol)
-            (fixed_dimension (int_literal)))
-            )
-    (old_global_variable_declaration
-        (variable_storage_class)
-        (old_variable_declaration
-            (symbol) (int_literal))
-            )
-    (old_global_variable_declaration
-        (variable_storage_class)
-        (old_variable_declaration
-        (old_type (old_builtin_type)) (symbol) (bool_literal))
+  (old_global_variable_declaration
+    (old_variable_declaration
+      (old_type
+        (old_builtin_type)
+      )
+      (symbol)
+      (fixed_dimension
+        (int_literal)
+      )
+    )
+  )
+  (old_global_variable_declaration
+    (variable_storage_class)
+    (old_variable_declaration
+      (symbol)
+      (int_literal)
+    )
+  )
+  (old_global_variable_declaration
+    (variable_storage_class)
+    (old_variable_declaration
+      (old_type
+        (old_builtin_type)
+      )
+      (symbol)
+      (bool_literal)
+    )
+  )
+  (old_global_variable_declaration
+    (variable_storage_class)
+    (old_variable_declaration
+      (symbol)
+      (char_literal)
+    )
+  )
+  (old_global_variable_declaration
+    (variable_storage_class)
+    (old_variable_declaration
+      (old_type
+        (old_builtin_type)
+      )
+      (symbol)
+      (dimension)
+      (comment)
+      (comment)
+      (string_literal)
+    )
+  )
+  (old_global_variable_declaration
+    (variable_storage_class)
+    (old_variable_declaration
+      (symbol)
+      (dimension)
+      (array_literal
+        (comment)
+        (int_literal)
+        (int_literal)
+        (int_literal)
+        (int_literal)
+        (int_literal)
+        (int_literal)
+        (int_literal)
+        (int_literal)
+        (int_literal)
+        (int_literal)
+        (comment)
+        (int_literal)
+        (int_literal)
+        (int_literal)
+        (int_literal)
+        (int_literal)
+        (int_literal)
+        (comment)
+      )
+    )
+  )
+  (old_global_variable_declaration
+    (variable_storage_class)
+    (old_variable_declaration
+      (symbol)
+      (dimension)
+      (array_literal
+        (binary_expression
+          (int_literal)
+          (int_literal)
         )
-    (old_global_variable_declaration
-        (variable_storage_class)
-        (old_variable_declaration
-            (symbol)
-            (char_literal))
+        (comment)
+        (binary_expression
+          (binary_expression
+            (int_literal)
+            (int_literal)
+          )
+          (int_literal)
         )
-    (old_global_variable_declaration
-        (variable_storage_class)
-        (old_variable_declaration
-            (old_type (old_builtin_type))
-            (symbol)
-            (dimension)
-            (comment)
-            (comment)
-            (string_literal))
+        (comment)
+        (binary_expression
+          (binary_expression
+            (int_literal)
+            (int_literal)
+          )
+          (binary_expression
+            (int_literal)
+            (int_literal)
+          )
         )
-    (old_global_variable_declaration
-        (variable_storage_class)
-        (old_variable_declaration
-            (symbol)
-            (dimension)
-            (array_literal
-                (comment)
-                (int_literal)
-                (int_literal)
-                (int_literal)
-                (int_literal)
-                (int_literal)
-                (int_literal)
-                (int_literal)
-                (int_literal)
-                (int_literal)
-                (int_literal)
-                (comment)
-                (int_literal)
-                (int_literal)
-                (int_literal)
-                (int_literal)
-                (int_literal)
-                (int_literal)
-                (comment)))
+        (comment)
+        (binary_expression
+          (binary_expression
+            (int_literal)
+            (int_literal)
+          )
+          (binary_expression
+            (int_literal)
+            (int_literal)
+          )
         )
-    (old_global_variable_declaration
-        (variable_storage_class)
-        (old_variable_declaration
-            (symbol)
-            (dimension)
-            (array_literal
-                (binary_expression
-                    (int_literal)
-                    (int_literal))
-                (comment)
-                (binary_expression
-                (binary_expression
-                (int_literal)
-                (int_literal))
-            (int_literal))
-            (comment)
-            (binary_expression
-                (binary_expression
-                    (int_literal)
-                    (int_literal))
-                (binary_expression
-                    (int_literal)
-                    (int_literal)))
-            (comment)
-            (binary_expression
-                (binary_expression
-                    (int_literal)
-                    (int_literal))
-                (binary_expression
-                    (int_literal)
-                    (int_literal)))
-            (comment)))
-        )
-    (old_global_variable_declaration
-        (variable_visibility)
-        (old_variable_declaration
-          (symbol) (int_literal))
-        ))
+        (comment)
+      )
+    )
+  )
+  (old_global_variable_declaration
+    (variable_visibility)
+    (old_variable_declaration
+      (symbol)
+      (int_literal)
+    )
+  )
+)
 
 
 ========================
@@ -350,23 +507,43 @@ a
 ---
 
 (source_file
-    (old_global_variable_declaration
-        (old_variable_declaration name: (symbol)))
-    (old_global_variable_declaration
-        (old_variable_declaration
-            type: (old_type (old_builtin_type))
-            name: (symbol)
-            initialValue: (bool_literal)))
-    (old_global_variable_declaration
-        (old_variable_declaration
-            type: (old_type (old_builtin_type))
-            name: (symbol)
-            (fixed_dimension (int_literal))))
-    (old_global_variable_declaration
-        (old_variable_declaration
-            type: (old_type (symbol))
-            name: (symbol)
-            initialValue: (symbol)))
-    (old_global_variable_declaration
-        (old_variable_declaration
-            name: (symbol))))
+  (old_global_variable_declaration
+    (old_variable_declaration
+      name: (symbol)
+    )
+  )
+  (old_global_variable_declaration
+    (old_variable_declaration
+      type: (old_type
+        (old_builtin_type)
+      )
+      name: (symbol)
+      initialValue: (bool_literal)
+    )
+  )
+  (old_global_variable_declaration
+    (old_variable_declaration
+      type: (old_type
+        (old_builtin_type)
+      )
+      name: (symbol)
+      (fixed_dimension
+        (int_literal)
+      )
+    )
+  )
+  (old_global_variable_declaration
+    (old_variable_declaration
+      type: (old_type
+        (symbol)
+      )
+      name: (symbol)
+      initialValue: (symbol)
+    )
+  )
+  (old_global_variable_declaration
+    (old_variable_declaration
+      name: (symbol)
+    )
+  )
+)

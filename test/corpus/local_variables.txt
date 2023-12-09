@@ -17,59 +17,103 @@ void Test() {
 ---
 
 (source_file
-    (function_declaration
-        (type (builtin_type))
-        (symbol)
-        (argument_declarations)
-        (block
-            (variable_declaration_statement
-                (type (builtin_type))
-                (variable_declaration (symbol))
-                )
-            (variable_declaration_statement
-                (type (builtin_type))
-                (variable_declaration (symbol))
-                )
-            (variable_declaration_statement
-                (type (builtin_type))
-                (variable_declaration (symbol))
-                )
-            (variable_declaration_statement
-                (type (builtin_type))
-                (variable_declaration (symbol))
-                )
-            (variable_declaration_statement
-                (type (builtin_type))
-                (dimension)
-                (variable_declaration
-                    (symbol)
-                    (string_literal))
-                )
-            (variable_declaration_statement
-                (type (builtin_type))
-                (variable_declaration
-                (symbol)
-                (fixed_dimension (int_literal)))
-                )
-            (variable_declaration_statement
-                (type (builtin_type))
-                (variable_declaration
-                (symbol)
-                (fixed_dimension 
-                    (binary_expression (symbol) (int_literal))))
-                )
-            (variable_declaration_statement
-                (type (symbol))
-            (variable_declaration 
-                          (symbol)))
-          (variable_declaration_statement
-              (type
-                (symbol))
-              (variable_declaration
-                (symbol)
-                (null))
-              (variable_declaration
-                (symbol))))))
+  (function_declaration
+    (type
+      (builtin_type)
+    )
+    (symbol)
+    (argument_declarations)
+    (block
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (symbol)
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (symbol)
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (symbol)
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (symbol)
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (dimension)
+        (variable_declaration
+          (symbol)
+          (string_literal)
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (symbol)
+          (fixed_dimension
+            (int_literal)
+          )
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (symbol)
+          (fixed_dimension
+            (binary_expression
+              (symbol)
+              (int_literal)
+            )
+          )
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (symbol)
+        )
+        (variable_declaration
+          (symbol)
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (symbol)
+        )
+        (variable_declaration
+          (symbol)
+          (null)
+        )
+        (variable_declaration
+          (symbol)
+        )
+      )
+    )
+  )
+)
 
 
 ==============
@@ -91,51 +135,85 @@ void Test() {
 ---
 
 (source_file
-    (function_declaration
-        (type (builtin_type))
-        (symbol)
-        (argument_declarations)
-        (block
-            (variable_declaration_statement
-                (type (builtin_type))
-                (variable_declaration
-                    (symbol) (int_literal))
-                )
-            (variable_declaration_statement
-                (type (builtin_type))
-                (variable_declaration
-                    (symbol) 
-                    (binary_expression
-                        (int_literal)
-                        (int_literal)))
-                )
-            (variable_declaration_statement
-                (type (builtin_type))
-                (variable_declaration
-                    (symbol) 
-                    (binary_expression
-                        (int_literal)
-                        (int_literal))))
-            (variable_declaration_statement
-                (type (builtin_type))
-                (variable_declaration
-                    (symbol) (float_literal))
-                )
-            (variable_declaration_statement
-                (type (builtin_type))
-            (variable_declaration
-                (symbol) (char_literal))
-                )
-            (variable_declaration_statement
-                (type (builtin_type))
-            (variable_declaration
-                (symbol) (bool_literal))
-                )
-            (variable_declaration_statement
-                (type (symbol))
-            (variable_declaration
-                (symbol) (null))
-                ))))
+  (function_declaration
+    (type
+      (builtin_type)
+    )
+    (symbol)
+    (argument_declarations)
+    (block
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (symbol)
+          (int_literal)
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (symbol)
+          (binary_expression
+            (int_literal)
+            (int_literal)
+          )
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (symbol)
+          (binary_expression
+            (int_literal)
+            (int_literal)
+          )
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (symbol)
+          (float_literal)
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (symbol)
+          (char_literal)
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (symbol)
+          (bool_literal)
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (symbol)
+        )
+        (variable_declaration
+          (symbol)
+          (null)
+        )
+      )
+    )
+  )
+)
 
 
 ====================
@@ -154,67 +232,104 @@ void Test() {
 ---
 
 (source_file
-    (function_declaration
-        (type (builtin_type))
-        (symbol)
-        (argument_declarations)
-        (block
-            (variable_declaration_statement
-            (type (builtin_type))
-            (dimension)
-            (variable_declaration
-                (symbol) (string_literal))
+  (function_declaration
+    (type
+      (builtin_type)
+    )
+    (symbol)
+    (argument_declarations)
+    (block
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (dimension)
+        (variable_declaration
+          (symbol)
+          (string_literal)
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (symbol)
+          (dimension)
+          (array_literal
+            (int_literal)
+            (int_literal)
+            (int_literal)
+          )
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (symbol)
+          (fixed_dimension
+            (int_literal)
+          )
+          (array_literal
+            (float_literal)
+            (float_literal)
+            (float_literal)
+          )
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (symbol)
+          (fixed_dimension
+            (symbol)
+          )
+          (array_literal
+            (bool_literal)
+            (rest_operator)
+          )
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (dimension)
+        (variable_declaration
+          (symbol)
+          (dynamic_array
+            (builtin_type)
+            (fixed_dimension
+              (binary_expression
+                (symbol)
+                (int_literal)
+              )
             )
-            (variable_declaration_statement
-                (type (builtin_type))
-                (variable_declaration
-                    (symbol)
-                    (dimension)
-                    (array_literal
-                    (int_literal)
-                    (int_literal)
-                    (int_literal)))
+          )
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (symbol)
+        )
+        (dimension)
+        (variable_declaration
+          (symbol)
+          (dynamic_array
+            (symbol)
+            (fixed_dimension
+              (symbol)
             )
-            (variable_declaration_statement
-                (type (builtin_type))
-                (variable_declaration
-                    (symbol)
-                    (fixed_dimension (int_literal))
-                    (array_literal
-                        (float_literal)
-                        (float_literal)
-                        (float_literal)))
-            )
-            (variable_declaration_statement
-                (type (builtin_type))
-                (variable_declaration
-                    (symbol)
-                    (fixed_dimension (symbol))
-                    (array_literal
-                        (bool_literal)
-                        (rest_operator)))
-            )
-            (variable_declaration_statement
-                (type (builtin_type))
-                (dimension)
-                (variable_declaration
-                    (symbol)
-                    (dynamic_array (builtin_type)
-                    (fixed_dimension
-                        (binary_expression
-                        (symbol)
-                        (int_literal)))))
-            )
-            (variable_declaration_statement
-                (type (symbol))
-                (dimension)
-                (variable_declaration
-                    (symbol)
-                    (dynamic_array
-                        (symbol)
-                        (fixed_dimension
-                        (symbol))))
-            ))))
+          )
+        )
+      )
+    )
+  )
+)
 
 
 =============
@@ -231,34 +346,55 @@ void Test() {
 ---
 
 (source_file
-    (function_declaration
-        (type (builtin_type))
-        (symbol)
-        (argument_declarations)
-        (block
-            (variable_declaration_statement
-                (variable_storage_class)
-                (type (builtin_type))
-                (variable_declaration
-                    (symbol) (int_literal))
-            )
-            (variable_declaration_statement
-                (variable_storage_class)
-                (type (symbol))
-                (variable_declaration
-                    (symbol) (int_literal))
-            )
-            (variable_declaration_statement
-                (variable_storage_class)
-                (type (builtin_type))
-                (variable_declaration
-                    (symbol) (int_literal))
-            )
-            (variable_declaration_statement
-                (variable_storage_class)
-                (type (symbol))
-                (variable_declaration (symbol))
-            ))))
+  (function_declaration
+    (type
+      (builtin_type)
+    )
+    (symbol)
+    (argument_declarations)
+    (block
+      (variable_declaration_statement
+        (variable_storage_class)
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (symbol)
+          (int_literal)
+        )
+      )
+      (variable_declaration_statement
+        (variable_storage_class)
+        (type
+          (symbol)
+        )
+        (variable_declaration
+          (symbol)
+          (int_literal)
+        )
+      )
+      (variable_declaration_statement
+        (variable_storage_class)
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (symbol)
+          (int_literal)
+        )
+      )
+      (variable_declaration_statement
+        (variable_storage_class)
+        (type
+          (symbol)
+        )
+        (variable_declaration
+          (symbol)
+        )
+      )
+    )
+  )
+)
 
 
 =======================
@@ -276,83 +412,111 @@ void Test(){
 
 ---
 
-   (source_file
-      (function_declaration
+(source_file
+  (function_declaration
+    (type
+      (builtin_type)
+    )
+    (symbol)
+    (argument_declarations)
+    (block
+      (variable_declaration_statement
         (type
-          (builtin_type))
-        (symbol)
-        (argument_declarations)
-        (block
-          (variable_declaration_statement
-            (type
-              (symbol))
-            (dimension)
-            (dimension)
-            (variable_declaration
-              (symbol))
+          (symbol)
+        )
+        (dimension)
+        (dimension)
+        (variable_declaration
+          (symbol)
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (symbol)
+        )
+        (dimension)
+        (dimension)
+        (variable_declaration
+          (symbol)
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (symbol)
+          (fixed_dimension
+            (symbol)
+          )
+          (fixed_dimension
+            (int_literal)
+          )
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (symbol)
+          (fixed_dimension
+            (symbol)
+          )
+          (fixed_dimension
+            (int_literal)
+          )
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (symbol)
+          (dimension)
+          (dimension)
+          (array_literal
+            (array_literal
+              (int_literal)
+              (int_literal)
+              (int_literal)
             )
-          (variable_declaration_statement
-            (type
-              (symbol))
-            (dimension)
-            (dimension)
-            (variable_declaration
-              (symbol))
+            (array_literal
+              (int_literal)
+              (int_literal)
+              (int_literal)
             )
-          (variable_declaration_statement
-            (type
-              (builtin_type))
-            (variable_declaration
-              (symbol)
-              (fixed_dimension
-                (symbol))
-              (fixed_dimension
-                (int_literal)))
+            (array_literal
+              (int_literal)
+              (int_literal)
+              (int_literal)
             )
-          (variable_declaration_statement
-            (type
-              (builtin_type))
-            (variable_declaration
-              (symbol)
-              (fixed_dimension
-                (symbol))
-              (fixed_dimension
-                (int_literal)))
+          )
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (dimension)
+        (dimension)
+        (variable_declaration
+          (symbol)
+          (dynamic_array
+            (builtin_type)
+            (fixed_dimension
+              (binary_expression
+                (symbol)
+                (int_literal)
+              )
             )
-          (variable_declaration_statement
-            (type
-              (builtin_type))
-            (variable_declaration
-              (symbol)
-              (dimension)
-              (dimension)
-              (array_literal
-                (array_literal
-                  (int_literal)
-                  (int_literal)
-                  (int_literal))
-                (array_literal
-                  (int_literal)
-                  (int_literal)
-                  (int_literal))
-                (array_literal
-                  (int_literal)
-                  (int_literal)
-                  (int_literal))))
+            (fixed_dimension
+              (int_literal)
             )
-          (variable_declaration_statement
-            (type
-              (builtin_type))
-            (dimension)
-            (dimension)
-            (variable_declaration
-              (symbol)
-              (dynamic_array
-                (builtin_type)
-                (fixed_dimension
-                  (binary_expression
-                    (symbol)
-                    (int_literal)))
-                (fixed_dimension
-                  (int_literal))))
-            ))))
+          )
+        )
+      )
+    )
+  )
+)

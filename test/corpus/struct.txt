@@ -14,34 +14,45 @@ struct Plugin
 ---
 
 (source_file
-    (struct
-        name: (symbol)
-        (struct_field
-            type: (type (builtin_type)) 
-            type: (dimension)
-            name: (symbol)
-            )
-        (struct_field
-            type: (type (builtin_type)) 
-            type: (dimension)
-            name: (symbol)
-            )
-        (struct_field
-            type: (type (builtin_type)) 
-            type: (dimension)
-            name: (symbol)
-            )
-        (struct_field
-            type: (type (builtin_type)) 
-            type: (dimension)
-            name: (symbol)
-            )
-        (struct_field
-            type: (type (builtin_type)) 
-            type: (dimension)
-            name: (symbol)
-            )
-        ))
+  (struct
+    name: (symbol)
+    (struct_field
+      type: (type
+        (builtin_type)
+      )
+      type: (dimension)
+      name: (symbol)
+    )
+    (struct_field
+      type: (type
+        (builtin_type)
+      )
+      type: (dimension)
+      name: (symbol)
+    )
+    (struct_field
+      type: (type
+        (builtin_type)
+      )
+      type: (dimension)
+      name: (symbol)
+    )
+    (struct_field
+      type: (type
+        (builtin_type)
+      )
+      type: (dimension)
+      name: (symbol)
+    )
+    (struct_field
+      type: (type
+        (builtin_type)
+      )
+      type: (dimension)
+      name: (symbol)
+    )
+  )
+)
 
 
 =====================
@@ -60,28 +71,36 @@ public Plugin myinfo =
 ---
 
 (source_file
-    (struct_declaration
-        type: (symbol)
+  (struct_declaration
+    type: (symbol)
+    name: (symbol)
+    value: (struct_constructor
+      (struct_field_value
         name: (symbol)
-        value: (struct_constructor
-            (struct_field_value
-                name: (symbol)
-                value: (string_literal))
-            (struct_field_value
-                name: (symbol)
-                value: (string_literal))
-            (struct_field_value
-                name: (symbol)
-                value: (concatenated_string
-                    left: (string_literal)
-                    right: (string_literal)))
-            (struct_field_value
-                name: (symbol)
-                value: (symbol))
-            (struct_field_value
-                name: (symbol)
-                value: (string_literal)))
-        ))
+        value: (string_literal)
+      )
+      (struct_field_value
+        name: (symbol)
+        value: (string_literal)
+      )
+      (struct_field_value
+        name: (symbol)
+        value: (concatenated_string
+          left: (string_literal)
+          right: (string_literal)
+        )
+      )
+      (struct_field_value
+        name: (symbol)
+        value: (symbol)
+      )
+      (struct_field_value
+        name: (symbol)
+        value: (string_literal)
+      )
+    )
+  )
+)
 
 
 =================================
@@ -100,28 +119,36 @@ public Plugin:myinfo =
 ---
 
 (source_file
-    (struct_declaration
-        type: (symbol)
+  (struct_declaration
+    type: (symbol)
+    name: (symbol)
+    value: (struct_constructor
+      (struct_field_value
         name: (symbol)
-        value: (struct_constructor
-            (struct_field_value
-                name: (symbol)
-                value: (string_literal))
-            (struct_field_value
-                name: (symbol)
-                value: (string_literal))
-            (struct_field_value
-                name: (symbol)
-                value: (concatenated_string
-                    left: (string_literal)
-                    right: (string_literal)))
-            (struct_field_value
-                name: (symbol)
-                value: (symbol))
-            (struct_field_value
-                name: (symbol)
-                value: (string_literal)))
-        ))
+        value: (string_literal)
+      )
+      (struct_field_value
+        name: (symbol)
+        value: (string_literal)
+      )
+      (struct_field_value
+        name: (symbol)
+        value: (concatenated_string
+          left: (string_literal)
+          right: (string_literal)
+        )
+      )
+      (struct_field_value
+        name: (symbol)
+        value: (symbol)
+      )
+      (struct_field_value
+        name: (symbol)
+        value: (string_literal)
+      )
+    )
+  )
+)
 
 
 ==========================================
@@ -140,27 +167,36 @@ public Plugin myinfo =
 ---
 
 (source_file
-    (struct_declaration
-        type: (symbol)
+  (struct_declaration
+    type: (symbol)
+    name: (symbol)
+    value: (struct_constructor
+      (struct_field_value
         name: (symbol)
-        value: (struct_constructor
-            (struct_field_value
-                name: (symbol)
-                value: (string_literal))
-            (struct_field_value
-                name: (symbol)
-                value: (string_literal))
-            (struct_field_value
-                name: (symbol)
-                value: (concatenated_string
-                    left: (string_literal)
-                    right: (string_literal)))
-            (struct_field_value
-                name: (symbol)
-                value: (symbol))
-            (struct_field_value
-                name: (symbol)
-                value: (string_literal)))))
+        value: (string_literal)
+      )
+      (struct_field_value
+        name: (symbol)
+        value: (string_literal)
+      )
+      (struct_field_value
+        name: (symbol)
+        value: (concatenated_string
+          left: (string_literal)
+          right: (string_literal)
+        )
+      )
+      (struct_field_value
+        name: (symbol)
+        value: (symbol)
+      )
+      (struct_field_value
+        name: (symbol)
+        value: (string_literal)
+      )
+    )
+  )
+)
 
 
 ======================================
@@ -179,24 +215,33 @@ public Plugin myinfo =
 ---
 
 (source_file
-    (struct_declaration
-        type: (symbol)
+  (struct_declaration
+    type: (symbol)
+    name: (symbol)
+    value: (struct_constructor
+      (struct_field_value
         name: (symbol)
-        value: (struct_constructor
-            (struct_field_value
-                name: (symbol)
-                value: (string_literal))
-            (struct_field_value
-                name: (symbol)
-                value: (string_literal))
-            (struct_field_value
-                name: (symbol)
-                value: (concatenated_string
-                    left: (string_literal)
-                    right: (string_literal)))
-            (struct_field_value
-                name: (symbol)
-                value: (symbol))
-            (struct_field_value
-                name: (symbol)
-                value: (string_literal)))))
+        value: (string_literal)
+      )
+      (struct_field_value
+        name: (symbol)
+        value: (string_literal)
+      )
+      (struct_field_value
+        name: (symbol)
+        value: (concatenated_string
+          left: (string_literal)
+          right: (string_literal)
+        )
+      )
+      (struct_field_value
+        name: (symbol)
+        value: (symbol)
+      )
+      (struct_field_value
+        name: (symbol)
+        value: (string_literal)
+      )
+    )
+  )
+)

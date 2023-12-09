@@ -15,34 +15,57 @@ stock float operator--(float oper)
 ---
 
 (source_file
-    (alias_declaration
-        (function_visibility)
-        (type (builtin_type))
-        (alias_operator)
-        (argument_declarations
-            (argument_declaration
-                (argument_type
-                    (type (builtin_type)))
-            (symbol)))
-        (block
-            (return_statement
-                (binary_expression
-                    (symbol)
-                    (float_literal)))))
-    (alias_declaration
-        (function_visibility)
-        (type (builtin_type))
-        (alias_operator)
-        (argument_declarations
-            (argument_declaration
-                (argument_type
-                    (type (builtin_type)))
-            (symbol)))
-        (block
-            (return_statement
-                (binary_expression
-                    (symbol)
-                    (float_literal))))))
+  (alias_declaration
+    (function_visibility)
+    (type
+      (builtin_type)
+    )
+    (alias_operator)
+    (argument_declarations
+      (argument_declaration
+        (argument_type
+          (type
+            (builtin_type)
+          )
+        )
+        (symbol)
+      )
+    )
+    (block
+      (return_statement
+        (binary_expression
+          (symbol)
+          (float_literal)
+        )
+      )
+    )
+  )
+  (alias_declaration
+    (function_visibility)
+    (type
+      (builtin_type)
+    )
+    (alias_operator)
+    (argument_declarations
+      (argument_declaration
+        (argument_type
+          (type
+            (builtin_type)
+          )
+        )
+        (symbol)
+      )
+    )
+    (block
+      (return_statement
+        (binary_expression
+          (symbol)
+          (float_literal)
+        )
+      )
+    )
+  )
+)
 
 
 ===================
@@ -57,66 +80,111 @@ native float operator-(float oper1, float oper2) = FloatSub;
 ---
 
 (source_file
-    (alias_assignment
-        (function_definition_type)
-        (type (builtin_type))
-        (symbol)
-        (argument_declarations
-            (argument_declaration
-                (argument_type
-                    (type (builtin_type)))
-                (symbol))
-            (argument_declaration
-                (argument_type
-                    (type (builtin_type)))
-                (symbol)))
-        (symbol)
+  (alias_assignment
+    (function_definition_type)
+    (type
+      (builtin_type)
+    )
+    (symbol)
+    (argument_declarations
+      (argument_declaration
+        (argument_type
+          (type
+            (builtin_type)
+          )
         )
-    (alias_assignment
-        (function_definition_type)
-        (type (builtin_type))
         (symbol)
-        (argument_declarations
-            (argument_declaration
-                (argument_type
-                    (type (builtin_type)))
-                (symbol))
-            (argument_declaration
-                (argument_type
-                    (type (builtin_type)))
-                (symbol)))
-        (symbol)
+      )
+      (argument_declaration
+        (argument_type
+          (type
+            (builtin_type)
+          )
         )
-    (alias_assignment
-        (function_definition_type)
-        (type (builtin_type))
-        (alias_operator)
-        (argument_declarations
-            (argument_declaration
-                (argument_type
-                    (type (builtin_type)))
-                (symbol))
-            (argument_declaration
-                (argument_type
-                    (type (builtin_type)))
-                (symbol)))
         (symbol)
+      )
+    )
+    (symbol)
+  )
+  (alias_assignment
+    (function_definition_type)
+    (type
+      (builtin_type)
+    )
+    (symbol)
+    (argument_declarations
+      (argument_declaration
+        (argument_type
+          (type
+            (builtin_type)
+          )
         )
-    (alias_assignment
-        (function_definition_type)
-        (type (builtin_type))
-        (alias_operator)
-        (argument_declarations
-            (argument_declaration
-                (argument_type
-                    (type (builtin_type)))
-                (symbol))
-            (argument_declaration
-                (argument_type
-                    (type (builtin_type)))
-                (symbol)))
         (symbol)
-        ))
+      )
+      (argument_declaration
+        (argument_type
+          (type
+            (builtin_type)
+          )
+        )
+        (symbol)
+      )
+    )
+    (symbol)
+  )
+  (alias_assignment
+    (function_definition_type)
+    (type
+      (builtin_type)
+    )
+    (alias_operator)
+    (argument_declarations
+      (argument_declaration
+        (argument_type
+          (type
+            (builtin_type)
+          )
+        )
+        (symbol)
+      )
+      (argument_declaration
+        (argument_type
+          (type
+            (builtin_type)
+          )
+        )
+        (symbol)
+      )
+    )
+    (symbol)
+  )
+  (alias_assignment
+    (function_definition_type)
+    (type
+      (builtin_type)
+    )
+    (alias_operator)
+    (argument_declarations
+      (argument_declaration
+        (argument_type
+          (type
+            (builtin_type)
+          )
+        )
+        (symbol)
+      )
+      (argument_declaration
+        (argument_type
+          (type
+            (builtin_type)
+          )
+        )
+        (symbol)
+      )
+    )
+    (symbol)
+  )
+)
 
 
 ===================
@@ -128,16 +196,26 @@ forward operator%(float oper1, float oper2);
 ---
 
 (source_file
-    (alias_assignment
-        (function_definition_type)
-        (alias_operator)
-        (argument_declarations
-            (argument_declaration
-                (argument_type
-                    (type (builtin_type)))
-                (symbol))
-            (argument_declaration
-                (argument_type
-                    (type (builtin_type)))
-                (symbol)))
-        ))
+  (alias_assignment
+    (function_definition_type)
+    (alias_operator)
+    (argument_declarations
+      (argument_declaration
+        (argument_type
+          (type
+            (builtin_type)
+          )
+        )
+        (symbol)
+      )
+      (argument_declaration
+        (argument_type
+          (type
+            (builtin_type)
+          )
+        )
+        (symbol)
+      )
+    )
+  )
+)

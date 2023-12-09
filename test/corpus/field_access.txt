@@ -9,17 +9,22 @@ void Test() {
 ---
 
 (source_file
-    (function_declaration
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        body: (block
-
-            (expression_statement
-                (field_access
-                    target: (symbol)
-                    field: (symbol))
-                ))))
+  (function_declaration
+    returnType: (type
+      (builtin_type)
+    )
+    name: (symbol)
+    arguments: (argument_declarations)
+    body: (block
+      (expression_statement
+        (field_access
+          target: (symbol)
+          field: (symbol)
+        )
+      )
+    )
+  )
+)
 
 
 ======================
@@ -38,23 +43,31 @@ enum struct Rectangle
 ---
 
 (source_file
-    (enum_struct
-        name: (symbol)
-        (enum_struct_field
-            type: (type (builtin_type))
-            name: (symbol)
-            )
-
-        (enum_struct_method
-            returnType: (type (builtin_type))
-            name: (symbol)
-            (argument_declarations)
-            body: (block
-                (return_statement
-                    (field_access
-                        target: (this)
-                        field: (symbol))
-                    )))))
+  (enum_struct
+    name: (symbol)
+    (enum_struct_field
+      type: (type
+        (builtin_type)
+      )
+      name: (symbol)
+    )
+    (enum_struct_method
+      returnType: (type
+        (builtin_type)
+      )
+      name: (symbol)
+      (argument_declarations)
+      body: (block
+        (return_statement
+          (field_access
+            target: (this)
+            field: (symbol)
+          )
+        )
+      )
+    )
+  )
+)
 
 
 ======================================
@@ -68,19 +81,25 @@ void Test() {
 ---
 
 (source_file
-    (function_declaration
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        body: (block
-
-            (expression_statement
-                (field_access
-                    target: (array_indexed_access
-                        array: (symbol)
-                        index: (int_literal))
-                    field: (symbol))
-                ))))
+  (function_declaration
+    returnType: (type
+      (builtin_type)
+    )
+    name: (symbol)
+    arguments: (argument_declarations)
+    body: (block
+      (expression_statement
+        (field_access
+          target: (array_indexed_access
+            array: (symbol)
+            index: (int_literal)
+          )
+          field: (symbol)
+        )
+      )
+    )
+  )
+)
 
 
 ===============================
@@ -94,16 +113,22 @@ void Test() {
 ---
 
 (source_file
-    (function_declaration
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        body: (block
-
-            (expression_statement
-                (field_access
-                    target: (function_call
-                        function: (symbol)
-                        arguments: (function_call_arguments))
-                    field: (symbol))
-                ))))
+  (function_declaration
+    returnType: (type
+      (builtin_type)
+    )
+    name: (symbol)
+    arguments: (argument_declarations)
+    body: (block
+      (expression_statement
+        (field_access
+          target: (function_call
+            function: (symbol)
+            arguments: (function_call_arguments)
+          )
+          field: (symbol)
+        )
+      )
+    )
+  )
+)

@@ -12,12 +12,21 @@ enum NumberType
 ---
 
 (source_file
-    (enum
+  (enum
+    name: (symbol)
+    entries: (enum_entries
+      (enum_entry
         name: (symbol)
-        entries: (enum_entries
-            (enum_entry name: (symbol))
-            (enum_entry name: (symbol))
-            (enum_entry name: (symbol)))))
+      )
+      (enum_entry
+        name: (symbol)
+      )
+      (enum_entry
+        name: (symbol)
+      )
+    )
+  )
+)
 
 
 =====================
@@ -34,12 +43,22 @@ enum NumberType
 ---
 
 (source_file
-    (enum
+  (enum
+    name: (symbol)
+    entries: (enum_entries
+      (enum_entry
         name: (symbol)
-        entries: (enum_entries
-            (enum_entry name: (symbol) value: (int_literal))
-            (enum_entry name: (symbol))
-            (enum_entry name: (symbol)))))
+        value: (int_literal)
+      )
+      (enum_entry
+        name: (symbol)
+      )
+      (enum_entry
+        name: (symbol)
+      )
+    )
+  )
+)
 
 
 =========================
@@ -56,12 +75,24 @@ enum NumberType
 ---
 
 (source_file
-    (enum
+  (enum
+    name: (symbol)
+    entries: (enum_entries
+      (enum_entry
         name: (symbol)
-        entries: (enum_entries
-            (enum_entry name: (symbol) value: (int_literal))
-            (enum_entry name: (symbol) value: (int_literal))
-            (enum_entry name: (symbol) value: (int_literal)))))
+        value: (int_literal)
+      )
+      (enum_entry
+        name: (symbol)
+        value: (int_literal)
+      )
+      (enum_entry
+        name: (symbol)
+        value: (int_literal)
+      )
+    )
+  )
+)
 
 
 ============================
@@ -78,26 +109,35 @@ enum NumberType
 ---
 
 (source_file
-    (enum
+  (enum
+    name: (symbol)
+    entries: (enum_entries
+      (enum_entry
         name: (symbol)
-        entries: (enum_entries
-            (enum_entry
-                name: (symbol)
-                value: (parenthesized_expression
-                    expression: 
-                        (binary_expression
-                            left: (int_literal)
-                            right: (int_literal))))
-            (enum_entry
-                name: (symbol)
-                value: (binary_expression
-                    left: (int_literal)
-                    right: (int_literal)))
-            (enum_entry
-                name: (symbol)
-                value: (binary_expression
-                    left: (int_literal)
-                    right: (int_literal))))))
+        value: (parenthesized_expression
+          expression: (binary_expression
+            left: (int_literal)
+            right: (int_literal)
+          )
+        )
+      )
+      (enum_entry
+        name: (symbol)
+        value: (binary_expression
+          left: (int_literal)
+          right: (int_literal)
+        )
+      )
+      (enum_entry
+        name: (symbol)
+        value: (binary_expression
+          left: (int_literal)
+          right: (int_literal)
+        )
+      )
+    )
+  )
+)
 
 
 ==============
@@ -114,11 +154,20 @@ enum
 ---
 
 (source_file
-    (enum
-        entries: (enum_entries
-            (enum_entry name: (symbol))
-            (enum_entry name: (symbol))
-            (enum_entry name: (symbol)))))
+  (enum
+    entries: (enum_entries
+      (enum_entry
+        name: (symbol)
+      )
+      (enum_entry
+        name: (symbol)
+      )
+      (enum_entry
+        name: (symbol)
+      )
+    )
+  )
+)
 
 
 =========================
@@ -135,12 +184,21 @@ enum NumberType
 ---
 
 (source_file
-    (enum
+  (enum
+    name: (symbol)
+    entries: (enum_entries
+      (enum_entry
         name: (symbol)
-        entries: (enum_entries
-            (enum_entry name: (symbol))
-            (enum_entry name: (symbol))
-            (enum_entry name: (symbol)))))
+      )
+      (enum_entry
+        name: (symbol)
+      )
+      (enum_entry
+        name: (symbol)
+      )
+    )
+  )
+)
 
 
 =========================
@@ -154,10 +212,15 @@ enum f_invulnmode {
 ---
 
 (source_file
-    (enum
+  (enum
+    name: (symbol)
+    entries: (enum_entries
+      (enum_entry
         name: (symbol)
-        entries: (enum_entries (enum_entry name: (symbol)))
-        ))
+      )
+    )
+  )
+)
 
 
 =====================
@@ -171,10 +234,15 @@ enum FOO: {
 ---
 
 (source_file
-    (enum
+  (enum
+    name: (symbol)
+    entries: (enum_entries
+      (enum_entry
         name: (symbol)
-        entries: (enum_entries (enum_entry name: (symbol)))
-        ))
+      )
+    )
+  )
+)
 
 
 =======================
@@ -189,14 +257,19 @@ enum FOO
 ---
 
 (source_file
-    (enum
+  (enum
+    name: (symbol)
+    entries: (enum_entries
+      (enum_entry
         name: (symbol)
-        entries: (enum_entries 
-            (enum_entry 
-                name: (symbol)
-                (fixed_dimension
-                (int_literal))))
-        ))
+        (fixed_dimension
+          (int_literal)
+        )
+      )
+    )
+  )
+)
+
 
 ======================
 enum with type casting
@@ -213,20 +286,26 @@ enum ChatColorInfo
 ---
 
 (source_file
-    (enum
+  (enum
+    name: (symbol)
+    entries: (enum_entries
+      (enum_entry
         name: (symbol)
-        entries: (enum_entries 
-            (enum_entry 
-                name: (symbol))
-            (enum_entry
-                name: (symbol))
-            (enum_entry
-                type: (builtin_type)
-                name: (symbol))
-            (enum_entry
-                type: (symbol)
-                name: (symbol)))
-        ))
+      )
+      (enum_entry
+        name: (symbol)
+      )
+      (enum_entry
+        type: (builtin_type)
+        name: (symbol)
+      )
+      (enum_entry
+        type: (symbol)
+        name: (symbol)
+      )
+    )
+  )
+)
 
 
 ===============================
@@ -250,23 +329,34 @@ enum (+= 1000)
 ---
 
 (source_file
-    (enum
+  (enum
+    name: (symbol)
+    (int_literal)
+    entries: (enum_entries
+      (enum_entry
         name: (symbol)
-        (int_literal)
-        entries: (enum_entries 
-            (enum_entry 
-                name: (symbol))
-            (enum_entry
-                name: (symbol))
-            (enum_entry
-                name: (symbol))))
-    (enum
-        (int_literal)
-        entries: (enum_entries
-            (enum_entry
-                name: (symbol)
-                value: (int_literal))
-            (enum_entry
-                name: (symbol))
-            (enum_entry
-                name: (symbol)))))
+      )
+      (enum_entry
+        name: (symbol)
+      )
+      (enum_entry
+        name: (symbol)
+      )
+    )
+  )
+  (enum
+    (int_literal)
+    entries: (enum_entries
+      (enum_entry
+        name: (symbol)
+        value: (int_literal)
+      )
+      (enum_entry
+        name: (symbol)
+      )
+      (enum_entry
+        name: (symbol)
+      )
+    )
+  )
+)

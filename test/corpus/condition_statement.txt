@@ -9,15 +9,21 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration (function_visibility)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        body: (block
-
-            (condition_statement
-                condition: (bool_literal)
-                truePath: (return_statement )))))
+  (function_declaration
+    (function_visibility)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (symbol)
+    arguments: (argument_declarations)
+    body: (block
+      (condition_statement
+        condition: (bool_literal)
+        truePath: (return_statement)
+      )
+    )
+  )
+)
 
 
 ========================
@@ -32,16 +38,22 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration (function_visibility)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        body: (block
-
-            (condition_statement
-                condition: (bool_literal)
-                truePath: (return_statement )
-                falsePath: (return_statement )))))
+  (function_declaration
+    (function_visibility)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (symbol)
+    arguments: (argument_declarations)
+    body: (block
+      (condition_statement
+        condition: (bool_literal)
+        truePath: (return_statement)
+        falsePath: (return_statement)
+      )
+    )
+  )
+)
 
 
 =============================
@@ -58,22 +70,30 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration (function_visibility)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        body: (block
-
-            (condition_statement
-                condition: (bool_literal)
-                truePath: (return_statement )
-                falsePath: (condition_statement
-                    condition: (bool_literal)
-                    truePath: (return_statement )
-                    falsePath: (condition_statement
-                        condition: (bool_literal)
-                        truePath: (return_statement )
-                        falsePath: (return_statement )))))))
+  (function_declaration
+    (function_visibility)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (symbol)
+    arguments: (argument_declarations)
+    body: (block
+      (condition_statement
+        condition: (bool_literal)
+        truePath: (return_statement)
+        falsePath: (condition_statement
+          condition: (bool_literal)
+          truePath: (return_statement)
+          falsePath: (condition_statement
+            condition: (bool_literal)
+            truePath: (return_statement)
+            falsePath: (return_statement)
+          )
+        )
+      )
+    )
+  )
+)
 
 
 ====================
@@ -89,15 +109,23 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration (function_visibility)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        body: (block
-
-            (condition_statement
-                condition: (bool_literal)
-                truePath: (block (return_statement ))))))
+  (function_declaration
+    (function_visibility)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (symbol)
+    arguments: (argument_declarations)
+    body: (block
+      (condition_statement
+        condition: (bool_literal)
+        truePath: (block
+          (return_statement)
+        )
+      )
+    )
+  )
+)
 
 
 ==============================
@@ -116,16 +144,24 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration (function_visibility)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        body: (block
-
-            (condition_statement
-                condition: (bool_literal)
-                truePath: (block (return_statement ))
-                falsePath: (block)))))
+  (function_declaration
+    (function_visibility)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (symbol)
+    arguments: (argument_declarations)
+    body: (block
+      (condition_statement
+        condition: (bool_literal)
+        truePath: (block
+          (return_statement)
+        )
+        falsePath: (block)
+      )
+    )
+  )
+)
 
 
 ===============================
@@ -142,33 +178,56 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration (function_visibility)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        body: (block
-
-            (condition_statement
-                condition: (unary_expression argument: (bool_literal))
-                truePath: (return_statement ))
-            (condition_statement
-                condition: (binary_expression
-                    left: (unary_expression
-                        argument: (parenthesized_expression
-                            expression: 
-                                (binary_expression
-                                    left: (int_literal)
-                                    right: (int_literal))))
-                    right: (unary_expression
-                        argument: (int_literal)))
-                truePath: (return_statement ))
-            (condition_statement
-                condition: (binary_expression
-                    left: (unary_expression argument: (parenthesized_expression expression: (int_literal)))
-                    right: (int_literal))
-                truePath: (return_statement ))
-            (condition_statement
-                condition: (binary_expression
-                    left: (unary_expression argument: (symbol))
-                    right: (int_literal))
-                truePath: (return_statement )))))
+  (function_declaration
+    (function_visibility)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (symbol)
+    arguments: (argument_declarations)
+    body: (block
+      (condition_statement
+        condition: (unary_expression
+          argument: (bool_literal)
+        )
+        truePath: (return_statement)
+      )
+      (condition_statement
+        condition: (binary_expression
+          left: (unary_expression
+            argument: (parenthesized_expression
+              expression: (binary_expression
+                left: (int_literal)
+                right: (int_literal)
+              )
+            )
+          )
+          right: (unary_expression
+            argument: (int_literal)
+          )
+        )
+        truePath: (return_statement)
+      )
+      (condition_statement
+        condition: (binary_expression
+          left: (unary_expression
+            argument: (parenthesized_expression
+              expression: (int_literal)
+            )
+          )
+          right: (int_literal)
+        )
+        truePath: (return_statement)
+      )
+      (condition_statement
+        condition: (binary_expression
+          left: (unary_expression
+            argument: (symbol)
+          )
+          right: (int_literal)
+        )
+        truePath: (return_statement)
+      )
+    )
+  )
+)

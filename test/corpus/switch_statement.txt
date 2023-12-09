@@ -20,30 +20,50 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration (function_visibility)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        body: (block
-
-            (switch_statement
-                condition: (symbol)
-                (switch_case
-                    value: (switch_case_values (int_literal))
-                    (expression_statement
-                        (update_expression argument: (symbol))
-                        )
-                    (break_statement ))
-                (switch_case
-                    value: (switch_case_values (int_literal))
-                    (return_statement ))
-                (switch_case
-                    value: (switch_case_values (symbol))
-                    (block
-                        (expression_statement
-                            (update_expression argument: (symbol))
-                            )
-                        (return_statement )))))))
+  (function_declaration
+    (function_visibility)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (symbol)
+    arguments: (argument_declarations)
+    body: (block
+      (switch_statement
+        condition: (symbol)
+        (switch_case
+          value: (switch_case_values
+            (int_literal)
+          )
+          (expression_statement
+            (update_expression
+              argument: (symbol)
+            )
+          )
+          (break_statement)
+        )
+        (switch_case
+          value: (switch_case_values
+            (int_literal)
+          )
+          (return_statement)
+        )
+        (switch_case
+          value: (switch_case_values
+            (symbol)
+          )
+          (block
+            (expression_statement
+              (update_expression
+                argument: (symbol)
+              )
+            )
+            (return_statement)
+          )
+        )
+      )
+    )
+  )
+)
 
 
 ===============================
@@ -68,29 +88,47 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration (function_visibility)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        body: (block
-
-            (switch_statement
-                condition: (symbol)
-                (switch_case
-                    value: (switch_case_values (int_literal))
-                    (expression_statement
-                        (update_expression argument: (symbol))
-                        )
-                    (break_statement ))
-                (switch_case
-                    value: (switch_case_values (int_literal))
-                    (return_statement ))
-                (switch_default_case
-                    (block
-                        (expression_statement
-                            (update_expression argument: (symbol))
-                            )
-                        (return_statement )))))))
+  (function_declaration
+    (function_visibility)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (symbol)
+    arguments: (argument_declarations)
+    body: (block
+      (switch_statement
+        condition: (symbol)
+        (switch_case
+          value: (switch_case_values
+            (int_literal)
+          )
+          (expression_statement
+            (update_expression
+              argument: (symbol)
+            )
+          )
+          (break_statement)
+        )
+        (switch_case
+          value: (switch_case_values
+            (int_literal)
+          )
+          (return_statement)
+        )
+        (switch_default_case
+          (block
+            (expression_statement
+              (update_expression
+                argument: (symbol)
+              )
+            )
+            (return_statement)
+          )
+        )
+      )
+    )
+  )
+)
 
 
 ==============================================
@@ -107,22 +145,30 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration (function_visibility)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        body: (block
-
-            (switch_statement
-                condition: (symbol)
-                (switch_case
-                    value: (switch_case_values
-                        (int_literal)
-                        (int_literal)
-                        (int_literal)
-                        (int_literal)
-                        (int_literal))
-                    (return_statement ))))))
+  (function_declaration
+    (function_visibility)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (symbol)
+    arguments: (argument_declarations)
+    body: (block
+      (switch_statement
+        condition: (symbol)
+        (switch_case
+          value: (switch_case_values
+            (int_literal)
+            (int_literal)
+            (int_literal)
+            (int_literal)
+            (int_literal)
+          )
+          (return_statement)
+        )
+      )
+    )
+  )
+)
 
 
 ===========================
@@ -137,13 +183,20 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration (function_visibility)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        body: (block
-
-            (switch_statement condition: (symbol)))))
+  (function_declaration
+    (function_visibility)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (symbol)
+    arguments: (argument_declarations)
+    body: (block
+      (switch_statement
+        condition: (symbol)
+      )
+    )
+  )
+)
 
 
 ==============================
@@ -166,15 +219,22 @@ void foo()
 (source_file
   (function_declaration
     returnType: (type
-      (builtin_type))
+      (builtin_type)
+    )
     name: (symbol)
     arguments: (argument_declarations)
     body: (block
-
       (switch_statement
         condition: (symbol)
         (switch_case
           value: (switch_case_values
-            (symbol))
+            (symbol)
+          )
           (block
-            (break_statement)))))))
+            (break_statement)
+          )
+        )
+      )
+    )
+  )
+)

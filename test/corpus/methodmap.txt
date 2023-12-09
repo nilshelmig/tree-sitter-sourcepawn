@@ -7,9 +7,11 @@ methodmap AdtArray < Handle {}
 ---
 
 (source_file
-    (methodmap
-        name: (symbol)
-        inherits: (symbol)))
+  (methodmap
+    name: (symbol)
+    inherits: (symbol)
+  )
+)
 
 
 =======================
@@ -21,7 +23,10 @@ methodmap AdtArray __nullable__ {}
 ---
 
 (source_file
-    (methodmap name: (symbol)))
+  (methodmap
+    name: (symbol)
+  )
+)
 
 
 ===========================
@@ -36,16 +41,18 @@ methodmap Handle {
 ---
 
 (source_file
-    (methodmap
-        name: (symbol)
-        (methodmap_alias
-            name: (symbol)
-            function: (symbol)
-            )
-        (methodmap_alias
-            name: (symbol)
-            function: (symbol)
-            )))
+  (methodmap
+    name: (symbol)
+    (methodmap_alias
+      name: (symbol)
+      function: (symbol)
+    )
+    (methodmap_alias
+      name: (symbol)
+      function: (symbol)
+    )
+  )
+)
 
 
 ============================
@@ -62,49 +69,101 @@ methodmap AdminId {
 ---
 
 (source_file
-    (methodmap
-        name: (symbol)
-        (methodmap_native
-            returnType: (type (builtin_type))
-            name: (symbol)
-            (argument_declarations
-                (argument_declaration
-                        type: (argument_type (type (builtin_type)) (dimension))
-                    name: (symbol))
-                (argument_declaration
-                        type: (argument_type (type (builtin_type)))
-                    name: (symbol)))
+  (methodmap
+    name: (symbol)
+    (methodmap_native
+      returnType: (type
+        (builtin_type)
+      )
+      name: (symbol)
+      (argument_declarations
+        (argument_declaration
+          type: (argument_type
+            (type
+              (builtin_type)
             )
-        (methodmap_native
-            returnType: (type (builtin_type))
-            name: (symbol)
-            (argument_declarations
-                (argument_declaration
-                        type: (argument_type (type (builtin_type)) (dimension))
-                    name: (symbol)
-                    defaultValue: (string_literal))
-                (argument_declaration
-                        type: (argument_type (type (builtin_type)))
-                    name: (symbol)
-                    defaultValue: (int_literal)))
+            (dimension)
+          )
+          name: (symbol)
+        )
+        (argument_declaration
+          type: (argument_type
+            (type
+              (builtin_type)
             )
-        (methodmap_native
-            returnType: (type (builtin_type))
-            name: (symbol)
-            (argument_declarations
-                (argument_declaration
-                        type: (argument_type (type (builtin_type)) (dimension))
-                    name: (symbol))
-                (rest_argument type: (type (any_type))))
+          )
+          name: (symbol)
+        )
+      )
+    )
+    (methodmap_native
+      returnType: (type
+        (builtin_type)
+      )
+      name: (symbol)
+      (argument_declarations
+        (argument_declaration
+          type: (argument_type
+            (type
+              (builtin_type)
             )
-        (methodmap_native
-            returnType: (type (symbol))
-            name: (symbol)
-            (argument_declarations
-                (argument_declaration
-                        type: (argument_type (type (builtin_type)) (dimension))
-                    name: (symbol)))
-            )))
+            (dimension)
+          )
+          name: (symbol)
+          defaultValue: (string_literal)
+        )
+        (argument_declaration
+          type: (argument_type
+            (type
+              (builtin_type)
+            )
+          )
+          name: (symbol)
+          defaultValue: (int_literal)
+        )
+      )
+    )
+    (methodmap_native
+      returnType: (type
+        (builtin_type)
+      )
+      name: (symbol)
+      (argument_declarations
+        (argument_declaration
+          type: (argument_type
+            (type
+              (builtin_type)
+            )
+            (dimension)
+          )
+          name: (symbol)
+        )
+        (rest_argument
+          type: (type
+            (any_type)
+          )
+        )
+      )
+    )
+    (methodmap_native
+      returnType: (type
+        (symbol)
+      )
+      name: (symbol)
+      (argument_declarations
+        (argument_declaration
+          type: (argument_type
+            (type
+              (builtin_type)
+            )
+            (dimension)
+          )
+          name: (symbol)
+        )
+      )
+    )
+  )
+)
 
 
 ============================================
@@ -119,18 +178,26 @@ methodmap AdminId {
 ---
 
 (source_file
-    (methodmap
-        name: (symbol)
-        (methodmap_native_constructor
-            name: (symbol)
-            (argument_declarations
-                (argument_declaration
-                        type: (argument_type (type (builtin_type)))
-                    name: (symbol)))
+  (methodmap
+    name: (symbol)
+    (methodmap_native_constructor
+      name: (symbol)
+      (argument_declarations
+        (argument_declaration
+          type: (argument_type
+            (type
+              (builtin_type)
             )
-        (methodmap_native_destructor
-            name: (symbol)
-            )))
+          )
+          name: (symbol)
+        )
+      )
+    )
+    (methodmap_native_destructor
+      name: (symbol)
+    )
+  )
+)
 
 
 ============================
@@ -152,45 +219,87 @@ methodmap PerkContainerIter {
 ---
 
 (source_file
-    (methodmap
-        name: (symbol)
-        (methodmap_method
-            returnType: (type (builtin_type))
-            name: (symbol)
-            (argument_declarations
-                (argument_declaration
-                        type: (argument_type (type (builtin_type)))
-                    name: (symbol))
-                (argument_declaration
-                        type: (argument_type (type (builtin_type)))
-                    name: (symbol)
-                    defaultValue: (int_literal)))
-            body: (block (return_statement (bool_literal) )))
-        (methodmap_method
-            returnType: (type (builtin_type))
-            name: (symbol)
-            (argument_declarations
-                (argument_declaration
-                        type: (argument_type (type (builtin_type)) (dimension))
-                    name: (symbol))
-                (rest_argument type: (type (any_type))))
-            body: (block))
-        (methodmap_method
-            returnType: (type
-                (builtin_type))
-            returnType: (dimension)
-            name: (symbol)
-            (argument_declarations
-                (argument_declaration
-                    type: (argument_type
-                      (type
-                          (builtin_type))
-                      (dimension))
-                    name: (symbol))
-                (rest_argument
-                    type: (type
-                        (any_type))))
-            body: (block))))
+  (methodmap
+    name: (symbol)
+    (methodmap_method
+      returnType: (type
+        (builtin_type)
+      )
+      name: (symbol)
+      (argument_declarations
+        (argument_declaration
+          type: (argument_type
+            (type
+              (builtin_type)
+            )
+          )
+          name: (symbol)
+        )
+        (argument_declaration
+          type: (argument_type
+            (type
+              (builtin_type)
+            )
+          )
+          name: (symbol)
+          defaultValue: (int_literal)
+        )
+      )
+      body: (block
+        (return_statement
+          (bool_literal)
+        )
+      )
+    )
+    (methodmap_method
+      returnType: (type
+        (builtin_type)
+      )
+      name: (symbol)
+      (argument_declarations
+        (argument_declaration
+          type: (argument_type
+            (type
+              (builtin_type)
+            )
+            (dimension)
+          )
+          name: (symbol)
+        )
+        (rest_argument
+          type: (type
+            (any_type)
+          )
+        )
+      )
+      body: (block)
+    )
+    (methodmap_method
+      returnType: (type
+        (builtin_type)
+      )
+      returnType: (dimension)
+      name: (symbol)
+      (argument_declarations
+        (argument_declaration
+          type: (argument_type
+            (type
+              (builtin_type)
+            )
+            (dimension)
+          )
+          name: (symbol)
+        )
+        (rest_argument
+          type: (type
+            (any_type)
+          )
+        )
+      )
+      body: (block)
+    )
+  )
+)
 
 
 ============================================
@@ -208,19 +317,32 @@ methodmap AdminId {
 ---
 
 (source_file
-    (methodmap
-        name: (symbol)
-        (methodmap_method_constructor
-            name: (symbol)
-            (argument_declarations
-                (argument_declaration
-                        type: (argument_type (type (builtin_type)))
-                    name: (symbol)))
-            body: (block
- (return_statement (symbol) )))
-        (methodmap_method_destructor
-            name: (symbol)
-            body: (block))))
+  (methodmap
+    name: (symbol)
+    (methodmap_method_constructor
+      name: (symbol)
+      (argument_declarations
+        (argument_declaration
+          type: (argument_type
+            (type
+              (builtin_type)
+            )
+          )
+          name: (symbol)
+        )
+      )
+      body: (block
+        (return_statement
+          (symbol)
+        )
+      )
+    )
+    (methodmap_method_destructor
+      name: (symbol)
+      body: (block)
+    )
+  )
+)
 
 
 ===================================
@@ -236,20 +358,40 @@ methodmap PerkContainerIter {
 ---
 
 (source_file
-    (methodmap
-        name: (symbol)
-        (methodmap_method
-            returnType: (type (builtin_type))
-            name: (symbol)
-            (argument_declarations
-                (argument_declaration
-                        type: (argument_type (type (builtin_type)))
-                    name: (symbol))
-                (argument_declaration
-                        type: (argument_type (type (builtin_type)))
-                    name: (symbol)
-                    defaultValue: (int_literal)))
-            body: (block (return_statement (bool_literal) )))))
+  (methodmap
+    name: (symbol)
+    (methodmap_method
+      returnType: (type
+        (builtin_type)
+      )
+      name: (symbol)
+      (argument_declarations
+        (argument_declaration
+          type: (argument_type
+            (type
+              (builtin_type)
+            )
+          )
+          name: (symbol)
+        )
+        (argument_declaration
+          type: (argument_type
+            (type
+              (builtin_type)
+            )
+          )
+          name: (symbol)
+          defaultValue: (int_literal)
+        )
+      )
+      body: (block
+        (return_statement
+          (bool_literal)
+        )
+      )
+    )
+  )
+)
 
 
 ===================================
@@ -265,13 +407,22 @@ methodmap MyValue {
 ---
 
 (source_file
-    (methodmap
-        name: (symbol)
-        (methodmap_method
-            returnType: (type (builtin_type))
-            name: (symbol)
-            (argument_declarations)
-            body: (block (return_statement (this) )))))
+  (methodmap
+    name: (symbol)
+    (methodmap_method
+      returnType: (type
+        (builtin_type)
+      )
+      name: (symbol)
+      (argument_declarations)
+      body: (block
+        (return_statement
+          (this)
+        )
+      )
+    )
+  )
+)
 
 
 ===============================
@@ -287,15 +438,20 @@ methodmap AdtArray {
 ---
 
 (source_file
-    (methodmap
-        name: (symbol)
-        (methodmap_property
-            type: (type (builtin_type))
-            name: (symbol)
-            (methodmap_property_alias
-                (methodmap_property_getter)
-                function: (symbol)
-                ))))
+  (methodmap
+    name: (symbol)
+    (methodmap_property
+      type: (type
+        (builtin_type)
+      )
+      name: (symbol)
+      (methodmap_property_alias
+        (methodmap_property_getter)
+        function: (symbol)
+      )
+    )
+  )
+)
 
 
 ================================
@@ -319,32 +475,48 @@ methodmap Player {
 ---
 
 (source_file
-    (methodmap
-        name: (symbol)
-        (methodmap_property
-            type: (type (builtin_type))
-            name: (symbol)
-            (methodmap_property_native
-                (methodmap_property_getter)
-                )
-            (methodmap_property_native
-                (methodmap_property_setter
-                    type: (type (builtin_type))
-                    name: (symbol))
-            ))
-        (comment)
-        (preproc_pragma (preproc_arg))
-        (methodmap_property
-            type: (type (builtin_type))
-            name: (symbol)
-            (methodmap_property_native
-                (methodmap_property_getter)
-                )
-            (methodmap_property_native
-                (methodmap_property_setter
-                    type: (type (builtin_type))
-                    name: (symbol))
-            ))))
+  (methodmap
+    name: (symbol)
+    (methodmap_property
+      type: (type
+        (builtin_type)
+      )
+      name: (symbol)
+      (methodmap_property_native
+        (methodmap_property_getter)
+      )
+      (methodmap_property_native
+        (methodmap_property_setter
+          type: (type
+            (builtin_type)
+          )
+          name: (symbol)
+        )
+      )
+    )
+    (comment)
+    (preproc_pragma
+      (preproc_arg)
+    )
+    (methodmap_property
+      type: (type
+        (builtin_type)
+      )
+      name: (symbol)
+      (methodmap_property_native
+        (methodmap_property_getter)
+      )
+      (methodmap_property_native
+        (methodmap_property_setter
+          type: (type
+            (builtin_type)
+          )
+          name: (symbol)
+        )
+      )
+    )
+  )
+)
 
 
 =======================================
@@ -365,23 +537,35 @@ methodmap Player {
 ---
 
 (source_file
-    (methodmap
-        name: (symbol)
-        (methodmap_property
-            type: (type (builtin_type))
-            name: (symbol)
-            (methodmap_property_method
-                (methodmap_property_getter)
-                body: (block
-                    (return_statement
-                        (bool_literal)
-                        )))
-            (methodmap_property_method
-                (methodmap_property_setter
-                    type: (type (builtin_type))
-                    name: (symbol))
-                body: (block
-                    (return_statement ))))))
+  (methodmap
+    name: (symbol)
+    (methodmap_property
+      type: (type
+        (builtin_type)
+      )
+      name: (symbol)
+      (methodmap_property_method
+        (methodmap_property_getter)
+        body: (block
+          (return_statement
+            (bool_literal)
+          )
+        )
+      )
+      (methodmap_property_method
+        (methodmap_property_setter
+          type: (type
+            (builtin_type)
+          )
+          name: (symbol)
+        )
+        body: (block
+          (return_statement)
+        )
+      )
+    )
+  )
+)
 
 
 ==============================
@@ -396,14 +580,15 @@ methodmap Handle {
 ---
 
 (source_file
-    (methodmap
-        name: (symbol)
-        (methodmap_alias
-            name: (symbol)
-            function: (symbol)
-            )
-        (methodmap_alias
-            name: (symbol)
-            function: (symbol)
-            )
-        ))
+  (methodmap
+    name: (symbol)
+    (methodmap_alias
+      name: (symbol)
+      function: (symbol)
+    )
+    (methodmap_alias
+      name: (symbol)
+      function: (symbol)
+    )
+  )
+)

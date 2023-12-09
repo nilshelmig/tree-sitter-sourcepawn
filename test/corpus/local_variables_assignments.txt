@@ -19,73 +19,90 @@ void Test() {
 ---
 
 (source_file
-    (function_declaration
-        returnType: (type
-            (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        body: (block
-
-            (expression_statement
-                (assignment_expression
-                    left: (symbol)
-                    right: (int_literal))
-                )
-            (expression_statement
-                (assignment_expression
-                    left: (symbol)
-                    right: (int_literal))
-                )
-            (expression_statement
-                (assignment_expression
-                    left: (symbol)
-                    right: (symbol))
-                )
-            (expression_statement
-                (assignment_expression
-                    left: (symbol)
-                    right: (unary_expression
-                        argument: (int_literal)))
-                )
-            (expression_statement
-                (assignment_expression
-                    left: (symbol)
-                    right: (binary_expression
-                        left: (int_literal)
-                        right: (int_literal)))
-                )
-            (expression_statement
-                (assignment_expression
-                    left: (array_indexed_access
-                        array: (symbol)
-                        index: (int_literal))
-                    right: (int_literal))
-                )
-            (expression_statement
-                (assignment_expression
-                    left: (symbol)
-                    right: (int_literal))
-                )
-            (expression_statement
-                (assignment_expression
-                    left: (symbol)
-                    right: (int_literal))
-                )
-            (expression_statement
-                (assignment_expression
-                    left: (symbol)
-                    right: (int_literal))
-                )
-            (expression_statement
-                (assignment_expression
-                    left: (symbol)
-                    right: (int_literal))
-                )
-            (expression_statement
-                (assignment_expression
-                    left: (symbol)
-                    right: (int_literal))
-                ))))
+  (function_declaration
+    returnType: (type
+      (builtin_type)
+    )
+    name: (symbol)
+    arguments: (argument_declarations)
+    body: (block
+      (expression_statement
+        (assignment_expression
+          left: (symbol)
+          right: (int_literal)
+        )
+      )
+      (expression_statement
+        (assignment_expression
+          left: (symbol)
+          right: (int_literal)
+        )
+      )
+      (expression_statement
+        (assignment_expression
+          left: (symbol)
+          right: (symbol)
+        )
+      )
+      (expression_statement
+        (assignment_expression
+          left: (symbol)
+          right: (unary_expression
+            argument: (int_literal)
+          )
+        )
+      )
+      (expression_statement
+        (assignment_expression
+          left: (symbol)
+          right: (binary_expression
+            left: (int_literal)
+            right: (int_literal)
+          )
+        )
+      )
+      (expression_statement
+        (assignment_expression
+          left: (array_indexed_access
+            array: (symbol)
+            index: (int_literal)
+          )
+          right: (int_literal)
+        )
+      )
+      (expression_statement
+        (assignment_expression
+          left: (symbol)
+          right: (int_literal)
+        )
+      )
+      (expression_statement
+        (assignment_expression
+          left: (symbol)
+          right: (int_literal)
+        )
+      )
+      (expression_statement
+        (assignment_expression
+          left: (symbol)
+          right: (int_literal)
+        )
+      )
+      (expression_statement
+        (assignment_expression
+          left: (symbol)
+          right: (int_literal)
+        )
+      )
+      (expression_statement
+        (assignment_expression
+          left: (symbol)
+          right: (int_literal)
+        )
+      )
+    )
+  )
+)
 
 
 ============
@@ -102,38 +119,54 @@ void Test() {
 ---
 
 (source_file
-    (function_declaration
-        returnType: (type
-            (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        body: (block
-
-            (expression_statement
-                (assignment_expression
-                    left: (symbol)
-                    right: (dynamic_array
-                        type: (builtin_type)
-                        (fixed_dimension (symbol))))
-                )
-            (expression_statement
-                (assignment_expression
-                    left: (symbol)
-                    right: (new_instance
-                        class: (symbol)
-                        arguments: (function_call_arguments)))
+  (function_declaration
+    returnType: (type
+      (builtin_type)
+    )
+    name: (symbol)
+    arguments: (argument_declarations)
+    body: (block
+      (expression_statement
+        (assignment_expression
+          left: (symbol)
+          right: (dynamic_array
+            type: (builtin_type)
+            (fixed_dimension
+              (symbol)
             )
-            (expression_statement
-                (function_call
-                    function: (field_access
-                    target: (parenthesized_expression
-                        expression: (new_instance
-                            class: (symbol)
-                            arguments: (function_call_arguments (symbol))))
-                    field: (symbol))
+          )
+        )
+      )
+      (expression_statement
+        (assignment_expression
+          left: (symbol)
+          right: (new_instance
+            class: (symbol)
+            arguments: (function_call_arguments)
+          )
+        )
+      )
+      (expression_statement
+        (function_call
+          function: (field_access
+            target: (parenthesized_expression
+              expression: (new_instance
+                class: (symbol)
                 arguments: (function_call_arguments
-                (symbol)))
-                ))))
+                  (symbol)
+                )
+              )
+            )
+            field: (symbol)
+          )
+          arguments: (function_call_arguments
+            (symbol)
+          )
+        )
+      )
+    )
+  )
+)
 
 
 ====================
@@ -148,31 +181,40 @@ void Test() {
 ---
 
 (source_file
-    (function_declaration
-        returnType: (type
-            (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        body: (block
-
-            (expression_statement
-                (assignment_expression
-                    left: (array_indexed_access
-                        array: (symbol)
-                        index: (int_literal))
-                    right: (int_literal))
-                )
-            (expression_statement
-                (assignment_expression
-                    left: (array_indexed_access
-                        array: (symbol)
-                        index: (symbol))
-                    right: (function_call
-                        function: (symbol)
-                        arguments: (function_call_arguments
-                            (int_literal)
-                            (int_literal))))
-                ))))
+  (function_declaration
+    returnType: (type
+      (builtin_type)
+    )
+    name: (symbol)
+    arguments: (argument_declarations)
+    body: (block
+      (expression_statement
+        (assignment_expression
+          left: (array_indexed_access
+            array: (symbol)
+            index: (int_literal)
+          )
+          right: (int_literal)
+        )
+      )
+      (expression_statement
+        (assignment_expression
+          left: (array_indexed_access
+            array: (symbol)
+            index: (symbol)
+          )
+          right: (function_call
+            function: (symbol)
+            arguments: (function_call_arguments
+              (int_literal)
+              (int_literal)
+            )
+          )
+        )
+      )
+    )
+  )
+)
 
 
 ========================
@@ -187,27 +229,37 @@ void Test() {
 ---
 
 (source_file
-    (function_declaration
-        returnType: (type
-            (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        body: (block
-
-            (condition_statement
-                condition: (binary_expression
-                    left: (parenthesized_expression
-                        expression: (assignment_expression
-                            left: (symbol)
-                            right: (function_call
-                                function: (symbol)
-                                arguments: (function_call_arguments))))
-                    right: (int_literal))
-                    truePath: (return_statement ))
-            (expression_statement
-                (assignment_expression
-                    left: (symbol)
-                    right: (assignment_expression
-                        left: (symbol)
-                        right: (int_literal)))
-                ))))
+  (function_declaration
+    returnType: (type
+      (builtin_type)
+    )
+    name: (symbol)
+    arguments: (argument_declarations)
+    body: (block
+      (condition_statement
+        condition: (binary_expression
+          left: (parenthesized_expression
+            expression: (assignment_expression
+              left: (symbol)
+              right: (function_call
+                function: (symbol)
+                arguments: (function_call_arguments)
+              )
+            )
+          )
+          right: (int_literal)
+        )
+        truePath: (return_statement)
+      )
+      (expression_statement
+        (assignment_expression
+          left: (symbol)
+          right: (assignment_expression
+            left: (symbol)
+            right: (int_literal)
+          )
+        )
+      )
+    )
+  )
+)

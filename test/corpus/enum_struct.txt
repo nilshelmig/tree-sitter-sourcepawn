@@ -15,33 +15,49 @@ enum struct MyStruct
 ---
 
 (source_file
-    (enum_struct
-        name: (symbol)
-        (enum_struct_field
-            type: (type (builtin_type))
-            name: (symbol)
-            )
-        (enum_struct_field
-            type: (type (builtin_type))
-            name: (symbol)
-            )
-        (enum_struct_field
-            type: (type (builtin_type))
-            name: (symbol)
-            )
-        (enum_struct_field
-            type: (type (builtin_type))
-            name: (symbol)
-            )
-        (enum_struct_field
-            type: (type (builtin_type))
-            name: (symbol)
-            (fixed_dimension (int_literal))
-            )
-        (enum_struct_field
-            type: (type (symbol))
-            name: (symbol)
-            )))
+  (enum_struct
+    name: (symbol)
+    (enum_struct_field
+      type: (type
+        (builtin_type)
+      )
+      name: (symbol)
+    )
+    (enum_struct_field
+      type: (type
+        (builtin_type)
+      )
+      name: (symbol)
+    )
+    (enum_struct_field
+      type: (type
+        (builtin_type)
+      )
+      name: (symbol)
+    )
+    (enum_struct_field
+      type: (type
+        (builtin_type)
+      )
+      name: (symbol)
+    )
+    (enum_struct_field
+      type: (type
+        (builtin_type)
+      )
+      name: (symbol)
+      (fixed_dimension
+        (int_literal)
+      )
+    )
+    (enum_struct_field
+      type: (type
+        (symbol)
+      )
+      name: (symbol)
+    )
+  )
+)
 
 
 ====================
@@ -65,45 +81,65 @@ enum struct Rectangle
 ---
 
 (source_file
-    (enum_struct
-        name: (symbol)
-        (enum_struct_field
-            type: (type (builtin_type))
-            name: (symbol)
+  (enum_struct
+    name: (symbol)
+    (enum_struct_field
+      type: (type
+        (builtin_type)
+      )
+      name: (symbol)
+    )
+    (enum_struct_field
+      type: (type
+        (builtin_type)
+      )
+      name: (symbol)
+    )
+    (enum_struct_method
+      returnType: (type
+        (builtin_type)
+      )
+      name: (symbol)
+      (argument_declarations)
+      body: (block
+        (return_statement
+          (binary_expression
+            left: (field_access
+              target: (this)
+              field: (symbol)
             )
-        (enum_struct_field
-            type: (type (builtin_type))
-            name: (symbol)
+            right: (field_access
+              target: (this)
+              field: (symbol)
             )
-
-        (enum_struct_method
-            returnType: (type (builtin_type))
-            name: (symbol)
-            (argument_declarations)
-            body: (block
-                (return_statement
-                    (binary_expression
-                        left: (field_access
-                            target: (this)
-                            field: (symbol))
-                        right: (field_access
-                            target: (this)
-                  field: (symbol))))))
-        (enum_struct_method
-            returnType: (type
-            (builtin_type))
-            returnType: (dimension)
-            name: (symbol)
-            (argument_declarations)
-            body: (block
-                (return_statement
-                    (binary_expression
-                        left: (field_access
-                            target: (this)
-                            field: (symbol))
-                        right: (field_access
-                            target: (this)
-                            field: (symbol))))))))
+          )
+        )
+      )
+    )
+    (enum_struct_method
+      returnType: (type
+        (builtin_type)
+      )
+      returnType: (dimension)
+      name: (symbol)
+      (argument_declarations)
+      body: (block
+        (return_statement
+          (binary_expression
+            left: (field_access
+              target: (this)
+              field: (symbol)
+            )
+            right: (field_access
+              target: (this)
+              field: (symbol)
+            )
+          )
+        )
+      )
+    )
+  )
+)
 
 
 ====================================
@@ -123,39 +159,61 @@ enum struct Rectangle
 ---
 
 (source_file
-    (enum_struct
-        name: (symbol)
-        (enum_struct_field
-            type: (type (builtin_type))
-            name: (symbol)
+  (enum_struct
+    name: (symbol)
+    (enum_struct_field
+      type: (type
+        (builtin_type)
+      )
+      name: (symbol)
+    )
+    (enum_struct_field
+      type: (type
+        (builtin_type)
+      )
+      name: (symbol)
+    )
+    (enum_struct_method
+      returnType: (type
+        (builtin_type)
+      )
+      name: (symbol)
+      (argument_declarations
+        (argument_declaration
+          type: (argument_type
+            (type
+              (symbol)
             )
-        (enum_struct_field
-            type: (type (builtin_type))
-            name: (symbol)
+          )
+          name: (symbol)
+        )
+      )
+      body: (block
+        (return_statement
+          (binary_expression
+            left: (binary_expression
+              left: (field_access
+                target: (symbol)
+                field: (symbol)
+              )
+              right: (field_access
+                target: (this)
+                field: (symbol)
+              )
             )
-
-        (enum_struct_method
-            returnType: (type (builtin_type))
-            name: (symbol)
-            (argument_declarations
-                (argument_declaration
-                        type: (argument_type (type (symbol)))
-                    name: (symbol)))
-            body: (block
-                (return_statement
-                    (binary_expression
-                        left: (binary_expression
-                            left: (field_access
-                                target: (symbol)
-                                field: (symbol))
-                            right: (field_access
-                                target: (this)
-                                field: (symbol)))
-                        right: (binary_expression
-                            left: (field_access
-                                target: (symbol)
-                                field: (symbol))
-                            right: (field_access
-                                target: (this)
-                                field: (symbol))))
-                    )))))
+            right: (binary_expression
+              left: (field_access
+                target: (symbol)
+                field: (symbol)
+              )
+              right: (field_access
+                target: (this)
+                field: (symbol)
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+)

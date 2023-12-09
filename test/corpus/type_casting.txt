@@ -13,41 +13,62 @@ void Test() {
 ---
 
 (source_file
-    (function_declaration
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        body: (block
-
-            (expression_statement
-                (view_as
-                    type: (type (builtin_type))
-                    value: (int_literal))
-                )
-            (expression_statement
-                (view_as
-                    type: (type (symbol))
-                    value: (int_literal))
-                )
-            (expression_statement
-                (view_as
-                    type: (type (builtin_type))
-                    value: (symbol))
-            )
-            (expression_statement
-                (view_as
-                    type: (type (builtin_type))
-                    value: (field_access
-                    target: (this)
-                    field: (symbol)))
-            )
-            (expression_statement
-                (view_as
-                    type: (type (builtin_type))
-                    value: (new_instance
-                    class: (symbol)
-                    arguments: (function_call_arguments)))
-            ))))
+  (function_declaration
+    returnType: (type
+      (builtin_type)
+    )
+    name: (symbol)
+    arguments: (argument_declarations)
+    body: (block
+      (expression_statement
+        (view_as
+          type: (type
+            (builtin_type)
+          )
+          value: (int_literal)
+        )
+      )
+      (expression_statement
+        (view_as
+          type: (type
+            (symbol)
+          )
+          value: (int_literal)
+        )
+      )
+      (expression_statement
+        (view_as
+          type: (type
+            (builtin_type)
+          )
+          value: (symbol)
+        )
+      )
+      (expression_statement
+        (view_as
+          type: (type
+            (builtin_type)
+          )
+          value: (field_access
+            target: (this)
+            field: (symbol)
+          )
+        )
+      )
+      (expression_statement
+        (view_as
+          type: (type
+            (builtin_type)
+          )
+          value: (new_instance
+            class: (symbol)
+            arguments: (function_call_arguments)
+          )
+        )
+      )
+    )
+  )
+)
 
 
 ============================
@@ -59,19 +80,30 @@ int test = view_as<int>(2 < 5 && 10 > 8);
 ---
 
 (source_file
-    (global_variable_declaration type: (type (builtin_type))
-        (variable_declaration
-            name: (symbol)
-            initialValue: (view_as
-                type: (type (builtin_type))
-                value: (binary_expression
-                    left: (binary_expression
-                        left: (int_literal)
-                        right: (int_literal))
-                    right: (binary_expression
-                        left: (int_literal)
-                        right: (int_literal)))))
-        ))
+  (global_variable_declaration
+    type: (type
+      (builtin_type)
+    )
+    (variable_declaration
+      name: (symbol)
+      initialValue: (view_as
+        type: (type
+          (builtin_type)
+        )
+        value: (binary_expression
+          left: (binary_expression
+            left: (int_literal)
+            right: (int_literal)
+          )
+          right: (binary_expression
+            left: (int_literal)
+            right: (int_literal)
+          )
+        )
+      )
+    )
+  )
+)
 
 
 ======================
@@ -83,15 +115,26 @@ bool test = view_as<bool>(view_as<int>(Plugin_Handled));
 ---
 
 (source_file
-    (global_variable_declaration type: (type (builtin_type))
-        (variable_declaration
-            name: (symbol)
-            initialValue: (view_as
-                type: (type (builtin_type))
-                value: (view_as
-                    type: (type (builtin_type))
-                    value: (symbol))))
-        ))
+  (global_variable_declaration
+    type: (type
+      (builtin_type)
+    )
+    (variable_declaration
+      name: (symbol)
+      initialValue: (view_as
+        type: (type
+          (builtin_type)
+        )
+        value: (view_as
+          type: (type
+            (builtin_type)
+          )
+          value: (symbol)
+        )
+      )
+    )
+  )
+)
 
 
 =====================
@@ -104,23 +147,33 @@ void foo(){
 
 ---
 
-    (source_file
-      (function_declaration
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        body: (block
-
-            (expression_statement
-                (assignment_expression
-                    left: (view_as
-                        type: (type (builtin_type))
-                        value: (symbol))
-                    right: (binary_expression
-                        left: (symbol)
-                        right: (parenthesized_expression
-                            expression: (symbol))))
-        ))))
+(source_file
+  (function_declaration
+    returnType: (type
+      (builtin_type)
+    )
+    name: (symbol)
+    arguments: (argument_declarations)
+    body: (block
+      (expression_statement
+        (assignment_expression
+          left: (view_as
+            type: (type
+              (builtin_type)
+            )
+            value: (symbol)
+          )
+          right: (binary_expression
+            left: (symbol)
+            right: (parenthesized_expression
+              expression: (symbol)
+            )
+          )
+        )
+      )
+    )
+  )
+)
 
 
 =============
@@ -138,37 +191,56 @@ WormDirection:GetOppositeDirection() {
 ---
 
 (source_file
-    (function_declaration
-        returnType: (old_type (symbol))
-        name: (symbol)
-        arguments: (argument_declarations)
-        body: (block
-
-            (expression_statement
-                (old_type_cast
-                    type: (old_type (old_builtin_type))
-                    value: (float_literal))
-                )
-            (expression_statement
-                (old_type_cast
-                    type: (old_type (old_builtin_type))
-                    value: (int_literal))
-                )
-            (expression_statement
-                (old_type_cast
-                    type: (old_type (old_builtin_type))
-                    value: (int_literal))
-                )
-            (expression_statement
-                (old_type_cast
-                    type: (old_type (old_builtin_type))
-                    value: (symbol))
-                )
-            (return_statement
-                (old_type_cast
-                    type: (old_type (symbol))
-                    value: (int_literal))
-                ))))
+  (function_declaration
+    returnType: (old_type
+      (symbol)
+    )
+    name: (symbol)
+    arguments: (argument_declarations)
+    body: (block
+      (expression_statement
+        (old_type_cast
+          type: (old_type
+            (old_builtin_type)
+          )
+          value: (float_literal)
+        )
+      )
+      (expression_statement
+        (old_type_cast
+          type: (old_type
+            (old_builtin_type)
+          )
+          value: (int_literal)
+        )
+      )
+      (expression_statement
+        (old_type_cast
+          type: (old_type
+            (old_builtin_type)
+          )
+          value: (int_literal)
+        )
+      )
+      (expression_statement
+        (old_type_cast
+          type: (old_type
+            (old_builtin_type)
+          )
+          value: (symbol)
+        )
+      )
+      (return_statement
+        (old_type_cast
+          type: (old_type
+            (symbol)
+          )
+          value: (int_literal)
+        )
+      )
+    )
+  )
+)
 
 
 =====================================
@@ -182,18 +254,29 @@ Float:GetOppositeDirection() {
 ---
 
 (source_file
-    (function_declaration
-        returnType: (old_type (old_builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        body: (block
-
-            (return_statement
-                (binary_expression
-                    left: (old_type_cast
-                        type: (old_type (old_builtin_type))
-                        value: (int_literal))
-                    right: (old_type_cast
-                        type: (old_type (old_builtin_type))
-                        value: (int_literal)))
-                ))))
+  (function_declaration
+    returnType: (old_type
+      (old_builtin_type)
+    )
+    name: (symbol)
+    arguments: (argument_declarations)
+    body: (block
+      (return_statement
+        (binary_expression
+          left: (old_type_cast
+            type: (old_type
+              (old_builtin_type)
+            )
+            value: (int_literal)
+          )
+          right: (old_type_cast
+            type: (old_type
+              (old_builtin_type)
+            )
+            value: (int_literal)
+          )
+        )
+      )
+    )
+  )
+)
