@@ -49,8 +49,8 @@ module.exports = grammar({
 
   conflicts: ($) => [
     [$.function_visibility, $.variable_visibility],
-    [$.function_declaration, $.alias_assignment],
     [$.function_definition, $.alias_assignment],
+    [$.function_declaration, $.alias_assignment],
     [$.alias_declaration, $.alias_assignment],
     [$.function_visibility, $.variable_visibility, $.struct_declaration],
     [$.function_visibility, $.variable_storage_class],
@@ -75,8 +75,8 @@ module.exports = grammar({
       repeat(
         choice(
           $.assertion,
-          $.function_declaration,
           $.function_definition,
+          $.function_declaration,
           $.enum,
           $.enum_struct,
           $.typedef,
@@ -228,7 +228,7 @@ module.exports = grammar({
 
     // Main Grammar
 
-    function_declaration: ($) =>
+    function_definition: ($) =>
       seq(
         optional($.function_visibility),
         field(
@@ -239,7 +239,7 @@ module.exports = grammar({
           )
         ),
         field("name", $.symbol),
-        field("arguments", $.argument_declarations),
+        field("parameters", $.parameter_declarations),
         field("body", choice($.block, $._statement))
       ),
 
@@ -254,21 +254,21 @@ module.exports = grammar({
         )
       ),
 
-    function_definition: ($) =>
+    function_declaration: ($) =>
       seq(
-        $.function_definition_type,
+        $.function_declaration_kind,
         field(
           "returnType",
           optional(choice(seq($.type, optional($.dimension)), $.old_type))
         ),
         field("name", $.symbol),
-        field("arguments", $.argument_declarations),
+        field("parameters", $.parameter_declarations),
         $._semicolon
       ),
 
-    function_definition_type: ($) => choice("forward", "native"),
+    function_declaration_kind: ($) => choice("forward", "native"),
 
-    argument_declarations: ($) =>
+    parameter_declarations: ($) =>
       seq("(", commaSep(choice($.argument_declaration, $.rest_argument)), ")"),
 
     argument_type: ($) =>
@@ -357,26 +357,26 @@ module.exports = grammar({
         ),
         "operator",
         $.alias_operator,
-        field("arguments", $.argument_declarations),
+        field("parameters", $.parameter_declarations),
         field("body", choice($.block, $._statement))
       ),
 
     alias_assignment: ($) =>
       choice(
         seq(
-          optional($.function_definition_type),
+          optional($.function_declaration_kind),
           field("returnType", seq($.type, repeat($.dimension))),
           choice(seq("operator", $.alias_operator), $.symbol),
-          field("arguments", $.argument_declarations),
+          field("parameters", $.parameter_declarations),
           "=",
           $.symbol,
           $._semicolon
         ),
         seq(
-          optional($.function_definition_type),
+          optional($.function_declaration_kind),
           "operator",
           $.alias_operator,
-          field("arguments", $.argument_declarations),
+          field("parameters", $.parameter_declarations),
           $._semicolon
         )
       ),
@@ -535,7 +535,7 @@ module.exports = grammar({
       seq(
         field("returnType", seq($.type, repeat($.dimension))),
         field("name", $.symbol),
-        $.argument_declarations,
+        $.parameter_declarations,
         field("body", $.block)
       ),
 
@@ -566,7 +566,7 @@ module.exports = grammar({
             "returnType",
             seq($.type, repeat(choice($.dimension, $.fixed_dimension)))
           ),
-          $.argument_declarations
+          $.parameter_declarations
         ),
         seq(
           "(",
@@ -575,7 +575,7 @@ module.exports = grammar({
             "returnType",
             seq($.type, repeat(choice($.dimension, $.fixed_dimension)))
           ),
-          $.argument_declarations,
+          $.parameter_declarations,
           ")"
         )
       ),
@@ -595,7 +595,7 @@ module.exports = grammar({
       seq(
         field("returnType", optional($.old_type)),
         "public",
-        $.argument_declarations
+        $.parameter_declarations
       ),
 
     functag: ($) =>
@@ -605,14 +605,14 @@ module.exports = grammar({
           "public",
           field("returnType", $.old_type),
           field("name", $.symbol),
-          $.argument_declarations,
+          $.parameter_declarations,
           optional($._semicolon)
         ),
         seq(
           "functag",
           field("name", $.symbol),
           "public",
-          $.argument_declarations,
+          $.parameter_declarations,
           optional($._semicolon)
         ),
         seq(
@@ -620,7 +620,7 @@ module.exports = grammar({
           field("name", $.symbol),
           field("returnType", $.old_type),
           "public",
-          $.argument_declarations,
+          $.parameter_declarations,
           optional($._semicolon)
         )
       ),
@@ -666,7 +666,7 @@ module.exports = grammar({
         "native",
         field("returnType", seq($.type, repeat($.dimension))),
         field("name", $.symbol),
-        $.argument_declarations,
+        $.parameter_declarations,
         optional($._semicolon)
       ),
 
@@ -676,7 +676,7 @@ module.exports = grammar({
         optional("static"),
         "native",
         field("name", $.symbol),
-        $.argument_declarations,
+        $.parameter_declarations,
         optional($._semicolon)
       ),
 
@@ -697,7 +697,7 @@ module.exports = grammar({
         optional("static"),
         field("returnType", seq($.type, repeat($.dimension))),
         field("name", $.symbol),
-        $.argument_declarations,
+        $.parameter_declarations,
         field("body", $.block)
       ),
 
@@ -705,7 +705,7 @@ module.exports = grammar({
       seq(
         $.methodmap_visibility,
         field("name", $.symbol),
-        $.argument_declarations,
+        $.parameter_declarations,
         field("body", $.block)
       ),
 

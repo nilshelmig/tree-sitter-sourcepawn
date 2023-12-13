@@ -5,12 +5,12 @@
 (type (symbol) @type)
 (any_type) @type
 
-(function_definition
+(function_declaration
   name: (symbol) @function)
 (function_call_arguments) @function.call
 (function_call
   function: (symbol) @function.call)
-(argument_declarations) @parameter
+(parameter_declarations) @parameter
 (argument_declaration
   defaultValue: (symbol) @constant)
 
@@ -124,7 +124,7 @@
 (variable_visibility) @storageclass
 (function_visibility) @storageclass
 (assertion) @function.builtin
-(function_definition_type) @keyword.function
+(function_declaration_kind) @keyword.function
 
 [
   "new"

@@ -16,7 +16,7 @@ typeset Timer {
       returnType: (type
         (symbol)
       )
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (type
@@ -39,7 +39,7 @@ typeset Timer {
       returnType: (type
         (symbol)
       )
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (type
@@ -72,7 +72,7 @@ typeset Timer {
       returnType: (type
         (symbol)
       )
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (type
@@ -95,7 +95,7 @@ typeset Timer {
       returnType: (type
         (symbol)
       )
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (type
@@ -128,7 +128,7 @@ typeset Timer {
       returnType: (type
         (symbol)
       )
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (type
@@ -151,7 +151,7 @@ typeset Timer {
       returnType: (type
         (symbol)
       )
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (type
@@ -184,7 +184,7 @@ funcenum Timer {
       returnType: (old_type
         (symbol)
       )
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (old_type
@@ -207,7 +207,7 @@ funcenum Timer {
       returnType: (old_type
         (symbol)
       )
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (old_type
@@ -240,7 +240,7 @@ funcenum Timer {
       returnType: (old_type
         (symbol)
       )
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (old_type
@@ -263,7 +263,7 @@ funcenum Timer {
       returnType: (old_type
         (symbol)
       )
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (old_type
@@ -293,7 +293,7 @@ funcenum Timer {
   (funcenum
     name: (symbol)
     (funcenum_member
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (old_type
@@ -313,7 +313,7 @@ funcenum Timer {
       )
     )
     (funcenum_member
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (old_type

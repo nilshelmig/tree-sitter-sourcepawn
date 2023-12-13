@@ -114,12 +114,12 @@ void MyFunc() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
-    arguments: (argument_declarations)
+    parameters: (parameter_declarations)
     body: (block
       (preproc_if
         condition: (preproc_arg)
@@ -198,12 +198,12 @@ void MyFunc() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
-    arguments: (argument_declarations)
+    parameters: (parameter_declarations)
     body: (block
       (preproc_if
         condition: (preproc_arg)

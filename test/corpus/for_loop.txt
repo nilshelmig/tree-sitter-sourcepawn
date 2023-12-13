@@ -10,13 +10,13 @@ public void OnPluginStart() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     (function_visibility)
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
-    arguments: (argument_declarations)
+    parameters: (parameter_declarations)
     body: (block
       (for_statement
         initialization: (variable_declaration_statement
@@ -78,13 +78,13 @@ public void OnPluginStart() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     (function_visibility)
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
-    arguments: (argument_declarations)
+    parameters: (parameter_declarations)
     body: (block
       (for_statement
         condition: (binary_expression
@@ -116,13 +116,13 @@ public void OnPluginStart() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     (function_visibility)
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
-    arguments: (argument_declarations)
+    parameters: (parameter_declarations)
     body: (block
       (for_statement
         initialization: (variable_declaration_statement
@@ -159,13 +159,13 @@ public void OnPluginStart() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     (function_visibility)
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
-    arguments: (argument_declarations)
+    parameters: (parameter_declarations)
     body: (block
       (for_statement
         initialization: (variable_declaration_statement
@@ -201,13 +201,13 @@ public void OnPluginStart() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     (function_visibility)
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
-    arguments: (argument_declarations)
+    parameters: (parameter_declarations)
     body: (block
       (for_statement
         (block)
@@ -230,13 +230,13 @@ public void OnPluginStart() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     (function_visibility)
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
-    arguments: (argument_declarations)
+    parameters: (parameter_declarations)
     body: (block
       (for_statement
         (block
@@ -261,13 +261,13 @@ public void OnPluginStart() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     (function_visibility)
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
-    arguments: (argument_declarations)
+    parameters: (parameter_declarations)
     body: (block
       (for_statement
         (block
@@ -290,13 +290,13 @@ public void OnPluginStart() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     (function_visibility)
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
-    arguments: (argument_declarations)
+    parameters: (parameter_declarations)
     body: (block
       (for_statement
         (break_statement)
@@ -317,13 +317,13 @@ public void OnPluginStart() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     (function_visibility)
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
-    arguments: (argument_declarations)
+    parameters: (parameter_declarations)
     body: (block
       (for_statement
         initialization: (assignment_expression
@@ -357,13 +357,13 @@ public void OnPluginStart() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     (function_visibility)
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
-    arguments: (argument_declarations)
+    parameters: (parameter_declarations)
     body: (block
       (for_statement
         initialization: (variable_declaration_statement
@@ -417,13 +417,13 @@ public void OnPluginStart() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     (function_visibility)
     (type
       (builtin_type)
     )
     (symbol)
-    (argument_declarations)
+    (parameter_declarations)
     (block
       (for_statement
         (variable_declaration_statement
@@ -484,13 +484,13 @@ public void OnPluginStart() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     (function_visibility)
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
-    arguments: (argument_declarations)
+    parameters: (parameter_declarations)
     body: (block
       (for_statement
         initialization: (old_variable_declaration_statement

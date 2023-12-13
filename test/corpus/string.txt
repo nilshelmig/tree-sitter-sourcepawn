@@ -9,12 +9,12 @@ void Test() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     (type
       (builtin_type)
     )
     (symbol)
-    (argument_declarations)
+    (parameter_declarations)
     (block
       (expression_statement
         (function_call

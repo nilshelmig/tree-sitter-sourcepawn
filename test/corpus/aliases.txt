@@ -21,7 +21,7 @@ stock float operator--(float oper)
       (builtin_type)
     )
     (alias_operator)
-    (argument_declarations
+    (parameter_declarations
       (argument_declaration
         (argument_type
           (type
@@ -46,7 +46,7 @@ stock float operator--(float oper)
       (builtin_type)
     )
     (alias_operator)
-    (argument_declarations
+    (parameter_declarations
       (argument_declaration
         (argument_type
           (type
@@ -81,12 +81,12 @@ native float operator-(float oper1, float oper2) = FloatSub;
 
 (source_file
   (alias_assignment
-    (function_definition_type)
+    (function_declaration_kind)
     (type
       (builtin_type)
     )
     (symbol)
-    (argument_declarations
+    (parameter_declarations
       (argument_declaration
         (argument_type
           (type
@@ -107,12 +107,12 @@ native float operator-(float oper1, float oper2) = FloatSub;
     (symbol)
   )
   (alias_assignment
-    (function_definition_type)
+    (function_declaration_kind)
     (type
       (builtin_type)
     )
     (symbol)
-    (argument_declarations
+    (parameter_declarations
       (argument_declaration
         (argument_type
           (type
@@ -133,12 +133,12 @@ native float operator-(float oper1, float oper2) = FloatSub;
     (symbol)
   )
   (alias_assignment
-    (function_definition_type)
+    (function_declaration_kind)
     (type
       (builtin_type)
     )
     (alias_operator)
-    (argument_declarations
+    (parameter_declarations
       (argument_declaration
         (argument_type
           (type
@@ -159,12 +159,12 @@ native float operator-(float oper1, float oper2) = FloatSub;
     (symbol)
   )
   (alias_assignment
-    (function_definition_type)
+    (function_declaration_kind)
     (type
       (builtin_type)
     )
     (alias_operator)
-    (argument_declarations
+    (parameter_declarations
       (argument_declaration
         (argument_type
           (type
@@ -197,9 +197,9 @@ forward operator%(float oper1, float oper2);
 
 (source_file
   (alias_assignment
-    (function_definition_type)
+    (function_declaration_kind)
     (alias_operator)
-    (argument_declarations
+    (parameter_declarations
       (argument_declaration
         (argument_type
           (type

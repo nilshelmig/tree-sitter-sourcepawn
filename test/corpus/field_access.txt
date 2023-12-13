@@ -9,12 +9,12 @@ void Test() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
-    arguments: (argument_declarations)
+    parameters: (parameter_declarations)
     body: (block
       (expression_statement
         (field_access
@@ -56,7 +56,7 @@ enum struct Rectangle
         (builtin_type)
       )
       name: (symbol)
-      (argument_declarations)
+      (parameter_declarations)
       body: (block
         (return_statement
           (field_access
@@ -81,12 +81,12 @@ void Test() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
-    arguments: (argument_declarations)
+    parameters: (parameter_declarations)
     body: (block
       (expression_statement
         (field_access
@@ -113,12 +113,12 @@ void Test() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
-    arguments: (argument_declarations)
+    parameters: (parameter_declarations)
     body: (block
       (expression_statement
         (field_access

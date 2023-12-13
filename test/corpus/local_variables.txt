@@ -17,12 +17,12 @@ void Test() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     (type
       (builtin_type)
     )
     (symbol)
-    (argument_declarations)
+    (parameter_declarations)
     (block
       (variable_declaration_statement
         (type
@@ -135,12 +135,12 @@ void Test() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     (type
       (builtin_type)
     )
     (symbol)
-    (argument_declarations)
+    (parameter_declarations)
     (block
       (variable_declaration_statement
         (type
@@ -232,12 +232,12 @@ void Test() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     (type
       (builtin_type)
     )
     (symbol)
-    (argument_declarations)
+    (parameter_declarations)
     (block
       (variable_declaration_statement
         (type
@@ -346,12 +346,12 @@ void Test() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     (type
       (builtin_type)
     )
     (symbol)
-    (argument_declarations)
+    (parameter_declarations)
     (block
       (variable_declaration_statement
         (variable_storage_class)
@@ -413,12 +413,12 @@ void Test(){
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     (type
       (builtin_type)
     )
     (symbol)
-    (argument_declarations)
+    (parameter_declarations)
     (block
       (variable_declaration_statement
         (type

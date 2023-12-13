@@ -20,13 +20,13 @@ public void OnPluginStart() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     (function_visibility)
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
-    arguments: (argument_declarations)
+    parameters: (parameter_declarations)
     body: (block
       (switch_statement
         condition: (symbol)
@@ -88,13 +88,13 @@ public void OnPluginStart() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     (function_visibility)
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
-    arguments: (argument_declarations)
+    parameters: (parameter_declarations)
     body: (block
       (switch_statement
         condition: (symbol)
@@ -145,13 +145,13 @@ public void OnPluginStart() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     (function_visibility)
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
-    arguments: (argument_declarations)
+    parameters: (parameter_declarations)
     body: (block
       (switch_statement
         condition: (symbol)
@@ -183,13 +183,13 @@ public void OnPluginStart() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     (function_visibility)
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
-    arguments: (argument_declarations)
+    parameters: (parameter_declarations)
     body: (block
       (switch_statement
         condition: (symbol)
@@ -217,12 +217,12 @@ void foo()
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
-    arguments: (argument_declarations)
+    parameters: (parameter_declarations)
     body: (block
       (switch_statement
         condition: (symbol)

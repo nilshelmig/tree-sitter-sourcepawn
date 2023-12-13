@@ -163,12 +163,12 @@
     "type": "alias_assignment",
     "named": true,
     "fields": {
-      "arguments": {
+      "parameters": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "argument_declarations",
+            "type": "parameter_declarations",
             "named": true
           }
         ]
@@ -197,7 +197,7 @@
           "named": true
         },
         {
-          "type": "function_definition_type",
+          "type": "function_declaration_kind",
           "named": true
         },
         {
@@ -211,22 +211,22 @@
     "type": "alias_declaration",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "argument_declarations",
-            "named": true
-          }
-        ]
-      },
       "body": {
         "multiple": false,
         "required": true,
         "types": [
           {
             "type": "_statement",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "parameter_declarations",
             "named": true
           }
         ]
@@ -386,25 +386,6 @@
         },
         {
           "type": "fixed_dimension",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "argument_declarations",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "argument_declaration",
-          "named": true
-        },
-        {
-          "type": "rest_argument",
           "named": true
         }
       ]
@@ -1232,7 +1213,7 @@
       "required": true,
       "types": [
         {
-          "type": "argument_declarations",
+          "type": "parameter_declarations",
           "named": true
         }
       ]
@@ -1402,7 +1383,7 @@
       "required": true,
       "types": [
         {
-          "type": "argument_declarations",
+          "type": "parameter_declarations",
           "named": true
         }
       ]
@@ -1438,7 +1419,7 @@
       "required": true,
       "types": [
         {
-          "type": "argument_declarations",
+          "type": "parameter_declarations",
           "named": true
         }
       ]
@@ -1501,16 +1482,65 @@
     "type": "function_declaration",
     "named": true,
     "fields": {
-      "arguments": {
+      "name": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "argument_declarations",
+            "type": "symbol",
             "named": true
           }
         ]
       },
+      "parameters": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "parameter_declarations",
+            "named": true
+          }
+        ]
+      },
+      "returnType": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "dimension",
+            "named": true
+          },
+          {
+            "type": "old_type",
+            "named": true
+          },
+          {
+            "type": "type",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "function_declaration_kind",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function_declaration_kind",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "function_definition",
+    "named": true,
+    "fields": {
       "body": {
         "multiple": false,
         "required": true,
@@ -1527,6 +1557,16 @@
         "types": [
           {
             "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "parameter_declarations",
             "named": true
           }
         ]
@@ -1560,65 +1600,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "function_definition",
-    "named": true,
-    "fields": {
-      "arguments": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "argument_declarations",
-            "named": true
-          }
-        ]
-      },
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "symbol",
-            "named": true
-          }
-        ]
-      },
-      "returnType": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "dimension",
-            "named": true
-          },
-          {
-            "type": "old_type",
-            "named": true
-          },
-          {
-            "type": "type",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "function_definition_type",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "function_definition_type",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "function_visibility",
@@ -1803,7 +1784,7 @@
       "required": true,
       "types": [
         {
-          "type": "argument_declarations",
+          "type": "parameter_declarations",
           "named": true
         }
       ]
@@ -1839,7 +1820,7 @@
       "required": true,
       "types": [
         {
-          "type": "argument_declarations",
+          "type": "parameter_declarations",
           "named": true
         }
       ]
@@ -1905,7 +1886,7 @@
       "required": true,
       "types": [
         {
-          "type": "argument_declarations",
+          "type": "parameter_declarations",
           "named": true
         }
       ]
@@ -1931,7 +1912,7 @@
       "required": true,
       "types": [
         {
-          "type": "argument_declarations",
+          "type": "parameter_declarations",
           "named": true
         }
       ]
@@ -2304,6 +2285,25 @@
         },
         {
           "type": "variable_storage_class",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "parameter_declarations",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "argument_declaration",
+          "named": true
+        },
+        {
+          "type": "rest_argument",
           "named": true
         }
       ]
@@ -3529,7 +3529,7 @@
       "required": true,
       "types": [
         {
-          "type": "argument_declarations",
+          "type": "parameter_declarations",
           "named": true
         }
       ]

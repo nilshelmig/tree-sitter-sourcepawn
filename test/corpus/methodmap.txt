@@ -76,7 +76,7 @@ methodmap AdminId {
         (builtin_type)
       )
       name: (symbol)
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (type
@@ -101,7 +101,7 @@ methodmap AdminId {
         (builtin_type)
       )
       name: (symbol)
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (type
@@ -128,7 +128,7 @@ methodmap AdminId {
         (builtin_type)
       )
       name: (symbol)
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (type
@@ -150,7 +150,7 @@ methodmap AdminId {
         (symbol)
       )
       name: (symbol)
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (type
@@ -182,7 +182,7 @@ methodmap AdminId {
     name: (symbol)
     (methodmap_native_constructor
       name: (symbol)
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (type
@@ -226,7 +226,7 @@ methodmap PerkContainerIter {
         (builtin_type)
       )
       name: (symbol)
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (type
@@ -256,7 +256,7 @@ methodmap PerkContainerIter {
         (builtin_type)
       )
       name: (symbol)
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (type
@@ -280,7 +280,7 @@ methodmap PerkContainerIter {
       )
       returnType: (dimension)
       name: (symbol)
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (type
@@ -321,7 +321,7 @@ methodmap AdminId {
     name: (symbol)
     (methodmap_method_constructor
       name: (symbol)
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (type
@@ -365,7 +365,7 @@ methodmap PerkContainerIter {
         (builtin_type)
       )
       name: (symbol)
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (type
@@ -414,7 +414,7 @@ methodmap MyValue {
         (builtin_type)
       )
       name: (symbol)
-      (argument_declarations)
+      (parameter_declarations)
       body: (block
         (return_statement
           (this)

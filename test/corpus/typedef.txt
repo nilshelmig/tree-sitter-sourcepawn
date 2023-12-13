@@ -14,7 +14,7 @@ typedef SrvCmd = function Action[MAXPLAYERS+1][](int args, const char[] args, in
       returnType: (type
         (symbol)
       )
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (type
@@ -39,7 +39,7 @@ typedef SrvCmd = function Action[MAXPLAYERS+1][](int args, const char[] args, in
         )
       )
       returnType: (dimension)
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (type
@@ -86,7 +86,7 @@ typedef SrvCmd = (function Action (int args));
       returnType: (type
         (symbol)
       )
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (type
@@ -116,7 +116,7 @@ typedef SrvCmd = function Action (int args);
       returnType: (type
         (symbol)
       )
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (type
@@ -155,7 +155,7 @@ typedef CustomHandler =
       returnType: (type
         (builtin_type)
       )
-      (argument_declarations
+      (parameter_declarations
         (argument_declaration
           type: (argument_type
             (type
@@ -244,7 +244,7 @@ functag public Action:SrvCmd(args, &Handle:datapack)
       (symbol)
     )
     name: (symbol)
-    (argument_declarations
+    (parameter_declarations
       (argument_declaration
         name: (symbol)
       )
@@ -275,7 +275,7 @@ functag public Action:SrvCmd(args, &Handle:datapack);
       (symbol)
     )
     name: (symbol)
-    (argument_declarations
+    (parameter_declarations
       (argument_declaration
         name: (symbol)
       )
@@ -303,7 +303,7 @@ functag SrvCmd public(args, &Handle:datapack)
 (source_file
   (functag
     name: (symbol)
-    (argument_declarations
+    (parameter_declarations
       (argument_declaration
         name: (symbol)
       )
@@ -331,7 +331,7 @@ functag SrvCmd public(args, &Handle:datapack);
 (source_file
   (functag
     name: (symbol)
-    (argument_declarations
+    (parameter_declarations
       (argument_declaration
         name: (symbol)
       )
@@ -362,7 +362,7 @@ functag Entity_ChangeOverTimeCallback bool:public(&entity, &Float:interval, &cur
     returnType: (old_type
       (old_builtin_type)
     )
-    (argument_declarations
+    (parameter_declarations
       (argument_declaration
         type: (argument_type)
         name: (symbol)

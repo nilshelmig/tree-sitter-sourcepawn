@@ -13,12 +13,12 @@ void Test() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
-    arguments: (argument_declarations)
+    parameters: (parameter_declarations)
     body: (block
       (expression_statement
         (view_as
@@ -148,12 +148,12 @@ void foo(){
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
-    arguments: (argument_declarations)
+    parameters: (parameter_declarations)
     body: (block
       (expression_statement
         (assignment_expression
@@ -191,12 +191,12 @@ WormDirection:GetOppositeDirection() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     returnType: (old_type
       (symbol)
     )
     name: (symbol)
-    arguments: (argument_declarations)
+    parameters: (parameter_declarations)
     body: (block
       (expression_statement
         (old_type_cast
@@ -254,12 +254,12 @@ Float:GetOppositeDirection() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     returnType: (old_type
       (old_builtin_type)
     )
     name: (symbol)
-    arguments: (argument_declarations)
+    parameters: (parameter_declarations)
     body: (block
       (return_statement
         (binary_expression

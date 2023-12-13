@@ -10,12 +10,12 @@ void foo() {
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     (type
       (builtin_type)
     )
     (symbol)
-    (argument_declarations)
+    (parameter_declarations)
     (block
       (variable_declaration_statement
         (type

@@ -4,8 +4,8 @@
 ;
 ; But it's not very clear what I should be putting here.
 
-;(function_declaration) @definition.function
 ;(function_definition) @definition.function
+;(function_declaration) @definition.function
 
 ;(argument_declaration
 ;  name: (symbol) @definition.parameter)

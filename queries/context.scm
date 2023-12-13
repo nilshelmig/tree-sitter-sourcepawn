@@ -1,6 +1,6 @@
 ; For nvim-treesitter-context support
 
-(function_declaration) @context
+(function_definition) @context
 (condition_statement) @context
 (while_loop) @context
 (do_while_loop) @context
