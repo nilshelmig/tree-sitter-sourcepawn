@@ -60,9 +60,9 @@ void Test() {
           type: (type
             (builtin_type)
           )
-          value: (new_instance
+          value: (new_expression
             class: (symbol)
-            arguments: (function_call_arguments)
+            arguments: (call_arguments)
           )
         )
       )

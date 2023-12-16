@@ -125,16 +125,16 @@ void MyFunc() {
         condition: (preproc_arg)
       )
       (expression_statement
-        (function_call
+        (call_expression
           function: (symbol)
-          arguments: (function_call_arguments)
+          arguments: (call_arguments)
         )
       )
       (preproc_else)
       (expression_statement
-        (function_call
+        (call_expression
           function: (symbol)
-          arguments: (function_call_arguments)
+          arguments: (call_arguments)
         )
       )
       (preproc_endif)
@@ -209,18 +209,18 @@ void MyFunc() {
         condition: (preproc_arg)
       )
       (expression_statement
-        (function_call
+        (call_expression
           function: (symbol)
-          arguments: (function_call_arguments)
+          arguments: (call_arguments)
         )
       )
       (preproc_elseif
         condition: (preproc_arg)
       )
       (expression_statement
-        (function_call
+        (call_expression
           function: (symbol)
-          arguments: (function_call_arguments)
+          arguments: (call_arguments)
         )
       )
       (preproc_endif)

@@ -15,8 +15,8 @@ void SaveClose(Handle myhandle) {
     )
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (type
             (symbol)
           )
@@ -50,8 +50,8 @@ void SaveClose(Handle[] myhandle) {
     )
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (type
             (symbol)
           )
@@ -89,8 +89,8 @@ void SaveClose(Handle myhandle) {
     )
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (type
             (symbol)
           )
@@ -203,9 +203,9 @@ methodmap Handle
       (parameter_declarations)
       body: (block
         (delete_statement
-          free: (function_call
+          free: (call_expression
             function: (symbol)
-            arguments: (function_call_arguments)
+            arguments: (call_arguments)
           )
         )
       )

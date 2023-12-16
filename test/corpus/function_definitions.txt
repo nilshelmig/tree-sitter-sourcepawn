@@ -86,8 +86,8 @@ forward void MyFunc8(char a[MAX_PATH]);
     )
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (type
             (builtin_type)
           )
@@ -103,32 +103,32 @@ forward void MyFunc8(char a[MAX_PATH]);
     )
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (type
             (builtin_type)
           )
         )
         name: (symbol)
       )
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (type
             (builtin_type)
           )
         )
         name: (symbol)
       )
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (type
             (builtin_type)
           )
         )
         name: (symbol)
       )
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (type
             (builtin_type)
           )
@@ -144,8 +144,8 @@ forward void MyFunc8(char a[MAX_PATH]);
     )
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (type
             (symbol)
           )
@@ -161,8 +161,8 @@ forward void MyFunc8(char a[MAX_PATH]);
     )
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (type
             (builtin_type)
           )
@@ -179,8 +179,8 @@ forward void MyFunc8(char a[MAX_PATH]);
     )
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (type
             (builtin_type)
           )
@@ -196,8 +196,8 @@ forward void MyFunc8(char a[MAX_PATH]);
     )
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (type
             (builtin_type)
           )
@@ -214,8 +214,8 @@ forward void MyFunc8(char a[MAX_PATH]);
     )
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (type
             (builtin_type)
           )
@@ -234,8 +234,8 @@ forward void MyFunc8(char a[MAX_PATH]);
     )
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (type
             (builtin_type)
           )
@@ -333,7 +333,7 @@ forward MyFunc9(String:a[MAX_PATH]);
     (function_declaration_kind)
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
+      (parameter_declaration
         name: (symbol)
       )
     )
@@ -342,32 +342,32 @@ forward MyFunc9(String:a[MAX_PATH]);
     (function_declaration_kind)
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (old_type
             (old_builtin_type)
           )
         )
         name: (symbol)
       )
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (old_type
             (old_builtin_type)
           )
         )
         name: (symbol)
       )
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (old_type
             (old_builtin_type)
           )
         )
         name: (symbol)
       )
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (old_type
             (old_builtin_type)
           )
@@ -380,8 +380,8 @@ forward MyFunc9(String:a[MAX_PATH]);
     (function_declaration_kind)
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (old_type
             (symbol)
           )
@@ -394,8 +394,8 @@ forward MyFunc9(String:a[MAX_PATH]);
     (function_declaration_kind)
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (old_type
             (old_builtin_type)
           )
@@ -409,8 +409,8 @@ forward MyFunc9(String:a[MAX_PATH]);
     (function_declaration_kind)
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type)
+      (parameter_declaration
+        type: (parameter_type)
         name: (symbol)
       )
     )
@@ -419,8 +419,8 @@ forward MyFunc9(String:a[MAX_PATH]);
     (function_declaration_kind)
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (old_type
             (old_builtin_type)
           )
@@ -433,7 +433,7 @@ forward MyFunc9(String:a[MAX_PATH]);
     (function_declaration_kind)
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
+      (parameter_declaration
         name: (symbol)
         defaultValue: (int_literal)
       )
@@ -443,8 +443,8 @@ forward MyFunc9(String:a[MAX_PATH]);
     (function_declaration_kind)
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (old_type
             (old_builtin_type)
           )
@@ -460,8 +460,8 @@ forward MyFunc9(String:a[MAX_PATH]);
     (function_declaration_kind)
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (old_type
             (old_builtin_type)
           )
@@ -493,8 +493,8 @@ forward void MyFunc2(_:client, any:data);
     )
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (old_type
             (any_type)
           )
@@ -510,16 +510,16 @@ forward void MyFunc2(_:client, any:data);
     )
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (old_type
             (old_builtin_type)
           )
         )
         name: (symbol)
       )
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (old_type
             (any_type)
           )
@@ -547,7 +547,7 @@ forward void MyFunc(any ...);
     )
     name: (symbol)
     parameters: (parameter_declarations
-      (rest_argument
+      (rest_parameter
         type: (type
           (any_type)
         )
@@ -721,7 +721,7 @@ native void MyFunc2(const char[] format, any ...);
     )
     name: (symbol)
     parameters: (parameter_declarations
-      (rest_argument
+      (rest_parameter
         type: (type
           (builtin_type)
         )
@@ -735,8 +735,8 @@ native void MyFunc2(const char[] format, any ...);
     )
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (type
             (builtin_type)
           )
@@ -744,7 +744,7 @@ native void MyFunc2(const char[] format, any ...);
         )
         name: (symbol)
       )
-      (rest_argument
+      (rest_parameter
         type: (type
           (any_type)
         )

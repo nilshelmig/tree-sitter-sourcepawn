@@ -17,9 +17,9 @@ void Test() {
     parameters: (parameter_declarations)
     body: (block
       (expression_statement
-        (function_call
+        (call_expression
           function: (symbol)
-          arguments: (function_call_arguments)
+          arguments: (call_arguments)
         )
       )
     )
@@ -47,17 +47,17 @@ void Test() {
     parameters: (parameter_declarations)
     body: (block
       (expression_statement
-        (function_call
+        (call_expression
           function: (symbol)
-          arguments: (function_call_arguments
+          arguments: (call_arguments
             (string_literal)
           )
         )
       )
       (expression_statement
-        (function_call
+        (call_expression
           function: (symbol)
-          arguments: (function_call_arguments
+          arguments: (call_arguments
             (string_literal)
             (int_literal)
             (symbol)
@@ -93,9 +93,9 @@ void Test() {
     parameters: (parameter_declarations)
     body: (block
       (expression_statement
-        (function_call
+        (call_expression
           function: (symbol)
-          arguments: (function_call_arguments
+          arguments: (call_arguments
             (string_literal)
             (named_arg
               name: (symbol)
@@ -136,9 +136,9 @@ void Test() {
     parameters: (parameter_declarations)
     body: (block
       (expression_statement
-        (function_call
+        (call_expression
           function: (symbol)
-          arguments: (function_call_arguments
+          arguments: (call_arguments
             (string_literal)
             (ignore_argument)
             (float_literal)
@@ -172,9 +172,9 @@ bool Test() {
       (return_statement
         (binary_expression
           left: (int_literal)
-          right: (function_call
+          right: (call_expression
             function: (symbol)
-            arguments: (function_call_arguments)
+            arguments: (call_arguments)
           )
         )
       )
@@ -202,12 +202,12 @@ void Test() {
     parameters: (parameter_declarations)
     body: (block
       (expression_statement
-        (function_call
+        (call_expression
           function: (symbol)
-          arguments: (function_call_arguments
-            (function_call
+          arguments: (call_arguments
+            (call_expression
               function: (symbol)
-              arguments: (function_call_arguments)
+              arguments: (call_arguments)
             )
           )
         )
@@ -232,9 +232,9 @@ int count = CurrentCount();
     )
     (variable_declaration
       name: (symbol)
-      initialValue: (function_call
+      initialValue: (call_expression
         function: (symbol)
-        arguments: (function_call_arguments)
+        arguments: (call_arguments)
       )
     )
   )
@@ -260,12 +260,12 @@ void Test() {
     parameters: (parameter_declarations)
     body: (block
       (expression_statement
-        (function_call
+        (call_expression
           function: (field_access
             target: (symbol)
             field: (symbol)
           )
-          arguments: (function_call_arguments
+          arguments: (call_arguments
             (string_literal)
           )
         )

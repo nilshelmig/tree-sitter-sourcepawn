@@ -55,8 +55,8 @@ public void OnRebuildAdminCache(AdminCachePart part) {
     )
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (type
             (builtin_type)
           )
@@ -73,8 +73,8 @@ public void OnRebuildAdminCache(AdminCachePart part) {
     )
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (type
             (builtin_type)
           )
@@ -92,8 +92,8 @@ public void OnRebuildAdminCache(AdminCachePart part) {
     )
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (type
             (builtin_type)
           )
@@ -110,8 +110,8 @@ public void OnRebuildAdminCache(AdminCachePart part) {
     )
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (type
             (builtin_type)
           )
@@ -128,8 +128,8 @@ public void OnRebuildAdminCache(AdminCachePart part) {
     )
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (type
             (symbol)
           )
@@ -160,25 +160,16 @@ public void OnClientSayCommand_Post(int client, const char[] command, char[] sAr
     )
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (type
             (builtin_type)
           )
         )
         name: (symbol)
       )
-      (argument_declaration
-        type: (argument_type
-          (type
-            (builtin_type)
-          )
-          (dimension)
-        )
-        name: (symbol)
-      )
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (type
             (builtin_type)
           )
@@ -186,24 +177,33 @@ public void OnClientSayCommand_Post(int client, const char[] command, char[] sAr
         )
         name: (symbol)
       )
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
+          (type
+            (builtin_type)
+          )
+          (dimension)
+        )
+        name: (symbol)
+      )
+      (parameter_declaration
+        type: (parameter_type
           (type
             (builtin_type)
           )
         )
         name: (symbol)
       )
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (type
             (builtin_type)
           )
         )
         name: (symbol)
       )
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (type
             (builtin_type)
           )
@@ -318,7 +318,7 @@ public Callback6(Handle:handle) {}
     (function_visibility)
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
+      (parameter_declaration
         name: (symbol)
       )
     )
@@ -328,8 +328,8 @@ public Callback6(Handle:handle) {}
     (function_visibility)
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (old_type
             (old_builtin_type)
           )
@@ -343,8 +343,8 @@ public Callback6(Handle:handle) {}
     (function_visibility)
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (old_type
             (old_builtin_type)
           )
@@ -358,8 +358,8 @@ public Callback6(Handle:handle) {}
     (function_visibility)
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (old_type
             (old_builtin_type)
           )
@@ -373,8 +373,8 @@ public Callback6(Handle:handle) {}
     (function_visibility)
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (old_type
             (old_builtin_type)
           )
@@ -389,8 +389,8 @@ public Callback6(Handle:handle) {}
     (function_visibility)
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (old_type
             (symbol)
           )
@@ -417,8 +417,8 @@ public Callback2(args, any:data) {}
     (function_visibility)
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (old_type
             (any_type)
           )
@@ -432,11 +432,11 @@ public Callback2(args, any:data) {}
     (function_visibility)
     name: (symbol)
     parameters: (parameter_declarations
-      (argument_declaration
+      (parameter_declaration
         name: (symbol)
       )
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (old_type
             (any_type)
           )
@@ -540,9 +540,9 @@ public Callback1() Test();
     name: (symbol)
     parameters: (parameter_declarations)
     body: (expression_statement
-      (function_call
+      (call_expression
         function: (symbol)
-        arguments: (function_call_arguments)
+        arguments: (call_arguments)
       )
     )
   )

@@ -140,26 +140,26 @@ void Test() {
       (expression_statement
         (assignment_expression
           left: (symbol)
-          right: (new_instance
+          right: (new_expression
             class: (symbol)
-            arguments: (function_call_arguments)
+            arguments: (call_arguments)
           )
         )
       )
       (expression_statement
-        (function_call
+        (call_expression
           function: (field_access
             target: (parenthesized_expression
-              expression: (new_instance
+              expression: (new_expression
                 class: (symbol)
-                arguments: (function_call_arguments
+                arguments: (call_arguments
                   (symbol)
                 )
               )
             )
             field: (symbol)
           )
-          arguments: (function_call_arguments
+          arguments: (call_arguments
             (symbol)
           )
         )
@@ -203,9 +203,9 @@ void Test() {
             array: (symbol)
             index: (symbol)
           )
-          right: (function_call
+          right: (call_expression
             function: (symbol)
-            arguments: (function_call_arguments
+            arguments: (call_arguments
               (int_literal)
               (int_literal)
             )
@@ -241,9 +241,9 @@ void Test() {
           left: (parenthesized_expression
             expression: (assignment_expression
               left: (symbol)
-              right: (function_call
+              right: (call_expression
                 function: (symbol)
-                arguments: (function_call_arguments)
+                arguments: (call_arguments)
               )
             )
           )

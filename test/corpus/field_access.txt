@@ -122,9 +122,9 @@ void Test() {
     body: (block
       (expression_statement
         (field_access
-          target: (function_call
+          target: (call_expression
             function: (symbol)
-            arguments: (function_call_arguments)
+            arguments: (call_arguments)
           )
           field: (symbol)
         )

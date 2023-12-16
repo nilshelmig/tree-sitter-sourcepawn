@@ -22,13 +22,13 @@ static_assert(true, "This is an assertion error");
 
 (source_file
   (assertion
-    (function_call_arguments
+    (call_arguments
       (bool_literal)
       (string_literal)
     )
   )
   (assertion
-    (function_call_arguments
+    (call_arguments
       (bool_literal)
       (string_literal)
     )

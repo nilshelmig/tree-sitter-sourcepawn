@@ -17,9 +17,9 @@ void Test() {
     (parameter_declarations)
     (block
       (expression_statement
-        (function_call
+        (call_expression
           (symbol)
-          (function_call_arguments
+          (call_arguments
             (string_literal
               (escape_sequence)
               (escape_sequence)

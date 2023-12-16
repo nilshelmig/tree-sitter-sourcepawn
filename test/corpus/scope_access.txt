@@ -26,9 +26,9 @@ void Test() {
         )
       )
       (expression_statement
-        (function_call
+        (call_expression
           function: (symbol)
-          arguments: (function_call_arguments
+          arguments: (call_arguments
             (field_access
               target: (symbol)
               field: (symbol)
@@ -74,19 +74,19 @@ void Test() {
         )
         (variable_declaration
           name: (symbol)
-          initialValue: (new_instance
+          initialValue: (new_expression
             class: (symbol)
-            arguments: (function_call_arguments)
+            arguments: (call_arguments)
           )
         )
       )
       (expression_statement
-        (function_call
+        (call_expression
           function: (field_access
             target: (symbol)
             field: (symbol)
           )
-          arguments: (function_call_arguments
+          arguments: (call_arguments
             (int_literal)
             (scope_access
               scope: (symbol)

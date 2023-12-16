@@ -179,8 +179,8 @@ enum struct Rectangle
       )
       name: (symbol)
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (symbol)
             )

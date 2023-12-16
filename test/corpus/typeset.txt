@@ -17,16 +17,16 @@ typeset Timer {
         (symbol)
       )
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (symbol)
             )
           )
           name: (symbol)
         )
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (symbol)
             )
@@ -40,8 +40,8 @@ typeset Timer {
         (symbol)
       )
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (symbol)
             )
@@ -73,16 +73,16 @@ typeset Timer {
         (symbol)
       )
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (symbol)
             )
           )
           name: (symbol)
         )
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (symbol)
             )
@@ -96,8 +96,8 @@ typeset Timer {
         (symbol)
       )
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (symbol)
             )
@@ -129,16 +129,16 @@ typeset Timer {
         (symbol)
       )
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (symbol)
             )
           )
           name: (symbol)
         )
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (symbol)
             )
@@ -152,8 +152,8 @@ typeset Timer {
         (symbol)
       )
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (symbol)
             )
@@ -185,16 +185,16 @@ funcenum Timer {
         (symbol)
       )
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (old_type
               (symbol)
             )
           )
           name: (symbol)
         )
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (old_type
               (symbol)
             )
@@ -208,8 +208,8 @@ funcenum Timer {
         (symbol)
       )
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (old_type
               (symbol)
             )
@@ -241,16 +241,16 @@ funcenum Timer {
         (symbol)
       )
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (old_type
               (symbol)
             )
           )
           name: (symbol)
         )
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (old_type
               (symbol)
             )
@@ -264,8 +264,8 @@ funcenum Timer {
         (symbol)
       )
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (old_type
               (symbol)
             )
@@ -294,16 +294,16 @@ funcenum Timer {
     name: (symbol)
     (funcenum_member
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (old_type
               (symbol)
             )
           )
           name: (symbol)
         )
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (old_type
               (symbol)
             )
@@ -314,8 +314,8 @@ funcenum Timer {
     )
     (funcenum_member
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (old_type
               (symbol)
             )

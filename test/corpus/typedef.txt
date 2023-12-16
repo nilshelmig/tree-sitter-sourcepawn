@@ -15,8 +15,8 @@ typedef SrvCmd = function Action[MAXPLAYERS+1][](int args, const char[] args, in
         (symbol)
       )
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (builtin_type)
             )
@@ -40,16 +40,16 @@ typedef SrvCmd = function Action[MAXPLAYERS+1][](int args, const char[] args, in
       )
       returnType: (dimension)
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (builtin_type)
             )
           )
           name: (symbol)
         )
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (builtin_type)
             )
@@ -57,8 +57,8 @@ typedef SrvCmd = function Action[MAXPLAYERS+1][](int args, const char[] args, in
           )
           name: (symbol)
         )
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (builtin_type)
             )
@@ -87,8 +87,8 @@ typedef SrvCmd = (function Action (int args));
         (symbol)
       )
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (builtin_type)
             )
@@ -117,8 +117,8 @@ typedef SrvCmd = function Action (int args);
         (symbol)
       )
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (builtin_type)
             )
@@ -156,32 +156,32 @@ typedef CustomHandler =
         (builtin_type)
       )
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (symbol)
             )
           )
           name: (symbol)
         )
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (builtin_type)
             )
           )
           name: (symbol)
         )
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (builtin_type)
             )
           )
           name: (symbol)
         )
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (builtin_type)
             )
@@ -189,24 +189,24 @@ typedef CustomHandler =
           )
           name: (symbol)
         )
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (builtin_type)
             )
           )
           name: (symbol)
         )
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (builtin_type)
             )
           )
           name: (symbol)
         )
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (builtin_type)
             )
@@ -216,8 +216,8 @@ typedef CustomHandler =
             (int_literal)
           )
         )
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (any_type)
             )
@@ -245,11 +245,11 @@ functag public Action:SrvCmd(args, &Handle:datapack)
     )
     name: (symbol)
     (parameter_declarations
-      (argument_declaration
+      (parameter_declaration
         name: (symbol)
       )
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (old_type
             (symbol)
           )
@@ -276,11 +276,11 @@ functag public Action:SrvCmd(args, &Handle:datapack);
     )
     name: (symbol)
     (parameter_declarations
-      (argument_declaration
+      (parameter_declaration
         name: (symbol)
       )
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (old_type
             (symbol)
           )
@@ -304,11 +304,11 @@ functag SrvCmd public(args, &Handle:datapack)
   (functag
     name: (symbol)
     (parameter_declarations
-      (argument_declaration
+      (parameter_declaration
         name: (symbol)
       )
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (old_type
             (symbol)
           )
@@ -332,11 +332,11 @@ functag SrvCmd public(args, &Handle:datapack);
   (functag
     name: (symbol)
     (parameter_declarations
-      (argument_declaration
+      (parameter_declaration
         name: (symbol)
       )
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (old_type
             (symbol)
           )
@@ -363,20 +363,20 @@ functag Entity_ChangeOverTimeCallback bool:public(&entity, &Float:interval, &cur
       (old_builtin_type)
     )
     (parameter_declarations
-      (argument_declaration
-        type: (argument_type)
+      (parameter_declaration
+        type: (parameter_type)
         name: (symbol)
       )
-      (argument_declaration
-        type: (argument_type
+      (parameter_declaration
+        type: (parameter_type
           (old_type
             (old_builtin_type)
           )
         )
         name: (symbol)
       )
-      (argument_declaration
-        type: (argument_type)
+      (parameter_declaration
+        type: (parameter_type)
         name: (symbol)
       )
     )

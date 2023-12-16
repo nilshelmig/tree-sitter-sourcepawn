@@ -24,6 +24,10 @@
         "named": true
       },
       {
+        "type": "call_expression",
+        "named": true
+      },
+      {
         "type": "char_literal",
         "named": true
       },
@@ -40,15 +44,11 @@
         "named": true
       },
       {
-        "type": "function_call",
-        "named": true
-      },
-      {
         "type": "int_literal",
         "named": true
       },
       {
-        "type": "new_instance",
+        "type": "new_expression",
         "named": true
       },
       {
@@ -266,155 +266,6 @@
     }
   },
   {
-    "type": "argument_declaration",
-    "named": true,
-    "fields": {
-      "defaultValue": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "=",
-            "named": false
-          },
-          {
-            "type": "array_indexed_access",
-            "named": true
-          },
-          {
-            "type": "array_literal",
-            "named": true
-          },
-          {
-            "type": "binary_expression",
-            "named": true
-          },
-          {
-            "type": "bool_literal",
-            "named": true
-          },
-          {
-            "type": "char_literal",
-            "named": true
-          },
-          {
-            "type": "concatenated_string",
-            "named": true
-          },
-          {
-            "type": "field_access",
-            "named": true
-          },
-          {
-            "type": "float_literal",
-            "named": true
-          },
-          {
-            "type": "int_literal",
-            "named": true
-          },
-          {
-            "type": "null",
-            "named": true
-          },
-          {
-            "type": "old_type_cast",
-            "named": true
-          },
-          {
-            "type": "parenthesized_expression",
-            "named": true
-          },
-          {
-            "type": "scope_access",
-            "named": true
-          },
-          {
-            "type": "sizeof_expression",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "symbol",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
-            "named": true
-          },
-          {
-            "type": "view_as",
-            "named": true
-          }
-        ]
-      },
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "symbol",
-            "named": true
-          }
-        ]
-      },
-      "type": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "argument_type",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "dimension",
-          "named": true
-        },
-        {
-          "type": "fixed_dimension",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "argument_type",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "dimension",
-          "named": true
-        },
-        {
-          "type": "old_type",
-          "named": true
-        },
-        {
-          "type": "type",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "array_indexed_access",
     "named": true,
     "fields": {
@@ -550,7 +401,7 @@
       "required": true,
       "types": [
         {
-          "type": "function_call_arguments",
+          "type": "call_arguments",
           "named": true
         }
       ]
@@ -788,6 +639,59 @@
     "type": "builtin_type",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "call_arguments",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "_expression",
+          "named": true
+        },
+        {
+          "type": "ignore_argument",
+          "named": true
+        },
+        {
+          "type": "named_arg",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "call_expression",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "call_arguments",
+            "named": true
+          }
+        ]
+      },
+      "function": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "field_access",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    }
   },
   {
     "type": "char_literal",
@@ -1420,59 +1324,6 @@
       "types": [
         {
           "type": "parameter_declarations",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "function_call",
-    "named": true,
-    "fields": {
-      "arguments": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "function_call_arguments",
-            "named": true
-          }
-        ]
-      },
-      "function": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "field_access",
-            "named": true
-          },
-          {
-            "type": "symbol",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "function_call_arguments",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "_expression",
-          "named": true
-        },
-        {
-          "type": "ignore_argument",
-          "named": true
-        },
-        {
-          "type": "named_arg",
           "named": true
         }
       ]
@@ -2115,7 +1966,7 @@
     }
   },
   {
-    "type": "new_instance",
+    "type": "new_expression",
     "named": true,
     "fields": {
       "arguments": {
@@ -2123,7 +1974,7 @@
         "required": true,
         "types": [
           {
-            "type": "function_call_arguments",
+            "type": "call_arguments",
             "named": true
           }
         ]
@@ -2291,6 +2142,132 @@
     }
   },
   {
+    "type": "parameter_declaration",
+    "named": true,
+    "fields": {
+      "defaultValue": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "=",
+            "named": false
+          },
+          {
+            "type": "array_indexed_access",
+            "named": true
+          },
+          {
+            "type": "array_literal",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "concatenated_string",
+            "named": true
+          },
+          {
+            "type": "field_access",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "int_literal",
+            "named": true
+          },
+          {
+            "type": "null",
+            "named": true
+          },
+          {
+            "type": "old_type_cast",
+            "named": true
+          },
+          {
+            "type": "parenthesized_expression",
+            "named": true
+          },
+          {
+            "type": "scope_access",
+            "named": true
+          },
+          {
+            "type": "sizeof_expression",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "symbol",
+            "named": true
+          },
+          {
+            "type": "ternary_expression",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "view_as",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parameter_type",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "dimension",
+          "named": true
+        },
+        {
+          "type": "fixed_dimension",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "parameter_declarations",
     "named": true,
     "fields": {},
@@ -2299,11 +2276,34 @@
       "required": false,
       "types": [
         {
-          "type": "argument_declaration",
+          "type": "parameter_declaration",
           "named": true
         },
         {
-          "type": "rest_argument",
+          "type": "rest_parameter",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "parameter_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "dimension",
+          "named": true
+        },
+        {
+          "type": "old_type",
+          "named": true
+        },
+        {
+          "type": "type",
           "named": true
         }
       ]
@@ -2910,7 +2910,12 @@
     }
   },
   {
-    "type": "rest_argument",
+    "type": "rest_operator",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "rest_parameter",
     "named": true,
     "fields": {
       "type": {
@@ -2928,11 +2933,6 @@
         ]
       }
     }
-  },
-  {
-    "type": "rest_operator",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "return_statement",
@@ -3004,6 +3004,10 @@
             "named": true
           },
           {
+            "type": "call_expression",
+            "named": true
+          },
+          {
             "type": "char_literal",
             "named": true
           },
@@ -3021,10 +3025,6 @@
           },
           {
             "type": "float_literal",
-            "named": true
-          },
-          {
-            "type": "function_call",
             "named": true
           },
           {

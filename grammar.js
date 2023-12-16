@@ -62,8 +62,8 @@ module.exports = grammar({
     ],
     [$.array_indexed_access, $.type],
     [$.type, $.old_variable_declaration],
-    [$.argument_declaration, $.type],
-    [$.argument_type],
+    [$.parameter_declaration, $.type],
+    [$.parameter_type],
     [$.variable_storage_class],
     [$.global_variable_declaration, $.old_global_variable_declaration],
   ],
@@ -220,11 +220,7 @@ module.exports = grammar({
     hardcoded_symbol: ($) => seq("using __intrinsics__.Handle", $._semicolon),
 
     assertion: ($) =>
-      seq(
-        choice("assert", "static_assert"),
-        $.function_call_arguments,
-        $._semicolon
-      ),
+      seq(choice("assert", "static_assert"), $.call_arguments, $._semicolon),
 
     // Main Grammar
 
@@ -269,21 +265,25 @@ module.exports = grammar({
     function_declaration_kind: ($) => choice("forward", "native"),
 
     parameter_declarations: ($) =>
-      seq("(", commaSep(choice($.argument_declaration, $.rest_argument)), ")"),
+      seq(
+        "(",
+        commaSep(choice($.parameter_declaration, $.rest_parameter)),
+        ")"
+      ),
 
-    argument_type: ($) =>
+    parameter_type: ($) =>
       choice(
         "&",
         seq(optional("&"), $.old_type),
         seq($.type, choice(optional("&"), repeat($.dimension)))
       ),
 
-    argument_declaration: ($) =>
+    parameter_declaration: ($) =>
       prec(
         1,
         seq(
           optional("const"),
-          field("type", optional($.argument_type)),
+          field("type", optional($.parameter_type)),
           field("name", $.symbol),
           repeat(choice($.dimension, $.fixed_dimension)),
           field(
@@ -314,7 +314,8 @@ module.exports = grammar({
         )
       ),
 
-    rest_argument: ($) => seq(field("type", choice($.type, $.old_type)), "..."),
+    rest_parameter: ($) =>
+      seq(field("type", choice($.type, $.old_type)), "..."),
 
     alias_operator: ($) =>
       token.immediate(
@@ -426,11 +427,11 @@ module.exports = grammar({
         repeat1($.fixed_dimension)
       ),
 
-    new_instance: ($) =>
+    new_expression: ($) =>
       seq(
         "new",
         field("class", $.symbol),
-        field("arguments", $.function_call_arguments)
+        field("arguments", $.call_arguments)
       ),
 
     old_global_variable_declaration: ($) =>
@@ -954,7 +955,7 @@ module.exports = grammar({
     _expression: ($) =>
       choice(
         $.assignment_expression,
-        $.function_call,
+        $.call_expression,
         $.array_indexed_access,
         $.ternary_expression,
         $.field_access,
@@ -969,7 +970,7 @@ module.exports = grammar({
         $._literal,
         $.parenthesized_expression,
         $.this,
-        $.new_instance
+        $.new_expression
       ),
 
     assignment_expression: ($) =>
@@ -1007,16 +1008,16 @@ module.exports = grammar({
         )
       ),
 
-    function_call: ($) =>
+    call_expression: ($) =>
       prec.left(
         PREC.CALL,
         seq(
           field("function", choice($.symbol, $.field_access)),
-          field("arguments", $.function_call_arguments)
+          field("arguments", $.call_arguments)
         )
       ),
 
-    function_call_arguments: ($) =>
+    call_arguments: ($) =>
       prec.left(
         -11,
         seq(
@@ -1154,7 +1155,7 @@ module.exports = grammar({
       prec(
         1,
         choice(
-          $.function_call,
+          $.call_expression,
           prec.right(1, seq($.symbol, repeat($.dimension))),
           prec.right(1, seq($.array_indexed_access, repeat($.dimension))),
           $.field_access,

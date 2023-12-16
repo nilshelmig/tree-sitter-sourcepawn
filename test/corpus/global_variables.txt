@@ -229,9 +229,9 @@ ArrayList arr2 = new ArrayList(1, 5);
     )
     (variable_declaration
       name: (symbol)
-      initialValue: (new_instance
+      initialValue: (new_expression
         class: (symbol)
-        arguments: (function_call_arguments)
+        arguments: (call_arguments)
       )
     )
   )
@@ -241,9 +241,9 @@ ArrayList arr2 = new ArrayList(1, 5);
     )
     (variable_declaration
       name: (symbol)
-      initialValue: (new_instance
+      initialValue: (new_expression
         class: (symbol)
-        arguments: (function_call_arguments
+        arguments: (call_arguments
           (int_literal)
           (int_literal)
         )

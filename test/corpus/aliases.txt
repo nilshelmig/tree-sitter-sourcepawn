@@ -22,8 +22,8 @@ stock float operator--(float oper)
     )
     (alias_operator)
     (parameter_declarations
-      (argument_declaration
-        (argument_type
+      (parameter_declaration
+        (parameter_type
           (type
             (builtin_type)
           )
@@ -47,8 +47,8 @@ stock float operator--(float oper)
     )
     (alias_operator)
     (parameter_declarations
-      (argument_declaration
-        (argument_type
+      (parameter_declaration
+        (parameter_type
           (type
             (builtin_type)
           )
@@ -87,16 +87,16 @@ native float operator-(float oper1, float oper2) = FloatSub;
     )
     (symbol)
     (parameter_declarations
-      (argument_declaration
-        (argument_type
+      (parameter_declaration
+        (parameter_type
           (type
             (builtin_type)
           )
         )
         (symbol)
       )
-      (argument_declaration
-        (argument_type
+      (parameter_declaration
+        (parameter_type
           (type
             (builtin_type)
           )
@@ -113,42 +113,16 @@ native float operator-(float oper1, float oper2) = FloatSub;
     )
     (symbol)
     (parameter_declarations
-      (argument_declaration
-        (argument_type
+      (parameter_declaration
+        (parameter_type
           (type
             (builtin_type)
           )
         )
         (symbol)
       )
-      (argument_declaration
-        (argument_type
-          (type
-            (builtin_type)
-          )
-        )
-        (symbol)
-      )
-    )
-    (symbol)
-  )
-  (alias_assignment
-    (function_declaration_kind)
-    (type
-      (builtin_type)
-    )
-    (alias_operator)
-    (parameter_declarations
-      (argument_declaration
-        (argument_type
-          (type
-            (builtin_type)
-          )
-        )
-        (symbol)
-      )
-      (argument_declaration
-        (argument_type
+      (parameter_declaration
+        (parameter_type
           (type
             (builtin_type)
           )
@@ -165,16 +139,42 @@ native float operator-(float oper1, float oper2) = FloatSub;
     )
     (alias_operator)
     (parameter_declarations
-      (argument_declaration
-        (argument_type
+      (parameter_declaration
+        (parameter_type
           (type
             (builtin_type)
           )
         )
         (symbol)
       )
-      (argument_declaration
-        (argument_type
+      (parameter_declaration
+        (parameter_type
+          (type
+            (builtin_type)
+          )
+        )
+        (symbol)
+      )
+    )
+    (symbol)
+  )
+  (alias_assignment
+    (function_declaration_kind)
+    (type
+      (builtin_type)
+    )
+    (alias_operator)
+    (parameter_declarations
+      (parameter_declaration
+        (parameter_type
+          (type
+            (builtin_type)
+          )
+        )
+        (symbol)
+      )
+      (parameter_declaration
+        (parameter_type
           (type
             (builtin_type)
           )
@@ -200,16 +200,16 @@ forward operator%(float oper1, float oper2);
     (function_declaration_kind)
     (alias_operator)
     (parameter_declarations
-      (argument_declaration
-        (argument_type
+      (parameter_declaration
+        (parameter_type
           (type
             (builtin_type)
           )
         )
         (symbol)
       )
-      (argument_declaration
-        (argument_type
+      (parameter_declaration
+        (parameter_type
           (type
             (builtin_type)
           )

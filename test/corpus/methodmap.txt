@@ -77,8 +77,8 @@ methodmap AdminId {
       )
       name: (symbol)
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (builtin_type)
             )
@@ -86,8 +86,8 @@ methodmap AdminId {
           )
           name: (symbol)
         )
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (builtin_type)
             )
@@ -102,8 +102,8 @@ methodmap AdminId {
       )
       name: (symbol)
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (builtin_type)
             )
@@ -112,8 +112,8 @@ methodmap AdminId {
           name: (symbol)
           defaultValue: (string_literal)
         )
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (builtin_type)
             )
@@ -129,8 +129,8 @@ methodmap AdminId {
       )
       name: (symbol)
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (builtin_type)
             )
@@ -138,7 +138,7 @@ methodmap AdminId {
           )
           name: (symbol)
         )
-        (rest_argument
+        (rest_parameter
           type: (type
             (any_type)
           )
@@ -151,8 +151,8 @@ methodmap AdminId {
       )
       name: (symbol)
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (builtin_type)
             )
@@ -183,8 +183,8 @@ methodmap AdminId {
     (methodmap_native_constructor
       name: (symbol)
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (builtin_type)
             )
@@ -227,16 +227,16 @@ methodmap PerkContainerIter {
       )
       name: (symbol)
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (builtin_type)
             )
           )
           name: (symbol)
         )
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (builtin_type)
             )
@@ -257,8 +257,8 @@ methodmap PerkContainerIter {
       )
       name: (symbol)
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (builtin_type)
             )
@@ -266,7 +266,7 @@ methodmap PerkContainerIter {
           )
           name: (symbol)
         )
-        (rest_argument
+        (rest_parameter
           type: (type
             (any_type)
           )
@@ -281,8 +281,8 @@ methodmap PerkContainerIter {
       returnType: (dimension)
       name: (symbol)
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (builtin_type)
             )
@@ -290,7 +290,7 @@ methodmap PerkContainerIter {
           )
           name: (symbol)
         )
-        (rest_argument
+        (rest_parameter
           type: (type
             (any_type)
           )
@@ -322,8 +322,8 @@ methodmap AdminId {
     (methodmap_method_constructor
       name: (symbol)
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (builtin_type)
             )
@@ -366,16 +366,16 @@ methodmap PerkContainerIter {
       )
       name: (symbol)
       (parameter_declarations
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (builtin_type)
             )
           )
           name: (symbol)
         )
-        (argument_declaration
-          type: (argument_type
+        (parameter_declaration
+          type: (parameter_type
             (type
               (builtin_type)
             )

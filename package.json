@@ -26,5 +26,17 @@
   },
   "dependencies": {
     "nan": "^2.14.2"
-  }
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.sourcepawn",
+      "file-types": [
+        "sp",
+        "inc"
+      ],
+      "content-regex": [
+        "^public\\s+(?:SharedPlugin(?:\\s+|:)__pl_\\w+\\s*=(?:\\s*\\{)?|(?:void\\s+)?__pl_\\w+_SetNTVOptional\\(\\)(?:\\s*\\{)?)"
+      ]
+    }
+  ]
 }
