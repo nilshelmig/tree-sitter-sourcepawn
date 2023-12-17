@@ -17,8 +17,13 @@
   name: (symbol) @name) @definition.method
 (methodmap_method_destructor
   name: (symbol) @name) @definition.method
-(methodmap_property_method
-  name: (symbol) @name) @definition.method
+
+; Variable definitions
+(global_variable_declaration
+  (variable_declaration
+    name: (symbol) @name
+  ) @definition.variable
+)
 
 ; Function definitions
 (function_definition
