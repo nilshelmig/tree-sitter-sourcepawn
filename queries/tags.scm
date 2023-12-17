@@ -1,3 +1,61 @@
+; Documentation
+(
+  (comment)* @doc
+  .
+  [
+    (function_definition
+        name: (symbol) @name)
+    (function_declaration
+        name: (symbol) @name)
+  ] @definition.function
+  (#strip! @doc "^[\\s\\*/]+|^[\\s\\*/]$")
+  (#select-adjacent! @doc @definition.function)
+)
+
+(
+  (comment)* @doc
+  .
+  [
+    (enum_struct_method
+        name: (symbol) @name)
+    (methodmap_method
+        name: (symbol) @name)
+    (methodmap_method_constructor
+        name: (symbol) @name)
+    (methodmap_method_destructor
+        name: (symbol) @name)
+  ] @definition.method
+  (#strip! @doc "^[\\s\\*/]+|^[\\s\\*/]$")
+  (#select-adjacent! @doc @definition.method)
+)
+
+(
+  (comment)* @doc
+  .
+  [
+    (methodmap
+        name: (symbol) @name)
+    (enum_struct
+        name: (symbol) @name)
+    (enum
+        name: (symbol) @name)
+  ] @definition.class
+  (#strip! @doc "^[\\s\\*/]+|^[\\s\\*/]$")
+  (#select-adjacent! @doc @definition.class)
+)
+
+(
+  (comment)* @doc
+  .
+  (global_variable_declaration
+    (variable_declaration
+      name: (symbol) @name
+    ) @definition.variable
+  ) 
+  (#strip! @doc "^[\\s\\*/]+|^[\\s\\*/]$")
+  (#select-adjacent! @doc @definition.variable)
+)
+
 ; ADT items
 (methodmap
   name: (symbol) @name) @definition.class
