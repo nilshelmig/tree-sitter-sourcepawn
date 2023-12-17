@@ -520,7 +520,7 @@ module.exports = grammar({
         "struct",
         field("name", $.symbol),
         "{",
-        repeat1(choice($.enum_struct_field, $.enum_struct_method)),
+        repeat(choice($.enum_struct_field, $.enum_struct_method)),
         "}"
       ),
 
