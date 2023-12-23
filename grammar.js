@@ -748,7 +748,14 @@ module.exports = grammar({
     methodmap_property_getter: ($) => seq("get", "(", ")"),
 
     methodmap_property_setter: ($) =>
-      seq("set", "(", field("type", $.type), field("name", $.symbol), ")"),
+      seq(
+        "set",
+        "(",
+        optional($.variable_storage_class),
+        field("type", $.type),
+        field("name", $.symbol),
+        ")"
+      ),
 
     methodmap_visibility: ($) => "public",
 

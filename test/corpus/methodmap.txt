@@ -60,9 +60,9 @@ methodmap with native method
 ============================
 
 methodmap AdminId {
-    public native void GetUsername(char[] name, int maxlength);
-    public native bool GetPassword(char[] buffer="", int maxlength=0);
-    public native bool Format(const char[] format, any ...);
+  public native void GetUsername(char[] name, int maxlength);
+  public native bool GetPassword(char[] buffer="", int maxlength=0);
+  public native bool Format(const char[] format, any ...);
 	public static native Cookie Find(const char[] name);
 }
 
@@ -447,16 +447,16 @@ methodmap with property - native
 ================================
 
 methodmap Player {
-    property int Health {
-        public native get();
-        public native set(int health);
-    }
+  property int Health {
+    public native get();
+    public native set(int health);
+  }
 
-    // Connect timeout in seconds. Defaults to 10.
+  // Connect timeout in seconds. Defaults to 10.
 	#pragma deprecated Use HTTPRequest.ConnectTimeout instead.
 	property int ConnectTimeout {
 		public native get();
-		public native set(int connectTimeout);
+		public native set(const int connectTimeout);
 	}
 }
 
@@ -496,6 +496,7 @@ methodmap Player {
       )
       (methodmap_property_native
         (methodmap_property_setter
+          (variable_storage_class)
           type: (type
             (builtin_type)
           )

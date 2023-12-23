@@ -1997,6 +1997,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "variable_storage_class",
+          "named": true
+        }
+      ]
     }
   },
   {

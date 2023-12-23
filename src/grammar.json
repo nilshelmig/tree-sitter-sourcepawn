@@ -4156,6 +4156,18 @@
           "value": "("
         },
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "variable_storage_class"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "FIELD",
           "name": "type",
           "content": {
@@ -7742,13 +7754,20 @@
     [
       "parameter_declaration",
       "type"
-    ],
-    [
-      "type",
-      "_expression"
     ]
   ],
-  "precedences": [],
+  "precedences": [
+    [
+      {
+        "type": "SYMBOL",
+        "name": "type"
+      },
+      {
+        "type": "SYMBOL",
+        "name": "_expression"
+      }
+    ]
+  ],
   "externals": [
     {
       "type": "SYMBOL",
