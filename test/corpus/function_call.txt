@@ -221,20 +221,35 @@ void Test() {
 function call as initial value
 ==============================
 
-int count = CurrentCount();
+int CurrentCount() {
+  int count = CurrentCount();
+  return 1;
+}
 
 ---
 
 (source_file
-  (global_variable_declaration
-    type: (type
+  (function_definition
+    returnType: (type
       (builtin_type)
     )
-    (variable_declaration
-      name: (symbol)
-      initialValue: (call_expression
-        function: (symbol)
-        arguments: (call_arguments)
+    name: (symbol)
+    parameters: (parameter_declarations)
+    body: (block
+      (variable_declaration_statement
+        type: (type
+          (builtin_type)
+        )
+        (variable_declaration
+          name: (symbol)
+          initialValue: (call_expression
+            function: (symbol)
+            arguments: (call_arguments)
+          )
+        )
+      )
+      (return_statement
+        (int_literal)
       )
     )
   )

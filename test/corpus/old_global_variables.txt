@@ -14,7 +14,7 @@ new _:d = 2, Float:e, bool:f = true, String:g = 'c';
 new Action:ac = INVALID_HANDLE;
 Action:ac = INVALID_HANDLE;
 vec[MAXPLAYERS + 1];
-vec[];
+vec[] = {1, 2};
 
 ---
 
@@ -132,6 +132,10 @@ vec[];
     (old_variable_declaration
       name: (symbol)
       (dimension)
+      initialValue: (array_literal
+        (int_literal)
+        (int_literal)
+      )
     )
   )
 )
@@ -218,7 +222,7 @@ static chatColorInfo[][ChatColorInfo] =
     )
   )
   (old_global_variable_declaration
-    (variable_storage_class)
+    (visibility)
     (old_variable_declaration
       name: (symbol)
       (dimension)
@@ -335,9 +339,9 @@ new g_DefaultColors_c[7][4] = { {255,255,255,255}, {255,0,0,255}, {0,255,0,255},
 )
 
 
-===================
-old - storage class
-===================
+============================
+old - variable storage class
+============================
 
 decl String:txt[256];
 new const a = 2;
@@ -383,7 +387,7 @@ public numHaleKills = 0;
     )
   )
   (old_global_variable_declaration
-    (variable_storage_class)
+    (visibility)
     (old_variable_declaration
       (old_type
         (old_builtin_type)
@@ -393,6 +397,7 @@ public numHaleKills = 0;
     )
   )
   (old_global_variable_declaration
+    (visibility)
     (variable_storage_class)
     (old_variable_declaration
       (symbol)
@@ -400,6 +405,7 @@ public numHaleKills = 0;
     )
   )
   (old_global_variable_declaration
+    (visibility)
     (variable_storage_class)
     (old_variable_declaration
       (old_type
@@ -413,6 +419,7 @@ public numHaleKills = 0;
     )
   )
   (old_global_variable_declaration
+    (visibility)
     (variable_storage_class)
     (old_variable_declaration
       (symbol)
@@ -441,7 +448,7 @@ public numHaleKills = 0;
     )
   )
   (old_global_variable_declaration
-    (variable_storage_class)
+    (visibility)
     (old_variable_declaration
       (symbol)
       (dimension)
@@ -485,7 +492,7 @@ public numHaleKills = 0;
     )
   )
   (old_global_variable_declaration
-    (variable_visibility)
+    (visibility)
     (old_variable_declaration
       (symbol)
       (int_literal)

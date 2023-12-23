@@ -2,8 +2,8 @@
 
 (function_definition) @context
 (condition_statement) @context
-(while_loop) @context
-(do_while_loop) @context
+(while_statement) @context
+(do_while_statement) @context
 (switch_statement) @context
 (switch_case) @context
 

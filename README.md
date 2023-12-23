@@ -70,7 +70,7 @@ console.log(tree.rootNode.toString());
 //         name: (symbol [6, 4] - [6, 7])
 //         value: (string_literal [6, 10] - [6, 40]))))
 //   (function_definition [9, 0] - [11, 1]
-//     (function_visibility [9, 0] - [9, 6])
+//     (visibility [9, 0] - [9, 6])
 //     returnType: (type [9, 7] - [9, 11]
 //       (builtin_type [9, 7] - [9, 11]))
 //     name: (symbol [9, 12] - [9, 25])

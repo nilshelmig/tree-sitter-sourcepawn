@@ -193,7 +193,7 @@ void Test() {
         )
       )
       (old_variable_declaration_statement
-        (variable_storage_class)
+        (visibility)
         (old_variable_declaration
           (old_type
             (old_builtin_type)

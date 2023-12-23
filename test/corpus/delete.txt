@@ -16,10 +16,8 @@ void SaveClose(Handle myhandle) {
     name: (symbol)
     parameters: (parameter_declarations
       (parameter_declaration
-        type: (parameter_type
-          (type
-            (symbol)
-          )
+        type: (type
+          (symbol)
         )
         name: (symbol)
       )
@@ -51,7 +49,7 @@ void SaveClose(Handle[] myhandle) {
     name: (symbol)
     parameters: (parameter_declarations
       (parameter_declaration
-        type: (parameter_type
+        type: (array_type
           (type
             (symbol)
           )
@@ -90,10 +88,8 @@ void SaveClose(Handle myhandle) {
     name: (symbol)
     parameters: (parameter_declarations
       (parameter_declaration
-        type: (parameter_type
-          (type
-            (symbol)
-          )
+        type: (type
+          (symbol)
         )
         name: (symbol)
       )

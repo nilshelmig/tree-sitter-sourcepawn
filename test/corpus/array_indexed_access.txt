@@ -16,7 +16,7 @@ void MyFunc(int[] myvar) {
     name: (symbol)
     parameters: (parameter_declarations
       (parameter_declaration
-        type: (parameter_type
+        type: (array_type
           (type
             (builtin_type)
           )
@@ -56,7 +56,7 @@ void MyFunc(int[] myvar) {
     name: (symbol)
     parameters: (parameter_declarations
       (parameter_declaration
-        type: (parameter_type
+        type: (array_type
           (type
             (builtin_type)
           )
@@ -101,7 +101,7 @@ void MyFunc(int[] myvar) {
     name: (symbol)
     parameters: (parameter_declarations
       (parameter_declaration
-        type: (parameter_type
+        type: (array_type
           (type
             (builtin_type)
           )
@@ -143,7 +143,7 @@ int MyFunc(int[] myvar) {
     name: (symbol)
     parameters: (parameter_declarations
       (parameter_declaration
-        type: (parameter_type
+        type: (array_type
           (type
             (builtin_type)
           )
@@ -185,7 +185,7 @@ int MyFunc(int[][] myvar) {
     name: (symbol)
     parameters: (parameter_declarations
       (parameter_declaration
-        type: (parameter_type
+        type: (array_type
           (type
             (builtin_type)
           )
@@ -228,10 +228,8 @@ int MyFunc(File target) {
     name: (symbol)
     parameters: (parameter_declarations
       (parameter_declaration
-        type: (parameter_type
-          (type
-            (symbol)
-          )
+        type: (type
+          (symbol)
         )
         name: (symbol)
       )

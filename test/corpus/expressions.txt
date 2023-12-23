@@ -37,3 +37,50 @@ void foo() {
     )
   )
 )
+
+
+=================
+comma expressions
+=================
+
+void foo() {
+    int i, ii;
+    i + 1, ii += 1;
+}
+
+---
+
+(source_file
+  (function_definition
+    (type
+      (builtin_type)
+    )
+    (symbol)
+    (parameter_declarations)
+    (block
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (symbol)
+        )
+        (variable_declaration
+          (symbol)
+        )
+      )
+      (expression_statement
+        (comma_expression
+          (binary_expression
+            (symbol)
+            (int_literal)
+          )
+          (assignment_expression
+            (symbol)
+            (int_literal)
+          )
+        )
+      )
+    )
+  )
+)

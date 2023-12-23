@@ -1,6 +1,6 @@
-============
-declarations
-============
+============================
+local variables declarations
+============================
 
 void Test() {
     int number;
@@ -11,7 +11,7 @@ void Test() {
     float vec[3];
     bool active[MAXPLAYERS + 1];
     Action action;
-    Action foo = null, bar;
+    Action actions[MAXPLAYERS + 1];
 }
 
 ---
@@ -61,7 +61,7 @@ void Test() {
           (builtin_type)
         )
         (dimension)
-        (variable_declaration
+        (dynamic_array_declaration
           (symbol)
           (string_literal)
         )
@@ -105,10 +105,12 @@ void Test() {
         )
         (variable_declaration
           (symbol)
-          (null)
-        )
-        (variable_declaration
-          (symbol)
+          (fixed_dimension
+            (binary_expression
+              (symbol)
+              (int_literal)
+            )
+          )
         )
       )
     )
@@ -226,7 +228,7 @@ void Test() {
     float vec[3] = { 0.0, 14.2, 13.22 };
     bool client_has_stuff[MAXPLAYERS] = { true, ... };
     char[] name = new char[players*2];
-    Action[] actions = new Action[maxActions];
+    Action[] actions = new Action[MAXPLAYERS];
 }
 
 ---
@@ -244,7 +246,7 @@ void Test() {
           (builtin_type)
         )
         (dimension)
-        (variable_declaration
+        (dynamic_array_declaration
           (symbol)
           (string_literal)
         )
@@ -299,7 +301,7 @@ void Test() {
           (builtin_type)
         )
         (dimension)
-        (variable_declaration
+        (dynamic_array_declaration
           (symbol)
           (dynamic_array
             (builtin_type)
@@ -317,7 +319,7 @@ void Test() {
           (symbol)
         )
         (dimension)
-        (variable_declaration
+        (dynamic_array_declaration
           (symbol)
           (dynamic_array
             (symbol)
@@ -354,6 +356,7 @@ void Test() {
     (parameter_declarations)
     (block
       (variable_declaration_statement
+        (visibility)
         (variable_storage_class)
         (type
           (builtin_type)
@@ -364,6 +367,7 @@ void Test() {
         )
       )
       (variable_declaration_statement
+        (visibility)
         (variable_storage_class)
         (type
           (symbol)
@@ -384,7 +388,7 @@ void Test() {
         )
       )
       (variable_declaration_statement
-        (variable_storage_class)
+        (visibility)
         (type
           (symbol)
         )
@@ -402,8 +406,6 @@ multidimensional arrays
 =======================
 
 void Test(){
-    Action[][] a;
-    Action [] [] a;
     float vec[MAXPLAYERS][10];
     float vec [MAXPLAYERS] [10];
     int bla[][] = { {1,2,3}, {4,5,6}, {7,8,9} };
@@ -420,26 +422,6 @@ void Test(){
     (symbol)
     (parameter_declarations)
     (block
-      (variable_declaration_statement
-        (type
-          (symbol)
-        )
-        (dimension)
-        (dimension)
-        (variable_declaration
-          (symbol)
-        )
-      )
-      (variable_declaration_statement
-        (type
-          (symbol)
-        )
-        (dimension)
-        (dimension)
-        (variable_declaration
-          (symbol)
-        )
-      )
       (variable_declaration_statement
         (type
           (builtin_type)
@@ -501,7 +483,7 @@ void Test(){
         )
         (dimension)
         (dimension)
-        (variable_declaration
+        (dynamic_array_declaration
           (symbol)
           (dynamic_array
             (builtin_type)

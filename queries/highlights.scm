@@ -8,7 +8,6 @@
 (function_declaration
   name: (symbol) @function)
 (parameter_declaration
-  type: (parameter_type)
   name: (symbol) @variable.parameter)
 
 ; Methods / Properties
@@ -120,8 +119,8 @@
 
 ; Non-type Keywords
 (variable_storage_class) @storageclass
-(variable_visibility) @storageclass
-(function_visibility) @storageclass
+(visibility) @storageclass
+(visibility) @storageclass
 (assertion) @function.builtin
 (function_declaration_kind) @keyword.function
 [
@@ -129,7 +128,6 @@
   "delete"
 ] @keyword.operator
 [
-  "\;" 
   "."
   ","
 ] @punctuation.delimiter

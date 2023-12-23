@@ -78,7 +78,7 @@ methodmap AdminId {
       name: (symbol)
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
+          type: (array_type
             (type
               (builtin_type)
             )
@@ -87,10 +87,8 @@ methodmap AdminId {
           name: (symbol)
         )
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (builtin_type)
-            )
+          type: (type
+            (builtin_type)
           )
           name: (symbol)
         )
@@ -103,7 +101,7 @@ methodmap AdminId {
       name: (symbol)
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
+          type: (array_type
             (type
               (builtin_type)
             )
@@ -113,10 +111,8 @@ methodmap AdminId {
           defaultValue: (string_literal)
         )
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (builtin_type)
-            )
+          type: (type
+            (builtin_type)
           )
           name: (symbol)
           defaultValue: (int_literal)
@@ -130,7 +126,8 @@ methodmap AdminId {
       name: (symbol)
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
+          (variable_storage_class)
+          type: (array_type
             (type
               (builtin_type)
             )
@@ -152,7 +149,8 @@ methodmap AdminId {
       name: (symbol)
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
+          (variable_storage_class)
+          type: (array_type
             (type
               (builtin_type)
             )
@@ -184,10 +182,8 @@ methodmap AdminId {
       name: (symbol)
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (builtin_type)
-            )
+          type: (type
+            (builtin_type)
           )
           name: (symbol)
         )
@@ -228,18 +224,14 @@ methodmap PerkContainerIter {
       name: (symbol)
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (builtin_type)
-            )
+          type: (type
+            (builtin_type)
           )
           name: (symbol)
         )
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (builtin_type)
-            )
+          type: (type
+            (builtin_type)
           )
           name: (symbol)
           defaultValue: (int_literal)
@@ -258,7 +250,8 @@ methodmap PerkContainerIter {
       name: (symbol)
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
+          (variable_storage_class)
+          type: (array_type
             (type
               (builtin_type)
             )
@@ -282,7 +275,8 @@ methodmap PerkContainerIter {
       name: (symbol)
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
+          (variable_storage_class)
+          type: (array_type
             (type
               (builtin_type)
             )
@@ -323,10 +317,8 @@ methodmap AdminId {
       name: (symbol)
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (builtin_type)
-            )
+          type: (type
+            (builtin_type)
           )
           name: (symbol)
         )
@@ -367,18 +359,14 @@ methodmap PerkContainerIter {
       name: (symbol)
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (builtin_type)
-            )
+          type: (type
+            (builtin_type)
           )
           name: (symbol)
         )
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (builtin_type)
-            )
+          type: (type
+            (builtin_type)
           )
           name: (symbol)
           defaultValue: (int_literal)

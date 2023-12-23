@@ -10,7 +10,7 @@ public void OnPluginStart() {
 
 (source_file
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -49,17 +49,15 @@ public void OnRebuildAdminCache(AdminCachePart part) {
 
 (source_file
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
     parameters: (parameter_declarations
       (parameter_declaration
-        type: (parameter_type
-          (type
-            (builtin_type)
-          )
+        type: (type
+          (builtin_type)
         )
         name: (symbol)
       )
@@ -67,14 +65,14 @@ public void OnRebuildAdminCache(AdminCachePart part) {
     body: (block)
   )
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
     parameters: (parameter_declarations
       (parameter_declaration
-        type: (parameter_type
+        type: (array_type
           (type
             (builtin_type)
           )
@@ -86,17 +84,15 @@ public void OnRebuildAdminCache(AdminCachePart part) {
     body: (block)
   )
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
     parameters: (parameter_declarations
       (parameter_declaration
-        type: (parameter_type
-          (type
-            (builtin_type)
-          )
+        type: (type
+          (builtin_type)
         )
         name: (symbol)
       )
@@ -104,17 +100,15 @@ public void OnRebuildAdminCache(AdminCachePart part) {
     body: (block)
   )
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
     parameters: (parameter_declarations
       (parameter_declaration
-        type: (parameter_type
-          (type
-            (builtin_type)
-          )
+        type: (type
+          (builtin_type)
         )
         name: (symbol)
       )
@@ -122,17 +116,15 @@ public void OnRebuildAdminCache(AdminCachePart part) {
     body: (block)
   )
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
     parameters: (parameter_declarations
       (parameter_declaration
-        type: (parameter_type
-          (type
-            (symbol)
-          )
+        type: (type
+          (symbol)
         )
         name: (symbol)
       )
@@ -154,22 +146,21 @@ public void OnClientSayCommand_Post(int client, const char[] command, char[] sAr
 
 (source_file
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (type
       (builtin_type)
     )
     name: (symbol)
     parameters: (parameter_declarations
       (parameter_declaration
-        type: (parameter_type
-          (type
-            (builtin_type)
-          )
+        type: (type
+          (builtin_type)
         )
         name: (symbol)
       )
       (parameter_declaration
-        type: (parameter_type
+        (variable_storage_class)
+        type: (array_type
           (type
             (builtin_type)
           )
@@ -178,7 +169,7 @@ public void OnClientSayCommand_Post(int client, const char[] command, char[] sAr
         name: (symbol)
       )
       (parameter_declaration
-        type: (parameter_type
+        type: (array_type
           (type
             (builtin_type)
           )
@@ -187,26 +178,20 @@ public void OnClientSayCommand_Post(int client, const char[] command, char[] sAr
         name: (symbol)
       )
       (parameter_declaration
-        type: (parameter_type
-          (type
-            (builtin_type)
-          )
+        type: (type
+          (builtin_type)
         )
         name: (symbol)
       )
       (parameter_declaration
-        type: (parameter_type
-          (type
-            (builtin_type)
-          )
+        type: (type
+          (builtin_type)
         )
         name: (symbol)
       )
       (parameter_declaration
-        type: (parameter_type
-          (type
-            (builtin_type)
-          )
+        type: (type
+          (builtin_type)
         )
         name: (symbol)
         (fixed_dimension
@@ -233,7 +218,7 @@ public Action Callback5() {}
 
 (source_file
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -242,7 +227,7 @@ public Action Callback5() {}
     body: (block)
   )
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -251,7 +236,7 @@ public Action Callback5() {}
     body: (block)
   )
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -260,7 +245,7 @@ public Action Callback5() {}
     body: (block)
   )
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -269,7 +254,7 @@ public Action Callback5() {}
     body: (block)
   )
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (type
       (symbol)
     )
@@ -292,7 +277,7 @@ public OnPluginStart() {
 
 (source_file
   (function_definition
-    (function_visibility)
+    (visibility)
     name: (symbol)
     parameters: (parameter_declarations)
     body: (block)
@@ -315,7 +300,7 @@ public Callback6(Handle:handle) {}
 
 (source_file
   (function_definition
-    (function_visibility)
+    (visibility)
     name: (symbol)
     parameters: (parameter_declarations
       (parameter_declaration
@@ -325,14 +310,12 @@ public Callback6(Handle:handle) {}
     body: (block)
   )
   (function_definition
-    (function_visibility)
+    (visibility)
     name: (symbol)
     parameters: (parameter_declarations
       (parameter_declaration
-        type: (parameter_type
-          (old_type
-            (old_builtin_type)
-          )
+        type: (old_type
+          (old_builtin_type)
         )
         name: (symbol)
       )
@@ -340,14 +323,12 @@ public Callback6(Handle:handle) {}
     body: (block)
   )
   (function_definition
-    (function_visibility)
+    (visibility)
     name: (symbol)
     parameters: (parameter_declarations
       (parameter_declaration
-        type: (parameter_type
-          (old_type
-            (old_builtin_type)
-          )
+        type: (old_type
+          (old_builtin_type)
         )
         name: (symbol)
       )
@@ -355,14 +336,12 @@ public Callback6(Handle:handle) {}
     body: (block)
   )
   (function_definition
-    (function_visibility)
+    (visibility)
     name: (symbol)
     parameters: (parameter_declarations
       (parameter_declaration
-        type: (parameter_type
-          (old_type
-            (old_builtin_type)
-          )
+        type: (old_type
+          (old_builtin_type)
         )
         name: (symbol)
       )
@@ -370,14 +349,13 @@ public Callback6(Handle:handle) {}
     body: (block)
   )
   (function_definition
-    (function_visibility)
+    (visibility)
     name: (symbol)
     parameters: (parameter_declarations
       (parameter_declaration
-        type: (parameter_type
-          (old_type
-            (old_builtin_type)
-          )
+        (variable_storage_class)
+        type: (old_type
+          (old_builtin_type)
         )
         name: (symbol)
         (dimension)
@@ -386,14 +364,12 @@ public Callback6(Handle:handle) {}
     body: (block)
   )
   (function_definition
-    (function_visibility)
+    (visibility)
     name: (symbol)
     parameters: (parameter_declarations
       (parameter_declaration
-        type: (parameter_type
-          (old_type
-            (symbol)
-          )
+        type: (old_type
+          (symbol)
         )
         name: (symbol)
       )
@@ -414,14 +390,12 @@ public Callback2(args, any:data) {}
 
 (source_file
   (function_definition
-    (function_visibility)
+    (visibility)
     name: (symbol)
     parameters: (parameter_declarations
       (parameter_declaration
-        type: (parameter_type
-          (old_type
-            (any_type)
-          )
+        type: (old_type
+          (any_type)
         )
         name: (symbol)
       )
@@ -429,17 +403,15 @@ public Callback2(args, any:data) {}
     body: (block)
   )
   (function_definition
-    (function_visibility)
+    (visibility)
     name: (symbol)
     parameters: (parameter_declarations
       (parameter_declaration
         name: (symbol)
       )
       (parameter_declaration
-        type: (parameter_type
-          (old_type
-            (any_type)
-          )
+        type: (old_type
+          (any_type)
         )
         name: (symbol)
       )
@@ -464,13 +436,13 @@ public Action:Callback6() {}
 
 (source_file
   (function_definition
-    (function_visibility)
+    (visibility)
     name: (symbol)
     parameters: (parameter_declarations)
     body: (block)
   )
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (old_type
       (old_builtin_type)
     )
@@ -479,7 +451,7 @@ public Action:Callback6() {}
     body: (block)
   )
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (old_type
       (old_builtin_type)
     )
@@ -488,7 +460,7 @@ public Action:Callback6() {}
     body: (block)
   )
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (old_type
       (old_builtin_type)
     )
@@ -497,7 +469,7 @@ public Action:Callback6() {}
     body: (block)
   )
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (old_type
       (old_builtin_type)
     )
@@ -506,7 +478,7 @@ public Action:Callback6() {}
     body: (block)
   )
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (old_type
       (symbol)
     )
@@ -528,7 +500,7 @@ public Callback1() Test();
 
 (source_file
   (function_definition
-    (function_visibility)
+    (visibility)
     name: (symbol)
     parameters: (parameter_declarations)
     body: (return_statement
@@ -536,7 +508,7 @@ public Callback1() Test();
     )
   )
   (function_definition
-    (function_visibility)
+    (visibility)
     name: (symbol)
     parameters: (parameter_declarations)
     body: (expression_statement

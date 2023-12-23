@@ -18,18 +18,14 @@ typeset Timer {
       )
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (symbol)
-            )
+          type: (type
+            (symbol)
           )
           name: (symbol)
         )
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (symbol)
-            )
+          type: (type
+            (symbol)
           )
           name: (symbol)
         )
@@ -41,10 +37,8 @@ typeset Timer {
       )
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (symbol)
-            )
+          type: (type
+            (symbol)
           )
           name: (symbol)
         )
@@ -74,18 +68,14 @@ typeset Timer {
       )
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (symbol)
-            )
+          type: (type
+            (symbol)
           )
           name: (symbol)
         )
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (symbol)
-            )
+          type: (type
+            (symbol)
           )
           name: (symbol)
         )
@@ -97,10 +87,8 @@ typeset Timer {
       )
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (symbol)
-            )
+          type: (type
+            (symbol)
           )
           name: (symbol)
         )
@@ -130,18 +118,14 @@ typeset Timer {
       )
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (symbol)
-            )
+          type: (type
+            (symbol)
           )
           name: (symbol)
         )
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (symbol)
-            )
+          type: (type
+            (symbol)
           )
           name: (symbol)
         )
@@ -153,10 +137,8 @@ typeset Timer {
       )
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (symbol)
-            )
+          type: (type
+            (symbol)
           )
           name: (symbol)
         )
@@ -186,18 +168,14 @@ funcenum Timer {
       )
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
-            (old_type
-              (symbol)
-            )
+          type: (old_type
+            (symbol)
           )
           name: (symbol)
         )
         (parameter_declaration
-          type: (parameter_type
-            (old_type
-              (symbol)
-            )
+          type: (old_type
+            (symbol)
           )
           name: (symbol)
         )
@@ -209,10 +187,8 @@ funcenum Timer {
       )
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
-            (old_type
-              (symbol)
-            )
+          type: (old_type
+            (symbol)
           )
           name: (symbol)
         )
@@ -242,18 +218,14 @@ funcenum Timer {
       )
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
-            (old_type
-              (symbol)
-            )
+          type: (old_type
+            (symbol)
           )
           name: (symbol)
         )
         (parameter_declaration
-          type: (parameter_type
-            (old_type
-              (symbol)
-            )
+          type: (old_type
+            (symbol)
           )
           name: (symbol)
         )
@@ -265,10 +237,8 @@ funcenum Timer {
       )
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
-            (old_type
-              (symbol)
-            )
+          type: (old_type
+            (symbol)
           )
           name: (symbol)
         )
@@ -295,18 +265,14 @@ funcenum Timer {
     (funcenum_member
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
-            (old_type
-              (symbol)
-            )
+          type: (old_type
+            (symbol)
           )
           name: (symbol)
         )
         (parameter_declaration
-          type: (parameter_type
-            (old_type
-              (symbol)
-            )
+          type: (old_type
+            (symbol)
           )
           name: (symbol)
         )
@@ -315,10 +281,8 @@ funcenum Timer {
     (funcenum_member
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
-            (old_type
-              (symbol)
-            )
+          type: (old_type
+            (symbol)
           )
           name: (symbol)
         )

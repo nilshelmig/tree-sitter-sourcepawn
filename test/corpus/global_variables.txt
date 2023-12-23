@@ -10,6 +10,8 @@ float vec[3];
 bool active[MAXPLAYERS + 1];
 Action action;
 Action
+ action1;
+Action
  action1,
  action2;
 
@@ -71,6 +73,14 @@ Action
           right: (int_literal)
         )
       )
+    )
+  )
+  (global_variable_declaration
+    type: (type
+      (symbol)
+    )
+    (variable_declaration
+      name: (symbol)
     )
   )
   (global_variable_declaration
@@ -217,35 +227,46 @@ ConVar g_hAutoVipFlag = null;
 initialization - methodmap
 ==========================
 
-ArrayList arr1 = new ArrayList();
-ArrayList arr2 = new ArrayList(1, 5);
+void foo() {
+  ArrayList arr1 = new ArrayList();
+  ArrayList arr2 = new ArrayList(1, 5);
+}
 
 ---
 
 (source_file
-  (global_variable_declaration
-    type: (type
-      (symbol)
+  (function_definition
+    returnType: (type
+      (builtin_type)
     )
-    (variable_declaration
-      name: (symbol)
-      initialValue: (new_expression
-        class: (symbol)
-        arguments: (call_arguments)
+    name: (symbol)
+    parameters: (parameter_declarations)
+    body: (block
+      (variable_declaration_statement
+        type: (type
+          (symbol)
+        )
+        (variable_declaration
+          name: (symbol)
+          initialValue: (new_expression
+            class: (symbol)
+            arguments: (call_arguments)
+          )
+        )
       )
-    )
-  )
-  (global_variable_declaration
-    type: (type
-      (symbol)
-    )
-    (variable_declaration
-      name: (symbol)
-      initialValue: (new_expression
-        class: (symbol)
-        arguments: (call_arguments
-          (int_literal)
-          (int_literal)
+      (variable_declaration_statement
+        type: (type
+          (symbol)
+        )
+        (variable_declaration
+          name: (symbol)
+          initialValue: (new_expression
+            class: (symbol)
+            arguments: (call_arguments
+              (int_literal)
+              (int_literal)
+            )
+          )
         )
       )
     )
@@ -373,7 +394,7 @@ stock const int e;
     )
   )
   (global_variable_declaration
-    (variable_storage_class)
+    (visibility)
     type: (type
       (builtin_type)
     )
@@ -382,7 +403,7 @@ stock const int e;
     )
   )
   (global_variable_declaration
-    (variable_storage_class)
+    (visibility)
     type: (type
       (builtin_type)
     )
@@ -392,6 +413,7 @@ stock const int e;
     )
   )
   (global_variable_declaration
+    (visibility)
     (variable_storage_class)
     type: (type
       (builtin_type)
@@ -403,7 +425,7 @@ stock const int e;
     )
   )
   (global_variable_declaration
-    (variable_visibility)
+    (visibility)
     (variable_storage_class)
     type: (type
       (builtin_type)
@@ -413,7 +435,7 @@ stock const int e;
     )
   )
   (global_variable_declaration
-    (variable_visibility)
+    (visibility)
     (variable_storage_class)
     type: (type
       (builtin_type)

@@ -11,7 +11,7 @@ public void OnPluginStart() {
 
 (source_file
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -32,10 +32,8 @@ public void OnPluginStart() {
           left: (symbol)
           right: (int_literal)
         )
-        iteration: (expression_statement
-          (update_expression
-            argument: (symbol)
-          )
+        iteration: (update_expression
+          argument: (symbol)
         )
         (block)
       )
@@ -53,10 +51,8 @@ public void OnPluginStart() {
           left: (symbol)
           right: (symbol)
         )
-        iteration: (expression_statement
-          (update_expression
-            argument: (symbol)
-          )
+        iteration: (update_expression
+          argument: (symbol)
         )
         (block)
       )
@@ -79,7 +75,7 @@ public void OnPluginStart() {
 
 (source_file
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -91,10 +87,8 @@ public void OnPluginStart() {
           left: (symbol)
           right: (int_literal)
         )
-        iteration: (expression_statement
-          (update_expression
-            argument: (symbol)
-          )
+        iteration: (update_expression
+          argument: (symbol)
         )
         (block)
       )
@@ -117,7 +111,7 @@ public void OnPluginStart() {
 
 (source_file
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -134,10 +128,8 @@ public void OnPluginStart() {
             initialValue: (int_literal)
           )
         )
-        iteration: (expression_statement
-          (update_expression
-            argument: (symbol)
-          )
+        iteration: (update_expression
+          argument: (symbol)
         )
         (block)
       )
@@ -160,7 +152,7 @@ public void OnPluginStart() {
 
 (source_file
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -202,7 +194,7 @@ public void OnPluginStart() {
 
 (source_file
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -231,7 +223,7 @@ public void OnPluginStart() {
 
 (source_file
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -262,7 +254,7 @@ public void OnPluginStart() {
 
 (source_file
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -291,7 +283,7 @@ public void OnPluginStart() {
 
 (source_file
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -318,7 +310,7 @@ public void OnPluginStart() {
 
 (source_file
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -334,10 +326,8 @@ public void OnPluginStart() {
           left: (symbol)
           right: (int_literal)
         )
-        iteration: (expression_statement
-          (update_expression
-            argument: (symbol)
-          )
+        iteration: (update_expression
+          argument: (symbol)
         )
         (break_statement)
       )
@@ -358,7 +348,7 @@ public void OnPluginStart() {
 
 (source_file
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -387,10 +377,8 @@ public void OnPluginStart() {
           left: (symbol)
           right: (int_literal)
         )
-        iteration: (expression_statement
-          (update_expression
-            argument: (symbol)
-          )
+        iteration: (update_expression
+          argument: (symbol)
         )
         (break_statement)
       )
@@ -418,7 +406,7 @@ public void OnPluginStart() {
 
 (source_file
   (function_definition
-    (function_visibility)
+    (visibility)
     (type
       (builtin_type)
     )
@@ -457,10 +445,8 @@ public void OnPluginStart() {
           (symbol)
           (int_literal)
         )
-        (expression_statement
-          (update_expression
-            (symbol)
-          )
+        (update_expression
+          (symbol)
         )
         (break_statement)
       )
@@ -474,9 +460,9 @@ old - for loop
 ==============
 
 public void OnPluginStart() {
-    for(new i = 0; i < 3; i++) break;
-    for (new entity=MaxClients+1; entity < maxEntities; entity++) {}
-    for (i = 0, ii = 0; i < 14; ++i, ii += 4) {
+  for(new i = 0; i < 3; i++) break;
+  for (new entity=MaxClients+1; entity < maxEntities; entity++) {}
+  for (i = 0, ii = 0; i < 14; ++i, ii += 4) {
 		break;
 	}
 }
@@ -485,7 +471,7 @@ public void OnPluginStart() {
 
 (source_file
   (function_definition
-    (function_visibility)
+    (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -503,10 +489,8 @@ public void OnPluginStart() {
           left: (symbol)
           right: (int_literal)
         )
-        iteration: (expression_statement
-          (update_expression
-            argument: (symbol)
-          )
+        iteration: (update_expression
+          argument: (symbol)
         )
         (break_statement)
       )
@@ -524,10 +508,8 @@ public void OnPluginStart() {
           left: (symbol)
           right: (symbol)
         )
-        iteration: (expression_statement
-          (update_expression
-            argument: (symbol)
-          )
+        iteration: (update_expression
+          argument: (symbol)
         )
         (block)
       )
@@ -544,15 +526,13 @@ public void OnPluginStart() {
           left: (symbol)
           right: (int_literal)
         )
-        iteration: (expression_statement
-          (comma_expression
-            left: (update_expression
-              argument: (symbol)
-            )
-            right: (assignment_expression
-              left: (symbol)
-              right: (int_literal)
-            )
+        iteration: (comma_expression
+          left: (update_expression
+            argument: (symbol)
+          )
+          right: (assignment_expression
+            left: (symbol)
+            right: (int_literal)
           )
         )
         (block

@@ -16,10 +16,8 @@ typedef SrvCmd = function Action[MAXPLAYERS+1][](int args, const char[] args, in
       )
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (builtin_type)
-            )
+          type: (type
+            (builtin_type)
           )
           name: (symbol)
         )
@@ -41,15 +39,14 @@ typedef SrvCmd = function Action[MAXPLAYERS+1][](int args, const char[] args, in
       returnType: (dimension)
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (builtin_type)
-            )
+          type: (type
+            (builtin_type)
           )
           name: (symbol)
         )
         (parameter_declaration
-          type: (parameter_type
+          (variable_storage_class)
+          type: (array_type
             (type
               (builtin_type)
             )
@@ -58,10 +55,8 @@ typedef SrvCmd = function Action[MAXPLAYERS+1][](int args, const char[] args, in
           name: (symbol)
         )
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (builtin_type)
-            )
+          type: (type
+            (builtin_type)
           )
           name: (symbol)
         )
@@ -88,10 +83,8 @@ typedef SrvCmd = (function Action (int args));
       )
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (builtin_type)
-            )
+          type: (type
+            (builtin_type)
           )
           name: (symbol)
         )
@@ -118,10 +111,8 @@ typedef SrvCmd = function Action (int args);
       )
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (builtin_type)
-            )
+          type: (type
+            (builtin_type)
           )
           name: (symbol)
         )
@@ -157,31 +148,26 @@ typedef CustomHandler =
       )
       (parameter_declarations
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (symbol)
-            )
+          type: (type
+            (symbol)
           )
           name: (symbol)
         )
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (builtin_type)
-            )
+          type: (type
+            (builtin_type)
           )
           name: (symbol)
         )
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (builtin_type)
-            )
+          type: (type
+            (builtin_type)
           )
           name: (symbol)
         )
         (parameter_declaration
-          type: (parameter_type
+          (variable_storage_class)
+          type: (array_type
             (type
               (builtin_type)
             )
@@ -190,26 +176,20 @@ typedef CustomHandler =
           name: (symbol)
         )
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (builtin_type)
-            )
+          type: (type
+            (builtin_type)
           )
           name: (symbol)
         )
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (builtin_type)
-            )
+          type: (type
+            (builtin_type)
           )
           name: (symbol)
         )
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (builtin_type)
-            )
+          type: (type
+            (builtin_type)
           )
           name: (symbol)
           (fixed_dimension
@@ -217,10 +197,8 @@ typedef CustomHandler =
           )
         )
         (parameter_declaration
-          type: (parameter_type
-            (type
-              (any_type)
-            )
+          type: (type
+            (any_type)
           )
           name: (symbol)
         )
@@ -249,10 +227,8 @@ functag public Action:SrvCmd(args, &Handle:datapack)
         name: (symbol)
       )
       (parameter_declaration
-        type: (parameter_type
-          (old_type
-            (symbol)
-          )
+        type: (old_type
+          (symbol)
         )
         name: (symbol)
       )
@@ -280,10 +256,8 @@ functag public Action:SrvCmd(args, &Handle:datapack);
         name: (symbol)
       )
       (parameter_declaration
-        type: (parameter_type
-          (old_type
-            (symbol)
-          )
+        type: (old_type
+          (symbol)
         )
         name: (symbol)
       )
@@ -308,10 +282,8 @@ functag SrvCmd public(args, &Handle:datapack)
         name: (symbol)
       )
       (parameter_declaration
-        type: (parameter_type
-          (old_type
-            (symbol)
-          )
+        type: (old_type
+          (symbol)
         )
         name: (symbol)
       )
@@ -336,10 +308,8 @@ functag SrvCmd public(args, &Handle:datapack);
         name: (symbol)
       )
       (parameter_declaration
-        type: (parameter_type
-          (old_type
-            (symbol)
-          )
+        type: (old_type
+          (symbol)
         )
         name: (symbol)
       )
@@ -364,19 +334,15 @@ functag Entity_ChangeOverTimeCallback bool:public(&entity, &Float:interval, &cur
     )
     (parameter_declarations
       (parameter_declaration
-        type: (parameter_type)
         name: (symbol)
       )
       (parameter_declaration
-        type: (parameter_type
-          (old_type
-            (old_builtin_type)
-          )
+        type: (old_type
+          (old_builtin_type)
         )
         name: (symbol)
       )
       (parameter_declaration
-        type: (parameter_type)
         name: (symbol)
       )
     )
