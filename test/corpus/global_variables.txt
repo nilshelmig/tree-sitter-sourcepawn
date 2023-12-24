@@ -14,6 +14,8 @@ Action
 Action
  action1,
  action2;
+Action
+ action[10];
 
 ---
 
@@ -100,6 +102,17 @@ Action
     )
     (variable_declaration
       name: (symbol)
+    )
+  )
+  (global_variable_declaration
+    type: (type
+      (symbol)
+    )
+    (variable_declaration
+      name: (symbol)
+      (fixed_dimension
+        (int_literal)
+      )
     )
   )
 )

@@ -240,7 +240,15 @@ static bool scan_automatic_semicolon(TSLexer *lexer)
   // We are at the end of a word (`action1` in our example). Skip comments and whitespaces.
   scan_whitespace_and_comments(lexer);
 
-  return lexer->lookahead != ',' && lexer->lookahead != ';';
+  switch (lexer->lookahead)
+  {
+  case ',':
+  case ';':
+  case '[':
+    return false;
+  }
+
+  return true;
 }
 
 static bool ternary_colon(TSLexer *lexer)
