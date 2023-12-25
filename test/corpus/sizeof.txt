@@ -35,6 +35,7 @@ int Test() {
     sizeof(a[][][]);
     sizeof(a[10][][]);
     sizeof(a[].b);
+    sizeof(a[][][].b);
     return sizeof(a[]);
 }
 
@@ -78,6 +79,18 @@ int Test() {
         (sizeof_expression
           type: (array_scope_access
             scope: (symbol)
+            (dimension)
+            field: (symbol)
+          )
+        )
+      )
+      (expression_statement
+        (sizeof_expression
+          type: (array_scope_access
+            scope: (symbol)
+            (dimension)
+            (dimension)
+            (dimension)
             field: (symbol)
           )
         )

@@ -1135,7 +1135,8 @@ module.exports = grammar({
         PREC.FIELD,
         seq(
           field("scope", $.symbol),
-          seq("[", "]", "."),
+          repeat1($.dimension),
+          ".",
           field("field", $.symbol)
         )
       ),
