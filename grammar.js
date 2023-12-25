@@ -18,7 +18,6 @@ const PREC = {
   CAST: 15,
   CALL: 16,
   FIELD: 17,
-  ARRAY_MEMBER: 2,
 };
 
 module.exports = grammar({
@@ -899,24 +898,20 @@ module.exports = grammar({
         field("condition", $._expression),
         ")",
         "{",
-        repeat(choice($.switch_case, $.switch_default_case)),
+        repeat($.switch_case),
         "}"
       ),
 
     switch_case: ($) =>
-      seq(
-        "case",
-        choice(
-          seq("(", field("value", $.switch_case_values), ")"),
-          field("value", $.switch_case_values)
-        ),
-        ":",
-        $._statement,
-        optional($.break_statement)
+      prec.right(
+        seq(
+          choice(
+            seq("case", field("value", commaSep1($._case_expression)), ":"),
+            seq("default", ":")
+          ),
+          $._statement
+        )
       ),
-
-    switch_case_values: ($) =>
-      prec.left(commaSep1(choice($._literal, $.unary_expression, $.symbol))),
 
     switch_default_case: ($) =>
       seq("default", ":", $._statement, optional($.break_statement)),
@@ -965,6 +960,20 @@ module.exports = grammar({
         $._literal,
         $.parenthesized_expression,
         $.this,
+        $.new_expression
+      ),
+
+    // This is needed to resolve ambiguity between symbols and old type casts in case statements.
+    _case_expression: ($) =>
+      choice(
+        $.scope_access,
+        $.case_binary_expression,
+        $.case_unary_expression,
+        $.sizeof_expression,
+        $.view_as,
+        $.symbol,
+        $._literal,
+        $.parenthesized_expression,
         $.new_expression
       ),
 
@@ -1088,51 +1097,13 @@ module.exports = grammar({
         seq(field("scope", $.symbol), "::", field("field", $.symbol))
       ),
 
-    unary_expression: ($) =>
-      prec.left(
-        PREC.UNARY,
-        seq(
-          field("operator", choice("!", "~", "-", "+")),
-          field("argument", $._expression)
-        )
-      ),
+    unary_expression: ($) => unaryExpression($._expression),
 
-    binary_expression: ($) => {
-      const table = [
-        ["+", PREC.ADD],
-        ["-", PREC.ADD],
-        ["*", PREC.MULTIPLY],
-        ["/", PREC.MULTIPLY],
-        ["%", PREC.MULTIPLY],
-        ["||", PREC.LOGICAL_OR],
-        ["&&", PREC.LOGICAL_AND],
-        ["|", PREC.INCLUSIVE_OR],
-        ["^", PREC.EXCLUSIVE_OR],
-        ["&", PREC.BITWISE_AND],
-        ["==", PREC.EQUAL],
-        ["!=", PREC.EQUAL],
-        [">", PREC.RELATIONAL],
-        [">=", PREC.RELATIONAL],
-        ["<=", PREC.RELATIONAL],
-        ["<", PREC.RELATIONAL],
-        ["<<", PREC.SHIFT],
-        [">>", PREC.SHIFT],
-        [">>>", PREC.SHIFT],
-      ];
+    case_unary_expression: ($) => unaryExpression($._case_expression),
 
-      return choice(
-        ...table.map(([operator, precedence]) => {
-          return prec.left(
-            precedence,
-            seq(
-              field("left", $._expression),
-              field("operator", operator),
-              field("right", $._expression)
-            )
-          );
-        })
-      );
-    },
+    binary_expression: ($) => binaryExpression($._expression),
+
+    case_binary_expression: ($) => binaryExpression($._case_expression),
 
     update_expression: ($) => {
       const argument = field("argument", $._expression);
@@ -1350,4 +1321,48 @@ function commaSep(rule) {
 
 function commaSep1(rule) {
   return seq(rule, repeat(seq(",", rule)));
+}
+
+function unaryExpression(rule) {
+  return prec.left(
+    PREC.UNARY,
+    seq(field("operator", choice("!", "~", "-", "+")), field("argument", rule))
+  );
+}
+
+function binaryExpression(rule) {
+  const table = [
+    ["+", PREC.ADD],
+    ["-", PREC.ADD],
+    ["*", PREC.MULTIPLY],
+    ["/", PREC.MULTIPLY],
+    ["%", PREC.MULTIPLY],
+    ["||", PREC.LOGICAL_OR],
+    ["&&", PREC.LOGICAL_AND],
+    ["|", PREC.INCLUSIVE_OR],
+    ["^", PREC.EXCLUSIVE_OR],
+    ["&", PREC.BITWISE_AND],
+    ["==", PREC.EQUAL],
+    ["!=", PREC.EQUAL],
+    [">", PREC.RELATIONAL],
+    [">=", PREC.RELATIONAL],
+    ["<=", PREC.RELATIONAL],
+    ["<", PREC.RELATIONAL],
+    ["<<", PREC.SHIFT],
+    [">>", PREC.SHIFT],
+    [">>>", PREC.SHIFT],
+  ];
+
+  return choice(
+    ...table.map(([operator, precedence]) => {
+      return prec.left(
+        precedence,
+        seq(
+          field("left", rule),
+          field("operator", operator),
+          field("right", rule)
+        )
+      );
+    })
+  );
 }

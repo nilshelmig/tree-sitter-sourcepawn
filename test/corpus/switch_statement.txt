@@ -6,7 +6,6 @@ public void OnPluginStart() {
     switch(i) {
         case 1:
             i++;
-            break;
         case 2:
             return;
         case Plugin_Handled:
@@ -31,26 +30,19 @@ public void OnPluginStart() {
       (switch_statement
         condition: (symbol)
         (switch_case
-          value: (switch_case_values
-            (int_literal)
-          )
+          value: (int_literal)
           (expression_statement
             (update_expression
               argument: (symbol)
             )
           )
-          (break_statement)
         )
         (switch_case
-          value: (switch_case_values
-            (int_literal)
-          )
+          value: (int_literal)
           (return_statement)
         )
         (switch_case
-          value: (switch_case_values
-            (symbol)
-          )
+          value: (symbol)
           (block
             (expression_statement
               (update_expression
@@ -74,7 +66,6 @@ public void OnPluginStart() {
     switch(i) {
         case 1:
             i++;
-            break;
         case 2:
             return;
         default:
@@ -99,23 +90,18 @@ public void OnPluginStart() {
       (switch_statement
         condition: (symbol)
         (switch_case
-          value: (switch_case_values
-            (int_literal)
-          )
+          value: (int_literal)
           (expression_statement
             (update_expression
               argument: (symbol)
             )
           )
-          (break_statement)
         )
         (switch_case
-          value: (switch_case_values
-            (int_literal)
-          )
+          value: (int_literal)
           (return_statement)
         )
-        (switch_default_case
+        (switch_case
           (block
             (expression_statement
               (update_expression
@@ -156,13 +142,11 @@ public void OnPluginStart() {
       (switch_statement
         condition: (symbol)
         (switch_case
-          value: (switch_case_values
-            (int_literal)
-            (int_literal)
-            (int_literal)
-            (int_literal)
-            (int_literal)
-          )
+          value: (int_literal)
+          value: (int_literal)
+          value: (int_literal)
+          value: (int_literal)
+          value: (int_literal)
           (return_statement)
         )
       )
@@ -200,7 +184,7 @@ public void OnPluginStart() {
 
 
 ==============================
-switch statement - parentheses
+switch statement - parenthesis
 ==============================
 
 void foo()
@@ -209,7 +193,11 @@ void foo()
 	{
 		case (BAZ):
     {
-      break;
+      return;
+    }
+    case ( 1 << 1 ):
+    {
+      return;
     }
 	}
 }
@@ -227,11 +215,88 @@ void foo()
       (switch_statement
         condition: (symbol)
         (switch_case
-          value: (switch_case_values
-            (symbol)
+          value: (parenthesized_expression
+            expression: (symbol)
           )
           (block
-            (break_statement)
+            (return_statement)
+          )
+        )
+        (switch_case
+          value: (parenthesized_expression
+            expression: (binary_expression
+              left: (int_literal)
+              right: (int_literal)
+            )
+          )
+          (block
+            (return_statement)
+          )
+        )
+      )
+    )
+  )
+)
+
+
+=====================================
+switch statement - complex expression
+=====================================
+
+void foo()
+{
+	switch(true)
+	{
+	  case (Handle:1):
+        1+1;
+    case !1 + 1 * 1:
+        1+1;
+	}
+}
+
+---
+
+(source_file
+  (function_definition
+    (type
+      (builtin_type)
+    )
+    (symbol)
+    (parameter_declarations)
+    (block
+      (switch_statement
+        (bool_literal)
+        (switch_case
+          (parenthesized_expression
+            (old_type_cast
+              (old_type
+                (symbol)
+              )
+              (int_literal)
+            )
+          )
+          (expression_statement
+            (binary_expression
+              (int_literal)
+              (int_literal)
+            )
+          )
+        )
+        (switch_case
+          (case_binary_expression
+            (case_unary_expression
+              (int_literal)
+            )
+            (case_binary_expression
+              (int_literal)
+              (int_literal)
+            )
+          )
+          (expression_statement
+            (binary_expression
+              (int_literal)
+              (int_literal)
+            )
           )
         )
       )
