@@ -118,7 +118,7 @@ void MyFunc() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (preproc_if
@@ -126,14 +126,14 @@ void MyFunc() {
       )
       (expression_statement
         (call_expression
-          function: (symbol)
+          function: (identifier)
           arguments: (call_arguments)
         )
       )
       (preproc_else)
       (expression_statement
         (call_expression
-          function: (symbol)
+          function: (identifier)
           arguments: (call_arguments)
         )
       )
@@ -163,18 +163,18 @@ enum
   (enum
     entries: (enum_entries
       (enum_entry
-        name: (symbol)
+        name: (identifier)
       )
       (preproc_if
         condition: (preproc_arg)
       )
       (enum_entry
-        name: (symbol)
+        name: (identifier)
         value: (int_literal)
       )
       (preproc_else)
       (enum_entry
-        name: (symbol)
+        name: (identifier)
         value: (int_literal)
       )
       (preproc_endif)
@@ -202,7 +202,7 @@ void MyFunc() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (preproc_if
@@ -210,7 +210,7 @@ void MyFunc() {
       )
       (expression_statement
         (call_expression
-          function: (symbol)
+          function: (identifier)
           arguments: (call_arguments)
         )
       )
@@ -219,7 +219,7 @@ void MyFunc() {
       )
       (expression_statement
         (call_expression
-          function: (symbol)
+          function: (identifier)
           arguments: (call_arguments)
         )
       )

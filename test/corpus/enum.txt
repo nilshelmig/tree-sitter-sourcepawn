@@ -13,16 +13,16 @@ enum NumberType
 
 (source_file
   (enum
-    name: (symbol)
+    name: (identifier)
     entries: (enum_entries
       (enum_entry
-        name: (symbol)
+        name: (identifier)
       )
       (enum_entry
-        name: (symbol)
+        name: (identifier)
       )
       (enum_entry
-        name: (symbol)
+        name: (identifier)
       )
     )
   )
@@ -44,17 +44,17 @@ enum NumberType
 
 (source_file
   (enum
-    name: (symbol)
+    name: (identifier)
     entries: (enum_entries
       (enum_entry
-        name: (symbol)
+        name: (identifier)
         value: (int_literal)
       )
       (enum_entry
-        name: (symbol)
+        name: (identifier)
       )
       (enum_entry
-        name: (symbol)
+        name: (identifier)
       )
     )
   )
@@ -76,18 +76,18 @@ enum NumberType
 
 (source_file
   (enum
-    name: (symbol)
+    name: (identifier)
     entries: (enum_entries
       (enum_entry
-        name: (symbol)
+        name: (identifier)
         value: (int_literal)
       )
       (enum_entry
-        name: (symbol)
+        name: (identifier)
         value: (int_literal)
       )
       (enum_entry
-        name: (symbol)
+        name: (identifier)
         value: (int_literal)
       )
     )
@@ -110,10 +110,10 @@ enum NumberType
 
 (source_file
   (enum
-    name: (symbol)
+    name: (identifier)
     entries: (enum_entries
       (enum_entry
-        name: (symbol)
+        name: (identifier)
         value: (parenthesized_expression
           expression: (binary_expression
             left: (int_literal)
@@ -122,14 +122,14 @@ enum NumberType
         )
       )
       (enum_entry
-        name: (symbol)
+        name: (identifier)
         value: (binary_expression
           left: (int_literal)
           right: (int_literal)
         )
       )
       (enum_entry
-        name: (symbol)
+        name: (identifier)
         value: (binary_expression
           left: (int_literal)
           right: (int_literal)
@@ -157,13 +157,13 @@ enum
   (enum
     entries: (enum_entries
       (enum_entry
-        name: (symbol)
+        name: (identifier)
       )
       (enum_entry
-        name: (symbol)
+        name: (identifier)
       )
       (enum_entry
-        name: (symbol)
+        name: (identifier)
       )
     )
   )
@@ -185,16 +185,16 @@ enum NumberType
 
 (source_file
   (enum
-    name: (symbol)
+    name: (identifier)
     entries: (enum_entries
       (enum_entry
-        name: (symbol)
+        name: (identifier)
       )
       (enum_entry
-        name: (symbol)
+        name: (identifier)
       )
       (enum_entry
-        name: (symbol)
+        name: (identifier)
       )
     )
   )
@@ -213,10 +213,10 @@ enum f_invulnmode {
 
 (source_file
   (enum
-    name: (symbol)
+    name: (identifier)
     entries: (enum_entries
       (enum_entry
-        name: (symbol)
+        name: (identifier)
       )
     )
   )
@@ -235,10 +235,10 @@ enum FOO: {
 
 (source_file
   (enum
-    name: (symbol)
+    name: (identifier)
     entries: (enum_entries
       (enum_entry
-        name: (symbol)
+        name: (identifier)
       )
     )
   )
@@ -258,10 +258,10 @@ enum FOO
 
 (source_file
   (enum
-    name: (symbol)
+    name: (identifier)
     entries: (enum_entries
       (enum_entry
-        name: (symbol)
+        name: (identifier)
         (fixed_dimension
           (int_literal)
         )
@@ -287,21 +287,21 @@ enum ChatColorInfo
 
 (source_file
   (enum
-    name: (symbol)
+    name: (identifier)
     entries: (enum_entries
       (enum_entry
-        name: (symbol)
+        name: (identifier)
       )
       (enum_entry
-        name: (symbol)
+        name: (identifier)
       )
       (enum_entry
         type: (builtin_type)
-        name: (symbol)
+        name: (identifier)
       )
       (enum_entry
-        type: (symbol)
-        name: (symbol)
+        type: (identifier)
+        name: (identifier)
       )
     )
   )
@@ -330,17 +330,17 @@ enum (+= 1000)
 
 (source_file
   (enum
-    name: (symbol)
+    name: (identifier)
     (int_literal)
     entries: (enum_entries
       (enum_entry
-        name: (symbol)
+        name: (identifier)
       )
       (enum_entry
-        name: (symbol)
+        name: (identifier)
       )
       (enum_entry
-        name: (symbol)
+        name: (identifier)
       )
     )
   )
@@ -348,14 +348,14 @@ enum (+= 1000)
     (int_literal)
     entries: (enum_entries
       (enum_entry
-        name: (symbol)
+        name: (identifier)
         value: (int_literal)
       )
       (enum_entry
-        name: (symbol)
+        name: (identifier)
       )
       (enum_entry
-        name: (symbol)
+        name: (identifier)
       )
     )
   )

@@ -16,45 +16,45 @@ enum struct MyStruct
 
 (source_file
   (enum_struct
-    name: (symbol)
+    name: (identifier)
     (enum_struct_field
       type: (type
         (builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
     )
     (enum_struct_field
       type: (type
         (builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
     )
     (enum_struct_field
       type: (type
         (builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
     )
     (enum_struct_field
       type: (type
         (builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
     )
     (enum_struct_field
       type: (type
         (builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
       (fixed_dimension
         (int_literal)
       )
     )
     (enum_struct_field
       type: (type
-        (symbol)
+        (identifier)
       )
-      name: (symbol)
+      name: (identifier)
     )
   )
 )
@@ -82,35 +82,35 @@ enum struct Rectangle
 
 (source_file
   (enum_struct
-    name: (symbol)
+    name: (identifier)
     (enum_struct_field
       type: (type
         (builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
     )
     (enum_struct_field
       type: (type
         (builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
     )
     (enum_struct_method
       returnType: (type
         (builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
       (parameter_declarations)
       body: (block
         (return_statement
           (binary_expression
             left: (field_access
               target: (this)
-              field: (symbol)
+              field: (identifier)
             )
             right: (field_access
               target: (this)
-              field: (symbol)
+              field: (identifier)
             )
           )
         )
@@ -121,18 +121,18 @@ enum struct Rectangle
         (builtin_type)
       )
       returnType: (dimension)
-      name: (symbol)
+      name: (identifier)
       (parameter_declarations)
       body: (block
         (return_statement
           (binary_expression
             left: (field_access
               target: (this)
-              field: (symbol)
+              field: (identifier)
             )
             right: (field_access
               target: (this)
-              field: (symbol)
+              field: (identifier)
             )
           )
         )
@@ -160,31 +160,31 @@ enum struct Rectangle
 
 (source_file
   (enum_struct
-    name: (symbol)
+    name: (identifier)
     (enum_struct_field
       type: (type
         (builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
     )
     (enum_struct_field
       type: (type
         (builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
     )
     (enum_struct_method
       returnType: (type
         (builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
       (parameter_declarations
         (parameter_declaration
           (variable_storage_class)
           type: (type
-            (symbol)
+            (identifier)
           )
-          name: (symbol)
+          name: (identifier)
         )
       )
       body: (block
@@ -192,22 +192,22 @@ enum struct Rectangle
           (binary_expression
             left: (binary_expression
               left: (field_access
-                target: (symbol)
-                field: (symbol)
+                target: (identifier)
+                field: (identifier)
               )
               right: (field_access
                 target: (this)
-                field: (symbol)
+                field: (identifier)
               )
             )
             right: (binary_expression
               left: (field_access
-                target: (symbol)
-                field: (symbol)
+                target: (identifier)
+                field: (identifier)
               )
               right: (field_access
                 target: (this)
-                field: (symbol)
+                field: (identifier)
               )
             )
           )

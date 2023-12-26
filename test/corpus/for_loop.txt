@@ -15,7 +15,7 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (for_statement
@@ -24,16 +24,16 @@ public void OnPluginStart() {
             (builtin_type)
           )
           (variable_declaration
-            name: (symbol)
+            name: (identifier)
             initialValue: (int_literal)
           )
         )
         condition: (binary_expression
-          left: (symbol)
+          left: (identifier)
           right: (int_literal)
         )
         iteration: (update_expression
-          argument: (symbol)
+          argument: (identifier)
         )
         (block)
       )
@@ -43,16 +43,16 @@ public void OnPluginStart() {
             (builtin_type)
           )
           (variable_declaration
-            name: (symbol)
+            name: (identifier)
             initialValue: (int_literal)
           )
         )
         condition: (binary_expression
-          left: (symbol)
-          right: (symbol)
+          left: (identifier)
+          right: (identifier)
         )
         iteration: (update_expression
-          argument: (symbol)
+          argument: (identifier)
         )
         (block)
       )
@@ -79,16 +79,16 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (for_statement
         condition: (binary_expression
-          left: (symbol)
+          left: (identifier)
           right: (int_literal)
         )
         iteration: (update_expression
-          argument: (symbol)
+          argument: (identifier)
         )
         (block)
       )
@@ -115,7 +115,7 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (for_statement
@@ -124,12 +124,12 @@ public void OnPluginStart() {
             (builtin_type)
           )
           (variable_declaration
-            name: (symbol)
+            name: (identifier)
             initialValue: (int_literal)
           )
         )
         iteration: (update_expression
-          argument: (symbol)
+          argument: (identifier)
         )
         (block)
       )
@@ -156,7 +156,7 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (for_statement
@@ -165,12 +165,12 @@ public void OnPluginStart() {
             (builtin_type)
           )
           (variable_declaration
-            name: (symbol)
+            name: (identifier)
             initialValue: (int_literal)
           )
         )
         condition: (binary_expression
-          left: (symbol)
+          left: (identifier)
           right: (int_literal)
         )
         (block)
@@ -198,7 +198,7 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (for_statement
@@ -227,7 +227,7 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (for_statement
@@ -258,7 +258,7 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (for_statement
@@ -287,7 +287,7 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (for_statement
@@ -314,20 +314,20 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (for_statement
         initialization: (assignment_expression
-          left: (symbol)
+          left: (identifier)
           right: (int_literal)
         )
         condition: (binary_expression
-          left: (symbol)
+          left: (identifier)
           right: (int_literal)
         )
         iteration: (update_expression
-          argument: (symbol)
+          argument: (identifier)
         )
         (break_statement)
       )
@@ -352,7 +352,7 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (for_statement
@@ -361,24 +361,24 @@ public void OnPluginStart() {
             (builtin_type)
           )
           (variable_declaration
-            name: (symbol)
+            name: (identifier)
             initialValue: (int_literal)
           )
           (variable_declaration
-            name: (symbol)
+            name: (identifier)
             initialValue: (int_literal)
           )
           (variable_declaration
-            name: (symbol)
+            name: (identifier)
             initialValue: (int_literal)
           )
         )
         condition: (binary_expression
-          left: (symbol)
+          left: (identifier)
           right: (int_literal)
         )
         iteration: (update_expression
-          argument: (symbol)
+          argument: (identifier)
         )
         (break_statement)
       )
@@ -410,7 +410,7 @@ public void OnPluginStart() {
     (type
       (builtin_type)
     )
-    (symbol)
+    (identifier)
     (parameter_declarations)
     (block
       (for_statement
@@ -419,34 +419,34 @@ public void OnPluginStart() {
             (builtin_type)
           )
           (variable_declaration
-            (symbol)
+            (identifier)
           )
           (variable_declaration
-            (symbol)
+            (identifier)
             (fixed_dimension
-              (symbol)
+              (identifier)
             )
           )
           (variable_declaration
-            (symbol)
+            (identifier)
             (field_access
               (array_indexed_access
                 (array_indexed_access
-                  (symbol)
-                  (symbol)
+                  (identifier)
+                  (identifier)
                 )
-                (symbol)
+                (identifier)
               )
-              (symbol)
+              (identifier)
             )
           )
         )
         (binary_expression
-          (symbol)
+          (identifier)
           (int_literal)
         )
         (update_expression
-          (symbol)
+          (identifier)
         )
         (break_statement)
       )
@@ -475,63 +475,63 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (for_statement
         initialization: (old_variable_declaration_statement
           (old_variable_declaration
-            name: (symbol)
+            name: (identifier)
             initialValue: (int_literal)
           )
         )
         condition: (binary_expression
-          left: (symbol)
+          left: (identifier)
           right: (int_literal)
         )
         iteration: (update_expression
-          argument: (symbol)
+          argument: (identifier)
         )
         (break_statement)
       )
       (for_statement
         initialization: (old_variable_declaration_statement
           (old_variable_declaration
-            name: (symbol)
+            name: (identifier)
             initialValue: (binary_expression
-              left: (symbol)
+              left: (identifier)
               right: (int_literal)
             )
           )
         )
         condition: (binary_expression
-          left: (symbol)
-          right: (symbol)
+          left: (identifier)
+          right: (identifier)
         )
         iteration: (update_expression
-          argument: (symbol)
+          argument: (identifier)
         )
         (block)
       )
       (for_statement
         initialization: (assignment_expression
-          left: (symbol)
+          left: (identifier)
           right: (int_literal)
         )
         initialization: (assignment_expression
-          left: (symbol)
+          left: (identifier)
           right: (int_literal)
         )
         condition: (binary_expression
-          left: (symbol)
+          left: (identifier)
           right: (int_literal)
         )
         iteration: (comma_expression
           left: (update_expression
-            argument: (symbol)
+            argument: (identifier)
           )
           right: (assignment_expression
-            left: (symbol)
+            left: (identifier)
             right: (int_literal)
           )
         )

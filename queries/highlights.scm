@@ -1,37 +1,37 @@
 ; Assume all-caps names are constants
-((symbol) @constant
+((identifier) @constant
  (#match? @constant "^[A-Z][A-Z\\d_]+$'"))
 
 ; Function definitions/declarations
 (function_definition
-  name: (symbol) @function)
+  name: (identifier) @function)
 (function_declaration
-  name: (symbol) @function)
+  name: (identifier) @function)
 (parameter_declaration
-  name: (symbol) @variable.parameter)
+  name: (identifier) @variable.parameter)
 
 ; Methods / Properties
 (field_access
-  field: (symbol) @field)
+  field: (identifier) @field)
 
 ; Function calls
 (call_expression
-  function: (symbol) @function)
+  function: (identifier) @function)
 (call_expression
   function: (field_access
-    field: (symbol) @method.call)) ; Must be after field_access
+    field: (identifier) @method.call)) ; Must be after field_access
 
 ; Types
 (builtin_type) @type.builtin
-(type (symbol) @type)
+(type (identifier) @type)
 (any_type) @type
 
 ; Variables
 (variable_storage_class) @storageclass
 (variable_declaration 
-  name: (symbol) @variable)
+  name: (identifier) @variable)
 (old_variable_declaration
-  name: (symbol) @variable)
+  name: (identifier) @variable)
 
 ; Preprocessor
 (preproc_include) @include
@@ -51,10 +51,10 @@
 (preproc_endinput) @preproc
 (preproc_define) @define
 (preproc_define
-  name: (symbol) @constant)
+  name: (identifier) @constant)
 (preproc_undefine) @define
 (preproc_undefine
-  name: (symbol) @constant)
+  name: (identifier) @constant)
 (preproc_error) @function.macro ; Wrong color?
 (preproc_warning) @function.macro ; Wrong color?
 
@@ -80,7 +80,7 @@
 
 ; General
 (parameter_declaration
-  defaultValue: (symbol) @constant)
+  defaultValue: (identifier) @constant)
 (fixed_dimension) @punctuation.bracket ; the [3] in var[3]
 (dimension) @punctuation.bracket
 (array_indexed_access) @punctuation.bracket
@@ -88,34 +88,34 @@
 
 ; Constructors
 (new_expression
-  class: (symbol) @type
+  class: (identifier) @type
   arguments: (call_arguments) @constructor)
 
 ; Methodmaps
 (methodmap) @type.definition
 (methodmap
-  name: (symbol) @type)
+  name: (identifier) @type)
 (methodmap
-  inherits: (symbol) @type)
+  inherits: (identifier) @type)
 (methodmap_method_constructor
-  name: (symbol) @constructor)
+  name: (identifier) @constructor)
 (methodmap_method
-  name: (symbol) @method)
+  name: (identifier) @method)
 (methodmap_native
-  name: (symbol) @method)
+  name: (identifier) @method)
 (methodmap_property
-  name: (symbol) @property)
+  name: (identifier) @property)
 (methodmap_property_getter) @method
 (methodmap_property_setter) @method
 
 ; Enum structs
 (enum_struct) @type.definition
 (enum_struct
-  name: (symbol) @type)
+  name: (identifier) @type)
 (enum_struct_field
-  name: (symbol) @field)
+  name: (identifier) @field)
 (enum_struct_method
-  name: (symbol) @method)
+  name: (identifier) @method)
 
 ; Non-type Keywords
 (variable_storage_class) @storageclass
@@ -175,7 +175,7 @@
 
 ; public Plugin myinfo
 (struct_declaration
-  name: (symbol) @variable.builtin)
+  name: (identifier) @variable.builtin)
 
 ; Typedef/Typedef
 (typeset) @type.definition
@@ -187,9 +187,9 @@
 ; Enums
 (enum) @type.definition
 (enum
-  name: (symbol) @type)
+  name: (identifier) @type)
 (enum_entry
-  name: (symbol) @constant)
+  name: (identifier) @constant)
 (enum_entry
   value: (_) @constant)
 
@@ -204,7 +204,7 @@
   (bool_literal)
   (null)
 ] @constant.builtin
-((symbol) @constant
+((identifier) @constant
   (#match? @constant "INVALID_HANDLE"))
 
 ; Comment specialisations (must be after comment)
@@ -252,4 +252,4 @@
   "while"
 ] @keyword
 
-(symbol) @variable
+(identifier) @variable

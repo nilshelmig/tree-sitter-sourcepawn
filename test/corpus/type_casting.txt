@@ -17,7 +17,7 @@ void Test() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (expression_statement
@@ -31,7 +31,7 @@ void Test() {
       (expression_statement
         (view_as
           type: (type
-            (symbol)
+            (identifier)
           )
           value: (int_literal)
         )
@@ -41,7 +41,7 @@ void Test() {
           type: (type
             (builtin_type)
           )
-          value: (symbol)
+          value: (identifier)
         )
       )
       (expression_statement
@@ -51,7 +51,7 @@ void Test() {
           )
           value: (field_access
             target: (this)
-            field: (symbol)
+            field: (identifier)
           )
         )
       )
@@ -61,7 +61,7 @@ void Test() {
             (builtin_type)
           )
           value: (new_expression
-            class: (symbol)
+            class: (identifier)
             arguments: (call_arguments)
           )
         )
@@ -85,7 +85,7 @@ int test = view_as<int>(2 < 5 && 10 > 8);
       (builtin_type)
     )
     (variable_declaration
-      name: (symbol)
+      name: (identifier)
       initialValue: (view_as
         type: (type
           (builtin_type)
@@ -120,7 +120,7 @@ bool test = view_as<bool>(view_as<int>(Plugin_Handled));
       (builtin_type)
     )
     (variable_declaration
-      name: (symbol)
+      name: (identifier)
       initialValue: (view_as
         type: (type
           (builtin_type)
@@ -129,7 +129,7 @@ bool test = view_as<bool>(view_as<int>(Plugin_Handled));
           type: (type
             (builtin_type)
           )
-          value: (symbol)
+          value: (identifier)
         )
       )
     )
@@ -152,7 +152,7 @@ void foo(){
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (expression_statement
@@ -161,12 +161,12 @@ void foo(){
             type: (type
               (builtin_type)
             )
-            value: (symbol)
+            value: (identifier)
           )
           right: (binary_expression
-            left: (symbol)
+            left: (identifier)
             right: (parenthesized_expression
-              expression: (symbol)
+              expression: (identifier)
             )
           )
         )
@@ -193,9 +193,9 @@ WormDirection:GetOppositeDirection() {
 (source_file
   (function_definition
     returnType: (old_type
-      (symbol)
+      (identifier)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (expression_statement
@@ -227,13 +227,13 @@ WormDirection:GetOppositeDirection() {
           type: (old_type
             (old_builtin_type)
           )
-          value: (symbol)
+          value: (identifier)
         )
       )
       (return_statement
         (old_type_cast
           type: (old_type
-            (symbol)
+            (identifier)
           )
           value: (int_literal)
         )
@@ -258,7 +258,7 @@ Float:GetOppositeDirection() {
     returnType: (old_type
       (old_builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (return_statement

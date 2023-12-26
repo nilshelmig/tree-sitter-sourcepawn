@@ -14,7 +14,7 @@ void foo() {
     (type
       (builtin_type)
     )
-    (symbol)
+    (identifier)
     (parameter_declarations)
     (block
       (variable_declaration_statement
@@ -22,14 +22,14 @@ void foo() {
           (builtin_type)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
         )
       )
       (expression_statement
         (assignment_expression
-          (symbol)
+          (identifier)
           (binary_expression
-            (symbol)
+            (identifier)
             (int_literal)
           )
         )
@@ -55,7 +55,7 @@ void foo() {
     (type
       (builtin_type)
     )
-    (symbol)
+    (identifier)
     (parameter_declarations)
     (block
       (variable_declaration_statement
@@ -63,20 +63,20 @@ void foo() {
           (builtin_type)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
         )
       )
       (expression_statement
         (comma_expression
           (binary_expression
-            (symbol)
+            (identifier)
             (int_literal)
           )
           (assignment_expression
-            (symbol)
+            (identifier)
             (int_literal)
           )
         )

@@ -23,30 +23,30 @@ void Test() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (expression_statement
         (assignment_expression
-          left: (symbol)
+          left: (identifier)
           right: (int_literal)
         )
       )
       (expression_statement
         (assignment_expression
-          left: (symbol)
+          left: (identifier)
           right: (int_literal)
         )
       )
       (expression_statement
         (assignment_expression
-          left: (symbol)
-          right: (symbol)
+          left: (identifier)
+          right: (identifier)
         )
       )
       (expression_statement
         (assignment_expression
-          left: (symbol)
+          left: (identifier)
           right: (unary_expression
             argument: (int_literal)
           )
@@ -54,7 +54,7 @@ void Test() {
       )
       (expression_statement
         (assignment_expression
-          left: (symbol)
+          left: (identifier)
           right: (binary_expression
             left: (int_literal)
             right: (int_literal)
@@ -64,7 +64,7 @@ void Test() {
       (expression_statement
         (assignment_expression
           left: (array_indexed_access
-            array: (symbol)
+            array: (identifier)
             index: (int_literal)
           )
           right: (int_literal)
@@ -72,31 +72,31 @@ void Test() {
       )
       (expression_statement
         (assignment_expression
-          left: (symbol)
+          left: (identifier)
           right: (int_literal)
         )
       )
       (expression_statement
         (assignment_expression
-          left: (symbol)
+          left: (identifier)
           right: (int_literal)
         )
       )
       (expression_statement
         (assignment_expression
-          left: (symbol)
+          left: (identifier)
           right: (int_literal)
         )
       )
       (expression_statement
         (assignment_expression
-          left: (symbol)
+          left: (identifier)
           right: (int_literal)
         )
       )
       (expression_statement
         (assignment_expression
-          left: (symbol)
+          left: (identifier)
           right: (int_literal)
         )
       )
@@ -123,25 +123,25 @@ void Test() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (expression_statement
         (assignment_expression
-          left: (symbol)
+          left: (identifier)
           right: (dynamic_array
             type: (builtin_type)
             (fixed_dimension
-              (symbol)
+              (identifier)
             )
           )
         )
       )
       (expression_statement
         (assignment_expression
-          left: (symbol)
+          left: (identifier)
           right: (new_expression
-            class: (symbol)
+            class: (identifier)
             arguments: (call_arguments)
           )
         )
@@ -151,16 +151,16 @@ void Test() {
           function: (field_access
             target: (parenthesized_expression
               expression: (new_expression
-                class: (symbol)
+                class: (identifier)
                 arguments: (call_arguments
-                  (symbol)
+                  (identifier)
                 )
               )
             )
-            field: (symbol)
+            field: (identifier)
           )
           arguments: (call_arguments
-            (symbol)
+            (identifier)
           )
         )
       )
@@ -185,13 +185,13 @@ void Test() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (expression_statement
         (assignment_expression
           left: (array_indexed_access
-            array: (symbol)
+            array: (identifier)
             index: (int_literal)
           )
           right: (int_literal)
@@ -200,11 +200,11 @@ void Test() {
       (expression_statement
         (assignment_expression
           left: (array_indexed_access
-            array: (symbol)
-            index: (symbol)
+            array: (identifier)
+            index: (identifier)
           )
           right: (call_expression
-            function: (symbol)
+            function: (identifier)
             arguments: (call_arguments
               (int_literal)
               (int_literal)
@@ -233,16 +233,16 @@ void Test() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (condition_statement
         condition: (binary_expression
           left: (parenthesized_expression
             expression: (assignment_expression
-              left: (symbol)
+              left: (identifier)
               right: (call_expression
-                function: (symbol)
+                function: (identifier)
                 arguments: (call_arguments)
               )
             )
@@ -253,9 +253,9 @@ void Test() {
       )
       (expression_statement
         (assignment_expression
-          left: (symbol)
+          left: (identifier)
           right: (assignment_expression
-            left: (symbol)
+            left: (identifier)
             right: (int_literal)
           )
         )

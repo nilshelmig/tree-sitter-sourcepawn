@@ -21,18 +21,18 @@ vec[] = {1, 2};
 (source_file
   (old_global_variable_declaration
     (old_variable_declaration
-      name: (symbol)
+      name: (identifier)
     )
   )
   (old_global_variable_declaration
     (variable_storage_class)
     (old_variable_declaration
-      name: (symbol)
+      name: (identifier)
     )
   )
   (old_global_variable_declaration
     (old_variable_declaration
-      name: (symbol)
+      name: (identifier)
     )
   )
   (old_global_variable_declaration
@@ -40,7 +40,7 @@ vec[] = {1, 2};
       type: (old_type
         (old_builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
       initialValue: (float_literal)
     )
   )
@@ -49,13 +49,13 @@ vec[] = {1, 2};
       type: (old_type
         (old_builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
       initialValue: (float_literal)
     )
   )
   (old_global_variable_declaration
     (old_variable_declaration
-      name: (symbol)
+      name: (identifier)
       initialValue: (binary_expression
         left: (int_literal)
         right: (int_literal)
@@ -67,7 +67,7 @@ vec[] = {1, 2};
       type: (old_type
         (old_builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
     )
   )
   (old_global_variable_declaration
@@ -75,54 +75,54 @@ vec[] = {1, 2};
       type: (old_type
         (old_builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
       initialValue: (int_literal)
     )
     (old_variable_declaration
       type: (old_type
         (old_builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
     )
     (old_variable_declaration
       type: (old_type
         (old_builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
       initialValue: (bool_literal)
     )
     (old_variable_declaration
       type: (old_type
         (old_builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
       initialValue: (char_literal)
     )
   )
   (old_global_variable_declaration
     (old_variable_declaration
       type: (old_type
-        (symbol)
+        (identifier)
       )
-      name: (symbol)
-      initialValue: (symbol)
+      name: (identifier)
+      initialValue: (identifier)
     )
   )
   (old_global_variable_declaration
     (old_variable_declaration
       type: (old_type
-        (symbol)
+        (identifier)
       )
-      name: (symbol)
-      initialValue: (symbol)
+      name: (identifier)
+      initialValue: (identifier)
     )
   )
   (old_global_variable_declaration
     (old_variable_declaration
-      name: (symbol)
+      name: (identifier)
       (fixed_dimension
         (binary_expression
-          left: (symbol)
+          left: (identifier)
           right: (int_literal)
         )
       )
@@ -130,7 +130,7 @@ vec[] = {1, 2};
   )
   (old_global_variable_declaration
     (old_variable_declaration
-      name: (symbol)
+      name: (identifier)
       (dimension)
       initialValue: (array_literal
         (int_literal)
@@ -163,7 +163,7 @@ static chatColorInfo[][ChatColorInfo] =
 (source_file
   (old_global_variable_declaration
     (old_variable_declaration
-      name: (symbol)
+      name: (identifier)
       (fixed_dimension
         (int_literal)
       )
@@ -171,10 +171,10 @@ static chatColorInfo[][ChatColorInfo] =
   )
   (old_global_variable_declaration
     (old_variable_declaration
-      name: (symbol)
+      name: (identifier)
       (fixed_dimension
         (binary_expression
-          left: (symbol)
+          left: (identifier)
           right: (int_literal)
         )
       )
@@ -185,7 +185,7 @@ static chatColorInfo[][ChatColorInfo] =
       type: (old_type
         (old_builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
       (fixed_dimension
         (int_literal)
       )
@@ -197,7 +197,7 @@ static chatColorInfo[][ChatColorInfo] =
       type: (old_type
         (old_builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
       (fixed_dimension
         (int_literal)
       )
@@ -210,7 +210,7 @@ static chatColorInfo[][ChatColorInfo] =
   )
   (old_global_variable_declaration
     (old_variable_declaration
-      name: (symbol)
+      name: (identifier)
       (dimension)
       initialValue: (array_literal
         (int_literal)
@@ -224,10 +224,10 @@ static chatColorInfo[][ChatColorInfo] =
   (old_global_variable_declaration
     (visibility)
     (old_variable_declaration
-      name: (symbol)
+      name: (identifier)
       (dimension)
       (fixed_dimension
-        (symbol)
+        (identifier)
       )
       initialValue: (array_literal
         (comment)
@@ -238,7 +238,7 @@ static chatColorInfo[][ChatColorInfo] =
           (int_literal)
           (comment)
           (bool_literal)
-          (symbol)
+          (identifier)
         )
         (comment)
         (array_literal
@@ -250,7 +250,7 @@ static chatColorInfo[][ChatColorInfo] =
           (bool_literal)
           (old_type_cast
             type: (old_type
-              (symbol)
+              (identifier)
             )
             value: (int_literal)
           )
@@ -263,7 +263,7 @@ static chatColorInfo[][ChatColorInfo] =
           (int_literal)
           (comment)
           (bool_literal)
-          (symbol)
+          (identifier)
         )
         (comment)
       )
@@ -283,7 +283,7 @@ new g_DefaultColors_c[7][4] = { {255,255,255,255}, {255,0,0,255}, {0,255,0,255},
 (source_file
   (old_global_variable_declaration
     (old_variable_declaration
-      name: (symbol)
+      name: (identifier)
       (fixed_dimension
         (int_literal)
       )
@@ -373,7 +373,7 @@ public numHaleKills = 0;
       (old_type
         (old_builtin_type)
       )
-      (symbol)
+      (identifier)
       (fixed_dimension
         (int_literal)
       )
@@ -382,7 +382,7 @@ public numHaleKills = 0;
   (old_global_variable_declaration
     (variable_storage_class)
     (old_variable_declaration
-      (symbol)
+      (identifier)
       (int_literal)
     )
   )
@@ -392,7 +392,7 @@ public numHaleKills = 0;
       (old_type
         (old_builtin_type)
       )
-      (symbol)
+      (identifier)
       (bool_literal)
     )
   )
@@ -400,7 +400,7 @@ public numHaleKills = 0;
     (visibility)
     (variable_storage_class)
     (old_variable_declaration
-      (symbol)
+      (identifier)
       (char_literal)
     )
   )
@@ -411,7 +411,7 @@ public numHaleKills = 0;
       (old_type
         (old_builtin_type)
       )
-      (symbol)
+      (identifier)
       (dimension)
       (comment)
       (comment)
@@ -422,7 +422,7 @@ public numHaleKills = 0;
     (visibility)
     (variable_storage_class)
     (old_variable_declaration
-      (symbol)
+      (identifier)
       (dimension)
       (array_literal
         (comment)
@@ -450,7 +450,7 @@ public numHaleKills = 0;
   (old_global_variable_declaration
     (visibility)
     (old_variable_declaration
-      (symbol)
+      (identifier)
       (dimension)
       (array_literal
         (binary_expression
@@ -494,7 +494,7 @@ public numHaleKills = 0;
   (old_global_variable_declaration
     (visibility)
     (old_variable_declaration
-      (symbol)
+      (identifier)
       (int_literal)
     )
   )
@@ -516,7 +516,7 @@ a
 (source_file
   (old_global_variable_declaration
     (old_variable_declaration
-      name: (symbol)
+      name: (identifier)
     )
   )
   (old_global_variable_declaration
@@ -524,7 +524,7 @@ a
       type: (old_type
         (old_builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
       initialValue: (bool_literal)
     )
   )
@@ -533,7 +533,7 @@ a
       type: (old_type
         (old_builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
       (fixed_dimension
         (int_literal)
       )
@@ -542,15 +542,15 @@ a
   (old_global_variable_declaration
     (old_variable_declaration
       type: (old_type
-        (symbol)
+        (identifier)
       )
-      name: (symbol)
-      initialValue: (symbol)
+      name: (identifier)
+      initialValue: (identifier)
     )
   )
   (old_global_variable_declaration
     (old_variable_declaration
-      name: (symbol)
+      name: (identifier)
     )
   )
 )

@@ -13,13 +13,13 @@ void Test() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (expression_statement
         (field_access
-          target: (symbol)
-          field: (symbol)
+          target: (identifier)
+          field: (identifier)
         )
       )
     )
@@ -44,24 +44,24 @@ enum struct Rectangle
 
 (source_file
   (enum_struct
-    name: (symbol)
+    name: (identifier)
     (enum_struct_field
       type: (type
         (builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
     )
     (enum_struct_method
       returnType: (type
         (builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
       (parameter_declarations)
       body: (block
         (return_statement
           (field_access
             target: (this)
-            field: (symbol)
+            field: (identifier)
           )
         )
       )
@@ -85,16 +85,16 @@ void Test() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (expression_statement
         (field_access
           target: (array_indexed_access
-            array: (symbol)
+            array: (identifier)
             index: (int_literal)
           )
-          field: (symbol)
+          field: (identifier)
         )
       )
     )
@@ -117,16 +117,16 @@ void Test() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (expression_statement
         (field_access
           target: (call_expression
-            function: (symbol)
+            function: (identifier)
             arguments: (call_arguments)
           )
-          field: (symbol)
+          field: (identifier)
         )
       )
     )

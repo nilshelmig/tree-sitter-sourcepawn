@@ -13,18 +13,18 @@ void SaveClose(Handle myhandle) {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
-          (symbol)
+          (identifier)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block
       (delete_statement
-        free: (symbol)
+        free: (identifier)
       )
     )
   )
@@ -46,22 +46,22 @@ void SaveClose(Handle[] myhandle) {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (array_type
           (type
-            (symbol)
+            (identifier)
           )
           (dimension)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block
       (delete_statement
         free: (array_indexed_access
-          array: (symbol)
+          array: (identifier)
           index: (int_literal)
         )
       )
@@ -85,22 +85,22 @@ void SaveClose(Handle myhandle) {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
-          (symbol)
+          (identifier)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block
       (delete_statement
         free: (view_as
           type: (type
-            (symbol)
+            (identifier)
           )
-          value: (symbol)
+          value: (identifier)
         )
       )
     )
@@ -123,12 +123,12 @@ methodmap Handle
 
 (source_file
   (methodmap
-    name: (symbol)
+    name: (identifier)
     (methodmap_method
       returnType: (type
         (builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
       (parameter_declarations)
       body: (block
         (delete_statement
@@ -155,18 +155,18 @@ methodmap Handle
 
 (source_file
   (methodmap
-    name: (symbol)
+    name: (identifier)
     (methodmap_method
       returnType: (type
         (builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
       (parameter_declarations)
       body: (block
         (delete_statement
           free: (field_access
             target: (this)
-            field: (symbol)
+            field: (identifier)
           )
         )
       )
@@ -190,17 +190,17 @@ methodmap Handle
 
 (source_file
   (methodmap
-    name: (symbol)
+    name: (identifier)
     (methodmap_method
       returnType: (type
         (builtin_type)
       )
-      name: (symbol)
+      name: (identifier)
       (parameter_declarations)
       body: (block
         (delete_statement
           free: (call_expression
-            function: (symbol)
+            function: (identifier)
             arguments: (call_arguments)
           )
         )

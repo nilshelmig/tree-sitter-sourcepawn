@@ -24,16 +24,16 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (switch_statement
-        condition: (symbol)
+        condition: (identifier)
         (switch_case
           value: (int_literal)
           (expression_statement
             (update_expression
-              argument: (symbol)
+              argument: (identifier)
             )
           )
         )
@@ -42,11 +42,11 @@ public void OnPluginStart() {
           (return_statement)
         )
         (switch_case
-          value: (symbol)
+          value: (identifier)
           (block
             (expression_statement
               (update_expression
-                argument: (symbol)
+                argument: (identifier)
               )
             )
             (return_statement)
@@ -84,16 +84,16 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (switch_statement
-        condition: (symbol)
+        condition: (identifier)
         (switch_case
           value: (int_literal)
           (expression_statement
             (update_expression
-              argument: (symbol)
+              argument: (identifier)
             )
           )
         )
@@ -105,7 +105,7 @@ public void OnPluginStart() {
           (block
             (expression_statement
               (update_expression
-                argument: (symbol)
+                argument: (identifier)
               )
             )
             (return_statement)
@@ -136,11 +136,11 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (switch_statement
-        condition: (symbol)
+        condition: (identifier)
         (switch_case
           value: (int_literal)
           value: (int_literal)
@@ -172,11 +172,11 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (switch_statement
-        condition: (symbol)
+        condition: (identifier)
       )
     )
   )
@@ -209,14 +209,14 @@ void foo()
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (switch_statement
-        condition: (symbol)
+        condition: (identifier)
         (switch_case
           value: (parenthesized_expression
-            expression: (symbol)
+            expression: (identifier)
           )
           (block
             (return_statement)
@@ -261,7 +261,7 @@ void foo()
     (type
       (builtin_type)
     )
-    (symbol)
+    (identifier)
     (parameter_declarations)
     (block
       (switch_statement
@@ -270,7 +270,7 @@ void foo()
           (parenthesized_expression
             (old_type_cast
               (old_type
-                (symbol)
+                (identifier)
               )
               (int_literal)
             )

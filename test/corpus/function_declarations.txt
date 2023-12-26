@@ -11,7 +11,7 @@ void MyFunc() {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block)
   )
@@ -34,7 +34,7 @@ void MyFunc()
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block)
   )
@@ -55,7 +55,7 @@ stock void MyFunc() {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block)
   )
@@ -76,7 +76,7 @@ static void MyFunc() {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block)
   )
@@ -98,7 +98,7 @@ static      stock void MyFunc2() {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block)
   )
@@ -107,7 +107,7 @@ static      stock void MyFunc2() {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block)
   )
@@ -129,7 +129,7 @@ stock     static void MyFunc2() {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block)
   )
@@ -138,7 +138,7 @@ stock     static void MyFunc2() {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block)
   )
@@ -162,7 +162,7 @@ bool MyFunc4() { return true; }
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (return_statement)
@@ -172,7 +172,7 @@ bool MyFunc4() { return true; }
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (return_statement
@@ -184,7 +184,7 @@ bool MyFunc4() { return true; }
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (return_statement
@@ -196,7 +196,7 @@ bool MyFunc4() { return true; }
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (return_statement
@@ -208,7 +208,7 @@ bool MyFunc4() { return true; }
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (return_statement
@@ -233,7 +233,7 @@ int[] MyFunc() { return; }
       (builtin_type)
     )
     returnType: (dimension)
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (return_statement)
@@ -256,7 +256,7 @@ bool:MyFunc4() { return true; }
 
 (source_file
   (function_definition
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (return_statement
@@ -268,7 +268,7 @@ bool:MyFunc4() { return true; }
     returnType: (old_type
       (old_builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (return_statement
@@ -280,7 +280,7 @@ bool:MyFunc4() { return true; }
     returnType: (old_type
       (old_builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (return_statement
@@ -292,7 +292,7 @@ bool:MyFunc4() { return true; }
     returnType: (old_type
       (old_builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (return_statement
@@ -304,7 +304,7 @@ bool:MyFunc4() { return true; }
     returnType: (old_type
       (old_builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (return_statement
@@ -316,7 +316,7 @@ bool:MyFunc4() { return true; }
 
 
 ==================
-symbol return type
+identifier return type
 ==================
 
 Handle MyFunc() { return INVALID_HANDLE; }
@@ -326,13 +326,13 @@ Handle MyFunc() { return INVALID_HANDLE; }
 (source_file
   (function_definition
     returnType: (type
-      (symbol)
+      (identifier)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (return_statement
-        (symbol)
+        (identifier)
       )
     )
   )
@@ -356,13 +356,13 @@ void MyFunc4(Handle args) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
@@ -371,13 +371,13 @@ void MyFunc4(Handle args) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
@@ -386,13 +386,13 @@ void MyFunc4(Handle args) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
@@ -401,13 +401,13 @@ void MyFunc4(Handle args) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
@@ -416,13 +416,13 @@ void MyFunc4(Handle args) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
-          (symbol)
+          (identifier)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
@@ -449,13 +449,13 @@ void MyFunc7(int mode=FOO|BAR|BAZ) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
         defaultValue: (int_literal)
       )
     )
@@ -465,13 +465,13 @@ void MyFunc7(int mode=FOO|BAR|BAZ) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
         defaultValue: (float_literal)
       )
     )
@@ -481,13 +481,13 @@ void MyFunc7(int mode=FOO|BAR|BAZ) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
         defaultValue: (char_literal)
       )
     )
@@ -497,13 +497,13 @@ void MyFunc7(int mode=FOO|BAR|BAZ) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
         defaultValue: (bool_literal)
       )
     )
@@ -513,14 +513,14 @@ void MyFunc7(int mode=FOO|BAR|BAZ) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
-          (symbol)
+          (identifier)
         )
-        name: (symbol)
-        defaultValue: (symbol)
+        name: (identifier)
+        defaultValue: (identifier)
       )
     )
     body: (block)
@@ -529,13 +529,13 @@ void MyFunc7(int mode=FOO|BAR|BAZ) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
         (fixed_dimension
           (int_literal)
         )
@@ -552,19 +552,19 @@ void MyFunc7(int mode=FOO|BAR|BAZ) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
         defaultValue: (binary_expression
           left: (binary_expression
-            left: (symbol)
-            right: (symbol)
+            left: (identifier)
+            right: (identifier)
           )
-          right: (symbol)
+          right: (identifier)
         )
       )
     )
@@ -588,76 +588,76 @@ MyFunc5(Action:args = Plugin_Handled) {}
 
 (source_file
   (function_definition
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
-        name: (symbol)
+        name: (identifier)
         defaultValue: (int_literal)
       )
     )
     body: (block)
   )
   (function_definition
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
         defaultValue: (int_literal)
       )
     )
     body: (block)
   )
   (function_definition
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
         defaultValue: (float_literal)
       )
     )
     body: (block)
   )
   (function_definition
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
         defaultValue: (char_literal)
       )
     )
     body: (block)
   )
   (function_definition
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
         defaultValue: (bool_literal)
       )
     )
     body: (block)
   )
   (function_definition
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (old_type
-          (symbol)
+          (identifier)
         )
-        name: (symbol)
-        defaultValue: (symbol)
+        name: (identifier)
+        defaultValue: (identifier)
       )
     )
     body: (block)
@@ -675,13 +675,13 @@ MyFunc(bool:args = bool:4) {}
 
 (source_file
   (function_definition
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
         defaultValue: (old_type_cast
           type: (old_type
             (old_builtin_type)
@@ -713,7 +713,7 @@ void MyFunc6(const Handle[][] a) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         (variable_storage_class)
@@ -723,7 +723,7 @@ void MyFunc6(const Handle[][] a) {}
           )
           (dimension)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
@@ -732,7 +732,7 @@ void MyFunc6(const Handle[][] a) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (array_type
@@ -741,7 +741,7 @@ void MyFunc6(const Handle[][] a) {}
           )
           (dimension)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
@@ -750,17 +750,17 @@ void MyFunc6(const Handle[][] a) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         (variable_storage_class)
         type: (array_type
           (type
-            (symbol)
+            (identifier)
           )
           (dimension)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
@@ -769,16 +769,16 @@ void MyFunc6(const Handle[][] a) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (array_type
           (type
-            (symbol)
+            (identifier)
           )
           (dimension)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
@@ -787,7 +787,7 @@ void MyFunc6(const Handle[][] a) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (array_type
@@ -797,7 +797,7 @@ void MyFunc6(const Handle[][] a) {}
           (dimension)
           (dimension)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
@@ -806,18 +806,18 @@ void MyFunc6(const Handle[][] a) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         (variable_storage_class)
         type: (array_type
           (type
-            (symbol)
+            (identifier)
           )
           (dimension)
           (dimension)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
@@ -838,13 +838,13 @@ void MyFunc(int &a) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
@@ -864,36 +864,36 @@ static stock MD5Transform(buf[], input[]) {}
 
 (source_file
   (function_definition
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
   )
   (function_definition
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
   )
   (function_definition
     (visibility)
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
-        name: (symbol)
+        name: (identifier)
         (dimension)
       )
       (parameter_declaration
-        name: (symbol)
+        name: (identifier)
         (dimension)
       )
     )
@@ -918,13 +918,13 @@ void MyFunc(char vec[MAX_PATH][3]) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
         (fixed_dimension
           (int_literal)
         )
@@ -936,13 +936,13 @@ void MyFunc(char vec[MAX_PATH][3]) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
         (fixed_dimension
           (int_literal)
         )
@@ -957,15 +957,15 @@ void MyFunc(char vec[MAX_PATH][3]) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
         (fixed_dimension
-          (symbol)
+          (identifier)
         )
       )
     )
@@ -975,15 +975,15 @@ void MyFunc(char vec[MAX_PATH][3]) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
         (fixed_dimension
-          (symbol)
+          (identifier)
         )
         (fixed_dimension
           (int_literal)
@@ -1009,58 +1009,58 @@ MyFunc4(bool:condition) {}
 
 (source_file
   (function_definition
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
   )
   (function_definition
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
   )
   (function_definition
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
   )
   (function_definition
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
   )
   (function_definition
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
@@ -1079,28 +1079,28 @@ MyFunc1(args, any:data) {}
 
 (source_file
   (function_definition
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (old_type
           (any_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
   )
   (function_definition
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
-        name: (symbol)
+        name: (identifier)
       )
       (parameter_declaration
         type: (old_type
           (any_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
@@ -1121,31 +1121,31 @@ void MyFunc(int a, float b, char c, bool d) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
@@ -1166,34 +1166,34 @@ void MyFunc(a, _:b, Float:c, String:d, bool:e) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
-        name: (symbol)
+        name: (identifier)
       )
       (parameter_declaration
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
       (parameter_declaration
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
       (parameter_declaration
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
       (parameter_declaration
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
@@ -1215,7 +1215,7 @@ void MyFunc2(const char[] format, any ...) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (rest_parameter
         type: (type
@@ -1229,7 +1229,7 @@ void MyFunc2(const char[] format, any ...) {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         (variable_storage_class)
@@ -1239,7 +1239,7 @@ void MyFunc2(const char[] format, any ...) {}
           )
           (dimension)
         )
-        name: (symbol)
+        name: (identifier)
       )
       (rest_parameter
         type: (type
@@ -1263,7 +1263,7 @@ MyFunc2(const String:format[], any:...) {}
 
 (source_file
   (function_definition
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (rest_parameter
         type: (old_type
@@ -1274,14 +1274,14 @@ MyFunc2(const String:format[], any:...) {}
     body: (block)
   )
   (function_definition
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         (variable_storage_class)
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
         (dimension)
       )
       (rest_parameter
@@ -1306,11 +1306,11 @@ public MyFunc2(color[4]) {}
 
 (source_file
   (function_definition
-    (symbol)
+    (identifier)
     (parameter_declarations
       (parameter_declaration
         (variable_storage_class)
-        (symbol)
+        (identifier)
         (fixed_dimension
           (int_literal)
         )
@@ -1326,10 +1326,10 @@ public MyFunc2(color[4]) {}
   )
   (function_definition
     (visibility)
-    (symbol)
+    (identifier)
     (parameter_declarations
       (parameter_declaration
-        (symbol)
+        (identifier)
         (fixed_dimension
           (int_literal)
         )

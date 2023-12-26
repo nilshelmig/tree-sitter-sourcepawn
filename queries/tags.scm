@@ -4,9 +4,9 @@
   .
   [
     (function_definition
-        name: (symbol) @name)
+        name: (identifier) @name)
     (function_declaration
-        name: (symbol) @name)
+        name: (identifier) @name)
   ] @definition.function
   (#strip! @doc "^[\\s\\*/]+|^[\\s\\*/]$")
   (#select-adjacent! @doc @definition.function)
@@ -17,13 +17,13 @@
   .
   [
     (enum_struct_method
-        name: (symbol) @name)
+        name: (identifier) @name)
     (methodmap_method
-        name: (symbol) @name)
+        name: (identifier) @name)
     (methodmap_method_constructor
-        name: (symbol) @name)
+        name: (identifier) @name)
     (methodmap_method_destructor
-        name: (symbol) @name)
+        name: (identifier) @name)
   ] @definition.method
   (#strip! @doc "^[\\s\\*/]+|^[\\s\\*/]$")
   (#select-adjacent! @doc @definition.method)
@@ -34,11 +34,11 @@
   .
   [
     (methodmap
-        name: (symbol) @name)
+        name: (identifier) @name)
     (enum_struct
-        name: (symbol) @name)
+        name: (identifier) @name)
     (enum
-        name: (symbol) @name)
+        name: (identifier) @name)
   ] @definition.class
   (#strip! @doc "^[\\s\\*/]+|^[\\s\\*/]$")
   (#select-adjacent! @doc @definition.class)
@@ -49,7 +49,7 @@
   .
   (global_variable_declaration
     (variable_declaration
-      name: (symbol) @name
+      name: (identifier) @name
     ) @definition.variable
   ) 
   (#strip! @doc "^[\\s\\*/]+|^[\\s\\*/]$")
@@ -58,62 +58,62 @@
 
 ; ADT items
 (methodmap
-  name: (symbol) @name) @definition.class
+  name: (identifier) @name) @definition.class
 
 (enum_struct
-  name: (symbol) @name) @definition.class
+  name: (identifier) @name) @definition.class
 
 (enum
-  name: (symbol) @name) @definition.class
+  name: (identifier) @name) @definition.class
 
 ; Method definitions
 (enum_struct_method
-  name: (symbol) @name) @definition.method
+  name: (identifier) @name) @definition.method
 (methodmap_method
-  name: (symbol) @name) @definition.method
+  name: (identifier) @name) @definition.method
 (methodmap_method_constructor
-  name: (symbol) @name) @definition.method
+  name: (identifier) @name) @definition.method
 (methodmap_method_destructor
-  name: (symbol) @name) @definition.method
+  name: (identifier) @name) @definition.method
 
 ; Variable definitions
 (global_variable_declaration
   (variable_declaration
-    name: (symbol) @name
+    name: (identifier) @name
   ) @definition.variable
 )
 
 ; Function definitions
 (function_definition
-  name: (symbol) @name) @definition.function
+  name: (identifier) @name) @definition.function
 (function_declaration
-  name: (symbol) @name) @definition.function
+  name: (identifier) @name) @definition.function
 
 ; Enum entries
 (enum_entry
-  name: (symbol) @name) @definition.constant
+  name: (identifier) @name) @definition.constant
 
 ; Typedef definitions
 (typeset
-  name: (symbol) @name) @definition.interface
+  name: (identifier) @name) @definition.interface
 (typedef
-  name: (symbol) @name) @definition.interface
+  name: (identifier) @name) @definition.interface
 (functag
-  name: (symbol) @name) @definition.interface
+  name: (identifier) @name) @definition.interface
 (funcenum
-  name: (symbol) @name) @definition.interface
+  name: (identifier) @name) @definition.interface
 
 ; Macro definitions
 (preproc_define
-  name: (symbol) @name) @definition.macro
+  name: (identifier) @name) @definition.macro
 (preproc_macro
-  name: (symbol) @name) @definition.macro
+  name: (identifier) @name) @definition.macro
 
 ; References
 (call_expression
-  function: (symbol) @name) @reference.call
+  function: (identifier) @name) @reference.call
 (call_expression
   function: (field_access
-    field: (symbol) @name)) @reference.call
+    field: (identifier) @name)) @reference.call
 (new_expression
-  class: (symbol) @name) @reference.class
+  class: (identifier) @name) @reference.class

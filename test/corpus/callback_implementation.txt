@@ -14,7 +14,7 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block)
   )
@@ -53,13 +53,13 @@ public void OnRebuildAdminCache(AdminCachePart part) {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
@@ -69,7 +69,7 @@ public void OnRebuildAdminCache(AdminCachePart part) {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (array_type
@@ -78,7 +78,7 @@ public void OnRebuildAdminCache(AdminCachePart part) {
           )
           (dimension)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
@@ -88,13 +88,13 @@ public void OnRebuildAdminCache(AdminCachePart part) {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
@@ -104,13 +104,13 @@ public void OnRebuildAdminCache(AdminCachePart part) {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
@@ -120,13 +120,13 @@ public void OnRebuildAdminCache(AdminCachePart part) {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
-          (symbol)
+          (identifier)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
@@ -150,13 +150,13 @@ public void OnClientSayCommand_Post(int client, const char[] command, char[] sAr
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
       (parameter_declaration
         (variable_storage_class)
@@ -166,7 +166,7 @@ public void OnClientSayCommand_Post(int client, const char[] command, char[] sAr
           )
           (dimension)
         )
-        name: (symbol)
+        name: (identifier)
       )
       (parameter_declaration
         type: (array_type
@@ -175,25 +175,25 @@ public void OnClientSayCommand_Post(int client, const char[] command, char[] sAr
           )
           (dimension)
         )
-        name: (symbol)
+        name: (identifier)
       )
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
         (fixed_dimension
           (int_literal)
         )
@@ -222,7 +222,7 @@ public Action Callback5() {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block)
   )
@@ -231,7 +231,7 @@ public Action Callback5() {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block)
   )
@@ -240,7 +240,7 @@ public Action Callback5() {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block)
   )
@@ -249,16 +249,16 @@ public Action Callback5() {}
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block)
   )
   (function_definition
     (visibility)
     returnType: (type
-      (symbol)
+      (identifier)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block)
   )
@@ -278,7 +278,7 @@ public OnPluginStart() {
 (source_file
   (function_definition
     (visibility)
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block)
   )
@@ -301,63 +301,63 @@ public Callback6(Handle:handle) {}
 (source_file
   (function_definition
     (visibility)
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
   )
   (function_definition
     (visibility)
-    name: (symbol)
-    parameters: (parameter_declarations
-      (parameter_declaration
-        type: (old_type
-          (old_builtin_type)
-        )
-        name: (symbol)
-      )
-    )
-    body: (block)
-  )
-  (function_definition
-    (visibility)
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
   )
   (function_definition
     (visibility)
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
   )
   (function_definition
     (visibility)
-    name: (symbol)
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (old_type
+          (old_builtin_type)
+        )
+        name: (identifier)
+      )
+    )
+    body: (block)
+  )
+  (function_definition
+    (visibility)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         (variable_storage_class)
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
         (dimension)
       )
     )
@@ -365,13 +365,13 @@ public Callback6(Handle:handle) {}
   )
   (function_definition
     (visibility)
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (old_type
-          (symbol)
+          (identifier)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
@@ -391,29 +391,29 @@ public Callback2(args, any:data) {}
 (source_file
   (function_definition
     (visibility)
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (old_type
           (any_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
   )
   (function_definition
     (visibility)
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
-        name: (symbol)
+        name: (identifier)
       )
       (parameter_declaration
         type: (old_type
           (any_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block)
@@ -437,7 +437,7 @@ public Action:Callback6() {}
 (source_file
   (function_definition
     (visibility)
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block)
   )
@@ -446,7 +446,7 @@ public Action:Callback6() {}
     returnType: (old_type
       (old_builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block)
   )
@@ -455,7 +455,7 @@ public Action:Callback6() {}
     returnType: (old_type
       (old_builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block)
   )
@@ -464,7 +464,7 @@ public Action:Callback6() {}
     returnType: (old_type
       (old_builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block)
   )
@@ -473,16 +473,16 @@ public Action:Callback6() {}
     returnType: (old_type
       (old_builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block)
   )
   (function_definition
     (visibility)
     returnType: (old_type
-      (symbol)
+      (identifier)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block)
   )
@@ -501,7 +501,7 @@ public Callback1() Test();
 (source_file
   (function_definition
     (visibility)
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (return_statement
       (int_literal)
@@ -509,11 +509,11 @@ public Callback1() Test();
   )
   (function_definition
     (visibility)
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (expression_statement
       (call_expression
-        function: (symbol)
+        function: (identifier)
         arguments: (call_arguments)
       )
     )

@@ -13,7 +13,7 @@ void MyFunc(int[] myvar) {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (array_type
@@ -22,13 +22,13 @@ void MyFunc(int[] myvar) {
           )
           (dimension)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block
       (expression_statement
         (array_indexed_access
-          array: (symbol)
+          array: (identifier)
           index: (int_literal)
         )
       )
@@ -53,7 +53,7 @@ void MyFunc(int[] myvar) {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (array_type
@@ -62,20 +62,20 @@ void MyFunc(int[] myvar) {
           )
           (dimension)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block
       (expression_statement
         (array_indexed_access
-          array: (symbol)
-          index: (symbol)
+          array: (identifier)
+          index: (identifier)
         )
       )
       (expression_statement
         (array_indexed_access
-          array: (symbol)
-          index: (symbol)
+          array: (identifier)
+          index: (identifier)
         )
       )
     )
@@ -98,7 +98,7 @@ void MyFunc(int[] myvar) {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (array_type
@@ -107,15 +107,15 @@ void MyFunc(int[] myvar) {
           )
           (dimension)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block
       (expression_statement
         (array_indexed_access
-          array: (symbol)
+          array: (identifier)
           index: (binary_expression
-            left: (symbol)
+            left: (identifier)
             right: (int_literal)
           )
         )
@@ -140,7 +140,7 @@ int MyFunc(int[] myvar) {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (array_type
@@ -149,15 +149,15 @@ int MyFunc(int[] myvar) {
           )
           (dimension)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block
       (return_statement
         (array_indexed_access
-          array: (symbol)
+          array: (identifier)
           index: (array_indexed_access
-            array: (symbol)
+            array: (identifier)
             index: (int_literal)
           )
         )
@@ -182,7 +182,7 @@ int MyFunc(int[][] myvar) {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (array_type
@@ -192,17 +192,17 @@ int MyFunc(int[][] myvar) {
           (dimension)
           (dimension)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block
       (return_statement
         (array_indexed_access
           array: (array_indexed_access
-            array: (symbol)
+            array: (identifier)
             index: (int_literal)
           )
-          index: (symbol)
+          index: (identifier)
         )
       )
     )
@@ -225,21 +225,21 @@ int MyFunc(File target) {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
-          (symbol)
+          (identifier)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
     body: (block
       (return_statement
         (array_indexed_access
           array: (field_access
-            target: (symbol)
-            field: (symbol)
+            target: (identifier)
+            field: (identifier)
           )
           index: (int_literal)
         )

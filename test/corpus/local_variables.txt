@@ -21,7 +21,7 @@ void Test() {
     (type
       (builtin_type)
     )
-    (symbol)
+    (identifier)
     (parameter_declarations)
     (block
       (variable_declaration_statement
@@ -29,7 +29,7 @@ void Test() {
           (builtin_type)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
         )
       )
       (variable_declaration_statement
@@ -37,7 +37,7 @@ void Test() {
           (builtin_type)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
         )
       )
       (variable_declaration_statement
@@ -45,7 +45,7 @@ void Test() {
           (builtin_type)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
         )
       )
       (variable_declaration_statement
@@ -53,7 +53,7 @@ void Test() {
           (builtin_type)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
         )
       )
       (variable_declaration_statement
@@ -62,7 +62,7 @@ void Test() {
         )
         (dimension)
         (dynamic_array_declaration
-          (symbol)
+          (identifier)
           (string_literal)
         )
       )
@@ -71,7 +71,7 @@ void Test() {
           (builtin_type)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
           (fixed_dimension
             (int_literal)
           )
@@ -82,10 +82,10 @@ void Test() {
           (builtin_type)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
           (fixed_dimension
             (binary_expression
-              (symbol)
+              (identifier)
               (int_literal)
             )
           )
@@ -93,21 +93,21 @@ void Test() {
       )
       (variable_declaration_statement
         (type
-          (symbol)
+          (identifier)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
         )
       )
       (variable_declaration_statement
         (type
-          (symbol)
+          (identifier)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
           (fixed_dimension
             (binary_expression
-              (symbol)
+              (identifier)
               (int_literal)
             )
           )
@@ -141,7 +141,7 @@ void Test() {
     (type
       (builtin_type)
     )
-    (symbol)
+    (identifier)
     (parameter_declarations)
     (block
       (variable_declaration_statement
@@ -149,7 +149,7 @@ void Test() {
           (builtin_type)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
           (int_literal)
         )
       )
@@ -158,7 +158,7 @@ void Test() {
           (builtin_type)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
           (binary_expression
             (int_literal)
             (int_literal)
@@ -170,7 +170,7 @@ void Test() {
           (builtin_type)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
           (binary_expression
             (int_literal)
             (int_literal)
@@ -182,7 +182,7 @@ void Test() {
           (builtin_type)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
           (float_literal)
         )
       )
@@ -191,7 +191,7 @@ void Test() {
           (builtin_type)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
           (char_literal)
         )
       )
@@ -200,16 +200,16 @@ void Test() {
           (builtin_type)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
           (bool_literal)
         )
       )
       (variable_declaration_statement
         (type
-          (symbol)
+          (identifier)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
           (null)
         )
       )
@@ -238,7 +238,7 @@ void Test() {
     (type
       (builtin_type)
     )
-    (symbol)
+    (identifier)
     (parameter_declarations)
     (block
       (variable_declaration_statement
@@ -247,7 +247,7 @@ void Test() {
         )
         (dimension)
         (dynamic_array_declaration
-          (symbol)
+          (identifier)
           (string_literal)
         )
       )
@@ -256,7 +256,7 @@ void Test() {
           (builtin_type)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
           (dimension)
           (array_literal
             (int_literal)
@@ -270,7 +270,7 @@ void Test() {
           (builtin_type)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
           (fixed_dimension
             (int_literal)
           )
@@ -286,9 +286,9 @@ void Test() {
           (builtin_type)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
           (fixed_dimension
-            (symbol)
+            (identifier)
           )
           (array_literal
             (bool_literal)
@@ -302,12 +302,12 @@ void Test() {
         )
         (dimension)
         (dynamic_array_declaration
-          (symbol)
+          (identifier)
           (dynamic_array
             (builtin_type)
             (fixed_dimension
               (binary_expression
-                (symbol)
+                (identifier)
                 (int_literal)
               )
             )
@@ -316,15 +316,15 @@ void Test() {
       )
       (variable_declaration_statement
         (type
-          (symbol)
+          (identifier)
         )
         (dimension)
         (dynamic_array_declaration
-          (symbol)
+          (identifier)
           (dynamic_array
-            (symbol)
+            (identifier)
             (fixed_dimension
-              (symbol)
+              (identifier)
             )
           )
         )
@@ -352,7 +352,7 @@ void Test() {
     (type
       (builtin_type)
     )
-    (symbol)
+    (identifier)
     (parameter_declarations)
     (block
       (variable_declaration_statement
@@ -362,7 +362,7 @@ void Test() {
           (builtin_type)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
           (int_literal)
         )
       )
@@ -370,10 +370,10 @@ void Test() {
         (visibility)
         (variable_storage_class)
         (type
-          (symbol)
+          (identifier)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
           (int_literal)
         )
       )
@@ -383,17 +383,17 @@ void Test() {
           (builtin_type)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
           (int_literal)
         )
       )
       (variable_declaration_statement
         (visibility)
         (type
-          (symbol)
+          (identifier)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
         )
       )
     )
@@ -419,7 +419,7 @@ void Test(){
     (type
       (builtin_type)
     )
-    (symbol)
+    (identifier)
     (parameter_declarations)
     (block
       (variable_declaration_statement
@@ -427,9 +427,9 @@ void Test(){
           (builtin_type)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
           (fixed_dimension
-            (symbol)
+            (identifier)
           )
           (fixed_dimension
             (int_literal)
@@ -441,9 +441,9 @@ void Test(){
           (builtin_type)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
           (fixed_dimension
-            (symbol)
+            (identifier)
           )
           (fixed_dimension
             (int_literal)
@@ -455,7 +455,7 @@ void Test(){
           (builtin_type)
         )
         (variable_declaration
-          (symbol)
+          (identifier)
           (dimension)
           (dimension)
           (array_literal
@@ -484,12 +484,12 @@ void Test(){
         (dimension)
         (dimension)
         (dynamic_array_declaration
-          (symbol)
+          (identifier)
           (dynamic_array
             (builtin_type)
             (fixed_dimension
               (binary_expression
-                (symbol)
+                (identifier)
                 (int_literal)
               )
             )

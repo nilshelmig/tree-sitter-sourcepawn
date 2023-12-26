@@ -14,18 +14,18 @@ int GetOppositeDirection() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (expression_statement
         (ternary_expression
           condition: (binary_expression
-            left: (symbol)
+            left: (identifier)
             right: (int_literal)
           )
-          consequence: (symbol)
+          consequence: (identifier)
           alternative: (call_expression
-            function: (symbol)
+            function: (identifier)
             arguments: (call_arguments)
           )
         )
@@ -33,11 +33,11 @@ int GetOppositeDirection() {
       (return_statement
         (ternary_expression
           condition: (binary_expression
-            left: (symbol)
+            left: (identifier)
             right: (int_literal)
           )
           consequence: (int_literal)
-          alternative: (symbol)
+          alternative: (identifier)
         )
       )
     )
@@ -62,34 +62,34 @@ int GetOppositeDirection() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (expression_statement
         (ternary_expression
           condition: (call_expression
-            function: (symbol)
+            function: (identifier)
             arguments: (call_arguments)
           )
-          consequence: (symbol)
+          consequence: (identifier)
           alternative: (int_literal)
         )
       )
       (old_variable_declaration_statement
         (old_variable_declaration
           type: (old_type
-            (symbol)
+            (identifier)
           )
-          name: (symbol)
+          name: (identifier)
           initialValue: (call_expression
-            function: (symbol)
+            function: (identifier)
             arguments: (call_arguments
               (string_literal)
-              (symbol)
+              (identifier)
               (parenthesized_expression
                 expression: (ternary_expression
-                  condition: (symbol)
-                  consequence: (symbol)
+                  condition: (identifier)
+                  consequence: (identifier)
                   alternative: (int_literal)
                 )
               )
@@ -100,7 +100,7 @@ int GetOppositeDirection() {
       (return_statement
         (ternary_expression
           condition: (binary_expression
-            left: (symbol)
+            left: (identifier)
             right: (int_literal)
           )
           consequence: (parenthesized_expression
@@ -114,7 +114,7 @@ int GetOppositeDirection() {
           alternative: (parenthesized_expression
             expression: (old_type_cast
               type: (old_type
-                (symbol)
+                (identifier)
               )
               value: (int_literal)
             )
@@ -145,23 +145,23 @@ int GetOppositeDirection() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (return_statement
         (ternary_expression
           condition: (binary_expression
-            left: (symbol)
+            left: (identifier)
             right: (int_literal)
           )
           consequence: (int_literal)
           alternative: (ternary_expression
             condition: (binary_expression
-              left: (symbol)
+              left: (identifier)
               right: (int_literal)
             )
             consequence: (int_literal)
-            alternative: (symbol)
+            alternative: (identifier)
           )
         )
       )

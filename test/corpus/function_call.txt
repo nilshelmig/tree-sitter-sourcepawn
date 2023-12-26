@@ -13,12 +13,12 @@ void Test() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (expression_statement
         (call_expression
-          function: (symbol)
+          function: (identifier)
           arguments: (call_arguments)
         )
       )
@@ -43,12 +43,12 @@ void Test() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (expression_statement
         (call_expression
-          function: (symbol)
+          function: (identifier)
           arguments: (call_arguments
             (string_literal)
           )
@@ -56,12 +56,12 @@ void Test() {
       )
       (expression_statement
         (call_expression
-          function: (symbol)
+          function: (identifier)
           arguments: (call_arguments
             (string_literal)
             (int_literal)
-            (symbol)
-            (symbol)
+            (identifier)
+            (identifier)
             (float_literal)
             (int_literal)
             (int_literal)
@@ -89,25 +89,25 @@ void Test() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (expression_statement
         (call_expression
-          function: (symbol)
+          function: (identifier)
           arguments: (call_arguments
             (string_literal)
             (named_arg
-              name: (symbol)
+              name: (identifier)
               value: (int_literal)
             )
             (named_arg
-              name: (symbol)
+              name: (identifier)
               value: (float_literal)
             )
             (named_arg
-              name: (symbol)
-              value: (symbol)
+              name: (identifier)
+              value: (identifier)
             )
           )
         )
@@ -132,12 +132,12 @@ void Test() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (expression_statement
         (call_expression
-          function: (symbol)
+          function: (identifier)
           arguments: (call_arguments
             (string_literal)
             (ignore_argument)
@@ -166,14 +166,14 @@ bool Test() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (return_statement
         (binary_expression
           left: (int_literal)
           right: (call_expression
-            function: (symbol)
+            function: (identifier)
             arguments: (call_arguments)
           )
         )
@@ -198,15 +198,15 @@ void Test() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (expression_statement
         (call_expression
-          function: (symbol)
+          function: (identifier)
           arguments: (call_arguments
             (call_expression
-              function: (symbol)
+              function: (identifier)
               arguments: (call_arguments)
             )
           )
@@ -233,7 +233,7 @@ int CurrentCount() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (variable_declaration_statement
@@ -241,9 +241,9 @@ int CurrentCount() {
           (builtin_type)
         )
         (variable_declaration
-          name: (symbol)
+          name: (identifier)
           initialValue: (call_expression
-            function: (symbol)
+            function: (identifier)
             arguments: (call_arguments)
           )
         )
@@ -271,14 +271,14 @@ void Test() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (expression_statement
         (call_expression
           function: (field_access
-            target: (symbol)
-            field: (symbol)
+            target: (identifier)
+            field: (identifier)
           )
           arguments: (call_arguments
             (string_literal)

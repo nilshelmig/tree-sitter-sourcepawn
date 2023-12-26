@@ -16,7 +16,7 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (while_statement
@@ -46,17 +46,17 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (while_statement
         condition: (binary_expression
           left: (binary_expression
-            left: (symbol)
+            left: (identifier)
             right: (int_literal)
           )
           right: (binary_expression
-            left: (symbol)
+            left: (identifier)
             right: (int_literal)
           )
         )
@@ -85,7 +85,7 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (while_statement
@@ -117,7 +117,7 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (while_statement
@@ -147,7 +147,7 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (while_statement

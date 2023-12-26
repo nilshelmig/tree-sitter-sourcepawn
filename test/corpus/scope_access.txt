@@ -14,29 +14,29 @@ void Test() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (variable_declaration_statement
         type: (type
-          (symbol)
+          (identifier)
         )
         (variable_declaration
-          name: (symbol)
+          name: (identifier)
         )
       )
       (expression_statement
         (call_expression
-          function: (symbol)
+          function: (identifier)
           arguments: (call_arguments
             (field_access
-              target: (symbol)
-              field: (symbol)
+              target: (identifier)
+              field: (identifier)
             )
             (sizeof_expression
               type: (scope_access
-                scope: (symbol)
-                field: (symbol)
+                scope: (identifier)
+                field: (identifier)
               )
             )
             (string_literal)
@@ -65,17 +65,17 @@ void Test() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (variable_declaration_statement
         type: (type
-          (symbol)
+          (identifier)
         )
         (variable_declaration
-          name: (symbol)
+          name: (identifier)
           initialValue: (new_expression
-            class: (symbol)
+            class: (identifier)
             arguments: (call_arguments)
           )
         )
@@ -83,14 +83,14 @@ void Test() {
       (expression_statement
         (call_expression
           function: (field_access
-            target: (symbol)
-            field: (symbol)
+            target: (identifier)
+            field: (identifier)
           )
           arguments: (call_arguments
             (int_literal)
             (scope_access
-              scope: (symbol)
-              field: (symbol)
+              scope: (identifier)
+              field: (identifier)
             )
           )
         )

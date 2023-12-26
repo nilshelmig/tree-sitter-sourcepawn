@@ -24,13 +24,13 @@ stock float operator--(float oper)
         (type
           (builtin_type)
         )
-        (symbol)
+        (identifier)
       )
     )
     (block
       (return_statement
         (binary_expression
-          (symbol)
+          (identifier)
           (float_literal)
         )
       )
@@ -45,13 +45,13 @@ stock float operator--(float oper)
         (type
           (builtin_type)
         )
-        (symbol)
+        (identifier)
       )
     )
     (block
       (return_statement
         (binary_expression
-          (symbol)
+          (identifier)
           (float_literal)
         )
       )
@@ -77,44 +77,44 @@ native float operator-(float oper1, float oper2) = FloatSub;
     (type
       (builtin_type)
     )
-    (symbol)
+    (identifier)
     (parameter_declarations
       (parameter_declaration
         (type
           (builtin_type)
         )
-        (symbol)
+        (identifier)
       )
       (parameter_declaration
         (type
           (builtin_type)
         )
-        (symbol)
+        (identifier)
       )
     )
-    (symbol)
+    (identifier)
   )
   (function_declaration
     (function_declaration_kind)
     (type
       (builtin_type)
     )
-    (symbol)
+    (identifier)
     (parameter_declarations
       (parameter_declaration
         (type
           (builtin_type)
         )
-        (symbol)
+        (identifier)
       )
       (parameter_declaration
         (type
           (builtin_type)
         )
-        (symbol)
+        (identifier)
       )
     )
-    (symbol)
+    (identifier)
   )
   (alias_assignment
     (function_declaration_kind)
@@ -125,16 +125,16 @@ native float operator-(float oper1, float oper2) = FloatSub;
         (type
           (builtin_type)
         )
-        (symbol)
+        (identifier)
       )
       (parameter_declaration
         (type
           (builtin_type)
         )
-        (symbol)
+        (identifier)
       )
     )
-    (symbol)
+    (identifier)
   )
   (alias_assignment
     (function_declaration_kind)
@@ -145,16 +145,16 @@ native float operator-(float oper1, float oper2) = FloatSub;
         (type
           (builtin_type)
         )
-        (symbol)
+        (identifier)
       )
       (parameter_declaration
         (type
           (builtin_type)
         )
-        (symbol)
+        (identifier)
       )
     )
-    (symbol)
+    (identifier)
   )
 )
 
@@ -176,13 +176,13 @@ forward operator%(float oper1, float oper2);
         (type
           (builtin_type)
         )
-        (symbol)
+        (identifier)
       )
       (parameter_declaration
         (type
           (builtin_type)
         )
-        (symbol)
+        (identifier)
       )
     )
   )
@@ -215,13 +215,13 @@ stock Float:operator*(Float:oper1, oper2)
         (old_type
           (old_builtin_type)
         )
-        (symbol)
+        (identifier)
       )
     )
     (block
       (return_statement
         (binary_expression
-          (symbol)
+          (identifier)
           (float_literal)
         )
       )
@@ -236,22 +236,22 @@ stock Float:operator*(Float:oper1, oper2)
         (old_type
           (old_builtin_type)
         )
-        (symbol)
+        (identifier)
       )
       (parameter_declaration
-        (symbol)
+        (identifier)
       )
     )
     (block
       (return_statement
         (call_expression
-          (symbol)
+          (identifier)
           (call_arguments
-            (symbol)
+            (identifier)
             (call_expression
-              (symbol)
+              (identifier)
               (call_arguments
-                (symbol)
+                (identifier)
               )
             )
           )
@@ -280,16 +280,16 @@ native Float:operator*(Float:oper1, Float:oper2) = FloatMul;
         (old_type
           (old_builtin_type)
         )
-        (symbol)
+        (identifier)
       )
       (parameter_declaration
         (old_type
           (old_builtin_type)
         )
-        (symbol)
+        (identifier)
       )
     )
-    (symbol)
+    (identifier)
   )
 )
 
@@ -311,13 +311,13 @@ forward operator%(Float:oper1, Float:oper2);
         (old_type
           (old_builtin_type)
         )
-        (symbol)
+        (identifier)
       )
       (parameter_declaration
         (old_type
           (old_builtin_type)
         )
-        (symbol)
+        (identifier)
       )
     )
   )

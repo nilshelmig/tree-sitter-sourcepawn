@@ -10,9 +10,9 @@
 
 ; Definitions
 (variable_declaration 
-  name: (symbol) @local.definition)
+  name: (identifier) @local.definition)
 (old_variable_declaration
-  name: (symbol) @local.definition)
+  name: (identifier) @local.definition)
 
 ; References
-(symbol) @local.reference
+(identifier) @local.reference

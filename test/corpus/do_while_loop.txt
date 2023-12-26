@@ -15,7 +15,7 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (do_while_statement
@@ -43,7 +43,7 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (do_while_statement
@@ -74,7 +74,7 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (do_while_statement
@@ -107,7 +107,7 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (do_while_statement
@@ -139,7 +139,7 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (do_while_statement
@@ -171,7 +171,7 @@ public void OnPluginStart() {
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
     body: (block
       (do_while_statement

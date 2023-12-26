@@ -13,7 +13,7 @@ char text[1028] = "This is a really long string of text that should be \
       (builtin_type)
     )
     (variable_declaration
-      name: (symbol)
+      name: (identifier)
       (fixed_dimension
         (int_literal)
       )
@@ -42,7 +42,7 @@ char text[1028] = "Version: " ... PLUGIN_VERSION ... " in development";
       (builtin_type)
     )
     (variable_declaration
-      name: (symbol)
+      name: (identifier)
       (fixed_dimension
         (int_literal)
       )
@@ -57,7 +57,7 @@ char text[1028] = "Version: " ... PLUGIN_VERSION ... " in development";
       (builtin_type)
     )
     (variable_declaration
-      name: (symbol)
+      name: (identifier)
       (fixed_dimension
         (int_literal)
       )
@@ -72,13 +72,13 @@ char text[1028] = "Version: " ... PLUGIN_VERSION ... " in development";
       (builtin_type)
     )
     (variable_declaration
-      name: (symbol)
+      name: (identifier)
       (fixed_dimension
         (int_literal)
       )
       initialValue: (concatenated_string
         left: (string_literal)
-        right: (symbol)
+        right: (identifier)
       )
     )
   )
@@ -87,14 +87,14 @@ char text[1028] = "Version: " ... PLUGIN_VERSION ... " in development";
       (builtin_type)
     )
     (variable_declaration
-      name: (symbol)
+      name: (identifier)
       (fixed_dimension
         (int_literal)
       )
       initialValue: (concatenated_string
         left: (string_literal)
         right: (concatenated_string
-          left: (symbol)
+          left: (identifier)
           right: (string_literal)
         )
       )

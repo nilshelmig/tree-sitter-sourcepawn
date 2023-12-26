@@ -17,7 +17,7 @@ forward Action MyFunc6();
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
   )
   (function_declaration
@@ -25,7 +25,7 @@ forward Action MyFunc6();
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
   )
   (function_declaration
@@ -33,7 +33,7 @@ forward Action MyFunc6();
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
   )
   (function_declaration
@@ -41,7 +41,7 @@ forward Action MyFunc6();
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
   )
   (function_declaration
@@ -49,15 +49,15 @@ forward Action MyFunc6();
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
   )
   (function_declaration
     (function_declaration_kind)
     returnType: (type
-      (symbol)
+      (identifier)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
   )
 )
@@ -84,13 +84,13 @@ forward void MyFunc8(char a[MAX_PATH]);
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
   )
@@ -99,31 +99,31 @@ forward void MyFunc8(char a[MAX_PATH]);
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
   )
@@ -132,13 +132,13 @@ forward void MyFunc8(char a[MAX_PATH]);
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
-          (symbol)
+          (identifier)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
   )
@@ -147,7 +147,7 @@ forward void MyFunc8(char a[MAX_PATH]);
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         (variable_storage_class)
@@ -157,7 +157,7 @@ forward void MyFunc8(char a[MAX_PATH]);
           )
           (dimension)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
   )
@@ -166,13 +166,13 @@ forward void MyFunc8(char a[MAX_PATH]);
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
   )
@@ -181,13 +181,13 @@ forward void MyFunc8(char a[MAX_PATH]);
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
         defaultValue: (int_literal)
       )
     )
@@ -197,13 +197,13 @@ forward void MyFunc8(char a[MAX_PATH]);
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
         (fixed_dimension
           (int_literal)
         )
@@ -215,15 +215,15 @@ forward void MyFunc8(char a[MAX_PATH]);
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (type
           (builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
         (fixed_dimension
-          (symbol)
+          (identifier)
         )
       )
     )
@@ -247,7 +247,7 @@ forward Action:MyFunc6();
 (source_file
   (function_declaration
     (function_declaration_kind)
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
   )
   (function_declaration
@@ -255,7 +255,7 @@ forward Action:MyFunc6();
     returnType: (old_type
       (old_builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
   )
   (function_declaration
@@ -263,7 +263,7 @@ forward Action:MyFunc6();
     returnType: (old_type
       (old_builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
   )
   (function_declaration
@@ -271,7 +271,7 @@ forward Action:MyFunc6();
     returnType: (old_type
       (old_builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
   )
   (function_declaration
@@ -279,15 +279,15 @@ forward Action:MyFunc6();
     returnType: (old_type
       (old_builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
   )
   (function_declaration
     (function_declaration_kind)
     returnType: (old_type
-      (symbol)
+      (identifier)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
   )
 )
@@ -312,109 +312,109 @@ forward MyFunc9(String:a[MAX_PATH]);
 (source_file
   (function_declaration
     (function_declaration_kind)
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
-        name: (symbol)
+        name: (identifier)
       )
     )
   )
   (function_declaration
     (function_declaration_kind)
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
       (parameter_declaration
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
       (parameter_declaration
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
       (parameter_declaration
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
   )
   (function_declaration
     (function_declaration_kind)
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (old_type
-          (symbol)
+          (identifier)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
   )
   (function_declaration
     (function_declaration_kind)
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         (variable_storage_class)
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
         (dimension)
       )
     )
   )
   (function_declaration
     (function_declaration_kind)
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
-        name: (symbol)
+        name: (identifier)
       )
     )
   )
   (function_declaration
     (function_declaration_kind)
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
   )
   (function_declaration
     (function_declaration_kind)
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
-        name: (symbol)
+        name: (identifier)
         defaultValue: (int_literal)
       )
     )
   )
   (function_declaration
     (function_declaration_kind)
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
         (fixed_dimension
           (int_literal)
         )
@@ -423,15 +423,15 @@ forward MyFunc9(String:a[MAX_PATH]);
   )
   (function_declaration
     (function_declaration_kind)
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
         (fixed_dimension
-          (symbol)
+          (identifier)
         )
       )
     )
@@ -454,13 +454,13 @@ forward void MyFunc2(_:client, any:data);
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (old_type
           (any_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
   )
@@ -469,19 +469,19 @@ forward void MyFunc2(_:client, any:data);
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         type: (old_type
           (old_builtin_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
       (parameter_declaration
         type: (old_type
           (any_type)
         )
-        name: (symbol)
+        name: (identifier)
       )
     )
   )
@@ -502,7 +502,7 @@ forward void MyFunc(any ...);
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (rest_parameter
         type: (type
@@ -528,7 +528,7 @@ forward void MyFunc()
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
   )
 )
@@ -553,7 +553,7 @@ native Action MyFunc6();
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
   )
   (function_declaration
@@ -561,7 +561,7 @@ native Action MyFunc6();
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
   )
   (function_declaration
@@ -569,7 +569,7 @@ native Action MyFunc6();
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
   )
   (function_declaration
@@ -577,7 +577,7 @@ native Action MyFunc6();
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
   )
   (function_declaration
@@ -585,15 +585,15 @@ native Action MyFunc6();
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
   )
   (function_declaration
     (function_declaration_kind)
     returnType: (type
-      (symbol)
+      (identifier)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
   )
 )
@@ -615,7 +615,7 @@ native Action:MyFunc6();
 (source_file
   (function_declaration
     (function_declaration_kind)
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
   )
   (function_declaration
@@ -623,7 +623,7 @@ native Action:MyFunc6();
     returnType: (old_type
       (old_builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
   )
   (function_declaration
@@ -631,7 +631,7 @@ native Action:MyFunc6();
     returnType: (old_type
       (old_builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
   )
   (function_declaration
@@ -639,7 +639,7 @@ native Action:MyFunc6();
     returnType: (old_type
       (old_builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
   )
   (function_declaration
@@ -647,15 +647,15 @@ native Action:MyFunc6();
     returnType: (old_type
       (old_builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
   )
   (function_declaration
     (function_declaration_kind)
     returnType: (old_type
-      (symbol)
+      (identifier)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
   )
 )
@@ -676,7 +676,7 @@ native void MyFunc2(const char[] format, any ...);
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (rest_parameter
         type: (type
@@ -690,7 +690,7 @@ native void MyFunc2(const char[] format, any ...);
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
         (variable_storage_class)
@@ -700,7 +700,7 @@ native void MyFunc2(const char[] format, any ...);
           )
           (dimension)
         )
-        name: (symbol)
+        name: (identifier)
       )
       (rest_parameter
         type: (type
@@ -726,7 +726,7 @@ native void MyFunc()
     returnType: (type
       (builtin_type)
     )
-    name: (symbol)
+    name: (identifier)
     parameters: (parameter_declarations)
   )
 )
