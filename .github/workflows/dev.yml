@@ -1,19 +1,19 @@
-name: Build WASM
+name: Test grammar and build wasm
 
 on:
   push:
     branches:
-      - dev
+      - main
   pull_request:
     branches:
-      - dev
+      - main
 
 env:
   EM_VERSION: 2.0.24
   EM_CACHE_FOLDER: "emsdk-cache"
 
 jobs:
-  deploy:
+  test:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -32,9 +32,6 @@ jobs:
           actions-cache-folder: ${{env.EM_CACHE_FOLDER}}
       - name: Get package version
         run: node -p -e '`PACKAGE_VERSION=${require("./package.json").version}`' >> $GITHUB_ENV
-      # - name: Changelog
-      #   id: changelog
-      #   uses: mindsers/changelog-reader-action@v2.0.0
       - name: Build parser
         run: npm run generate
       - name: Run tests
