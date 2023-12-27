@@ -192,7 +192,9 @@ void Test() {
         )
         (variable_declaration
           (identifier)
-          (char_literal)
+          (char_literal
+            (character)
+          )
         )
       )
       (variable_declaration_statement

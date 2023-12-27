@@ -45,7 +45,9 @@ comma expressions
 
 void foo() {
     int i, ii;
+    char bar[10];
     i + 1, ii += 1;
+    bar[1] = '\x0';
 }
 
 ---
@@ -69,6 +71,17 @@ void foo() {
           (identifier)
         )
       )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (identifier)
+          (fixed_dimension
+            (int_literal)
+          )
+        )
+      )
       (expression_statement
         (comma_expression
           (binary_expression
@@ -78,6 +91,17 @@ void foo() {
           (assignment_expression
             (identifier)
             (int_literal)
+          )
+        )
+      )
+      (expression_statement
+        (assignment_expression
+          (array_indexed_access
+            (identifier)
+            (int_literal)
+          )
+          (char_literal
+            (escape_sequence)
           )
         )
       )

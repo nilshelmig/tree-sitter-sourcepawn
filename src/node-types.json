@@ -487,6 +487,10 @@
         "required": true,
         "types": [
           {
+            "type": "%=",
+            "named": false
+          },
+          {
             "type": "&=",
             "named": false
           },
@@ -516,6 +520,10 @@
           },
           {
             "type": ">>=",
+            "named": false
+          },
+          {
+            "type": ">>>=",
             "named": false
           },
           {
@@ -1066,8 +1074,12 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": false,
+      "required": true,
       "types": [
+        {
+          "type": "character",
+          "named": true
+        },
         {
           "type": "escape_sequence",
           "named": true
@@ -3007,6 +3019,28 @@
           }
         ]
       },
+      "parameters": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "macro_param",
+            "named": true
+          }
+        ]
+      },
       "value": {
         "multiple": false,
         "required": true,
@@ -3017,16 +3051,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "macro_param",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -4159,6 +4183,10 @@
     "named": false
   },
   {
+    "type": "%=",
+    "named": false
+  },
+  {
     "type": "&",
     "named": false
   },
@@ -4287,6 +4315,10 @@
     "named": false
   },
   {
+    "type": ">>>=",
+    "named": false
+  },
+  {
     "type": "?",
     "named": false
   },
@@ -4353,6 +4385,10 @@
   {
     "type": "char",
     "named": false
+  },
+  {
+    "type": "character",
+    "named": true
   },
   {
     "type": "comment",

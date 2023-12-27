@@ -187,7 +187,9 @@ ConVar g_hAutoVipFlag = null;
     )
     (variable_declaration
       name: (identifier)
-      initialValue: (char_literal)
+      initialValue: (char_literal
+        (character)
+      )
     )
   )
   (global_variable_declaration
@@ -627,7 +629,9 @@ char j[10] = "whatever!", k[256];
     )
     (variable_declaration
       name: (identifier)
-      initialValue: (char_literal)
+      initialValue: (char_literal
+        (character)
+      )
     )
     (variable_declaration
       name: (identifier)

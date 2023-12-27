@@ -96,7 +96,9 @@ vec[] = {1, 2};
         (old_builtin_type)
       )
       name: (identifier)
-      initialValue: (char_literal)
+      initialValue: (char_literal
+        (character)
+      )
     )
   )
   (old_global_variable_declaration
@@ -401,7 +403,9 @@ public numHaleKills = 0;
     (variable_storage_class)
     (old_variable_declaration
       (identifier)
-      (char_literal)
+      (char_literal
+        (character)
+      )
     )
   )
   (old_global_variable_declaration

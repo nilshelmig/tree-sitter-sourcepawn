@@ -159,6 +159,22 @@ non valid expression defines
 )
 
 
+================================
+define with trailing parenthesis
+================================
+
+#define FOO() (test)
+
+---
+
+(source_file
+  (preproc_macro
+    (identifier)
+    (preproc_arg)
+  )
+)
+
+
 ============
 define macro
 ============
@@ -170,8 +186,8 @@ define macro
 (source_file
   (preproc_macro
     name: (identifier)
-    (macro_param)
-    (macro_param)
+    parameters: (macro_param)
+    parameters: (macro_param)
     value: (preproc_arg)
   )
 )
@@ -190,8 +206,8 @@ define macro multiline
 (source_file
   (preproc_macro
     name: (identifier)
-    (macro_param)
-    (macro_param)
+    parameters: (macro_param)
+    parameters: (macro_param)
     value: (preproc_arg)
   )
 )

@@ -200,7 +200,9 @@ bool MyFunc4() { return true; }
     parameters: (parameter_declarations)
     body: (block
       (return_statement
-        (char_literal)
+        (char_literal
+          (character)
+        )
       )
     )
   )
@@ -296,7 +298,9 @@ bool:MyFunc4() { return true; }
     parameters: (parameter_declarations)
     body: (block
       (return_statement
-        (char_literal)
+        (char_literal
+          (character)
+        )
       )
     )
   )
@@ -315,9 +319,9 @@ bool:MyFunc4() { return true; }
 )
 
 
-==================
+======================
 identifier return type
-==================
+======================
 
 Handle MyFunc() { return INVALID_HANDLE; }
 
@@ -488,7 +492,9 @@ void MyFunc7(int mode=FOO|BAR|BAZ) {}
           (builtin_type)
         )
         name: (identifier)
-        defaultValue: (char_literal)
+        defaultValue: (char_literal
+          (character)
+        )
       )
     )
     body: (block)
@@ -631,7 +637,9 @@ MyFunc5(Action:args = Plugin_Handled) {}
           (old_builtin_type)
         )
         name: (identifier)
-        defaultValue: (char_literal)
+        defaultValue: (char_literal
+          (character)
+        )
       )
     )
     body: (block)

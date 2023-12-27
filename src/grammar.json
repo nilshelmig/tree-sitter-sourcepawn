@@ -866,42 +866,53 @@
           }
         },
         {
-          "type": "IMMEDIATE_TOKEN",
+          "type": "FIELD",
+          "name": "parameters",
           "content": {
-            "type": "STRING",
-            "value": "("
-          }
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "macro_param"
-            },
-            {
-              "type": "REPEAT",
-              "content": {
-                "type": "SEQ",
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "("
+              },
+              {
+                "type": "CHOICE",
                 "members": [
                   {
-                    "type": "STRING",
-                    "value": ","
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "macro_param"
+                      },
+                      {
+                        "type": "REPEAT",
+                        "content": {
+                          "type": "SEQ",
+                          "members": [
+                            {
+                              "type": "STRING",
+                              "value": ","
+                            },
+                            {
+                              "type": "SYMBOL",
+                              "name": "macro_param"
+                            }
+                          ]
+                        }
+                      }
+                    ]
                   },
                   {
-                    "type": "SYMBOL",
-                    "name": "macro_param"
+                    "type": "BLANK"
                   }
                 ]
+              },
+              {
+                "type": "STRING",
+                "value": ")"
               }
-            }
-          ]
-        },
-        {
-          "type": "IMMEDIATE_TOKEN",
-          "content": {
-            "type": "STRING",
-            "value": ")"
+            ]
           }
         },
         {
@@ -5464,6 +5475,14 @@
                 {
                   "type": "STRING",
                   "value": ">>="
+                },
+                {
+                  "type": "STRING",
+                  "value": ">>>="
+                },
+                {
+                  "type": "STRING",
+                  "value": "%="
                 }
               ]
             }
@@ -8078,11 +8097,16 @@
               "name": "escape_sequence"
             },
             {
-              "type": "IMMEDIATE_TOKEN",
+              "type": "ALIAS",
               "content": {
-                "type": "PATTERN",
-                "value": "[^\\n']"
-              }
+                "type": "IMMEDIATE_TOKEN",
+                "content": {
+                  "type": "PATTERN",
+                  "value": "[^\\n']"
+                }
+              },
+              "named": true,
+              "value": "character"
             }
           ]
         },
@@ -8196,23 +8220,7 @@
               "members": [
                 {
                   "type": "PATTERN",
-                  "value": "[^xuU]"
-                },
-                {
-                  "type": "PATTERN",
-                  "value": "\\d{2,3}"
-                },
-                {
-                  "type": "PATTERN",
-                  "value": "x[0-9a-fA-F]{2,}"
-                },
-                {
-                  "type": "PATTERN",
-                  "value": "u[0-9a-fA-F]{4}"
-                },
-                {
-                  "type": "PATTERN",
-                  "value": "U[0-9a-fA-F]{8}"
+                  "value": "(?:[abefnrt'\\\"\\\\]|(?:x[a-zA-Z0-9]{0,2}|\\d+);?)"
                 }
               ]
             }

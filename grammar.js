@@ -96,51 +96,9 @@ module.exports = grammar({
     preproc_parenthesized_expression: ($) =>
       seq("(", $._preproc_expression, ")"),
 
-    preproc_unary_expression: ($) =>
-      prec.left(
-        PREC.UNARY,
-        seq(
-          field("operator", choice("!", "~", "-", "+")),
-          field("argument", $._preproc_expression)
-        )
-      ),
+    preproc_unary_expression: ($) => unaryExpression($._preproc_expression),
 
-    preproc_binary_expression: ($) => {
-      const table = [
-        ["+", PREC.ADD],
-        ["-", PREC.ADD],
-        ["*", PREC.MULTIPLY],
-        ["/", PREC.MULTIPLY],
-        ["%", PREC.MULTIPLY],
-        ["||", PREC.LOGICAL_OR],
-        ["&&", PREC.LOGICAL_AND],
-        ["|", PREC.INCLUSIVE_OR],
-        ["^", PREC.EXCLUSIVE_OR],
-        ["&", PREC.BITWISE_AND],
-        ["==", PREC.EQUAL],
-        ["!=", PREC.EQUAL],
-        [">", PREC.RELATIONAL],
-        [">=", PREC.RELATIONAL],
-        ["<=", PREC.RELATIONAL],
-        ["<", PREC.RELATIONAL],
-        ["<<", PREC.SHIFT],
-        [">>", PREC.SHIFT],
-        [">>>", PREC.SHIFT],
-      ];
-
-      return choice(
-        ...table.map(([operator, precedence]) => {
-          return prec.left(
-            precedence,
-            seq(
-              field("left", $._preproc_expression),
-              field("operator", operator),
-              field("right", $._preproc_expression)
-            )
-          );
-        })
-      );
-    },
+    preproc_binary_expression: ($) => binaryExpression($._preproc_expression),
 
     preproc_include: ($) =>
       seq(
@@ -158,9 +116,7 @@ module.exports = grammar({
       seq(
         preprocessor("define"),
         field("name", $.identifier),
-        token.immediate("("),
-        commaSep1($.macro_param),
-        token.immediate(")"),
+        field("parameters", seq("(", commaSep($.macro_param), ")")),
         field("value", $.preproc_arg)
       ),
 
@@ -1016,7 +972,9 @@ module.exports = grammar({
               "^=",
               "~=",
               "<<=",
-              ">>="
+              ">>=",
+              ">>>=",
+              "%="
             )
           ),
           field("right", choice($._expression, $.dynamic_array))
@@ -1258,7 +1216,14 @@ module.exports = grammar({
     },
 
     char_literal: ($) =>
-      seq("'", choice($.escape_sequence, token.immediate(/[^\n']/)), "'"),
+      seq(
+        "'",
+        choice(
+          $.escape_sequence,
+          alias(token.immediate(/[^\n']/), $.character)
+        ),
+        "'"
+      ),
 
     concatenated_string: ($) =>
       prec.left(
@@ -1285,16 +1250,7 @@ module.exports = grammar({
       token(
         prec(
           1,
-          seq(
-            "\\",
-            choice(
-              /[^xuU]/,
-              /\d{2,3}/,
-              /x[0-9a-fA-F]{2,}/,
-              /u[0-9a-fA-F]{4}/,
-              /U[0-9a-fA-F]{8}/
-            )
-          )
+          seq("\\", choice(/(?:[abefnrt'\"\\]|(?:x[a-zA-Z0-9]{0,2}|\d+);?)/))
         )
       ),
 
