@@ -2572,13 +2572,9 @@
     "named": true,
     "fields": {
       "defaultValue": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
-          {
-            "type": "=",
-            "named": false
-          },
           {
             "type": "_expression",
             "named": true

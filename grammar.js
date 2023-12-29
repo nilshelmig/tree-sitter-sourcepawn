@@ -225,7 +225,7 @@ module.exports = grammar({
             repeat(choice($.dimension, $.fixed_dimension))
           ) // float foo | float foo[]
         ),
-        field("defaultValue", optional(seq("=", $._expression)))
+        optional(seq("=", field("defaultValue", $._expression)))
       ),
 
     rest_parameter: ($) =>
