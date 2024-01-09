@@ -1506,6 +1506,16 @@
           }
         ]
       },
+      "parameters": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "parameter_declarations",
+            "named": true
+          }
+        ]
+      },
       "returnType": {
         "multiple": true,
         "required": true,
@@ -1520,16 +1530,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "parameter_declarations",
-          "named": true
-        }
-      ]
     }
   },
   {

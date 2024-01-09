@@ -56,7 +56,7 @@ enum struct Rectangle
         (builtin_type)
       )
       name: (identifier)
-      (parameter_declarations)
+      parameters: (parameter_declarations)
       body: (block
         (return_statement
           (field_access

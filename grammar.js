@@ -482,7 +482,7 @@ module.exports = grammar({
       seq(
         field("returnType", seq($.type, repeat($.dimension))),
         field("name", $.identifier),
-        $.parameter_declarations,
+        field("parameters", $.parameter_declarations),
         field("body", $.block)
       ),
 

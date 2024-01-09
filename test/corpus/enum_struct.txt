@@ -100,7 +100,7 @@ enum struct Rectangle
         (builtin_type)
       )
       name: (identifier)
-      (parameter_declarations)
+      parameters: (parameter_declarations)
       body: (block
         (return_statement
           (binary_expression
@@ -122,7 +122,7 @@ enum struct Rectangle
       )
       returnType: (dimension)
       name: (identifier)
-      (parameter_declarations)
+      parameters: (parameter_declarations)
       body: (block
         (return_statement
           (binary_expression
@@ -178,7 +178,7 @@ enum struct Rectangle
         (builtin_type)
       )
       name: (identifier)
-      (parameter_declarations
+      parameters: (parameter_declarations
         (parameter_declaration
           (variable_storage_class)
           type: (type
