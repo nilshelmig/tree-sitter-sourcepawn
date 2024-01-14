@@ -8,12 +8,19 @@ char text[1028] = "This is a really long string of text that should be \
 ---
 
 (source_file
-    (global_variable_declaration type: (type (builtin_type))
-        (variable_declaration
-            name: (symbol)
-            (fixed_dimension (int_literal))
-            initialValue: (string_literal))
-        ))
+  (global_variable_declaration
+    type: (type
+      (builtin_type)
+    )
+    (variable_declaration
+      name: (identifier)
+      (fixed_dimension
+        (int_literal)
+      )
+      initialValue: (string_literal)
+    )
+  )
+)
 
 
 ===============================
@@ -30,37 +37,67 @@ char text[1028] = "Version: " ... PLUGIN_VERSION ... " in development";
 ---
 
 (source_file
-    (global_variable_declaration type: (type (builtin_type))
-        (variable_declaration
-            name: (symbol)
-            (fixed_dimension (int_literal))
-            initialValue: (concatenated_string
-                left: (string_literal)
-                right: (string_literal)))
+  (global_variable_declaration
+    type: (type
+      (builtin_type)
+    )
+    (variable_declaration
+      name: (identifier)
+      (fixed_dimension
+        (int_literal)
+      )
+      initialValue: (concatenated_string
+        left: (string_literal)
+        right: (string_literal)
+      )
+    )
+  )
+  (global_variable_declaration
+    type: (type
+      (builtin_type)
+    )
+    (variable_declaration
+      name: (identifier)
+      (fixed_dimension
+        (int_literal)
+      )
+      initialValue: (concatenated_string
+        left: (string_literal)
+        right: (string_literal)
+      )
+    )
+  )
+  (global_variable_declaration
+    type: (type
+      (builtin_type)
+    )
+    (variable_declaration
+      name: (identifier)
+      (fixed_dimension
+        (int_literal)
+      )
+      initialValue: (concatenated_string
+        left: (string_literal)
+        right: (identifier)
+      )
+    )
+  )
+  (global_variable_declaration
+    type: (type
+      (builtin_type)
+    )
+    (variable_declaration
+      name: (identifier)
+      (fixed_dimension
+        (int_literal)
+      )
+      initialValue: (concatenated_string
+        left: (string_literal)
+        right: (concatenated_string
+          left: (identifier)
+          right: (string_literal)
         )
-    (global_variable_declaration type: (type (builtin_type))
-        (variable_declaration
-            name: (symbol)
-            (fixed_dimension (int_literal))
-            initialValue: (concatenated_string
-                left: (string_literal)
-                right: (string_literal)))
-        )
-    (global_variable_declaration type: (type (builtin_type))
-        (variable_declaration
-            name: (symbol)
-            (fixed_dimension (int_literal))
-            initialValue: (concatenated_string
-                left: (string_literal)
-                right: (symbol)))
-        )
-    (global_variable_declaration type: (type (builtin_type))
-        (variable_declaration
-            name: (symbol)
-            (fixed_dimension (int_literal))
-            initialValue: (concatenated_string
-                left: (string_literal)
-                right: (concatenated_string
-                    left: (symbol)
-                    right: (string_literal))))
-        ))
+      )
+    )
+  )
+)

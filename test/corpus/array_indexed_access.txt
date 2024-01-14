@@ -9,19 +9,32 @@ void MyFunc(int[] myvar) {
 ---
 
 (source_file
-  (function_declaration
-    returnType: (type (builtin_type))
-    name: (symbol)
-    arguments: (argument_declarations
-        (argument_declaration
-            type: (argument_type (type (builtin_type)) (dimension))
-            name: (symbol)))
-    (block
-        (expression_statement
-            (array_indexed_access
-                array: (symbol)
-                index: (int_literal))
-            ))))
+  (function_definition
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (array_type
+          (type
+            (builtin_type)
+          )
+          (dimension)
+        )
+        name: (identifier)
+      )
+    )
+    body: (block
+      (expression_statement
+        (array_indexed_access
+          array: (identifier)
+          index: (int_literal)
+        )
+      )
+    )
+  )
+)
 
 
 ==============================
@@ -36,24 +49,38 @@ void MyFunc(int[] myvar) {
 ---
 
 (source_file
-  (function_declaration
-    returnType: (type (builtin_type))
-    name: (symbol)
-    arguments: (argument_declarations
-        (argument_declaration
-            type: (argument_type (type (builtin_type)) (dimension))
-            name: (symbol)))
-    (block
-        (expression_statement
-            (array_indexed_access
-                array: (symbol)
-                index: (symbol))
-            )
-        (expression_statement
-            (array_indexed_access
-                array: (symbol)
-                index: (symbol))
-            ))))
+  (function_definition
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (array_type
+          (type
+            (builtin_type)
+          )
+          (dimension)
+        )
+        name: (identifier)
+      )
+    )
+    body: (block
+      (expression_statement
+        (array_indexed_access
+          array: (identifier)
+          index: (identifier)
+        )
+      )
+      (expression_statement
+        (array_indexed_access
+          array: (identifier)
+          index: (identifier)
+        )
+      )
+    )
+  )
+)
 
 
 =================================
@@ -67,21 +94,35 @@ void MyFunc(int[] myvar) {
 ---
 
 (source_file
-  (function_declaration
-    returnType: (type (builtin_type))
-    name: (symbol)
-    arguments: (argument_declarations
-        (argument_declaration
-            type: (argument_type (type (builtin_type)) (dimension))
-            name: (symbol)))
-    (block
-        (expression_statement
-            (array_indexed_access
-                array: (symbol)
-                index: (binary_expression
-                    left: (symbol)
-                    right: (int_literal)))
-            ))))
+  (function_definition
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (array_type
+          (type
+            (builtin_type)
+          )
+          (dimension)
+        )
+        name: (identifier)
+      )
+    )
+    body: (block
+      (expression_statement
+        (array_indexed_access
+          array: (identifier)
+          index: (binary_expression
+            left: (identifier)
+            right: (int_literal)
+          )
+        )
+      )
+    )
+  )
+)
 
 
 ==================================
@@ -95,21 +136,35 @@ int MyFunc(int[] myvar) {
 ---
 
 (source_file
-  (function_declaration
-    returnType: (type (builtin_type))
-    name: (symbol)
-    arguments: (argument_declarations
-        (argument_declaration
-            type: (argument_type (type (builtin_type)) (dimension))
-            name: (symbol)))
-    (block
-        (return_statement
-            (array_indexed_access
-                array: (symbol)
-                index: (array_indexed_access
-                    array: (symbol)
-                    index: (int_literal)))
-            ))))
+  (function_definition
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (array_type
+          (type
+            (builtin_type)
+          )
+          (dimension)
+        )
+        name: (identifier)
+      )
+    )
+    body: (block
+      (return_statement
+        (array_indexed_access
+          array: (identifier)
+          index: (array_indexed_access
+            array: (identifier)
+            index: (int_literal)
+          )
+        )
+      )
+    )
+  )
+)
 
 
 ======================================
@@ -123,21 +178,36 @@ int MyFunc(int[][] myvar) {
 ---
 
 (source_file
-  (function_declaration
-    returnType: (type (builtin_type))
-    name: (symbol)
-    arguments: (argument_declarations
-        (argument_declaration
-            type: (argument_type (type (builtin_type)) (dimension) (dimension))
-            name: (symbol)))
-    (block
-        (return_statement
-            (array_indexed_access
-                    array: (array_indexed_access
-                        array: (symbol)
-                        index: (int_literal))
-                    index: (symbol))
-            ))))
+  (function_definition
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (array_type
+          (type
+            (builtin_type)
+          )
+          (dimension)
+          (dimension)
+        )
+        name: (identifier)
+      )
+    )
+    body: (block
+      (return_statement
+        (array_indexed_access
+          array: (array_indexed_access
+            array: (identifier)
+            index: (int_literal)
+          )
+          index: (identifier)
+        )
+      )
+    )
+  )
+)
 
 
 ======================================
@@ -151,19 +221,29 @@ int MyFunc(File target) {
 ---
 
 (source_file
-  (function_declaration
-    returnType: (type (builtin_type))
-    name: (symbol)
-    arguments: (argument_declarations
-        (argument_declaration
-            type: (argument_type (type (symbol)))
-            name: (symbol)))
-    (block
-        (return_statement
-            (array_indexed_access
-                    array: (field_access
-                        target: (symbol)
-                        field: (symbol))
-                    index: (int_literal))
-            ))))
-        
+  (function_definition
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (type
+          (identifier)
+        )
+        name: (identifier)
+      )
+    )
+    body: (block
+      (return_statement
+        (array_indexed_access
+          array: (field_access
+            target: (identifier)
+            field: (identifier)
+          )
+          index: (int_literal)
+        )
+      )
+    )
+  )
+)

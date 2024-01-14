@@ -1,16 +1,18 @@
-; I'm not super clear what this file is supposed to contain.
-; Seems like it defines scope and types of definitions to help treesitter
-; figure out highlighting even better?
-;
-; But it's not very clear what I should be putting here.
+[
+  (function_definition)
+  (alias_declaration)
+  (enum_struct_method)
+  (methodmap_method)
+  (methodmap_method_constructor)
+  (methodmap_method_destructor)
+  (methodmap_property_method)
+] @local.scope
 
-;(function_declaration) @definition.function
-;(function_definition) @definition.function
+; Definitions
+(variable_declaration 
+  name: (identifier) @local.definition)
+(old_variable_declaration
+  name: (identifier) @local.definition)
 
-;(argument_declaration
-;  name: (symbol) @definition.parameter)
-
-;(variable_declaration
-;  name: (symbol) @definition.var)
-
-;(block) @scope
+; References
+(identifier) @local.reference

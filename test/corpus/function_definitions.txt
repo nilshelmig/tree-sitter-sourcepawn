@@ -12,42 +12,55 @@ forward Action MyFunc6();
 ---
 
 (source_file
-    (function_definition
-        (function_definition_type)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        )
-    (function_definition
-        (function_definition_type)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        )
-    (function_definition
-        (function_definition_type)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        )
-    (function_definition
-        (function_definition_type)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        )
-    (function_definition
-        (function_definition_type)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        )
-    (function_definition
-        (function_definition_type)
-        returnType: (type (symbol))
-        name: (symbol)
-        arguments: (argument_declarations)
-        ))
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (identifier)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+  )
+)
 
 
 ================================
@@ -66,58 +79,156 @@ forward void MyFunc8(char a[MAX_PATH]);
 ---
 
 (source_file
-    (function_definition
-        (function_definition_type)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol)))
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (type
+          (builtin_type)
         )
-    (function_definition
-        (function_definition_type)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations
-            (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol))
-            (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol))
-            (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol))
-            (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol)))
+        name: (identifier)
+      )
+    )
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (type
+          (builtin_type)
         )
-    (function_definition
-        (function_definition_type)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (argument_type (type (symbol))) name: (symbol)))
+        name: (identifier)
+      )
+      (parameter_declaration
+        type: (type
+          (builtin_type)
         )
-    (function_definition
-        (function_definition_type)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type)) (dimension)) name: (symbol)))
+        name: (identifier)
+      )
+      (parameter_declaration
+        type: (type
+          (builtin_type)
         )
-    (function_definition
-        (function_definition_type)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol)))
+        name: (identifier)
+      )
+      (parameter_declaration
+        type: (type
+          (builtin_type)
         )
-    (function_definition
-        (function_definition_type)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol) defaultValue: (int_literal)))
+        name: (identifier)
+      )
+    )
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (type
+          (identifier)
         )
-    (function_definition
-        (function_definition_type)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol) (fixed_dimension (int_literal))))
+        name: (identifier)
+      )
+    )
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        (variable_storage_class)
+        type: (array_type
+          (type
+            (builtin_type)
+          )
+          (dimension)
         )
-    (function_definition
-        (function_definition_type)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (argument_type (type (builtin_type))) name: (symbol) (fixed_dimension (symbol))))
-        ))
+        name: (identifier)
+      )
+    )
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (type
+          (builtin_type)
+        )
+        name: (identifier)
+      )
+    )
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (type
+          (builtin_type)
+        )
+        name: (identifier)
+        defaultValue: (int_literal)
+      )
+    )
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (type
+          (builtin_type)
+        )
+        name: (identifier)
+        (fixed_dimension
+          (int_literal)
+        )
+      )
+    )
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (type
+          (builtin_type)
+        )
+        name: (identifier)
+        (fixed_dimension
+          (identifier)
+        )
+      )
+    )
+  )
+)
 
 
 ============================
@@ -134,41 +245,52 @@ forward Action:MyFunc6();
 ---
 
 (source_file
-    (function_definition
-        (function_definition_type)
-        name: (symbol)
-        arguments: (argument_declarations)
-        )
-    (function_definition
-        (function_definition_type)
-        returnType: (old_type (old_builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        )
-    (function_definition
-        (function_definition_type)
-        returnType: (old_type (old_builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        )
-    (function_definition
-        (function_definition_type)
-        returnType: (old_type (old_builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        )
-    (function_definition
-        (function_definition_type)
-        returnType: (old_type (old_builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        )
-    (function_definition
-        (function_definition_type)
-        returnType: (old_type (symbol))
-        name: (symbol)
-        arguments: (argument_declarations)
-        ))
+  (function_declaration
+    (function_declaration_kind)
+    name: (identifier)
+    parameters: (parameter_declarations)
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (old_type
+      (old_builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (old_type
+      (old_builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (old_type
+      (old_builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (old_type
+      (old_builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (old_type
+      (identifier)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+  )
+)
 
 
 ======================================
@@ -188,55 +310,133 @@ forward MyFunc9(String:a[MAX_PATH]);
 ---
 
 (source_file
-    (function_definition
-        (function_definition_type)
-        name: (symbol)
-        arguments: (argument_declarations (argument_declaration name: (symbol)))
+  (function_declaration
+    (function_declaration_kind)
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        name: (identifier)
+      )
+    )
+  )
+  (function_declaration
+    (function_declaration_kind)
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (old_type
+          (old_builtin_type)
         )
-    (function_definition
-        (function_definition_type)
-        name: (symbol)
-        arguments: (argument_declarations
-            (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol))
-            (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol))
-            (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol))
-            (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol)))
+        name: (identifier)
+      )
+      (parameter_declaration
+        type: (old_type
+          (old_builtin_type)
         )
-    (function_definition
-        (function_definition_type)
-        name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (symbol))) name: (symbol)))
+        name: (identifier)
+      )
+      (parameter_declaration
+        type: (old_type
+          (old_builtin_type)
         )
-    (function_definition
-        (function_definition_type)
-        name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol) (dimension)))
+        name: (identifier)
+      )
+      (parameter_declaration
+        type: (old_type
+          (old_builtin_type)
         )
-    (function_definition
-        (function_definition_type)
-        name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (argument_type) name: (symbol)))
+        name: (identifier)
+      )
+    )
+  )
+  (function_declaration
+    (function_declaration_kind)
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (old_type
+          (identifier)
         )
-    (function_definition
-        (function_definition_type)
-        name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol)))
+        name: (identifier)
+      )
+    )
+  )
+  (function_declaration
+    (function_declaration_kind)
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        (variable_storage_class)
+        type: (old_type
+          (old_builtin_type)
         )
-    (function_definition
-        (function_definition_type)
-        name: (symbol)
-        arguments: (argument_declarations (argument_declaration name: (symbol) defaultValue: (int_literal)))
+        name: (identifier)
+        (dimension)
+      )
+    )
+  )
+  (function_declaration
+    (function_declaration_kind)
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        name: (identifier)
+      )
+    )
+  )
+  (function_declaration
+    (function_declaration_kind)
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (old_type
+          (old_builtin_type)
         )
-    (function_definition
-        (function_definition_type)
-        name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol) (fixed_dimension (int_literal))))
+        name: (identifier)
+      )
+    )
+  )
+  (function_declaration
+    (function_declaration_kind)
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        name: (identifier)
+        defaultValue: (int_literal)
+      )
+    )
+  )
+  (function_declaration
+    (function_declaration_kind)
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (old_type
+          (old_builtin_type)
         )
-    (function_definition
-        (function_definition_type)
-        name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol) (fixed_dimension (symbol))))
-        ))
+        name: (identifier)
+        (fixed_dimension
+          (int_literal)
+        )
+      )
+    )
+  )
+  (function_declaration
+    (function_declaration_kind)
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (old_type
+          (old_builtin_type)
+        )
+        name: (identifier)
+        (fixed_dimension
+          (identifier)
+        )
+      )
+    )
+  )
+)
 
 
 =========================================
@@ -249,20 +449,43 @@ forward void MyFunc2(_:client, any:data);
 ---
 
 (source_file
-    (function_definition
-        (function_definition_type)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations (argument_declaration type: (argument_type (old_type (any_type))) name: (symbol)))
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (builtin_type)
     )
-    (function_definition
-        (function_definition_type)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations
-            (argument_declaration type: (argument_type (old_type (old_builtin_type))) name: (symbol))
-            (argument_declaration type: (argument_type (old_type (any_type))) name: (symbol)))
-    ))
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (old_type
+          (any_type)
+        )
+        name: (identifier)
+      )
+    )
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (old_type
+          (old_builtin_type)
+        )
+        name: (identifier)
+      )
+      (parameter_declaration
+        type: (old_type
+          (any_type)
+        )
+        name: (identifier)
+      )
+    )
+  )
+)
 
 
 =================================
@@ -274,12 +497,21 @@ forward void MyFunc(any ...);
 ---
 
 (source_file
-    (function_definition
-        (function_definition_type)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations (rest_argument type: (type (any_type))))
-    ))
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations
+      (rest_parameter
+        type: (type
+          (any_type)
+        )
+      )
+    )
+  )
+)
 
 
 ======================================
@@ -291,11 +523,15 @@ forward void MyFunc()
 ---
 
 (source_file
-    (function_definition
-        (function_definition_type)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)))
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+  )
+)
 
 
 ================
@@ -312,42 +548,55 @@ native Action MyFunc6();
 ---
 
 (source_file
-    (function_definition
-        (function_definition_type)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        )
-    (function_definition
-        (function_definition_type)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        )
-    (function_definition
-        (function_definition_type)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        )
-    (function_definition
-        (function_definition_type)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        )
-    (function_definition
-        (function_definition_type)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        )
-    (function_definition
-        (function_definition_type)
-        returnType: (type (symbol))
-        name: (symbol)
-        arguments: (argument_declarations)
-        ))
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (identifier)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+  )
+)
 
 
 ======================
@@ -364,41 +613,52 @@ native Action:MyFunc6();
 ---
 
 (source_file
-    (function_definition
-        (function_definition_type)
-        name: (symbol)
-        arguments: (argument_declarations)
-        )
-    (function_definition
-        (function_definition_type)
-        returnType: (old_type (old_builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        )
-    (function_definition
-        (function_definition_type)
-        returnType: (old_type (old_builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        )
-    (function_definition
-        (function_definition_type)
-        returnType: (old_type (old_builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        )
-    (function_definition
-        (function_definition_type)
-        returnType: (old_type (old_builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        )
-    (function_definition
-        (function_definition_type)
-        returnType: (old_type (symbol))
-        name: (symbol)
-        arguments: (argument_declarations)
-        ))
+  (function_declaration
+    (function_declaration_kind)
+    name: (identifier)
+    parameters: (parameter_declarations)
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (old_type
+      (old_builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (old_type
+      (old_builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (old_type
+      (old_builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (old_type
+      (old_builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (old_type
+      (identifier)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+  )
+)
 
 
 ================================
@@ -411,22 +671,45 @@ native void MyFunc2(const char[] format, any ...);
 ---
 
 (source_file
-    (function_definition
-        (function_definition_type)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations (rest_argument type: (type (builtin_type))))
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations
+      (rest_parameter
+        type: (type
+          (builtin_type)
         )
-    (function_definition
-        (function_definition_type)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations
-            (argument_declaration
-                type: (argument_type (type (builtin_type)) (dimension))
-                name: (symbol))
-            (rest_argument type: (type (any_type))))
-        ))
+      )
+    )
+  )
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        (variable_storage_class)
+        type: (array_type
+          (type
+            (builtin_type)
+          )
+          (dimension)
+        )
+        name: (identifier)
+      )
+      (rest_parameter
+        type: (type
+          (any_type)
+        )
+      )
+    )
+  )
+)
 
 
 =====================================
@@ -438,8 +721,12 @@ native void MyFunc()
 ---
 
 (source_file
-    (function_definition
-        (function_definition_type)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)))
+  (function_declaration
+    (function_declaration_kind)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+  )
+)

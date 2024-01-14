@@ -10,28 +10,42 @@ typeset Timer {
 ---
 
 (source_file
-    (typeset
-        name: (symbol)
-        (typedef_expression
-            returnType: (type (symbol))
-            (argument_declarations
-                (argument_declaration
-                    type: (argument_type 
-                        (type (symbol)))
-                    name: (symbol))
-                (argument_declaration
-                    type: (argument_type 
-                        (type (symbol)))
-                    name: (symbol))))
-        
-        (typedef_expression
-            returnType: (type (symbol))
-            (argument_declarations
-                (argument_declaration
-                    type: (argument_type 
-                        (type (symbol)))
-                    name: (symbol))))
-        ))
+  (typeset
+    name: (identifier)
+    (typedef_expression
+      returnType: (type
+        (identifier)
+      )
+      (parameter_declarations
+        (parameter_declaration
+          type: (type
+            (identifier)
+          )
+          name: (identifier)
+        )
+        (parameter_declaration
+          type: (type
+            (identifier)
+          )
+          name: (identifier)
+        )
+      )
+    )
+    (typedef_expression
+      returnType: (type
+        (identifier)
+      )
+      (parameter_declarations
+        (parameter_declaration
+          type: (type
+            (identifier)
+          )
+          name: (identifier)
+        )
+      )
+    )
+  )
+)
 
 
 =============================
@@ -46,29 +60,42 @@ typeset Timer {
 ---
 
 (source_file
-    (typeset
-        name: (symbol)
-        (typedef_expression
-            returnType: (type (symbol))
-            (argument_declarations
-                (argument_declaration
-                    type: (argument_type 
-                        (type (symbol)))
-                    name: (symbol))
-                (argument_declaration
-                    type: (argument_type 
-                        (type (symbol)))
-                    name: (symbol))))
-        
-        (typedef_expression
-            returnType: (type (symbol))
-            (argument_declarations
-                (argument_declaration
-                    type: (argument_type 
-                        (type (symbol)))
-                    name: (symbol))))
-        
-        ))
+  (typeset
+    name: (identifier)
+    (typedef_expression
+      returnType: (type
+        (identifier)
+      )
+      (parameter_declarations
+        (parameter_declaration
+          type: (type
+            (identifier)
+          )
+          name: (identifier)
+        )
+        (parameter_declaration
+          type: (type
+            (identifier)
+          )
+          name: (identifier)
+        )
+      )
+    )
+    (typedef_expression
+      returnType: (type
+        (identifier)
+      )
+      (parameter_declarations
+        (parameter_declaration
+          type: (type
+            (identifier)
+          )
+          name: (identifier)
+        )
+      )
+    )
+  )
+)
 
 
 =================================
@@ -83,29 +110,42 @@ typeset Timer {
 ---
 
 (source_file
-    (typeset
-        name: (symbol)
-        (typedef_expression
-            returnType: (type (symbol))
-            (argument_declarations
-                (argument_declaration
-                    type: (argument_type 
-                        (type (symbol)))
-                    name: (symbol))
-                (argument_declaration
-                    type: (argument_type 
-                        (type (symbol)))
-                    name: (symbol))))
-        
-        (typedef_expression
-            returnType: (type (symbol))
-            (argument_declarations
-                (argument_declaration
-                    type: (argument_type 
-                        (type (symbol)))
-                    name: (symbol))))
-        
-        ))
+  (typeset
+    name: (identifier)
+    (typedef_expression
+      returnType: (type
+        (identifier)
+      )
+      (parameter_declarations
+        (parameter_declaration
+          type: (type
+            (identifier)
+          )
+          name: (identifier)
+        )
+        (parameter_declaration
+          type: (type
+            (identifier)
+          )
+          name: (identifier)
+        )
+      )
+    )
+    (typedef_expression
+      returnType: (type
+        (identifier)
+      )
+      (parameter_declarations
+        (parameter_declaration
+          type: (type
+            (identifier)
+          )
+          name: (identifier)
+        )
+      )
+    )
+  )
+)
 
 
 ========
@@ -119,28 +159,43 @@ funcenum Timer {
 
 ---
 
-
 (source_file
-    (funcenum
-        name: (symbol)
-        (funcenum_member
-            returnType: (old_type (symbol))
-            (argument_declarations
-                (argument_declaration
-                    type: (argument_type 
-                        (old_type (symbol)))
-                    name: (symbol))
-                (argument_declaration
-                    type: (argument_type 
-                        (old_type (symbol)))
-                    name: (symbol))))
-        (funcenum_member
-            returnType: (old_type (symbol))
-            (argument_declarations
-                (argument_declaration
-                    type: (argument_type 
-                        (old_type (symbol)))
-                    name: (symbol))))))
+  (funcenum
+    name: (identifier)
+    (funcenum_member
+      returnType: (old_type
+        (identifier)
+      )
+      (parameter_declarations
+        (parameter_declaration
+          type: (old_type
+            (identifier)
+          )
+          name: (identifier)
+        )
+        (parameter_declaration
+          type: (old_type
+            (identifier)
+          )
+          name: (identifier)
+        )
+      )
+    )
+    (funcenum_member
+      returnType: (old_type
+        (identifier)
+      )
+      (parameter_declarations
+        (parameter_declaration
+          type: (old_type
+            (identifier)
+          )
+          name: (identifier)
+        )
+      )
+    )
+  )
+)
 
 
 =======================
@@ -154,26 +209,43 @@ funcenum Timer {
 
 ---
 
-
 (source_file
-    (funcenum
-        name: (symbol)
-        (funcenum_member
-            returnType: (old_type (symbol))
-            (argument_declarations
-                (argument_declaration
-                    type: (argument_type (old_type (symbol)))
-                    name: (symbol))
-                (argument_declaration
-                    type: (argument_type (old_type (symbol)))
-                    name: (symbol))))
-        (funcenum_member
-            returnType: (old_type (symbol))
-            (argument_declarations
-                (argument_declaration
-                    type: (argument_type (old_type (symbol)))
-                    name: (symbol))))
-        ))
+  (funcenum
+    name: (identifier)
+    (funcenum_member
+      returnType: (old_type
+        (identifier)
+      )
+      (parameter_declarations
+        (parameter_declaration
+          type: (old_type
+            (identifier)
+          )
+          name: (identifier)
+        )
+        (parameter_declaration
+          type: (old_type
+            (identifier)
+          )
+          name: (identifier)
+        )
+      )
+    )
+    (funcenum_member
+      returnType: (old_type
+        (identifier)
+      )
+      (parameter_declarations
+        (parameter_declaration
+          type: (old_type
+            (identifier)
+          )
+          name: (identifier)
+        )
+      )
+    )
+  )
+)
 
 
 =======================
@@ -187,23 +259,34 @@ funcenum Timer {
 
 ---
 
-
 (source_file
-    (funcenum
-        name: (symbol)
-        (funcenum_member
-            (argument_declarations
-                (argument_declaration
-                    type: (argument_type 
-                        (old_type (symbol)))
-                    name: (symbol))
-                (argument_declaration
-                    type: (argument_type 
-                        (old_type (symbol)))
-                    name: (symbol))))
-        (funcenum_member
-            (argument_declarations
-                (argument_declaration
-                    type: (argument_type
-                        (old_type (symbol)))
-                    name: (symbol))))))
+  (funcenum
+    name: (identifier)
+    (funcenum_member
+      (parameter_declarations
+        (parameter_declaration
+          type: (old_type
+            (identifier)
+          )
+          name: (identifier)
+        )
+        (parameter_declaration
+          type: (old_type
+            (identifier)
+          )
+          name: (identifier)
+        )
+      )
+    )
+    (funcenum_member
+      (parameter_declarations
+        (parameter_declaration
+          type: (old_type
+            (identifier)
+          )
+          name: (identifier)
+        )
+      )
+    )
+  )
+)

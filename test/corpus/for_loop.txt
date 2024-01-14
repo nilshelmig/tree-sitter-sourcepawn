@@ -10,41 +10,55 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration (function_visibility)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        (block
-            (for_statement
-                initialization: (variable_declaration_statement
-                    type: (type (builtin_type))
-                    (variable_declaration
-                        name: (symbol)
-                        initialValue: (int_literal)))
-                
-                condition: (binary_expression
-                    left: (symbol)
-                    right: (int_literal))
-                
-                iteration: (expression_statement
-                    (update_expression
-                        argument: (symbol)))
-                (block))
-            (for_statement
-                initialization: (variable_declaration_statement
-                type: (type (builtin_type))
-                (variable_declaration
-                    name: (symbol)
-                    initialValue: (int_literal)))
-                
-                condition: (binary_expression
-                    left: (symbol)
-                    right: (symbol))
-                
-                iteration: (expression_statement
-                (update_expression
-                    argument: (symbol)))
-                (block)))))
+  (function_definition
+    (visibility)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (for_statement
+        initialization: (variable_declaration_statement
+          type: (type
+            (builtin_type)
+          )
+          (variable_declaration
+            name: (identifier)
+            initialValue: (int_literal)
+          )
+        )
+        condition: (binary_expression
+          left: (identifier)
+          right: (int_literal)
+        )
+        iteration: (update_expression
+          argument: (identifier)
+        )
+        (block)
+      )
+      (for_statement
+        initialization: (variable_declaration_statement
+          type: (type
+            (builtin_type)
+          )
+          (variable_declaration
+            name: (identifier)
+            initialValue: (int_literal)
+          )
+        )
+        condition: (binary_expression
+          left: (identifier)
+          right: (identifier)
+        )
+        iteration: (update_expression
+          argument: (identifier)
+        )
+        (block)
+      )
+    )
+  )
+)
 
 
 ===============================
@@ -60,20 +74,27 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration (function_visibility)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        (block
-            (for_statement
-                condition: (binary_expression
-                    left: (symbol)
-                    right: (int_literal))
-                
-                iteration: (expression_statement
-                    (update_expression
-                        argument: (symbol)))
-                (block)))))
+  (function_definition
+    (visibility)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (for_statement
+        condition: (binary_expression
+          left: (identifier)
+          right: (int_literal)
+        )
+        iteration: (update_expression
+          argument: (identifier)
+        )
+        (block)
+      )
+    )
+  )
+)
 
 
 ==========================
@@ -89,23 +110,32 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration (function_visibility)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        (block
-            (for_statement
-                initialization: (variable_declaration_statement
-                    type: (type (builtin_type))
-                    (variable_declaration
-                        name: (symbol)
-                        initialValue: (int_literal)))
-                
-                
-                iteration: (expression_statement
-                    (update_expression
-                        argument: (symbol)))
-                (block)))))
+  (function_definition
+    (visibility)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (for_statement
+        initialization: (variable_declaration_statement
+          type: (type
+            (builtin_type)
+          )
+          (variable_declaration
+            name: (identifier)
+            initialValue: (int_literal)
+          )
+        )
+        iteration: (update_expression
+          argument: (identifier)
+        )
+        (block)
+      )
+    )
+  )
+)
 
 
 ===============================
@@ -121,23 +151,33 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration (function_visibility)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        (block
-            (for_statement
-                initialization: (variable_declaration_statement
-                    type: (type (builtin_type))
-                    (variable_declaration
-                        name: (symbol)
-                        initialValue: (int_literal)))
-                
-                condition: (binary_expression
-                    left: (symbol)
-                    right: (int_literal))
-                    
-                    (block)))))
+  (function_definition
+    (visibility)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (for_statement
+        initialization: (variable_declaration_statement
+          type: (type
+            (builtin_type)
+          )
+          (variable_declaration
+            name: (identifier)
+            initialValue: (int_literal)
+          )
+        )
+        condition: (binary_expression
+          left: (identifier)
+          right: (int_literal)
+        )
+        (block)
+      )
+    )
+  )
+)
 
 
 ========================
@@ -153,13 +193,20 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration (function_visibility)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        (block
-            (for_statement
-                (block)))))
+  (function_definition
+    (visibility)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (for_statement
+        (block)
+      )
+    )
+  )
+)
 
 
 ================
@@ -175,13 +222,22 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration (function_visibility)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
+  (function_definition
+    (visibility)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (for_statement
         (block
-            (for_statement
-                (block (break_statement ))))))
+          (break_statement)
+        )
+      )
+    )
+  )
+)
 
 
 ===================
@@ -197,13 +253,22 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration (function_visibility)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
+  (function_definition
+    (visibility)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (for_statement
         (block
-            (for_statement
-                (block (continue_statement ))))))
+          (continue_statement)
+        )
+      )
+    )
+  )
+)
 
 
 ===========================
@@ -217,13 +282,20 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration (function_visibility)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        (block
-            (for_statement
-                (break_statement )))))
+  (function_definition
+    (visibility)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (for_statement
+        (break_statement)
+      )
+    )
+  )
+)
 
 
 =======================================
@@ -237,22 +309,31 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration (function_visibility)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        (block
-            (for_statement
-                initialization: (assignment_expression
-                        left: (symbol)
-                        right: (int_literal))
-                
-                condition: (binary_expression
-                    left: (symbol)
-                    right: (int_literal))
-                
-                iteration: (expression_statement (update_expression argument: (symbol)))
-                (break_statement )))))
+  (function_definition
+    (visibility)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (for_statement
+        initialization: (assignment_expression
+          left: (identifier)
+          right: (int_literal)
+        )
+        condition: (binary_expression
+          left: (identifier)
+          right: (int_literal)
+        )
+        iteration: (update_expression
+          argument: (identifier)
+        )
+        (break_statement)
+      )
+    )
+  )
+)
 
 
 =============================
@@ -266,43 +347,49 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration (function_visibility)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        (block
-            (for_statement
-                initialization: 
-                    (variable_declaration_statement
-                        type: (type (builtin_type))
-                        (variable_declaration
-                            name: (symbol)
-                            initialValue: (int_literal))
-                        (variable_declaration
-                            name: (symbol)
-                            initialValue: (int_literal))
-                        (variable_declaration
-                            name: (symbol)
-                            initialValue: (int_literal)))
-                condition: 
-                    (binary_expression
-                        left: (symbol)
-                        right: (int_literal))
-                iteration: 
-                    (expression_statement
-                        (update_expression
-                            argument: (symbol)
-                        )
-                    )
-                (break_statement)
-            )
-        )
+  (function_definition
+    (visibility)
+    returnType: (type
+      (builtin_type)
     )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (for_statement
+        initialization: (variable_declaration_statement
+          type: (type
+            (builtin_type)
+          )
+          (variable_declaration
+            name: (identifier)
+            initialValue: (int_literal)
+          )
+          (variable_declaration
+            name: (identifier)
+            initialValue: (int_literal)
+          )
+          (variable_declaration
+            name: (identifier)
+            initialValue: (int_literal)
+          )
+        )
+        condition: (binary_expression
+          left: (identifier)
+          right: (int_literal)
+        )
+        iteration: (update_expression
+          argument: (identifier)
+        )
+        (break_statement)
+      )
+    )
+  )
 )
 
-=============================
+
+==================================
 for loop - complex multi variables
-=============================
+==================================
 
 public void OnPluginStart() {
     for(
@@ -318,48 +405,64 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration
-    (function_visibility)
+  (function_definition
+    (visibility)
     (type
-        (builtin_type))
-    (symbol)
-    (argument_declarations)
+      (builtin_type)
+    )
+    (identifier)
+    (parameter_declarations)
     (block
-        (for_statement
+      (for_statement
         (variable_declaration_statement
-            (type
-            (builtin_type))
-            (variable_declaration
-            (symbol))
-            (variable_declaration
-            (symbol)
+          (type
+            (builtin_type)
+          )
+          (variable_declaration
+            (identifier)
+          )
+          (variable_declaration
+            (identifier)
             (fixed_dimension
-                (symbol)))
-            (variable_declaration
-            (symbol)
+              (identifier)
+            )
+          )
+          (variable_declaration
+            (identifier)
             (field_access
+              (array_indexed_access
                 (array_indexed_access
-                (array_indexed_access
-                    (symbol)
-                    (symbol))
-                (symbol))
-                (symbol))))
+                  (identifier)
+                  (identifier)
+                )
+                (identifier)
+              )
+              (identifier)
+            )
+          )
+        )
         (binary_expression
-            (symbol)
-            (int_literal))
-        (expression_statement
-            (update_expression
-            (symbol)))
-        (break_statement)))))
+          (identifier)
+          (int_literal)
+        )
+        (update_expression
+          (identifier)
+        )
+        (break_statement)
+      )
+    )
+  )
+)
+
 
 ==============
 old - for loop
 ==============
 
 public void OnPluginStart() {
-    for(new i = 0; i < 3; i++) break;
-    for (new entity=MaxClients+1; entity < maxEntities; entity++) {}
-    for (i = 0, ii = 0; i < 14; ++i, ii += 4) {
+  for(new i = 0; i < 3; i++) break;
+  for (new entity=MaxClients+1; entity < maxEntities; entity++) {}
+  for (i = 0, ii = 0; i < 14; ++i, ii += 4) {
 		break;
 	}
 }
@@ -367,57 +470,75 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration (function_visibility)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
+  (function_definition
+    (visibility)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (for_statement
+        initialization: (old_variable_declaration_statement
+          (old_variable_declaration
+            name: (identifier)
+            initialValue: (int_literal)
+          )
+        )
+        condition: (binary_expression
+          left: (identifier)
+          right: (int_literal)
+        )
+        iteration: (update_expression
+          argument: (identifier)
+        )
+        (break_statement)
+      )
+      (for_statement
+        initialization: (old_variable_declaration_statement
+          (old_variable_declaration
+            name: (identifier)
+            initialValue: (binary_expression
+              left: (identifier)
+              right: (int_literal)
+            )
+          )
+        )
+        condition: (binary_expression
+          left: (identifier)
+          right: (identifier)
+        )
+        iteration: (update_expression
+          argument: (identifier)
+        )
+        (block)
+      )
+      (for_statement
+        initialization: (assignment_expression
+          left: (identifier)
+          right: (int_literal)
+        )
+        initialization: (assignment_expression
+          left: (identifier)
+          right: (int_literal)
+        )
+        condition: (binary_expression
+          left: (identifier)
+          right: (int_literal)
+        )
+        iteration: (comma_expression
+          left: (update_expression
+            argument: (identifier)
+          )
+          right: (assignment_expression
+            left: (identifier)
+            right: (int_literal)
+          )
+        )
         (block
-            (for_statement
-                initialization: (old_variable_declaration_statement
-                    (old_variable_declaration
-                        name: (symbol)
-                        initialValue: (int_literal)))
-                condition: (binary_expression
-                    left: (symbol)
-                    right: (int_literal))
-                
-                iteration: (expression_statement (update_expression argument: (symbol)))
-                (break_statement
-                ))
-            (for_statement
-                initialization: (old_variable_declaration_statement
-                    (old_variable_declaration
-                        name: (symbol)
-                        initialValue: (binary_expression
-                            left: (symbol)
-                            right: (int_literal))))
-                
-                condition: (binary_expression
-                    left: (symbol)
-                    right: (symbol))
-                
-                iteration: (expression_statement
-                    (update_expression argument: (symbol)))
-            (block))
-            (for_statement
-                initialization: (assignment_expression
-                    left: (symbol)
-                    right: (int_literal))
-                initialization: (assignment_expression
-                    left: (symbol)
-                    right: (int_literal))
-                
-                condition: (binary_expression
-                    left: (symbol)
-                    right: (int_literal))
-                
-                iteration: (expression_statement
-                (comma_expression
-                    left: (update_expression
-                    argument: (symbol))
-                    right: (assignment_expression
-                        left: (symbol)
-                        right: (int_literal))))
-            (block
-              (break_statement
-                ))))))
+          (break_statement)
+        )
+      )
+    )
+  )
+)

@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-sourcepawn",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "SourcePawn grammar for node-tree-sitter",
   "main": "bindings/node",
   "keywords": [
@@ -26,5 +26,14 @@
   },
   "dependencies": {
     "nan": "^2.14.2"
-  }
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.sourcepawn",
+      "file-types": [
+        "sp",
+        "inc"
+      ]
+    }
+  ]
 }

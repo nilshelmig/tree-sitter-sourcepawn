@@ -9,14 +9,26 @@ void SaveClose(Handle myhandle) {
 ---
 
 (source_file
-  (function_declaration
-    returnType: (type (builtin_type))
-    name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (argument_type (type (symbol))) name: (symbol)))
-    (block
-        (delete_statement
-            free: (symbol)
-            ))))
+  (function_definition
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (type
+          (identifier)
+        )
+        name: (identifier)
+      )
+    )
+    body: (block
+      (delete_statement
+        free: (identifier)
+      )
+    )
+  )
+)
 
 
 ===========================
@@ -30,20 +42,32 @@ void SaveClose(Handle[] myhandle) {
 ---
 
 (source_file
-  (function_declaration
-    returnType: (type (builtin_type))
-    name: (symbol)
-    arguments: (argument_declarations 
-        (argument_declaration
-            type: (argument_type 
-                (type (symbol)) (dimension)) 
-            name: (symbol)))
-    (block
-        (delete_statement
-            free: (array_indexed_access
-              array: (symbol)
-              index: (int_literal))
-            ))))
+  (function_definition
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (array_type
+          (type
+            (identifier)
+          )
+          (dimension)
+        )
+        name: (identifier)
+      )
+    )
+    body: (block
+      (delete_statement
+        free: (array_indexed_access
+          array: (identifier)
+          index: (int_literal)
+        )
+      )
+    )
+  )
+)
 
 
 ================
@@ -57,16 +81,31 @@ void SaveClose(Handle myhandle) {
 ---
 
 (source_file
-  (function_declaration
-    returnType: (type (builtin_type))
-    name: (symbol)
-    arguments: (argument_declarations (argument_declaration type: (argument_type (type (symbol))) name: (symbol)))
-    (block
-        (delete_statement
-            free: (view_as
-              type: (type (symbol))
-              value: (symbol))
-            ))))
+  (function_definition
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (type
+          (identifier)
+        )
+        name: (identifier)
+      )
+    )
+    body: (block
+      (delete_statement
+        free: (view_as
+          type: (type
+            (identifier)
+          )
+          value: (identifier)
+        )
+      )
+    )
+  )
+)
 
 
 =============
@@ -84,15 +123,21 @@ methodmap Handle
 
 (source_file
   (methodmap
-    name: (symbol)
+    name: (identifier)
     (methodmap_method
-      returnType: (type (builtin_type))
-      name: (symbol)
-      (argument_declarations)
-      (block
-          (delete_statement
-              free: (this)
-              )))))
+      returnType: (type
+        (builtin_type)
+      )
+      name: (identifier)
+      (parameter_declarations)
+      body: (block
+        (delete_statement
+          free: (this)
+        )
+      )
+    )
+  )
+)
 
 
 =====================
@@ -110,17 +155,24 @@ methodmap Handle
 
 (source_file
   (methodmap
-    name: (symbol)
+    name: (identifier)
     (methodmap_method
-      returnType: (type (builtin_type))
-      name: (symbol)
-      (argument_declarations)
-      (block
-          (delete_statement
-              free: (field_access
-                target: (this)
-                field: (symbol))
-              )))))
+      returnType: (type
+        (builtin_type)
+      )
+      name: (identifier)
+      (parameter_declarations)
+      body: (block
+        (delete_statement
+          free: (field_access
+            target: (this)
+            field: (identifier)
+          )
+        )
+      )
+    )
+  )
+)
 
 
 ======================
@@ -138,14 +190,21 @@ methodmap Handle
 
 (source_file
   (methodmap
-    name: (symbol)
+    name: (identifier)
     (methodmap_method
-      returnType: (type (builtin_type))
-      name: (symbol)
-      (argument_declarations)
-      (block
-          (delete_statement
-              free: (function_call
-                function: (symbol)
-                arguments: (function_call_arguments))
-              )))))
+      returnType: (type
+        (builtin_type)
+      )
+      name: (identifier)
+      (parameter_declarations)
+      body: (block
+        (delete_statement
+          free: (call_expression
+            function: (identifier)
+            arguments: (call_arguments)
+          )
+        )
+      )
+    )
+  )
+)

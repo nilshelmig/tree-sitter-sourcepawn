@@ -1,14 +1,15 @@
-================
-hardcoded symbol
-================
+====================
+hardcoded identifier
+====================
 
 using __intrinsics__.Handle;
 
 ---
 
 (source_file
-	(hardcoded_symbol
-	))
+  (hardcoded_symbol)
+)
+
 
 ======
 assert
@@ -20,11 +21,16 @@ static_assert(true, "This is an assertion error");
 ---
 
 (source_file
-    (assertion
-        (function_call_arguments
-        	(bool_literal)
-          	(string_literal)))
-    (assertion
-        (function_call_arguments
-        	(bool_literal)
-          	(string_literal))))
+  (assertion
+    (call_arguments
+      (bool_literal)
+      (string_literal)
+    )
+  )
+  (assertion
+    (call_arguments
+      (bool_literal)
+      (string_literal)
+    )
+  )
+)

@@ -6,7 +6,11 @@ include system lib
 
 ---
 
-(source_file (preproc_include (system_lib_string)))
+(source_file
+  (preproc_include
+    (system_lib_string)
+  )
+)
 
 
 =====================
@@ -19,13 +23,19 @@ tryinclude system lib
 ---
 
 (source_file
-  (preproc_tryinclude (system_lib_string))
-  (preproc_tryinclude (system_lib_string))
-  (comment))
+  (preproc_tryinclude
+    (system_lib_string)
+  )
+  (preproc_tryinclude
+    (system_lib_string)
+  )
+  (comment)
+)
 
-==================
+
+=================
 include local lib
-==================
+=================
 
 #include "constants.inc" // the constants include
 #include "constants.inc"
@@ -33,9 +43,14 @@ include local lib
 ---
 
 (source_file
-  (preproc_include (string_literal))
+  (preproc_include
+    (string_literal)
+  )
   (comment)
-  (preproc_include (string_literal)))
+  (preproc_include
+    (string_literal)
+  )
+)
 
 
 ====================
@@ -48,5 +63,10 @@ tryinclude local lib
 ---
 
 (source_file
-  (preproc_tryinclude (string_literal))
-  (preproc_tryinclude (string_literal)))
+  (preproc_tryinclude
+    (string_literal)
+  )
+  (preproc_tryinclude
+    (string_literal)
+  )
+)

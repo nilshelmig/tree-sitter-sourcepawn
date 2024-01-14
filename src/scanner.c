@@ -223,6 +223,31 @@ static bool scan_automatic_semicolon(TSLexer *lexer)
     return lexer->lookahead != '=';
   }
 
+  // The following covers an edge case in global variable declarations. For example:
+  // ```cpp
+  // Action
+  //    action1,
+  //    action2;
+  // ```
+  // In this case, we don't want to insert a semicolon after Action.
+
+  // We are at the beginning of a word (`action1` in our example).
+  while (iswalnum(lexer->lookahead))
+  {
+    skip(lexer);
+  }
+
+  // We are at the end of a word (`action1` in our example). Skip comments and whitespaces.
+  scan_whitespace_and_comments(lexer);
+
+  switch (lexer->lookahead)
+  {
+  case ',':
+  case ';':
+  case '[':
+    return false;
+  }
+
   return true;
 }
 

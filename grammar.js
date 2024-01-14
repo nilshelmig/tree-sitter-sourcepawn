@@ -18,7 +18,6 @@ const PREC = {
   CAST: 15,
   CALL: 16,
   FIELD: 17,
-  ARRAY_MEMBER: 1,
 };
 
 module.exports = grammar({
@@ -48,35 +47,24 @@ module.exports = grammar({
   inline: ($) => [$._statement, $.methodmap_visibility],
 
   conflicts: ($) => [
-    [$.function_visibility, $.variable_visibility],
-    [$.function_declaration, $.alias_assignment],
-    [$.function_definition, $.alias_assignment],
-    [$.alias_declaration, $.alias_assignment],
-    [$.function_visibility, $.variable_visibility, $.struct_declaration],
-    [$.function_visibility, $.variable_storage_class],
-    [$.function_visibility, $.old_global_variable_declaration],
-    [
-      $.function_visibility,
-      $.old_global_variable_declaration,
-      $.variable_storage_class,
-    ],
-    [$.array_indexed_access, $.type],
+    [$.new_expression, $.old_variable_declaration], // FIXME: Do not allow parenthesized expressions in statements to fix this.
     [$.type, $.old_variable_declaration],
-    [$.argument_declaration, $.type],
-    [$.argument_type],
-    [$.variable_storage_class],
-    [$.global_variable_declaration, $.old_global_variable_declaration],
+    [$.array_indexed_access, $.type],
+    [$.visibility, $.struct_declaration],
+    [$.parameter_declaration, $.type],
   ],
 
-  word: ($) => $.symbol,
+  precedences: ($) => [[$.type, $._expression]],
+
+  word: ($) => $.identifier,
 
   rules: {
     source_file: ($) =>
       repeat(
         choice(
           $.assertion,
-          $.function_declaration,
           $.function_definition,
+          $.function_declaration,
           $.enum,
           $.enum_struct,
           $.typedef,
@@ -95,12 +83,11 @@ module.exports = grammar({
       ),
 
     // Preprocessor
-
     _preproc_expression: ($) =>
       choice(
         $.preproc_binary_expression,
         $.preproc_unary_expression,
-        $.symbol,
+        $.identifier,
         $._literal,
         $.preproc_parenthesized_expression,
         $.preproc_defined_condition
@@ -109,51 +96,9 @@ module.exports = grammar({
     preproc_parenthesized_expression: ($) =>
       seq("(", $._preproc_expression, ")"),
 
-    preproc_unary_expression: ($) =>
-      prec.left(
-        PREC.UNARY,
-        seq(
-          field("operator", choice("!", "~", "-", "+")),
-          field("argument", $._preproc_expression)
-        )
-      ),
+    preproc_unary_expression: ($) => unaryExpression($._preproc_expression),
 
-    preproc_binary_expression: ($) => {
-      const table = [
-        ["+", PREC.ADD],
-        ["-", PREC.ADD],
-        ["*", PREC.MULTIPLY],
-        ["/", PREC.MULTIPLY],
-        ["%", PREC.MULTIPLY],
-        ["||", PREC.LOGICAL_OR],
-        ["&&", PREC.LOGICAL_AND],
-        ["|", PREC.INCLUSIVE_OR],
-        ["^", PREC.EXCLUSIVE_OR],
-        ["&", PREC.BITWISE_AND],
-        ["==", PREC.EQUAL],
-        ["!=", PREC.EQUAL],
-        [">", PREC.RELATIONAL],
-        [">=", PREC.RELATIONAL],
-        ["<=", PREC.RELATIONAL],
-        ["<", PREC.RELATIONAL],
-        ["<<", PREC.SHIFT],
-        [">>", PREC.SHIFT],
-        [">>>", PREC.SHIFT],
-      ];
-
-      return choice(
-        ...table.map(([operator, precedence]) => {
-          return prec.left(
-            precedence,
-            seq(
-              field("left", $._preproc_expression),
-              field("operator", operator),
-              field("right", $._preproc_expression)
-            )
-          );
-        })
-      );
-    },
+    preproc_binary_expression: ($) => binaryExpression($._preproc_expression),
 
     preproc_include: ($) =>
       seq(
@@ -168,16 +113,11 @@ module.exports = grammar({
       ),
 
     preproc_macro: ($) =>
-      prec(
-        1,
-        seq(
-          preprocessor("define"),
-          field("name", $.symbol),
-          token.immediate("("),
-          commaSep1($.macro_param),
-          token.immediate(")"),
-          field("value", $.preproc_arg)
-        )
+      seq(
+        preprocessor("define"),
+        field("name", $.identifier),
+        field("parameters", seq("(", commaSep($.macro_param), ")")),
+        field("value", $.preproc_arg)
       ),
 
     macro_param: ($) => token(seq("%", /[0-9]/)),
@@ -185,12 +125,12 @@ module.exports = grammar({
     preproc_define: ($) =>
       seq(
         preprocessor("define"),
-        field("name", $.symbol),
+        field("name", $.identifier),
         field("value", $.preproc_arg)
       ),
 
     preproc_undefine: ($) =>
-      seq(preprocessor("undef"), field("name", $.symbol)),
+      seq(preprocessor("undef"), field("name", $.identifier)),
 
     preproc_if: ($) =>
       seq(preprocessor("if"), field("condition", $.preproc_arg)),
@@ -201,7 +141,8 @@ module.exports = grammar({
     preproc_assert: ($) =>
       seq(preprocessor("assert"), field("condition", $.preproc_arg)),
 
-    preproc_defined_condition: ($) => seq("defined", field("name", $.symbol)),
+    preproc_defined_condition: ($) =>
+      seq("defined", field("name", $.identifier)),
 
     preproc_else: ($) => preprocessor("else"),
 
@@ -215,106 +156,80 @@ module.exports = grammar({
 
     preproc_warning: ($) => seq(preprocessor("warning"), $.preproc_arg),
 
-    // Hardcoded symbol
+    // Hardcoded identifier
     // https://github.com/alliedmodders/sourcemod/blob/5c0ae11a4619e9cba93478683c7737253ea93ba6/plugins/include/handles.inc#L78
     hardcoded_symbol: ($) => seq("using __intrinsics__.Handle", $._semicolon),
 
     assertion: ($) =>
-      seq(
-        choice("assert", "static_assert"),
-        $.function_call_arguments,
-        $._semicolon
-      ),
+      seq(choice("assert", "static_assert"), $.call_arguments, $._semicolon),
 
     // Main Grammar
-
-    function_declaration: ($) =>
-      seq(
-        optional($.function_visibility),
-        field(
-          "returnType",
-          choice(
-            optional(seq($.old_type, repeat($.dimension))),
-            seq($.type, repeat($.dimension))
-          )
-        ),
-        field("name", $.symbol),
-        field("arguments", $.argument_declarations),
-        choice($.block, $._statement)
-      ),
-
-    function_visibility: ($) =>
+    function_definition: ($) =>
       choice(
-        "public",
-        choice(
-          "stock",
-          "static",
-          seq("stock", "static"),
-          seq("static", "stock")
+        seq(
+          optional($.visibility),
+          field("returnType", seq($.type, repeat($.dimension))),
+          field("name", $.identifier),
+          field("parameters", $.parameter_declarations),
+          field("body", $.block)
+        ),
+        seq(
+          optional($.visibility),
+          field("returnType", optional($.old_type)),
+          field("name", $.identifier),
+          field("parameters", $.parameter_declarations),
+          field("body", $._statement)
         )
       ),
 
-    function_definition: ($) =>
+    function_declaration: ($) =>
       seq(
-        $.function_definition_type,
+        $.function_declaration_kind,
         field(
           "returnType",
           optional(choice(seq($.type, optional($.dimension)), $.old_type))
         ),
-        field("name", $.symbol),
-        field("arguments", $.argument_declarations),
+        field("name", $.identifier),
+        field("parameters", $.parameter_declarations),
+        optional(seq("=", $.identifier)), // native float __FLOAT_MUL__(float a, float b) = FloatMul;
         $._semicolon
       ),
 
-    function_definition_type: ($) => choice("forward", "native"),
+    function_declaration_kind: ($) => choice("forward", "native"),
 
-    argument_declarations: ($) =>
-      seq("(", commaSep(choice($.argument_declaration, $.rest_argument)), ")"),
-
-    argument_type: ($) =>
-      choice(
-        "&",
-        seq(optional("&"), $.old_type),
-        seq($.type, choice(optional("&"), repeat($.dimension)))
+    parameter_declarations: ($) =>
+      seq(
+        "(",
+        commaSep(choice($.parameter_declaration, $.rest_parameter)),
+        ")"
       ),
 
-    argument_declaration: ($) =>
-      prec(
-        1,
-        seq(
-          optional("const"),
-          field("type", optional($.argument_type)),
-          field("name", $.symbol),
-          repeat(choice($.dimension, $.fixed_dimension)),
-          field(
-            "defaultValue",
-            optional(
-              seq(
-                "=",
-                choice(
-                  $.array_indexed_access,
-                  $.ternary_expression,
-                  $.field_access,
-                  $.scope_access,
-                  $.binary_expression,
-                  $.unary_expression,
-                  $.sizeof_expression,
-                  $.view_as,
-                  $.old_type_cast,
-                  $.symbol,
-                  $._literal,
-                  $.concatenated_string,
-                  $.char_literal,
-                  $.parenthesized_expression,
-                  $.array_literal
-                )
-              )
-            )
-          )
-        )
+    parameter_declaration: ($) =>
+      seq(
+        optional($.variable_storage_class),
+        choice(
+          // Old
+          seq(
+            optional(field("type", $.old_type)),
+            field("name", $.identifier),
+            repeat(choice($.dimension, $.fixed_dimension))
+          ), // foo | foo[] | Float: foo
+          seq("&", field("name", $.identifier)), // &foo
+          seq(field("type", seq("&", $.old_type)), field("name", $.identifier)), // &Float: foo
+          // New
+          seq(field("type", $.type), "&", field("name", $.identifier)), // float &foo
+          seq(field("type", $.array_type), field("name", $.identifier)), // float[] foo
+          seq(
+            field("type", $.type),
+            field("name", $.identifier),
+            repeat(choice($.dimension, $.fixed_dimension))
+          ) // float foo | float foo[]
+        ),
+        optional(seq("=", field("defaultValue", $._expression)))
       ),
 
-    rest_argument: ($) => seq(field("type", choice($.type, $.old_type)), "..."),
+    rest_parameter: ($) =>
+      seq(field("type", choice($.type, $.old_type)), "..."),
 
     alias_operator: ($) =>
       token.immediate(
@@ -346,44 +261,49 @@ module.exports = grammar({
       ),
 
     alias_declaration: ($) =>
-      seq(
-        optional($.function_visibility),
-        field(
-          "returnType",
-          choice(
-            optional(seq($.old_type, repeat($.dimension))),
-            seq($.type, repeat($.dimension))
-          )
-        ),
-        "operator",
-        $.alias_operator,
-        field("arguments", $.argument_declarations),
-        choice($.block, $._statement)
-      ),
-
-    alias_assignment: ($) =>
       choice(
         seq(
-          optional($.function_definition_type),
-          field("returnType", seq($.type, repeat($.dimension))),
-          choice(seq("operator", $.alias_operator), $.symbol),
-          field("arguments", $.argument_declarations),
-          "=",
-          $.symbol,
-          $._semicolon
-        ),
-        seq(
-          optional($.function_definition_type),
+          optional($.visibility),
+          field(
+            "returnType",
+            choice(
+              $.builtin_type,
+              seq($.old_builtin_type, token.immediate(":"))
+            )
+          ),
           "operator",
           $.alias_operator,
-          field("arguments", $.argument_declarations),
+          field("parameters", $.parameter_declarations),
+          field("body", $._statement)
+        ),
+        // forbidden operators
+        seq(
+          $.function_declaration_kind,
+          "operator",
+          $.alias_operator,
+          field("parameters", $.parameter_declarations),
           $._semicolon
         )
       ),
 
+    alias_assignment: ($) =>
+      seq(
+        optional($.function_declaration_kind),
+        field(
+          "returnType",
+          choice($.builtin_type, seq($.old_builtin_type, token.immediate(":")))
+        ),
+        "operator",
+        $.alias_operator,
+        field("parameters", $.parameter_declarations),
+        "=",
+        $.identifier,
+        $._semicolon
+      ),
+
     global_variable_declaration: ($) =>
       seq(
-        optional($.variable_visibility), // Handle MaxClient
+        optional($.visibility), // Handle MaxClient
         optional($.variable_storage_class),
         field("type", $.type),
         commaSep1($.variable_declaration),
@@ -395,42 +315,65 @@ module.exports = grammar({
       declarations in for loops
        */
       prec.left(
-        seq(
-          optional($.variable_storage_class),
-          field("type", $.type),
-          repeat($.dimension),
-          commaSep1($.variable_declaration),
-          optional($._semicolon)
+        choice(
+          // Action[] actions = new Action[32];
+          seq(
+            field("type", $.type),
+            repeat1($.dimension),
+            commaSep1($.dynamic_array_declaration),
+            optional($._semicolon)
+          ),
+          // Action actions[32];
+          // Action action;
+          seq(
+            optional($.visibility),
+            optional($.variable_storage_class),
+            field("type", $.type),
+            commaSep1($.variable_declaration),
+            optional($._semicolon)
+          )
         )
       ),
 
-    variable_storage_class: ($) =>
-      choice("static", "const", seq("static", "const")),
+    variable_storage_class: ($) => "const",
 
-    variable_visibility: ($) => choice("public", "stock"),
+    visibility: ($) =>
+      choice(
+        "public",
+        "stock",
+        "static",
+        seq("public", "static"),
+        seq("stock", "static"),
+        seq("static", "stock"),
+        seq("static", "public")
+      ),
 
     variable_declaration: ($) =>
       seq(
-        field("name", $.symbol),
+        field("name", $.identifier),
         repeat(choice($.dimension, $.fixed_dimension)),
-        field(
-          "initialValue",
-          optional(seq("=", choice($._expression, $.dynamic_array)))
-        )
+        optional(seq("=", field("initialValue", $._expression)))
+      ),
+
+    dynamic_array_declaration: ($) =>
+      seq(
+        field("name", $.identifier),
+        "=",
+        field("initialValue", choice($.dynamic_array, $.string_literal))
       ),
 
     dynamic_array: ($) =>
       seq(
         "new",
-        field("type", choice($.builtin_type, $.symbol)),
+        field("type", choice($.builtin_type, $.identifier)),
         repeat1($.fixed_dimension)
       ),
 
-    new_instance: ($) =>
+    new_expression: ($) =>
       seq(
         "new",
-        field("class", $.symbol),
-        field("arguments", $.function_call_arguments)
+        field("class", $.identifier),
+        field("arguments", $.call_arguments)
       ),
 
     old_global_variable_declaration: ($) =>
@@ -438,12 +381,13 @@ module.exports = grammar({
         seq(
           choice(
             seq(choice("new", "decl"), optional($.variable_storage_class)),
-            repeat1(choice($.variable_visibility, $.variable_storage_class))
+            $.variable_storage_class,
+            seq($.visibility, optional($.variable_storage_class))
           ),
           commaSep1($.old_variable_declaration),
           $._semicolon
         ),
-        seq(commaSep1($.old_variable_declaration), ";")
+        seq(commaSep1($.old_variable_declaration), $._semicolon)
       ),
 
     old_variable_declaration_statement: ($) =>
@@ -454,7 +398,8 @@ module.exports = grammar({
         seq(
           choice(
             seq(choice("new", "decl"), optional($.variable_storage_class)),
-            $.variable_storage_class
+            $.variable_storage_class,
+            seq($.visibility, optional($.variable_storage_class))
           ),
           commaSep1($.old_variable_declaration),
           optional($._semicolon)
@@ -462,20 +407,20 @@ module.exports = grammar({
       ),
 
     old_variable_declaration: ($) =>
-      prec(
-        1,
-        seq(
-          field("type", optional($.old_type)),
-          field("name", $.symbol),
-          repeat(choice($.dimension, $.fixed_dimension)),
-          field("initialValue", optional(seq("=", $._expression)))
-        )
+      seq(
+        field("type", optional($.old_type)),
+        field("name", $.identifier),
+        repeat(choice($.dimension, $.fixed_dimension)),
+        field("initialValue", optional(seq("=", $._expression)))
       ),
 
     enum: ($) =>
       seq(
         "enum",
-        field("name", optional(seq($.symbol, optional(token.immediate(":"))))),
+        field(
+          "name",
+          optional(seq($.identifier, optional(token.immediate(":"))))
+        ),
         optional(
           seq(
             "(",
@@ -506,9 +451,11 @@ module.exports = grammar({
       seq(
         field(
           "type",
-          optional(seq(choice($.builtin_type, $.symbol), token.immediate(":")))
+          optional(
+            seq(choice($.builtin_type, $.identifier), token.immediate(":"))
+          )
         ),
-        field("name", $.symbol),
+        field("name", $.identifier),
         optional($.fixed_dimension),
         field("value", optional(seq("=", $._expression)))
       ),
@@ -517,16 +464,16 @@ module.exports = grammar({
       seq(
         "enum",
         "struct",
-        field("name", $.symbol),
+        field("name", $.identifier),
         "{",
-        repeat1(choice($.enum_struct_field, $.enum_struct_method)),
+        repeat(choice($.enum_struct_field, $.enum_struct_method)),
         "}"
       ),
 
     enum_struct_field: ($) =>
       seq(
         field("type", $.type),
-        field("name", $.symbol),
+        field("name", $.identifier),
         optional($.fixed_dimension),
         $._semicolon
       ),
@@ -534,15 +481,15 @@ module.exports = grammar({
     enum_struct_method: ($) =>
       seq(
         field("returnType", seq($.type, repeat($.dimension))),
-        field("name", $.symbol),
-        $.argument_declarations,
-        $.block
+        field("name", $.identifier),
+        field("parameters", $.parameter_declarations),
+        field("body", $.block)
       ),
 
     typedef: ($) =>
       seq(
         "typedef",
-        field("name", $.symbol),
+        field("name", $.identifier),
         "=",
         $.typedef_expression,
         $._semicolon
@@ -551,7 +498,7 @@ module.exports = grammar({
     typeset: ($) =>
       seq(
         "typeset",
-        field("name", $.symbol),
+        field("name", $.identifier),
         "{",
         repeat1(seq($.typedef_expression, optional($._semicolon))),
         "}",
@@ -566,7 +513,7 @@ module.exports = grammar({
             "returnType",
             seq($.type, repeat(choice($.dimension, $.fixed_dimension)))
           ),
-          $.argument_declarations
+          $.parameter_declarations
         ),
         seq(
           "(",
@@ -575,7 +522,7 @@ module.exports = grammar({
             "returnType",
             seq($.type, repeat(choice($.dimension, $.fixed_dimension)))
           ),
-          $.argument_declarations,
+          $.parameter_declarations,
           ")"
         )
       ),
@@ -583,7 +530,7 @@ module.exports = grammar({
     funcenum: ($) =>
       seq(
         "funcenum",
-        field("name", $.symbol),
+        field("name", $.identifier),
         "{",
         commaSep1($.funcenum_member),
         optional(","),
@@ -595,7 +542,7 @@ module.exports = grammar({
       seq(
         field("returnType", optional($.old_type)),
         "public",
-        $.argument_declarations
+        $.parameter_declarations
       ),
 
     functag: ($) =>
@@ -604,23 +551,23 @@ module.exports = grammar({
           "functag",
           "public",
           field("returnType", $.old_type),
-          field("name", $.symbol),
-          $.argument_declarations,
+          field("name", $.identifier),
+          $.parameter_declarations,
           optional($._semicolon)
         ),
         seq(
           "functag",
-          field("name", $.symbol),
+          field("name", $.identifier),
           "public",
-          $.argument_declarations,
+          $.parameter_declarations,
           optional($._semicolon)
         ),
         seq(
           "functag",
-          field("name", $.symbol),
+          field("name", $.identifier),
           field("returnType", $.old_type),
           "public",
-          $.argument_declarations,
+          $.parameter_declarations,
           optional($._semicolon)
         )
       ),
@@ -628,8 +575,10 @@ module.exports = grammar({
     methodmap: ($) =>
       seq(
         "methodmap",
-        field("name", $.symbol),
-        optional(choice(seq("<", field("inherits", $.symbol)), "__nullable__")),
+        field("name", $.identifier),
+        optional(
+          choice(seq("<", field("inherits", $.identifier)), "__nullable__")
+        ),
         "{",
         repeat(
           choice(
@@ -651,11 +600,11 @@ module.exports = grammar({
       seq(
         $.methodmap_visibility,
         optional("~"),
-        field("name", $.symbol),
+        field("name", $.identifier),
         "(",
         ")",
         "=",
-        field("function", $.symbol),
+        field("function", $.identifier),
         optional($._semicolon)
       ),
 
@@ -665,8 +614,8 @@ module.exports = grammar({
         optional("static"),
         "native",
         field("returnType", seq($.type, repeat($.dimension))),
-        field("name", $.symbol),
-        $.argument_declarations,
+        field("name", $.identifier),
+        $.parameter_declarations,
         optional($._semicolon)
       ),
 
@@ -675,8 +624,8 @@ module.exports = grammar({
         $.methodmap_visibility,
         optional("static"),
         "native",
-        field("name", $.symbol),
-        $.argument_declarations,
+        field("name", $.identifier),
+        $.parameter_declarations,
         optional($._semicolon)
       ),
 
@@ -685,7 +634,7 @@ module.exports = grammar({
         $.methodmap_visibility,
         "native",
         "~",
-        field("name", $.symbol),
+        field("name", $.identifier),
         "(",
         ")",
         optional($._semicolon)
@@ -696,34 +645,34 @@ module.exports = grammar({
         $.methodmap_visibility,
         optional("static"),
         field("returnType", seq($.type, repeat($.dimension))),
-        field("name", $.symbol),
-        $.argument_declarations,
-        $.block
+        field("name", $.identifier),
+        $.parameter_declarations,
+        field("body", $.block)
       ),
 
     methodmap_method_constructor: ($) =>
       seq(
         $.methodmap_visibility,
-        field("name", $.symbol),
-        $.argument_declarations,
-        $.block
+        field("name", $.identifier),
+        $.parameter_declarations,
+        field("body", $.block)
       ),
 
     methodmap_method_destructor: ($) =>
       seq(
         $.methodmap_visibility,
         "~",
-        field("name", $.symbol),
+        field("name", $.identifier),
         "(",
         ")",
-        $.block
+        field("body", $.block)
       ),
 
     methodmap_property: ($) =>
       seq(
         "property",
         field("type", $.type),
-        field("name", $.symbol),
+        field("name", $.identifier),
         "{",
         repeat1(
           choice(
@@ -740,7 +689,7 @@ module.exports = grammar({
         $.methodmap_visibility,
         $.methodmap_property_getter,
         "=",
-        field("function", $.symbol),
+        field("function", $.identifier),
         optional($._semicolon)
       ),
 
@@ -756,20 +705,27 @@ module.exports = grammar({
       seq(
         $.methodmap_visibility,
         choice($.methodmap_property_getter, $.methodmap_property_setter),
-        $.block
+        field("body", $.block)
       ),
 
     methodmap_property_getter: ($) => seq("get", "(", ")"),
 
     methodmap_property_setter: ($) =>
-      seq("set", "(", field("type", $.type), field("name", $.symbol), ")"),
+      seq(
+        "set",
+        "(",
+        optional($.variable_storage_class),
+        field("type", $.type),
+        field("name", $.identifier),
+        ")"
+      ),
 
     methodmap_visibility: ($) => "public",
 
     struct: ($) =>
       seq(
         "struct",
-        field("name", $.symbol),
+        field("name", $.identifier),
         "{",
         repeat($.struct_field),
         "}",
@@ -784,15 +740,18 @@ module.exports = grammar({
           "type",
           seq($.type, repeat(choice($.dimension, $.fixed_dimension)))
         ),
-        field("name", $.symbol),
+        field("name", $.identifier),
         optional($._semicolon)
       ),
 
     struct_declaration: ($) =>
       seq(
         "public",
-        field("type", choice($.symbol, seq($.symbol, token.immediate(":")))),
-        field("name", $.symbol),
+        field(
+          "type",
+          choice($.identifier, seq($.identifier, token.immediate(":")))
+        ),
+        field("name", $.identifier),
         "=",
         field("value", $.struct_constructor),
         optional($._semicolon)
@@ -802,13 +761,16 @@ module.exports = grammar({
       seq("{", commaSep($.struct_field_value), optional(","), "}"),
 
     struct_field_value: ($) =>
-      seq(field("name", $.symbol), "=", field("value", $._expression)),
+      seq(field("name", $.identifier), "=", field("value", $._expression)),
 
-    type: ($) => prec(1, choice($.builtin_type, $.symbol, $.any_type)),
+    type: ($) => choice($.builtin_type, $.identifier, $.any_type),
+
+    array_type: ($) =>
+      seq($.type, repeat1(choice($.dimension, $.fixed_dimension))),
 
     old_type: ($) =>
       seq(
-        choice($.old_builtin_type, $.symbol, $.any_type),
+        choice($.old_builtin_type, $.identifier, $.any_type),
         token.immediate(":")
       ),
 
@@ -859,7 +821,7 @@ module.exports = grammar({
         $._manual_semicolon,
         field("condition", optional($._expression)),
         $._manual_semicolon,
-        field("iteration", optional($._statement)),
+        field("iteration", optional(choice($._expression, $.comma_expression))),
         ")",
         $._statement
       ),
@@ -879,13 +841,13 @@ module.exports = grammar({
           optional($._semicolon)
         )
       ),
-    break_statement: ($) => prec.right(seq("break", optional($._semicolon))),
+    break_statement: ($) => seq("break", optional($._semicolon)),
 
-    continue_statement: ($) =>
-      prec.right(seq("continue", optional($._semicolon))),
+    continue_statement: ($) => seq("continue", optional($._semicolon)),
 
+    // FIXME: Make this nicer like tree-sitter-c
     condition_statement: ($) =>
-      prec.left(
+      prec.right(
         seq(
           "if",
           "(",
@@ -903,24 +865,20 @@ module.exports = grammar({
         field("condition", $._expression),
         ")",
         "{",
-        repeat(choice($.switch_case, $.switch_default_case)),
+        repeat($.switch_case),
         "}"
       ),
 
     switch_case: ($) =>
-      seq(
-        "case",
-        choice(
-          seq("(", field("value", $.switch_case_values), ")"),
-          field("value", $.switch_case_values)
-        ),
-        ":",
-        $._statement,
-        optional($.break_statement)
+      prec.right(
+        seq(
+          choice(
+            seq("case", field("value", commaSep1($._case_expression)), ":"),
+            seq("default", ":")
+          ),
+          $._statement
+        )
       ),
-
-    switch_case_values: ($) =>
-      prec.left(commaSep1(choice($._literal, $.unary_expression, $.symbol))),
 
     switch_default_case: ($) =>
       seq("default", ":", $._statement, optional($.break_statement)),
@@ -954,7 +912,7 @@ module.exports = grammar({
     _expression: ($) =>
       choice(
         $.assignment_expression,
-        $.function_call,
+        $.call_expression,
         $.array_indexed_access,
         $.ternary_expression,
         $.field_access,
@@ -965,11 +923,25 @@ module.exports = grammar({
         $.sizeof_expression,
         $.view_as,
         $.old_type_cast,
-        $.symbol,
+        $.identifier,
         $._literal,
         $.parenthesized_expression,
         $.this,
-        $.new_instance
+        $.new_expression
+      ),
+
+    // This is needed to resolve ambiguity between symbols and old type casts in case statements.
+    _case_expression: ($) =>
+      choice(
+        $.scope_access,
+        $.case_binary_expression,
+        $.case_unary_expression,
+        $.sizeof_expression,
+        $.view_as,
+        $.identifier,
+        $._literal,
+        $.parenthesized_expression,
+        $.new_expression
       ),
 
     assignment_expression: ($) =>
@@ -983,7 +955,7 @@ module.exports = grammar({
               $.view_as,
               $.field_access,
               $.scope_access,
-              $.symbol,
+              $.identifier,
               $.this
             )
           ),
@@ -1000,30 +972,32 @@ module.exports = grammar({
               "^=",
               "~=",
               "<<=",
-              ">>="
+              ">>=",
+              ">>>=",
+              "%="
             )
           ),
           field("right", choice($._expression, $.dynamic_array))
         )
       ),
 
-    function_call: ($) =>
+    call_expression: ($) =>
       prec.left(
         PREC.CALL,
         seq(
-          field("function", choice($.symbol, $.field_access)),
-          field("arguments", $.function_call_arguments)
+          field("function", choice($.identifier, $.field_access)),
+          field("arguments", $.call_arguments)
         )
       ),
 
-    function_call_arguments: ($) =>
+    call_arguments: ($) =>
       prec.left(
         -11,
         seq(
           "(",
           commaSep(
             choice(
-              seq("&", $.symbol),
+              seq("&", $.identifier),
               $._expression,
               $.named_arg,
               $.ignore_argument
@@ -1036,25 +1010,22 @@ module.exports = grammar({
     named_arg: ($) =>
       seq(
         ".",
-        field("name", $.symbol),
+        field("name", $.identifier),
         "=",
-        field("value", choice(seq("&", $.symbol), $._expression))
+        field("value", choice(seq("&", $.identifier), $._expression))
       ),
 
     ignore_argument: ($) => "_",
 
     array_indexed_access: ($) =>
-      prec(
-        PREC.ARRAY_MEMBER,
-        seq(
-          field(
-            "array",
-            choice($.symbol, $.array_indexed_access, $.field_access)
-          ),
-          "[",
-          field("index", $._expression),
-          "]"
-        )
+      seq(
+        field(
+          "array",
+          choice($.identifier, $.array_indexed_access, $.field_access)
+        ),
+        "[",
+        field("index", $._expression),
+        "]"
       ),
 
     parenthesized_expression: ($) =>
@@ -1086,60 +1057,22 @@ module.exports = grammar({
     field_access: ($) =>
       prec.right(
         PREC.FIELD,
-        seq(field("target", $._expression), ".", field("field", $.symbol))
+        seq(field("target", $._expression), ".", field("field", $.identifier))
       ),
 
     scope_access: ($) =>
       prec.right(
         PREC.FIELD,
-        seq(field("scope", $.symbol), "::", field("field", $.symbol))
+        seq(field("scope", $.identifier), "::", field("field", $.identifier))
       ),
 
-    unary_expression: ($) =>
-      prec.left(
-        PREC.UNARY,
-        seq(
-          field("operator", choice("!", "~", "-", "+")),
-          field("argument", $._expression)
-        )
-      ),
+    unary_expression: ($) => unaryExpression($._expression),
 
-    binary_expression: ($) => {
-      const table = [
-        ["+", PREC.ADD],
-        ["-", PREC.ADD],
-        ["*", PREC.MULTIPLY],
-        ["/", PREC.MULTIPLY],
-        ["%", PREC.MULTIPLY],
-        ["||", PREC.LOGICAL_OR],
-        ["&&", PREC.LOGICAL_AND],
-        ["|", PREC.INCLUSIVE_OR],
-        ["^", PREC.EXCLUSIVE_OR],
-        ["&", PREC.BITWISE_AND],
-        ["==", PREC.EQUAL],
-        ["!=", PREC.EQUAL],
-        [">", PREC.RELATIONAL],
-        [">=", PREC.RELATIONAL],
-        ["<=", PREC.RELATIONAL],
-        ["<", PREC.RELATIONAL],
-        ["<<", PREC.SHIFT],
-        [">>", PREC.SHIFT],
-        [">>>", PREC.SHIFT],
-      ];
+    case_unary_expression: ($) => unaryExpression($._case_expression),
 
-      return choice(
-        ...table.map(([operator, precedence]) => {
-          return prec.left(
-            precedence,
-            seq(
-              field("left", $._expression),
-              field("operator", operator),
-              field("right", $._expression)
-            )
-          );
-        })
-      );
-    },
+    binary_expression: ($) => binaryExpression($._expression),
+
+    case_binary_expression: ($) => binaryExpression($._case_expression),
 
     update_expression: ($) => {
       const argument = field("argument", $._expression);
@@ -1154,8 +1087,8 @@ module.exports = grammar({
       prec(
         1,
         choice(
-          $.function_call,
-          prec.right(1, seq($.symbol, repeat($.dimension))),
+          $.call_expression,
+          prec.right(1, seq($.identifier, repeat($.dimension))),
           prec.right(1, seq($.array_indexed_access, repeat($.dimension))),
           $.field_access,
           $.scope_access,
@@ -1170,9 +1103,10 @@ module.exports = grammar({
       prec.right(
         PREC.FIELD,
         seq(
-          field("scope", $.symbol),
-          seq("[", "]", "."),
-          field("field", $.symbol)
+          field("scope", $.identifier),
+          repeat1($.dimension),
+          ".",
+          field("field", $.identifier)
         )
       ),
 
@@ -1213,7 +1147,7 @@ module.exports = grammar({
           commaSep1(
             choice(
               $._literal,
-              $.symbol,
+              $.identifier,
               $.view_as,
               $.old_type_cast,
               $.unary_expression,
@@ -1282,16 +1216,23 @@ module.exports = grammar({
     },
 
     char_literal: ($) =>
-      seq("'", choice($.escape_sequence, token.immediate(/[^\n']/)), "'"),
+      seq(
+        "'",
+        choice(
+          $.escape_sequence,
+          alias(token.immediate(/[^\n']/), $.character)
+        ),
+        "'"
+      ),
 
     concatenated_string: ($) =>
       prec.left(
         seq(
-          field("left", choice($.string_literal, $.symbol)),
+          field("left", choice($.string_literal, $.identifier)),
           "...",
           field(
             "right",
-            choice($.string_literal, $.symbol, $.concatenated_string)
+            choice($.string_literal, $.identifier, $.concatenated_string)
           )
         )
       ),
@@ -1309,16 +1250,7 @@ module.exports = grammar({
       token(
         prec(
           1,
-          seq(
-            "\\",
-            choice(
-              /[^xuU]/,
-              /\d{2,3}/,
-              /x[0-9a-fA-F]{2,}/,
-              /u[0-9a-fA-F]{4}/,
-              /U[0-9a-fA-F]{8}/
-            )
-          )
+          seq("\\", choice(/(?:[abefnrt'\"\\]|(?:x[a-zA-Z0-9]{0,2}|\d+);?)/))
         )
       ),
 
@@ -1333,7 +1265,7 @@ module.exports = grammar({
     system_lib_string: ($) =>
       token(seq("<", repeat(choice(/[^>]/, "\\>")), ">")),
 
-    symbol: ($) => /[a-zA-Z_]\w*/,
+    identifier: ($) => /[a-zA-Z_]\w*/,
 
     // http://stackoverflow.com/questions/13014947/regex-to-match-a-c-style-multiline-comment/36328890#36328890
     comment: ($) =>
@@ -1357,4 +1289,48 @@ function commaSep(rule) {
 
 function commaSep1(rule) {
   return seq(rule, repeat(seq(",", rule)));
+}
+
+function unaryExpression(rule) {
+  return prec.left(
+    PREC.UNARY,
+    seq(field("operator", choice("!", "~", "-", "+")), field("argument", rule))
+  );
+}
+
+function binaryExpression(rule) {
+  const table = [
+    ["+", PREC.ADD],
+    ["-", PREC.ADD],
+    ["*", PREC.MULTIPLY],
+    ["/", PREC.MULTIPLY],
+    ["%", PREC.MULTIPLY],
+    ["||", PREC.LOGICAL_OR],
+    ["&&", PREC.LOGICAL_AND],
+    ["|", PREC.INCLUSIVE_OR],
+    ["^", PREC.EXCLUSIVE_OR],
+    ["&", PREC.BITWISE_AND],
+    ["==", PREC.EQUAL],
+    ["!=", PREC.EQUAL],
+    [">", PREC.RELATIONAL],
+    [">=", PREC.RELATIONAL],
+    ["<=", PREC.RELATIONAL],
+    ["<", PREC.RELATIONAL],
+    ["<<", PREC.SHIFT],
+    [">>", PREC.SHIFT],
+    [">>>", PREC.SHIFT],
+  ];
+
+  return choice(
+    ...table.map(([operator, precedence]) => {
+      return prec.left(
+        precedence,
+        seq(
+          field("left", rule),
+          field("operator", operator),
+          field("right", rule)
+        )
+      );
+    })
+  );
 }

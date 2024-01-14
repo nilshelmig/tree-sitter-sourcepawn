@@ -11,15 +11,21 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration
-        (function_visibility)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        (block
-            (while_statement
-                condition: (bool_literal)
-                (block)))))
+  (function_definition
+    (visibility)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (while_statement
+        condition: (bool_literal)
+        (block)
+      )
+    )
+  )
+)
 
 
 ==========================
@@ -35,21 +41,30 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration
-        (function_visibility)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        (block
-            (while_statement
-                condition: (binary_expression
-                    left: (binary_expression
-                        left: (symbol)
-                        right: (int_literal))
-                    right: (binary_expression
-                        left: (symbol)
-                        right: (int_literal)))
-                (block)))))
+  (function_definition
+    (visibility)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (while_statement
+        condition: (binary_expression
+          left: (binary_expression
+            left: (identifier)
+            right: (int_literal)
+          )
+          right: (binary_expression
+            left: (identifier)
+            right: (int_literal)
+          )
+        )
+        (block)
+      )
+    )
+  )
+)
 
 
 ==================
@@ -65,15 +80,23 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration
-        (function_visibility)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
+  (function_definition
+    (visibility)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (while_statement
+        condition: (bool_literal)
         (block
-            (while_statement
-                condition: (bool_literal)
-                (block (break_statement ))))))
+          (break_statement)
+        )
+      )
+    )
+  )
+)
 
 
 =====================
@@ -89,15 +112,23 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration
-        (function_visibility)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
+  (function_definition
+    (visibility)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (while_statement
+        condition: (bool_literal)
         (block
-            (while_statement
-                condition: (bool_literal)
-                (block (continue_statement ))))))
+          (continue_statement)
+        )
+      )
+    )
+  )
+)
 
 
 =============================
@@ -111,12 +142,18 @@ public void OnPluginStart() {
 ---
 
 (source_file
-    (function_declaration
-        (function_visibility)
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        (block
-            (while_statement
-                condition: (bool_literal)
-                (continue_statement )))))
+  (function_definition
+    (visibility)
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (while_statement
+        condition: (bool_literal)
+        (continue_statement)
+      )
+    )
+  )
+)

@@ -10,29 +10,44 @@ void Test() {
 ---
 
 (source_file
-    (function_declaration
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        (block
-            (variable_declaration_statement
-                type: (type (symbol))
-                (variable_declaration name: (symbol))
-                )
-            (expression_statement
-                (function_call
-                    function: (symbol)
-                    arguments: (function_call_arguments
-                        (field_access
-                            target: (symbol)
-                            field: (symbol))
-                        (sizeof_expression
-                            type: (scope_access
-                            scope: (symbol)
-                            field: (symbol)))
-                        (string_literal)
-                        (string_literal)))
-                ))))
+  (function_definition
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (variable_declaration_statement
+        type: (type
+          (identifier)
+        )
+        (variable_declaration
+          name: (identifier)
+        )
+      )
+      (expression_statement
+        (call_expression
+          function: (identifier)
+          arguments: (call_arguments
+            (field_access
+              target: (identifier)
+              field: (identifier)
+            )
+            (sizeof_expression
+              type: (scope_access
+                scope: (identifier)
+                field: (identifier)
+              )
+            )
+            (string_literal)
+            (string_literal)
+          )
+        )
+      )
+    )
+  )
+)
+
 
 =======================
 scope access expression
@@ -46,28 +61,40 @@ void Test() {
 ---
 
 (source_file
-    (function_declaration
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        (block
-            (variable_declaration_statement
-                type: (type
-                (symbol))
-                (variable_declaration
-                    name: (symbol)
-                    initialValue: (new_instance
-                        class: (symbol)
-                        arguments: (function_call_arguments)))
-                )
-            (expression_statement
-                (function_call
-                    function: (field_access
-                        target: (symbol)
-                        field: (symbol))
-                arguments: (function_call_arguments
-                    (int_literal)
-                    (scope_access
-                        scope: (symbol)
-                        field: (symbol))))
-            ))))
+  (function_definition
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (variable_declaration_statement
+        type: (type
+          (identifier)
+        )
+        (variable_declaration
+          name: (identifier)
+          initialValue: (new_expression
+            class: (identifier)
+            arguments: (call_arguments)
+          )
+        )
+      )
+      (expression_statement
+        (call_expression
+          function: (field_access
+            target: (identifier)
+            field: (identifier)
+          )
+          arguments: (call_arguments
+            (int_literal)
+            (scope_access
+              scope: (identifier)
+              field: (identifier)
+            )
+          )
+        )
+      )
+    )
+  )
+)

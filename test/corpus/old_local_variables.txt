@@ -10,20 +10,29 @@ void Test() {
 ---
 
 (source_file
-    (function_declaration
-      (type (builtin_type))
-      (symbol)
-      (argument_declarations)
-      (block
-        (old_variable_declaration_statement
-          (old_variable_declaration
-            (symbol))
+  (function_definition
+    (type
+      (builtin_type)
+    )
+    (identifier)
+    (parameter_declarations)
+    (block
+      (old_variable_declaration_statement
+        (old_variable_declaration
+          (identifier)
         )
-        (old_variable_declaration_statement
-          (old_variable_declaration
-            (old_type (old_builtin_type))
-            (symbol))
-        ))))
+      )
+      (old_variable_declaration_statement
+        (old_variable_declaration
+          (old_type
+            (old_builtin_type)
+          )
+          (identifier)
+        )
+      )
+    )
+  )
+)
 
 
 ====================
@@ -43,41 +52,58 @@ void Test() {
 ---
 
 (source_file
-    (function_declaration
-        (type (builtin_type))
-        (symbol)
-        (argument_declarations)
-        (block
-            (old_variable_declaration_statement
-                (old_variable_declaration
-                    (symbol)
-                    (int_literal))
-            )
-            (old_variable_declaration_statement
-                (old_variable_declaration
-                    (symbol)
-                    (binary_expression
-                        (int_literal)
-                        (int_literal)))
-            )
-            (old_variable_declaration_statement
-                (old_variable_declaration
-                    (symbol)
-                    (binary_expression
-                        (int_literal)
-                        (int_literal))))
-            (old_variable_declaration_statement
-                (old_variable_declaration
-                    (symbol)
-                    (binary_expression
-                        (symbol)
-                        (int_literal))))
-            (old_variable_declaration_statement
-                (old_variable_declaration
-                    (old_type (old_builtin_type))
-                    (symbol)
-                    (float_literal))
-            ))))
+  (function_definition
+    (type
+      (builtin_type)
+    )
+    (identifier)
+    (parameter_declarations)
+    (block
+      (old_variable_declaration_statement
+        (old_variable_declaration
+          (identifier)
+          (int_literal)
+        )
+      )
+      (old_variable_declaration_statement
+        (old_variable_declaration
+          (identifier)
+          (binary_expression
+            (int_literal)
+            (int_literal)
+          )
+        )
+      )
+      (old_variable_declaration_statement
+        (old_variable_declaration
+          (identifier)
+          (binary_expression
+            (int_literal)
+            (int_literal)
+          )
+        )
+      )
+      (old_variable_declaration_statement
+        (old_variable_declaration
+          (identifier)
+          (binary_expression
+            (identifier)
+            (int_literal)
+          )
+        )
+      )
+      (old_variable_declaration_statement
+        (old_variable_declaration
+          (old_type
+            (old_builtin_type)
+          )
+          (identifier)
+          (float_literal)
+        )
+      )
+    )
+  )
+)
 
 
 ==========================
@@ -92,32 +118,49 @@ void Test() {
 ---
 
 (source_file
-    (function_declaration
-        (type (builtin_type))
-        (symbol)
-        (argument_declarations)
-        (block
-            (old_variable_declaration_statement
-                (old_variable_declaration
-                (old_type (old_builtin_type))
-                (symbol)
-                (fixed_dimension
-                    (binary_expression
-                        (symbol)
-                        (int_literal)))
-                (string_literal))
+  (function_definition
+    (type
+      (builtin_type)
+    )
+    (identifier)
+    (parameter_declarations)
+    (block
+      (old_variable_declaration_statement
+        (old_variable_declaration
+          (old_type
+            (old_builtin_type)
+          )
+          (identifier)
+          (fixed_dimension
+            (binary_expression
+              (identifier)
+              (int_literal)
             )
-            (old_variable_declaration_statement
-                (old_variable_declaration
-                    (old_type (old_builtin_type))
-                (symbol)
-                (fixed_dimension
-                    (binary_expression
-                        (symbol)
-                        (int_literal)))
-                (array_literal (bool_literal)
-                (rest_operator)))
-            ))))
+          )
+          (string_literal)
+        )
+      )
+      (old_variable_declaration_statement
+        (old_variable_declaration
+          (old_type
+            (old_builtin_type)
+          )
+          (identifier)
+          (fixed_dimension
+            (binary_expression
+              (identifier)
+              (int_literal)
+            )
+          )
+          (array_literal
+            (bool_literal)
+            (rest_operator)
+          )
+        )
+      )
+    )
+  )
+)
 
 
 ===================
@@ -132,25 +175,37 @@ void Test() {
 ---
 
 (source_file
-    (function_declaration
-        (type (builtin_type))
-        (symbol)
-        (argument_declarations)
-        (block
-            (old_variable_declaration_statement
-                (variable_storage_class)
-                (old_variable_declaration
-                    (old_type (old_builtin_type))
-                (symbol)
-                (float_literal))
-            )
-            (old_variable_declaration_statement
-                (variable_storage_class)
-                (old_variable_declaration
-                    (old_type (old_builtin_type))
-                (symbol)
-                (float_literal))
-            ))))
+  (function_definition
+    (type
+      (builtin_type)
+    )
+    (identifier)
+    (parameter_declarations)
+    (block
+      (old_variable_declaration_statement
+        (variable_storage_class)
+        (old_variable_declaration
+          (old_type
+            (old_builtin_type)
+          )
+          (identifier)
+          (float_literal)
+        )
+      )
+      (old_variable_declaration_statement
+        (visibility)
+        (old_variable_declaration
+          (old_type
+            (old_builtin_type)
+          )
+          (identifier)
+          (float_literal)
+        )
+      )
+    )
+  )
+)
+
 
 ==========
 old arrays
@@ -167,55 +222,73 @@ void Test() {
 ---
 
 (source_file
-      (function_declaration
-        (type
-          (builtin_type))
-        (symbol)
-        (argument_declarations)
-        (block
-          (old_variable_declaration_statement
-            (old_variable_declaration
-              (symbol)
-              (fixed_dimension
-                (int_literal)))
+  (function_definition
+    (type
+      (builtin_type)
+    )
+    (identifier)
+    (parameter_declarations)
+    (block
+      (old_variable_declaration_statement
+        (old_variable_declaration
+          (identifier)
+          (fixed_dimension
+            (int_literal)
+          )
+        )
+      )
+      (old_variable_declaration_statement
+        (old_variable_declaration
+          (identifier)
+          (fixed_dimension
+            (binary_expression
+              (identifier)
+              (int_literal)
             )
-          (old_variable_declaration_statement
-            (old_variable_declaration
-              (symbol)
-              (fixed_dimension
-                (binary_expression
-                  (symbol)
-                  (int_literal))))
-            )
-          (old_variable_declaration_statement
-            (old_variable_declaration
-              (old_type
-                (old_builtin_type))
-              (symbol)
-              (fixed_dimension
-                (int_literal))
-              (string_literal))
-            )
-          (old_variable_declaration_statement
-            (old_variable_declaration
-              (old_type
-                (old_builtin_type))
-              (symbol)
-              (fixed_dimension
-                (int_literal))
-              (array_literal
-                (float_literal)
-                (float_literal)
-                (float_literal)))
-            )
-          (old_variable_declaration_statement
-            (old_variable_declaration
-              (symbol)
-              (dimension)
-              (array_literal
-                (int_literal)
-                (int_literal)
-                (int_literal)
-                (int_literal)
-                (int_literal)))
-            ))))
+          )
+        )
+      )
+      (old_variable_declaration_statement
+        (old_variable_declaration
+          (old_type
+            (old_builtin_type)
+          )
+          (identifier)
+          (fixed_dimension
+            (int_literal)
+          )
+          (string_literal)
+        )
+      )
+      (old_variable_declaration_statement
+        (old_variable_declaration
+          (old_type
+            (old_builtin_type)
+          )
+          (identifier)
+          (fixed_dimension
+            (int_literal)
+          )
+          (array_literal
+            (float_literal)
+            (float_literal)
+            (float_literal)
+          )
+        )
+      )
+      (old_variable_declaration_statement
+        (old_variable_declaration
+          (identifier)
+          (dimension)
+          (array_literal
+            (int_literal)
+            (int_literal)
+            (int_literal)
+            (int_literal)
+            (int_literal)
+          )
+        )
+      )
+    )
+  )
+)

@@ -11,21 +11,27 @@ define constant
 ---
 
 (source_file
-    (preproc_define
-        name: (symbol)
-        value: (preproc_arg))
-    (preproc_define
-        name: (symbol)
-        value: (preproc_arg))
-    (preproc_define
-        name: (symbol)
-        value: (preproc_arg))
-    (preproc_define
-        name: (symbol)
-        value: (preproc_arg))
-    (preproc_define
-        name: (symbol)
-        value: (preproc_arg)))
+  (preproc_define
+    name: (identifier)
+    value: (preproc_arg)
+  )
+  (preproc_define
+    name: (identifier)
+    value: (preproc_arg)
+  )
+  (preproc_define
+    name: (identifier)
+    value: (preproc_arg)
+  )
+  (preproc_define
+    name: (identifier)
+    value: (preproc_arg)
+  )
+  (preproc_define
+    name: (identifier)
+    value: (preproc_arg)
+  )
+)
 
 
 =================
@@ -38,12 +44,15 @@ define expression
 ---
 
 (source_file
-    (preproc_define
-        name: (symbol)
-        value: (preproc_arg))
-    (preproc_define
-        name: (symbol)
-        value: (preproc_arg)))
+  (preproc_define
+    name: (identifier)
+    value: (preproc_arg)
+  )
+  (preproc_define
+    name: (identifier)
+    value: (preproc_arg)
+  )
+)
 
 
 ==========================
@@ -55,9 +64,11 @@ define handles spaces/tabs
 ---
 
 (source_file
-    (preproc_define
-        name: (symbol)
-        value: (preproc_arg)))
+  (preproc_define
+    name: (identifier)
+    value: (preproc_arg)
+  )
+)
 
 
 ============================
@@ -76,35 +87,42 @@ define with trailing comment
 1
 #define MAXPLAYERS 65 /**/ +1
 
-
 ---
 
 (source_file
-    (preproc_define
-        name: (symbol)
-        value: (preproc_arg))
-    (comment)
-    (preproc_define
-        name: (symbol)
-        value: (preproc_arg))
-    (comment)
-    (preproc_define
-        name: (symbol)
-        value: (preproc_arg))
-    (comment)
-    (preproc_define
-        name: (symbol)
-        value: (preproc_arg))
-      (comment)
-    (preproc_define
-      name: (symbol)
-      value: (preproc_arg))
-    (preproc_define
-      name: (symbol)
-      value: (preproc_arg))
-    (preproc_define
-      name: (symbol)
-      value: (preproc_arg)))
+  (preproc_define
+    name: (identifier)
+    value: (preproc_arg)
+  )
+  (comment)
+  (preproc_define
+    name: (identifier)
+    value: (preproc_arg)
+  )
+  (comment)
+  (preproc_define
+    name: (identifier)
+    value: (preproc_arg)
+  )
+  (comment)
+  (preproc_define
+    name: (identifier)
+    value: (preproc_arg)
+  )
+  (comment)
+  (preproc_define
+    name: (identifier)
+    value: (preproc_arg)
+  )
+  (preproc_define
+    name: (identifier)
+    value: (preproc_arg)
+  )
+  (preproc_define
+    name: (identifier)
+    value: (preproc_arg)
+  )
+)
 
 
 ============================
@@ -121,19 +139,41 @@ non valid expression defines
 
 (source_file
   (preproc_define
-    (symbol)
-    (preproc_arg))
+    (identifier)
+    (preproc_arg)
+  )
   (preproc_define
-    (symbol)
-    (preproc_arg))
+    (identifier)
+    (preproc_arg)
+  )
   (preproc_define
-    (symbol)
-    (preproc_arg))
+    (identifier)
+    (preproc_arg)
+  )
   (comment)
   (preproc_define
-    (symbol)
-    (preproc_arg))
-  (comment))
+    (identifier)
+    (preproc_arg)
+  )
+  (comment)
+)
+
+
+================================
+define with trailing parenthesis
+================================
+
+#define FOO() (test)
+
+---
+
+(source_file
+  (preproc_macro
+    (identifier)
+    (preproc_arg)
+  )
+)
+
 
 ============
 define macro
@@ -144,11 +184,14 @@ define macro
 ---
 
 (source_file
-    (preproc_macro
-        name: (symbol)
-        (macro_param)
-        (macro_param)
-        value: (preproc_arg)))
+  (preproc_macro
+    name: (identifier)
+    parameters: (macro_param)
+    parameters: (macro_param)
+    value: (preproc_arg)
+  )
+)
+
 
 ======================
 define macro multiline
@@ -161,11 +204,13 @@ define macro multiline
 ---
 
 (source_file
-    (preproc_macro
-        name: (symbol)
-        (macro_param)
-        (macro_param)
-        value: (preproc_arg)))
+  (preproc_macro
+    name: (identifier)
+    parameters: (macro_param)
+    parameters: (macro_param)
+    value: (preproc_arg)
+  )
+)
 
 
 ========
@@ -176,4 +221,8 @@ undefine
 
 ---
 
-(source_file (preproc_undefine name: (symbol)))
+(source_file
+  (preproc_undefine
+    name: (identifier)
+  )
+)

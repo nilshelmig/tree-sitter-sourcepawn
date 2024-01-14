@@ -8,8 +8,13 @@ pragma for semicolons
 ---
 
 (source_file
-    (preproc_pragma (preproc_arg))
-    (preproc_pragma (preproc_arg)))
+  (preproc_pragma
+    (preproc_arg)
+  )
+  (preproc_pragma
+    (preproc_arg)
+  )
+)
 
 
 ==========================================
@@ -22,8 +27,13 @@ pragma for semicolons - optional semicolon
 ---
 
 (source_file
-    (preproc_pragma (preproc_arg))
-    (preproc_pragma (preproc_arg)))
+  (preproc_pragma
+    (preproc_arg)
+  )
+  (preproc_pragma
+    (preproc_arg)
+  )
+)
 
 
 ===========================
@@ -36,8 +46,13 @@ pragma for new declarations
 ---
 
 (source_file
-    (preproc_pragma (preproc_arg))
-    (preproc_pragma (preproc_arg)))
+  (preproc_pragma
+    (preproc_arg)
+  )
+  (preproc_pragma
+    (preproc_arg)
+  )
+)
 
 
 ================================================
@@ -50,8 +65,13 @@ pragma for new declarations - optional semicolon
 ---
 
 (source_file
-    (preproc_pragma (preproc_arg))
-    (preproc_pragma (preproc_arg)))
+  (preproc_pragma
+    (preproc_arg)
+  )
+  (preproc_pragma
+    (preproc_arg)
+  )
+)
 
 
 =======================
@@ -64,8 +84,13 @@ pragma for deprecations
 ---
 
 (source_file
-    (preproc_pragma (preproc_arg))
-    (preproc_pragma (preproc_arg)))
+  (preproc_pragma
+    (preproc_arg)
+  )
+  (preproc_pragma
+    (preproc_arg)
+  )
+)
 
 
 ==================
@@ -77,5 +102,7 @@ pragma for dynamic
 ---
 
 (source_file
-    (preproc_pragma 
-        (preproc_arg)))
+  (preproc_pragma
+    (preproc_arg)
+  )
+)

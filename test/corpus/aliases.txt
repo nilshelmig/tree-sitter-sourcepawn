@@ -15,34 +15,49 @@ stock float operator--(float oper)
 ---
 
 (source_file
-    (alias_declaration
-        (function_visibility)
-        (type (builtin_type))
-        (alias_operator)
-        (argument_declarations
-            (argument_declaration
-                (argument_type
-                    (type (builtin_type)))
-            (symbol)))
-        (block
-            (return_statement
-                (binary_expression
-                    (symbol)
-                    (float_literal)))))
-    (alias_declaration
-        (function_visibility)
-        (type (builtin_type))
-        (alias_operator)
-        (argument_declarations
-            (argument_declaration
-                (argument_type
-                    (type (builtin_type)))
-            (symbol)))
-        (block
-            (return_statement
-                (binary_expression
-                    (symbol)
-                    (float_literal))))))
+  (alias_declaration
+    (visibility)
+    (builtin_type)
+    (alias_operator)
+    (parameter_declarations
+      (parameter_declaration
+        (type
+          (builtin_type)
+        )
+        (identifier)
+      )
+    )
+    (block
+      (return_statement
+        (binary_expression
+          (identifier)
+          (float_literal)
+        )
+      )
+    )
+  )
+  (alias_declaration
+    (visibility)
+    (builtin_type)
+    (alias_operator)
+    (parameter_declarations
+      (parameter_declaration
+        (type
+          (builtin_type)
+        )
+        (identifier)
+      )
+    )
+    (block
+      (return_statement
+        (binary_expression
+          (identifier)
+          (float_literal)
+        )
+      )
+    )
+  )
+)
 
 
 ===================
@@ -57,66 +72,91 @@ native float operator-(float oper1, float oper2) = FloatSub;
 ---
 
 (source_file
-    (alias_assignment
-        (function_definition_type)
-        (type (builtin_type))
-        (symbol)
-        (argument_declarations
-            (argument_declaration
-                (argument_type
-                    (type (builtin_type)))
-                (symbol))
-            (argument_declaration
-                (argument_type
-                    (type (builtin_type)))
-                (symbol)))
-        (symbol)
+  (function_declaration
+    (function_declaration_kind)
+    (type
+      (builtin_type)
+    )
+    (identifier)
+    (parameter_declarations
+      (parameter_declaration
+        (type
+          (builtin_type)
         )
-    (alias_assignment
-        (function_definition_type)
-        (type (builtin_type))
-        (symbol)
-        (argument_declarations
-            (argument_declaration
-                (argument_type
-                    (type (builtin_type)))
-                (symbol))
-            (argument_declaration
-                (argument_type
-                    (type (builtin_type)))
-                (symbol)))
-        (symbol)
+        (identifier)
+      )
+      (parameter_declaration
+        (type
+          (builtin_type)
         )
-    (alias_assignment
-        (function_definition_type)
-        (type (builtin_type))
-        (alias_operator)
-        (argument_declarations
-            (argument_declaration
-                (argument_type
-                    (type (builtin_type)))
-                (symbol))
-            (argument_declaration
-                (argument_type
-                    (type (builtin_type)))
-                (symbol)))
-        (symbol)
+        (identifier)
+      )
+    )
+    (identifier)
+  )
+  (function_declaration
+    (function_declaration_kind)
+    (type
+      (builtin_type)
+    )
+    (identifier)
+    (parameter_declarations
+      (parameter_declaration
+        (type
+          (builtin_type)
         )
-    (alias_assignment
-        (function_definition_type)
-        (type (builtin_type))
-        (alias_operator)
-        (argument_declarations
-            (argument_declaration
-                (argument_type
-                    (type (builtin_type)))
-                (symbol))
-            (argument_declaration
-                (argument_type
-                    (type (builtin_type)))
-                (symbol)))
-        (symbol)
-        ))
+        (identifier)
+      )
+      (parameter_declaration
+        (type
+          (builtin_type)
+        )
+        (identifier)
+      )
+    )
+    (identifier)
+  )
+  (alias_assignment
+    (function_declaration_kind)
+    (builtin_type)
+    (alias_operator)
+    (parameter_declarations
+      (parameter_declaration
+        (type
+          (builtin_type)
+        )
+        (identifier)
+      )
+      (parameter_declaration
+        (type
+          (builtin_type)
+        )
+        (identifier)
+      )
+    )
+    (identifier)
+  )
+  (alias_assignment
+    (function_declaration_kind)
+    (builtin_type)
+    (alias_operator)
+    (parameter_declarations
+      (parameter_declaration
+        (type
+          (builtin_type)
+        )
+        (identifier)
+      )
+      (parameter_declaration
+        (type
+          (builtin_type)
+        )
+        (identifier)
+      )
+    )
+    (identifier)
+  )
+)
 
 
 ===================
@@ -128,16 +168,157 @@ forward operator%(float oper1, float oper2);
 ---
 
 (source_file
-    (alias_assignment
-        (function_definition_type)
-        (alias_operator)
-        (argument_declarations
-            (argument_declaration
-                (argument_type
-                    (type (builtin_type)))
-                (symbol))
-            (argument_declaration
-                (argument_type
-                    (type (builtin_type)))
-                (symbol)))
-        ))
+  (alias_declaration
+    (function_declaration_kind)
+    (alias_operator)
+    (parameter_declarations
+      (parameter_declaration
+        (type
+          (builtin_type)
+        )
+        (identifier)
+      )
+      (parameter_declaration
+        (type
+          (builtin_type)
+        )
+        (identifier)
+      )
+    )
+  )
+)
+
+
+=============
+old - aliases
+=============
+
+stock Float:operator++(Float:oper)
+{
+	return oper+1.0;
+}
+
+stock Float:operator*(Float:oper1, oper2)
+{
+	return FloatMul(oper1, float(oper2));
+}
+
+---
+
+(source_file
+  (alias_declaration
+    (visibility)
+    (old_builtin_type)
+    (alias_operator)
+    (parameter_declarations
+      (parameter_declaration
+        (old_type
+          (old_builtin_type)
+        )
+        (identifier)
+      )
+    )
+    (block
+      (return_statement
+        (binary_expression
+          (identifier)
+          (float_literal)
+        )
+      )
+    )
+  )
+  (alias_declaration
+    (visibility)
+    (old_builtin_type)
+    (alias_operator)
+    (parameter_declarations
+      (parameter_declaration
+        (old_type
+          (old_builtin_type)
+        )
+        (identifier)
+      )
+      (parameter_declaration
+        (identifier)
+      )
+    )
+    (block
+      (return_statement
+        (call_expression
+          (identifier)
+          (call_arguments
+            (identifier)
+            (call_expression
+              (identifier)
+              (call_arguments
+                (identifier)
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+)
+
+
+======================
+old - alias_assignment
+======================
+
+native Float:operator*(Float:oper1, Float:oper2) = FloatMul;
+
+---
+
+(source_file
+  (alias_assignment
+    (function_declaration_kind)
+    (old_builtin_type)
+    (alias_operator)
+    (parameter_declarations
+      (parameter_declaration
+        (old_type
+          (old_builtin_type)
+        )
+        (identifier)
+      )
+      (parameter_declaration
+        (old_type
+          (old_builtin_type)
+        )
+        (identifier)
+      )
+    )
+    (identifier)
+  )
+)
+
+
+=========================
+old - forbidden operators
+=========================
+
+forward operator%(Float:oper1, Float:oper2);
+
+---
+
+(source_file
+  (alias_declaration
+    (function_declaration_kind)
+    (alias_operator)
+    (parameter_declarations
+      (parameter_declaration
+        (old_type
+          (old_builtin_type)
+        )
+        (identifier)
+      )
+      (parameter_declaration
+        (old_type
+          (old_builtin_type)
+        )
+        (identifier)
+      )
+    )
+  )
+)

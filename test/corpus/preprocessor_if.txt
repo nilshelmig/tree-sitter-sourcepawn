@@ -6,7 +6,11 @@ preprocessor condition
 
 ---
 
-(source_file (preproc_if condition: (preproc_arg)))
+(source_file
+  (preproc_if
+    condition: (preproc_arg)
+  )
+)
 
 
 =========================================
@@ -18,8 +22,10 @@ preprocessor condition - defined constant
 ---
 
 (source_file
-    (preproc_if
-        condition: (preproc_arg)))
+  (preproc_if
+    condition: (preproc_arg)
+  )
+)
 
 
 =============================================
@@ -31,9 +37,10 @@ preprocessor condition - not defined constant
 ---
 
 (source_file
-    (preproc_if
-        condition: (preproc_arg)))
-
+  (preproc_if
+    condition: (preproc_arg)
+  )
+)
 
 
 ==========================================
@@ -46,7 +53,9 @@ preprocessor condition - complex condition
 
 (source_file
   (preproc_if
-    (preproc_arg)))
+    (preproc_arg)
+  )
+)
 
 
 =======================================
@@ -59,7 +68,9 @@ preprocessor assert - complex condition
 
 (source_file
   (preproc_assert
-    (preproc_arg)))
+    (preproc_arg)
+  )
+)
 
 
 ====
@@ -70,7 +81,9 @@ else
 
 ---
 
-(source_file (preproc_else))
+(source_file
+  (preproc_else)
+)
 
 
 =====
@@ -81,7 +94,9 @@ endif
 
 ---
 
-(source_file (preproc_endif))
+(source_file
+  (preproc_endif)
+)
 
 
 ====================================
@@ -99,24 +114,33 @@ void MyFunc() {
 ---
 
 (source_file
-    (function_declaration
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        (block
-        (preproc_if condition: (preproc_arg))
-        (expression_statement
-            (function_call
-            function: (symbol)
-            arguments: (function_call_arguments))
-            )
-        (preproc_else)
-        (expression_statement
-            (function_call
-            function: (symbol)
-            arguments: (function_call_arguments))
-            )
-        (preproc_endif))))
+  (function_definition
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (preproc_if
+        condition: (preproc_arg)
+      )
+      (expression_statement
+        (call_expression
+          function: (identifier)
+          arguments: (call_arguments)
+        )
+      )
+      (preproc_else)
+      (expression_statement
+        (call_expression
+          function: (identifier)
+          arguments: (call_arguments)
+        )
+      )
+      (preproc_endif)
+    )
+  )
+)
 
 
 ==============================
@@ -136,19 +160,27 @@ enum
 ---
 
 (source_file
-    (enum
-        entries: (enum_entries
-            (enum_entry name: (symbol))
-            (preproc_if condition: (preproc_arg))
-            (enum_entry
-                name: (symbol)
-                value: (int_literal))
-            (preproc_else)
-            (enum_entry
-                name: (symbol)
-                value: (int_literal))
-            (preproc_endif))
-        ))
+  (enum
+    entries: (enum_entries
+      (enum_entry
+        name: (identifier)
+      )
+      (preproc_if
+        condition: (preproc_arg)
+      )
+      (enum_entry
+        name: (identifier)
+        value: (int_literal)
+      )
+      (preproc_else)
+      (enum_entry
+        name: (identifier)
+        value: (int_literal)
+      )
+      (preproc_endif)
+    )
+  )
+)
 
 
 ==============================
@@ -166,24 +198,35 @@ void MyFunc() {
 ---
 
 (source_file
-    (function_declaration
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        (block
-        (preproc_if condition: (preproc_arg))
-        (expression_statement
-            (function_call
-            function: (symbol)
-            arguments: (function_call_arguments))
-            )
-        (preproc_elseif condition: (preproc_arg))
-        (expression_statement
-            (function_call
-            function: (symbol)
-            arguments: (function_call_arguments))
-            )
-        (preproc_endif))))
+  (function_definition
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (preproc_if
+        condition: (preproc_arg)
+      )
+      (expression_statement
+        (call_expression
+          function: (identifier)
+          arguments: (call_arguments)
+        )
+      )
+      (preproc_elseif
+        condition: (preproc_arg)
+      )
+      (expression_statement
+        (call_expression
+          function: (identifier)
+          arguments: (call_arguments)
+        )
+      )
+      (preproc_endif)
+    )
+  )
+)
 
 
 =========================
@@ -197,10 +240,12 @@ preprocessor with comment
 ---
 
 (source_file
-    (preproc_if
-        condition: (preproc_arg))
-    (comment)
-    (preproc_else)
-    (comment)
-    (preproc_endif)
-    (comment))
+  (preproc_if
+    condition: (preproc_arg)
+  )
+  (comment)
+  (preproc_else)
+  (comment)
+  (preproc_endif)
+  (comment)
+)

@@ -1,6 +1,6 @@
-============
-declarations
-============
+============================
+local variables declarations
+============================
 
 void Test() {
     int number;
@@ -11,65 +11,111 @@ void Test() {
     float vec[3];
     bool active[MAXPLAYERS + 1];
     Action action;
-    Action foo = null, bar;
+    Action actions[MAXPLAYERS + 1];
 }
 
 ---
 
 (source_file
-    (function_declaration
-        (type (builtin_type))
-        (symbol)
-        (argument_declarations)
-        (block
-            (variable_declaration_statement
-                (type (builtin_type))
-                (variable_declaration (symbol))
-                )
-            (variable_declaration_statement
-                (type (builtin_type))
-                (variable_declaration (symbol))
-                )
-            (variable_declaration_statement
-                (type (builtin_type))
-                (variable_declaration (symbol))
-                )
-            (variable_declaration_statement
-                (type (builtin_type))
-                (variable_declaration (symbol))
-                )
-            (variable_declaration_statement
-                (type (builtin_type))
-                (dimension)
-                (variable_declaration
-                    (symbol)
-                    (string_literal))
-                )
-            (variable_declaration_statement
-                (type (builtin_type))
-                (variable_declaration
-                (symbol)
-                (fixed_dimension (int_literal)))
-                )
-            (variable_declaration_statement
-                (type (builtin_type))
-                (variable_declaration
-                (symbol)
-                (fixed_dimension 
-                    (binary_expression (symbol) (int_literal))))
-                )
-            (variable_declaration_statement
-                (type (symbol))
-            (variable_declaration 
-                          (symbol)))
-          (variable_declaration_statement
-              (type
-                (symbol))
-              (variable_declaration
-                (symbol)
-                (null))
-              (variable_declaration
-                (symbol))))))
+  (function_definition
+    (type
+      (builtin_type)
+    )
+    (identifier)
+    (parameter_declarations)
+    (block
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (identifier)
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (identifier)
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (identifier)
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (identifier)
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (dimension)
+        (dynamic_array_declaration
+          (identifier)
+          (string_literal)
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (identifier)
+          (fixed_dimension
+            (int_literal)
+          )
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (identifier)
+          (fixed_dimension
+            (binary_expression
+              (identifier)
+              (int_literal)
+            )
+          )
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (identifier)
+        )
+        (variable_declaration
+          (identifier)
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (identifier)
+        )
+        (variable_declaration
+          (identifier)
+          (fixed_dimension
+            (binary_expression
+              (identifier)
+              (int_literal)
+            )
+          )
+        )
+      )
+    )
+  )
+)
 
 
 ==============
@@ -91,51 +137,87 @@ void Test() {
 ---
 
 (source_file
-    (function_declaration
-        (type (builtin_type))
-        (symbol)
-        (argument_declarations)
-        (block
-            (variable_declaration_statement
-                (type (builtin_type))
-                (variable_declaration
-                    (symbol) (int_literal))
-                )
-            (variable_declaration_statement
-                (type (builtin_type))
-                (variable_declaration
-                    (symbol) 
-                    (binary_expression
-                        (int_literal)
-                        (int_literal)))
-                )
-            (variable_declaration_statement
-                (type (builtin_type))
-                (variable_declaration
-                    (symbol) 
-                    (binary_expression
-                        (int_literal)
-                        (int_literal))))
-            (variable_declaration_statement
-                (type (builtin_type))
-                (variable_declaration
-                    (symbol) (float_literal))
-                )
-            (variable_declaration_statement
-                (type (builtin_type))
-            (variable_declaration
-                (symbol) (char_literal))
-                )
-            (variable_declaration_statement
-                (type (builtin_type))
-            (variable_declaration
-                (symbol) (bool_literal))
-                )
-            (variable_declaration_statement
-                (type (symbol))
-            (variable_declaration
-                (symbol) (null))
-                ))))
+  (function_definition
+    (type
+      (builtin_type)
+    )
+    (identifier)
+    (parameter_declarations)
+    (block
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (identifier)
+          (int_literal)
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (identifier)
+          (binary_expression
+            (int_literal)
+            (int_literal)
+          )
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (identifier)
+          (binary_expression
+            (int_literal)
+            (int_literal)
+          )
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (identifier)
+          (float_literal)
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (identifier)
+          (char_literal
+            (character)
+          )
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (identifier)
+          (bool_literal)
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (identifier)
+        )
+        (variable_declaration
+          (identifier)
+          (null)
+        )
+      )
+    )
+  )
+)
 
 
 ====================
@@ -148,73 +230,110 @@ void Test() {
     float vec[3] = { 0.0, 14.2, 13.22 };
     bool client_has_stuff[MAXPLAYERS] = { true, ... };
     char[] name = new char[players*2];
-    Action[] actions = new Action[maxActions];
+    Action[] actions = new Action[MAXPLAYERS];
 }
 
 ---
 
 (source_file
-    (function_declaration
-        (type (builtin_type))
-        (symbol)
-        (argument_declarations)
-        (block
-            (variable_declaration_statement
-            (type (builtin_type))
-            (dimension)
-            (variable_declaration
-                (symbol) (string_literal))
+  (function_definition
+    (type
+      (builtin_type)
+    )
+    (identifier)
+    (parameter_declarations)
+    (block
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (dimension)
+        (dynamic_array_declaration
+          (identifier)
+          (string_literal)
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (identifier)
+          (dimension)
+          (array_literal
+            (int_literal)
+            (int_literal)
+            (int_literal)
+          )
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (identifier)
+          (fixed_dimension
+            (int_literal)
+          )
+          (array_literal
+            (float_literal)
+            (float_literal)
+            (float_literal)
+          )
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (identifier)
+          (fixed_dimension
+            (identifier)
+          )
+          (array_literal
+            (bool_literal)
+            (rest_operator)
+          )
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (dimension)
+        (dynamic_array_declaration
+          (identifier)
+          (dynamic_array
+            (builtin_type)
+            (fixed_dimension
+              (binary_expression
+                (identifier)
+                (int_literal)
+              )
             )
-            (variable_declaration_statement
-                (type (builtin_type))
-                (variable_declaration
-                    (symbol)
-                    (dimension)
-                    (array_literal
-                    (int_literal)
-                    (int_literal)
-                    (int_literal)))
+          )
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (identifier)
+        )
+        (dimension)
+        (dynamic_array_declaration
+          (identifier)
+          (dynamic_array
+            (identifier)
+            (fixed_dimension
+              (identifier)
             )
-            (variable_declaration_statement
-                (type (builtin_type))
-                (variable_declaration
-                    (symbol)
-                    (fixed_dimension (int_literal))
-                    (array_literal
-                        (float_literal)
-                        (float_literal)
-                        (float_literal)))
-            )
-            (variable_declaration_statement
-                (type (builtin_type))
-                (variable_declaration
-                    (symbol)
-                    (fixed_dimension (symbol))
-                    (array_literal
-                        (bool_literal)
-                        (rest_operator)))
-            )
-            (variable_declaration_statement
-                (type (builtin_type))
-                (dimension)
-                (variable_declaration
-                    (symbol)
-                    (dynamic_array (builtin_type)
-                    (fixed_dimension
-                        (binary_expression
-                        (symbol)
-                        (int_literal)))))
-            )
-            (variable_declaration_statement
-                (type (symbol))
-                (dimension)
-                (variable_declaration
-                    (symbol)
-                    (dynamic_array
-                        (symbol)
-                        (fixed_dimension
-                        (symbol))))
-            ))))
+          )
+        )
+      )
+    )
+  )
+)
 
 
 =============
@@ -231,34 +350,57 @@ void Test() {
 ---
 
 (source_file
-    (function_declaration
-        (type (builtin_type))
-        (symbol)
-        (argument_declarations)
-        (block
-            (variable_declaration_statement
-                (variable_storage_class)
-                (type (builtin_type))
-                (variable_declaration
-                    (symbol) (int_literal))
-            )
-            (variable_declaration_statement
-                (variable_storage_class)
-                (type (symbol))
-                (variable_declaration
-                    (symbol) (int_literal))
-            )
-            (variable_declaration_statement
-                (variable_storage_class)
-                (type (builtin_type))
-                (variable_declaration
-                    (symbol) (int_literal))
-            )
-            (variable_declaration_statement
-                (variable_storage_class)
-                (type (symbol))
-                (variable_declaration (symbol))
-            ))))
+  (function_definition
+    (type
+      (builtin_type)
+    )
+    (identifier)
+    (parameter_declarations)
+    (block
+      (variable_declaration_statement
+        (visibility)
+        (variable_storage_class)
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (identifier)
+          (int_literal)
+        )
+      )
+      (variable_declaration_statement
+        (visibility)
+        (variable_storage_class)
+        (type
+          (identifier)
+        )
+        (variable_declaration
+          (identifier)
+          (int_literal)
+        )
+      )
+      (variable_declaration_statement
+        (variable_storage_class)
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (identifier)
+          (int_literal)
+        )
+      )
+      (variable_declaration_statement
+        (visibility)
+        (type
+          (identifier)
+        )
+        (variable_declaration
+          (identifier)
+        )
+      )
+    )
+  )
+)
 
 
 =======================
@@ -266,8 +408,6 @@ multidimensional arrays
 =======================
 
 void Test(){
-    Action[][] a;
-    Action [] [] a;
     float vec[MAXPLAYERS][10];
     float vec [MAXPLAYERS] [10];
     int bla[][] = { {1,2,3}, {4,5,6}, {7,8,9} };
@@ -276,83 +416,91 @@ void Test(){
 
 ---
 
-   (source_file
-      (function_declaration
+(source_file
+  (function_definition
+    (type
+      (builtin_type)
+    )
+    (identifier)
+    (parameter_declarations)
+    (block
+      (variable_declaration_statement
         (type
-          (builtin_type))
-        (symbol)
-        (argument_declarations)
-        (block
-          (variable_declaration_statement
-            (type
-              (symbol))
-            (dimension)
-            (dimension)
-            (variable_declaration
-              (symbol))
+          (builtin_type)
+        )
+        (variable_declaration
+          (identifier)
+          (fixed_dimension
+            (identifier)
+          )
+          (fixed_dimension
+            (int_literal)
+          )
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (identifier)
+          (fixed_dimension
+            (identifier)
+          )
+          (fixed_dimension
+            (int_literal)
+          )
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (identifier)
+          (dimension)
+          (dimension)
+          (array_literal
+            (array_literal
+              (int_literal)
+              (int_literal)
+              (int_literal)
             )
-          (variable_declaration_statement
-            (type
-              (symbol))
-            (dimension)
-            (dimension)
-            (variable_declaration
-              (symbol))
+            (array_literal
+              (int_literal)
+              (int_literal)
+              (int_literal)
             )
-          (variable_declaration_statement
-            (type
-              (builtin_type))
-            (variable_declaration
-              (symbol)
-              (fixed_dimension
-                (symbol))
-              (fixed_dimension
-                (int_literal)))
+            (array_literal
+              (int_literal)
+              (int_literal)
+              (int_literal)
             )
-          (variable_declaration_statement
-            (type
-              (builtin_type))
-            (variable_declaration
-              (symbol)
-              (fixed_dimension
-                (symbol))
-              (fixed_dimension
-                (int_literal)))
+          )
+        )
+      )
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (dimension)
+        (dimension)
+        (dynamic_array_declaration
+          (identifier)
+          (dynamic_array
+            (builtin_type)
+            (fixed_dimension
+              (binary_expression
+                (identifier)
+                (int_literal)
+              )
             )
-          (variable_declaration_statement
-            (type
-              (builtin_type))
-            (variable_declaration
-              (symbol)
-              (dimension)
-              (dimension)
-              (array_literal
-                (array_literal
-                  (int_literal)
-                  (int_literal)
-                  (int_literal))
-                (array_literal
-                  (int_literal)
-                  (int_literal)
-                  (int_literal))
-                (array_literal
-                  (int_literal)
-                  (int_literal)
-                  (int_literal))))
+            (fixed_dimension
+              (int_literal)
             )
-          (variable_declaration_statement
-            (type
-              (builtin_type))
-            (dimension)
-            (dimension)
-            (variable_declaration
-              (symbol)
-              (dynamic_array
-                (builtin_type)
-                (fixed_dimension
-                  (binary_expression
-                    (symbol)
-                    (int_literal)))
-                (fixed_dimension
-                  (int_literal))))
-            ))))
+          )
+        )
+      )
+    )
+  )
+)

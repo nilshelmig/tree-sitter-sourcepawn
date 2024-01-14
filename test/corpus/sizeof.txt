@@ -9,14 +9,21 @@ int Test() {
 ---
 
 (source_file
-    (function_declaration
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        (block
-            (return_statement
-                (sizeof_expression type: (symbol))
-                ))))
+  (function_definition
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (return_statement
+        (sizeof_expression
+          type: (identifier)
+        )
+      )
+    )
+  )
+)
 
 
 ===============================
@@ -28,49 +35,75 @@ int Test() {
     sizeof(a[][][]);
     sizeof(a[10][][]);
     sizeof(a[].b);
+    sizeof(a[][][].b);
     return sizeof(a[]);
 }
 
 ---
 
 (source_file
-    (function_declaration
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        (block
-            (expression_statement
-                (sizeof_expression
-                    type: (field_access
-                    target: (this)
-                    field: (symbol)))
-                )
-            (expression_statement
-                (sizeof_expression
-                    type: (symbol)
-                    type: (dimension)
-                    type: (dimension)
-                    type: (dimension))
-                )
-            (expression_statement
-                (sizeof_expression
-                    type: (array_indexed_access
-                    array: (symbol)
-                    index: (int_literal))
-                    type: (dimension)
-                    type: (dimension))
-                )
-            (expression_statement
-                (sizeof_expression
-                    type: (array_scope_access
-                        scope: (symbol)
-                    field: (symbol)))
-                )
-            (return_statement
-                (sizeof_expression
-                    type: (symbol)
-                    type: (dimension))
-                ))))
+  (function_definition
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (expression_statement
+        (sizeof_expression
+          type: (field_access
+            target: (this)
+            field: (identifier)
+          )
+        )
+      )
+      (expression_statement
+        (sizeof_expression
+          type: (identifier)
+          type: (dimension)
+          type: (dimension)
+          type: (dimension)
+        )
+      )
+      (expression_statement
+        (sizeof_expression
+          type: (array_indexed_access
+            array: (identifier)
+            index: (int_literal)
+          )
+          type: (dimension)
+          type: (dimension)
+        )
+      )
+      (expression_statement
+        (sizeof_expression
+          type: (array_scope_access
+            scope: (identifier)
+            (dimension)
+            field: (identifier)
+          )
+        )
+      )
+      (expression_statement
+        (sizeof_expression
+          type: (array_scope_access
+            scope: (identifier)
+            (dimension)
+            (dimension)
+            (dimension)
+            field: (identifier)
+          )
+        )
+      )
+      (return_statement
+        (sizeof_expression
+          type: (identifier)
+          type: (dimension)
+        )
+      )
+    )
+  )
+)
 
 
 ==========================
@@ -84,11 +117,18 @@ int Test() {
 ---
 
 (source_file
-    (function_declaration
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        (block
-            (return_statement
-                (sizeof_expression type: (symbol))
-                ))))
+  (function_definition
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (return_statement
+        (sizeof_expression
+          type: (identifier)
+        )
+      )
+    )
+  )
+)

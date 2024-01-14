@@ -9,16 +9,22 @@ void Test() {
 ---
 
 (source_file
-  (function_declaration
-    returnType: (type (builtin_type))
-    name: (symbol)
-    arguments: (argument_declarations)
-    (block
-        (expression_statement
-            (function_call
-                function: (symbol)
-                arguments: (function_call_arguments))
-            ))))
+  (function_definition
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (expression_statement
+        (call_expression
+          function: (identifier)
+          arguments: (call_arguments)
+        )
+      )
+    )
+  )
+)
 
 
 ============================
@@ -33,29 +39,39 @@ void Test() {
 ---
 
 (source_file
-  (function_declaration
-    returnType: (type (builtin_type))
-    name: (symbol)
-    arguments: (argument_declarations)
-    (block
-        (expression_statement
-            (function_call
-                function: (symbol)
-                arguments: (function_call_arguments (string_literal)))
-            )
-        (expression_statement
-            (function_call
-                function: (symbol)
-                arguments: (function_call_arguments
-                    (string_literal)
-                    (int_literal)
-                    (symbol)
-                    (symbol)
-                    (float_literal)
-                    (int_literal)
-                    (int_literal)
-                    (int_literal)))
-            ))))
+  (function_definition
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (expression_statement
+        (call_expression
+          function: (identifier)
+          arguments: (call_arguments
+            (string_literal)
+          )
+        )
+      )
+      (expression_statement
+        (call_expression
+          function: (identifier)
+          arguments: (call_arguments
+            (string_literal)
+            (int_literal)
+            (identifier)
+            (identifier)
+            (float_literal)
+            (int_literal)
+            (int_literal)
+            (int_literal)
+          )
+        )
+      )
+    )
+  )
+)
 
 
 ==================================
@@ -69,26 +85,36 @@ void Test() {
 ---
 
 (source_file
-  (function_declaration
-    returnType: (type (builtin_type))
-    name: (symbol)
-    arguments: (argument_declarations)
-    (block
-        (expression_statement
-            (function_call
-                function: (symbol)
-                arguments: (function_call_arguments
-                    (string_literal)
-                    (named_arg
-                        name: (symbol)
-                        value: (int_literal))
-                    (named_arg
-                        name: (symbol)
-                        value: (float_literal))
-                    (named_arg
-                        name: (symbol)
-                        value: (symbol))))
-            ))))
+  (function_definition
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (expression_statement
+        (call_expression
+          function: (identifier)
+          arguments: (call_arguments
+            (string_literal)
+            (named_arg
+              name: (identifier)
+              value: (int_literal)
+            )
+            (named_arg
+              name: (identifier)
+              value: (float_literal)
+            )
+            (named_arg
+              name: (identifier)
+              value: (identifier)
+            )
+          )
+        )
+      )
+    )
+  )
+)
 
 
 ===================================
@@ -102,20 +128,27 @@ void Test() {
 ---
 
 (source_file
-  (function_declaration
-    returnType: (type (builtin_type))
-    name: (symbol)
-    arguments: (argument_declarations)
-    (block
-        (expression_statement
-            (function_call
-                function: (symbol)
-                arguments: (function_call_arguments
-                    (string_literal)
-                    (ignore_argument)
-                    (float_literal)
-                    (ignore_argument)))
-            ))))
+  (function_definition
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (expression_statement
+        (call_expression
+          function: (identifier)
+          arguments: (call_arguments
+            (string_literal)
+            (ignore_argument)
+            (float_literal)
+            (ignore_argument)
+          )
+        )
+      )
+    )
+  )
+)
 
 
 ===========================
@@ -129,18 +162,25 @@ bool Test() {
 ---
 
 (source_file
-    (function_declaration
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        (block
-            (return_statement
-                (binary_expression
-                    left: (int_literal)
-                    right: (function_call
-                        function: (symbol)
-                        arguments: (function_call_arguments)))
-                ))))
+  (function_definition
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (return_statement
+        (binary_expression
+          left: (int_literal)
+          right: (call_expression
+            function: (identifier)
+            arguments: (call_arguments)
+          )
+        )
+      )
+    )
+  )
+)
 
 
 =======================================
@@ -154,37 +194,66 @@ void Test() {
 ---
 
 (source_file
-    (function_declaration
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        (block
-            (expression_statement
-                (function_call
-                    function: (symbol)
-                    arguments: (function_call_arguments
-                        (function_call
-                            function: (symbol)
-                            arguments: (function_call_arguments))))
-                ))))
+  (function_definition
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (expression_statement
+        (call_expression
+          function: (identifier)
+          arguments: (call_arguments
+            (call_expression
+              function: (identifier)
+              arguments: (call_arguments)
+            )
+          )
+        )
+      )
+    )
+  )
+)
 
 
 ==============================
 function call as initial value
 ==============================
 
-int count = CurrentCount();
+int CurrentCount() {
+  int count = CurrentCount();
+  return 1;
+}
 
 ---
 
 (source_file
-    (global_variable_declaration type: (type (builtin_type))
+  (function_definition
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (variable_declaration_statement
+        type: (type
+          (builtin_type)
+        )
         (variable_declaration
-            name: (symbol)
-            initialValue: (function_call
-                function: (symbol)
-                arguments: (function_call_arguments)))
-        ))
+          name: (identifier)
+          initialValue: (call_expression
+            function: (identifier)
+            arguments: (call_arguments)
+          )
+        )
+      )
+      (return_statement
+        (int_literal)
+      )
+    )
+  )
+)
 
 
 ===============================
@@ -198,15 +267,24 @@ void Test() {
 ---
 
 (source_file
-    (function_declaration
-        returnType: (type (builtin_type))
-        name: (symbol)
-        arguments: (argument_declarations)
-        (block
-            (expression_statement
-                (function_call
-                        function: (field_access
-                            target: (symbol)
-                            field: (symbol))
-                        arguments: (function_call_arguments (string_literal)))
-                ))))
+  (function_definition
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block
+      (expression_statement
+        (call_expression
+          function: (field_access
+            target: (identifier)
+            field: (identifier)
+          )
+          arguments: (call_arguments
+            (string_literal)
+          )
+        )
+      )
+    )
+  )
+)
