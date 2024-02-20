@@ -81,7 +81,7 @@ typedef SrvCmd = (function Action (int args));
       returnType: (type
         (identifier)
       )
-      (parameter_declarations
+      parameters: (parameter_declarations
         (parameter_declaration
           type: (type
             (builtin_type)
@@ -222,7 +222,7 @@ functag public Action:SrvCmd(args, &Handle:datapack)
       (identifier)
     )
     name: (identifier)
-    (parameter_declarations
+    parameters: (parameter_declarations
       (parameter_declaration
         name: (identifier)
       )
@@ -251,7 +251,7 @@ functag public Action:SrvCmd(args, &Handle:datapack);
       (identifier)
     )
     name: (identifier)
-    (parameter_declarations
+    parameters: (parameter_declarations
       (parameter_declaration
         name: (identifier)
       )
@@ -277,7 +277,7 @@ functag SrvCmd public(args, &Handle:datapack)
 (source_file
   (functag
     name: (identifier)
-    (parameter_declarations
+    parameters: (parameter_declarations
       (parameter_declaration
         name: (identifier)
       )
@@ -303,7 +303,7 @@ functag SrvCmd public(args, &Handle:datapack);
 (source_file
   (functag
     name: (identifier)
-    (parameter_declarations
+    parameters: (parameter_declarations
       (parameter_declaration
         name: (identifier)
       )
@@ -332,7 +332,7 @@ functag Entity_ChangeOverTimeCallback bool:public(&entity, &Float:interval, &cur
     returnType: (old_type
       (old_builtin_type)
     )
-    (parameter_declarations
+    parameters: (parameter_declarations
       (parameter_declaration
         name: (identifier)
       )

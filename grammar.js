@@ -522,7 +522,7 @@ module.exports = grammar({
             "returnType",
             seq($.type, repeat(choice($.dimension, $.fixed_dimension)))
           ),
-          $.parameter_declarations,
+          field("parameters", $.parameter_declarations),
           ")"
         )
       ),
@@ -552,14 +552,14 @@ module.exports = grammar({
           "public",
           field("returnType", $.old_type),
           field("name", $.identifier),
-          $.parameter_declarations,
+          field("parameters", $.parameter_declarations),
           optional($._semicolon)
         ),
         seq(
           "functag",
           field("name", $.identifier),
           "public",
-          $.parameter_declarations,
+          field("parameters", $.parameter_declarations),
           optional($._semicolon)
         ),
         seq(
@@ -567,7 +567,7 @@ module.exports = grammar({
           field("name", $.identifier),
           field("returnType", $.old_type),
           "public",
-          $.parameter_declarations,
+          field("parameters", $.parameter_declarations),
           optional($._semicolon)
         )
       ),
@@ -615,7 +615,7 @@ module.exports = grammar({
         "native",
         field("returnType", seq($.type, repeat($.dimension))),
         field("name", $.identifier),
-        $.parameter_declarations,
+        field("parameters", $.parameter_declarations),
         optional($._semicolon)
       ),
 
@@ -625,7 +625,7 @@ module.exports = grammar({
         optional("static"),
         "native",
         field("name", $.identifier),
-        $.parameter_declarations,
+        field("parameters", $.parameter_declarations),
         optional($._semicolon)
       ),
 
@@ -646,7 +646,7 @@ module.exports = grammar({
         optional("static"),
         field("returnType", seq($.type, repeat($.dimension))),
         field("name", $.identifier),
-        $.parameter_declarations,
+        field("parameters", $.parameter_declarations),
         field("body", $.block)
       ),
 
@@ -654,7 +654,7 @@ module.exports = grammar({
       seq(
         $.methodmap_visibility,
         field("name", $.identifier),
-        $.parameter_declarations,
+        field("parameters", $.parameter_declarations),
         field("body", $.block)
       ),
 

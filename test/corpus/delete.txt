@@ -129,7 +129,7 @@ methodmap Handle
         (builtin_type)
       )
       name: (identifier)
-      (parameter_declarations)
+      parameters: (parameter_declarations)
       body: (block
         (delete_statement
           free: (this)
@@ -161,7 +161,7 @@ methodmap Handle
         (builtin_type)
       )
       name: (identifier)
-      (parameter_declarations)
+      parameters: (parameter_declarations)
       body: (block
         (delete_statement
           free: (field_access
@@ -196,7 +196,7 @@ methodmap Handle
         (builtin_type)
       )
       name: (identifier)
-      (parameter_declarations)
+      parameters: (parameter_declarations)
       body: (block
         (delete_statement
           free: (call_expression

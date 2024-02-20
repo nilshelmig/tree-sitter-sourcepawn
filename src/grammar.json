@@ -3296,8 +3296,12 @@
               }
             },
             {
-              "type": "SYMBOL",
-              "name": "parameter_declarations"
+              "type": "FIELD",
+              "name": "parameters",
+              "content": {
+                "type": "SYMBOL",
+                "name": "parameter_declarations"
+              }
             },
             {
               "type": "STRING",
@@ -3441,8 +3445,12 @@
               }
             },
             {
-              "type": "SYMBOL",
-              "name": "parameter_declarations"
+              "type": "FIELD",
+              "name": "parameters",
+              "content": {
+                "type": "SYMBOL",
+                "name": "parameter_declarations"
+              }
             },
             {
               "type": "CHOICE",
@@ -3478,8 +3486,12 @@
               "value": "public"
             },
             {
-              "type": "SYMBOL",
-              "name": "parameter_declarations"
+              "type": "FIELD",
+              "name": "parameters",
+              "content": {
+                "type": "SYMBOL",
+                "name": "parameter_declarations"
+              }
             },
             {
               "type": "CHOICE",
@@ -3523,8 +3535,12 @@
               "value": "public"
             },
             {
-              "type": "SYMBOL",
-              "name": "parameter_declarations"
+              "type": "FIELD",
+              "name": "parameters",
+              "content": {
+                "type": "SYMBOL",
+                "name": "parameter_declarations"
+              }
             },
             {
               "type": "CHOICE",
@@ -3766,8 +3782,12 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "parameter_declarations"
+          "type": "FIELD",
+          "name": "parameters",
+          "content": {
+            "type": "SYMBOL",
+            "name": "parameter_declarations"
+          }
         },
         {
           "type": "CHOICE",
@@ -3815,8 +3835,12 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "parameter_declarations"
+          "type": "FIELD",
+          "name": "parameters",
+          "content": {
+            "type": "SYMBOL",
+            "name": "parameter_declarations"
+          }
         },
         {
           "type": "CHOICE",
@@ -3925,8 +3949,12 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "parameter_declarations"
+          "type": "FIELD",
+          "name": "parameters",
+          "content": {
+            "type": "SYMBOL",
+            "name": "parameter_declarations"
+          }
         },
         {
           "type": "FIELD",
@@ -3954,8 +3982,12 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "parameter_declarations"
+          "type": "FIELD",
+          "name": "parameters",
+          "content": {
+            "type": "SYMBOL",
+            "name": "parameter_declarations"
+          }
         },
         {
           "type": "FIELD",

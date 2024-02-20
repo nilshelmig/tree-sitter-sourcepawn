@@ -76,7 +76,7 @@ methodmap AdminId {
         (builtin_type)
       )
       name: (identifier)
-      (parameter_declarations
+      parameters: (parameter_declarations
         (parameter_declaration
           type: (array_type
             (type
@@ -99,7 +99,7 @@ methodmap AdminId {
         (builtin_type)
       )
       name: (identifier)
-      (parameter_declarations
+      parameters: (parameter_declarations
         (parameter_declaration
           type: (array_type
             (type
@@ -124,7 +124,7 @@ methodmap AdminId {
         (builtin_type)
       )
       name: (identifier)
-      (parameter_declarations
+      parameters: (parameter_declarations
         (parameter_declaration
           (variable_storage_class)
           type: (array_type
@@ -147,7 +147,7 @@ methodmap AdminId {
         (identifier)
       )
       name: (identifier)
-      (parameter_declarations
+      parameters: (parameter_declarations
         (parameter_declaration
           (variable_storage_class)
           type: (array_type
@@ -180,7 +180,7 @@ methodmap AdminId {
     name: (identifier)
     (methodmap_native_constructor
       name: (identifier)
-      (parameter_declarations
+      parameters: (parameter_declarations
         (parameter_declaration
           type: (type
             (builtin_type)
@@ -222,7 +222,7 @@ methodmap PerkContainerIter {
         (builtin_type)
       )
       name: (identifier)
-      (parameter_declarations
+      parameters: (parameter_declarations
         (parameter_declaration
           type: (type
             (builtin_type)
@@ -248,7 +248,7 @@ methodmap PerkContainerIter {
         (builtin_type)
       )
       name: (identifier)
-      (parameter_declarations
+      parameters: (parameter_declarations
         (parameter_declaration
           (variable_storage_class)
           type: (array_type
@@ -273,7 +273,7 @@ methodmap PerkContainerIter {
       )
       returnType: (dimension)
       name: (identifier)
-      (parameter_declarations
+      parameters: (parameter_declarations
         (parameter_declaration
           (variable_storage_class)
           type: (array_type
@@ -315,7 +315,7 @@ methodmap AdminId {
     name: (identifier)
     (methodmap_method_constructor
       name: (identifier)
-      (parameter_declarations
+      parameters: (parameter_declarations
         (parameter_declaration
           type: (type
             (builtin_type)
@@ -357,7 +357,7 @@ methodmap PerkContainerIter {
         (builtin_type)
       )
       name: (identifier)
-      (parameter_declarations
+      parameters: (parameter_declarations
         (parameter_declaration
           type: (type
             (builtin_type)
@@ -402,7 +402,7 @@ methodmap MyValue {
         (builtin_type)
       )
       name: (identifier)
-      (parameter_declarations)
+      parameters: (parameter_declarations)
       body: (block
         (return_statement
           (this)

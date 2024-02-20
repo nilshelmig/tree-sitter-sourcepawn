@@ -116,7 +116,7 @@ typeset Timer {
       returnType: (type
         (identifier)
       )
-      (parameter_declarations
+      parameters: (parameter_declarations
         (parameter_declaration
           type: (type
             (identifier)
@@ -135,7 +135,7 @@ typeset Timer {
       returnType: (type
         (identifier)
       )
-      (parameter_declarations
+      parameters: (parameter_declarations
         (parameter_declaration
           type: (type
             (identifier)
