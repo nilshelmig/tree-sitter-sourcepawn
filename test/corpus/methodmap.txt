@@ -496,7 +496,7 @@ methodmap Player {
       )
       (methodmap_property_native
         (methodmap_property_setter
-          (variable_storage_class)
+          storage_class: (variable_storage_class)
           type: (type
             (builtin_type)
           )

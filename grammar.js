@@ -714,7 +714,7 @@ module.exports = grammar({
       seq(
         "set",
         "(",
-        optional($.variable_storage_class),
+        field("storage_class", optional($.variable_storage_class)),
         field("type", $.type),
         field("name", $.identifier),
         ")"

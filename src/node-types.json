@@ -2353,6 +2353,16 @@
           }
         ]
       },
+      "storage_class": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "variable_storage_class",
+            "named": true
+          }
+        ]
+      },
       "type": {
         "multiple": false,
         "required": true,
@@ -2363,16 +2373,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "variable_storage_class",
-          "named": true
-        }
-      ]
     }
   },
   {
