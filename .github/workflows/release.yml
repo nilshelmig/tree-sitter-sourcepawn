@@ -1,9 +1,8 @@
 name: Publish release
 
 on:
-  push:
-    branches:
-      - main
+  release:
+    types: [created]
 
 env:
   EM_VERSION: 2.0.24
@@ -12,13 +11,11 @@ env:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Setup cache
         id: cache-system-libraries
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ${{env.EM_CACHE_FOLDER}}
           key: ${{env.EM_VERSION}}-${{ runner.os }}
