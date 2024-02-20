@@ -399,7 +399,7 @@ stock const int e;
 
 (source_file
   (global_variable_declaration
-    (variable_storage_class)
+    storage_class: (variable_storage_class)
     type: (type
       (builtin_type)
     )
@@ -409,7 +409,7 @@ stock const int e;
     )
   )
   (global_variable_declaration
-    (visibility)
+    visibility: (visibility)
     type: (type
       (builtin_type)
     )
@@ -418,7 +418,7 @@ stock const int e;
     )
   )
   (global_variable_declaration
-    (visibility)
+    visibility: (visibility)
     type: (type
       (builtin_type)
     )
@@ -428,8 +428,8 @@ stock const int e;
     )
   )
   (global_variable_declaration
-    (visibility)
-    (variable_storage_class)
+    visibility: (visibility)
+    storage_class: (variable_storage_class)
     type: (type
       (builtin_type)
     )
@@ -440,8 +440,8 @@ stock const int e;
     )
   )
   (global_variable_declaration
-    (visibility)
-    (variable_storage_class)
+    visibility: (visibility)
+    storage_class: (variable_storage_class)
     type: (type
       (builtin_type)
     )
@@ -450,8 +450,8 @@ stock const int e;
     )
   )
   (global_variable_declaration
-    (visibility)
-    (variable_storage_class)
+    visibility: (visibility)
+    storage_class: (variable_storage_class)
     type: (type
       (builtin_type)
     )
