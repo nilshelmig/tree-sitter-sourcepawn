@@ -1746,6 +1746,16 @@
     "type": "function_declaration",
     "named": true,
     "fields": {
+      "kind": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "function_declaration_kind",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": false,
         "required": true,
@@ -1786,13 +1796,9 @@
       }
     },
     "children": {
-      "multiple": true,
-      "required": true,
+      "multiple": false,
+      "required": false,
       "types": [
-        {
-          "type": "function_declaration_kind",
-          "named": true
-        },
         {
           "type": "identifier",
           "named": true
@@ -1873,12 +1879,32 @@
     "type": "global_variable_declaration",
     "named": true,
     "fields": {
+      "storage_class": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "variable_storage_class",
+            "named": true
+          }
+        ]
+      },
       "type": {
         "multiple": false,
         "required": true,
         "types": [
           {
             "type": "type",
+            "named": true
+          }
+        ]
+      },
+      "visibility": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "visibility",
             "named": true
           }
         ]
@@ -1890,14 +1916,6 @@
       "types": [
         {
           "type": "variable_declaration",
-          "named": true
-        },
-        {
-          "type": "variable_storage_class",
-          "named": true
-        },
-        {
-          "type": "visibility",
           "named": true
         }
       ]

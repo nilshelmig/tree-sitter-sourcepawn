@@ -13,7 +13,7 @@ forward Action MyFunc6();
 
 (source_file
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (builtin_type)
     )
@@ -21,7 +21,7 @@ forward Action MyFunc6();
     parameters: (parameter_declarations)
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (builtin_type)
     )
@@ -29,7 +29,7 @@ forward Action MyFunc6();
     parameters: (parameter_declarations)
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (builtin_type)
     )
@@ -37,7 +37,7 @@ forward Action MyFunc6();
     parameters: (parameter_declarations)
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (builtin_type)
     )
@@ -45,7 +45,7 @@ forward Action MyFunc6();
     parameters: (parameter_declarations)
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (builtin_type)
     )
@@ -53,7 +53,7 @@ forward Action MyFunc6();
     parameters: (parameter_declarations)
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (identifier)
     )
@@ -80,7 +80,7 @@ forward void MyFunc8(char a[MAX_PATH]);
 
 (source_file
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (builtin_type)
     )
@@ -95,7 +95,7 @@ forward void MyFunc8(char a[MAX_PATH]);
     )
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (builtin_type)
     )
@@ -128,7 +128,7 @@ forward void MyFunc8(char a[MAX_PATH]);
     )
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (builtin_type)
     )
@@ -143,7 +143,7 @@ forward void MyFunc8(char a[MAX_PATH]);
     )
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (builtin_type)
     )
@@ -162,7 +162,7 @@ forward void MyFunc8(char a[MAX_PATH]);
     )
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (builtin_type)
     )
@@ -177,7 +177,7 @@ forward void MyFunc8(char a[MAX_PATH]);
     )
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (builtin_type)
     )
@@ -193,7 +193,7 @@ forward void MyFunc8(char a[MAX_PATH]);
     )
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (builtin_type)
     )
@@ -211,7 +211,7 @@ forward void MyFunc8(char a[MAX_PATH]);
     )
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (builtin_type)
     )
@@ -246,12 +246,12 @@ forward Action:MyFunc6();
 
 (source_file
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     name: (identifier)
     parameters: (parameter_declarations)
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (old_type
       (old_builtin_type)
     )
@@ -259,7 +259,7 @@ forward Action:MyFunc6();
     parameters: (parameter_declarations)
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (old_type
       (old_builtin_type)
     )
@@ -267,7 +267,7 @@ forward Action:MyFunc6();
     parameters: (parameter_declarations)
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (old_type
       (old_builtin_type)
     )
@@ -275,7 +275,7 @@ forward Action:MyFunc6();
     parameters: (parameter_declarations)
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (old_type
       (old_builtin_type)
     )
@@ -283,7 +283,7 @@ forward Action:MyFunc6();
     parameters: (parameter_declarations)
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (old_type
       (identifier)
     )
@@ -311,7 +311,7 @@ forward MyFunc9(String:a[MAX_PATH]);
 
 (source_file
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
@@ -320,7 +320,7 @@ forward MyFunc9(String:a[MAX_PATH]);
     )
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
@@ -350,7 +350,7 @@ forward MyFunc9(String:a[MAX_PATH]);
     )
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
@@ -362,7 +362,7 @@ forward MyFunc9(String:a[MAX_PATH]);
     )
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
@@ -376,7 +376,7 @@ forward MyFunc9(String:a[MAX_PATH]);
     )
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
@@ -385,7 +385,7 @@ forward MyFunc9(String:a[MAX_PATH]);
     )
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
@@ -397,7 +397,7 @@ forward MyFunc9(String:a[MAX_PATH]);
     )
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
@@ -407,7 +407,7 @@ forward MyFunc9(String:a[MAX_PATH]);
     )
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
@@ -422,7 +422,7 @@ forward MyFunc9(String:a[MAX_PATH]);
     )
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
@@ -450,7 +450,7 @@ forward void MyFunc2(_:client, any:data);
 
 (source_file
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (builtin_type)
     )
@@ -465,7 +465,7 @@ forward void MyFunc2(_:client, any:data);
     )
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (builtin_type)
     )
@@ -498,7 +498,7 @@ forward void MyFunc(any ...);
 
 (source_file
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (builtin_type)
     )
@@ -524,7 +524,7 @@ forward void MyFunc()
 
 (source_file
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (builtin_type)
     )
@@ -549,7 +549,7 @@ native Action MyFunc6();
 
 (source_file
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (builtin_type)
     )
@@ -557,7 +557,7 @@ native Action MyFunc6();
     parameters: (parameter_declarations)
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (builtin_type)
     )
@@ -565,7 +565,7 @@ native Action MyFunc6();
     parameters: (parameter_declarations)
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (builtin_type)
     )
@@ -573,7 +573,7 @@ native Action MyFunc6();
     parameters: (parameter_declarations)
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (builtin_type)
     )
@@ -581,7 +581,7 @@ native Action MyFunc6();
     parameters: (parameter_declarations)
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (builtin_type)
     )
@@ -589,7 +589,7 @@ native Action MyFunc6();
     parameters: (parameter_declarations)
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (identifier)
     )
@@ -614,12 +614,12 @@ native Action:MyFunc6();
 
 (source_file
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     name: (identifier)
     parameters: (parameter_declarations)
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (old_type
       (old_builtin_type)
     )
@@ -627,7 +627,7 @@ native Action:MyFunc6();
     parameters: (parameter_declarations)
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (old_type
       (old_builtin_type)
     )
@@ -635,7 +635,7 @@ native Action:MyFunc6();
     parameters: (parameter_declarations)
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (old_type
       (old_builtin_type)
     )
@@ -643,7 +643,7 @@ native Action:MyFunc6();
     parameters: (parameter_declarations)
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (old_type
       (old_builtin_type)
     )
@@ -651,7 +651,7 @@ native Action:MyFunc6();
     parameters: (parameter_declarations)
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (old_type
       (identifier)
     )
@@ -672,7 +672,7 @@ native void MyFunc2(const char[] format, any ...);
 
 (source_file
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (builtin_type)
     )
@@ -686,7 +686,7 @@ native void MyFunc2(const char[] format, any ...);
     )
   )
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (builtin_type)
     )
@@ -722,7 +722,7 @@ native void MyFunc()
 
 (source_file
   (function_declaration
-    (function_declaration_kind)
+    kind: (function_declaration_kind)
     returnType: (type
       (builtin_type)
     )

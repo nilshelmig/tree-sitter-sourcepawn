@@ -184,7 +184,7 @@ module.exports = grammar({
 
     function_declaration: ($) =>
       seq(
-        $.function_declaration_kind,
+        field("kind", $.function_declaration_kind),
         field(
           "returnType",
           optional(choice(seq($.type, optional($.dimension)), $.old_type))
@@ -303,8 +303,8 @@ module.exports = grammar({
 
     global_variable_declaration: ($) =>
       seq(
-        optional($.visibility), // Handle MaxClient
-        optional($.variable_storage_class),
+        field("visibility", optional($.visibility)), // Handle MaxClient
+        field("storage_class", optional($.variable_storage_class)),
         field("type", $.type),
         commaSep1($.variable_declaration),
         $._semicolon
