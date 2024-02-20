@@ -167,14 +167,14 @@ module.exports = grammar({
     function_definition: ($) =>
       choice(
         seq(
-          optional($.visibility),
+          field("visibility", optional($.visibility)),
           field("returnType", seq($.type, repeat($.dimension))),
           field("name", $.identifier),
           field("parameters", $.parameter_declarations),
           field("body", $.block)
         ),
         seq(
-          optional($.visibility),
+          field("visibility", optional($.visibility)),
           field("returnType", optional($.old_type)),
           field("name", $.identifier),
           field("parameters", $.parameter_declarations),

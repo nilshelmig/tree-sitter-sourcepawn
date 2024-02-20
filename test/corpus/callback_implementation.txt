@@ -10,7 +10,7 @@ public void OnPluginStart() {
 
 (source_file
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -49,7 +49,7 @@ public void OnRebuildAdminCache(AdminCachePart part) {
 
 (source_file
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -65,7 +65,7 @@ public void OnRebuildAdminCache(AdminCachePart part) {
     body: (block)
   )
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -84,7 +84,7 @@ public void OnRebuildAdminCache(AdminCachePart part) {
     body: (block)
   )
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -100,7 +100,7 @@ public void OnRebuildAdminCache(AdminCachePart part) {
     body: (block)
   )
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -116,7 +116,7 @@ public void OnRebuildAdminCache(AdminCachePart part) {
     body: (block)
   )
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -146,7 +146,7 @@ public void OnClientSayCommand_Post(int client, const char[] command, char[] sAr
 
 (source_file
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -218,7 +218,7 @@ public Action Callback5() {}
 
 (source_file
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -227,7 +227,7 @@ public Action Callback5() {}
     body: (block)
   )
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -236,7 +236,7 @@ public Action Callback5() {}
     body: (block)
   )
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -245,7 +245,7 @@ public Action Callback5() {}
     body: (block)
   )
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -254,7 +254,7 @@ public Action Callback5() {}
     body: (block)
   )
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (identifier)
     )
@@ -277,7 +277,7 @@ public OnPluginStart() {
 
 (source_file
   (function_definition
-    (visibility)
+    visibility: (visibility)
     name: (identifier)
     parameters: (parameter_declarations)
     body: (block)
@@ -300,7 +300,7 @@ public Callback6(Handle:handle) {}
 
 (source_file
   (function_definition
-    (visibility)
+    visibility: (visibility)
     name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
@@ -310,20 +310,7 @@ public Callback6(Handle:handle) {}
     body: (block)
   )
   (function_definition
-    (visibility)
-    name: (identifier)
-    parameters: (parameter_declarations
-      (parameter_declaration
-        type: (old_type
-          (old_builtin_type)
-        )
-        name: (identifier)
-      )
-    )
-    body: (block)
-  )
-  (function_definition
-    (visibility)
+    visibility: (visibility)
     name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
@@ -336,7 +323,7 @@ public Callback6(Handle:handle) {}
     body: (block)
   )
   (function_definition
-    (visibility)
+    visibility: (visibility)
     name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
@@ -349,7 +336,20 @@ public Callback6(Handle:handle) {}
     body: (block)
   )
   (function_definition
-    (visibility)
+    visibility: (visibility)
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (old_type
+          (old_builtin_type)
+        )
+        name: (identifier)
+      )
+    )
+    body: (block)
+  )
+  (function_definition
+    visibility: (visibility)
     name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
@@ -364,7 +364,7 @@ public Callback6(Handle:handle) {}
     body: (block)
   )
   (function_definition
-    (visibility)
+    visibility: (visibility)
     name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
@@ -390,7 +390,7 @@ public Callback2(args, any:data) {}
 
 (source_file
   (function_definition
-    (visibility)
+    visibility: (visibility)
     name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
@@ -403,7 +403,7 @@ public Callback2(args, any:data) {}
     body: (block)
   )
   (function_definition
-    (visibility)
+    visibility: (visibility)
     name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
@@ -436,13 +436,13 @@ public Action:Callback6() {}
 
 (source_file
   (function_definition
-    (visibility)
+    visibility: (visibility)
     name: (identifier)
     parameters: (parameter_declarations)
     body: (block)
   )
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (old_type
       (old_builtin_type)
     )
@@ -451,7 +451,7 @@ public Action:Callback6() {}
     body: (block)
   )
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (old_type
       (old_builtin_type)
     )
@@ -460,7 +460,7 @@ public Action:Callback6() {}
     body: (block)
   )
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (old_type
       (old_builtin_type)
     )
@@ -469,7 +469,7 @@ public Action:Callback6() {}
     body: (block)
   )
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (old_type
       (old_builtin_type)
     )
@@ -478,7 +478,7 @@ public Action:Callback6() {}
     body: (block)
   )
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (old_type
       (identifier)
     )
@@ -500,7 +500,7 @@ public Callback1() Test();
 
 (source_file
   (function_definition
-    (visibility)
+    visibility: (visibility)
     name: (identifier)
     parameters: (parameter_declarations)
     body: (return_statement
@@ -508,7 +508,7 @@ public Callback1() Test();
     )
   )
   (function_definition
-    (visibility)
+    visibility: (visibility)
     name: (identifier)
     parameters: (parameter_declarations)
     body: (expression_statement
