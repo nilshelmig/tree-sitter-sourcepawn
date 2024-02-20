@@ -11,7 +11,7 @@ public void OnPluginStart() {
 
 (source_file
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -75,7 +75,7 @@ public void OnPluginStart() {
 
 (source_file
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -111,7 +111,7 @@ public void OnPluginStart() {
 
 (source_file
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -152,7 +152,7 @@ public void OnPluginStart() {
 
 (source_file
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -194,7 +194,7 @@ public void OnPluginStart() {
 
 (source_file
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -223,7 +223,7 @@ public void OnPluginStart() {
 
 (source_file
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -254,7 +254,7 @@ public void OnPluginStart() {
 
 (source_file
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -283,7 +283,7 @@ public void OnPluginStart() {
 
 (source_file
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -310,7 +310,7 @@ public void OnPluginStart() {
 
 (source_file
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -348,7 +348,7 @@ public void OnPluginStart() {
 
 (source_file
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -471,7 +471,7 @@ public void OnPluginStart() {
 
 (source_file
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )

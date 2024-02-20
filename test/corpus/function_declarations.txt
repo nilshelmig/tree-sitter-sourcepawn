@@ -51,7 +51,7 @@ stock void MyFunc() {}
 
 (source_file
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -72,7 +72,7 @@ static void MyFunc() {}
 
 (source_file
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -94,7 +94,7 @@ static      stock void MyFunc2() {}
 
 (source_file
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -103,7 +103,7 @@ static      stock void MyFunc2() {}
     body: (block)
   )
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -125,7 +125,7 @@ stock     static void MyFunc2() {}
 
 (source_file
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -134,7 +134,7 @@ stock     static void MyFunc2() {}
     body: (block)
   )
   (function_definition
-    (visibility)
+    visibility: (visibility)
     returnType: (type
       (builtin_type)
     )
@@ -893,7 +893,7 @@ static stock MD5Transform(buf[], input[]) {}
     body: (block)
   )
   (function_definition
-    (visibility)
+    visibility: (visibility)
     name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
