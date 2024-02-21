@@ -724,7 +724,7 @@ void MyFunc6(const Handle[][] a) {}
     name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
-        (variable_storage_class)
+        storage_class: (variable_storage_class)
         type: (array_type
           (type
             (builtin_type)
@@ -761,7 +761,7 @@ void MyFunc6(const Handle[][] a) {}
     name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
-        (variable_storage_class)
+        storage_class: (variable_storage_class)
         type: (array_type
           (type
             (identifier)
@@ -817,7 +817,7 @@ void MyFunc6(const Handle[][] a) {}
     name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
-        (variable_storage_class)
+        storage_class: (variable_storage_class)
         type: (array_type
           (type
             (identifier)
@@ -1240,7 +1240,7 @@ void MyFunc2(const char[] format, any ...) {}
     name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
-        (variable_storage_class)
+        storage_class: (variable_storage_class)
         type: (array_type
           (type
             (builtin_type)
@@ -1285,7 +1285,7 @@ MyFunc2(const String:format[], any:...) {}
     name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
-        (variable_storage_class)
+        storage_class: (variable_storage_class)
         type: (old_type
           (old_builtin_type)
         )

@@ -150,7 +150,7 @@ forward void MyFunc8(char a[MAX_PATH]);
     name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
-        (variable_storage_class)
+        storage_class: (variable_storage_class)
         type: (array_type
           (type
             (builtin_type)
@@ -366,7 +366,7 @@ forward MyFunc9(String:a[MAX_PATH]);
     name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
-        (variable_storage_class)
+        storage_class: (variable_storage_class)
         type: (old_type
           (old_builtin_type)
         )
@@ -693,7 +693,7 @@ native void MyFunc2(const char[] format, any ...);
     name: (identifier)
     parameters: (parameter_declarations
       (parameter_declaration
-        (variable_storage_class)
+        storage_class: (variable_storage_class)
         type: (array_type
           (type
             (builtin_type)

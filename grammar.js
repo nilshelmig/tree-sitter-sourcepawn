@@ -206,7 +206,7 @@ module.exports = grammar({
 
     parameter_declaration: ($) =>
       seq(
-        optional($.variable_storage_class),
+        field("storage_class", optional($.variable_storage_class)),
         choice(
           // Old
           seq(
@@ -711,14 +711,7 @@ module.exports = grammar({
     methodmap_property_getter: ($) => seq("get", "(", ")"),
 
     methodmap_property_setter: ($) =>
-      seq(
-        "set",
-        "(",
-        field("storage_class", optional($.variable_storage_class)),
-        field("type", $.type),
-        field("name", $.identifier),
-        ")"
-      ),
+      seq("set", "(", field("parameter", $.parameter_declaration), ")"),
 
     methodmap_visibility: ($) => "public",
 

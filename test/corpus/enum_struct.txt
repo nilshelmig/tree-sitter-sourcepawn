@@ -180,7 +180,7 @@ enum struct Rectangle
       name: (identifier)
       parameters: (parameter_declarations
         (parameter_declaration
-          (variable_storage_class)
+          storage_class: (variable_storage_class)
           type: (type
             (identifier)
           )

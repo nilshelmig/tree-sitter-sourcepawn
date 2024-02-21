@@ -2343,32 +2343,12 @@
     "type": "methodmap_property_setter",
     "named": true,
     "fields": {
-      "name": {
+      "parameter": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      },
-      "storage_class": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "variable_storage_class",
-            "named": true
-          }
-        ]
-      },
-      "type": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "type",
+            "type": "parameter_declaration",
             "named": true
           }
         ]
@@ -2609,6 +2589,16 @@
           }
         ]
       },
+      "storage_class": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "variable_storage_class",
+            "named": true
+          }
+        ]
+      },
       "type": {
         "multiple": true,
         "required": false,
@@ -2642,10 +2632,6 @@
         },
         {
           "type": "fixed_dimension",
-          "named": true
-        },
-        {
-          "type": "variable_storage_class",
           "named": true
         }
       ]
