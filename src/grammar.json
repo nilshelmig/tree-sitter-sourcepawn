@@ -4202,8 +4202,12 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "get"
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "STRING",
+            "value": "get"
+          }
         },
         {
           "type": "STRING",
@@ -4219,8 +4223,12 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "set"
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "STRING",
+            "value": "set"
+          }
         },
         {
           "type": "STRING",

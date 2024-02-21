@@ -2112,9 +2112,9 @@ static const TSFieldMapSlice ts_field_map_slices[PRODUCTION_ID_COUNT] = {
   [133] = {.index = 347, .length = 3},
   [134] = {.index = 350, .length = 3},
   [135] = {.index = 353, .length = 1},
-  [136] = {.index = 354, .length = 1},
-  [137] = {.index = 355, .length = 4},
-  [138] = {.index = 359, .length = 2},
+  [136] = {.index = 354, .length = 2},
+  [137] = {.index = 356, .length = 4},
+  [138] = {.index = 360, .length = 2},
 };
 
 static const TSFieldMapEntry ts_field_map_entries[] = {
@@ -2608,13 +2608,14 @@ static const TSFieldMapEntry ts_field_map_entries[] = {
   [353] =
     {field_value, 1},
   [354] =
+    {field_name, 0},
     {field_parameter, 2},
-  [355] =
+  [356] =
     {field_condition, 5},
     {field_initialization, 2},
     {field_initialization, 3},
     {field_iteration, 7},
-  [359] =
+  [360] =
     {field_value, 1},
     {field_value, 2},
 };
@@ -118386,7 +118387,7 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [2352] = {.entry = {.count = 1, .reusable = true}}, SHIFT(395),
   [2354] = {.entry = {.count = 1, .reusable = true}}, SHIFT(1524),
   [2356] = {.entry = {.count = 1, .reusable = true}}, SHIFT(178),
-  [2358] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_methodmap_property_getter, 3),
+  [2358] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_methodmap_property_getter, 3, .production_id = 1),
   [2360] = {.entry = {.count = 1, .reusable = true}}, SHIFT(1380),
   [2362] = {.entry = {.count = 1, .reusable = true}}, SHIFT(1586),
   [2364] = {.entry = {.count = 1, .reusable = true}}, SHIFT(1551),

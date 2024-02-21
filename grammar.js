@@ -708,10 +708,15 @@ module.exports = grammar({
         field("body", $.block)
       ),
 
-    methodmap_property_getter: ($) => seq("get", "(", ")"),
+    methodmap_property_getter: ($) => seq(field("name", "get"), "(", ")"),
 
     methodmap_property_setter: ($) =>
-      seq("set", "(", field("parameter", $.parameter_declaration), ")"),
+      seq(
+        field("name", "set"),
+        "(",
+        field("parameter", $.parameter_declaration),
+        ")"
+      ),
 
     methodmap_visibility: ($) => "public",
 
