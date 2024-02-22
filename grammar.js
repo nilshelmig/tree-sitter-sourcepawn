@@ -674,7 +674,7 @@ module.exports = grammar({
         field("type", $.type),
         field("name", $.identifier),
         "{",
-        repeat1(
+        repeat(
           choice(
             $.methodmap_property_alias,
             $.methodmap_property_native,

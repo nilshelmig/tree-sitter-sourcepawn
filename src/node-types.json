@@ -2242,7 +2242,7 @@
     },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "methodmap_property_alias",
