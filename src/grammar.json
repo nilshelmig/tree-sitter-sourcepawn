@@ -3254,8 +3254,12 @@
               }
             },
             {
-              "type": "SYMBOL",
-              "name": "parameter_declarations"
+              "type": "FIELD",
+              "name": "parameters",
+              "content": {
+                "type": "SYMBOL",
+                "name": "parameter_declarations"
+              }
             }
           ]
         },

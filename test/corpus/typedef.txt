@@ -14,7 +14,7 @@ typedef SrvCmd = function Action[MAXPLAYERS+1][](int args, const char[] args, in
       returnType: (type
         (identifier)
       )
-      (parameter_declarations
+      parameters: (parameter_declarations
         (parameter_declaration
           type: (type
             (builtin_type)
@@ -37,7 +37,7 @@ typedef SrvCmd = function Action[MAXPLAYERS+1][](int args, const char[] args, in
         )
       )
       returnType: (dimension)
-      (parameter_declarations
+      parameters: (parameter_declarations
         (parameter_declaration
           type: (type
             (builtin_type)
@@ -109,7 +109,7 @@ typedef SrvCmd = function Action (int args);
       returnType: (type
         (identifier)
       )
-      (parameter_declarations
+      parameters: (parameter_declarations
         (parameter_declaration
           type: (type
             (builtin_type)
@@ -146,7 +146,7 @@ typedef CustomHandler =
       returnType: (type
         (builtin_type)
       )
-      (parameter_declarations
+      parameters: (parameter_declarations
         (parameter_declaration
           type: (type
             (identifier)

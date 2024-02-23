@@ -513,7 +513,7 @@ module.exports = grammar({
             "returnType",
             seq($.type, repeat(choice($.dimension, $.fixed_dimension)))
           ),
-          $.parameter_declarations
+          field("parameters", $.parameter_declarations)
         ),
         seq(
           "(",
