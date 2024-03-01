@@ -380,9 +380,15 @@ module.exports = grammar({
       choice(
         seq(
           choice(
-            seq(choice("new", "decl"), optional($.variable_storage_class)),
-            $.variable_storage_class,
-            seq($.visibility, optional($.variable_storage_class))
+            seq(
+              choice("new", "decl"),
+              field("storage_class", optional($.variable_storage_class))
+            ),
+            field("storage_class", $.variable_storage_class),
+            seq(
+              field("visibility", $.visibility),
+              field("storage_class", optional($.variable_storage_class))
+            )
           ),
           commaSep1($.old_variable_declaration),
           $._semicolon

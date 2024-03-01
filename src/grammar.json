@@ -2434,41 +2434,57 @@
                       ]
                     },
                     {
-                      "type": "CHOICE",
-                      "members": [
-                        {
-                          "type": "SYMBOL",
-                          "name": "variable_storage_class"
-                        },
-                        {
-                          "type": "BLANK"
-                        }
-                      ]
+                      "type": "FIELD",
+                      "name": "storage_class",
+                      "content": {
+                        "type": "CHOICE",
+                        "members": [
+                          {
+                            "type": "SYMBOL",
+                            "name": "variable_storage_class"
+                          },
+                          {
+                            "type": "BLANK"
+                          }
+                        ]
+                      }
                     }
                   ]
                 },
                 {
-                  "type": "SYMBOL",
-                  "name": "variable_storage_class"
+                  "type": "FIELD",
+                  "name": "storage_class",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "variable_storage_class"
+                  }
                 },
                 {
                   "type": "SEQ",
                   "members": [
                     {
-                      "type": "SYMBOL",
-                      "name": "visibility"
+                      "type": "FIELD",
+                      "name": "visibility",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "visibility"
+                      }
                     },
                     {
-                      "type": "CHOICE",
-                      "members": [
-                        {
-                          "type": "SYMBOL",
-                          "name": "variable_storage_class"
-                        },
-                        {
-                          "type": "BLANK"
-                        }
-                      ]
+                      "type": "FIELD",
+                      "name": "storage_class",
+                      "content": {
+                        "type": "CHOICE",
+                        "members": [
+                          {
+                            "type": "SYMBOL",
+                            "name": "variable_storage_class"
+                          },
+                          {
+                            "type": "BLANK"
+                          }
+                        ]
+                      }
                     }
                   ]
                 }

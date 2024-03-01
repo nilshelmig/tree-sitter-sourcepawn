@@ -2440,21 +2440,34 @@
   {
     "type": "old_global_variable_declaration",
     "named": true,
-    "fields": {},
+    "fields": {
+      "storage_class": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "variable_storage_class",
+            "named": true
+          }
+        ]
+      },
+      "visibility": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "visibility",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
       "types": [
         {
           "type": "old_variable_declaration",
-          "named": true
-        },
-        {
-          "type": "variable_storage_class",
-          "named": true
-        },
-        {
-          "type": "visibility",
           "named": true
         }
       ]
