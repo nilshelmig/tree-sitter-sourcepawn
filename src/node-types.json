@@ -1684,6 +1684,16 @@
     "type": "funcenum_member",
     "named": true,
     "fields": {
+      "parameters": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "parameter_declarations",
+            "named": true
+          }
+        ]
+      },
       "returnType": {
         "multiple": false,
         "required": false,
@@ -1694,16 +1704,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "parameter_declarations",
-          "named": true
-        }
-      ]
     }
   },
   {

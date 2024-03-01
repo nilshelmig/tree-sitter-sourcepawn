@@ -166,7 +166,7 @@ funcenum Timer {
       returnType: (old_type
         (identifier)
       )
-      (parameter_declarations
+      parameters: (parameter_declarations
         (parameter_declaration
           type: (old_type
             (identifier)
@@ -185,7 +185,7 @@ funcenum Timer {
       returnType: (old_type
         (identifier)
       )
-      (parameter_declarations
+      parameters: (parameter_declarations
         (parameter_declaration
           type: (old_type
             (identifier)
@@ -216,7 +216,7 @@ funcenum Timer {
       returnType: (old_type
         (identifier)
       )
-      (parameter_declarations
+      parameters: (parameter_declarations
         (parameter_declaration
           type: (old_type
             (identifier)
@@ -235,7 +235,7 @@ funcenum Timer {
       returnType: (old_type
         (identifier)
       )
-      (parameter_declarations
+      parameters: (parameter_declarations
         (parameter_declaration
           type: (old_type
             (identifier)
@@ -263,7 +263,7 @@ funcenum Timer {
   (funcenum
     name: (identifier)
     (funcenum_member
-      (parameter_declarations
+      parameters: (parameter_declarations
         (parameter_declaration
           type: (old_type
             (identifier)
@@ -279,7 +279,7 @@ funcenum Timer {
       )
     )
     (funcenum_member
-      (parameter_declarations
+      parameters: (parameter_declarations
         (parameter_declaration
           type: (old_type
             (identifier)

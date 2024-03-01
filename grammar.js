@@ -542,7 +542,7 @@ module.exports = grammar({
       seq(
         field("returnType", optional($.old_type)),
         "public",
-        $.parameter_declarations
+        field("parameters", $.parameter_declarations)
       ),
 
     functag: ($) =>
