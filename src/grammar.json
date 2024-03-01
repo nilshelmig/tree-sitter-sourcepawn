@@ -8504,27 +8504,5 @@
   "supertypes": [
     "_expression",
     "_statement"
-  ],
-  "PREC": {
-    "ASSIGNMENT": -1,
-    "DEFAULT": 0,
-    "TERNARY": 1,
-    "FREE": 2,
-    "LOGICAL_OR": 2,
-    "LOGICAL_AND": 3,
-    "INCLUSIVE_OR": 4,
-    "EXCLUSIVE_OR": 5,
-    "BITWISE_AND": 6,
-    "EQUAL": 7,
-    "RELATIONAL": 8,
-    "SIZEOF": 9,
-    "SHIFT": 10,
-    "ADD": 11,
-    "MULTIPLY": 12,
-    "UNARY": 14,
-    "CAST": 15,
-    "CALL": 16,
-    "FIELD": 17
-  }
+  ]
 }
-
