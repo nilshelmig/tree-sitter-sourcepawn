@@ -60,7 +60,9 @@ void Test() {
           arguments: (call_arguments
             (string_literal)
             (int_literal)
-            (identifier)
+            (unary_expression
+              argument: (identifier)
+            )
             (identifier)
             (float_literal)
             (int_literal)
@@ -107,7 +109,9 @@ void Test() {
             )
             (named_arg
               name: (identifier)
-              value: (identifier)
+              value: (unary_expression
+                argument: (identifier)
+              )
             )
           )
         )

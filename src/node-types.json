@@ -1053,6 +1053,10 @@
             "named": false
           },
           {
+            "type": "&",
+            "named": false
+          },
+          {
             "type": "+",
             "named": false
           },
@@ -2391,13 +2395,9 @@
         ]
       },
       "value": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
-          {
-            "type": "&",
-            "named": false
-          },
           {
             "type": "_expression",
             "named": true
@@ -3256,6 +3256,10 @@
             "named": false
           },
           {
+            "type": "&",
+            "named": false
+          },
+          {
             "type": "+",
             "named": false
           },
@@ -3968,6 +3972,10 @@
         "types": [
           {
             "type": "!",
+            "named": false
+          },
+          {
+            "type": "&",
             "named": false
           },
           {

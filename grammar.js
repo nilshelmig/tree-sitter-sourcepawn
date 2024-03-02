@@ -999,25 +999,13 @@ module.exports = grammar({
         -11,
         seq(
           "(",
-          commaSep(
-            choice(
-              seq("&", $.identifier),
-              $._expression,
-              $.named_arg,
-              $.ignore_argument
-            )
-          ),
+          commaSep(choice($._expression, $.named_arg, $.ignore_argument)),
           ")"
         )
       ),
 
     named_arg: ($) =>
-      seq(
-        ".",
-        field("name", $.identifier),
-        "=",
-        field("value", choice(seq("&", $.identifier), $._expression))
-      ),
+      seq(".", field("name", $.identifier), "=", field("value", $._expression)),
 
     ignore_argument: ($) => "_",
 
@@ -1298,7 +1286,10 @@ function commaSep1(rule) {
 function unaryExpression(rule) {
   return prec.left(
     PREC.UNARY,
-    seq(field("operator", choice("!", "~", "-", "+")), field("argument", rule))
+    seq(
+      field("operator", choice("!", "~", "-", "+", "&")),
+      field("argument", rule)
+    )
   );
 }
 
