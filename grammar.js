@@ -1005,7 +1005,12 @@ module.exports = grammar({
       ),
 
     named_arg: ($) =>
-      seq(".", field("name", $.identifier), "=", field("value", $._expression)),
+      seq(
+        ".",
+        field("arg_name", $.identifier),
+        "=",
+        field("value", $._expression)
+      ),
 
     ignore_argument: ($) => "_",
 

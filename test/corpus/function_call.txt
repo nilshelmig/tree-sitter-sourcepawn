@@ -100,15 +100,15 @@ void Test() {
           arguments: (call_arguments
             (string_literal)
             (named_arg
-              name: (identifier)
+              arg_name: (identifier)
               value: (int_literal)
             )
             (named_arg
-              name: (identifier)
+              arg_name: (identifier)
               value: (float_literal)
             )
             (named_arg
-              name: (identifier)
+              arg_name: (identifier)
               value: (unary_expression
                 argument: (identifier)
               )

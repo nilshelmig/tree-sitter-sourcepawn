@@ -2384,7 +2384,7 @@
     "type": "named_arg",
     "named": true,
     "fields": {
-      "name": {
+      "arg_name": {
         "multiple": false,
         "required": true,
         "types": [

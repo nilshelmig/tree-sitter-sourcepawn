@@ -5702,7 +5702,7 @@
         },
         {
           "type": "FIELD",
-          "name": "name",
+          "name": "arg_name",
           "content": {
             "type": "SYMBOL",
             "name": "identifier"
