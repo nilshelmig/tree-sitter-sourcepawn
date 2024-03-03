@@ -85,7 +85,7 @@ public Plugin myinfo =
       )
       (struct_field_value
         name: (identifier)
-        value: (concatenated_string
+        value: (binary_expression
           left: (string_literal)
           right: (string_literal)
         )
@@ -133,7 +133,7 @@ public Plugin:myinfo =
       )
       (struct_field_value
         name: (identifier)
-        value: (concatenated_string
+        value: (binary_expression
           left: (string_literal)
           right: (string_literal)
         )
@@ -181,7 +181,7 @@ public Plugin myinfo =
       )
       (struct_field_value
         name: (identifier)
-        value: (concatenated_string
+        value: (binary_expression
           left: (string_literal)
           right: (string_literal)
         )
@@ -229,7 +229,7 @@ public Plugin myinfo =
       )
       (struct_field_value
         name: (identifier)
-        value: (concatenated_string
+        value: (binary_expression
           left: (string_literal)
           right: (string_literal)
         )

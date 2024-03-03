@@ -32,10 +32,6 @@
         "named": true
       },
       {
-        "type": "concatenated_string",
-        "named": true
-      },
-      {
         "type": "field_access",
         "named": true
       },
@@ -332,10 +328,6 @@
           "named": true
         },
         {
-          "type": "concatenated_string",
-          "named": true
-        },
-        {
           "type": "float_literal",
           "named": true
         },
@@ -603,6 +595,10 @@
             "named": false
           },
           {
+            "type": "...",
+            "named": false
+          },
+          {
             "type": "/",
             "named": false
           },
@@ -771,10 +767,6 @@
             "named": true
           },
           {
-            "type": "concatenated_string",
-            "named": true
-          },
-          {
             "type": "float_literal",
             "named": true
           },
@@ -846,6 +838,10 @@
           },
           {
             "type": "-",
+            "named": false
+          },
+          {
+            "type": "...",
             "named": false
           },
           {
@@ -923,10 +919,6 @@
             "named": true
           },
           {
-            "type": "concatenated_string",
-            "named": true
-          },
-          {
             "type": "float_literal",
             "named": true
           },
@@ -996,10 +988,6 @@
           },
           {
             "type": "char_literal",
-            "named": true
-          },
-          {
-            "type": "concatenated_string",
             "named": true
           },
           {
@@ -1115,44 +1103,6 @@
           },
           {
             "type": "comma_expression",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "concatenated_string",
-    "named": true,
-    "fields": {
-      "left": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "string_literal",
-            "named": true
-          }
-        ]
-      },
-      "right": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "concatenated_string",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "string_literal",
             "named": true
           }
         ]
@@ -2747,10 +2697,6 @@
             "named": true
           },
           {
-            "type": "concatenated_string",
-            "named": true
-          },
-          {
             "type": "float_literal",
             "named": true
           },
@@ -2821,6 +2767,10 @@
             "named": false
           },
           {
+            "type": "...",
+            "named": false
+          },
+          {
             "type": "/",
             "named": false
           },
@@ -2884,10 +2834,6 @@
           },
           {
             "type": "char_literal",
-            "named": true
-          },
-          {
-            "type": "concatenated_string",
             "named": true
           },
           {
@@ -3108,10 +3054,6 @@
           "named": true
         },
         {
-          "type": "concatenated_string",
-          "named": true
-        },
-        {
           "type": "float_literal",
           "named": true
         },
@@ -3203,10 +3145,6 @@
           },
           {
             "type": "char_literal",
-            "named": true
-          },
-          {
-            "type": "concatenated_string",
             "named": true
           },
           {
@@ -3406,10 +3344,6 @@
           },
           {
             "type": "char_literal",
-            "named": true
-          },
-          {
-            "type": "concatenated_string",
             "named": true
           },
           {
@@ -3721,10 +3655,6 @@
           },
           {
             "type": "char_literal",
-            "named": true
-          },
-          {
-            "type": "concatenated_string",
             "named": true
           },
           {

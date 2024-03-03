@@ -136,6 +136,7 @@
 [
   "+"
   "-"
+  "..."
   "*"
   "/"
   "%"
@@ -171,7 +172,7 @@
 ] @operator
 (ignore_argument) @operator
 (scope_access) @operator
-(rest_operator) @operator ; Should override (concatenated_string) but currently does nothing
+(rest_operator) @operator
 
 ; public Plugin myinfo
 (struct_declaration
@@ -199,7 +200,6 @@
 (float_literal) @float
 (string_literal) @string
 (array_literal) @punctuation.bracket
-(concatenated_string) @punctuation.delimiter ; Dots in string-literal concat--Doesn't seem to work?
 [
   (bool_literal)
   (null)

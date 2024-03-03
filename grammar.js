@@ -1162,7 +1162,6 @@ module.exports = grammar({
         $.float_literal,
         $.char_literal,
         $.string_literal,
-        $.concatenated_string,
         $.bool_literal,
         $.array_literal,
         $.null
@@ -1220,18 +1219,6 @@ module.exports = grammar({
           alias(token.immediate(/[^\n']/), $.character)
         ),
         "'"
-      ),
-
-    concatenated_string: ($) =>
-      prec.left(
-        seq(
-          field("left", choice($.string_literal, $.identifier)),
-          "...",
-          field(
-            "right",
-            choice($.string_literal, $.identifier, $.concatenated_string)
-          )
-        )
       ),
 
     string_literal: ($) =>
@@ -1302,6 +1289,7 @@ function binaryExpression(rule) {
   const table = [
     ["+", PREC.ADD],
     ["-", PREC.ADD],
+    ["...", PREC.ADD],
     ["*", PREC.MULTIPLY],
     ["/", PREC.MULTIPLY],
     ["%", PREC.MULTIPLY],

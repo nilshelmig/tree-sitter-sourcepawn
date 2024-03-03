@@ -46,7 +46,7 @@ char text[1028] = "Version: " ... PLUGIN_VERSION ... " in development";
       (fixed_dimension
         (int_literal)
       )
-      initialValue: (concatenated_string
+      initialValue: (binary_expression
         left: (string_literal)
         right: (string_literal)
       )
@@ -61,7 +61,7 @@ char text[1028] = "Version: " ... PLUGIN_VERSION ... " in development";
       (fixed_dimension
         (int_literal)
       )
-      initialValue: (concatenated_string
+      initialValue: (binary_expression
         left: (string_literal)
         right: (string_literal)
       )
@@ -76,7 +76,7 @@ char text[1028] = "Version: " ... PLUGIN_VERSION ... " in development";
       (fixed_dimension
         (int_literal)
       )
-      initialValue: (concatenated_string
+      initialValue: (binary_expression
         left: (string_literal)
         right: (identifier)
       )
@@ -91,12 +91,12 @@ char text[1028] = "Version: " ... PLUGIN_VERSION ... " in development";
       (fixed_dimension
         (int_literal)
       )
-      initialValue: (concatenated_string
-        left: (string_literal)
-        right: (concatenated_string
-          left: (identifier)
-          right: (string_literal)
+      initialValue: (binary_expression
+        left: (binary_expression
+          left: (string_literal)
+          right: (identifier)
         )
+        right: (string_literal)
       )
     )
   )
