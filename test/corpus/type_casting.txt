@@ -231,7 +231,7 @@ WormDirection:GetOppositeDirection() {
         )
       )
       (return_statement
-        (old_type_cast
+        expression: (old_type_cast
           type: (old_type
             (identifier)
           )
@@ -262,7 +262,7 @@ Float:GetOppositeDirection() {
     parameters: (parameter_declarations)
     body: (block
       (return_statement
-        (binary_expression
+        expression: (binary_expression
           left: (old_type_cast
             type: (old_type
               (old_builtin_type)

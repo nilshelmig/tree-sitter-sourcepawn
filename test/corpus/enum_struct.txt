@@ -103,7 +103,7 @@ enum struct Rectangle
       parameters: (parameter_declarations)
       body: (block
         (return_statement
-          (binary_expression
+          expression: (binary_expression
             left: (field_access
               target: (this)
               field: (identifier)
@@ -125,7 +125,7 @@ enum struct Rectangle
       parameters: (parameter_declarations)
       body: (block
         (return_statement
-          (binary_expression
+          expression: (binary_expression
             left: (field_access
               target: (this)
               field: (identifier)
@@ -189,7 +189,7 @@ enum struct Rectangle
       )
       body: (block
         (return_statement
-          (binary_expression
+          expression: (binary_expression
             left: (binary_expression
               left: (field_access
                 target: (identifier)

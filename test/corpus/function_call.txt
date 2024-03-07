@@ -174,7 +174,7 @@ bool Test() {
     parameters: (parameter_declarations)
     body: (block
       (return_statement
-        (binary_expression
+        expression: (binary_expression
           left: (int_literal)
           right: (call_expression
             function: (identifier)
@@ -253,7 +253,7 @@ int CurrentCount() {
         )
       )
       (return_statement
-        (int_literal)
+        expression: (int_literal)
       )
     )
   )

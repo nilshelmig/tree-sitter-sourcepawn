@@ -154,7 +154,7 @@ int MyFunc(int[] myvar) {
     )
     body: (block
       (return_statement
-        (array_indexed_access
+        expression: (array_indexed_access
           array: (identifier)
           index: (array_indexed_access
             array: (identifier)
@@ -197,7 +197,7 @@ int MyFunc(int[][] myvar) {
     )
     body: (block
       (return_statement
-        (array_indexed_access
+        expression: (array_indexed_access
           array: (array_indexed_access
             array: (identifier)
             index: (int_literal)
@@ -236,7 +236,7 @@ int MyFunc(File target) {
     )
     body: (block
       (return_statement
-        (array_indexed_access
+        expression: (array_indexed_access
           array: (field_access
             target: (identifier)
             field: (identifier)

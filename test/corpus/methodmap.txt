@@ -239,7 +239,7 @@ methodmap PerkContainerIter {
       )
       body: (block
         (return_statement
-          (bool_literal)
+          expression: (bool_literal)
         )
       )
     )
@@ -325,7 +325,7 @@ methodmap AdminId {
       )
       body: (block
         (return_statement
-          (identifier)
+          expression: (identifier)
         )
       )
     )
@@ -374,7 +374,7 @@ methodmap PerkContainerIter {
       )
       body: (block
         (return_statement
-          (bool_literal)
+          expression: (bool_literal)
         )
       )
     )
@@ -405,7 +405,7 @@ methodmap MyValue {
       parameters: (parameter_declarations)
       body: (block
         (return_statement
-          (this)
+          expression: (this)
         )
       )
     )
@@ -541,7 +541,7 @@ methodmap Player {
         (methodmap_property_getter)
         body: (block
           (return_statement
-            (bool_literal)
+            expression: (bool_literal)
           )
         )
       )

@@ -504,7 +504,7 @@ public Callback1() Test();
     name: (identifier)
     parameters: (parameter_declarations)
     body: (return_statement
-      (int_literal)
+      expression: (int_literal)
     )
   )
   (function_definition

@@ -17,7 +17,7 @@ int Test() {
     parameters: (parameter_declarations)
     body: (block
       (return_statement
-        (sizeof_expression
+        expression: (sizeof_expression
           type: (identifier)
         )
       )
@@ -96,7 +96,7 @@ int Test() {
         )
       )
       (return_statement
-        (sizeof_expression
+        expression: (sizeof_expression
           type: (identifier)
           type: (dimension)
         )
@@ -125,7 +125,7 @@ int Test() {
     parameters: (parameter_declarations)
     body: (block
       (return_statement
-        (sizeof_expression
+        expression: (sizeof_expression
           type: (identifier)
         )
       )

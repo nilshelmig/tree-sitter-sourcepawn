@@ -907,7 +907,9 @@ module.exports = grammar({
       prec.right(
         seq(
           "return",
-          optional(choice($._expression, $.comma_expression)),
+          optional(
+            field("expression", choice($._expression, $.comma_expression)),
+          ),
           optional($._semicolon),
         ),
       ),

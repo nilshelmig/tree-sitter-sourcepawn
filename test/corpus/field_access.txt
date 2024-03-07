@@ -59,7 +59,7 @@ enum struct Rectangle
       parameters: (parameter_declarations)
       body: (block
         (return_statement
-          (field_access
+          expression: (field_access
             target: (this)
             field: (identifier)
           )

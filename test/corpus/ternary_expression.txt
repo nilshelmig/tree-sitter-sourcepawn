@@ -31,7 +31,7 @@ int GetOppositeDirection() {
         )
       )
       (return_statement
-        (ternary_expression
+        expression: (ternary_expression
           condition: (binary_expression
             left: (identifier)
             right: (int_literal)
@@ -98,7 +98,7 @@ int GetOppositeDirection() {
         )
       )
       (return_statement
-        (ternary_expression
+        expression: (ternary_expression
           condition: (binary_expression
             left: (identifier)
             right: (int_literal)
@@ -149,7 +149,7 @@ int GetOppositeDirection() {
     parameters: (parameter_declarations)
     body: (block
       (return_statement
-        (ternary_expression
+        expression: (ternary_expression
           condition: (binary_expression
             left: (identifier)
             right: (int_literal)
