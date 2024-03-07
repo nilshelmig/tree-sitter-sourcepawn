@@ -890,14 +890,6 @@ module.exports = grammar({
         ),
       ),
 
-    switch_default_case: ($) =>
-      seq(
-        "default",
-        ":",
-        field("body", $._statement),
-        optional($.break_statement),
-      ),
-
     expression_statement: ($) =>
       prec.right(
         seq(choice($._expression, $.comma_expression), optional($._semicolon)),
