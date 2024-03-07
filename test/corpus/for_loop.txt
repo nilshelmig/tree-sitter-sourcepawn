@@ -35,7 +35,7 @@ public void OnPluginStart() {
         iteration: (update_expression
           argument: (identifier)
         )
-        (block)
+        body: (block)
       )
       (for_statement
         initialization: (variable_declaration_statement
@@ -54,7 +54,7 @@ public void OnPluginStart() {
         iteration: (update_expression
           argument: (identifier)
         )
-        (block)
+        body: (block)
       )
     )
   )
@@ -90,7 +90,7 @@ public void OnPluginStart() {
         iteration: (update_expression
           argument: (identifier)
         )
-        (block)
+        body: (block)
       )
     )
   )
@@ -131,7 +131,7 @@ public void OnPluginStart() {
         iteration: (update_expression
           argument: (identifier)
         )
-        (block)
+        body: (block)
       )
     )
   )
@@ -173,7 +173,7 @@ public void OnPluginStart() {
           left: (identifier)
           right: (int_literal)
         )
-        (block)
+        body: (block)
       )
     )
   )
@@ -202,7 +202,7 @@ public void OnPluginStart() {
     parameters: (parameter_declarations)
     body: (block
       (for_statement
-        (block)
+        body: (block)
       )
     )
   )
@@ -231,7 +231,7 @@ public void OnPluginStart() {
     parameters: (parameter_declarations)
     body: (block
       (for_statement
-        (block
+        body: (block
           (break_statement)
         )
       )
@@ -262,7 +262,7 @@ public void OnPluginStart() {
     parameters: (parameter_declarations)
     body: (block
       (for_statement
-        (block
+        body: (block
           (continue_statement)
         )
       )
@@ -291,7 +291,7 @@ public void OnPluginStart() {
     parameters: (parameter_declarations)
     body: (block
       (for_statement
-        (break_statement)
+        body: (break_statement)
       )
     )
   )
@@ -329,7 +329,7 @@ public void OnPluginStart() {
         iteration: (update_expression
           argument: (identifier)
         )
-        (break_statement)
+        body: (break_statement)
       )
     )
   )
@@ -380,7 +380,7 @@ public void OnPluginStart() {
         iteration: (update_expression
           argument: (identifier)
         )
-        (break_statement)
+        body: (break_statement)
       )
     )
   )
@@ -492,7 +492,7 @@ public void OnPluginStart() {
         iteration: (update_expression
           argument: (identifier)
         )
-        (break_statement)
+        body: (break_statement)
       )
       (for_statement
         initialization: (old_variable_declaration_statement
@@ -511,7 +511,7 @@ public void OnPluginStart() {
         iteration: (update_expression
           argument: (identifier)
         )
-        (block)
+        body: (block)
       )
       (for_statement
         initialization: (assignment_expression
@@ -535,7 +535,7 @@ public void OnPluginStart() {
             right: (int_literal)
           )
         )
-        (block
+        body: (block
           (break_statement)
         )
       )

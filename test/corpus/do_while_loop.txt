@@ -19,7 +19,7 @@ public void OnPluginStart() {
     parameters: (parameter_declarations)
     body: (block
       (do_while_statement
-        (block)
+        body: (block)
         condition: (bool_literal)
       )
     )
@@ -47,7 +47,7 @@ public void OnPluginStart() {
     parameters: (parameter_declarations)
     body: (block
       (do_while_statement
-        (expression_statement
+        body: (expression_statement
           (bool_literal)
         )
         condition: (bool_literal)
@@ -78,7 +78,7 @@ public void OnPluginStart() {
     parameters: (parameter_declarations)
     body: (block
       (do_while_statement
-        (block)
+        body: (block)
         condition: (binary_expression
           left: (int_literal)
           right: (int_literal)
@@ -111,7 +111,7 @@ public void OnPluginStart() {
     parameters: (parameter_declarations)
     body: (block
       (do_while_statement
-        (block
+        body: (block
           (break_statement)
         )
         condition: (bool_literal)
@@ -143,7 +143,7 @@ public void OnPluginStart() {
     parameters: (parameter_declarations)
     body: (block
       (do_while_statement
-        (block
+        body: (block
           (continue_statement)
         )
         condition: (bool_literal)
@@ -175,7 +175,7 @@ public void OnPluginStart() {
     parameters: (parameter_declarations)
     body: (block
       (do_while_statement
-        (block
+        body: (block
           (continue_statement)
         )
         condition: (bool_literal)

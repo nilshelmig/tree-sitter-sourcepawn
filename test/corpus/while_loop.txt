@@ -21,7 +21,7 @@ public void OnPluginStart() {
     body: (block
       (while_statement
         condition: (bool_literal)
-        (block)
+        body: (block)
       )
     )
   )
@@ -60,7 +60,7 @@ public void OnPluginStart() {
             right: (int_literal)
           )
         )
-        (block)
+        body: (block)
       )
     )
   )
@@ -90,7 +90,7 @@ public void OnPluginStart() {
     body: (block
       (while_statement
         condition: (bool_literal)
-        (block
+        body: (block
           (break_statement)
         )
       )
@@ -122,7 +122,7 @@ public void OnPluginStart() {
     body: (block
       (while_statement
         condition: (bool_literal)
-        (block
+        body: (block
           (continue_statement)
         )
       )
@@ -152,7 +152,7 @@ public void OnPluginStart() {
     body: (block
       (while_statement
         condition: (bool_literal)
-        (continue_statement)
+        body: (continue_statement)
       )
     )
   )

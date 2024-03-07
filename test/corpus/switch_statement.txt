@@ -31,7 +31,7 @@ public void OnPluginStart() {
         condition: (identifier)
         (switch_case
           value: (int_literal)
-          (expression_statement
+          body: (expression_statement
             (update_expression
               argument: (identifier)
             )
@@ -39,11 +39,11 @@ public void OnPluginStart() {
         )
         (switch_case
           value: (int_literal)
-          (return_statement)
+          body: (return_statement)
         )
         (switch_case
           value: (identifier)
-          (block
+          body: (block
             (expression_statement
               (update_expression
                 argument: (identifier)
@@ -91,7 +91,7 @@ public void OnPluginStart() {
         condition: (identifier)
         (switch_case
           value: (int_literal)
-          (expression_statement
+          body: (expression_statement
             (update_expression
               argument: (identifier)
             )
@@ -99,10 +99,10 @@ public void OnPluginStart() {
         )
         (switch_case
           value: (int_literal)
-          (return_statement)
+          body: (return_statement)
         )
         (switch_case
-          (block
+          body: (block
             (expression_statement
               (update_expression
                 argument: (identifier)
@@ -147,7 +147,7 @@ public void OnPluginStart() {
           value: (int_literal)
           value: (int_literal)
           value: (int_literal)
-          (return_statement)
+          body: (return_statement)
         )
       )
     )
@@ -218,7 +218,7 @@ void foo()
           value: (parenthesized_expression
             expression: (identifier)
           )
-          (block
+          body: (block
             (return_statement)
           )
         )
@@ -229,7 +229,7 @@ void foo()
               right: (int_literal)
             )
           )
-          (block
+          body: (block
             (return_statement)
           )
         )
