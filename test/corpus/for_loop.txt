@@ -479,7 +479,7 @@ public void OnPluginStart() {
     parameters: (parameter_declarations)
     body: (block
       (for_statement
-        initialization: (old_variable_declaration_statement
+        initialization: (old_for_loop_variable_declaration_statement
           (old_variable_declaration
             name: (identifier)
             initialValue: (int_literal)
@@ -495,7 +495,7 @@ public void OnPluginStart() {
         body: (break_statement)
       )
       (for_statement
-        initialization: (old_variable_declaration_statement
+        initialization: (old_for_loop_variable_declaration_statement
           (old_variable_declaration
             name: (identifier)
             initialValue: (binary_expression

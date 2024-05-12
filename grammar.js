@@ -47,7 +47,6 @@ module.exports = grammar({
   inline: ($) => [$._statement, $.methodmap_visibility],
 
   conflicts: ($) => [
-    [$.new_expression, $.old_variable_declaration], // FIXME: Do not allow parenthesized expressions in statements to fix this.
     [$.type, $.old_variable_declaration],
     [$.array_indexed_access, $.type],
     [$.visibility, $.struct_declaration],
@@ -229,7 +228,11 @@ module.exports = grammar({
       ),
 
     rest_parameter: ($) =>
-      seq(field("type", choice($.type, $.old_type)), "..."),
+      seq(
+        field("storage_class", optional($.variable_storage_class)),
+        field("type", choice($.type, $.old_type, $.array_type)),
+        "..."
+      ),
 
     alias_operator: ($) =>
       token.immediate(
@@ -397,9 +400,6 @@ module.exports = grammar({
       ),
 
     old_variable_declaration_statement: ($) =>
-      /* Use left precedence to resolve conflict with variable
-      declarations in for loops
-       */
       prec.left(
         seq(
           choice(
@@ -408,8 +408,19 @@ module.exports = grammar({
             seq($.visibility, optional($.variable_storage_class)),
           ),
           commaSep1($.old_variable_declaration),
-          optional($._semicolon),
+          $._semicolon
         ),
+      ),
+
+    // Workaround for mandatory semicolon in for loops
+    old_for_loop_variable_declaration_statement: ($) =>
+      seq(
+        choice(
+          seq(choice("new", "decl"), optional($.variable_storage_class)),
+          $.variable_storage_class,
+          seq($.visibility, optional($.variable_storage_class)),
+        ),
+        commaSep1($.old_variable_declaration),
       ),
 
     old_variable_declaration: ($) =>
@@ -817,7 +828,7 @@ module.exports = grammar({
           optional(
             choice(
               $.variable_declaration_statement,
-              $.old_variable_declaration_statement,
+              $.old_for_loop_variable_declaration_statement,
               commaSep1($.assignment_expression),
             ),
           ),

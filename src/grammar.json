@@ -1713,6 +1713,22 @@
       "members": [
         {
           "type": "FIELD",
+          "name": "storage_class",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "variable_storage_class"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        },
+        {
+          "type": "FIELD",
           "name": "type",
           "content": {
             "type": "CHOICE",
@@ -1724,6 +1740,10 @@
               {
                 "type": "SYMBOL",
                 "name": "old_type"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "array_type"
               }
             ]
           }
@@ -2686,19 +2706,101 @@
             ]
           },
           {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "_semicolon"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
+            "type": "SYMBOL",
+            "name": "_semicolon"
           }
         ]
       }
+    },
+    "old_for_loop_variable_declaration_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "new"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "decl"
+                    }
+                  ]
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "variable_storage_class"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "SYMBOL",
+              "name": "variable_storage_class"
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "visibility"
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "variable_storage_class"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "old_variable_declaration"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "old_variable_declaration"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
     },
     "old_variable_declaration": {
       "type": "SEQ",
@@ -4834,7 +4936,7 @@
                   },
                   {
                     "type": "SYMBOL",
-                    "name": "old_variable_declaration_statement"
+                    "name": "old_for_loop_variable_declaration_statement"
                   },
                   {
                     "type": "SEQ",
@@ -8473,10 +8575,6 @@
     }
   ],
   "conflicts": [
-    [
-      "new_expression",
-      "old_variable_declaration"
-    ],
     [
       "type",
       "old_variable_declaration"

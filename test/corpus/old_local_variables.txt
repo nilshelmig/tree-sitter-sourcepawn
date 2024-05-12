@@ -170,6 +170,7 @@ old - storage class
 void Test() {
     new const Float:foo = 1.0;
     static Float:foo = 1.0;
+    static Convar:foo = null;
 }
 
 ---
@@ -200,6 +201,16 @@ void Test() {
           )
           (identifier)
           (float_literal)
+        )
+      )
+      (old_variable_declaration_statement
+        (visibility)
+        (old_variable_declaration
+          (old_type
+            (identifier)
+          )
+          (identifier)
+          (null)
         )
       )
     )

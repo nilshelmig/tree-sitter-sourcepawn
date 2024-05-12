@@ -1583,7 +1583,7 @@
             "named": true
           },
           {
-            "type": "old_variable_declaration_statement",
+            "type": "old_for_loop_variable_declaration_statement",
             "named": true
           },
           {
@@ -2386,6 +2386,29 @@
     "type": "old_builtin_type",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "old_for_loop_variable_declaration_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "old_variable_declaration",
+          "named": true
+        },
+        {
+          "type": "variable_storage_class",
+          "named": true
+        },
+        {
+          "type": "visibility",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "old_global_variable_declaration",
@@ -3253,10 +3276,24 @@
     "type": "rest_parameter",
     "named": true,
     "fields": {
+      "storage_class": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "variable_storage_class",
+            "named": true
+          }
+        ]
+      },
       "type": {
         "multiple": false,
         "required": true,
         "types": [
+          {
+            "type": "array_type",
+            "named": true
+          },
           {
             "type": "old_type",
             "named": true

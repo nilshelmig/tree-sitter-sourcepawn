@@ -345,6 +345,7 @@ void Test() {
     static const Action foo = 1;
     const int foo = 1;
     static Action foo;
+    static ConVar foo = null, bar = null;
 }
 
 ---
@@ -396,6 +397,20 @@ void Test() {
         )
         (variable_declaration
           (identifier)
+        )
+      )
+      (variable_declaration_statement
+        (visibility)
+        (type
+          (identifier)
+        )
+        (variable_declaration
+          (identifier)
+          (null)
+        )
+        (variable_declaration
+          (identifier)
+          (null)
         )
       )
     )

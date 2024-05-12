@@ -1215,6 +1215,7 @@ function with rest argument
 
 void MyFunc1(any ...) {}
 void MyFunc2(const char[] format, any ...) {}
+void MyFunc3(const char[] ...) {}
 
 ---
 
@@ -1252,6 +1253,24 @@ void MyFunc2(const char[] format, any ...) {}
       (rest_parameter
         type: (type
           (any_type)
+        )
+      )
+    )
+    body: (block)
+  )
+  (function_definition
+    returnType: (type
+      (builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations
+      (rest_parameter
+        storage_class: (variable_storage_class)
+        type: (array_type
+          (type
+            (builtin_type)
+          )
+          (dimension)
         )
       )
     )
