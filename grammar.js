@@ -1210,20 +1210,12 @@ module.exports = grammar({
       );
     },
 
-    float_literal: ($) => {
-      const separator = "'";
-      const decimal = /[0-9]/;
-      const decimalDigits = seq(
-        repeat1(decimal),
-        repeat(seq(separator, repeat1(decimal))),
-      );
+    float_literal: _ => {
+      const digits = repeat1(/[0-9]+_?/);
+      const exponent = seq(/[eE][\+-]?/, digits);
+
       return token(
-        seq(
-          choice(
-            seq(decimalDigits, optional(seq(".", optional(decimalDigits)))),
-            seq(".", decimalDigits),
-          ),
-        ),
+          seq(digits, '.', optional(digits), optional(exponent)),
       );
     },
 
