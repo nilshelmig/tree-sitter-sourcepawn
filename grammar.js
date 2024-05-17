@@ -776,7 +776,7 @@ module.exports = grammar({
       seq("{", commaSep($.struct_field_value), optional(","), "}"),
 
     struct_field_value: ($) =>
-      seq(field("name", $.identifier), "=", field("value", $._expression)),
+      seq(field("field", $.identifier), "=", field("value", $._expression)),
 
     type: ($) => choice($.builtin_type, $.identifier, $.any_type),
 

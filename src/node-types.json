@@ -3641,7 +3641,7 @@
     "type": "struct_field_value",
     "named": true,
     "fields": {
-      "name": {
+      "field": {
         "multiple": false,
         "required": true,
         "types": [

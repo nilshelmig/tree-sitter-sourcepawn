@@ -76,26 +76,26 @@ public Plugin myinfo =
     name: (identifier)
     value: (struct_constructor
       (struct_field_value
-        name: (identifier)
+        field: (identifier)
         value: (string_literal)
       )
       (struct_field_value
-        name: (identifier)
+        field: (identifier)
         value: (string_literal)
       )
       (struct_field_value
-        name: (identifier)
+        field: (identifier)
         value: (binary_expression
           left: (string_literal)
           right: (string_literal)
         )
       )
       (struct_field_value
-        name: (identifier)
+        field: (identifier)
         value: (identifier)
       )
       (struct_field_value
-        name: (identifier)
+        field: (identifier)
         value: (string_literal)
       )
     )
@@ -124,26 +124,26 @@ public Plugin:myinfo =
     name: (identifier)
     value: (struct_constructor
       (struct_field_value
-        name: (identifier)
+        field: (identifier)
         value: (string_literal)
       )
       (struct_field_value
-        name: (identifier)
+        field: (identifier)
         value: (string_literal)
       )
       (struct_field_value
-        name: (identifier)
+        field: (identifier)
         value: (binary_expression
           left: (string_literal)
           right: (string_literal)
         )
       )
       (struct_field_value
-        name: (identifier)
+        field: (identifier)
         value: (identifier)
       )
       (struct_field_value
-        name: (identifier)
+        field: (identifier)
         value: (string_literal)
       )
     )
@@ -172,26 +172,26 @@ public Plugin myinfo =
     name: (identifier)
     value: (struct_constructor
       (struct_field_value
-        name: (identifier)
+        field: (identifier)
         value: (string_literal)
       )
       (struct_field_value
-        name: (identifier)
+        field: (identifier)
         value: (string_literal)
       )
       (struct_field_value
-        name: (identifier)
+        field: (identifier)
         value: (binary_expression
           left: (string_literal)
           right: (string_literal)
         )
       )
       (struct_field_value
-        name: (identifier)
+        field: (identifier)
         value: (identifier)
       )
       (struct_field_value
-        name: (identifier)
+        field: (identifier)
         value: (string_literal)
       )
     )
@@ -220,26 +220,26 @@ public Plugin myinfo =
     name: (identifier)
     value: (struct_constructor
       (struct_field_value
-        name: (identifier)
+        field: (identifier)
         value: (string_literal)
       )
       (struct_field_value
-        name: (identifier)
+        field: (identifier)
         value: (string_literal)
       )
       (struct_field_value
-        name: (identifier)
+        field: (identifier)
         value: (binary_expression
           left: (string_literal)
           right: (string_literal)
         )
       )
       (struct_field_value
-        name: (identifier)
+        field: (identifier)
         value: (identifier)
       )
       (struct_field_value
-        name: (identifier)
+        field: (identifier)
         value: (string_literal)
       )
     )
