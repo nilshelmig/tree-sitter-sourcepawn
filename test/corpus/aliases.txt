@@ -12,12 +12,19 @@ stock float operator--(float oper)
 	return oper-1.0;
 }
 
+stock Foo operator--(Foo oper)
+{
+	return oper-1.0;
+}
+
 ---
 
 (source_file
   (alias_declaration
     (visibility)
-    (builtin_type)
+    (type
+      (builtin_type)
+    )
     (alias_operator)
     (parameter_declarations
       (parameter_declaration
@@ -38,12 +45,37 @@ stock float operator--(float oper)
   )
   (alias_declaration
     (visibility)
-    (builtin_type)
+    (type
+      (builtin_type)
+    )
     (alias_operator)
     (parameter_declarations
       (parameter_declaration
         (type
           (builtin_type)
+        )
+        (identifier)
+      )
+    )
+    (block
+      (return_statement
+        (binary_expression
+          (identifier)
+          (float_literal)
+        )
+      )
+    )
+  )
+  (alias_declaration
+    (visibility)
+    (type
+      (identifier)
+    )
+    (alias_operator)
+    (parameter_declarations
+      (parameter_declaration
+        (type
+          (identifier)
         )
         (identifier)
       )
@@ -203,12 +235,19 @@ stock Float:operator*(Float:oper1, oper2)
 	return FloatMul(oper1, float(oper2));
 }
 
+stock Foo:operator*(Foo:oper1, oper2)
+{
+	return FloatMul(oper1, Foo(oper2));
+}
+
 ---
 
 (source_file
   (alias_declaration
     (visibility)
-    (old_builtin_type)
+    (old_type
+      (old_builtin_type)
+    )
     (alias_operator)
     (parameter_declarations
       (parameter_declaration
@@ -229,12 +268,48 @@ stock Float:operator*(Float:oper1, oper2)
   )
   (alias_declaration
     (visibility)
-    (old_builtin_type)
+    (old_type
+      (old_builtin_type)
+    )
     (alias_operator)
     (parameter_declarations
       (parameter_declaration
         (old_type
           (old_builtin_type)
+        )
+        (identifier)
+      )
+      (parameter_declaration
+        (identifier)
+      )
+    )
+    (block
+      (return_statement
+        (call_expression
+          (identifier)
+          (call_arguments
+            (identifier)
+            (call_expression
+              (identifier)
+              (call_arguments
+                (identifier)
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+  (alias_declaration
+    (visibility)
+    (old_type
+      (identifier)
+    )
+    (alias_operator)
+    (parameter_declarations
+      (parameter_declaration
+        (old_type
+          (identifier)
         )
         (identifier)
       )

@@ -232,19 +232,15 @@
         ]
       },
       "returnType": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": ":",
-            "named": false
-          },
-          {
-            "type": "builtin_type",
+            "type": "old_type",
             "named": true
           },
           {
-            "type": "old_builtin_type",
+            "type": "type",
             "named": true
           }
         ]

@@ -1880,23 +1880,11 @@
                 "members": [
                   {
                     "type": "SYMBOL",
-                    "name": "builtin_type"
+                    "name": "type"
                   },
                   {
-                    "type": "SEQ",
-                    "members": [
-                      {
-                        "type": "SYMBOL",
-                        "name": "old_builtin_type"
-                      },
-                      {
-                        "type": "IMMEDIATE_TOKEN",
-                        "content": {
-                          "type": "STRING",
-                          "value": ":"
-                        }
-                      }
-                    ]
+                    "type": "SYMBOL",
+                    "name": "old_type"
                   }
                 ]
               }
@@ -8503,6 +8491,14 @@
     [
       "parameter_declaration",
       "type"
+    ],
+    [
+      "alias_assignment",
+      "type"
+    ],
+    [
+      "alias_assignment",
+      "old_type"
     ]
   ],
   "precedences": [

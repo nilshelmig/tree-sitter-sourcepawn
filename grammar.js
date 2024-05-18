@@ -51,6 +51,8 @@ module.exports = grammar({
     [$.array_indexed_access, $.type],
     [$.visibility, $.struct_declaration],
     [$.parameter_declaration, $.type],
+    [$.alias_assignment, $.type],
+    [$.alias_assignment, $.old_type],
   ],
 
   precedences: ($) => [[$.type, $._expression]],
@@ -270,8 +272,8 @@ module.exports = grammar({
           field(
             "returnType",
             choice(
-              $.builtin_type,
-              seq($.old_builtin_type, token.immediate(":")),
+              $.type,
+              $.old_type,
             ),
           ),
           "operator",
