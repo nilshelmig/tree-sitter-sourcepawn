@@ -1,0 +1,39 @@
+============
+int literals
+============
+
+int foo = 1;
+int foo = 10000;
+int foo = 1_100_10000;
+
+---
+
+(source_file
+  (global_variable_declaration
+    (type
+      (builtin_type)
+    )
+    (variable_declaration
+      (identifier)
+      (int_literal)
+    )
+  )
+  (global_variable_declaration
+    (type
+      (builtin_type)
+    )
+    (variable_declaration
+      (identifier)
+      (int_literal)
+    )
+  )
+  (global_variable_declaration
+    (type
+      (builtin_type)
+    )
+    (variable_declaration
+      (identifier)
+      (int_literal)
+    )
+  )
+)

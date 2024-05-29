@@ -1186,7 +1186,7 @@ module.exports = grammar({
       ),
 
     int_literal: ($) => {
-      const separator = "'";
+      const separator = "_";
       const hex = /[0-9a-fA-F]/;
       const octo = /[o0-7]/;
       const decimal = /[0-9]/;
