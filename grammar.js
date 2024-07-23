@@ -53,6 +53,7 @@ module.exports = grammar({
     [$.parameter_declaration, $.type],
     [$.alias_assignment, $.type],
     [$.alias_assignment, $.old_type],
+    [$._preproc_expression, $._expression]
   ],
 
   precedences: ($) => [[$.type, $._expression]],
@@ -1161,12 +1162,9 @@ module.exports = grammar({
           "{",
           commaSep1(
             choice(
-              $._literal,
-              $.identifier,
               $.view_as,
               $.old_type_cast,
-              $.unary_expression,
-              $.binary_expression,
+              $._preproc_expression
             ),
           ),
           optional(seq(",", optional($.rest_operator))),

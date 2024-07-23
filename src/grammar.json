@@ -7788,14 +7788,6 @@
                 "members": [
                   {
                     "type": "SYMBOL",
-                    "name": "_literal"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "identifier"
-                  },
-                  {
-                    "type": "SYMBOL",
                     "name": "view_as"
                   },
                   {
@@ -7804,11 +7796,7 @@
                   },
                   {
                     "type": "SYMBOL",
-                    "name": "unary_expression"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "binary_expression"
+                    "name": "_preproc_expression"
                   }
                 ]
               },
@@ -7826,14 +7814,6 @@
                       "members": [
                         {
                           "type": "SYMBOL",
-                          "name": "_literal"
-                        },
-                        {
-                          "type": "SYMBOL",
-                          "name": "identifier"
-                        },
-                        {
-                          "type": "SYMBOL",
                           "name": "view_as"
                         },
                         {
@@ -7842,11 +7822,7 @@
                         },
                         {
                           "type": "SYMBOL",
-                          "name": "unary_expression"
-                        },
-                        {
-                          "type": "SYMBOL",
-                          "name": "binary_expression"
+                          "name": "_preproc_expression"
                         }
                       ]
                     }
@@ -8507,6 +8483,10 @@
     [
       "alias_assignment",
       "old_type"
+    ],
+    [
+      "_preproc_expression",
+      "_expression"
     ]
   ],
   "precedences": [

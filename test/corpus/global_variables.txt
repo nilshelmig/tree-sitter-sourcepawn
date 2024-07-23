@@ -296,6 +296,11 @@ array initialization
 int numbers[] = { -1, 2, 3 };
 float vec[3] = { -0.0, 14.2, 13.22 };
 Action action[MAXPLAYERS] = { true, ... };
+int arr[] =
+{
+ (1 << 0),
+ (1 << 1)
+};
 
 ---
 
@@ -308,7 +313,7 @@ Action action[MAXPLAYERS] = { true, ... };
       name: (identifier)
       (dimension)
       initialValue: (array_literal
-        (unary_expression
+        (preproc_unary_expression
           argument: (int_literal)
         )
         (int_literal)
@@ -326,7 +331,7 @@ Action action[MAXPLAYERS] = { true, ... };
         (int_literal)
       )
       initialValue: (array_literal
-        (unary_expression
+        (preproc_unary_expression
           argument: (float_literal)
         )
         (float_literal)
@@ -346,6 +351,29 @@ Action action[MAXPLAYERS] = { true, ... };
       initialValue: (array_literal
         (bool_literal)
         (rest_operator)
+      )
+    )
+  )
+  (global_variable_declaration
+    type: (type
+      (builtin_type)
+    )
+    (variable_declaration
+      name: (identifier)
+      (dimension)
+      initialValue: (array_literal
+        (preproc_parenthesized_expression
+          (preproc_binary_expression
+            left: (int_literal)
+            right: (int_literal)
+          )
+        )
+        (preproc_parenthesized_expression
+          (preproc_binary_expression
+            left: (int_literal)
+            right: (int_literal)
+          )
+        )
       )
     )
   )

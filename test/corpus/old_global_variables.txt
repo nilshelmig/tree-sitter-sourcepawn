@@ -457,36 +457,36 @@ public numHaleKills = 0;
       (identifier)
       (dimension)
       (array_literal
-        (binary_expression
+        (preproc_binary_expression
           (int_literal)
           (int_literal)
         )
         (comment)
-        (binary_expression
-          (binary_expression
+        (preproc_binary_expression
+          (preproc_binary_expression
             (int_literal)
             (int_literal)
           )
           (int_literal)
         )
         (comment)
-        (binary_expression
-          (binary_expression
+        (preproc_binary_expression
+          (preproc_binary_expression
             (int_literal)
             (int_literal)
           )
-          (binary_expression
+          (preproc_binary_expression
             (int_literal)
             (int_literal)
           )
         )
         (comment)
-        (binary_expression
-          (binary_expression
+        (preproc_binary_expression
+          (preproc_binary_expression
             (int_literal)
             (int_literal)
           )
-          (binary_expression
+          (preproc_binary_expression
             (int_literal)
             (int_literal)
           )

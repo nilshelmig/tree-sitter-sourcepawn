@@ -312,10 +312,6 @@
           "named": true
         },
         {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
           "type": "bool_literal",
           "named": true
         },
@@ -344,15 +340,27 @@
           "named": true
         },
         {
+          "type": "preproc_binary_expression",
+          "named": true
+        },
+        {
+          "type": "preproc_defined_condition",
+          "named": true
+        },
+        {
+          "type": "preproc_parenthesized_expression",
+          "named": true
+        },
+        {
+          "type": "preproc_unary_expression",
+          "named": true
+        },
+        {
           "type": "rest_operator",
           "named": true
         },
         {
           "type": "string_literal",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
           "named": true
         },
         {
