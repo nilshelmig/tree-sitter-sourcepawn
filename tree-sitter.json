@@ -12,7 +12,7 @@
     }
   ],
   "metadata": {
-    "version": "0.7.6",
+    "version": "0.7.7",
     "license": "MIT",
     "description": "SourcePawn grammar for node-tree-sitter",
     "authors": [
