@@ -1,0 +1,38 @@
+{
+  "grammars": [
+    {
+      "name": "sourcepawn",
+      "camelcase": "Sourcepawn",
+      "scope": "source.sourcepawn",
+      "path": ".",
+      "file-types": [
+        "sp",
+        "inc"
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "0.7.6",
+    "license": "MIT",
+    "description": "SourcePawn grammar for node-tree-sitter",
+    "authors": [
+      {
+        "name": "Nils Helmig"
+      },
+      {
+        "name": "Sarrus"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/nilshelmig/tree-sitter-sourcepawn"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": false,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": false
+  }
+}

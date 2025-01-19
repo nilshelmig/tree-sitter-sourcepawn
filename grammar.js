@@ -1242,7 +1242,7 @@ module.exports = grammar({
       token(
         prec(
           1,
-          seq("\\", choice(/(?:[abefnrt'\"\\]|(?:x[a-zA-Z0-9]{0,2}|\d+);?)/)),
+          seq("\\", /(?:[abefnrt'\"\\]|(?:x[a-zA-Z0-9]{0,2}|\d+);?)/),
         ),
       ),
 

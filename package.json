@@ -22,18 +22,9 @@
     "url": "https://github.com/nilshelmig/tree-sitter-sourcepawn/issues"
   },
   "devDependencies": {
-    "tree-sitter-cli": "^0.21.0"
+    "tree-sitter-cli": "^0.24.7"
   },
   "dependencies": {
     "nan": "^2.14.2"
-  },
-  "tree-sitter": [
-    {
-      "scope": "source.sourcepawn",
-      "file-types": [
-        "sp",
-        "inc"
-      ]
-    }
-  ]
+  }
 }

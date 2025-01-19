@@ -12,6 +12,8 @@ Action action;
 Action
  action1;
 Action
+ g_action1;
+Action
  action1,
  action2;
 Action
@@ -75,6 +77,14 @@ Action
           right: (int_literal)
         )
       )
+    )
+  )
+  (global_variable_declaration
+    type: (type
+      (identifier)
+    )
+    (variable_declaration
+      name: (identifier)
     )
   )
   (global_variable_declaration
