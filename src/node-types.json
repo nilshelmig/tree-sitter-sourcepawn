@@ -731,6 +731,10 @@
         "required": true,
         "types": [
           {
+            "type": "builtin_type",
+            "named": true
+          },
+          {
             "type": "field_access",
             "named": true
           },

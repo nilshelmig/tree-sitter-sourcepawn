@@ -1,13 +1,13 @@
 # tree-sitter-sourcepawn
 
 This crate provides a SourcePawn grammar for the [tree-sitter](https://tree-sitter.github.io/tree-sitter/) parsing
-library.  To use this crate, add it to the `[dependencies]` section of your
+library. To use this crate, add it to the `[dependencies]` section of your
 `Cargo.toml` file, as well as the [tree-sitter][https://crates.io/crates/tree-sitter].
 
-``` toml
+```toml
 [dependencies]
 tree-sitter = "0.24.7"
-tree-sitter-sourcepawn = "0.7.7"
+tree-sitter-sourcepawn = "0.7.8"
 ```
 
 Typically, you will use the [`language`] function to add this
@@ -16,7 +16,7 @@ grammar to a tree-sitter [`Parser`], and then use the parser to parse some code.
 The below example demonstrates a simple program that parses a SourcePawn variable and prints the result to your
 terminal.
 
-``` rust
+```rust
 use tree_sitter::Parser;
 
 fn main() {

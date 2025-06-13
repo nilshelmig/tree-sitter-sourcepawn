@@ -108,3 +108,34 @@ void foo() {
     )
   )
 )
+
+
+=================
+comma expressions
+=================
+
+void foo() {
+    float(1);
+}
+
+---
+
+(source_file
+  (function_definition
+    (type
+      (builtin_type)
+    )
+    (identifier)
+    (parameter_declarations)
+    (block
+      (expression_statement
+        (call_expression
+          (builtin_type)
+          (call_arguments
+            (int_literal)
+          )
+        )
+      )
+    )
+  )
+)

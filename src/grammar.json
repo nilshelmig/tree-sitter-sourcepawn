@@ -5720,6 +5720,10 @@
               "members": [
                 {
                   "type": "SYMBOL",
+                  "name": "builtin_type"
+                },
+                {
+                  "type": "SYMBOL",
                   "name": "identifier"
                 },
                 {

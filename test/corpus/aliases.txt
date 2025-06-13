@@ -290,7 +290,7 @@ stock Foo:operator*(Foo:oper1, oper2)
           (call_arguments
             (identifier)
             (call_expression
-              (identifier)
+              (builtin_type)
               (call_arguments
                 (identifier)
               )
