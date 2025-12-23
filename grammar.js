@@ -791,7 +791,12 @@ module.exports = grammar({
 
     old_type: ($) =>
       seq(
-        choice($.old_builtin_type, $.identifier, $.any_type),
+        choice(
+          $.old_builtin_type,
+          $.identifier,
+          $.any_type,
+          $.multi_tag
+        ),
         token.immediate(":"),
       ),
 
@@ -804,6 +809,13 @@ module.exports = grammar({
     old_builtin_type: ($) => choice("_", "Float", "bool", "String"),
 
     any_type: ($) => "any",
+
+    multi_tag: ($) => 
+      seq(
+        "{",
+        commaSep1(choice($.identifier, $.old_builtin_type)),
+        "}"
+      ),
 
     block: ($) => seq("{", repeat($._statement), "}"),
 

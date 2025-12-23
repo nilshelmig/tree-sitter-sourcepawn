@@ -574,3 +574,31 @@ enum _:S_CustomWeapon { }
     (enum_entries)
   )
 )
+
+
+==========
+old - multi-tag
+==========
+
+native Float:floatatan(Float:angle, {anglemode,_}:radix)
+
+---
+
+(source_file
+  (function_declaration
+    (function_declaration_kind)
+    (old_type
+      (old_builtin_type))
+    (identifier)
+    (parameter_declarations
+      (parameter_declaration
+        (old_type
+          (old_builtin_type))
+        (identifier))
+      (parameter_declaration
+        (old_type
+          (multi_tag
+            (identifier)
+            (old_builtin_type)))
+        (identifier)))))
+
