@@ -437,6 +437,9 @@ module.exports = grammar({
     enum: ($) =>
       seq(
         "enum",
+        optional(
+          field("tag", seq($.identifier, token.immediate(":")))
+        ),
         field(
           "name",
           optional(seq($.identifier, optional(token.immediate(":")))),
