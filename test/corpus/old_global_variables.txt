@@ -558,3 +558,19 @@ a
     )
   )
 )
+
+==========
+old - enum tag
+==========
+
+enum _:S_CustomWeapon { }
+
+---
+
+(source_file
+  (enum
+    (identifier)
+    (identifier)
+    (enum_entries)
+  )
+)
