@@ -53,7 +53,10 @@ module.exports = grammar({
     [$.parameter_declaration, $.type],
     [$.alias_assignment, $.type],
     [$.alias_assignment, $.old_type],
-    [$._preproc_expression, $._expression]
+    [$._preproc_expression, $._expression],
+    [$.multi_tag, $._preproc_expression, $._expression],
+    [$._preproc_expression, $.multi_tag],
+    [$.enum],
   ],
 
   precedences: ($) => [[$.type, $._expression]],
