@@ -812,7 +812,7 @@ module.exports = grammar({
 
     dimension: ($) => seq("[", "]"),
 
-    fixed_dimension: ($) => seq("[", $._expression, "]"),
+    fixed_dimension: ($) => seq("[", $._expression, optional("char"), "]"),
 
     builtin_type: ($) =>
       choice("void", "bool", "int", "int64", "float", "char"),
@@ -821,7 +821,7 @@ module.exports = grammar({
 
     any_type: ($) => "any",
 
-    multi_tag: ($) => 
+    multi_tag: ($) =>
       seq(
         "{",
         commaSep1(choice($.identifier, $.old_builtin_type)),
@@ -963,6 +963,7 @@ module.exports = grammar({
         $.assignment_expression,
         $.call_expression,
         $.array_indexed_access,
+        $.packed_array_indexed_access,
         $.ternary_expression,
         $.field_access,
         $.scope_access,
@@ -1001,6 +1002,7 @@ module.exports = grammar({
             "left",
             choice(
               $.array_indexed_access,
+              $.packed_array_indexed_access,
               $.view_as,
               $.field_access,
               $.scope_access,
@@ -1068,6 +1070,19 @@ module.exports = grammar({
         "[",
         field("index", $._expression),
         "]",
+      ),
+
+    // https://forums.alliedmods.net/showthread.php?t=90735
+    packed_array_indexed_access: ($) =>
+      prec(PREC.FIELD,
+        seq(
+          field("array",
+            choice($.identifier, $.array_indexed_access, $.field_access),
+          ),
+          "{",
+          field("index", $._expression),
+          "}",
+        ),
       ),
 
     parenthesized_expression: ($) =>
@@ -1204,6 +1219,7 @@ module.exports = grammar({
         $.float_literal,
         $.char_literal,
         $.string_literal,
+        $.packed_string_literal,
         $.bool_literal,
         $.array_literal,
         $.null,
@@ -1241,7 +1257,7 @@ module.exports = grammar({
       const exponent = seq(/[eE][\+-]?/, digits);
 
       return token(
-          seq(digits, '.', optional(digits), optional(exponent)),
+        seq(digits, '.', optional(digits), optional(exponent)),
       );
     },
 
@@ -1263,6 +1279,10 @@ module.exports = grammar({
         ),
         '"',
       ),
+
+    // Packed string
+    // https://forums.alliedmods.net/showthread.php?t=90735
+    packed_string_literal: ($) => prec(PREC.UNARY + 1, seq("!", $.string_literal)),
 
     escape_sequence: ($) =>
       token(
