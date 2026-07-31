@@ -722,7 +722,11 @@ module.exports = grammar({
     methodmap_property_alias: ($) =>
       seq(
         $.methodmap_visibility,
-        $.methodmap_property_getter,
+        choice(
+          $.methodmap_property_getter,
+          // Alias setters use empty params: `public set() = Native;`
+          seq(field("name", "set"), "(", ")"),
+        ),
         "=",
         field("function", $.identifier),
         optional($._semicolon),

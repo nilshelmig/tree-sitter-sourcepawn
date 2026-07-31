@@ -442,6 +442,40 @@ methodmap AdtArray {
 )
 
 
+=======================================
+methodmap with property - setter alias
+=======================================
+
+methodmap DataPack < Handle {
+	property int Position {
+		public get() = GetPackPosition;
+		public set() = SetPackPosition;
+	}
+};
+
+---
+
+(source_file
+  (methodmap
+    name: (identifier)
+    inherits: (identifier)
+    (methodmap_property
+      type: (type
+        (builtin_type)
+      )
+      name: (identifier)
+      (methodmap_property_alias
+        (methodmap_property_getter)
+        function: (identifier)
+      )
+      (methodmap_property_alias
+        function: (identifier)
+      )
+    )
+  )
+)
+
+
 ================================
 methodmap with property - native
 ================================
