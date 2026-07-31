@@ -569,36 +569,81 @@ enum _:S_CustomWeapon { }
 
 (source_file
   (enum
-    (identifier)
-    (identifier)
-    (enum_entries)
+    tag: (identifier)
+    name: (identifier)
+    entries: (enum_entries)
   )
 )
 
+==========
+old - enum retag
+==========
+
+enum X:Y {
+  A,
+  B
+};
+
+---
+
+(source_file
+  (enum
+    tag: (identifier)
+    name: (identifier)
+    entries: (enum_entries
+      (enum_entry
+        name: (identifier))
+      (enum_entry
+        name: (identifier)))
+  )
+)
 
 ==========
 old - multi-tag
 ==========
 
-native Float:floatatan(Float:angle, {anglemode,_}:radix)
+native Float:floatatan(Float:angle, {anglemode,_}:radix);
 
 ---
 
 (source_file
   (function_declaration
-    (function_declaration_kind)
-    (old_type
+    kind: (function_declaration_kind)
+    returnType: (old_type
       (old_builtin_type))
-    (identifier)
-    (parameter_declarations
+    name: (identifier)
+    parameters: (parameter_declarations
       (parameter_declaration
-        (old_type
+        type: (old_type
           (old_builtin_type))
-        (identifier))
+        name: (identifier))
       (parameter_declaration
-        (old_type
+        type: (old_type
           (multi_tag
             (identifier)
             (old_builtin_type)))
-        (identifier)))))
+        name: (identifier))))
+)
 
+==========
+old - multi-tag from sourcemod 1.7 notes
+==========
+
+native void F({Float,bool}:param);
+
+---
+
+(source_file
+  (function_declaration
+    kind: (function_declaration_kind)
+    returnType: (type
+      (builtin_type))
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (old_type
+          (multi_tag
+            (old_builtin_type)
+            (old_builtin_type)))
+        name: (identifier))))
+)
