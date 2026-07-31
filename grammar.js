@@ -603,14 +603,16 @@ module.exports = grammar({
 
     functag: ($) =>
       choice(
+        // `functag public Name(...)` and `functag public Return:Name(...)`
         seq(
           "functag",
           "public",
-          field("returnType", $.old_type),
+          field("returnType", optional($.old_type)),
           field("name", $.identifier),
           field("parameters", $.parameter_declarations),
           optional($._semicolon),
         ),
+        // `functag Name public(...)`
         seq(
           "functag",
           field("name", $.identifier),
@@ -618,6 +620,7 @@ module.exports = grammar({
           field("parameters", $.parameter_declarations),
           optional($._semicolon),
         ),
+        // `functag Name Return:public(...)`
         seq(
           "functag",
           field("name", $.identifier),
@@ -785,7 +788,12 @@ module.exports = grammar({
         "struct",
         field("name", $.identifier),
         "{",
-        repeat($.struct_field),
+        // Modern fields start with `public` and use semicolons.
+        // Legacy fields are comma-separated (`const String:name[]`, bare `version`).
+        choice(
+          repeat($.struct_field),
+          seq(commaSep1($.old_struct_field), optional(",")),
+        ),
         "}",
         optional($._semicolon),
       ),
@@ -800,6 +808,14 @@ module.exports = grammar({
         ),
         field("name", $.identifier),
         optional($._semicolon),
+      ),
+
+    old_struct_field: ($) =>
+      seq(
+        optional("const"),
+        field("type", optional($.old_type)),
+        field("name", $.identifier),
+        repeat(choice($.dimension, $.fixed_dimension)),
       ),
 
     struct_declaration: ($) =>

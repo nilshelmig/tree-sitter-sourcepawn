@@ -372,3 +372,38 @@ functag Entity_ChangeOverTimeCallback bool:public(&entity, &Float:interval, &cur
     )
   )
 )
+
+
+==========================================
+functag public name without return type
+==========================================
+
+functag public MenuHandler(Handle:menu, MenuAction:action, param1, param2);
+
+---
+
+(source_file
+  (functag
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        type: (old_type
+          (identifier)
+        )
+        name: (identifier)
+      )
+      (parameter_declaration
+        type: (old_type
+          (identifier)
+        )
+        name: (identifier)
+      )
+      (parameter_declaration
+        name: (identifier)
+      )
+      (parameter_declaration
+        name: (identifier)
+      )
+    )
+  )
+)

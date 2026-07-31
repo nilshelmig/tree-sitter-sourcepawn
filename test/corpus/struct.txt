@@ -55,6 +55,70 @@ struct Plugin
 )
 
 
+=======================
+old style struct fields
+=======================
+
+struct PlVers
+{
+	version,
+	String:filevers[],
+	String:date[],
+	String:time[]
+};
+
+struct Extension
+{
+	const String:name[],
+	const String:file[],
+	bool:autoload,
+	bool:required,
+};
+
+---
+
+(source_file
+  (struct
+    name: (identifier)
+    (old_struct_field
+      name: (identifier))
+    (old_struct_field
+      type: (old_type
+        (old_builtin_type))
+      name: (identifier)
+      (dimension))
+    (old_struct_field
+      type: (old_type
+        (old_builtin_type))
+      name: (identifier)
+      (dimension))
+    (old_struct_field
+      type: (old_type
+        (old_builtin_type))
+      name: (identifier)
+      (dimension)))
+  (struct
+    name: (identifier)
+    (old_struct_field
+      type: (old_type
+        (old_builtin_type))
+      name: (identifier)
+      (dimension))
+    (old_struct_field
+      type: (old_type
+        (old_builtin_type))
+      name: (identifier)
+      (dimension))
+    (old_struct_field
+      type: (old_type
+        (old_builtin_type))
+      name: (identifier))
+    (old_struct_field
+      type: (old_type
+        (old_builtin_type))
+      name: (identifier))))
+
+
 =====================
 struct initialization
 =====================
