@@ -56,7 +56,6 @@ module.exports = grammar({
     [$._preproc_expression, $._expression],
     [$.multi_tag, $._preproc_expression, $._expression],
     [$._preproc_expression, $.multi_tag],
-    [$.enum],
   ],
 
   precedences: ($) => [[$.type, $._expression]],
@@ -440,12 +439,15 @@ module.exports = grammar({
     enum: ($) =>
       seq(
         "enum",
+        // Disjoint shapes avoid a self-conflict between tag and name on `enum Name:`.
         optional(
-          field("tag", seq($.identifier, token.immediate(":")))
-        ),
-        field(
-          "name",
-          optional(seq($.identifier, optional(token.immediate(":")))),
+          choice(
+            seq(
+              field("tag", seq($.identifier, token.immediate(":"))),
+              field("name", seq($.identifier, optional(token.immediate(":")))),
+            ),
+            field("name", seq($.identifier, optional(token.immediate(":")))),
+          ),
         ),
         optional(
           seq(
@@ -812,7 +814,15 @@ module.exports = grammar({
 
     dimension: ($) => seq("[", "]"),
 
-    fixed_dimension: ($) => seq("[", $._expression, optional("char"), "]"),
+    fixed_dimension: ($) =>
+      seq(
+        "[",
+        $._expression,
+        optional(field("packing", $.dimension_packing)),
+        "]",
+      ),
+
+    dimension_packing: (_) => "char",
 
     builtin_type: ($) =>
       choice("void", "bool", "int", "int64", "float", "char"),

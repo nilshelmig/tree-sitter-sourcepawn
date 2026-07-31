@@ -40,8 +40,7 @@ plugin_init() {
               array: (identifier)
               index: (update_expression
                 argument: (identifier)))))
-        body: (block))))
-)
+        body: (block)))))
 
 ==============================
 packed char dimension
@@ -56,5 +55,5 @@ new s[32 char];
     (old_variable_declaration
       name: (identifier)
       (fixed_dimension
-        (int_literal))))
-)
+        (int_literal)
+        packing: (dimension_packing)))))

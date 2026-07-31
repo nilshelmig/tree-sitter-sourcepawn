@@ -1208,6 +1208,11 @@
     "fields": {}
   },
   {
+    "type": "dimension_packing",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "do_while_statement",
     "named": true,
     "fields": {
@@ -1584,7 +1589,18 @@
   {
     "type": "fixed_dimension",
     "named": true,
-    "fields": {},
+    "fields": {
+      "packing": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "dimension_packing",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": false,
       "required": true,
