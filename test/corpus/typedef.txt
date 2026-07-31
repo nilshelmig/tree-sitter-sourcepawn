@@ -1,3 +1,27 @@
+=================
+typedef type alias
+=================
+
+typedef Address = int64;
+public const int64 __Int64_Address__ = 0;
+
+---
+
+(source_file
+  (typedef
+    name: (identifier)
+    type: (type
+      (builtin_type)))
+  (global_variable_declaration
+    visibility: (visibility)
+    storage_class: (variable_storage_class)
+    type: (type
+      (builtin_type))
+    (variable_declaration
+      name: (identifier)
+      initialValue: (int_literal))))
+
+
 =======
 typedef
 =======

@@ -511,7 +511,14 @@ module.exports = grammar({
         "typedef",
         field("name", $.identifier),
         "=",
-        $.typedef_expression,
+        choice(
+          $.typedef_expression,
+          // Type alias: `typedef Address = int64;`
+          field(
+            "type",
+            seq($.type, repeat(choice($.dimension, $.fixed_dimension))),
+          ),
+        ),
         $._semicolon,
       ),
 
@@ -796,7 +803,8 @@ module.exports = grammar({
 
     fixed_dimension: ($) => seq("[", $._expression, "]"),
 
-    builtin_type: ($) => choice("void", "bool", "int", "float", "char"),
+    builtin_type: ($) =>
+      choice("void", "bool", "int", "int64", "float", "char"),
 
     old_builtin_type: ($) => choice("_", "Float", "bool", "String"),
 

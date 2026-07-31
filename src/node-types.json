@@ -3856,11 +3856,29 @@
             "named": true
           }
         ]
+      },
+      "type": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "dimension",
+            "named": true
+          },
+          {
+            "type": "fixed_dimension",
+            "named": true
+          },
+          {
+            "type": "type",
+            "named": true
+          }
+        ]
       }
     },
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "typedef_expression",
@@ -4499,6 +4517,10 @@
   },
   {
     "type": "int",
+    "named": false
+  },
+  {
+    "type": "int64",
     "named": false
   },
   {
