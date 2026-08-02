@@ -881,12 +881,24 @@ module.exports = grammar({
       ),
 
     while_statement: ($) =>
-      seq(
-        "while",
-        "(",
-        field("condition", $._expression),
-        ")",
-        field("body", $._statement),
+      choice(
+        // Modern: while (cond) stmt
+        seq(
+          "while",
+          "(",
+          field("condition", $._expression),
+          ")",
+          field("body", $._statement),
+        ),
+        // Legacy Pawn: while !cond do stmt (SourceMod 1.7 and earlier).
+        // Restricted to unary_expression to avoid conflicts with
+        // parenthesized modern while and bare literals.
+        seq(
+          "while",
+          field("condition", $.unary_expression),
+          "do",
+          field("body", $._statement),
+        ),
       ),
 
     do_while_statement: ($) =>
@@ -895,9 +907,11 @@ module.exports = grammar({
           "do",
           field("body", $._statement),
           "while",
-          "(",
-          field("condition", $._expression),
-          ")",
+          // Parens are usual; spcomp also accepts `while !expr`
+          choice(
+            seq("(", field("condition", $._expression), ")"),
+            field("condition", $.unary_expression),
+          ),
           optional($._semicolon),
         ),
       ),
