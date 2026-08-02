@@ -4943,6 +4943,10 @@
         {
           "type": "STRING",
           "value": "String"
+        },
+        {
+          "type": "STRING",
+          "value": "void"
         }
       ]
     },
