@@ -1242,7 +1242,8 @@ module.exports = grammar({
       token(
         prec(
           1,
-          seq("\\", /(?:[abefnrt'\"\\]|(?:x[a-zA-Z0-9]{0,2}|\d+);?)/),
+          // `%` is accepted by spcomp (e.g. Format(..., "%.2f\%"))
+          seq("\\", /(?:[abefnrt'\"\\%]|(?:x[a-zA-Z0-9]{0,2}|\d+);?)/),
         ),
       ),
 

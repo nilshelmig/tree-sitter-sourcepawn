@@ -4379,8 +4379,8 @@ static const TSStateId ts_primary_state_ids[STATE_COUNT] = {
 };
 
 static TSCharacterRange sym_escape_sequence_character_set_1[] = {
-  {'"', '"'}, {'\'', '\''}, {'0', '9'}, {'\\', '\\'}, {'a', 'b'}, {'e', 'f'}, {'n', 'n'}, {'r', 'r'},
-  {'t', 't'}, {'x', 'x'},
+  {'"', '"'}, {'%', '%'}, {'\'', '\''}, {'0', '9'}, {'\\', '\\'}, {'a', 'b'}, {'e', 'f'}, {'n', 'n'},
+  {'r', 'r'}, {'t', 't'}, {'x', 'x'},
 };
 
 static bool ts_lex(TSLexer *lexer, TSStateId state) {
@@ -4434,9 +4434,8 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == '\n') SKIP(23);
       if (lookahead == '\r') SKIP(1);
       if (lookahead == 'x') ADVANCE(258);
-      if ((set_contains(sym_escape_sequence_character_set_1, 10, lookahead)) &&
-          (lookahead < '0' || '9' < lookahead)) ADVANCE(254);
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(256);
+      if (set_contains(sym_escape_sequence_character_set_1, 11, lookahead)) ADVANCE(254);
       END_STATE();
     case 3:
       if (lookahead == '\n') SKIP(26);
@@ -4477,22 +4476,11 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == '\n') ADVANCE(253);
       END_STATE();
     case 14:
-      ADVANCE_MAP(
-        '\n', 253,
-        '\r', 13,
-        'x', 258,
-        '"', 254,
-        '\'', 254,
-        '\\', 254,
-        'a', 254,
-        'b', 254,
-        'e', 254,
-        'f', 254,
-        'n', 254,
-        'r', 254,
-        't', 254,
-      );
+      if (lookahead == '\n') ADVANCE(253);
+      if (lookahead == '\r') ADVANCE(13);
+      if (lookahead == 'x') ADVANCE(258);
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(256);
+      if (set_contains(sym_escape_sequence_character_set_1, 11, lookahead)) ADVANCE(254);
       END_STATE();
     case 15:
       if (lookahead == '\n') SKIP(34);
@@ -4501,9 +4489,8 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == '\n') SKIP(34);
       if (lookahead == '\r') SKIP(15);
       if (lookahead == 'x') ADVANCE(258);
-      if ((set_contains(sym_escape_sequence_character_set_1, 10, lookahead)) &&
-          (lookahead < '0' || '9' < lookahead)) ADVANCE(254);
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(256);
+      if (set_contains(sym_escape_sequence_character_set_1, 11, lookahead)) ADVANCE(254);
       END_STATE();
     case 17:
       if (lookahead == '\n') SKIP(34);
@@ -5761,20 +5748,9 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       END_STATE();
     case 251:
       ACCEPT_TOKEN(aux_sym_char_literal_token1);
-      ADVANCE_MAP(
-        'x', 258,
-        '"', 254,
-        '\'', 254,
-        '\\', 254,
-        'a', 254,
-        'b', 254,
-        'e', 254,
-        'f', 254,
-        'n', 254,
-        'r', 254,
-        't', 254,
-      );
+      if (lookahead == 'x') ADVANCE(258);
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(256);
+      if (set_contains(sym_escape_sequence_character_set_1, 11, lookahead)) ADVANCE(254);
       END_STATE();
     case 252:
       ACCEPT_TOKEN(anon_sym_DQUOTE);
