@@ -32,3 +32,52 @@ void Test() {
     )
   )
 )
+
+
+=================
+escaped percent
+=================
+
+void Test() {
+	char s[8];
+	Format(s, sizeof(s), "%.2f\%");
+}
+
+---
+
+(source_file
+  (function_definition
+    (type
+      (builtin_type)
+    )
+    (identifier)
+    (parameter_declarations)
+    (block
+      (variable_declaration_statement
+        (type
+          (builtin_type)
+        )
+        (variable_declaration
+          (identifier)
+          (fixed_dimension
+            (int_literal)
+          )
+        )
+      )
+      (expression_statement
+        (call_expression
+          (identifier)
+          (call_arguments
+            (identifier)
+            (sizeof_expression
+              (identifier)
+            )
+            (string_literal
+              (escape_sequence)
+            )
+          )
+        )
+      )
+    )
+  )
+)
