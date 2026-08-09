@@ -2824,6 +2824,7 @@
   {
     "type": "preproc_assert",
     "named": true,
+    "extra": true,
     "fields": {
       "condition": {
         "multiple": false,
@@ -3048,6 +3049,7 @@
   {
     "type": "preproc_define",
     "named": true,
+    "extra": true,
     "fields": {
       "name": {
         "multiple": false,
@@ -3090,6 +3092,7 @@
   {
     "type": "preproc_elseif",
     "named": true,
+    "extra": true,
     "fields": {
       "condition": {
         "multiple": false,
@@ -3106,6 +3109,7 @@
   {
     "type": "preproc_error",
     "named": true,
+    "extra": true,
     "fields": {},
     "children": {
       "multiple": false,
@@ -3121,6 +3125,7 @@
   {
     "type": "preproc_if",
     "named": true,
+    "extra": true,
     "fields": {
       "condition": {
         "multiple": false,
@@ -3137,6 +3142,7 @@
   {
     "type": "preproc_include",
     "named": true,
+    "extra": true,
     "fields": {
       "path": {
         "multiple": false,
@@ -3157,6 +3163,7 @@
   {
     "type": "preproc_macro",
     "named": true,
+    "extra": true,
     "fields": {
       "name": {
         "multiple": false,
@@ -3268,6 +3275,7 @@
   {
     "type": "preproc_pragma",
     "named": true,
+    "extra": true,
     "fields": {},
     "children": {
       "multiple": false,
@@ -3283,6 +3291,7 @@
   {
     "type": "preproc_tryinclude",
     "named": true,
+    "extra": true,
     "fields": {
       "path": {
         "multiple": false,
@@ -3393,6 +3402,7 @@
   {
     "type": "preproc_undefine",
     "named": true,
+    "extra": true,
     "fields": {
       "name": {
         "multiple": false,
@@ -3409,6 +3419,7 @@
   {
     "type": "preproc_warning",
     "named": true,
+    "extra": true,
     "fields": {},
     "children": {
       "multiple": false,
@@ -4587,7 +4598,8 @@
   },
   {
     "type": "comment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "const",
@@ -4711,15 +4723,18 @@
   },
   {
     "type": "preproc_else",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "preproc_endif",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "preproc_endinput",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "property",
