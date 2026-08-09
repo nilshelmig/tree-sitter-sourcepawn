@@ -5,22 +5,22 @@ on:
     types: [created]
 
 env:
-  EM_VERSION: 2.0.24
+  EM_VERSION: 6.0.6
   EM_CACHE_FOLDER: "emsdk-cache"
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Setup cache
         id: cache-system-libraries
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ${{env.EM_CACHE_FOLDER}}
           key: ${{env.EM_VERSION}}-${{ runner.os }}
       - run: npm install
-      - uses: mymindstorm/setup-emsdk@v14
+      - uses: emscripten-core/setup-emsdk@v16
         with:
           version: ${{env.EM_VERSION}}
           actions-cache-folder: ${{env.EM_CACHE_FOLDER}}
@@ -46,14 +46,11 @@ jobs:
           allowUpdates: true
           prerelease: false
           replacesArtifacts: true
-      - uses: JS-DevTools/npm-publish@v1
+      - uses: JS-DevTools/npm-publish@v4
         with:
           token: ${{ secrets.NPM_TOKEN }}
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
-      - uses: katyo/publish-crates@v1
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: katyo/publish-crates@v2
         with:
           registry-token: ${{ secrets.CARGO_REGISTRY_TOKEN }}
           args: --allow-dirty
