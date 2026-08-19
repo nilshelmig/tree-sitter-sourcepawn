@@ -4,35 +4,37 @@ on:
   release:
     types: [created]
 
-env:
-  EM_VERSION: 2.0.24
-  EM_CACHE_FOLDER: "emsdk-cache"
-
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v4
-      - name: Setup cache
-        id: cache-system-libraries
-        uses: actions/cache@v4
-        with:
-          path: ${{env.EM_CACHE_FOLDER}}
-          key: ${{env.EM_VERSION}}-${{ runner.os }}
+      - uses: actions/checkout@v7
+      - name: Get package version
+        run: node -p -e '`PACKAGE_VERSION=${require("./package.json").version}`' >> $GITHUB_ENV
       - run: npm install
-      - uses: mymindstorm/setup-emsdk@v14
+      - name: Setup wasi-sdk cache
+        id: wasi-sdk
+        uses: actions/cache@v6
         with:
-          version: ${{env.EM_VERSION}}
-          actions-cache-folder: ${{env.EM_CACHE_FOLDER}}
+          path: wasi-sdk
+          key: wasi-sdk-29.0-${{ runner.os }}
+      - if: steps.wasi-sdk.outputs.cache-hit != 'true'
+        name: Install wasi-sdk
+        uses: bytecodealliance/setup-wasi-sdk-action@77d09f3df1e8da344d8403cf8631af8977938b4c
+        with:
+          version: "29"
+          install-path: wasi-sdk
+          add-to-path: false
       - name: Build parser
         run: npm run generate
       - name: Run tests
         run: npm run test
-        continue-on-error: true
-      - name: Get package version
-        run: node -p -e '`PACKAGE_VERSION=${require("./package.json").version}`' >> $GITHUB_ENV
       - name: Build .wasm
-        run: emcc -o tree-sitter-sourcepawn.wasm -Os -s WASM=1 -I src -s SIDE_MODULE=1 -s EXPORTED_FUNCTIONS=[\"_tree_sitter_sourcepawn\"] -fno-exceptions src/parser.c src/scanner.c
+        env:
+          TREE_SITTER_WASI_SDK_PATH: ${{ github.workspace }}/wasi-sdk
+        run: npm run build:wasm
       - name: Create Release
         uses: ncipollo/release-action@v1
         env:
@@ -41,19 +43,17 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: v${{ env.PACKAGE_VERSION }}
           artifacts: "*.wasm"
-          body: ${{ steps.changelog.outputs.changes }}
           draft: false
           allowUpdates: true
           prerelease: false
           replacesArtifacts: true
-      - uses: JS-DevTools/npm-publish@v1
+          generateReleaseNotes: true
+          omitNameDuringUpdate: true
+      - uses: JS-DevTools/npm-publish@v4
         with:
           token: ${{ secrets.NPM_TOKEN }}
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
-      - uses: katyo/publish-crates@v1
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: katyo/publish-crates@v2
         with:
           registry-token: ${{ secrets.CARGO_REGISTRY_TOKEN }}
           args: --allow-dirty

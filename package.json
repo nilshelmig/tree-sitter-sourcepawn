@@ -12,6 +12,7 @@
   ],
   "scripts": {
     "build": "tree-sitter generate; node-gyp build",
+    "build:wasm": "tree-sitter build --wasm -o tree-sitter-sourcepawn.wasm",
     "generate": "tree-sitter generate",
     "test": "tree-sitter test"
   },
@@ -22,9 +23,12 @@
     "url": "https://github.com/nilshelmig/tree-sitter-sourcepawn/issues"
   },
   "devDependencies": {
-    "tree-sitter-cli": "^0.24.7"
+    "tree-sitter-cli": "^0.26.12"
   },
   "dependencies": {
     "nan": "^2.14.2"
+  },
+  "allowScripts": {
+    "tree-sitter-cli@0.26.12": true
   }
 }
