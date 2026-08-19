@@ -33,7 +33,7 @@ jobs:
         run: npm run test
       - name: Build .wasm
         env:
-          TREE_SITTER_WASI_SDK_PATH: wasi-sdk
+          TREE_SITTER_WASI_SDK_PATH: ${{ github.workspace }}/wasi-sdk
         run: npm run build:wasm
       - name: Smoke test .wasm with web-tree-sitter
         run: |
