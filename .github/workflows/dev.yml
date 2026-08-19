@@ -8,31 +8,35 @@ on:
     branches:
       - main
 
-env:
-  EM_VERSION: 6.0.6
-  EM_CACHE_FOLDER: "emsdk-cache"
-
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - name: Setup cache
-        id: cache-system-libraries
-        uses: actions/cache@v6
-        with:
-          path: ${{env.EM_CACHE_FOLDER}}
-          key: ${{env.EM_VERSION}}-${{ runner.os }}
-      - run: npm install
-      - uses: emscripten-core/setup-emsdk@v16
-        with:
-          version: ${{env.EM_VERSION}}
-          actions-cache-folder: ${{env.EM_CACHE_FOLDER}}
       - name: Get package version
         run: node -p -e '`PACKAGE_VERSION=${require("./package.json").version}`' >> $GITHUB_ENV
+      - run: npm install
+      - name: Setup wasi-sdk cache
+        id: wasi-sdk
+        uses: actions/cache@v6
+        with:
+          path: wasi-sdk
+          key: wasi-sdk-29.0-${{ runner.os }}
+      - if: steps.wasi-sdk.outputs.cache-hit != 'true'
+        name: Install wasi-sdk
+        uses: bytecodealliance/setup-wasi-sdk-action@77d09f3df1e8da344d8403cf8631af8977938b4c
+        with:
+          version: "29"
+          install-path: wasi-sdk
       - name: Build parser
         run: npm run generate
       - name: Run tests
         run: npm run test
       - name: Build .wasm
-        run: emcc -o tree-sitter-sourcepawn.wasm -Os -s WASM=1 -I src -s SIDE_MODULE=1 -s EXPORTED_FUNCTIONS=[\"_tree_sitter_sourcepawn\"] -fno-exceptions src/parser.c src/scanner.c
+        env:
+          TREE_SITTER_WASI_SDK_PATH: wasi-sdk
+        run: npm run build:wasm
+      - name: Smoke test .wasm with web-tree-sitter
+        run: |
+          npm install --no-save web-tree-sitter
+          node scripts/smoke-test-wasm.mjs
