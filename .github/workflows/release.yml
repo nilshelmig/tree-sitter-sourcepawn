@@ -42,11 +42,12 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: v${{ env.PACKAGE_VERSION }}
           artifacts: "*.wasm"
-          body: ${{ steps.changelog.outputs.changes }}
           draft: false
           allowUpdates: true
           prerelease: false
           replacesArtifacts: true
+          generateReleaseNotes: true
+          omitNameDuringUpdate: true
       - uses: JS-DevTools/npm-publish@v4
         with:
           token: ${{ secrets.NPM_TOKEN }}
