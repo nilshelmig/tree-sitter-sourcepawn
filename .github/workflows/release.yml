@@ -26,6 +26,7 @@ jobs:
         with:
           version: "29"
           install-path: wasi-sdk
+          add-to-path: false
       - name: Build parser
         run: npm run generate
       - name: Run tests
