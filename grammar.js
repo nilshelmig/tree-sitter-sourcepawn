@@ -104,16 +104,37 @@ module.exports = grammar({
 
     preproc_binary_expression: ($) => binaryExpression($._preproc_expression),
 
+    // Quoted include path. Allows Windows backslashes. Not string_literal,
+    // because spcomp rejects unknown escapes like `\s` in normal strings
+    // but accepts them in #include / #tryinclude paths.
+    preproc_quoted_path: ($) =>
+      token(seq('"', repeat(/[^"\n]/), '"')),
+
     preproc_include: ($) =>
       seq(
         preprocessor("include"),
-        field("path", choice($.string_literal, $.system_lib_string)),
+        field(
+          "path",
+          choice(
+            alias($.preproc_quoted_path, $.string_literal),
+            $.system_lib_string,
+            // Bare `#include sdktools` (valid on SourceMod 1.7+)
+            $.identifier,
+          ),
+        ),
       ),
 
     preproc_tryinclude: ($) =>
       seq(
         preprocessor("tryinclude"),
-        field("path", choice($.string_literal, $.system_lib_string)),
+        field(
+          "path",
+          choice(
+            alias($.preproc_quoted_path, $.string_literal),
+            $.system_lib_string,
+            $.identifier,
+          ),
+        ),
       ),
 
     preproc_macro: ($) =>
@@ -722,7 +743,11 @@ module.exports = grammar({
     methodmap_property_alias: ($) =>
       seq(
         $.methodmap_visibility,
-        $.methodmap_property_getter,
+        choice(
+          $.methodmap_property_getter,
+          // Alias setters use empty params: `public set() = Native;`
+          seq(field("name", "set"), "(", ")"),
+        ),
         "=",
         field("function", $.identifier),
         optional($._semicolon),
@@ -827,7 +852,8 @@ module.exports = grammar({
     builtin_type: ($) =>
       choice("void", "bool", "int", "int64", "float", "char"),
 
-    old_builtin_type: ($) => choice("_", "Float", "bool", "String"),
+    // `void` appears in both styles: new `void Foo()` and old `void:Foo()`.
+    old_builtin_type: ($) => choice("_", "Float", "bool", "String", "void"),
 
     any_type: ($) => "any",
 
@@ -881,12 +907,24 @@ module.exports = grammar({
       ),
 
     while_statement: ($) =>
-      seq(
-        "while",
-        "(",
-        field("condition", $._expression),
-        ")",
-        field("body", $._statement),
+      choice(
+        // Modern: while (cond) stmt
+        seq(
+          "while",
+          "(",
+          field("condition", $._expression),
+          ")",
+          field("body", $._statement),
+        ),
+        // Legacy Pawn: while !cond do stmt (SourceMod 1.7 and earlier).
+        // Restricted to unary_expression to avoid conflicts with
+        // parenthesized modern while and bare literals.
+        seq(
+          "while",
+          field("condition", $.unary_expression),
+          "do",
+          field("body", $._statement),
+        ),
       ),
 
     do_while_statement: ($) =>
@@ -895,9 +933,11 @@ module.exports = grammar({
           "do",
           field("body", $._statement),
           "while",
-          "(",
-          field("condition", $._expression),
-          ")",
+          // Parens are usual; spcomp also accepts `while !expr`
+          choice(
+            seq("(", field("condition", $._expression), ")"),
+            field("condition", $.unary_expression),
+          ),
           optional($._semicolon),
         ),
       ),

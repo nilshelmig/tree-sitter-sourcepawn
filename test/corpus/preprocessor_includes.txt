@@ -70,3 +70,41 @@ tryinclude local lib
     (string_literal)
   )
 )
+
+
+================
+include bare name
+================
+
+#include sdktools
+#tryinclude sdkhooks
+
+---
+
+(source_file
+  (preproc_include
+    (identifier)
+  )
+  (preproc_tryinclude
+    (identifier)
+  )
+)
+
+
+=================================
+include quoted path with backslash
+=================================
+
+#include "prophunt\stats2.inc"
+#tryinclude "dir\file.inc"
+
+---
+
+(source_file
+  (preproc_include
+    (string_literal)
+  )
+  (preproc_tryinclude
+    (string_literal)
+  )
+)
