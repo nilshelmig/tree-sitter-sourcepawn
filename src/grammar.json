@@ -4394,8 +4394,34 @@
           "name": "methodmap_visibility"
         },
         {
-          "type": "SYMBOL",
-          "name": "methodmap_property_getter"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "methodmap_property_getter"
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "FIELD",
+                  "name": "name",
+                  "content": {
+                    "type": "STRING",
+                    "value": "set"
+                  }
+                },
+                {
+                  "type": "STRING",
+                  "value": "("
+                },
+                {
+                  "type": "STRING",
+                  "value": ")"
+                }
+              ]
+            }
+          ]
         },
         {
           "type": "STRING",

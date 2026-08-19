@@ -2292,11 +2292,21 @@
             "named": true
           }
         ]
+      },
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "set",
+            "named": false
+          }
+        ]
       }
     },
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "methodmap_property_getter",
