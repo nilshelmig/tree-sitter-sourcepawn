@@ -53,7 +53,9 @@ module.exports = grammar({
     [$.parameter_declaration, $.type],
     [$.alias_assignment, $.type],
     [$.alias_assignment, $.old_type],
-    [$._preproc_expression, $._expression]
+    [$._preproc_expression, $._expression],
+    [$.multi_tag, $._preproc_expression, $._expression],
+    [$._preproc_expression, $.multi_tag],
   ],
 
   precedences: ($) => [[$.type, $._expression]],
@@ -437,9 +439,15 @@ module.exports = grammar({
     enum: ($) =>
       seq(
         "enum",
-        field(
-          "name",
-          optional(seq($.identifier, optional(token.immediate(":")))),
+        // Disjoint shapes avoid a self-conflict between tag and name on `enum Name:`.
+        optional(
+          choice(
+            seq(
+              field("tag", seq($.identifier, token.immediate(":"))),
+              field("name", seq($.identifier, optional(token.immediate(":")))),
+            ),
+            field("name", seq($.identifier, optional(token.immediate(":")))),
+          ),
         ),
         optional(
           seq(
@@ -795,13 +803,26 @@ module.exports = grammar({
 
     old_type: ($) =>
       seq(
-        choice($.old_builtin_type, $.identifier, $.any_type),
+        choice(
+          $.old_builtin_type,
+          $.identifier,
+          $.any_type,
+          $.multi_tag
+        ),
         token.immediate(":"),
       ),
 
     dimension: ($) => seq("[", "]"),
 
-    fixed_dimension: ($) => seq("[", $._expression, "]"),
+    fixed_dimension: ($) =>
+      seq(
+        "[",
+        $._expression,
+        optional(field("packing", $.dimension_packing)),
+        "]",
+      ),
+
+    dimension_packing: (_) => "char",
 
     builtin_type: ($) =>
       choice("void", "bool", "int", "int64", "float", "char"),
@@ -809,6 +830,13 @@ module.exports = grammar({
     old_builtin_type: ($) => choice("_", "Float", "bool", "String"),
 
     any_type: ($) => "any",
+
+    multi_tag: ($) =>
+      seq(
+        "{",
+        commaSep1(choice($.identifier, $.old_builtin_type)),
+        "}"
+      ),
 
     block: ($) => seq("{", repeat($._statement), "}"),
 
@@ -945,6 +973,7 @@ module.exports = grammar({
         $.assignment_expression,
         $.call_expression,
         $.array_indexed_access,
+        $.packed_array_indexed_access,
         $.ternary_expression,
         $.field_access,
         $.scope_access,
@@ -983,6 +1012,7 @@ module.exports = grammar({
             "left",
             choice(
               $.array_indexed_access,
+              $.packed_array_indexed_access,
               $.view_as,
               $.field_access,
               $.scope_access,
@@ -1050,6 +1080,19 @@ module.exports = grammar({
         "[",
         field("index", $._expression),
         "]",
+      ),
+
+    // https://forums.alliedmods.net/showthread.php?t=90735
+    packed_array_indexed_access: ($) =>
+      prec(PREC.FIELD,
+        seq(
+          field("array",
+            choice($.identifier, $.array_indexed_access, $.field_access),
+          ),
+          "{",
+          field("index", $._expression),
+          "}",
+        ),
       ),
 
     parenthesized_expression: ($) =>
@@ -1186,6 +1229,7 @@ module.exports = grammar({
         $.float_literal,
         $.char_literal,
         $.string_literal,
+        $.packed_string_literal,
         $.bool_literal,
         $.array_literal,
         $.null,
@@ -1223,7 +1267,7 @@ module.exports = grammar({
       const exponent = seq(/[eE][\+-]?/, digits);
 
       return token(
-          seq(digits, '.', optional(digits), optional(exponent)),
+        seq(digits, '.', optional(digits), optional(exponent)),
       );
     },
 
@@ -1245,6 +1289,10 @@ module.exports = grammar({
         ),
         '"',
       ),
+
+    // Packed string
+    // https://forums.alliedmods.net/showthread.php?t=90735
+    packed_string_literal: ($) => prec(PREC.UNARY + 1, seq("!", $.string_literal)),
 
     escape_sequence: ($) =>
       token(
