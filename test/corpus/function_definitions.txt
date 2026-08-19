@@ -730,3 +730,40 @@ native void MyFunc()
     parameters: (parameter_declarations)
   )
 )
+
+
+==========================
+old style void return tag
+==========================
+
+stock void:Dissolve(edict) {
+}
+
+void: LoadSettings() {
+}
+
+---
+
+(source_file
+  (function_definition
+    visibility: (visibility)
+    returnType: (old_type
+      (old_builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations
+      (parameter_declaration
+        name: (identifier)
+      )
+    )
+    body: (block)
+  )
+  (function_definition
+    returnType: (old_type
+      (old_builtin_type)
+    )
+    name: (identifier)
+    parameters: (parameter_declarations)
+    body: (block)
+  )
+)

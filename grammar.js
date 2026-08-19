@@ -852,7 +852,8 @@ module.exports = grammar({
     builtin_type: ($) =>
       choice("void", "bool", "int", "int64", "float", "char"),
 
-    old_builtin_type: ($) => choice("_", "Float", "bool", "String"),
+    // `void` appears in both styles: new `void Foo()` and old `void:Foo()`.
+    old_builtin_type: ($) => choice("_", "Float", "bool", "String", "void"),
 
     any_type: ($) => "any",
 
