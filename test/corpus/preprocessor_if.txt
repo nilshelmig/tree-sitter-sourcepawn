@@ -183,6 +183,65 @@ enum
 )
 
 
+=======================================================
+preprocessor condition in enum - without trailing comma
+=======================================================
+
+enum
+{
+    Flag_Steam_ID,
+    #if defined _steamtools_included
+    Flag_MaxPlayers = 1,
+    Flag_OtherPlayers = 2
+    #elseif defined _steamworks_included
+    Flag_MaxPlayer = 2,
+    Flag_OtherPlayers = 4,
+    #else
+    Flag_MaxPlayers = 4
+    #endif
+};
+
+---
+
+(source_file
+  (enum
+    entries: (enum_entries
+      (enum_entry
+        name: (identifier)
+      )
+      (preproc_if
+        condition: (preproc_arg)
+      )
+      (enum_entry
+        name: (identifier)
+        value: (int_literal)
+      )
+      (enum_entry
+        name: (identifier)
+        value: (int_literal)
+      )
+      (preproc_elseif
+        condition: (preproc_arg)
+      )
+      (enum_entry
+        name: (identifier)
+        value: (int_literal)
+      )
+      (enum_entry
+        name: (identifier)
+        value: (int_literal)
+      )
+      (preproc_else)
+      (enum_entry
+        name: (identifier)
+        value: (int_literal)
+      )
+      (preproc_endif)
+    )
+  )
+)
+
+
 ==============================
 elseif condition in code block
 ==============================

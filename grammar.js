@@ -494,7 +494,8 @@ module.exports = grammar({
         optional($._semicolon),
       ),
 
-    enum_entries: ($) => seq("{", commaSep($.enum_entry), optional(","), "}"),
+    enum_entries: ($) =>
+      seq("{", repeat(seq($.enum_entry, optional(","))), "}"),
 
     enum_entry: ($) =>
       seq(
