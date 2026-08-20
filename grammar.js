@@ -107,8 +107,7 @@ module.exports = grammar({
     // Quoted include path. Allows Windows backslashes. Not string_literal,
     // because spcomp rejects unknown escapes like `\s` in normal strings
     // but accepts them in #include / #tryinclude paths.
-    preproc_quoted_path: ($) =>
-      token(seq('"', repeat(/[^"\n]/), '"')),
+    preproc_quoted_path: ($) => token(seq('"', repeat(/[^"\n]/), '"')),
 
     preproc_include: ($) =>
       seq(
@@ -257,7 +256,7 @@ module.exports = grammar({
       seq(
         field("storage_class", optional($.variable_storage_class)),
         field("type", choice($.type, $.old_type, $.array_type)),
-        "..."
+        "...",
       ),
 
     alias_operator: ($) =>
@@ -293,13 +292,7 @@ module.exports = grammar({
       choice(
         seq(
           optional($.visibility),
-          field(
-            "returnType",
-            choice(
-              $.type,
-              $.old_type,
-            ),
-          ),
+          field("returnType", choice($.type, $.old_type)),
           "operator",
           $.alias_operator,
           field("parameters", $.parameter_declarations),
@@ -434,7 +427,7 @@ module.exports = grammar({
             seq($.visibility, optional($.variable_storage_class)),
           ),
           commaSep1($.old_variable_declaration),
-          $._semicolon
+          $._semicolon,
         ),
       ),
 
@@ -845,12 +838,7 @@ module.exports = grammar({
 
     old_type: ($) =>
       seq(
-        choice(
-          $.old_builtin_type,
-          $.identifier,
-          $.any_type,
-          $.multi_tag
-        ),
+        choice($.old_builtin_type, $.identifier, $.any_type, $.multi_tag),
         token.immediate(":"),
       ),
 
@@ -875,11 +863,7 @@ module.exports = grammar({
     any_type: ($) => "any",
 
     multi_tag: ($) =>
-      seq(
-        "{",
-        commaSep1(choice($.identifier, $.old_builtin_type)),
-        "}"
-      ),
+      seq("{", commaSep1(choice($.identifier, $.old_builtin_type)), "}"),
 
     block: ($) => seq("{", repeat($._statement), "}"),
 
@@ -1103,7 +1087,10 @@ module.exports = grammar({
       prec.left(
         PREC.CALL,
         seq(
-          field("function", choice($.builtin_type, $.identifier, $.field_access)),
+          field(
+            "function",
+            choice($.builtin_type, $.identifier, $.field_access),
+          ),
           field("arguments", $.call_arguments),
         ),
       ),
@@ -1141,9 +1128,11 @@ module.exports = grammar({
 
     // https://forums.alliedmods.net/showthread.php?t=90735
     packed_array_indexed_access: ($) =>
-      prec(PREC.FIELD,
+      prec(
+        PREC.FIELD,
         seq(
-          field("array",
+          field(
+            "array",
             choice($.identifier, $.array_indexed_access, $.field_access),
           ),
           "{",
@@ -1268,13 +1257,7 @@ module.exports = grammar({
         10,
         seq(
           "{",
-          commaSep1(
-            choice(
-              $.view_as,
-              $.old_type_cast,
-              $._preproc_expression
-            ),
-          ),
+          commaSep1(choice($.view_as, $.old_type_cast, $._preproc_expression)),
           optional(seq(",", optional($.rest_operator))),
           "}",
         ),
@@ -1319,13 +1302,11 @@ module.exports = grammar({
       );
     },
 
-    float_literal: _ => {
+    float_literal: (_) => {
       const digits = repeat1(/[0-9]+_?/);
       const exponent = seq(/[eE][\+-]?/, digits);
 
-      return token(
-        seq(digits, '.', optional(digits), optional(exponent)),
-      );
+      return token(seq(digits, ".", optional(digits), optional(exponent)));
     },
 
     char_literal: ($) =>
@@ -1349,7 +1330,8 @@ module.exports = grammar({
 
     // Packed string
     // https://forums.alliedmods.net/showthread.php?t=90735
-    packed_string_literal: ($) => prec(PREC.UNARY + 1, seq("!", $.string_literal)),
+    packed_string_literal: ($) =>
+      prec(PREC.UNARY + 1, seq("!", $.string_literal)),
 
     escape_sequence: ($) =>
       token(
