@@ -284,7 +284,6 @@ module.exports = grammar({
           ">>",
           ">>>",
           "!",
-          "%",
         ),
       ),
 
