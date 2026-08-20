@@ -2542,6 +2542,46 @@
     }
   },
   {
+    "type": "old_struct_field",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "old_type",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "dimension",
+          "named": true
+        },
+        {
+          "type": "fixed_dimension",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "old_type",
     "named": true,
     "fields": {},
@@ -3729,6 +3769,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "old_struct_field",
+          "named": true
+        },
         {
           "type": "struct_field",
           "named": true
