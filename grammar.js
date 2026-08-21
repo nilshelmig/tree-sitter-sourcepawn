@@ -20,6 +20,62 @@ const PREC = {
   FIELD: 17,
 };
 
+const ASSIGNMENT_OPERATORS = [
+  "=",
+  "+=",
+  "-=",
+  "*=",
+  "/=",
+  "|=",
+  "&=",
+  "^=",
+  "~=",
+  "<<=",
+  ">>=",
+  ">>>=",
+  "%=",
+];
+
+// Subset of the assignment operators accepted in `enum (op start)` headers.
+const ENUM_OPERATORS = [
+  "=",
+  "+=",
+  "-=",
+  "*=",
+  "/=",
+  "|=",
+  "&=",
+  "^=",
+  "~=",
+  "<<=",
+  ">>=",
+];
+
+const ALIAS_OPERATORS = [
+  "+",
+  "++",
+  "-",
+  "--",
+  "*",
+  "/",
+  "%",
+  "||",
+  "&&",
+  "|",
+  "^",
+  "&",
+  "==",
+  "!=",
+  ">",
+  ">=",
+  "<=",
+  "<",
+  "<<",
+  ">>",
+  ">>>",
+  "!",
+];
+
 module.exports = grammar({
   name: "sourcepawn",
 
@@ -44,7 +100,7 @@ module.exports = grammar({
     $.preproc_endinput,
   ],
 
-  inline: ($) => [$._statement, $.methodmap_visibility],
+  inline: ($) => [$._statement],
 
   conflicts: ($) => [
     [$.type, $.old_variable_declaration],
@@ -104,37 +160,23 @@ module.exports = grammar({
 
     preproc_binary_expression: ($) => binaryExpression($._preproc_expression),
 
-    // Quoted include path. Allows Windows backslashes. Not string_literal,
-    // because spcomp rejects unknown escapes like `\s` in normal strings
-    // but accepts them in #include / #tryinclude paths.
-    preproc_quoted_path: ($) =>
-      token(seq('"', repeat(/[^"\n]/), '"')),
+    preproc_quoted_path: ($) => token(seq('"', repeat(/[^"\n]/), '"')),
 
     preproc_include: ($) =>
-      seq(
-        preprocessor("include"),
-        field(
-          "path",
-          choice(
-            alias($.preproc_quoted_path, $.string_literal),
-            $.system_lib_string,
-            // Bare `#include sdktools` (valid on SourceMod 1.7+)
-            $.identifier,
-          ),
-        ),
-      ),
+      seq(preprocessor("include"), field("path", $._include_path)),
 
     preproc_tryinclude: ($) =>
-      seq(
-        preprocessor("tryinclude"),
-        field(
-          "path",
-          choice(
-            alias($.preproc_quoted_path, $.string_literal),
-            $.system_lib_string,
-            $.identifier,
-          ),
-        ),
+      seq(preprocessor("tryinclude"), field("path", $._include_path)),
+
+    // Quoted path (allows Windows backslashes), <system_lib> or bare name.
+    // Not string_literal for the quoted form, because spcomp rejects unknown
+    // escapes like `\s` in normal strings but accepts them in include paths.
+    _include_path: ($) =>
+      choice(
+        alias($.preproc_quoted_path, $.string_literal),
+        $.system_lib_string,
+        // Bare `#include sdktools` (valid on SourceMod 1.7+)
+        $.identifier,
       ),
 
     preproc_macro: ($) =>
@@ -190,21 +232,15 @@ module.exports = grammar({
 
     // Main Grammar
     function_definition: ($) =>
-      choice(
-        seq(
-          field("visibility", optional($.visibility)),
-          field("returnType", seq($.type, repeat($.dimension))),
-          field("name", $.identifier),
-          field("parameters", $.parameter_declarations),
-          field("body", $.block),
+      seq(
+        field("visibility", optional($.visibility)),
+        field(
+          "returnType",
+          optional(choice(seq($.type, repeat($.dimension)), $.old_type)),
         ),
-        seq(
-          field("visibility", optional($.visibility)),
-          field("returnType", optional($.old_type)),
-          field("name", $.identifier),
-          field("parameters", $.parameter_declarations),
-          field("body", $._statement),
-        ),
+        field("name", $.identifier),
+        field("parameters", $.parameter_declarations),
+        field("body", $._statement),
       ),
 
     function_declaration: ($) =>
@@ -257,49 +293,16 @@ module.exports = grammar({
       seq(
         field("storage_class", optional($.variable_storage_class)),
         field("type", choice($.type, $.old_type, $.array_type)),
-        "..."
+        "...",
       ),
 
-    alias_operator: ($) =>
-      token.immediate(
-        choice(
-          "+",
-          "++",
-          "-",
-          "--",
-          "*",
-          "/",
-          "%",
-          "||",
-          "&&",
-          "|",
-          "^",
-          "&",
-          "==",
-          "!=",
-          ">",
-          ">=",
-          "<=",
-          "<",
-          "<<",
-          ">>",
-          ">>>",
-          "!",
-          "%",
-        ),
-      ),
+    alias_operator: ($) => token.immediate(choice(...ALIAS_OPERATORS)),
 
     alias_declaration: ($) =>
       choice(
         seq(
           optional($.visibility),
-          field(
-            "returnType",
-            choice(
-              $.type,
-              $.old_type,
-            ),
-          ),
+          field("returnType", choice($.type, $.old_type)),
           "operator",
           $.alias_operator,
           field("parameters", $.parameter_declarations),
@@ -434,7 +437,7 @@ module.exports = grammar({
             seq($.visibility, optional($.variable_storage_class)),
           ),
           commaSep1($.old_variable_declaration),
-          $._semicolon
+          $._semicolon,
         ),
       ),
 
@@ -471,24 +474,7 @@ module.exports = grammar({
           ),
         ),
         optional(
-          seq(
-            "(",
-            choice(
-              "=",
-              "+=",
-              "-=",
-              "*=",
-              "/=",
-              "|=",
-              "&=",
-              "^=",
-              "~=",
-              "<<=",
-              ">>=",
-            ),
-            $._expression,
-            ")",
-          ),
+          seq("(", choice(...ENUM_OPERATORS), $._expression, ")"),
         ),
         field("entries", $.enum_entries),
         optional($._semicolon),
@@ -562,26 +548,19 @@ module.exports = grammar({
         optional($._semicolon),
       ),
 
+    _function_signature: ($) =>
+      seq(
+        field(
+          "returnType",
+          seq($.type, repeat(choice($.dimension, $.fixed_dimension))),
+        ),
+        field("parameters", $.parameter_declarations),
+      ),
+
     typedef_expression: ($) =>
       choice(
-        seq(
-          "function",
-          field(
-            "returnType",
-            seq($.type, repeat(choice($.dimension, $.fixed_dimension))),
-          ),
-          field("parameters", $.parameter_declarations),
-        ),
-        seq(
-          "(",
-          "function",
-          field(
-            "returnType",
-            seq($.type, repeat(choice($.dimension, $.fixed_dimension))),
-          ),
-          field("parameters", $.parameter_declarations),
-          ")",
-        ),
+        seq("function", $._function_signature),
+        seq("(", "function", $._function_signature, ")"),
       ),
 
     funcenum: ($) =>
@@ -658,7 +637,7 @@ module.exports = grammar({
 
     methodmap_alias: ($) =>
       seq(
-        $.methodmap_visibility,
+        "public",
         optional("~"),
         field("name", $.identifier),
         "(",
@@ -670,7 +649,7 @@ module.exports = grammar({
 
     methodmap_native: ($) =>
       seq(
-        $.methodmap_visibility,
+        "public",
         optional("static"),
         "native",
         field("returnType", seq($.type, repeat($.dimension))),
@@ -681,7 +660,7 @@ module.exports = grammar({
 
     methodmap_native_constructor: ($) =>
       seq(
-        $.methodmap_visibility,
+        "public",
         optional("static"),
         "native",
         field("name", $.identifier),
@@ -691,7 +670,7 @@ module.exports = grammar({
 
     methodmap_native_destructor: ($) =>
       seq(
-        $.methodmap_visibility,
+        "public",
         "native",
         "~",
         field("name", $.identifier),
@@ -702,7 +681,7 @@ module.exports = grammar({
 
     methodmap_method: ($) =>
       seq(
-        $.methodmap_visibility,
+        "public",
         optional("static"),
         field("returnType", seq($.type, repeat($.dimension))),
         field("name", $.identifier),
@@ -712,7 +691,7 @@ module.exports = grammar({
 
     methodmap_method_constructor: ($) =>
       seq(
-        $.methodmap_visibility,
+        "public",
         field("name", $.identifier),
         field("parameters", $.parameter_declarations),
         field("body", $.block),
@@ -720,7 +699,7 @@ module.exports = grammar({
 
     methodmap_method_destructor: ($) =>
       seq(
-        $.methodmap_visibility,
+        "public",
         "~",
         field("name", $.identifier),
         "(",
@@ -746,7 +725,7 @@ module.exports = grammar({
 
     methodmap_property_alias: ($) =>
       seq(
-        $.methodmap_visibility,
+        "public",
         choice(
           $.methodmap_property_getter,
           // Alias setters use empty params: `public set() = Native;`
@@ -759,7 +738,7 @@ module.exports = grammar({
 
     methodmap_property_native: ($) =>
       seq(
-        $.methodmap_visibility,
+        "public",
         "native",
         choice($.methodmap_property_getter, $.methodmap_property_setter),
         optional($._semicolon),
@@ -767,7 +746,7 @@ module.exports = grammar({
 
     methodmap_property_method: ($) =>
       seq(
-        $.methodmap_visibility,
+        "public",
         choice($.methodmap_property_getter, $.methodmap_property_setter),
         field("body", $.block),
       ),
@@ -781,8 +760,6 @@ module.exports = grammar({
         field("parameter", $.parameter_declaration),
         ")",
       ),
-
-    methodmap_visibility: ($) => "public",
 
     struct: ($) =>
       seq(
@@ -845,12 +822,7 @@ module.exports = grammar({
 
     old_type: ($) =>
       seq(
-        choice(
-          $.old_builtin_type,
-          $.identifier,
-          $.any_type,
-          $.multi_tag
-        ),
+        choice($.old_builtin_type, $.identifier, $.any_type, $.multi_tag),
         token.immediate(":"),
       ),
 
@@ -875,11 +847,7 @@ module.exports = grammar({
     any_type: ($) => "any",
 
     multi_tag: ($) =>
-      seq(
-        "{",
-        commaSep1(choice($.identifier, $.old_builtin_type)),
-        "}"
-      ),
+      seq("{", commaSep1(choice($.identifier, $.old_builtin_type)), "}"),
 
     block: ($) => seq("{", repeat($._statement), "}"),
 
@@ -902,9 +870,10 @@ module.exports = grammar({
       ),
 
     for_statement: ($) =>
+      seq("for", "(", $._for_statement_body, ")", field("body", $._statement)),
+
+    _for_statement_body: ($) =>
       seq(
-        "for",
-        "(",
         field(
           "initialization",
           optional(
@@ -915,12 +884,10 @@ module.exports = grammar({
             ),
           ),
         ),
-        $._manual_semicolon,
+        ";",
         field("condition", optional($._expression)),
-        $._manual_semicolon,
+        ";",
         field("iteration", optional(choice($._expression, $.comma_expression))),
-        ")",
-        field("body", $._statement),
       ),
 
     while_statement: ($) =>
@@ -1019,9 +986,7 @@ module.exports = grammar({
         seq("delete", field("free", $._expression), optional($._semicolon)),
       ),
 
-    _manual_semicolon: ($) => ";",
-
-    _semicolon: ($) => choice($._automatic_semicolon, $._manual_semicolon),
+    _semicolon: ($) => choice($._automatic_semicolon, ";"),
 
     // Expressions
 
@@ -1077,24 +1042,7 @@ module.exports = grammar({
               $.this,
             ),
           ),
-          field(
-            "operator",
-            choice(
-              "=",
-              "+=",
-              "-=",
-              "*=",
-              "/=",
-              "|=",
-              "&=",
-              "^=",
-              "~=",
-              "<<=",
-              ">>=",
-              ">>>=",
-              "%=",
-            ),
-          ),
+          field("operator", choice(...ASSIGNMENT_OPERATORS)),
           field("right", choice($._expression, $.dynamic_array)),
         ),
       ),
@@ -1103,7 +1051,10 @@ module.exports = grammar({
       prec.left(
         PREC.CALL,
         seq(
-          field("function", choice($.builtin_type, $.identifier, $.field_access)),
+          field(
+            "function",
+            choice($.builtin_type, $.identifier, $.field_access),
+          ),
           field("arguments", $.call_arguments),
         ),
       ),
@@ -1141,9 +1092,11 @@ module.exports = grammar({
 
     // https://forums.alliedmods.net/showthread.php?t=90735
     packed_array_indexed_access: ($) =>
-      prec(PREC.FIELD,
+      prec(
+        PREC.FIELD,
         seq(
-          field("array",
+          field(
+            "array",
             choice($.identifier, $.array_indexed_access, $.field_access),
           ),
           "{",
@@ -1181,7 +1134,25 @@ module.exports = grammar({
     field_access: ($) =>
       prec.right(
         PREC.FIELD,
-        seq(field("target", $._expression), ".", field("field", $.identifier)),
+        seq(
+          field(
+            "target",
+            choice(
+              $.identifier,
+              $.field_access,
+              $.scope_access,
+              $.call_expression,
+              $.array_indexed_access,
+              $.packed_array_indexed_access,
+              $.parenthesized_expression,
+              $.view_as,
+              $.this,
+              $.new_expression,
+            ),
+          ),
+          ".",
+          field("field", $.identifier),
+        ),
       ),
 
     scope_access: ($) =>
@@ -1199,7 +1170,18 @@ module.exports = grammar({
     case_binary_expression: ($) => binaryExpression($._case_expression),
 
     update_expression: ($) => {
-      const argument = field("argument", $._expression);
+      // Only lvalue-like targets can be incremented/decremented.
+      const argument = field(
+        "argument",
+        choice(
+          $.identifier,
+          $.field_access,
+          $.array_indexed_access,
+          $.packed_array_indexed_access,
+          $.parenthesized_expression,
+          $.this,
+        ),
+      );
       const operator = field("operator", choice("--", "++"));
       return prec.right(
         PREC.UNARY,
@@ -1268,13 +1250,7 @@ module.exports = grammar({
         10,
         seq(
           "{",
-          commaSep1(
-            choice(
-              $.view_as,
-              $.old_type_cast,
-              $._preproc_expression
-            ),
-          ),
+          commaSep1(choice($.view_as, $.old_type_cast, $._preproc_expression)),
           optional(seq(",", optional($.rest_operator))),
           "}",
         ),
@@ -1319,13 +1295,11 @@ module.exports = grammar({
       );
     },
 
-    float_literal: _ => {
+    float_literal: (_) => {
       const digits = repeat1(/[0-9]+_?/);
       const exponent = seq(/[eE][\+-]?/, digits);
 
-      return token(
-        seq(digits, '.', optional(digits), optional(exponent)),
-      );
+      return token(seq(digits, ".", optional(digits), optional(exponent)));
     },
 
     char_literal: ($) =>
@@ -1349,7 +1323,8 @@ module.exports = grammar({
 
     // Packed string
     // https://forums.alliedmods.net/showthread.php?t=90735
-    packed_string_literal: ($) => prec(PREC.UNARY + 1, seq("!", $.string_literal)),
+    packed_string_literal: ($) =>
+      prec(PREC.UNARY + 1, seq("!", $.string_literal)),
 
     escape_sequence: ($) =>
       token(
