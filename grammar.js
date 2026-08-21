@@ -104,36 +104,23 @@ module.exports = grammar({
 
     preproc_binary_expression: ($) => binaryExpression($._preproc_expression),
 
-    // Quoted include path. Allows Windows backslashes. Not string_literal,
-    // because spcomp rejects unknown escapes like `\s` in normal strings
-    // but accepts them in #include / #tryinclude paths.
     preproc_quoted_path: ($) => token(seq('"', repeat(/[^"\n]/), '"')),
 
     preproc_include: ($) =>
-      seq(
-        preprocessor("include"),
-        field(
-          "path",
-          choice(
-            alias($.preproc_quoted_path, $.string_literal),
-            $.system_lib_string,
-            // Bare `#include sdktools` (valid on SourceMod 1.7+)
-            $.identifier,
-          ),
-        ),
-      ),
+      seq(preprocessor("include"), field("path", $._include_path)),
 
     preproc_tryinclude: ($) =>
-      seq(
-        preprocessor("tryinclude"),
-        field(
-          "path",
-          choice(
-            alias($.preproc_quoted_path, $.string_literal),
-            $.system_lib_string,
-            $.identifier,
-          ),
-        ),
+      seq(preprocessor("tryinclude"), field("path", $._include_path)),
+
+    // Quoted path (allows Windows backslashes), <system_lib> or bare name.
+    // Not string_literal for the quoted form, because spcomp rejects unknown
+    // escapes like `\s` in normal strings but accepts them in include paths.
+    _include_path: ($) =>
+      choice(
+        alias($.preproc_quoted_path, $.string_literal),
+        $.system_lib_string,
+        // Bare `#include sdktools` (valid on SourceMod 1.7+)
+        $.identifier,
       ),
 
     preproc_macro: ($) =>
