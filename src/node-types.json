@@ -4225,7 +4225,27 @@
         "required": true,
         "types": [
           {
-            "type": "_expression",
+            "type": "array_indexed_access",
+            "named": true
+          },
+          {
+            "type": "field_access",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "packed_array_indexed_access",
+            "named": true
+          },
+          {
+            "type": "parenthesized_expression",
+            "named": true
+          },
+          {
+            "type": "this",
             "named": true
           }
         ]

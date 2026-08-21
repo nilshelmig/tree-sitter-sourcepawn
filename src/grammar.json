@@ -7928,8 +7928,33 @@
                 "type": "FIELD",
                 "name": "argument",
                 "content": {
-                  "type": "SYMBOL",
-                  "name": "_expression"
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "identifier"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "field_access"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "array_indexed_access"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "packed_array_indexed_access"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "parenthesized_expression"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "this"
+                    }
+                  ]
                 }
               }
             ]
@@ -7941,8 +7966,33 @@
                 "type": "FIELD",
                 "name": "argument",
                 "content": {
-                  "type": "SYMBOL",
-                  "name": "_expression"
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "identifier"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "field_access"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "array_indexed_access"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "packed_array_indexed_access"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "parenthesized_expression"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "this"
+                    }
+                  ]
                 }
               },
               {

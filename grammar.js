@@ -1166,7 +1166,18 @@ module.exports = grammar({
     case_binary_expression: ($) => binaryExpression($._case_expression),
 
     update_expression: ($) => {
-      const argument = field("argument", $._expression);
+      // Only lvalue-like targets can be incremented/decremented.
+      const argument = field(
+        "argument",
+        choice(
+          $.identifier,
+          $.field_access,
+          $.array_indexed_access,
+          $.packed_array_indexed_access,
+          $.parenthesized_expression,
+          $.this,
+        ),
+      );
       const operator = field("operator", choice("--", "++"));
       return prec.right(
         PREC.UNARY,
