@@ -20,6 +20,62 @@ const PREC = {
   FIELD: 17,
 };
 
+const ASSIGNMENT_OPERATORS = [
+  "=",
+  "+=",
+  "-=",
+  "*=",
+  "/=",
+  "|=",
+  "&=",
+  "^=",
+  "~=",
+  "<<=",
+  ">>=",
+  ">>>=",
+  "%=",
+];
+
+// Subset of the assignment operators accepted in `enum (op start)` headers.
+const ENUM_OPERATORS = [
+  "=",
+  "+=",
+  "-=",
+  "*=",
+  "/=",
+  "|=",
+  "&=",
+  "^=",
+  "~=",
+  "<<=",
+  ">>=",
+];
+
+const ALIAS_OPERATORS = [
+  "+",
+  "++",
+  "-",
+  "--",
+  "*",
+  "/",
+  "%",
+  "||",
+  "&&",
+  "|",
+  "^",
+  "&",
+  "==",
+  "!=",
+  ">",
+  ">=",
+  "<=",
+  "<",
+  "<<",
+  ">>",
+  ">>>",
+  "!",
+];
+
 module.exports = grammar({
   name: "sourcepawn",
 
@@ -246,33 +302,7 @@ module.exports = grammar({
         "...",
       ),
 
-    alias_operator: ($) =>
-      token.immediate(
-        choice(
-          "+",
-          "++",
-          "-",
-          "--",
-          "*",
-          "/",
-          "%",
-          "||",
-          "&&",
-          "|",
-          "^",
-          "&",
-          "==",
-          "!=",
-          ">",
-          ">=",
-          "<=",
-          "<",
-          "<<",
-          ">>",
-          ">>>",
-          "!",
-        ),
-      ),
+    alias_operator: ($) => token.immediate(choice(...ALIAS_OPERATORS)),
 
     alias_declaration: ($) =>
       choice(
@@ -450,24 +480,7 @@ module.exports = grammar({
           ),
         ),
         optional(
-          seq(
-            "(",
-            choice(
-              "=",
-              "+=",
-              "-=",
-              "*=",
-              "/=",
-              "|=",
-              "&=",
-              "^=",
-              "~=",
-              "<<=",
-              ">>=",
-            ),
-            $._expression,
-            ")",
-          ),
+          seq("(", choice(...ENUM_OPERATORS), $._expression, ")"),
         ),
         field("entries", $.enum_entries),
         optional($._semicolon),
@@ -1043,24 +1056,7 @@ module.exports = grammar({
               $.this,
             ),
           ),
-          field(
-            "operator",
-            choice(
-              "=",
-              "+=",
-              "-=",
-              "*=",
-              "/=",
-              "|=",
-              "&=",
-              "^=",
-              "~=",
-              "<<=",
-              ">>=",
-              ">>>=",
-              "%=",
-            ),
-          ),
+          field("operator", choice(...ASSIGNMENT_OPERATORS)),
           field("right", choice($._expression, $.dynamic_array)),
         ),
       ),
