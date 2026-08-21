@@ -883,9 +883,10 @@ module.exports = grammar({
       ),
 
     for_statement: ($) =>
+      seq("for", "(", $._for_statement_body, ")", field("body", $._statement)),
+
+    _for_statement_body: ($) =>
       seq(
-        "for",
-        "(",
         field(
           "initialization",
           optional(
@@ -900,8 +901,6 @@ module.exports = grammar({
         field("condition", optional($._expression)),
         ";",
         field("iteration", optional(choice($._expression, $.comma_expression))),
-        ")",
-        field("body", $._statement),
       ),
 
     while_statement: ($) =>

@@ -5235,6 +5235,27 @@
           "value": "("
         },
         {
+          "type": "SYMBOL",
+          "name": "_for_statement_body"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "FIELD",
+          "name": "body",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_statement"
+          }
+        }
+      ]
+    },
+    "_for_statement_body": {
+      "type": "SEQ",
+      "members": [
+        {
           "type": "FIELD",
           "name": "initialization",
           "content": {
@@ -5331,18 +5352,6 @@
                 "type": "BLANK"
               }
             ]
-          }
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        },
-        {
-          "type": "FIELD",
-          "name": "body",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_statement"
           }
         }
       ]
