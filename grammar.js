@@ -44,7 +44,7 @@ module.exports = grammar({
     $.preproc_endinput,
   ],
 
-  inline: ($) => [$._statement, $.methodmap_visibility],
+  inline: ($) => [$._statement],
 
   conflicts: ($) => [
     [$.type, $.old_variable_declaration],
@@ -650,7 +650,7 @@ module.exports = grammar({
 
     methodmap_alias: ($) =>
       seq(
-        $.methodmap_visibility,
+        "public",
         optional("~"),
         field("name", $.identifier),
         "(",
@@ -662,7 +662,7 @@ module.exports = grammar({
 
     methodmap_native: ($) =>
       seq(
-        $.methodmap_visibility,
+        "public",
         optional("static"),
         "native",
         field("returnType", seq($.type, repeat($.dimension))),
@@ -673,7 +673,7 @@ module.exports = grammar({
 
     methodmap_native_constructor: ($) =>
       seq(
-        $.methodmap_visibility,
+        "public",
         optional("static"),
         "native",
         field("name", $.identifier),
@@ -683,7 +683,7 @@ module.exports = grammar({
 
     methodmap_native_destructor: ($) =>
       seq(
-        $.methodmap_visibility,
+        "public",
         "native",
         "~",
         field("name", $.identifier),
@@ -694,7 +694,7 @@ module.exports = grammar({
 
     methodmap_method: ($) =>
       seq(
-        $.methodmap_visibility,
+        "public",
         optional("static"),
         field("returnType", seq($.type, repeat($.dimension))),
         field("name", $.identifier),
@@ -704,7 +704,7 @@ module.exports = grammar({
 
     methodmap_method_constructor: ($) =>
       seq(
-        $.methodmap_visibility,
+        "public",
         field("name", $.identifier),
         field("parameters", $.parameter_declarations),
         field("body", $.block),
@@ -712,7 +712,7 @@ module.exports = grammar({
 
     methodmap_method_destructor: ($) =>
       seq(
-        $.methodmap_visibility,
+        "public",
         "~",
         field("name", $.identifier),
         "(",
@@ -738,7 +738,7 @@ module.exports = grammar({
 
     methodmap_property_alias: ($) =>
       seq(
-        $.methodmap_visibility,
+        "public",
         choice(
           $.methodmap_property_getter,
           // Alias setters use empty params: `public set() = Native;`
@@ -751,7 +751,7 @@ module.exports = grammar({
 
     methodmap_property_native: ($) =>
       seq(
-        $.methodmap_visibility,
+        "public",
         "native",
         choice($.methodmap_property_getter, $.methodmap_property_setter),
         optional($._semicolon),
@@ -759,7 +759,7 @@ module.exports = grammar({
 
     methodmap_property_method: ($) =>
       seq(
-        $.methodmap_visibility,
+        "public",
         choice($.methodmap_property_getter, $.methodmap_property_setter),
         field("body", $.block),
       ),
@@ -773,8 +773,6 @@ module.exports = grammar({
         field("parameter", $.parameter_declaration),
         ")",
       ),
-
-    methodmap_visibility: ($) => "public",
 
     struct: ($) =>
       seq(
@@ -898,9 +896,9 @@ module.exports = grammar({
             ),
           ),
         ),
-        $._manual_semicolon,
+        ";",
         field("condition", optional($._expression)),
-        $._manual_semicolon,
+        ";",
         field("iteration", optional(choice($._expression, $.comma_expression))),
         ")",
         field("body", $._statement),
@@ -1002,9 +1000,7 @@ module.exports = grammar({
         seq("delete", field("free", $._expression), optional($._semicolon)),
       ),
 
-    _manual_semicolon: ($) => ";",
-
-    _semicolon: ($) => choice($._automatic_semicolon, $._manual_semicolon),
+    _semicolon: ($) => choice($._automatic_semicolon, ";"),
 
     // Expressions
 

@@ -3953,8 +3953,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "methodmap_visibility"
+          "type": "STRING",
+          "value": "public"
         },
         {
           "type": "CHOICE",
@@ -4014,8 +4014,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "methodmap_visibility"
+          "type": "STRING",
+          "value": "public"
         },
         {
           "type": "CHOICE",
@@ -4087,8 +4087,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "methodmap_visibility"
+          "type": "STRING",
+          "value": "public"
         },
         {
           "type": "CHOICE",
@@ -4140,8 +4140,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "methodmap_visibility"
+          "type": "STRING",
+          "value": "public"
         },
         {
           "type": "STRING",
@@ -4185,8 +4185,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "methodmap_visibility"
+          "type": "STRING",
+          "value": "public"
         },
         {
           "type": "CHOICE",
@@ -4250,8 +4250,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "methodmap_visibility"
+          "type": "STRING",
+          "value": "public"
         },
         {
           "type": "FIELD",
@@ -4283,8 +4283,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "methodmap_visibility"
+          "type": "STRING",
+          "value": "public"
         },
         {
           "type": "STRING",
@@ -4373,8 +4373,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "methodmap_visibility"
+          "type": "STRING",
+          "value": "public"
         },
         {
           "type": "CHOICE",
@@ -4436,8 +4436,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "methodmap_visibility"
+          "type": "STRING",
+          "value": "public"
         },
         {
           "type": "STRING",
@@ -4474,8 +4474,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "methodmap_visibility"
+          "type": "STRING",
+          "value": "public"
         },
         {
           "type": "CHOICE",
@@ -4549,10 +4549,6 @@
           "value": ")"
         }
       ]
-    },
-    "methodmap_visibility": {
-      "type": "STRING",
-      "value": "public"
     },
     "struct": {
       "type": "SEQ",
@@ -5303,8 +5299,8 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "_manual_semicolon"
+          "type": "STRING",
+          "value": ";"
         },
         {
           "type": "FIELD",
@@ -5323,8 +5319,8 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "_manual_semicolon"
+          "type": "STRING",
+          "value": ";"
         },
         {
           "type": "FIELD",
@@ -5841,10 +5837,6 @@
         ]
       }
     },
-    "_manual_semicolon": {
-      "type": "STRING",
-      "value": ";"
-    },
     "_semicolon": {
       "type": "CHOICE",
       "members": [
@@ -5853,8 +5845,8 @@
           "name": "_automatic_semicolon"
         },
         {
-          "type": "SYMBOL",
-          "name": "_manual_semicolon"
+          "type": "STRING",
+          "value": ";"
         }
       ]
     },
@@ -8986,8 +8978,7 @@
     }
   ],
   "inline": [
-    "_statement",
-    "methodmap_visibility"
+    "_statement"
   ],
   "supertypes": [
     "_expression",
