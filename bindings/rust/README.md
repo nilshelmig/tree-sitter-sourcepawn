@@ -7,7 +7,7 @@ library. To use this crate, add it to the `[dependencies]` section of your
 ```toml
 [dependencies]
 tree-sitter = "0.26.12"
-tree-sitter-sourcepawn = "0.7.8"
+tree-sitter-sourcepawn = "0.8.0"
 ```
 
 Typically, you will use the [`language`] function to add this
