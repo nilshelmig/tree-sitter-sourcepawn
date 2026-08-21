@@ -548,26 +548,19 @@ module.exports = grammar({
         optional($._semicolon),
       ),
 
+    _function_signature: ($) =>
+      seq(
+        field(
+          "returnType",
+          seq($.type, repeat(choice($.dimension, $.fixed_dimension))),
+        ),
+        field("parameters", $.parameter_declarations),
+      ),
+
     typedef_expression: ($) =>
       choice(
-        seq(
-          "function",
-          field(
-            "returnType",
-            seq($.type, repeat(choice($.dimension, $.fixed_dimension))),
-          ),
-          field("parameters", $.parameter_declarations),
-        ),
-        seq(
-          "(",
-          "function",
-          field(
-            "returnType",
-            seq($.type, repeat(choice($.dimension, $.fixed_dimension))),
-          ),
-          field("parameters", $.parameter_declarations),
-          ")",
-        ),
+        seq("function", $._function_signature),
+        seq("(", "function", $._function_signature, ")"),
       ),
 
     funcenum: ($) =>
