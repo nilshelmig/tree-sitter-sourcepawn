@@ -232,21 +232,15 @@ module.exports = grammar({
 
     // Main Grammar
     function_definition: ($) =>
-      choice(
-        seq(
-          field("visibility", optional($.visibility)),
-          field("returnType", seq($.type, repeat($.dimension))),
-          field("name", $.identifier),
-          field("parameters", $.parameter_declarations),
-          field("body", $.block),
+      seq(
+        field("visibility", optional($.visibility)),
+        field(
+          "returnType",
+          optional(choice(seq($.type, repeat($.dimension)), $.old_type)),
         ),
-        seq(
-          field("visibility", optional($.visibility)),
-          field("returnType", optional($.old_type)),
-          field("name", $.identifier),
-          field("parameters", $.parameter_declarations),
-          field("body", $._statement),
-        ),
+        field("name", $.identifier),
+        field("parameters", $.parameter_declarations),
+        field("body", $._statement),
       ),
 
     function_declaration: ($) =>
