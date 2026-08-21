@@ -18,7 +18,10 @@
   },
   "author": "Nils Helmig",
   "license": "MIT",
-  "repository": "https://github.com/nilshelmig/tree-sitter-sourcepawn",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nilshelmig/tree-sitter-sourcepawn.git"
+  },
   "bugs": {
     "url": "https://github.com/nilshelmig/tree-sitter-sourcepawn/issues"
   },
