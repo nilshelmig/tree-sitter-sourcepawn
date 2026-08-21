@@ -5,14 +5,11 @@
       "camelcase": "Sourcepawn",
       "scope": "source.sourcepawn",
       "path": ".",
-      "file-types": [
-        "sp",
-        "inc"
-      ]
+      "file-types": ["sp", "inc"]
     }
   ],
   "metadata": {
-    "version": "0.7.8",
+    "version": "0.8.0",
     "license": "MIT",
     "description": "SourcePawn grammar for node-tree-sitter",
     "authors": [
