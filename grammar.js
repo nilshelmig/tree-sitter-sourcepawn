@@ -1148,7 +1148,25 @@ module.exports = grammar({
     field_access: ($) =>
       prec.right(
         PREC.FIELD,
-        seq(field("target", $._expression), ".", field("field", $.identifier)),
+        seq(
+          field(
+            "target",
+            choice(
+              $.identifier,
+              $.field_access,
+              $.scope_access,
+              $.call_expression,
+              $.array_indexed_access,
+              $.packed_array_indexed_access,
+              $.parenthesized_expression,
+              $.view_as,
+              $.this,
+              $.new_expression,
+            ),
+          ),
+          ".",
+          field("field", $.identifier),
+        ),
       ),
 
     scope_access: ($) =>
