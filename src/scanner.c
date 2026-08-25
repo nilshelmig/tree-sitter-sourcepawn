@@ -115,6 +115,12 @@ static bool preproc_arg(TSLexer *lexer)
         bool end = false;
         while (!end)
         {
+          if (lexer->lookahead == 0)
+          {
+            // EOF reached inside an unterminated multiline comment.
+            // Bail out to guarantee progress and avoid an infinite loop.
+            return true;
+          }
           if (lexer->lookahead == '\n' && !is_escaped)
           {
             // EOL reached without any line continuation.
