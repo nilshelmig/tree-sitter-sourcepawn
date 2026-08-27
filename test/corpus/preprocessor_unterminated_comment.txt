@@ -1,0 +1,54 @@
+==================================
+#define arg: unterminated block comment at EOF (regression, no hang)
+==================================
+
+#define A /*
+
+---
+
+(source_file
+  (preproc_define
+    name: (identifier)
+    value: (preproc_arg))
+  (ERROR))
+
+==================================
+#assert: unterminated block comment at EOF (regression, no hang)
+==================================
+
+#assert /*
+
+---
+
+(source_file
+  (preproc_assert
+    condition: (preproc_arg))
+  (ERROR))
+
+==================================
+#pragma arg: unterminated block comment at EOF (regression, no hang)
+==================================
+
+#pragma x /*
+
+---
+
+(source_file
+  (preproc_pragma
+    (preproc_arg))
+  (ERROR))
+
+==================================
+#define arg: line continuation then unterminated block comment at EOF (regression, no hang)
+==================================
+
+#define A \
+/*
+
+---
+
+(source_file
+  (preproc_define
+    name: (identifier)
+    value: (preproc_arg))
+  (ERROR))
